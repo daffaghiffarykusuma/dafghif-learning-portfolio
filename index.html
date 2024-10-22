@@ -58,6 +58,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         header h1 {
@@ -92,6 +93,15 @@
             font-size: 14px;
         }
 
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
         #showcase {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('dafghif_cover.png') no-repeat center center/cover;
             height: 100vh;
@@ -118,6 +128,13 @@
 
         section {
             padding: 12px 0;
+            scroll-margin-block-start: 68px;
+        }
+
+        @media (max-width: 768px){
+            section {
+                scroll-margin-block-start: 68px;
+            }
         }
 
         h2 {
@@ -257,16 +274,25 @@
 
         .modal-content {
             background-color: var(--bg-color);
-            margin-top: 16svh;
             margin-inline: auto;
             padding: 20px;
+            padding-top: 0;
             border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
-            max-height: 68svh;
+            width: 90%;
             overflow-y: auto;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 16svh;
+            min-height: 430px;
+            max-height: 68svh;
+            max-width: 680px;
+        }
+
+        @media (max-width: 768px){
+            .modal-content {
+                margin-top: 15px;
+                max-height: 72svh;
+            }
         }
 
         .close {
@@ -281,6 +307,63 @@
             color: #000;
             text-decoration: none;
             cursor: pointer;
+        }
+
+        .modal-header {
+            position: sticky;
+            top: 0;
+            background-color: var(--bg-color);
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+        }
+        
+        @media (max-width: 768px){
+            .modal-header h2 {
+                font-size: 24px;
+            }
+
+        }
+
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .program-phase {
+            background-color: #e4e5e6;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .program-phase h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .phase-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .phase-section {
+            flex: 1;
+        }
+
+        .phase-section h4 {
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        .phase-section ul {
+            margin: 0;
+            padding-left: 20px;
         }
 
         /* Table styles */
@@ -309,19 +392,45 @@
             font-weight: bold;
         }
 
+        @media (min-width: 768px) {
+            .phase-content {
+                flex-direction: row;
+            }
+        }
+
         @media (max-width: 768px) {
             header .container {
-                flex-direction: row;
                 justify-content: space-between;
-                padding: 0 20px;
+            }
+
+            .header-main {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                margin-bottom: 15px; /* Add space between brand/toggle and nav */
+            }
+
+            nav {
+                width: 100%;
+                display: none;
+            }
+
+            nav.active {
+                display: block;
             }
 
             nav ul {
-                margin-top: 0;
+                flex-direction: column;
+                align-items: center;
             }
 
             nav ul li {
-                margin: 0 0 0 15px;
+                margin: 10px 0;
+            }
+
+            .menu-toggle {
+                display: block;
             }
 
             #showcase h1 {
@@ -338,7 +447,7 @@
 
             .modal-content {
                 width: 90%;
-                margin: 20% auto;
+                margin: 14% auto;
             }
 
             .modal-table {
@@ -357,7 +466,10 @@
     <!-- <button id="dark-mode-toggle">Toggle Dark Mode</button> -->
     <header>
         <div class="container">
-            <h1>Daffa Ghiffary Kusuma</h1>
+            <div class="header-main">
+                <h1>Daffa Ghiffary Kusuma</h1>
+                <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+            </div>
             <nav>
                 <ul>
                     <li class="current"><a href="#showcase">Home</a></li>
@@ -383,7 +495,7 @@
             <div class="project-category">
                 <h3>Developing Learning Programs</h3>
                 <div class="projects-grid">
-                    <div class="project">
+                    <div class="project" data-target="#modal-project-1">
                         <img src="course_2.png" alt="Project 1">
                         <div class="project-content">
                             <h4>Entrepreneurship Online Class</h4>
@@ -392,7 +504,7 @@
 
                         </div>
                     </div>
-                    <div class="project">
+                    <div class="project" data-target="#modal-project-2">
                         <img src="training_for_trainer.jpg" alt="Project 2">
                         <div class="project-content">
                             <h4>Training for Trainer: Experiential Learning & Coaching Skills</h4>
@@ -402,7 +514,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="project">
+                    <div class="project" data-target="#modal-project-3">
                         <img src="community_accelerator.png" alt="Project 3">
                         <div class="project-content">
                             <h4>Entrepreneurship Mentorship for Sandination Community</h4>
@@ -412,7 +524,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="project">
+                    <div class="project" data-target="#modal-project-4">
                         <img src="kumpul_jasa.jpg" alt="Project 4">
                         <div class="project-content">
                             <h4>3rd Winner in KUMPUL JASA Jember Entrepreneurship Competition</h4>
@@ -421,7 +533,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="project">
+                    <div class="project" data-target="#modal-project-5">
                         <img src="NHI_acceleration_bootcamp.png" alt="Project 5">
                         <div class="project-content">
                             <h4>NHI Bandung Business Acceleration Bootcamp</h4>
@@ -437,7 +549,7 @@
             <div class="project-category">
                 <h3>Evaluating Learning Programs</h3>
                 <div class="projects-grid">
-                    <div class="project">
+                    <div class="project" data-target="#modal-project-6">
                         <img src="smk.jpg" alt="Project 6">
                         <div class="project-content">
                             <h4>Entrepreneurship Program for 5000+ SMK Students</h4>
@@ -446,7 +558,7 @@
                                 We help them learning by creating 50 milk-based product and sell them in a month.</p>
                         </div>
                     </div>
-                    <div class="project">
+                    <div class="project" data-target="#modal-project-7">
                         <img src="budikdamber.jpg" alt="Project 7">
                         <div class="project-content">
                             <h4>Budikdamber Entrepreneurship Program for 7 Rumah Yatim Asrama</h4>
@@ -455,7 +567,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="project">
+                    <div class="project" data-target="#modal-project-8">
                         <img src="MCC.jpg" alt="Project 8">
                         <div class="project-content">
                             <h4>The Millennium Challenge Corporation (MCC) Grant</h4>
@@ -463,7 +575,7 @@
                                 Capacity Enhancement for Women-Owned Micro, Small, and Medium Enterprise</p>
                         </div>
                     </div>
-                    <div class="project">
+                    <div class="project" data-target="#modal-project-9">
                         <img src="performance_appraisal.jpg" alt="Project 9">
                         <div class="project-content">
                             <h4>Performance Appraisal</h4>
@@ -472,7 +584,7 @@
                                 </p>
                         </div>
                     </div>
-                    <div class="project">
+                    <div class="project" data-target="#modal-project-10">
                         <img src="NHI_incubation_bootcamp.jpg" alt="Project 10">
                         <div class="project-content">
                             <h4>NHI Bandung Business Incubation Bootcamp</h4>
@@ -482,7 +594,7 @@
                                 </p>
                         </div>
                     </div>
-                    <div class="project">
+                    <div class="project" data-target="#modal-project-11">
                         <img src="entrepreneurial_mindset.jpg" alt="Project 11">
                         <div class="project-content">
                             <h4>Entrepreneurial Mindset Seminar</h4>
@@ -527,312 +639,440 @@
         </div>
     </section>
 
+    <!-- CATEGORY 1 -->
     <!-- Project 1 -->
-    <div id="projectModal" class="modal">
+    <div id="modal-project-1" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <table class="modal-table" id="modalTable">
-                <!-- tr = table row -->
-                <!-- td = table data cell = column -->
-                <!-- th = table header = column -->
-                <tr>
-                    <th></th>
-                    <th>What I Do</th>
-                    <th>Output</th>
-                </tr>
-                <tr>
-                    <td>Pre-Production</td>
-                    <td>
-                        <ul>
-                            <li>Developed bite-size learning module</li>
-                            <li>Developed <a href="ini linknya">video script</a> prepared for recording</li>
-                            <li>Coordinated with experts on these 2 tasks</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Bite-size modules</li>
-                            <li>Video script</li>
-                            <li>Finding experts</li>
-                            <li>Coordinated results with experts</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Mid Production</td>
-                    <td>
-                        <ul>
-                            <li>Revised scripts as needed on production day</li>
-                            <li>Coordinated the production with production team</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Revised scripts</li>
-                            <li>Coordinated video production</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Post-Production</td>
-                    <td>
-                        <ul>
-                            <li>Review the final edited video to match the learning standards</li>
-                            <li>Input the bite-size module & video into LMS</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Reviewed learning video</li>
-                            <li>Contents uploaded to LMS</li>
-                        </ul>
-                    </td>
-                </tr>
-            </table>
+            <div class="modal-header">
+                <span class="close js-close">&times;</span>
+                <h2>Entrepreneurship Online Class</h2>
+            </div>
+            <div class="modal-body">
+                <div class="program-phase">
+                    <h3>Pre-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Developed bite-size learning module</li>
+                                <li>Developed video script prepared for recording</li>
+                                <li>Coordinated with experts on these tasks</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Bite-size modules</li>
+                                <li>Video script</li>
+                                <li>Finding experts</li>
+                                <li>Coordinated results with experts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-phase">
+                    <h3>Mid-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Revised scripts as needed on production day</li>
+                                <li>Coordinated the production with production team</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Revised scripts</li>
+                                <li>Coordinated video production</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-phase">
+                    <h3>Post-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Review the final edited video to match the learning standards</li>
+                                <li>Input the bite-size module & video into LMS</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Reviewed learning video</li>
+                                <li>Contents uploaded to LMS</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Project 2 -->
-    <div class="modal">
+    <div id="modal-project-2" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <table class="modal-table">
-                <tr>
-                    <th></th>
-                    <th>What I Do</th>
-                    <th>Output</th>
-                </tr>
-                <tr>
-                    <td>Pre-Program</td>
-                    <td>
-                        <ul>
-                            <li>Developed program timeline, proposal, and task breakdown</li>
-                            <li>Assigned task to team members</li>
-                            <li>Developed learning journey & learning materials</li>
-                            <li>Looked for & briefed trainer, MC, and facilitators</li>
-                            <li>Budget projection for the project</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Program timeline</li>
-                            <li>Program proposal</li>
-                            <li>Team task assigned</li>
-                            <li>Learning curriculum</li>
-                            <li>Learning PPT</li>
-                            <li>Signed trainer contract</li>
-                            <li>Fixed MC</li>
-                            <li>Fixed facilitator</li>
-                            <li>Project budgeting</li>
-                            <li>Cash advance</li>
-                            <li>Rundown</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Mid Program</td>
-                    <td>
-                        <ul>
-                            <li>Make sure everything goes as planned (time, consumption)</li>
-                            <li>Project documentation</li>
-                            <li>Data-collection (from pretest, posttest, and behavioral checklist)</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Documentation</li>
-                            <li>On-time program</li>
-                            <li>Delivered consumption</li>
-                            <li>Collected program data</li>
-                        </ul>>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Post-Program</td>
-                    <td>
-                        <ul>
-                            <li>Developed cash advance settlement for finance team</li>
-                            <li>Developed program report with M&E team</li>
-                            <li>Presented the reports to stakeholders</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Cash advance settlement</li>
-                            <li>Program report</li>
-                            <li>Reports presented to stakeholders</li>
-                        </ul>
-                    </td>
-                </tr>
-            </table>
+            <div class="modal-header">
+                <span class="close js-close">&times;</span>
+                <h2>Training for Trainer: Experiential Learning & Coaching Skills</h2>
+            </div>
+            <div class="modal-body">
+                <div class="program-phase">
+                    <h3>Pre-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Developed program timeline, proposal, and task breakdown</li>
+                                <li>Assigned task to team members</li>
+                                <li>Developed learning journey & learning materials</li>
+                                <li>Looked for & briefed trainer, MC, and facilitators</li>
+                                <li>Budget projection for the project</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Program timeline</li>
+                                <li>Program proposal</li>
+                                <li>Team task assigned</li>
+                                <li>Learning curriculum</li>
+                                <li>Learning PPT</li>
+                                <li>Signed trainer contract</li>
+                                <li>Fixed MC</li>
+                                <li>Fixed facilitator</li>
+                                <li>Project budgeting</li>
+                                <li>Cash advance</li>
+                                <li>Rundown</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-phase">
+                    <h3>Mid-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Make sure everything goes as planned (time, consumption)</li>
+                                <li>Project documentation</li>
+                                <li>Data-collection (from pretest, posttest, and behavioral checklist)</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Documentation</li>
+                                <li>On-time program</li>
+                                <li>Delivered consumption</li>
+                                <li>Collected program data</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-phase">
+                    <h3>Post-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Developed cash advance settlement for finance team</li>
+                                <li>Developed program report with M&E team</li>
+                                <li>Presented the reports to stakeholders</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Cash advance settlement</li>
+                                <li>Program report</li>
+                                <li>Reports presented to stakeholders</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Project 3 -->
-    <div class="modal">
+    <div id="modal-project-3" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <table class="modal-table">
-                <tr>
-                    <th></th>
-                    <th>What I Do</th>
-                    <th>Output</th>
-                </tr>
-                <tr>
-                    <td>Pre-Program</td>
-                    <td>
-                        <ul>
-                            <li>Developed program timeline, proposal, and task breakdown</li>
-                            <li>Assigned task to team members</li>
-                            <li>Debeloped learning journey & learning materials</li>
-                            <li>Looked for & briefed trainer, MC, and facilitators</li>
-                            <li>Budget projection for the project</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Program Timeline</li>
-                            <li><a
-                                    href="https://drive.google.com/file/d/13KpSBqcbcyqj73HSkjIT0yOc0bYiEEJf/view?usp=drive_link">Program
-                                    Proposal</a></li>
-                            <li>Team task assigned</li>
-                            <li>Learning curriculum</li>
-                            <li>Learning PPT</li>
-                            <li>Signed trainer contract</li>
-                            <li>Learning MC</li>
-                            <li>Cost structure</li>
-                            <li>Cash advance</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Mid Program</td>
-                    <td>
-                        <ul>
-                            <li>Make sure everything goes as planned</li>
-                            <li>Project documentation</li>
-                            <li>Data-collection (from pretest, posttest, and sales tracker)</li>
-                            <li>Weekly evaluation</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Documentation</li>
-                            <li>On-time program</li>
-                            <li>Delivered consumption</li>
-                            <li>Collected program data</li>
-                            <li>Weekly retrospective</li>
-                        </ul>>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Post-Program</td>
-                    <td>
-                        <ul>
-                            <li>Developed cash advance settlement for finance team</li>
-                            <li>Delivered certificate to students and trainer</li>
-                            <li>Developed program report with M&E team</li>
-                            <li>Presented the reports to stakeholders</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Cash advance settlement</li>
-                            <li>Student certificate</li>
-                            <li>Trainer certificate</li>
-                            <li><a
-                                    href="https://drive.google.com/file/d/13Ly1ZqWorrLSv9TlrQp3HwQ9ORFUz7I1/view?usp=drive_link">Program
-                                    report</a></li>
-                            <li>Reports presented to stakeholders</li>
-                        </ul>
-                    </td>
-                </tr>
-            </table>
+            <div class="modal-header">
+                <span class="close js-close">&times;</span>
+                <h2>Entrepreneurship Mentorship for Sandination Community</h2>
+            </div>
+            <div class="modal-body">
+                <div class="program-phase">
+                    <h3>Pre-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Developed program timeline, proposal, and task breakdown</li>
+                                <li>Assigned task to team members</li>
+                                <li>Developed learning journey & learning materials</li>
+                                <li>Looked for & briefed trainer, MC, and facilitators</li>
+                                <li>Budget projection for the project</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Program Timeline</li>
+                                <li><a
+                                        href="https://drive.google.com/file/d/13KpSBqcbcyqj73HSkjIT0yOc0bYiEEJf/view?usp=drive_link">Program
+                                        Proposal</a></li>
+                                <li>Team task assigned</li>
+                                <li>Learning curriculum</li>
+                                <li>Learning PPT</li>
+                                <li>Signed trainer contract</li>
+                                <li>Learning MC</li>
+                                <li>Cost structure</li>
+                                <li>Cash advance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-phase">
+                    <h3>Mid-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Make sure everything goes as planned</li>
+                                <li>Project documentation</li>
+                                <li>Data-collection (from pretest, posttest, and sales tracker)</li>
+                                <li>Weekly evaluation</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Documentation</li>
+                                <li>On-time program</li>
+                                <li>Delivered consumption</li>
+                                <li>Collected program data</li>
+                                <li>Weekly retrospective</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-phase">
+                    <h3>Post-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Developed cash advance settlement for finance team</li>
+                                <li>Delivered certificate to students and trainer</li>
+                                <li>Developed program report with M&E team</li>
+                                <li>Presented the reports to stakeholders</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Cash advance settlement</li>
+                                <li>Student certificate</li>
+                                <li>Trainer certificate</li>
+                                <li><a
+                                        href="https://drive.google.com/file/d/13Ly1ZqWorrLSv9TlrQp3HwQ9ORFUz7I1/view?usp=drive_link">Program
+                                        report</a></li>
+                                <li>Reports presented to stakeholders</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Project 4 -->
-    <div class="modal">
+    <div id="modal-project-4" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <table class="modal-table">
-                <tr>
-                    <th></th>
-                    <th>What I Do</th>
-                    <th>Output</th>
-                </tr>
-                <tr>
-                    <td>Pre-Program</td>
-                    <td>
-                        <ul>
-                            <li>Developed program timeline, proposal, and task breakdown</li>
-                            <li>Assigned task to team members</li>
-                            <li>Developed learning journey & learning materials</li>
-                            <li>Looked for & briefed trainer, MC, and facilitators</li>
-                            <li>Budget projection for the project</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Program timeline</li>
-                            <li><a
-                                    href="https://drive.google.com/file/d/13It_tUG7VX29NQZS5Su8YlBtRgWZKS02/view?usp=drive_link">Program
-                                    proposal</a></li>
-                            <li>Team task assigned</li>
-                            <li>Learning curriculum</li>
-                            <li>Learning PPT</li>
-                            <li>Signed trainer contract</li>
-                            <li>Fixed MC</li>
-                            <li>Cost structure</li>
-                            <li>Cash advance</li>
-                            <li>Rundown</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Mid Program</td>
-                    <td>
-                        <ul>
-                            <li>Offline Jember UMKM Visitation</li>
-                            <li>Project documentation</li>
-                            <li>Data-collection (from pretest, posttest, and challenge implementation)</li>
-                            <li>Weekly evaluation</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Jember UMKM Offline Mentored</li>
-                            <li>Documentation</li>
-                            <li>On-time program</li>
-                            <li>Collected program data</li>
-                            <li>Weekly retrospective</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Post-Program</td>
-                    <td>
-                        <ul>
-                            <li>Developed cash advance settlement for finance team</li>
-                            <li>Delivered certificate to students and trainer</li>
-                            <li>Developed program report with M&E team</li>
-                            <li>Presented the reports to stakeholders</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Cash advance settlement</li>
-                            <li>Student certificate</li>
-                            <li>Trainer certificate</li>
-                            <li>Program report</li>
-                            <li>Reports presented to stakeholders</li>
-                        </ul>
-                    </td>
-                </tr>
-            </table>
+            <div class="modal-header">
+                <span class="close js-close">&times;</span>
+                <h2>3rd Winner in KUMPUL JASA Jember Entrepreneurship Competition</h2>
+            </div>
+            <div class="modal-body">
+                <div class="program-phase">
+                    <h3>Pre-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Developed program timeline, proposal, and task breakdown</li>
+                                <li>Assigned task to team members</li>
+                                <li>Developed learning journey & learning materials</li>
+                                <li>Looked for & briefed trainer, MC, and facilitators</li>
+                                <li>Budget projection for the project</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Program timeline</li>
+                                <li><a
+                                        href="https://drive.google.com/file/d/13It_tUG7VX29NQZS5Su8YlBtRgWZKS02/view?usp=drive_link">Program
+                                        proposal</a></li>
+                                <li>Team task assigned</li>
+                                <li>Learning curriculum</li>
+                                <li>Learning PPT</li>
+                                <li>Signed trainer contract</li>
+                                <li>Fixed MC</li>
+                                <li>Cost structure</li>
+                                <li>Cash advance</li>
+                                <li>Rundown</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-phase">
+                    <h3>Mid-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Offline Jember UMKM Visitation</li>
+                                <li>Project documentation</li>
+                                <li>Data-collection (from pretest, posttest, and challenge implementation)</li>
+                                <li>Weekly evaluation</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Jember UMKM Offline Mentored</li>
+                                <li>Documentation</li>
+                                <li>On-time program</li>
+                                <li>Collected program data</li>
+                                <li>Weekly retrospective</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-phase">
+                    <h3>Post-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Developed cash advance settlement for finance team</li>
+                                <li>Delivered certificate to students and trainer</li>
+                                <li>Developed program report with M&E team</li>
+                                <li>Presented the reports to stakeholders</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Cash advance settlement</li>
+                                <li>Student certificate</li>
+                                <li>Trainer certificate</li>
+                                <li>Program report</li>
+                                <li>Reports presented to stakeholders</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Project 5 -->
-    <div class="modal">
+    <div id="modal-project-5" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <div class="modal-header">
+                <span class="close js-close">&times;</span>
+                <h2>NHI Bandung Business Acceleration Bootcamp</h2>
+            </div>
+            <div class="modal-body">
+                <div class="program-phase">
+                    <h3>Pre-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Developed program timeline, proposal, and task breakdown</li>
+                                <li>Assigned task to team members</li>
+                                <li>Developed learning journey & learning materials</li>
+                                <li>Looked for & briefed trainer, MC, and facilitators</li>
+                                <li>Budget projection for the project</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Program timeline</li>
+                                <li><a
+                                        href="https://drive.google.com/file/d/134VxHgWqan5FqUmcbOOz-AACwJjjtAIJ/view?usp=drive_link">Program
+                                        proposal</a></li>
+                                <li>Team task assigned</li>
+                                <li>Learning curriculum</li>
+                                <li>Learning PPT</li>
+                                <li>Signed trainer contract</li>
+                                <li>Fixed MC</li>
+                                <li>Cost structure</li>
+                                <li>Cash advance</li>
+                                <li>Rundown</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-phase">
+                    <h3>Mid-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Make sure everything goes as planned</li>
+                                <li>Project documentation</li>
+                                <li>Data-collection (from pretest, posttest, and sales tracker)</li>
+                                <li>Daily evaluation</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Documentation</li>
+                                <li>On-time program</li>
+                                <li>Delivered consumption</li>
+                                <li>Collected program data</li>
+                                <li>Daily retrospective</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-phase">
+                    <h3>Post-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Developed cash advance settlement for finance team</li>
+                                <li>Delivered certificate to students and trainer</li>
+                                <li>Developed program report with M&E team</li>
+                                <li>Presented the reports to stakeholders</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Cash advance settlement</li>
+                                <li>Student certificate</li>
+                                <li>Trainer certificate</li>
+                                <li>Program report</li>
+                                <li>Reports presented to stakeholders</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal-project-5" class="modal">
+        <div class="modal-content">
+            <span class="close js-close">&times;</span>
             <table class="modal-table">
                 <tr>
                     <th></th>
@@ -884,7 +1124,7 @@
                             <li>Delivered consumption</li>
                             <li>Collected program data</li>
                             <li>Daily retrospective</li>
-                        </ul>>
+                        </ul>
                     </td>
                 </tr>
                 <tr>
@@ -910,419 +1150,496 @@
             </table>
         </div>
     </div>
+    <!-- CATEGORY 2 -->
     <!-- Project 6 -->
-    <div class="modal">
+    <div id="modal-project-6" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <table class="modal-table">
-                <tr>
-                    <th></th>
-                    <th>What I Do</th>
-                    <th>Output</th>
-                </tr>
-                <tr>
-                    <td>Pre-Program</td>
-                    <td>
-                        <ul>
-                            <li>Developed Monitoring & Evaluation Framework</li>
-                            <li>Developed assessment & questionnaire for level 1, level 2, and level 3 evaluation</li>
-                            <li>Performed pilot study to determine the readability, reliability, and validity of the
-                                questionnaire</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Monitoring & Evaluation Framework</li>
-                            <li>Satisfaction & NPS questionnaire (Level 1)</li>
-                            <li>Pre-test and post-test quiz (Level 2)</li>
-                            <li>Challenge & sales tracker (Level 3)</li>
-                            <li>Automated Master Data</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Mid Program</td>
-                    <td>
-                        <ul>
-                            <li>Observed students behaviors and actions during sessions</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Observation report</li>
-                            <li>Attendance report</li>
-                            <li>Engagement report</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Post-Program</td>
-                    <td>
-                        <ul>
-                            <li>Interviewed students for feedback</li>
-                            <li>Developed weekly program report for evaluation</li>
-                            <li>Developed program final report</li>
-                            <li>Presented the reports to stakeholders</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Interview report</li>
-                            <li><a
-                                    href="https://drive.google.com/file/d/11ttzhhfD26RyIjJGW7XWdJF0aPJJ7VGT/view?usp=drive_link">Weekly
-                                    report</a></li>
-                            <li><a
-                                    href="https://drive.google.com/file/d/11wUZB36TrBCb_l59lGFxdstsxEGSfM4C/view?usp=drive_link">Program
-                                    final report</a></li>
-                            <li>Reports presented to stakeholders</li>
-                        </ul>
-                    </td>
-                </tr>
-            </table>
+            <div class="modal-header">
+                <span class="close js-close">&times;</span>
+                <h2>Entrepreneurship Program for 5000+ SMK Students</h2>
+            </div>
+            <div class="modal-body">
+                <div class="program-phase">
+                    <h3>Pre-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Developed Monitoring & Evaluation Framework</li>
+                                <li>Developed assessment & questionnaire for level 1, level 2, and level 3 evaluation</li>
+                                <li>Performed pilot study to determine the readability, reliability, and validity of the
+                                    questionnaire</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Monitoring & Evaluation Framework</li>
+                                <li>Satisfaction & NPS questionnaire (Level 1)</li>
+                                <li>Pre-test and post-test quiz (Level 2)</li>
+                                <li>Challenge & sales tracker (Level 3)</li>
+                                <li>Automated Master Data</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-phase">
+                    <h3>Mid Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Observed students behaviors and actions during sessions</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Observation report</li>
+                                <li>Attendance report</li>
+                                <li>Engagement report</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-phase">
+                    <h3>Post-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Interviewed students for feedback</li>
+                                <li>Developed weekly program report for evaluation</li>
+                                <li>Developed program final report</li>
+                                <li>Presented the reports to stakeholders</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Interview report</li>
+                                <li><a
+                                        href="https://drive.google.com/file/d/11ttzhhfD26RyIjJGW7XWdJF0aPJJ7VGT/view?usp=drive_link">Weekly
+                                        report</a></li>
+                                <li><a
+                                        href="https://drive.google.com/file/d/11wUZB36TrBCb_l59lGFxdstsxEGSfM4C/view?usp=drive_link">Program
+                                        final report</a></li>
+                                <li>Reports presented to stakeholders</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Project 7 -->
-    <div class="modal">
+    <div id="modal-project-7" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <table class="modal-table">
-                <tr>
-                    <th></th>
-                    <th>What I Do</th>
-                    <th>Output</th>
-                </tr>
-                <tr>
-                    <td>Pre-Program</td>
-                    <td>
-                        <ul>
-                            <li>Developed Monitoring & Evaluation Framework</li>
-                            <li>Developed assessment & questionnaire for level 1, level 2, and level 3 evaluation</li>
-                            <li>Performed pilot study to determine the readability, reliability, and validity of the
-                                questionnaire</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Monitoring & Evaluation Framework</li>
-                            <li>Satisfaction & NPS questionnaire (Level 1)</li>
-                            <li>Pre-test and post-test quiz (Level 2)</li>
-                            <li>Challenge & sales tracker (Level 3)</li>
-                            <li>Automated Master Data</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Mid Program</td>
-                    <td>
-                        <ul>
-                            <li>Observed students behaviors and actions during sessions</li>
-                            <li>Visit asrama Rumah Yatim to monitor their progress</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Observation report</li>
-                            <li>Attendance report</li>
-                            <li>Engagement report</li>
-                            <li>Offline visit report</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Post-Program</td>
-                    <td>
-                        <ul>
-                            <li>Interviewed students for feedback</li>
-                            <li>Developed monthly program report for evaluation</li>
-                            <li>Developed program final report</li>
-                            <li>Presented the reports to stakeholders</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Interview report</li>
-                            <li><a
-                                    href="https://drive.google.com/file/d/11zZw6-N2LB2U-15E-H3hEpLrgXHcgsUv/view?usp=drive_link">Monthly
-                                    report</a></li>
-                            <li><a
-                                    href="https://drive.google.com/file/d/128NRpktICfiaXDluOf2UyjMw4BStziMG/view?usp=drive_link">Program
-                                    final report</a></li>
-                            <li>Reports presented to stakeholders</li>
-                        </ul>
-                    </td>
-                </tr>
-            </table>
+            <div class="modal-header">
+                <span class="close js-close">&times;</span>
+                <h2>Budikdamber Entrepreneurship Program for 7 Rumah Yatim Asrama</h2>
+            </div>
+            <div class="modal-body">
+                <div class="program-phase">
+                    <h3>Pre-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Developed Monitoring & Evaluation Framework</li>
+                                <li>Developed assessment & questionnaire for level 1, level 2, and level 3 evaluation</li>
+                                <li>Performed pilot study to determine the readability, reliability, and validity of the
+                                    questionnaire</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Monitoring & Evaluation Framework</li>
+                                <li>Satisfaction & NPS questionnaire (Level 1)</li>
+                                <li>Pre-test and post-test quiz (Level 2)</li>
+                                <li>Challenge & sales tracker (Level 3)</li>
+                                <li>Automated Master Data</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-phase">
+                    <h3>Mid Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Observed students behaviors and actions during sessions</li>
+                                <li>Visit asrama Rumah Yatim to monitor their progress</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Observation report</li>
+                                <li>Attendance report</li>
+                                <li>Engagement report</li>
+                                <li>Offline visit report</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-phase">
+                    <h3>Post-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Interviewed students for feedback</li>
+                                <li>Developed monthly program report for evaluation</li>
+                                <li>Developed program final report</li>
+                                <li>Presented the reports to stakeholders</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Interview report</li>
+                                <li><a
+                                        href="https://drive.google.com/file/d/11zZw6-N2LB2U-15E-H3hEpLrgXHcgsUv/view?usp=drive_link">Monthly
+                                        report</a></li>
+                                <li><a
+                                        href="https://drive.google.com/file/d/128NRpktICfiaXDluOf2UyjMw4BStziMG/view?usp=drive_link">Program
+                                        final report</a></li>
+                                <li>Reports presented to stakeholders</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Project 8 -->
-    <div class="modal">
+    <div id="modal-project-8" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <table class="modal-table">
-                <tr>
-                    <th></th>
-                    <th>What I Do</th>
-                    <th>Output</th>
-                </tr>
-                <tr>
-                    <td>Pre-Program</td>
-                    <td>
-                        <ul>
-                            <li>Developed Theory of Change w/ learning design team</li>
-                            <li>Developed Monitoring, Evaluation, Research, & Learning (MERL) Framework</li>
-                            <li>Researched aspects influencing loan acquisition</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Theory of Change</li>
-                            <li><a href="https://drive.google.com/file/d/12HZWOi_PyearizC5B_DIaAOgcO6z56xA/view?usp=drive_link">Monitoring, Evaluation, Research, & Learning (MERL) Framework</a></li>
-                            <li><a href="https://drive.google.com/file/d/1Yj5L9XMfvg4iAOfAfqpnYoYWNsR8zmWv/view?usp=drive_link">Business loan acquisition aspects</a></li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Mid Program</td>
-                    <td>
-                        <ul>
-                            <li>Discussed the program with expert weekly</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Weekly meeting notes w/ Expert</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Post-Program</td>
-                    <td>Unfortunately, we didn’t pass the proposal screening</td>
-                    <td>Unfortunately, we didn’t pass the proposal screening</td>
-                </tr>
-            </table>
+            <div class="modal-header">
+                <span class="close js-close">&times;</span>
+                <h2>The Millennium Challenge Corporation (MCC) Grant</h2>
+            </div>
+            <div class="modal-body">
+                <div class="program-phase">
+                    <h3>Pre-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Developed Theory of Change w/ learning design team</li>
+                                <li>Developed Monitoring, Evaluation, Research, & Learning (MERL) Framework</li>
+                                <li>Researched aspects influencing loan acquisition</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Theory of Change</li>
+                                <li><a href="https://drive.google.com/file/d/12HZWOi_PyearizC5B_DIaAOgcO6z56xA/view?usp=drive_link">Monitoring, Evaluation, Research, & Learning (MERL) Framework</a></li>
+                                <li><a href="https://drive.google.com/file/d/1Yj5L9XMfvg4iAOfAfqpnYoYWNsR8zmWv/view?usp=drive_link">Business loan acquisition aspects</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-phase">
+                    <h3>Mid Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Discussed the program with expert weekly</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Weekly meeting notes w/ Expert</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-phase">
+                    <h3>Post-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Unfortunately, we didn't pass the proposal screening</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <td>Unfortunately, we didn't pass the proposal screening</td>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Project 9 -->
-    <div class="modal">
+    <div id="modal-project-9" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <table class="modal-table">
-                <tr>
-                    <th></th>
-                    <th>What I Do</th>
-                    <th>Output</th>
-                </tr>
-                <tr>
-                    <td>Pre-Assessment</td>
-                    <td>
-                        <ul>
-                            <li>Researched competencies</li>
-                            <li>Developed assessment items</li>
-                            <li>Perform readability study</li>
-                            <li>Developed master data & automation</li>
-                            <li>Developed report template</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Competencies benchmark</li>
-                            <li>Competencies literature study</li>
-                            <li>Assessment items</li>
-                            <li>Items revision after readability study</li>
-                            <li>Report template</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Mid Assessment</td>
-                    <td>
-                        <ul>
-                            <li>Shared the questionnaire to all learning team through email</li>
-                            <li>Reminded the team to submit it on time</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Shared questionnaire</li>
-                            <li>On time questionnaire submission</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Post-Assessment</td>
-                    <td>
-                        <ul>
-                            <li>Analyzed qualitative & quantitative data automatically (with excel formula)</li>
-                            <li>Developed reports for all learning team members</li>
-                            <li>Present the overall results to manager</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Quantitative & qualitative data analyzed</li>
-                            <li>Reports developed & shared individually</li>
-                            <li>Overall results presented to manager</li>
-                        </ul>
-                    </td>
-                </tr>
-            </table>
+            <div class="modal-header">
+                <span class="close js-close">&times;</span>
+                <h2>Performance Appraisal</h2>
+            </div>
+            <div class="modal-body">
+                <div class="program-phase">
+                    <h3>Pre-Assessment</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Researched competencies</li>
+                                <li>Developed assessment items</li>
+                                <li>Perform readability study</li>
+                                <li>Developed master data & automation</li>
+                                <li>Developed report template</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Competencies benchmark</li>
+                                <li>Competencies literature study</li>
+                                <li>Assessment items</li>
+                                <li>Items revision after readability study</li>
+                                <li>Report template</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-phase">
+                    <h3>Mid Assessment</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Shared the questionnaire to all learning team through email</li>
+                                <li>Reminded the team to submit it on time</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Shared questionnaire</li>
+                                <li>On time questionnaire submission</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-phase">
+                    <h3>Post-Assessment</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Analyzed qualitative & quantitative data automatically (with excel formula)</li>
+                                <li>Developed reports for all learning team members</li>
+                                <li>Present the overall results to manager</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Quantitative & qualitative data analyzed</li>
+                                <li>Reports developed & shared individually</li>
+                                <li>Overall results presented to manager</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Project 10 -->
-    <div class="modal">
+    <div id="modal-project-10" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <table class="modal-table">
-                <tr>
-                    <th></th>
-                    <th>What I Do</th>
-                    <th>Output</th>
-                </tr>
-                <tr>
-                    <td>Pre-Program</td>
-                    <td>
-                        <ul>
-                            <li>Developed Monitoring & Evaluation Framework</li>
-                            <li>Developed assessment & questionnaire for level 1, level 2, and level 3 evaluation</li>
-                            <li>Developed gamification framework</li>
-                            <li>Developed master data automation</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Monitoring & Evaluation Framework</li>
-                            <li>Satisfaction & NPS questionnaire (Level 1)</li>
-                            <li>Pre-test and post-test quiz (Level 2)</li>
-                            <li>Challenge & sales tracker (Level 3)</li>
-                            <li>Gamification framework developed</li>
-                            <li>Automated Master Data</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Mid Program</td>
-                    <td>
-                        <ul>
-                            <li>Monitoring & Evaluation Framework</li>
-                            <li>Satisfaction & NPS questionnaire (Level 1)</li>
-                            <li>Pre-test and post-test quiz (Level 2)</li>
-                            <li>Challenge & sales tracker (Level 3)</li>
-                            <li>Gamification framework developed</li>
-                            <li>Automated Master Data</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Observation report</li>
-                            <li>Attendance report</li>
-                            <li>Engagement report</li>
-                            <li>All data gathered on master data</li>
-                            <li>Individual temporary score announced</li>
-                            <li>Team temporary score announced</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Post-Program</td>
-                    <td>
-                        <ul>
-                            <li>Gamification winner announcement</li>
-                            <li>Interviewed students for feedback</li>
-                            <li>Interviewed students for feedback</li>
-                            <li>Developed daily program evaluation notes</li>
-                            <li>Developed program final report</li>
-                            <li>Presented the reports to stakeholders</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Gamification winner announced</li>
-                            <li>Interview report</li>
-                            <li>Daily evaluation notes</li>
-                            <li><a href="https://drive.google.com/file/d/132tVAS0K8-lsffLqtYh4j8W47Yakuxgv/view?usp=drive_link">Program final report</a></li>
-                            <li>Reports presented to stakeholders</li>
-                        </ul>
-                    </td>
-                </tr>
-            </table>
+            <div class="modal-header">
+                <span class="close js-close">&times;</span>
+                <h2>NHI Bandung Business Incubation Bootcamp</h2>
+            </div>
+            <div class="modal-body">
+                <div class="program-phase">
+                    <h3>Pre-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Developed Monitoring & Evaluation Framework</li>
+                                <li>Developed assessment & questionnaire for level 1, level 2, and level 3 evaluation</li>
+                                <li>Developed gamification framework</li>
+                                <li>Developed master data automation</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Monitoring & Evaluation Framework</li>
+                                <li>Satisfaction & NPS questionnaire (Level 1)</li>
+                                <li>Pre-test and post-test quiz (Level 2)</li>
+                                <li>Challenge & sales tracker (Level 3)</li>
+                                <li>Gamification framework developed</li>
+                                <li>Automated Master Data</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-phase">
+                    <h3>Mid Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Monitoring & Evaluation Framework</li>
+                                <li>Satisfaction & NPS questionnaire (Level 1)</li>
+                                <li>Pre-test and post-test quiz (Level 2)</li>
+                                <li>Challenge & sales tracker (Level 3)</li>
+                                <li>Gamification framework developed</li>
+                                <li>Automated Master Data</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Observation report</li>
+                                <li>Attendance report</li>
+                                <li>Engagement report</li>
+                                <li>All data gathered on master data</li>
+                                <li>Individual temporary score announced</li>
+                                <li>Team temporary score announced</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-phase">
+                    <h3>Post-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Gamification winner announcement</li>
+                                <li>Interviewed students for feedback</li>
+                                <li>Interviewed students for feedback</li>
+                                <li>Developed daily program evaluation notes</li>
+                                <li>Developed program final report</li>
+                                <li>Presented the reports to stakeholders</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Gamification winner announced</li>
+                                <li>Interview report</li>
+                                <li>Daily evaluation notes</li>
+                                <li><a href="https://drive.google.com/file/d/132tVAS0K8-lsffLqtYh4j8W47Yakuxgv/view?usp=drive_link">Program final report</a></li>
+                                <li>Reports presented to stakeholders</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Project 11 -->
-    <div class="modal">
+    <div id="modal-project-11" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <table class="modal-table">
-                <tr>
-                    <th></th>
-                    <th>What I Do</th>
-                    <th>Output</th>
-                </tr>
-                <tr>
-                    <td>Pre-Program</td>
-                    <td>
-                        <ul>
-                            <li>Developed Monitoring & Evaluation Framework</li>
-                            <li>Developed assessment & questionnaire for level 1, level 2, and level 3 evaluation</li>
-                            <li>Performed pilot study to determine the readability, reliability, and validity of the
-                                questionnaire</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Monitoring & Evaluation Framework</li>
-                            <li>Satisfaction & NPS questionnaire (Level 1)</li>
-                            <li>Pre-test and post-test quiz (Level 2)</li>
-                            <li>Challenge & sales tracker (Level 3)</li>
-                            <li>Gamification framework developed</li>
-                            <li>Automated Master Data</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Mid Program</td>
-                    <td>
-                        <ul>
-                            <li>Observed students behaviors and actions during sessions</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Observation report</li>
-                            <li>Attendance report</li>
-                            <li>Engagement report</li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Post-Program</td>
-                    <td>
-                        <ul>
-                            <li>Interviewed students for feedback</li>
-                            <li>Developed program final report</li>
-                            <li>Presented the reports to stakeholders</li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <li>Interview report</li>
-                            <li>Program final report</li>
-                            <li>Reports presented to stakeholders</li>
-                        </ul>
-                    </td>
-                </tr>
-            </table>
+            <div class="modal-header">
+                <span class="close js-close">&times;</span>
+                <h2>Entrepreneurial Mindset Seminar</h2>
+            </div>
+            <div class="modal-body">
+                <div class="program-phase">
+                    <h3>Pre-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Developed Monitoring & Evaluation Framework</li>
+                                <li>Developed assessment & questionnaire for level 1, level 2, and level 3 evaluation</li>
+                                <li>Performed pilot study to determine the readability, reliability, and validity of the
+                                    questionnaire</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Monitoring & Evaluation Framework</li>
+                                <li>Satisfaction & NPS questionnaire (Level 1)</li>
+                                <li>Pre-test and post-test quiz (Level 2)</li>
+                                <li>Challenge & sales tracker (Level 3)</li>
+                                <li>Gamification framework developed</li>
+                                <li>Automated Master Data</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-phase">
+                    <h3>Mid Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Observed students behaviors and actions during sessions</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Observation report</li>
+                                <li>Attendance report</li>
+                                <li>Engagement report</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-phase">
+                    <h3>Post-Program</h3>
+                    <div class="phase-content">
+                        <div class="phase-section">
+                            <h4>Tasks:</h4>
+                            <ul>
+                                <li>Interviewed students for feedback</li>
+                                <li>Developed program final report</li>
+                                <li>Presented the reports to stakeholders</li>
+                            </ul>
+                        </div>
+                        <div class="phase-section">
+                            <h4>Outputs:</h4>
+                            <ul>
+                                <li>Interview report</li>
+                                <li>Program final report</li>
+                                <li>Reports presented to stakeholders</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
     <script>
+        let activeProjectModal = null
+        let windowClickEvent = null
         document.addEventListener('DOMContentLoaded', (event) => {
             const body = document.body;
-            const modal = document.getElementById('projectModal');
             const modalContent = document.getElementById('modalTable');
-            const closeBtn = document.getElementsByClassName('close')[0];
+            const closeButtons = document.querySelectorAll('.js-close');
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
             /*const darkModeToggle = document.getElementById('dark-mode-toggle');
             darkModeToggle.addEventListener('click', () => {
                 document.body.classList.toggle('dark-mode');
             });*/
+
+            menuToggle.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
 
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
@@ -1330,6 +1647,7 @@
                     const currentMenu = document.querySelector("header .current")
                     if (currentMenu) currentMenu.classList.remove("current")
                     e.currentTarget.parentElement.classList.add("current")
+                    nav.classList.remove('active');
                     document.querySelector(this.getAttribute('href')).scrollIntoView({
                         behavior: 'smooth'
                     });
@@ -1339,19 +1657,42 @@
             // Modal functionality
             document.querySelectorAll('.project').forEach(project => {
                 project.addEventListener('click', () => {
-                    modal.style.display = 'block';
+                    const targetModal = project.dataset.target;
+                    if(targetModal){
+                        const targetModalEl = document.querySelector(targetModal)
+                        if(targetModalEl){
+                            targetModalEl.style.display = "block"
+                            activeProjectModal = targetModalEl
+                            windowClickEvent = window.addEventListener("click", function(e){
+                                if(e.target === targetModalEl){
+                                    closeActiveModal();
+                                }
+                            })
+                        }
+                    }
                 });
             });
 
-            closeBtn.onclick = () => {
-                modal.style.display = 'none';
-            };
+            closeButtons.forEach((button)=>{
+                button.addEventListener("click",(_) => {
+                    closeActiveModal();
+                })
+            })
 
-            window.onclick = (event) => {
-                if (event.target == modal) {
-                    modal.style.display = 'none';
+            function clearWindowClickEvent(){
+                if(windowClickEvent){
+                    removeEventListener(windowClickEvent)
+                    windowClickEvent = null;
                 }
-            };
+            }
+            
+            function closeActiveModal(){
+                if(activeProjectModal) {
+                    activeProjectModal.style.display = "none"
+                    activeProjectModal = null
+                    clearWindowClickEvent()
+                }
+            }
         });
     </script>
 </body>
