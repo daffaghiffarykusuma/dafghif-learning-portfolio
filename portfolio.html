@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Daffa Ghiffary Kusuma</title> <!-- Specific Title -->
+    <meta name="description"
+        content="View the portfolio of Daffa Ghiffary Kusuma, showcasing projects in learning program development, evaluation, and more."> <!-- Specific Description -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> -->
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-main">
+                 <div class="logo">
+                   <a href="index.html"><h1>Daffa Ghiffary Kusuma</h1></a>
+                </div>
+                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li class="current"><a href="portfolio.html">Portfolio</a></li> <!-- Mark Portfolio as current -->
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Projects Section - Migrated and Adapted -->
+        <section id="portfolio-projects">
+            <div class="container">
+                <h2 class="section-title">My Projects & Work</h2>
+
+                <!-- Filter Buttons -->
+                <div id="portfolio-filters" style="text-align: center; margin-bottom: 40px;">
+                    <button class="filter-button active" data-filter="all">All</button>
+                    <button class="filter-button" data-filter="training-workshop">Custom Training & Workshops</button>
+                    <button class="filter-button" data-filter="powerpoint">Learning PowerPoint Development</button>
+                    <button class="filter-button" data-filter="social-media">Social Media Content Development</button>
+                </div>
+
+                <!-- Combined Project Grid -->
+                <div class="grid grid-cols-3 projects-grid"> <!-- Removed static category divs -->
+                        <!-- Project 1 -->
+                        <!-- Project 1 -->
+                        <div class="card project" data-category="training-workshop"> <!-- Updated data-category -->
+                            <div class="card-image">
+                                <img src="assets/images/portfolio/course_2.png" alt="Entrepreneurship Online Class">
+                            </div>
+                            <div class="card-content">
+                                <h4>Entrepreneurship Online Class</h4>
+                                <span class="project-category-label"><a href="services.html#service-training" title="View Service Details">Custom Training & Workshops</a></span> <!-- Updated category label & added link -->
+                                <p>Expanding business requires more than sales skills. This course focuses on leveraging social media and sales teams for growth.</p>
+                                <div class="card-actions">
+                                     <a href="contact.html?project=Online Class" class="cta-button">Discuss Similar Project</a>
+                                     <!-- Placeholder: Add button if PDF exists -->
+                                     <button class="cta-button view-details-button" data-pdf="assets/pdf/portfolio/placeholder_online_class.pdf">View Details</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Project 2 -->
+                        <!-- Project 2 -->
+                        <div class="card project" data-category="training-workshop">
+                             <div class="card-image">
+                                <img src="assets/images/portfolio/training_for_trainer.jpg" alt="Training for Trainer">
+                             </div>
+                            <div class="card-content">
+                                <h4>Training for Trainer: Experiential Learning & Coaching</h4>
+                                <span class="project-category-label"><a href="services.html#service-training" title="View Service Details">Custom Training & Workshops</a></span>
+                                <p>Equipping sales teams with teaching and coaching skills for effective on-site community engagement through training and role-play.</p>
+                                 <div class="card-actions">
+                                      <a href="contact.html?project=Training for Trainer" class="cta-button">Discuss Similar Project</a>
+                                      <button class="view-details-button" data-pdf="assets/pdf/portfolio/training_for_trainer.pdf">View Details</button>
+                                 </div>
+                            </div>
+                        </div>
+                        <!-- Project 3 -->
+                        <!-- Project 3 - Flagged for Review -->
+                        <div class="card project" data-category="legacy-review"> <!-- Flagged: Doesn't fit new categories -->
+                             <div class="card-image">
+                                <img src="assets/images/portfolio/community_accelerator.png" alt="Sandination Community Mentorship">
+                             </div>
+                            <div class="card-content">
+                                <h4>Entrepreneurship Mentorship for Sandination Community</h4>
+                                <span class="project-category-label"><a href="services.html#service-training" title="View Service Details">Custom Training & Workshops</a></span> <!-- Updated category label & added link -->
+                                <p>A 3-month mentorship program designed to help Sandination community members increase income by selling Aerputh products.</p>
+                                 <div class="card-actions">
+                                      <a href="contact.html?project=Sandination Mentorship" class="cta-button">Discuss Similar Project</a>
+                                      <button class="view-details-button" data-pdf="assets/pdf/portfolio/sandination_mentorship.pdf">View Details</button>
+                                 </div>
+                            </div>
+                        </div>
+                        <!-- Project 4 -->
+                        <!-- Project 4 -->
+                        <div class="card project" data-category="training-workshop"> <!-- Updated category -->
+                             <div class="card-image">
+                                <img src="assets/images/portfolio/kumpul_jasa.jpg" alt="KUMPUL JASA Competition">
+                             </div>
+                            <div class="card-content">
+                                <h4>3rd Winner in KUMPUL JASA Jember Competition</h4>
+                                <span class="project-category-label"><a href="services.html#service-training" title="View Service Details">Custom Training & Workshops</a></span>
+                                <p>Mentoring Prakerja alumni to train Jember's MSMEs in digitalization as part of an entrepreneurship competition.</p>
+                                 <div class="card-actions">
+                                      <a href="contact.html?project=KUMPUL JASA" class="cta-button">Discuss Similar Project</a>
+                                      <button class="view-details-button" data-pdf="assets/pdf/portfolio/kumpul_jasa.pdf">View Details</button>
+                                 </div>
+                            </div>
+                        </div>
+                        <!-- Project 5 -->
+                        <!-- Project 5 -->
+                        <div class="card project" data-category="training-workshop">
+                             <div class="card-image">
+                                <img src="assets/images/portfolio/NHI_acceleration_bootcamp.png" alt="NHI Bandung Acceleration Bootcamp">
+                             </div>
+                            <div class="card-content">
+                                <h4>NHI Bandung Business Acceleration Bootcamp</h4>
+                                <span class="project-category-label"><a href="services.html#service-training" title="View Service Details">Custom Training & Workshops</a></span>
+                                <p>An engaging 3-day offline bootcamp addressing finance, operations, and legal challenges for student entrepreneurs at NHI Bandung.</p>
+                                 <div class="card-actions">
+                                      <a href="contact.html?project=NHI Acceleration Bootcamp" class="cta-button">Discuss Similar Project</a>
+                                      <button class="view-details-button" data-pdf="assets/pdf/portfolio/nhi_acceleration.pdf">View Details</button>
+                                 </div>
+                            </div>
+                        </div>
+                    <!-- Removed closing div for category 1 -->
+                <!-- Removed Category 2 heading and opening grid div -->
+                        <!-- Project 6 -->
+                        <!-- Project 6 -->
+                        <div class="card project" data-category="training-workshop">
+                             <div class="card-image">
+                                <img src="assets/images/portfolio/smk.jpg" alt="SMK Entrepreneurship Program">
+                             </div>
+                            <div class="card-content">
+                                <h4>Entrepreneurship Program for 5000+ SMK Students</h4>
+                                <span class="project-category-label"><a href="services.html#service-training" title="View Service Details">Custom Training & Workshops</a></span>
+                                <p>Providing entrepreneurship as an alternative path for SMK students through a hands-on milk-based product creation and sales project.</p>
+                                 <div class="card-actions">
+                                      <a href="contact.html?project=SMK Program" class="cta-button">Discuss Similar Project</a>
+                                      <button class="view-details-button" data-pdf="assets/pdf/portfolio/smk_program.pdf">View Details</button>
+                                 </div>
+                            </div>
+                        </div>
+                        <!-- Project 7 -->
+                        <!-- Project 7 -->
+                        <div class="card project" data-category="training-workshop">
+                             <div class="card-image">
+                                <img src="assets/images/portfolio/budikdamber.jpg" alt="Budikdamber Program">
+                             </div>
+                            <div class="card-content">
+                                <h4>Budikdamber Program for 7 Rumah Yatim Asrama</h4>
+                                <span class="project-category-label"><a href="services.html#service-training" title="View Service Details">Custom Training & Workshops</a></span>
+                                <p>Fostering independence at Rumah Yatim through a program focused on cultivating and selling catfish and kale.</p>
+                                 <div class="card-actions">
+                                      <a href="contact.html?project=Budikdamber Program" class="cta-button">Discuss Similar Project</a>
+                                      <button class="view-details-button" data-pdf="assets/pdf/portfolio/budikdamber.pdf">View Details</button>
+                                 </div>
+                            </div>
+                        </div>
+                        <!-- Project 8 -->
+                        <!-- Project 8 -->
+                        <div class="card project" data-category="training-workshop">
+                             <div class="card-image">
+                                <img src="assets/images/portfolio/MCC.jpg" alt="MCC Grant">
+                             </div>
+                            <div class="card-content">
+                                <h4>The Millennium Challenge Corporation (MCC) Grant</h4>
+                                <span class="project-category-label"><a href="services.html#service-training" title="View Service Details">Custom Training & Workshops</a></span>
+                                <p>Consulting support for digital and financial literacy training and capacity enhancement for women-owned MSMEs.</p>
+                                 <div class="card-actions">
+                                      <a href="contact.html?project=MCC Grant" class="cta-button">Discuss Similar Project</a>
+                                      <button class="view-details-button" data-pdf="assets/pdf/portfolio/mcc_grant.pdf">View Details</button>
+                                 </div>
+                            </div>
+                        </div>
+                        <!-- Project 9 -->
+                        <!-- Project 9 - Flagged for Review -->
+                        <div class="card project" data-category="legacy-review"> <!-- Flagged: Doesn't fit new categories -->
+                             <div class="card-image">
+                                <img src="assets/images/portfolio/performance_appraisal.jpg" alt="Performance Appraisal System">
+                             </div>
+                            <div class="card-content">
+                                <h4>Performance Appraisal System Development</h4>
+                                <span class="project-category-label" style="color: #888; font-style: italic;">Review: Legacy Project</span> <!-- Flagged label -->
+                                <p>Creating a performance appraisal system for Rumah Siap Kerja's learning team using 10 core competencies and 360-degree feedback.</p>
+                                 <div class="card-actions">
+                                      <a href="contact.html?project=Performance Appraisal System" class="cta-button">Discuss Similar Project</a>
+                                      <button class="view-details-button" data-pdf="assets/pdf/portfolio/performance_appraisal.pdf">View Details</button>
+                                 </div>
+                            </div>
+                        </div>
+                        <!-- Project 10 -->
+                        <!-- Project 10 -->
+                        <div class="card project" data-category="training-workshop">
+                             <div class="card-image">
+                                <img src="assets/images/portfolio/NHI_incubation_bootcamp.jpg" alt="NHI Bandung Incubation Bootcamp">
+                             </div>
+                            <div class="card-content">
+                                <h4>NHI Bandung Business Incubation Bootcamp</h4>
+                                <span class="project-category-label"><a href="services.html#service-training" title="View Service Details">Custom Training & Workshops</a></span>
+                                <p>Encouraging entrepreneurship among NHI Bandung alumni through a 3-day offline incubation bootcamp with engaging activities.</p>
+                                 <div class="card-actions">
+                                      <a href="contact.html?project=NHI Incubation Bootcamp" class="cta-button">Discuss Similar Project</a>
+                                      <button class="view-details-button" data-pdf="assets/pdf/portfolio/nhi_incubation.pdf">View Details</button>
+                                 </div>
+                            </div>
+                        </div>
+                         <!-- Project 11 -->
+                        <!-- Project 11 -->
+                        <div class="card project" data-category="training-workshop"> <!-- Seminar implies training/workshop format -->
+                             <div class="card-image">
+                                <img src="assets/images/portfolio/entrepreneurial_mindset.jpg" alt="Entrepreneurial Mindset Seminar">
+                             </div>
+                            <div class="card-content">
+                                <h4>Entrepreneurial Mindset Seminar</h4>
+                                <span class="project-category-label"><a href="services.html#service-training" title="View Service Details">Custom Training & Workshops</a></span>
+                                <p>An offline seminar with engaging activities designed to help Rumah Siap Kerja users cultivate resilience and grow their businesses.</p>
+                                 <div class="card-actions">
+                                      <a href="contact.html?project=Mindset Seminar" class="cta-button">Discuss Similar Project</a>
+                                      <button class="view-details-button" data-pdf="assets/pdf/portfolio/mindset_seminar.pdf">View Details</button>
+                                 </div>
+                            </div>
+                        </div>
+                 <!-- Project: Mental Preparedness -->
+                <div class="card project" data-category="powerpoint">
+                    <div class="card-image">
+                        <img src="assets/images/portfolio/mental_preparedness_emergency.png" alt="Mental Preparedness: Preparation for Emergencies">
+                    </div>
+                    <div class="card-content">
+                        <h4>Mental Preparedness: Preparation for Emergencies</h4>
+                        <span class="project-category-label"><a href="services.html#service-powerpoint" title="View Service Details">Learning PowerPoint Development</a></span>
+                        <p>This PowerPoint teaches crisis response skills, resilience, and self-leadership strategies for handling high-pressure situations effectively.</p>
+                         <div class="card-actions">
+                            <a href="contact.html?project=Mental Preparedness" class="cta-button">Discuss Similar Project</a>
+                            <button class="view-details-button" data-pdf="assets/pdf/portfolio/mental_preparedness_emergency.pdf">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project: Landing Your Dream Job -->
+                <div class="card project" data-category="powerpoint">
+                    <div class="card-image">
+                        <img src="assets/images/portfolio/top_employability_skills.png" alt="Landing Your Dream Job">
+                    </div>
+                    <div class="card-content">
+                        <h4>Landing Your Dream Job: Top Employability Skills for New Grads</h4>
+                        <span class="project-category-label"><a href="services.html#service-powerpoint" title="View Service Details">Learning PowerPoint Development</a></span>
+                        <p>This PowerPoint covers essential 2025 job market skills like communication, AI proficiency, and resilience. It includes practical tips for resumes, LinkedIn branding, and leveraging internships, helping graduates stand out.</p>
+                         <div class="card-actions">
+                            <a href="contact.html?project=Employability Skills" class="cta-button">Discuss Similar Project</a>
+                            <button class="view-details-button" data-pdf="assets/pdf/portfolio/top_employability_skills.pdf">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project: GIG-ECONOMY & RESILIENCE -->
+                <div class="card project" data-category="powerpoint">
+                    <div class="card-image">
+                        <img src="assets/images/portfolio/gig_economy_resilience.png" alt="GIG-ECONOMY & RESILIENCE: The Future is Beyond Milestones">
+                    </div>
+                    <div class="card-content">
+                        <h4>GIG-ECONOMY & RESILIENCE: The Future is Beyond Milestones</h4>
+                        <span class="project-category-label"><a href="services.html#service-powerpoint" title="View Service Details">Learning PowerPoint Development</a></span>
+                        <p>This PowerPoint examines the gig economy's rise, its global and local trends, and key challenges like income instability. It highlights resilience and grit as essential skills for gig workers, offering strategies to adapt and thrive. Interactive exercises and real-world examples provide practical insights for navigating flexible work environments successfully.</p>
+                         <div class="card-actions">
+                            <a href="contact.html?project=GIG-ECONOMY & RESILIENCE" class="cta-button">Discuss Similar Project</a>
+                            <button class="view-details-button" data-pdf="assets/pdf/portfolio/gig_economy_resilience.pdf">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                </div> <!-- End of combined projects-grid -->
+
+                 <!-- Placeholder for Social Media Projects -->
+                <div class="card project project-placeholder" data-category="social-media" style="display: none;"> <!-- Hidden by default, shown by filter -->
+                     <div class="placeholder-image card-image" style="height: 150px; display: flex; align-items: center; justify-content: center; background-color: #eee;">(Example Coming Soon)</div>
+                    <div class="card-content">
+                        <h4>Social Media Content Development Examples</h4>
+                         <span class="project-category-label"><a href="services.html#service-social-media" title="View Service Details">Social Media Content Development</a></span>
+                        <p>Examples showcasing successful social media campaigns and content strategies are being compiled. <a href="contact.html?service=social-media">Contact us</a> to discuss how we can help your business.</p>
+                         <div class="card-actions">
+                            <a href="contact.html?service=social-media" class="cta-button">Discuss Your Goals</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Portfolio CTA Section -->
+                 <div style="text-align: center; margin-top: 60px; padding: 40px; background-color: var(--light-bg); border-radius: 8px;">
+                    <h3>Interested in Collaborating?</h3>
+                    <p style="margin-bottom: 25px;">If you like what you see and have a project in mind, let's discuss how I can help.</p>
+                    <a href="contact.html" class="cta-button cta-button-primary">Request a Quote / Consultation</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Publications Section (Placeholder) -->
+        <section id="publications" style="background-color: #fdfdfd;">
+            <div class="container">
+                <h2 class="section-title">Publications</h2>
+                <div class="grid grid-cols-3 placeholder-section">
+                    <!-- Repeat placeholder publications as needed -->
+                    <!-- Publication 1: DaGrow Mindset -->
+                    <div class="card publication"> <!-- Added 'publication' class for potential specific styling -->
+                         <div class="card-image">
+                             <a href="assets/pdf/publication/publication_pdf_dagrow_mindset_unlocking_your_talent_potential.pdf" target="_blank" rel="noopener noreferrer" title="Read DaGrow Mindset PDF">
+                                 <img src="assets/images/publication_cover/publication_cover_dagrowmindset.jpeg" alt="DaGrow Mindset: Unlocking Your Talent Potential Book Cover">
+                             </a>
+                         </div>
+                         <div class="card-content">
+                             <h4><em>DaGrow Mindset: Unlocking Your Talent Potential</em></h4>
+                             <p style="font-size: 0.9em; color: var(--text-color); opacity: 0.8; margin-bottom: 8px;">By Daffa Ghiffary Kusuma <br> Publisher: Relation Ship Community (2024)</p>
+                             <p>A practical playbook helping readers discover, develop, and maximize their unique talents through the <strong>Discover, Assess, Grow, Reflect</strong> framework. Combining real-life stories, science-backed insights, and hands-on activities, it offers actionable steps to break mental barriers, build skills, and create lasting impact. Written in a casual, conversational tone, it’s ideal for students, professionals, or anyone seeking personal growth.</p>
+                             <!-- Key selling points highlighted: actionable framework, real-world examples, accessibility -->
+                         </div>
+                         <div class="card-actions">
+                             <a href="assets/pdf/publication/publication_pdf_dagrow_mindset_unlocking_your_talent_potential.pdf" target="_blank" rel="noopener noreferrer" class="cta-button">Read Now</a>
+                         </div>
+                    </div>
+                     <div class="card">
+                         <div class="placeholder-image card-image" style="height: 150px;">Publication Thumbnail 2</div>
+                         <div class="card-content">
+                            <h4>Publication Title 2</h4>
+                            <p>[Brief description or abstract placeholder]</p>
+                             <div class="card-actions">
+                                <a href="#placeholder-pdf" class="cta-button">Read/Download</a>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="card">
+                         <div class="placeholder-image card-image" style="height: 150px;">Publication Thumbnail 3</div>
+                         <div class="card-content">
+                            <h4>Publication Title 3</h4>
+                            <p>[Brief description or abstract placeholder]</p>
+                             <div class="card-actions">
+                                <a href="#placeholder-pdf" class="cta-button">Read/Download</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PDF Viewer Modal -->
+    <div id="pdf-modal" class="pdf-modal" style="display: none;">
+        <div class="pdf-modal-content">
+            <div class="pdf-modal-header">
+                <span class="close-modal js-close-modal">&times;</span>
+                <h2 id="pdf-modal-title">Project Details</h2>
+            </div>
+            <div class="pdf-modal-body">
+                <iframe id="pdf-iframe" src="" frameborder="0" width="100%" height="500px"></iframe>
+                <!-- Add links here if multiple PDFs per project are needed -->
+            </div>
+        </div>
+    </div>
+    <!-- End PDF Viewer Modal -->
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Daffa Ghiffary Kusuma. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Structure (Copied from original index.html for JS compatibility, but not triggered by project items above) -->
+    <!-- Project Modals -->
+    <!-- CATEGORY 1 -->
+    <div id="modal-project-1" class="modal"> <div class="modal-content"> <div class="modal-header"> <span class="close js-close">&times;</span> <h2>Entrepreneurship Online Class</h2> </div> <div class="modal-body"> <!-- ... modal content ... --> </div> </div> </div>
+    <div id="modal-project-2" class="modal"> <div class="modal-content"> <div class="modal-header"> <span class="close js-close">&times;</span> <h2>Training for Trainer: Experiential Learning & Coaching Skills</h2> </div> <div class="modal-body"> <!-- ... modal content ... --> </div> </div> </div>
+    <div id="modal-project-3" class="modal"> <div class="modal-content"> <div class="modal-header"> <span class="close js-close">&times;</span> <h2>Entrepreneurship Mentorship for Sandination Community</h2> </div> <div class="modal-body"> <!-- ... modal content ... --> </div> </div> </div>
+    <div id="modal-project-4" class="modal"> <div class="modal-content"> <div class="modal-header"> <span class="close js-close">&times;</span> <h2>3rd Winner in KUMPUL JASA Jember Entrepreneurship Competition</h2> </div> <div class="modal-body"> <!-- ... modal content ... --> </div> </div> </div>
+    <div id="modal-project-5" class="modal"> <div class="modal-content"> <div class="modal-header"> <span class="close js-close">&times;</span> <h2>NHI Bandung Business Acceleration Bootcamp</h2> </div> <div class="modal-body"> <!-- ... modal content ... --> </div> </div> </div>
+    <!-- CATEGORY 2 -->
+    <div id="modal-project-6" class="modal"> <div class="modal-content"> <div class="modal-header"> <span class="close js-close">&times;</span> <h2>Entrepreneurship Program for 5000+ SMK Students</h2> </div> <div class="modal-body"> <!-- ... modal content ... --> </div> </div> </div>
+    <div id="modal-project-7" class="modal"> <div class="modal-content"> <div class="modal-header"> <span class="close js-close">&times;</span> <h2>Budikdamber Entrepreneurship Program for 7 Rumah Yatim Asrama</h2> </div> <div class="modal-body"> <!-- ... modal content ... --> </div> </div> </div>
+    <div id="modal-project-8" class="modal"> <div class="modal-content"> <div class="modal-header"> <span class="close js-close">&times;</span> <h2>The Millennium Challenge Corporation (MCC) Grant</h2> </div> <div class="modal-body"> <!-- ... modal content ... --> </div> </div> </div>
+    <div id="modal-project-9" class="modal"> <div class="modal-content"> <div class="modal-header"> <span class="close js-close">&times;</span> <h2>Performance Appraisal</h2> </div> <div class="modal-body"> <!-- ... modal content ... --> </div> </div> </div>
+    <div id="modal-project-10" class="modal"> <div class="modal-content"> <div class="modal-header"> <span class="close js-close">&times;</span> <h2>NHI Bandung Business Incubation Bootcamp</h2> </div> <div class="modal-body"> <!-- ... modal content ... --> </div> </div> </div>
+    <div id="modal-project-11" class="modal"> <div class="modal-content"> <div class="modal-header"> <span class="close js-close">&times;</span> <h2>Entrepreneurial Mindset Seminar</h2> </div> <div class="modal-body"> <!-- ... modal content ... --> </div> </div> </div>
+    <!-- End Modals -->
+
+
+    <script src="js/script.js"></script>
+    <script>
+        // Basic Footer Year Update
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Portfolio Filtering Logic (Updated for new categories)
+        const filterContainer = document.querySelector('#portfolio-filters');
+        const filterButtons = filterContainer?.querySelectorAll('.filter-button');
+        // Include placeholder cards in the items to be filtered
+        const portfolioItems = document.querySelectorAll('#portfolio-projects .project');
+        const projectGrid = document.querySelector('#portfolio-projects .projects-grid'); // Get the grid container
+
+        if (filterContainer && filterButtons && portfolioItems && projectGrid) {
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update active button state
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    const filter = button.getAttribute('data-filter');
+
+                    // Filter items
+                    let hasVisibleItems = false;
+                    portfolioItems.forEach(item => {
+                        // Check if item has the category, considering potential multiple categories like 'legacy-review'
+                        const itemCategories = item.getAttribute('data-category')?.split(' ') || [];
+
+                        // Always hide legacy/review items unless 'all' is selected AND they exist.
+                        // Show specific category items if filter matches OR if filter is 'all' (and not legacy/review)
+                        let shouldShow = false;
+                        if (filter === 'all') {
+                             // Show all non-placeholder items, plus flagged items. Hide placeholders in 'all'.
+                             if (!item.classList.contains('project-placeholder')) {
+                                 shouldShow = true;
+                             }
+                        } else if (itemCategories.includes(filter)) {
+                            shouldShow = true; // Show if category matches filter
+                        }
+
+
+                        if (shouldShow) {
+                            item.style.display = ''; // Show item by removing inline style
+                            // If the item is a placeholder and was outside the main grid, move it into the grid
+                            if (item.classList.contains('project-placeholder') && item.parentNode !== projectGrid) {
+                                projectGrid.appendChild(item);
+                            }
+                             hasVisibleItems = true;
+                        } else {
+                            item.style.display = 'none'; // Hide item
+                            // If the item is a placeholder and inside the main grid, move it out (or just hide)
+                             // Hiding might be simpler than moving DOM elements frequently
+                        }
+                    });
+
+                    // Optional: Display a message if no items match the filter
+                    // You would need a dedicated element for this message.
+                    // const noResultsMessage = document.getElementById('no-portfolio-results');
+                    // if (noResultsMessage) {
+                    //     noResultsMessage.style.display = hasVisibleItems ? 'none' : 'block';
+                    // }
+
+                });
+            });
+
+             // Initial filter application on page load (optional, if needed)
+             // filterButtons[0].click(); // Simulate click on 'All' button initially
+
+        } else {
+            console.warn('Portfolio filter elements or project grid not found.');
+        }
+
+    </script>
+</body>
+
+</html>

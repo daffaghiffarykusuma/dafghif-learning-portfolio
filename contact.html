@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Daffa Ghiffary Kusuma</title> <!-- Specific Title -->
+    <meta name="description"
+        content="Get in touch with Daffa Ghiffary Kusuma for mentoring, training collaborations, speaking engagements, or other inquiries."> <!-- Specific Description -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="contact-page"> <!-- Added class for potential page-specific styling -->
+    <header>
+        <div class="container">
+            <div class="header-main">
+                 <div class="logo">
+                   <a href="index.html"><h1>Daffa Ghiffary Kusuma</h1></a>
+                </div>
+                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li class="current"><a href="contact.html">Contact</a></li> <!-- Mark Contact as current -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Contact Section -->
+        <section id="contact-section"> <!-- Reusing ID from CSS for styling -->
+            <div class="container">
+                <h2 class="section-title">Request a Quote / Consultation</h2>
+                <p class="text-center" style="max-width: 600px; margin-left: auto; margin-right: auto; margin-bottom: 40px;">
+                    Ready to discuss your project or learn more about how I can help? Please fill out the form below, and I'll get back to you as soon as possible.
+                </p>
+
+                <!-- Contact Form (Placeholder) -->
+                <form action="#" method="POST" class="contact-form placeholder-section">
+                     <p style="font-style: normal; margin-bottom: 20px;"><strong>Note:</strong> This is a visual placeholder form and does not submit data.</p>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="Your Email Address">
+                    </div>
+                    <!-- Removed Subject Field -->
+                     <div class="form-group">
+                        <label for="service-interest">Service of Interest</label>
+                        <select id="service-interest" name="service_interest">
+                            <option value="" disabled selected>-- Select a Service --</option>
+                            <option value="mentoring">Mentoring Session</option>
+                            <option value="training">Custom Training / Workshop</option>
+                            <option value="speaking">Event Speaking</option>
+                            <option value="other">Other Inquiry</option>
+                        </select>
+                        <!-- Add style for select element in css/style.css if needed -->
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message / Project Details</label>
+                        <textarea id="message" name="message" required placeholder="Please provide some details about your project or inquiry..."></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="cta-button">Send Request (Placeholder)</button>
+                    </div>
+                     <p style="text-align: center; font-size: 0.85em; color: rgba(230, 241, 255, 0.7); margin-top: 20px;">I typically respond within 1-2 business days.</p>
+                </form>
+
+                <!-- Contact Details -->
+                <div class="contact-details mt-4">
+                     <h3 style="text-align: center; color: var(--secondary); margin-bottom: 20px;">Other Ways to Connect</h3>
+                     <p> WhatsApp: <a href="https://wa.link/rn7fa4" target="_blank" rel="noopener noreferrer">(+62) 8953-2947-3179</a></p>
+                     <p>Email: <a href="mailto:daffaghifarykusuma@gmail.com">daffaghifarykusuma@gmail.com</a></p>
+                     <p>LinkedIn: <a href="http://www.linkedin.com/in/daffa-ghiffary-kusuma" target="_blank" rel="noopener noreferrer">linkedin.com/in/daffa-ghiffary-kusuma</a></p>
+                </div>
+
+                 <!-- Social Media Links (Placeholder) -->
+                <div class="social-links-container mt-4">
+                     <h3 style="text-align: center; color: var(--secondary); margin-bottom: 20px;">Follow Me</h3>
+                     <ul class="social-links">
+                        <!-- Replace # with actual profile links -->
+                        <li><a href="http://www.linkedin.com/in/daffa-ghiffary-kusuma" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li> <!-- Placeholder -->
+                        <li><a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a></li> <!-- Placeholder -->
+                        <!-- Add other relevant social links -->
+                    </ul>
+                </div>
+
+                 <!-- Optional Map Placeholder -->
+                 <!-- <div class="map-placeholder mt-4 placeholder-section">
+                    <div class="placeholder-image" style="min-height: 300px;">Map Placeholder</div>
+                 </div> -->
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Daffa Ghiffary Kusuma. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

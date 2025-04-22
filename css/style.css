@@ -1,0 +1,1272 @@
+:root {
+    --primary: #0a192f;
+    --secondary: #e6f1ff;
+    --accent: #00b894; /* Changed from #64ffda for better visibility */
+    --bg: #f8f8f8; /* Light mode background */
+    --text-color: #333; /* Light mode text */
+    --card-bg: #ffffff; /* Light mode card background */
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --table-header-bg: #eef;
+    --table-header-text: #333;
+    --table-first-col-bg: #f8f8ff;
+    --table-first-col-text: #333;
+    --spacing-base: 8px;
+    --max-width: 1200px;
+    --transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Changed default font */
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg);
+    transition: var(--transition);
+    margin: 0;
+    padding: 0;
+    padding-top: 68px; /* Add padding to prevent content overlap with fixed header */
+}
+
+/* Basic Reset & Box Sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+a {
+    color: var(--accent); /* Use accent color for links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #52cca7; /* Slightly darker accent on hover */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    width: 90%;
+    max-width: var(--max-width);
+    margin: 0 auto; /* Changed from 'auto' to '0 auto' for clarity */
+    padding: 40px 20px; /* Increased vertical padding */
+}
+
+/* Header Styles */
+header {
+    background: var(--primary);
+    color: var(--secondary);
+    padding: 16px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0; /* Ensure it spans full width */
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 0 20px; /* Remove vertical padding from header container */
+    max-width: var(--max-width); /* Ensure header container respects max-width */
+    margin: 0 auto; /* Center header container */
+}
+
+header .logo h1 { /* Added a logo class for better structure */
+    font-size: 1.5rem;
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--secondary); /* Ensure logo text color is correct */
+}
+
+header .logo a { /* Ensure logo link inherits color */
+    color: inherit;
+    text-decoration: none;
+}
+
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 24px;
+}
+
+header nav ul li {
+    margin-left: 0;
+}
+
+header nav ul li a {
+    color: var(--secondary);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+    position: relative; /* For underline effect */
+}
+
+header nav ul li a:hover {
+    color: var(--accent);
+}
+
+header nav ul li.current a { /* Style for the current page link */
+    color: var(--accent);
+    font-weight: 600;
+}
+
+header nav ul li.current a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent);
+}
+
+.menu-toggle {
+    display: none; /* Hidden by default, shown in media query */
+    background: none;
+    border: none;
+    color: var(--secondary);
+    font-size: 1.8rem; /* Slightly larger */
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 5px; /* Add some padding */
+    line-height: 1; /* Prevent extra space */
+}
+
+.menu-toggle:hover {
+    color: var(--accent);
+}
+
+/* Section Styling */
+section {
+    padding: 60px 0; /* Standard vertical padding for sections */
+}
+
+section:nth-of-type(even) { /* Optional alternating background */
+    background-color: #fdfdfd; /* Slightly off-white for visual separation */
+}
+
+h2.section-title { /* Consistent section titles */
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 2.8rem); /* Responsive font size */
+    margin-bottom: 40px;
+    color: var(--primary);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2.section-title::after { /* Underline effect for titles */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent);
+}
+
+
+/* Showcase Section (Home Page Specific) */
+#showcase {
+    background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.7)), url('../images/dafghif_cover.png') no-repeat center center/cover; /* Updated path */
+    min-height: calc(100vh - 68px); /* Full viewport height minus header */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--secondary);
+    padding: 60px 20px; /* Add padding */
+    margin-top: -68px; /* Pull up to counteract body padding */
+}
+
+#showcase .container {
+    padding: 0 20px; /* Override default container padding */
+}
+
+
+#showcase h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+#showcase p {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    max-width: 650px; /* Slightly wider */
+    margin: 0 auto 32px;
+    line-height: 1.6;
+    opacity: 0.9; /* Slightly less prominent */
+}
+
+.cta-button { /* General CTA Button Style */
+    display: inline-block; /* Allow margin/padding */
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 12px 28px; /* Slightly more padding */
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500; /* Medium weight */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase; /* Optional: Uppercase text */
+    letter-spacing: 0.5px; /* Optional: Spacing */
+}
+
+.cta-button:hover {
+    background: rgba(100, 255, 218, 0.1);
+    color: var(--secondary); /* Change text color on hover */
+    border-color: var(--secondary);
+}
+
+/* Portfolio-specific button styles */
+#portfolio-projects .card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(10, 25, 47, 0.08);
+}
+
+#portfolio-projects .cta-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+#portfolio-projects .cta-button:hover {
+    background: rgba(100, 255, 218, 0.1);
+    color: var(--secondary);
+    border-color: var(--secondary);
+}
+
+#portfolio-projects .view-details-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+#portfolio-projects .view-details-button:hover {
+    background: rgba(10, 25, 47, 0.05);
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* Placeholder Styles */
+.placeholder-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #eee;
+    border: 1px dashed #ccc;
+    border-radius: 8px;
+    margin-bottom: 40px;
+}
+
+.placeholder-section p {
+    color: #666;
+    font-style: italic;
+}
+
+.placeholder-image {
+    background-color: #ddd;
+    border: 1px solid #ccc;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.9rem;
+    min-height: 150px; /* Example height */
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* Grid Styles (Used in Portfolio, Services, About) */
+.grid {
+    display: grid;
+    gap: 30px; /* Consistent gap */
+}
+
+.grid-cols-2 {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); /* Responsive 2-ish columns */
+}
+
+.grid-cols-3 {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); /* Responsive 3-ish columns */
+}
+
+/* Card Style (Used for Projects, Services, etc.) */
+.card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(10, 25, 47, 0.08);
+    display: flex; /* Use flexbox for content alignment */
+    flex-direction: column; /* Stack content vertically */
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent);
+}
+
+.card-image img {
+    width: 100%;
+    height: 220px; /* Consistent image height */
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.03);
+}
+
+.card-content {
+    padding: 24px;
+    flex-grow: 1; /* Allow content to fill space */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h3, .card-content h4 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.card-content p {
+    margin-bottom: 16px; /* Space below paragraph */
+    color: var(--text-color);
+    opacity: 0.85;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    flex-grow: 1; /* Push actions to bottom */
+}
+
+.card-actions {
+    margin-top: auto; /* Push actions to the bottom */
+    padding-top: 16px;
+}
+
+
+/* --- Portfolio Specific Styles --- */
+#portfolio-filters {
+    margin-bottom: 40px;
+}
+
+.filter-button {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    border: 1px solid #ddd;
+    padding: 8px 16px;
+    margin: 0 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 0.9rem;
+}
+
+.filter-button:hover {
+    background-color: #eee;
+}
+
+.filter-button.active {
+    background-color: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.project-category-label {
+    display: inline-block;
+    background-color: var(--accent);
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+/* Style the link *inside* the label for contrast */
+.project-category-label a {
+    color: #000; /* Black text for contrast */
+    text-decoration: none; /* Optional: remove underline if desired */
+}
+
+.project-category-label a:hover {
+    color: #333; /* Slightly lighter black on hover */
+    text-decoration: underline; /* Add underline on hover */
+}
+
+/* Ensure project cards handle display toggling for filtering */
+.projects-grid .project {
+    display: flex; /* Assuming card uses flex direction column */
+    flex-direction: column;
+     /* If not using flex, ensure it's at least display: block; for show/hide */
+     /* The JavaScript will set display: none; when filtered out */
+}
+
+
+/* Skills Section (About Page) */
+#skills ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 0;
+    list-style-type: none;
+    max-width: 800px;
+    margin: 40px auto 0; /* Add margin top */
+}
+
+#skills li {
+    background: var(--card-bg);
+    padding: 10px 20px; /* Adjusted padding */
+    border-radius: 30px;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(10, 25, 47, 0.1);
+    font-size: 0.9rem;
+    color: var(--primary);
+    font-weight: 500;
+}
+
+#skills li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent);
+    color: var(--accent);
+    background-color: rgba(100, 255, 218, 0.05); /* Subtle background on hover */
+}
+
+/* Contact Section/Page */
+#contact-section, /* Renamed from #contact */
+.contact-page { /* Class for the contact page body/main container */
+    background-color: var(--primary);
+    color: var(--secondary);
+    padding: 80px 0;
+}
+
+#contact-section .container,
+.contact-page .container {
+    text-align: center;
+    max-width: 700px; /* Wider for form */
+}
+
+#contact-section h2,
+.contact-page h2.section-title {
+    color: var(--secondary); /* Override default section title color */
+}
+
+#contact-section h2::after,
+.contact-page h2.section-title::after {
+    background-color: var(--accent); /* Ensure underline uses accent */
+}
+
+
+#contact-section p,
+.contact-page p {
+    margin-bottom: 25px; /* Consistent spacing */
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+#contact-section a,
+.contact-page a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    word-break: break-word; /* Prevent long links overflowing */
+}
+
+#contact-section a:hover,
+.contact-page a:hover {
+    text-decoration: underline;
+}
+
+/* Basic Form Styles (Contact Page) */
+.contact-form {
+    margin-top: 40px;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--secondary); /* Label color on dark background */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 4px;
+}
+
+/* PDF Modal Styles */
+.pdf-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: auto;
+    transition: opacity 0.3s ease;
+}
+
+.pdf-modal-content {
+    background-color: var(--card-bg);
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 900px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.pdf-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.pdf-modal-header h2 {
+    margin: 0;
+    color: var(--primary);
+    font-size: 1.5rem;
+}
+
+.close-modal {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: var(--primary);
+}
+
+.pdf-modal-body {
+    width: 100%;
+    height: calc(100% - 60px);
+}
+
+/* View Details Button */
+.view-details-button {
+    display: inline-block;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-details-button:hover {
+    background-color: var(--accent);
+    color: var(--primary);
+}
+
+/* Make sure iframe takes full width */
+#pdf-iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    background-color: white;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    background-color: rgba(230, 241, 255, 0.1);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-actions {
+    text-align: center; /* Center the submit button */
+    margin-top: 30px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--primary);
+    color: rgba(230, 241, 255, 0.7); /* Lighter text for footer */
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: auto; /* Push footer to bottom if content is short */
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: var(--accent);
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Social Media Links (Placeholder) */
+.social-links {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Impact Metrics Section */
+.metric-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 25px 20px; /* Adjusted padding */
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(10, 25, 47, 0.1);
+    position: relative; /* Needed for pseudo-element */
+    overflow: hidden; /* Hide overflow from pseudo-element */
+    border-left: 5px solid var(--accent); /* Add accent border */
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent);
+}
+
+.metric-value {
+    font-size: clamp(2rem, 5vw, 2.5rem); /* Responsive font size */
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 8px; /* Adjusted margin */
+    line-height: 1.1;
+}
+/* Style for the units added in HTML (e.g., /5, %) */
+.metric-value span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-color);
+    opacity: 0.7;
+    margin-left: 2px;
+}
+
+.metric-label {
+    font-size: 0.95rem; /* Slightly smaller label */
+    color: var(--text-color);
+    opacity: 0.85;
+    position: relative; /* Ensure label is above pseudo-element */
+    z-index: 2;
+}
+
+/* Visual Fill for Score/Percentage Cards */
+.metric-card[data-type="score"]::before,
+.metric-card[data-type="percentage"]::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 184, 148, 0.1); /* Accent color with low opacity */
+    z-index: 1;
+    transition: height 0.5s ease-out;
+}
+
+/* Specific heights based on current values */
+.metric-card[data-value="4.8"][data-max="5"]::before { height: calc(4.8 / 5 * 100%); }
+.metric-card[data-value="85"][data-max="100"]::before { height: 85%; }
+.metric-card[data-value="42"][data-max="100"]::before { height: 42%; }
+.metric-card[data-value="35"][data-max="100"]::before { height: 35%; }
+.metric-card[data-value="28"][data-max="100"]::before { height: 28%; }
+
+.grid-cols-4 {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+}
+
+/* Social Media Links */
+.social-links li a {
+    color: var(--secondary);
+    font-size: 1.5rem; /* Icon size */
+    transition: color 0.3s ease;
+}
+
+.social-links li a:hover {
+    color: var(--accent);
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px; /* Adjust body padding for smaller header */
+    }
+
+    header {
+        padding: 12px 0;
+    }
+
+    header .container {
+        padding: 0 15px; /* Adjust header padding */
+    }
+
+    .header-main { /* Container for logo and toggle */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    header nav {
+        width: 100%;
+        display: none; /* Hide nav by default */
+        background: var(--primary);
+        position: absolute; /* Position absolutely below header */
+        top: 100%; /* Start right below the header */
+        left: 0;
+        padding: 16px 0;
+        margin-top: 0; /* Remove margin */
+        border-top: 1px solid rgba(230, 241, 255, 0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+        max-height: calc(100vh - 60px); /* Limit height */
+        overflow-y: auto; /* Allow scrolling if needed */
+    }
+
+    header nav.active { /* Show nav when active */
+        display: block;
+        animation: slideDown 0.3s ease-out;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: flex-start; /* Align items left */
+        gap: 0; /* Remove gap, use padding on items */
+        padding: 0; /* Remove padding */
+    }
+
+    header nav ul li {
+        margin: 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(230, 241, 255, 0.1); /* Separator */
+    }
+     header nav ul li:last-child {
+        border-bottom: none;
+     }
+
+    header nav ul li a {
+        display: block; /* Make links full width */
+        padding: 12px 20px; /* Add padding */
+        width: 100%;
+    }
+
+    header nav ul li.current a::after {
+        display: none; /* Hide underline on mobile */
+    }
+
+    .menu-toggle {
+        display: block; /* Show hamburger menu */
+    }
+
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    #showcase {
+        min-height: calc(100vh - 60px); /* Adjust height for smaller header */
+        padding: 40px 15px;
+        margin-top: -60px; /* Adjust margin */
+    }
+
+    #showcase h1 {
+        font-size: clamp(2rem, 8vw, 3rem); /* Adjust font size */
+    }
+
+    #showcase p {
+        font-size: clamp(0.9rem, 4vw, 1.1rem); /* Adjust font size */
+    }
+
+    .grid-cols-2, .grid-cols-3 {
+        grid-template-columns: 1fr; /* Stack columns on mobile */
+    }
+
+    .card-image img {
+        height: 200px; /* Adjust image height */
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+
+    #skills li {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+
+    #contact-section,
+    .contact-page {
+        padding: 60px 0;
+    }
+
+    footer {
+        padding: 20px 15px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Force 3 columns for projects grid on larger screens */
+@media (min-width: 769px) {
+    #portfolio-projects .projects-grid { /* Target the specific grid */
+        grid-template-columns: repeat(3, 1fr); /* Force exactly 3 columns */
+    }
+}
+
+/* Dark Mode (Optional - can be toggled via JS) */
+body.dark-mode {
+    --primary: #e6f1ff; /* Light primary for dark mode */
+    --secondary: #0a192f; /* Dark secondary for dark mode */
+    --accent: #ffab70; /* Different accent for dark mode */
+    --bg: #0a192f; /* Dark background */
+    --text-color: #e6f1ff; /* Light text */
+    --card-bg: #112240; /* Darker card background */
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    --table-header-bg: #1a3a6e;
+    --table-header-text: #e6f1ff;
+    --table-first-col-bg: #112240;
+    --table-first-col-text: #e6f1ff;
+}
+
+body.dark-mode header {
+    background: var(--secondary); /* Use dark secondary for header */
+    color: var(--primary); /* Use light primary for header text */
+}
+
+body.dark-mode header nav ul li a {
+    color: var(--primary);
+}
+
+body.dark-mode header nav ul li a:hover,
+body.dark-mode header nav ul li.current a {
+    color: var(--accent);
+}
+
+body.dark-mode header nav ul li.current a::after {
+     background: var(--accent);
+}
+
+body.dark-mode .menu-toggle {
+    color: var(--primary);
+}
+body.dark-mode .menu-toggle:hover {
+    color: var(--accent);
+}
+
+body.dark-mode h2.section-title {
+    color: var(--primary);
+}
+
+body.dark-mode h2.section-title::after {
+     background-color: var(--accent);
+}
+
+body.dark-mode section:nth-of-type(even) {
+    background-color: #112240; /* Slightly lighter dark background */
+}
+
+body.dark-mode #showcase {
+     background: linear-gradient(rgba(10, 25, 47, 0.95), rgba(10, 25, 47, 0.85)), url('../images/dafghif_cover.png') no-repeat center center/cover; /* Darker overlay */
+     color: var(--primary);
+}
+
+body.dark-mode .cta-button {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+body.dark-mode .cta-button:hover {
+    background: rgba(255, 171, 112, 0.1); /* Use dark mode accent color */
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+body.dark-mode .card {
+    background: var(--card-bg);
+    border-color: rgba(230, 241, 255, 0.1);
+}
+
+body.dark-mode .card:hover {
+     border-color: var(--accent);
+}
+
+body.dark-mode .card-content h3,
+body.dark-mode .card-content h4 {
+    color: var(--primary);
+}
+
+body.dark-mode .card-content p {
+    color: var(--primary);
+    opacity: 0.8;
+}
+
+body.dark-mode #skills li {
+    background: var(--card-bg);
+    border-color: rgba(230, 241, 255, 0.1);
+    color: var(--primary);
+}
+
+body.dark-mode #skills li:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background-color: rgba(255, 171, 112, 0.05);
+}
+
+body.dark-mode #contact-section,
+body.dark-mode .contact-page {
+    background-color: var(--secondary); /* Dark background */
+    color: var(--primary); /* Light text */
+}
+
+body.dark-mode #contact-section h2,
+body.dark-mode .contact-page h2.section-title {
+    color: var(--primary);
+}
+
+body.dark-mode #contact-section h2::after,
+body.dark-mode .contact-page h2.section-title::after {
+    background-color: var(--accent);
+}
+
+body.dark-mode #contact-section a,
+body.dark-mode .contact-page a {
+    color: var(--accent);
+}
+
+body.dark-mode .form-group label {
+    color: var(--primary);
+}
+
+body.dark-mode .form-group input[type="text"],
+body.dark-mode .form-group input[type="email"],
+body.dark-mode .form-group textarea {
+    border-color: rgba(230, 241, 255, 0.2);
+    background-color: rgba(10, 25, 47, 0.3); /* Darker input background */
+    color: var(--primary);
+}
+
+body.dark-mode .form-group input[type="text"]:focus,
+body.dark-mode .form-group input[type="email"]:focus,
+body.dark-mode .form-group textarea:focus {
+    border-color: var(--accent);
+    background-color: rgba(10, 25, 47, 0.5);
+}
+
+body.dark-mode footer {
+    background-color: var(--secondary);
+    color: rgba(230, 241, 255, 0.6);
+}
+
+body.dark-mode footer a {
+    color: var(--accent);
+}
+
+body.dark-mode .social-links li a {
+    color: var(--primary);
+}
+
+body.dark-mode .social-links li a:hover {
+    color: var(--accent);
+}
+
+/* Modal styles - Extracted and slightly refactored */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(10, 25, 47, 0.7); /* Use primary color with alpha */
+    padding-top: 5vh; /* Add padding top */
+}
+
+.modal-content {
+    background-color: var(--bg);
+    margin: 0 auto; /* Center horizontally */
+    padding: 32px;
+    border: none;
+    width: 90%;
+    max-width: 800px; /* Limit max width */
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(10, 25, 47, 0.2);
+    position: relative; /* Needed for close button positioning */
+    max-height: 90vh; /* Limit height */
+    overflow-y: auto; /* Allow scrolling within modal */
+}
+
+.modal-header { /* Simplified modal header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(10, 25, 47, 0.1);
+    margin-bottom: 24px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--primary);
+    line-height: 1.3;
+}
+
+.modal .close {
+    color: var(--primary);
+    font-size: 2rem; /* Larger close button */
+    font-weight: bold;
+    transition: all 0.3s ease;
+    background: none; /* Remove potential background */
+    border: none; /* Remove potential border */
+    padding: 0 8px; /* Adjust padding */
+    line-height: 1; /* Ensure proper alignment */
+    cursor: pointer;
+}
+
+.modal .close:hover,
+.modal .close:focus {
+    color: var(--accent);
+    transform: scale(1.1);
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    color: var(--text-color); /* Ensure body text color is correct */
+}
+
+/* Styles for project detail sections within modal */
+.program-phase {
+    background-color: rgba(10, 25, 47, 0.03);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(10, 25, 47, 0.1);
+}
+
+.program-phase h3 {
+    color: var(--primary);
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 1.3rem;
+}
+
+.phase-content {
+    display: grid; /* Use grid for side-by-side layout */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 20px;
+}
+
+.phase-section h4 {
+    color: var(--primary);
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.phase-section ul {
+    padding-left: 20px;
+    margin: 0;
+    list-style-type: disc; /* Ensure bullets are visible */
+}
+
+.phase-section li {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+.phase-section a { /* Link styling within modal */
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.phase-section a:hover {
+    color: #52cca7;
+}
+
+/* Dark mode modal adjustments */
+body.dark-mode .modal {
+     background-color: rgba(10, 25, 47, 0.85);
+}
+
+body.dark-mode .modal-content {
+    background-color: var(--card-bg); /* Use dark card background */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .modal-header {
+    border-bottom-color: rgba(230, 241, 255, 0.15);
+}
+
+body.dark-mode .modal-header h2 {
+    color: var(--primary);
+}
+
+body.dark-mode .modal .close {
+    color: var(--primary);
+}
+
+body.dark-mode .modal .close:hover,
+body.dark-mode .modal .close:focus {
+    color: var(--accent);
+}
+
+body.dark-mode .modal-body {
+    color: var(--primary);
+}
+
+body.dark-mode .program-phase {
+    background-color: rgba(10, 25, 47, 0.3); /* Darker phase background */
+    border-color: rgba(230, 241, 255, 0.1);
+}
+
+body.dark-mode .program-phase h3 {
+    color: var(--primary);
+}
+
+body.dark-mode .phase-section h4 {
+    color: var(--primary);
+}
+
+body.dark-mode .phase-section li {
+    color: var(--primary);
+    opacity: 0.85;
+}
+
+body.dark-mode .phase-section a {
+    color: var(--accent);
+}
+
+body.dark-mode .phase-section a:hover {
+    color: #ffc799; /* Lighter accent for dark mode hover */
+}
+
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mb-1 { margin-bottom: var(--spacing-base); }
+.mb-2 { margin-bottom: calc(var(--spacing-base) * 2); }
+.mb-3 { margin-bottom: calc(var(--spacing-base) * 3); }
+.mb-4 { margin-bottom: calc(var(--spacing-base) * 4); }
+.mt-1 { margin-top: var(--spacing-base); }
+.mt-2 { margin-top: calc(var(--spacing-base) * 2); }
+.mt-3 { margin-top: calc(var(--spacing-base) * 3); }
+.mt-4 { margin-top: calc(var(--spacing-base) * 4); }
+
+/* --- Collaboration Brands Section --- */
+#brands .brand-logos-container {
+    display: flex;         /* Arrange logos in a row */
+    flex-wrap: wrap;       /* Allow logos to wrap */
+    justify-content: center; /* Center logos horizontally */
+    align-items: center;   /* Align logos vertically */
+    gap: 30px;             /* Space between logos */
+    padding: 20px 0;       /* Vertical padding */
+    /* Override placeholder styles */
+    background-color: transparent;
+    border: none;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+#brands .brand-logos-container img {
+    max-width: 150px;      /* Max width */
+    height: auto;          /* Maintain aspect ratio */
+    object-fit: contain;   /* Fit logo within bounds */
+    /* margin: 0 15px; */ /* Optional: Adjust if 'gap' isn't sufficient */
+}
