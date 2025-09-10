@@ -47,6 +47,69 @@ img {
     display: block;
 }
 
+/* Blog cards (local JSON-rendered) */
+.blog-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-card-media img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.blog-card-body {
+    padding: 16px;
+}
+
+.blog-card-title {
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
+    color: var(--primary);
+}
+
+.blog-card-title a {
+    color: inherit;
+}
+
+.blog-card-desc {
+    margin: 0;
+    color: var(--text-color);
+    opacity: 0.9;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    /* Clamp to 3 lines with ellipsis (best-effort cross-browser) */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: calc(1.5em * 3);
+}
+
+.blog-card-footer {
+    padding: 0 16px 16px 16px;
+    margin-top: auto;
+}
+
+.blog-card-cta {
+    display: inline-block;
+    padding: 10px 14px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.blog-card-cta:hover {
+    opacity: 0.92;
+}
+
 .container {
     width: 90%;
     max-width: var(--max-width);

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Daffa Ghiffary Kusuma</title>
+    <meta name="description" content="Read blog articles by Daffa Ghiffary Kusuma on topics like employability skills, HR, AI, and more.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-main">
+                <div class="logo">
+                   <a href="index.html"><h1>Daffa Ghiffary Kusuma</h1></a>
+                </div>
+                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li class="current"><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="blog-list">
+            <div class="container">
+                <h2 class="section-title">Blog</h2>
+                <div id="blog-cards" class="grid grid-cols-2" style="gap: 20px;"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Daffa Ghiffary Kusuma. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Render blog cards from pre-populated JSON (no third-party).
+        (function renderBlogCards() {
+            const container = document.getElementById('blog-cards');
+            if (!container) return;
+
+            const jsonPath = 'assets/blog.json';
+            fetch(jsonPath)
+                .then(res => {
+                    if (!res.ok) throw new Error('Failed to load blog metadata');
+                    return res.json();
+                })
+                .then(data => {
+                    const posts = Array.isArray(data) ? data : (data.posts || []);
+                    if (!posts.length) {
+                        container.innerHTML = '<p>No blog posts found.</p>';
+                        return;
+                    }
+                    container.innerHTML = posts.map(p => {
+                        const title = p.title || 'Untitled Post';
+                        const url = p.url || '#';
+                        const desc = p.description || '';
+                        const img = p.image || '';
+                        return `
+                            <article class="blog-card">
+                                ${img ? `<div class=\"blog-card-media\"><img src=\"${img}\" alt=\"${title}\" loading=\"lazy\" referrerpolicy=\"no-referrer\"></div>` : ''}
+                                <div class="blog-card-body">
+                                    <h3 class="blog-card-title"><a href="${url}" target="_blank" rel="noopener noreferrer">${title}</a></h3>
+                                    ${desc ? `<p class="blog-card-desc">${desc}</p>` : ''}
+                                </div>
+                                <div class="blog-card-footer">
+                                    <a class="blog-card-cta" href="${url}" target="_blank" rel="noopener noreferrer">Read on Medium</a>
+                                </div>
+                            </article>
+                        `;
+                    }).join('');
+                })
+                .catch(() => {
+                    // Graceful fallback: simple link list
+                    container.innerHTML = `
+                        <a href="https://medium.com/@daffaghiffarykusuma" target="_blank" rel="noopener noreferrer">View all articles on Medium</a>
+                    `;
+                });
+        })();
+    </script>
+</body>
+
+</html>
