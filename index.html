@@ -1,30 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daffa Ghiffary Kusuma - Learning Specialist</title> <!-- Updated Title -->
-    <meta name="description"
-        content="Daffa Ghiffary Kusuma is a Learning Specialist with experience in program management, evaluation, and training design."> <!-- Updated Description -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css"> <!-- Link to external CSS -->
-    <!-- Add Font Awesome or other icon library if needed for social links/icons later -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> -->
+    <title>Daffa Ghiffary Kusuma - Learning Specialist</title>
+    <meta name="description" content="Learning strategist focused on designing, facilitating, and measuring programs that help people and teams grow.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
     <header>
         <div class="container">
             <div class="header-main">
-                <div class="logo"> <!-- Added logo wrapper -->
-                   <a href="index.html"><h1>Daffa Ghiffary Kusuma</h1></a>
+                <div class="logo">
+                    <a href="index.html"><h1>Daffa Ghiffary Kusuma</h1></a>
                 </div>
-                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
             </div>
             <nav>
                 <ul>
-                    <!-- Updated links for multi-page site -->
                     <li class="current"><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="services.html">Services</a></li>
@@ -32,76 +26,322 @@
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
+                <a href="contact.html" class="header-cta">Work With Me</a>
             </nav>
         </div>
     </header>
 
     <main>
-        <!-- Showcase Section - Adapted from original -->
         <section id="showcase">
-            <div class="container">
-                <h1>Empowering Growth Through Learning</h1> <!-- Updated Headline -->
-                <p>I’m a Learning Specialist passionate about designing impactful programs, managing their execution, and measuring success to foster continuous development.</p>
-                <a href="contact.html" class="cta-button mt-2">Get In Touch</a> <!-- Example CTA -->
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <h1>Empowering Growth Through Learning</h1>
+                    <p>I am a learning specialist who blends research-backed design, program operations, and data storytelling to help organisations and communities scale their impact.</p>
+                    <ul class="hero-points">
+                        <li>Custom learning programmes and train-the-trainer support</li>
+                        <li>Instructional storytelling and facilitation-ready assets</li>
+                        <li>Mentoring that helps teams sustain momentum</li>
+                    </ul>
+                    <div class="hero-actions">
+                        <a href="#services-preview" class="cta-button">Discover Services</a>
+                        <a href="contact.html" class="link-subtle">Plan a project together</a>
+                    </div>
+                    <div class="hero-trustband">
+                        <span>Certified Learning Experience Designer</span>
+                        <span>Google Project Management Professional</span>
+                        <span>1,200+ learners supported nationwide</span>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-image-frame">
+                        <img src="dafghif_cover.png" alt="Daffa Ghiffary Kusuma facilitating an engaging workshop">
+                    </div>
+                    <div class="hero-metric">
+                        <span class="metric-value">30+</span>
+                        <span class="metric-label">Organisations partnered with since 2017</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Optional Testimonial Section (Placeholder) -->
-        <section id="home-testimonial" style="background-color: #fdfdfd;">
-           <div class="container text-center">
-                <h2 class="section-title">What Clients Say</h2>
-                <div class="testimonial-review" style="border: 1px dashed #ccc; padding: 20px; border-radius: 8px;">
-                   <div class="testimonial-image-container" style="max-width: 200px; height: 200px; border-radius: 50%; margin: 20px auto 0; overflow: hidden;">
-                       <img src="assets/images/success_story/story_dias.png" alt="Irvandias Sanjaya" style="width: 100%; height: auto; display: block; object-fit: cover;">
-                   </div>
-                   <p class="review-text">Daffa’s expertise and planning made training seamless. Engaging materials, timely execution—highly recommend!</p>
-                   <p class="reviewer-info"><strong>Irvandias Sanjaya, S.Psi., CCP.</strong><br><em>Founder at Kerja Cer-Dias</em></p>
+        <section id="services-preview">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 class="section-title">How I Can Help</h2>
+                    <p>Each engagement is anchored in the work you can see in my <a href="portfolio.html">portfolio</a> and the insights I share on the <a href="blog.html">blog</a>. Choose the path that best fits the change you are building.</p>
                 </div>
-           </div>
+                <div class="services-preview-grid">
+                    <article class="service-preview-card">
+                        <div class="service-icon" data-icon="CT" aria-hidden="true"></div>
+                        <div class="service-metric-badge">1,200+ learners served</div>
+                        <h3>Custom Training &amp; Workshops</h3>
+                        <p>Design and deliver collaborative learning journeys for corporate teams, schools, and incubators. From entrepreneurship bootcamps to internal enablement, every session is outcome-driven.</p>
+                        <ul class="service-highlights">
+                            <li>Learning experiences built from discovery sessions and stakeholder interviews.</li>
+                            <li>Facilitation playbooks, coaching guides, and integrated measurement plans.</li>
+                        </ul>
+                        <p class="service-proof">"Programnya menarik dan membantu kami belajar menjadi wirausaha yang baik." <span>- Fina Nurita, SMKN 2 Tuban</span></p>
+                        <div class="service-card-actions">
+                            <a href="custom-training.html" class="cta-button cta-secondary">Explore the experience</a>
+                            <a href="contact.html?service=custom-training" class="link-subtle">Request a tailored proposal</a>
+                        </div>
+                    </article>
+                    <article class="service-preview-card">
+                        <div class="service-icon" data-icon="LD" aria-hidden="true"></div>
+                        <div class="service-metric-badge">40+ decks transformed</div>
+                        <h3>Learning PowerPoint Development</h3>
+                        <p>Transform dense material into compelling stories that teams can actually use. I combine instructional design, data visualization, and brand-aligned layouts.</p>
+                        <ul class="service-highlights">
+                            <li>Structure modules and onboarding flows drawn from proven programs in hospitality, education, and NGOs.</li>
+                            <li>Iterative reviews with ready-to-present speaker notes and export templates.</li>
+                        </ul>
+                        <p class="service-proof">"Decks yang Daffa susun membuat tim langsung siap mengeksekusi." <span>- Irvandias Sanjaya, Kerja Cer-Dias</span></p>
+                        <div class="service-card-actions">
+                            <a href="learning-powerpoint.html" class="cta-button cta-secondary">See the process</a>
+                            <a href="contact.html?service=powerpoint" class="link-subtle">Share your deck brief</a>
+                        </div>
+                    </article>
+                    <article class="service-preview-card">
+                        <div class="service-icon" data-icon="ME" aria-hidden="true"></div>
+                        <div class="service-metric-badge">Mentoring, speaking, coaching</div>
+                        <h3>Mentoring &amp; Speaking Engagements</h3>
+                        <p>Partner with me as a mentor, speaker, or facilitator to energise events and communities. Sessions are actionable, reflective, and grounded in real program lessons.</p>
+                        <ul class="service-highlights">
+                            <li>Keynotes and workshops on learning strategy, youth empowerment, and digital skills.</li>
+                            <li>1:1 or group mentoring with accountability cadences and resources tailored to your goals.</li>
+                        </ul>
+                        <p class="service-proof">"Mentoringnya menjaga kami tetap termotivasi dan accountable." <span>- Nadyatiana Sagita, Rumah Siap Kerja</span></p>
+                        <div class="service-card-actions">
+                            <a href="mentoring.html" class="cta-button cta-secondary">Design your session</a>
+                            <a href="contact.html?service=mentoring" class="link-subtle">Book a discovery call</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </section>
 
-        <!-- Collaborated Brands Section (Placeholder) -->
+        <section id="testimonials">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 class="section-title">Client Success Stories</h2>
+                    <p>From nationwide youth programs to corporate academies, partners trust me to connect strategy with results.</p>
+                </div>
+                <div class="testimonial-slider" data-testimonial-slider data-autoplay="true">
+                    <button class="slider-control" data-slider-prev aria-label="Previous testimonial">&#8249;</button>
+                    <div class="testimonial-track" data-slider-track aria-live="polite">
+                        <article class="testimonial-card">
+                            <p class="testimonial-quote">"Daffa is a strategic, data-driven expert who delivers exceptional results. His deep analysis ensures training programs are both impactful and tailored to our needs."</p>
+                            <div class="testimonial-footer">
+                                <img src="assets/images/success_story/story_nati.jpeg" alt="Portrait of Nadyatiana Sagita" class="testimonial-avatar">
+                                <div>
+                                    <p class="testimonial-name">Nadyatiana Sagita</p>
+                                    <p class="testimonial-role">Human Resource Specialist, Rumah Siap Kerja</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="testimonial-card">
+                            <p class="testimonial-quote">"Training ini sangat baik karena mentor dan fasilitator membantu kami menggali potensi yang sebelumnya tidak terlihat."</p>
+                            <div class="testimonial-footer">
+                                <img src="assets/images/success_story/story_achmad.jpg" alt="Portrait of Achmad Quraysh Syach Anwar" class="testimonial-avatar">
+                                <div>
+                                    <p class="testimonial-name">Achmad Quraysh Syach Anwar</p>
+                                    <p class="testimonial-role">Student &amp; Entrepreneur, NHI Bandung</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="testimonial-card">
+                            <p class="testimonial-quote">"Sebelumnya belum pernah ada kegiatan seperti ini di asrama. Saya belajar memimpin dan bertanggung jawab dalam proyek kelompok."</p>
+                            <div class="testimonial-footer">
+                                <div class="testimonial-avatar placeholder" aria-hidden="true">J</div>
+                                <div>
+                                    <p class="testimonial-name">Jajang</p>
+                                    <p class="testimonial-role">Ketua Kelompok, Asrama Rawasari</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="testimonial-card">
+                            <p class="testimonial-quote">"Saya berminat melanjutkan Budikdamber setelah lulus karena pelatihannya membuka cara pikir baru tentang kewirausahaan."</p>
+                            <div class="testimonial-footer">
+                                <div class="testimonial-avatar placeholder" aria-hidden="true">S</div>
+                                <div>
+                                    <p class="testimonial-name">Sandi</p>
+                                    <p class="testimonial-role">Ketua Kelompok, Asrama Kemang</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="testimonial-card">
+                            <p class="testimonial-quote">"Programnya menarik dan membantu kami belajar menjadi wirausaha yang baik melalui praktik langsung."</p>
+                            <div class="testimonial-footer">
+                                <div class="testimonial-avatar placeholder" aria-hidden="true">F</div>
+                                <div>
+                                    <p class="testimonial-name">Fina Nurita</p>
+                                    <p class="testimonial-role">Student, SMKN 2 Tuban</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="testimonial-card">
+                            <p class="testimonial-quote">"Sangat baik untuk pengenalan kewirausahaan dan memotivasi siswa untuk mencoba."</p>
+                            <div class="testimonial-footer">
+                                <div class="testimonial-avatar placeholder" aria-hidden="true">S</div>
+                                <div>
+                                    <p class="testimonial-name">Sufiyaningsih</p>
+                                    <p class="testimonial-role">Guru, SMKN 2 Tuban</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="testimonial-card">
+                            <p class="testimonial-quote">"Program ini membimbing siswa berani berkreasi, bereksperimen, dan memulai usaha."</p>
+                            <div class="testimonial-footer">
+                                <div class="testimonial-avatar placeholder" aria-hidden="true">B</div>
+                                <div>
+                                    <p class="testimonial-name">Bayu Hardian Akbar</p>
+                                    <p class="testimonial-role">Mahasiswa &amp; Entrepreneur, Poltekpar Lombok</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="testimonial-card">
+                            <p class="testimonial-quote">"Daffa merancang training kami dengan rapi, menyenangkan, dan tepat waktu. Materi yang dibawakan membuat tim langsung siap mengeksekusi."</p>
+                            <div class="testimonial-footer">
+                                <img src="assets/images/success_story/story_dias.png" alt="Portrait of Irvandias Sanjaya" class="testimonial-avatar">
+                                <div>
+                                    <p class="testimonial-name">Irvandias Sanjaya, S.Psi., CCP.</p>
+                                    <p class="testimonial-role">Founder, Kerja Cer-Dias</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <button class="slider-control" data-slider-next aria-label="Next testimonial">&#8250;</button>
+                    <div class="slider-dots" data-slider-dots></div>
+                </div>
+                <div class="testimonial-actions">
+                    <button type="button" class="link-subtle" data-toggle-testimonials>View full testimonials</button>
+                </div>
+                <div class="testimonial-archive" data-testimonial-archive hidden>
+                    <article class="testimonial-card">
+                        <p class="testimonial-quote">"Daffa is a strategic, data-driven expert who delivers exceptional results. His deep analysis ensures training programs are both impactful and tailored to our needs."</p>
+                        <div class="testimonial-footer">
+                            <img src="assets/images/success_story/story_nati.jpeg" alt="Portrait of Nadyatiana Sagita" class="testimonial-avatar">
+                            <div>
+                                <p class="testimonial-name">Nadyatiana Sagita</p>
+                                <p class="testimonial-role">Human Resource Specialist, Rumah Siap Kerja</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="testimonial-card">
+                        <p class="testimonial-quote">"Training ini sangat baik karena mentor dan fasilitator membantu kami menggali potensi yang sebelumnya tidak terlihat."</p>
+                        <div class="testimonial-footer">
+                            <img src="assets/images/success_story/story_achmad.jpg" alt="Portrait of Achmad Quraysh Syach Anwar" class="testimonial-avatar">
+                            <div>
+                                <p class="testimonial-name">Achmad Quraysh Syach Anwar</p>
+                                <p class="testimonial-role">Student &amp; Entrepreneur, NHI Bandung</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="testimonial-card">
+                        <p class="testimonial-quote">"Sebelumnya belum pernah ada kegiatan seperti ini di asrama. Saya belajar memimpin dan bertanggung jawab dalam proyek kelompok."</p>
+                        <div class="testimonial-footer">
+                            <div class="testimonial-avatar placeholder" aria-hidden="true">J</div>
+                            <div>
+                                <p class="testimonial-name">Jajang</p>
+                                <p class="testimonial-role">Ketua Kelompok, Asrama Rawasari</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="testimonial-card">
+                        <p class="testimonial-quote">"Saya berminat melanjutkan Budikdamber setelah lulus karena pelatihannya membuka cara pikir baru tentang kewirausahaan."</p>
+                        <div class="testimonial-footer">
+                            <div class="testimonial-avatar placeholder" aria-hidden="true">S</div>
+                            <div>
+                                <p class="testimonial-name">Sandi</p>
+                                <p class="testimonial-role">Ketua Kelompok, Asrama Kemang</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="testimonial-card">
+                        <p class="testimonial-quote">"Programnya menarik dan membantu kami belajar menjadi wirausaha yang baik melalui praktik langsung."</p>
+                        <div class="testimonial-footer">
+                            <div class="testimonial-avatar placeholder" aria-hidden="true">F</div>
+                            <div>
+                                <p class="testimonial-name">Fina Nurita</p>
+                                <p class="testimonial-role">Student, SMKN 2 Tuban</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="testimonial-card">
+                        <p class="testimonial-quote">"Sangat baik untuk pengenalan kewirausahaan dan memotivasi siswa untuk mencoba."</p>
+                        <div class="testimonial-footer">
+                            <div class="testimonial-avatar placeholder" aria-hidden="true">S</div>
+                            <div>
+                                <p class="testimonial-name">Sufiyaningsih</p>
+                                <p class="testimonial-role">Guru, SMKN 2 Tuban</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="testimonial-card">
+                        <p class="testimonial-quote">"Program ini membimbing siswa berani berkreasi, bereksperimen, dan memulai usaha."</p>
+                        <div class="testimonial-footer">
+                            <div class="testimonial-avatar placeholder" aria-hidden="true">B</div>
+                            <div>
+                                <p class="testimonial-name">Bayu Hardian Akbar</p>
+                                <p class="testimonial-role">Mahasiswa &amp; Entrepreneur, Poltekpar Lombok</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="testimonial-card">
+                        <p class="testimonial-quote">"Daffa merancang training kami dengan rapi, menyenangkan, dan tepat waktu. Materi yang dibawakan membuat tim langsung siap mengeksekusi."</p>
+                        <div class="testimonial-footer">
+                            <img src="assets/images/success_story/story_dias.png" alt="Portrait of Irvandias Sanjaya" class="testimonial-avatar">
+                            <div>
+                                <p class="testimonial-name">Irvandias Sanjaya, S.Psi., CCP.</p>
+                                <p class="testimonial-role">Founder, Kerja Cer-Dias</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <section id="brands">
             <div class="container">
                 <h2 class="section-title">Collaborated With</h2>
                 <div class="brand-logos-container">
-                    <img src="assets/images/logos/logo_kerjacerdias.png" alt="Logo of Kerjacerdias">
-                    <img src="assets/images/logos/logo_relationship.jpg" alt="Logo of Relationship">
-                    <img src="assets/images/logos/logo_unpad.png" alt="Logo of Unpad">
-                    <img src="assets/images/logos/logo_satupersen.svg" alt="Logo of Satupersen">
-                    <img src="assets/images/logos/logo_faxtor.svg" alt="Logo of Faxtor">
-                    <img src="assets/images/logos/logo_rsk.svg" alt="Logo of RSK">
+                    <img src="assets/images/logos/logo_kerjacerdias.png" alt="Kerja Cer-Dias logo">
+                    <img src="assets/images/logos/logo_relationship.jpg" alt="Relationship logo">
+                    <img src="assets/images/logos/logo_unpad.png" alt="Universitas Padjadjaran logo">
+                    <img src="assets/images/logos/logo_satupersen.svg" alt="Satu Persen logo">
+                    <img src="assets/images/logos/logo_faxtor.svg" alt="Faxtor logo">
+                    <img src="assets/images/logos/logo_rsk.svg" alt="Rumah Siap Kerja logo">
                 </div>
             </div>
         </section>
 
-         <!-- Call to Action Section -->
-        <section id="home-cta" style="background-color: var(--primary); color: var(--secondary);">
+        <section id="home-cta" class="section-accent">
             <div class="container text-center">
-                <h2 class="section-title" style="color: var(--secondary);">Ready to Elevate Your Learning Strategy?</h2>
-                <p>Let's discuss how I can help you achieve your training and development goals.</p>
-                <a href="contact.html" class="cta-button mt-2">Contact Me</a>
+                <h2 class="section-title">Ready to Elevate Your Learning Strategy?</h2>
+                <p>Let us map the learning experience, facilitation team, and metrics that will take your program to the next stage.</p>
+                <a href="contact.html" class="cta-button">Contact Me</a>
             </div>
         </section>
-
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; <span id="current-year"></span> Daffa Ghiffary Kusuma. All Rights Reserved.</p>
-            <!-- Optional: Add social links here if desired in footer -->
-            <!-- <ul class="social-links">
-                <li><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
-                <li><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
-            </ul> -->
+            <div class="footer-cta">
+                <div class="footer-cta-copy">
+                    <h2>Ready to collaborate?</h2>
+                    <p>Share your challenge and receive a tailored response within two business days.</p>
+                </div>
+                <a href="contact.html" class="cta-button">Book a consultation</a>
+            </div>
+            <div class="footer-meta">
+                <p>&copy; <span id="current-year"></span> Daffa Ghiffary Kusuma. All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
 
-    <script src="js/script.js"></script> <!-- Link to external JS -->
+    <script src="js/script.js"></script>
     <script>
-        // Simple script to update year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
-
 </html>

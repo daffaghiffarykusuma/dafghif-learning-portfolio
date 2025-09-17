@@ -1,37 +1,39 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const body = document.body;
     const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('header nav'); // Target the nav element directly
+    const nav = document.querySelector('header nav');
     const navLinks = document.querySelectorAll('header nav ul li a');
     const modalCloseButtons = document.querySelectorAll('.modal .close');
-    const projectItems = document.querySelectorAll('.project'); // Assuming projects trigger modals
+    const projectItems = document.querySelectorAll('.project');
+    const serviceInquiryForms = document.querySelectorAll('.service-inquiry-form');
 
     let activeProjectModal = null;
-    let windowClickEventHandler = null; // Store the handler reference
+    let windowClickEventHandler = null;
 
     // --- Navigation ---
+    const servicePages = new Set(['services.html', 'custom-training.html', 'learning-powerpoint.html', 'mentoring.html']);
+    const portfolioPages = new Set(['portfolio.html', 'case-entrepreneurship.html']);
 
-    // Mobile Menu Toggle
     if (menuToggle && nav) {
         menuToggle.addEventListener('click', () => {
             nav.classList.toggle('active');
-            // Optional: Toggle ARIA attribute for accessibility
             const isExpanded = nav.classList.contains('active');
             menuToggle.setAttribute('aria-expanded', isExpanded);
         });
     }
 
-    // Highlight current page link
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html'; // Get current filename
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     navLinks.forEach(link => {
         const linkPage = link.getAttribute('href').split('/').pop() || 'index.html';
-        if (linkPage === currentPage) {
-            link.parentElement.classList.add('current');
+        const parentItem = link.parentElement;
+        const shouldHighlight = linkPage === currentPage || (servicePages.has(currentPage) && linkPage === 'services.html') || (portfolioPages.has(currentPage) && linkPage === 'portfolio.html');
+
+        if (shouldHighlight) {
+            parentItem.classList.add('current');
         } else {
-            link.parentElement.classList.remove('current'); // Ensure others are not marked current
+            parentItem.classList.remove('current');
         }
 
-        // Close mobile menu on link click (for multi-page navigation)
         link.addEventListener('click', () => {
             if (nav && nav.classList.contains('active')) {
                 nav.classList.remove('active');
@@ -42,50 +44,38 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     });
 
-
     // --- Modal Functionality ---
-
     function closeActiveModal() {
         if (activeProjectModal) {
             activeProjectModal.style.display = "none";
             activeProjectModal = null;
-            // Remove the specific window click listener
             if (windowClickEventHandler) {
                 window.removeEventListener("click", windowClickEventHandler);
                 windowClickEventHandler = null;
             }
-            // Optional: Re-enable body scroll if it was disabled
-            // document.body.style.overflow = '';
         }
     }
 
-    // Add click listener to project items to open modals
     projectItems.forEach(project => {
         project.addEventListener('click', () => {
-            const targetModalId = project.dataset.target; // e.g., "#modal-project-1"
+            const targetModalId = project.dataset.target;
             if (targetModalId) {
                 const targetModalEl = document.querySelector(targetModalId);
                 if (targetModalEl) {
-                    // Close any previously active modal first
                     closeActiveModal();
 
                     targetModalEl.style.display = "block";
                     activeProjectModal = targetModalEl;
-                    // Optional: Disable body scroll while modal is open
-                    // document.body.style.overflow = 'hidden';
 
-                    // Add window click listener specifically for this modal instance
                     windowClickEventHandler = function(e) {
-                        // Close if clicking outside the modal content, but not on the trigger itself
                         if (e.target === targetModalEl) {
                              closeActiveModal();
                         }
                     };
                     window.addEventListener("click", windowClickEventHandler);
 
-                    // Set external links in modal to open in new tab
                     targetModalEl.querySelectorAll('a[href^="http"], a[href^="https"]').forEach(link => {
-                         if (!link.hasAttribute('data-no-blank')) { // Check for override attribute
+                         if (!link.hasAttribute('data-no-blank')) {
                             link.setAttribute('target', '_blank');
                             link.setAttribute('rel', 'noopener noreferrer');
                         }
@@ -99,52 +89,47 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     });
 
-    // Add click listener to all modal close buttons
     modalCloseButtons.forEach((button) => {
         button.addEventListener("click", (e) => {
             e.preventDefault();
-            e.stopPropagation(); // Prevent the window click listener from firing
+            e.stopPropagation();
             closeActiveModal();
         });
     });
 
-    // Close modal on Escape key press
     document.addEventListener('keydown', (e) => {
         if (e.key === "Escape" && activeProjectModal) {
             closeActiveModal();
         }
     });
 
-
     // --- PDF Viewer Modal Functionality ---
     const pdfModal = document.getElementById('pdf-modal');
     const pdfModalTitle = document.getElementById('pdf-modal-title');
     const pdfIframe = document.getElementById('pdf-iframe');
-    const pdfModalCloseButton = pdfModal?.querySelector('.js-close-modal'); // Use optional chaining
+    const pdfModalCloseButton = pdfModal?.querySelector('.js-close-modal');
     const viewDetailsButtons = document.querySelectorAll('.view-details-button');
 
-    let activePdfModal = null; // Separate state for PDF modal
-    let pdfWindowClickEventHandler = null; // Separate handler
+    let activePdfModal = null;
+    let pdfWindowClickEventHandler = null;
 
     function closePdfModal() {
         if (activePdfModal) {
             activePdfModal.style.display = "none";
-            pdfIframe.src = ""; // Clear iframe src to stop loading/potential background activity
+            pdfIframe.src = "";
             activePdfModal = null;
             if (pdfWindowClickEventHandler) {
                 window.removeEventListener("click", pdfWindowClickEventHandler);
                 pdfWindowClickEventHandler = null;
             }
-            // Optional: Re-enable body scroll if needed
-            // document.body.style.overflow = '';
         }
     }
 
     if (pdfModal && pdfModalCloseButton && viewDetailsButtons.length > 0) {
         viewDetailsButtons.forEach(button => {
             button.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevent default button action
-                e.stopPropagation(); // Stop event from bubbling up (e.g., to project card click)
+                e.preventDefault();
+                e.stopPropagation();
 
                 const pdfPath = button.dataset.pdf;
                 if (!pdfPath) {
@@ -152,40 +137,30 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     return;
                 }
 
-                // Try to find the project title from the card content
                 const cardContent = button.closest('.card-content');
                 const projectTitleElement = cardContent?.querySelector('h4');
                 const projectTitle = projectTitleElement ? projectTitleElement.textContent : 'Project Details';
 
-                // Close any other active modals (both project and PDF)
                 closeActiveModal();
                 closePdfModal();
 
-                // Update modal content
                 pdfModalTitle.textContent = projectTitle;
-                // Append parameters to discourage downloading/toolbar display
                 pdfIframe.src = `${pdfPath}#toolbar=0&navpanes=0&scrollbar=0`;
 
-                // Show the modal
                 pdfModal.style.display = 'block';
                 activePdfModal = pdfModal;
-                // Optional: Disable body scroll
-                // document.body.style.overflow = 'hidden';
 
-                // Add window click listener for closing when clicking outside
                 pdfWindowClickEventHandler = function(event) {
                     if (event.target === pdfModal) {
                         closePdfModal();
                     }
                 };
-                // Use setTimeout to avoid immediate closing if the click originated on the button
                 setTimeout(() => {
                     window.addEventListener('click', pdfWindowClickEventHandler);
                 }, 0);
             });
         });
 
-        // Close button listener
         pdfModalCloseButton.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
@@ -195,29 +170,240 @@ document.addEventListener('DOMContentLoaded', (event) => {
     } else {
          if (!pdfModal) console.warn("PDF Modal element (#pdf-modal) not found.");
          if (!pdfModalCloseButton) console.warn("PDF Modal close button (.js-close-modal) not found within #pdf-modal.");
-         // No warning for buttons if none are expected yet
     }
 
-     // Add Escape key listener for PDF modal (ensure it doesn't conflict if both modals could be open)
-     document.addEventListener('keydown', (e) => {
-        if (e.key === "Escape" && activePdfModal) { // Check specifically for active PDF modal
+    document.addEventListener('keydown', (e) => {
+        if (e.key === "Escape" && activePdfModal) {
             closePdfModal();
         }
     });
 
+    // --- Testimonial Slider ---
+    const testimonialSliders = document.querySelectorAll('[data-testimonial-slider]');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    testimonialSliders.forEach(slider => {
+        const track = slider.querySelector('[data-slider-track]');
+        const slides = track ? Array.from(track.children) : [];
+        const prevButton = slider.querySelector('[data-slider-prev]');
+        const nextButton = slider.querySelector('[data-slider-next]');
+        const dotsContainer = slider.querySelector('[data-slider-dots]');
+        if (!track || slides.length === 0) {
+            slider.classList.add('is-disabled');
+            return;
+        }
+
+        let currentIndex = 0;
+        let autoplayTimer = null;
+        const autoplayEnabled = slider.dataset.autoplay === 'true' && !prefersReducedMotion;
+        const interval = parseInt(slider.dataset.interval || '6500', 10);
+        const dots = [];
+
+        const updateAria = () => {
+            slides.forEach((slide, index) => {
+                slide.setAttribute('aria-hidden', index === currentIndex ? 'false' : 'true');
+            });
+            dots.forEach((dot, index) => {
+                dot.setAttribute('aria-current', index === currentIndex ? 'true' : 'false');
+            });
+        };
+
+        const goTo = (targetIndex, fromAutoplay = false) => {
+            const slideCount = slides.length;
+            currentIndex = (targetIndex + slideCount) % slideCount;
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            updateAria();
+            if (!fromAutoplay) {
+                restartAutoplay();
+            }
+        };
+
+        const startAutoplay = () => {
+            if (!autoplayEnabled) return;
+            stopAutoplay();
+            autoplayTimer = window.setInterval(() => {
+                goTo(currentIndex + 1, true);
+            }, interval);
+        };
+
+        const stopAutoplay = () => {
+            if (autoplayTimer) {
+                window.clearInterval(autoplayTimer);
+                autoplayTimer = null;
+            }
+        };
+
+        const restartAutoplay = () => {
+            if (!autoplayEnabled) return;
+            stopAutoplay();
+            startAutoplay();
+        };
+
+        if (dotsContainer) {
+            slides.forEach((_slide, index) => {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.setAttribute('aria-label', `Show testimonial ${index + 1}`);
+                dot.addEventListener('click', () => goTo(index));
+                dotsContainer.appendChild(dot);
+                dots.push(dot);
+            });
+        }
+
+        prevButton?.addEventListener('click', () => goTo(currentIndex - 1));
+        nextButton?.addEventListener('click', () => goTo(currentIndex + 1));
+
+        slider.addEventListener('mouseenter', stopAutoplay);
+        slider.addEventListener('mouseleave', startAutoplay);
+        slider.addEventListener('focusin', stopAutoplay);
+        slider.addEventListener('focusout', startAutoplay);
+
+        updateAria();
+        startAutoplay();
+    });
+
+
+    const testimonialToggle = document.querySelector('[data-toggle-testimonials]');
+    const testimonialArchive = document.querySelector('[data-testimonial-archive]');
+
+    if (testimonialToggle && testimonialArchive) {
+        testimonialToggle.addEventListener('click', () => {
+            const isHidden = testimonialArchive.hasAttribute('hidden');
+            if (isHidden) {
+                testimonialArchive.removeAttribute('hidden');
+                testimonialToggle.textContent = 'Hide full testimonials';
+                testimonialArchive.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                testimonialArchive.setAttribute('hidden', '');
+                testimonialToggle.textContent = 'View full testimonials';
+            }
+        });
+    }
+
+    const SERVICE_INQUIRY_STORAGE_KEY = 'serviceInquiry';
+
+    if (serviceInquiryForms && serviceInquiryForms.length > 0) {
+        serviceInquiryForms.forEach(form => {
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const formData = new FormData(form);
+                const payload = {
+                    service: form.dataset.service || formData.get('service') || '',
+                    name: formData.get('name') || '',
+                    email: formData.get('email') || '',
+                    organisation: formData.get('organisation') || '',
+                    timeline: formData.get('timeline') || '',
+                    goal: formData.get('goal') || ''
+                };
+
+                try {
+                    sessionStorage.setItem(SERVICE_INQUIRY_STORAGE_KEY, JSON.stringify(payload));
+                } catch (error) {
+                    console.warn('Unable to store inquiry context', error);
+                }
+
+                const target = form.getAttribute('action') || 'contact.html';
+                window.location.href = target;
+            });
+        });
+    }
+
+    const currentParams = new URLSearchParams(window.location.search);
+    const serviceFromQuery = currentParams.get('service');
+
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        const nameField = contactForm.querySelector('#name');
+        const emailField = contactForm.querySelector('#email');
+        const organisationField = contactForm.querySelector('input[name="organisation"], #company');
+        const messageField = contactForm.querySelector('#message');
+        const serviceField = contactForm.querySelector('#service-interest');
+        const banner = document.getElementById('contact-prefill-message');
+
+        const storedValue = (() => {
+            try {
+                const raw = sessionStorage.getItem(SERVICE_INQUIRY_STORAGE_KEY);
+                return raw ? JSON.parse(raw) : null;
+            } catch (error) {
+                console.warn('Unable to parse stored inquiry context', error);
+                return null;
+            }
+        })();
+
+        const setSelectValue = (value) => {
+            if (!serviceField || !value) return;
+            const normalized = value.toLowerCase();
+            const mapping = new Map([
+                ['custom-training', 'training'],
+                ['training', 'training'],
+                ['powerpoint', 'powerpoint'],
+                ['learning-powerpoint', 'powerpoint'],
+                ['mentoring', 'mentoring'],
+                ['speaking', 'speaking']
+            ]);
+            const targetValue = mapping.get(normalized) || normalized;
+            Array.from(serviceField.options).forEach(option => {
+                option.selected = option.value === targetValue;
+            });
+        };
+
+        const friendlyServiceName = (value) => {
+            if (!value) return 'this project';
+            const lookup = {
+                'training': 'a custom training programme',
+                'custom-training': 'a custom training programme',
+                'powerpoint': 'a learning PowerPoint engagement',
+                'learning-powerpoint': 'a learning PowerPoint engagement',
+                'mentoring': 'a mentoring or speaking engagement',
+                'speaking': 'an event speaking engagement'
+            };
+            const key = value.toLowerCase();
+            return lookup[key] || value;
+        };
+
+        const applyPrefill = (data) => {
+            if (!data) return;
+            if (nameField && data.name) nameField.value = data.name;
+            if (emailField && data.email) emailField.value = data.email;
+            if (organisationField && data.organisation) organisationField.value = data.organisation;
+            if (messageField && data.goal) {
+                const trimmed = data.goal.trim();
+                if (trimmed.length > 0) {
+                    messageField.value = trimmed;
+                }
+            }
+            setSelectValue(data.service || serviceFromQuery);
+            if (banner) {
+                banner.removeAttribute('hidden');
+            }
+            try {
+                sessionStorage.removeItem(SERVICE_INQUIRY_STORAGE_KEY);
+            } catch (error) {
+                console.warn('Unable to clear stored inquiry context', error);
+            }
+        };
+
+        if (storedValue) {
+            applyPrefill(storedValue);
+        } else if (serviceFromQuery) {
+            setSelectValue(serviceFromQuery);
+            if (messageField) {
+                const readable = friendlyServiceName(serviceFromQuery);
+                messageField.value = `Interested in ${readable}. Please share availability and next steps.`;
+            }
+        }
+    }
 
     // --- Dark Mode Toggle (Optional - currently commented out) ---
     /*
-    const darkModeToggle = document.getElementById('dark-mode-toggle'); // Assuming you add a button with this ID
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
     if (darkModeToggle) {
-        // Check for saved preference
         if (localStorage.getItem('darkMode') === 'enabled') {
             body.classList.add('dark-mode');
         }
 
         darkModeToggle.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
-            // Save preference
             if (body.classList.contains('dark-mode')) {
                 localStorage.setItem('darkMode', 'enabled');
             } else {
@@ -226,5 +412,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     }
     */
-
 });
+
+
+
+
+
+
