@@ -2221,3 +2221,258 @@ body.dark-mode .phase-section a:hover {
 
 
 
+/* Services UI enhancements */
+.hero-split {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.hero-media {
+    margin: 0;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+}
+
+.hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.services-spotlight {
+    background: linear-gradient(135deg, rgba(0, 184, 148, 0.08), rgba(10, 25, 47, 0.08));
+    padding: 40px 0;
+}
+
+.spotlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.spotlight-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border: 1px solid rgba(10, 25, 47, 0.08);
+}
+
+.spotlight-eyebrow {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin: 0 0 4px;
+}
+
+.spotlight-card h3 {
+    margin: 0;
+    color: var(--primary);
+    font-size: 1.25rem;
+}
+
+.spotlight-price {
+    font-size: 1rem;
+    color: var(--primary);
+    margin: 0;
+}
+
+.spotlight-price strong {
+    font-size: 1.4rem;
+}
+
+.spotlight-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--text-color);
+    opacity: 0.92;
+}
+
+.spotlight-list li::before {
+    content: '\2022';
+    color: var(--accent);
+    margin-right: 8px;
+}
+
+.source-tag {
+    background: rgba(10, 25, 47, 0.08);
+    border-radius: 999px;
+    padding: 2px 10px;
+    font-size: 0.75rem;
+    color: var(--primary);
+    display: inline-block;
+}
+
+.service-preview-visual {
+    margin: 0 0 16px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    height: 180px;
+}
+
+.service-preview-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.services-collage {
+    padding: 20px 0 0;
+}
+
+.visual-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.visual-card {
+    margin: 0;
+    background: var(--card-bg);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.visual-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.visual-card figcaption {
+    padding: 16px;
+    font-size: 0.95rem;
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .hero-split {
+        gap: 24px;
+    }
+    .hero-media {
+        max-height: 260px;
+    }
+}
+/* Package cards */
+.service-packages {
+    padding: 40px 0;
+}
+
+.package-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.package-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid rgba(10, 25, 47, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.package-name {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--primary);
+}
+
+.package-price {
+    margin: 0;
+    font-size: 1.6rem;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.package-meta {
+    margin: 0;
+    font-size: 0.95rem;
+    color: rgba(10, 25, 47, 0.75);
+}
+
+.package-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--text-color);
+}
+
+.package-list li::before {
+    content: '\2022';
+    color: var(--accent);
+    margin-right: 8px;
+}
+
+.package-footnote {
+    margin-top: 24px;
+    font-size: 0.9rem;
+    color: rgba(10, 25, 47, 0.75);
+}
+
+.service-gallery {
+    padding: 20px 0 0;
+}
+.hero-breadcrumb {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+}
+
+.hero-breadcrumb a {
+    color: var(--primary);
+    background: rgba(10, 25, 47, 0.08);
+    padding: 4px 12px;
+    border-radius: 999px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.hero-breadcrumb a:hover {
+    color: var(--accent);
+    background: rgba(10, 25, 47, 0.15);
+}
+
+.spotlight-card {
+    color: var(--primary);
+}
+
+.spotlight-card p,
+.spotlight-list {
+    color: var(--primary);
+}
+
+.spotlight-list li {
+    color: rgba(10, 25, 47, 0.85);
+}
