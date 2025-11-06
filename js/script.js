@@ -107,25 +107,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const pdfModal = document.getElementById('pdf-modal');
     const pdfModalTitle = document.getElementById('pdf-modal-title');
     const pdfIframe = document.getElementById('pdf-iframe');
-    const pdfModalCloseButton = pdfModal?.querySelector('.js-close-modal');
     const viewDetailsButtons = document.querySelectorAll('.view-details-button');
 
     let activePdfModal = null;
-    let pdfWindowClickEventHandler = null;
 
     function closePdfModal() {
         if (activePdfModal) {
             activePdfModal.style.display = "none";
             pdfIframe.src = "";
             activePdfModal = null;
-            if (pdfWindowClickEventHandler) {
-                window.removeEventListener("click", pdfWindowClickEventHandler);
-                pdfWindowClickEventHandler = null;
-            }
         }
     }
 
-    if (pdfModal && pdfModalCloseButton && viewDetailsButtons.length > 0) {
+    // Initialize PDF modal functionality if elements exist
+    if (pdfModal && pdfModalTitle && pdfIframe && viewDetailsButtons.length > 0) {
+        // Add click handlers for all view details buttons
         viewDetailsButtons.forEach(button => {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -137,43 +133,73 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     return;
                 }
 
+                // Get project title
                 const cardContent = button.closest('.card-content');
                 const projectTitleElement = cardContent?.querySelector('h4');
                 const projectTitle = projectTitleElement ? projectTitleElement.textContent : 'Project Details';
 
+                // Close any other open modals first
                 closeActiveModal();
                 closePdfModal();
 
+                // Set modal title and PDF source
                 pdfModalTitle.textContent = projectTitle;
-                pdfIframe.src = `${pdfPath}#toolbar=0&navpanes=0&scrollbar=0`;
+                
+                // Add security parameters to prevent downloads while allowing viewing
+                pdfIframe.src = pdfPath + '#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-width&statusbar=0&messages=0&pagemode=none';
 
+                // Show the modal
                 pdfModal.style.display = 'block';
                 activePdfModal = pdfModal;
 
-                pdfWindowClickEventHandler = function(event) {
-                    if (event.target === pdfModal) {
+                // Scroll to top of modal to ensure it's visible
+                setTimeout(() => {
+                    // Scroll to top of page first, then scroll modal into view
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    setTimeout(() => {
+                        pdfModal.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 300);
+                }, 50);
+
+                // Add escape key handler
+                const escapeHandler = (event) => {
+                    if (event.key === 'Escape') {
                         closePdfModal();
+                        document.removeEventListener('keydown', escapeHandler);
                     }
                 };
-                setTimeout(() => {
-                    window.addEventListener('click', pdfWindowClickEventHandler);
-                }, 0);
+                document.addEventListener('keydown', escapeHandler);
             });
         });
 
-        pdfModalCloseButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            closePdfModal();
+        // Add close button functionality
+        const closeButton = pdfModal.querySelector('.close-modal');
+        if (closeButton) {
+            closeButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                closePdfModal();
+            });
+        }
+
+        // Add click outside to close functionality
+        pdfModal.addEventListener('click', (e) => {
+            if (e.target === pdfModal) {
+                closePdfModal();
+            }
         });
 
+        console.log(`PDF Viewer initialized with ${viewDetailsButtons.length} buttons`);
     } else {
-         if (!pdfModal) console.warn("PDF Modal element (#pdf-modal) not found.");
-         if (!pdfModalCloseButton) console.warn("PDF Modal close button (.js-close-modal) not found within #pdf-modal.");
+        if (!pdfModal) console.warn("PDF Modal element (#pdf-modal) not found.");
+        if (!pdfModalTitle) console.warn("PDF Modal title element (#pdf-modal-title) not found.");
+        if (!pdfIframe) console.warn("PDF iframe element (#pdf-iframe) not found.");
+        if (viewDetailsButtons.length === 0) console.warn("No view details buttons found.");
     }
 
+    // Global escape key handler
     document.addEventListener('keydown', (e) => {
-        if (e.key === "Escape" && activePdfModal) {
+        if (e.key === "Escape") {
             closePdfModal();
         }
     });
