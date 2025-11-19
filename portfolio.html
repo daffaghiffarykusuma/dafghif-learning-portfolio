@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Daffa Ghiffary Kusuma</title> <!-- Specific Title -->
     <meta name="description"
-        content="View the portfolio of Daffa Ghiffary Kusuma, showcasing projects in learning program development, evaluation, and more."> <!-- Specific Description -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+        content="View the portfolio of Daffa Ghiffary Kusuma, showcasing projects in learning program development, evaluation, and more.">
+    <!-- Specific Description -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> -->
 </head>
@@ -16,8 +19,10 @@
     <header>
         <div class="container">
             <div class="header-main">
-                 <div class="logo">
-                   <a href="index.html"><h1>Daffa Ghiffary Kusuma</h1></a>
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>Daffa Ghiffary Kusuma</h1>
+                    </a>
                 </div>
                 <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
             </div>
@@ -30,8 +35,8 @@
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-                    <a href="contact.html" class="header-cta">Work With Me</a>
-                </nav>
+                <a href="contact.html" class="header-cta">Work With Me</a>
+            </nav>
         </div>
     </header>
 
@@ -44,746 +49,1025 @@
                 <!-- Filter Buttons -->
                 <div id="portfolio-filters" style="text-align: center; margin-bottom: 40px;">
                     <button class="filter-button active" data-filter="all">All</button>
-                    <button type="button" class="filter-button" data-filter="training-workshop">Custom Training & Workshops</button>
-                    <button type="button" class="filter-button" data-filter="powerpoint">Learning PowerPoint Development</button>
-                    <button type="button" class="filter-button" data-filter="mentoring">Mentoring &amp; Speaking</button>
+                    <button type="button" class="filter-button" data-filter="training-workshop">Custom Training &
+                        Workshops</button>
+                    <button type="button" class="filter-button" data-filter="powerpoint">Learning PowerPoint
+                        Development</button>
+                    <button type="button" class="filter-button" data-filter="mentoring">Mentoring &amp;
+                        Speaking</button>
                 </div>
 
                 <!-- Combined Project Grid -->
                 <div class="grid grid-cols-3 projects-grid"> <!-- Removed static category divs -->
-                        <!-- Project 1 -->
-                        <!-- Project 1 -->
-                        <div class="card project" data-category="training-workshop"> <!-- Updated data-category -->
-                            <div class="card-image">
-                                <img src="assets/images/portfolio/course_2.webp" alt="Entrepreneurship Online Class">
-                            </div>
-                            <div class="card-content">
-                                <h4>Entrepreneurship Online Class</h4>
-                                <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span> <!-- Updated category label & added link -->
-                                <p>Expanding business requires more than sales skills. This course focuses on leveraging social media and sales teams for growth.</p>
-                                <div class="card-actions">
-                                     <a href="contact.html?project=Online Class" class="cta-button">Discuss Similar Project</a>
-                                     <!-- Placeholder: Add button if PDF exists -->
-                                     <button class="cta-button view-details-button" data-pdf="assets/pdf/portfolio/placeholder_online_class.pdf">View Details</button>
-                                </div>
+                    <!-- Project: Theory of Change as Program Framework -->
+                    <div class="card project" data-category="training-workshop">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/toc.webp" alt="Theory of Change as Program Framework">
+                        </div>
+                        <div class="card-content">
+                            <h4>Theory of Change as Program Framework</h4>
+                            <span class="project-category-label"><a href="custom-training.html"
+                                    title="View Service Details">Custom Training & Workshops</a></span>
+                            <p>Master program planning with this Theory of Change deck. Covers Intervention Mapping
+                                steps, logic models, and evaluation strategies to design high-impact interventions.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Theory of Change as Program Framework"
+                                    class="cta-button">Discuss Similar Project</a>
+                                <button class="view-details-button" data-pdf="assets/pdf/portfolio/toc.pdf">View
+                                    Details</button>
                             </div>
                         </div>
-                        <!-- Project 2 -->
-                        <!-- Project 2 -->
-                        <div class="card project" data-category="training-workshop">
-                             <div class="card-image">
-                                <img src="assets/images/portfolio/training_for_trainer.webp" alt="Training for Trainer">
-                             </div>
-                            <div class="card-content">
-                                <h4>Training for Trainer: Experiential Learning & Coaching</h4>
-                                <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                                <p>Equipping sales teams with teaching and coaching skills for effective on-site community engagement through training and role-play.</p>
-                                 <div class="card-actions">
-                                      <a href="contact.html?project=Training for Trainer" class="cta-button">Discuss Similar Project</a>
-                                      <button class="view-details-button" data-pdf="assets/pdf/portfolio/training_for_trainer.pdf">View Details</button>
-                                 </div>
+                    </div>
+                    <!-- Project 1 -->
+                    <!-- Project 1 -->
+                    <div class="card project" data-category="training-workshop"> <!-- Updated data-category -->
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/course_2.webp" alt="Entrepreneurship Online Class">
+                        </div>
+                        <div class="card-content">
+                            <h4>Entrepreneurship Online Class</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <!-- Updated category label & added link -->
+                            <p>Expanding business requires more than sales skills. This course focuses on leveraging
+                                social media and sales teams for growth.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Online Class" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <!-- Placeholder: Add button if PDF exists -->
+                                <button class="cta-button view-details-button"
+                                    data-pdf="assets/pdf/portfolio/placeholder_online_class.pdf">View Details</button>
                             </div>
                         </div>
-                        <!-- Project 3 -->
-                        <!-- Project 3 - Flagged for Review -->
-                        <div class="card project" data-category="legacy-review"> <!-- Flagged: Doesn't fit new categories -->
-                             <div class="card-image">
-                                <img src="assets/images/portfolio/community_accelerator.webp" alt="Sandination Community Mentorship">
-                             </div>
-                            <div class="card-content">
-                                <h4>Entrepreneurship Mentorship for Sandination Community</h4>
-                                <span class="project-category-label"><a href="custom-training.html" title="View Service Details">Custom Training & Workshops</a></span> <!-- Updated category label & added link -->
-                                <p>A 3-month mentorship program designed to help Sandination community members increase income by selling Aerputh products.</p>
-                                 <div class="card-actions">
-                                      <a href="contact.html?project=Sandination Mentorship" class="cta-button">Discuss Similar Project</a>
-                                      <button class="view-details-button" data-pdf="assets/pdf/portfolio/sandination_mentorship.pdf">View Details</button>
-                                 </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <!-- Project 2 -->
+                    <div class="card project" data-category="training-workshop">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/training_for_trainer.webp" alt="Training for Trainer">
+                        </div>
+                        <div class="card-content">
+                            <h4>Training for Trainer: Experiential Learning & Coaching</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Equipping sales teams with teaching and coaching skills for effective on-site community
+                                engagement through training and role-play.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Training for Trainer" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/training_for_trainer.pdf">View Details</button>
                             </div>
                         </div>
-                        <!-- Project 4 -->
-                        <!-- Project 4 -->
-                        <div class="card project" data-category="training-workshop"> <!-- Updated category -->
-                             <div class="card-image">
-                                <img src="assets/images/portfolio/kumpul_jasa.webp" alt="KUMPUL JASA Competition">
-                             </div>
-                            <div class="card-content">
-                                <h4>3rd Winner in KUMPUL JASA Jember Competition</h4>
-                                <span class="project-category-label"><a href="custom-training.html" title="View Service Details">Custom Training & Workshops</a></span>
-                                <p>Mentoring Prakerja alumni to train Jember's MSMEs in digitalization as part of an entrepreneurship competition.</p>
-                                 <div class="card-actions">
-                                      <a href="contact.html?project=KUMPUL JASA" class="cta-button">Discuss Similar Project</a>
-                                      <button class="view-details-button" data-pdf="assets/pdf/portfolio/kumpul_jasa.pdf">View Details</button>
-                                 </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <!-- Project 3 - Flagged for Review -->
+                    <div class="card project" data-category="legacy-review">
+                        <!-- Flagged: Doesn't fit new categories -->
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/community_accelerator.webp"
+                                alt="Sandination Community Mentorship">
+                        </div>
+                        <div class="card-content">
+                            <h4>Entrepreneurship Mentorship for Sandination Community</h4>
+                            <span class="project-category-label"><a href="custom-training.html"
+                                    title="View Service Details">Custom Training & Workshops</a></span>
+                            <!-- Updated category label & added link -->
+                            <p>A 3-month mentorship program designed to help Sandination community members increase
+                                income by selling Aerputh products.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Sandination Mentorship" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/sandination_mentorship.pdf">View Details</button>
                             </div>
                         </div>
-                        <!-- Project 5 -->
-                        <!-- Project 5 -->
-                        <div class="card project" data-category="training-workshop">
-                             <div class="card-image">
-                                <img src="assets/images/portfolio/NHI_acceleration_bootcamp.webp" alt="NHI Bandung Acceleration Bootcamp">
-                             </div>
-                            <div class="card-content">
-                                <h4>NHI Bandung Business Acceleration Bootcamp</h4>
-                                <span class="project-category-label"><a href="custom-training.html" title="View Service Details">Custom Training & Workshops</a></span>
-                                <p>An engaging 3-day offline bootcamp addressing finance, operations, and legal challenges for student entrepreneurs at NHI Bandung.</p>
-                                 <div class="card-actions">
-                                      <a href="contact.html?project=NHI Acceleration Bootcamp" class="cta-button">Discuss Similar Project</a>
-                                      <button class="view-details-button" data-pdf="assets/pdf/portfolio/nhi_acceleration.pdf">View Details</button>
-                                 </div>
+                    </div>
+                    <!-- Project 4 -->
+                    <!-- Project 4 -->
+                    <div class="card project" data-category="training-workshop"> <!-- Updated category -->
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/kumpul_jasa.webp" alt="KUMPUL JASA Competition">
+                        </div>
+                        <div class="card-content">
+                            <h4>3rd Winner in KUMPUL JASA Jember Competition</h4>
+                            <span class="project-category-label"><a href="custom-training.html"
+                                    title="View Service Details">Custom Training & Workshops</a></span>
+                            <p>Mentoring Prakerja alumni to train Jember's MSMEs in digitalization as part of an
+                                entrepreneurship competition.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=KUMPUL JASA" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button" data-pdf="assets/pdf/portfolio/kumpul_jasa.pdf">View
+                                    Details</button>
                             </div>
                         </div>
+                    </div>
+                    <!-- Project 5 -->
+                    <!-- Project 5 -->
+                    <div class="card project" data-category="training-workshop">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/NHI_acceleration_bootcamp.webp"
+                                alt="NHI Bandung Acceleration Bootcamp">
+                        </div>
+                        <div class="card-content">
+                            <h4>NHI Bandung Business Acceleration Bootcamp</h4>
+                            <span class="project-category-label"><a href="custom-training.html"
+                                    title="View Service Details">Custom Training & Workshops</a></span>
+                            <p>An engaging 3-day offline bootcamp addressing finance, operations, and legal challenges
+                                for student entrepreneurs at NHI Bandung.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=NHI Acceleration Bootcamp" class="cta-button">Discuss
+                                    Similar Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/nhi_acceleration.pdf">View Details</button>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Removed closing div for category 1 -->
-                <!-- Removed Category 2 heading and opening grid div -->
-                        <!-- Project 6 -->
-                        <!-- Project 6 -->
-                        <div class="card project" data-category="training-workshop mentoring">
-                             <div class="card-image">
-                                <img src="assets/images/portfolio/smk.webp" alt="SMK Entrepreneurship Program">
-                             </div>
-                            <div class="card-content">
-                                <h4>Entrepreneurship Program for 5000+ SMK Students</h4>
-                                <span class="project-category-label"><a href="custom-training.html" title="View Service Details">Custom Training & Workshops</a></span>
-                                <p>Providing entrepreneurship as an alternative path for SMK students through a hands-on milk-based product creation and sales project.</p>
-                                 <div class="card-actions">
-                                      <a href="contact.html?project=SMK Program" class="cta-button">Discuss Similar Project</a>
-                                      <a href="case-entrepreneurship.html" class="link-subtle">Read full case study</a>
-                                      <button class="view-details-button" data-pdf="assets/pdf/portfolio/smk_program.pdf">View Details</button>
-                                 </div>
-                            </div>
+                    <!-- Removed Category 2 heading and opening grid div -->
+                    <!-- Project 6 -->
+                    <!-- Project 6 -->
+                    <div class="card project" data-category="training-workshop mentoring">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/smk.webp" alt="SMK Entrepreneurship Program">
                         </div>
-                        <!-- Project 7 -->
-                        <!-- Project 7 -->
-                        <div class="card project" data-category="training-workshop mentoring">
-                             <div class="card-image">
-                                <img src="assets/images/portfolio/budikdamber.webp" alt="Budikdamber Program">
-                             </div>
-                            <div class="card-content">
-                                <h4>Budikdamber Program for 7 Rumah Yatim Asrama</h4>
-                                <span class="project-category-label"><a href="custom-training.html" title="View Service Details">Custom Training & Workshops</a></span>
-                                <p>Fostering independence at Rumah Yatim through a program focused on cultivating and selling catfish and kale.</p>
-                                 <div class="card-actions">
-                                      <a href="contact.html?project=Budikdamber Program" class="cta-button">Discuss Similar Project</a>
-                                      <button class="view-details-button" data-pdf="assets/pdf/portfolio/budikdamber.pdf">View Details</button>
-                                 </div>
+                        <div class="card-content">
+                            <h4>Entrepreneurship Program for 5000+ SMK Students</h4>
+                            <span class="project-category-label"><a href="custom-training.html"
+                                    title="View Service Details">Custom Training & Workshops</a></span>
+                            <p>Providing entrepreneurship as an alternative path for SMK students through a hands-on
+                                milk-based product creation and sales project.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=SMK Program" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <a href="case-entrepreneurship.html" class="link-subtle">Read full case study</a>
+                                <button class="view-details-button" data-pdf="assets/pdf/portfolio/smk_program.pdf">View
+                                    Details</button>
                             </div>
-                        </div>
-                        <!-- Project 8 -->
-                        <!-- Project 8 -->
-                        <div class="card project" data-category="training-workshop">
-                             <div class="card-image">
-                                <img src="assets/images/portfolio/MCC.webp" alt="MCC Grant">
-                             </div>
-                            <div class="card-content">
-                                <h4>The Millennium Challenge Corporation (MCC) Grant</h4>
-                                <span class="project-category-label"><a href="custom-training.html" title="View Service Details">Custom Training & Workshops</a></span>
-                                <p>Consulting support for digital and financial literacy training and capacity enhancement for women-owned MSMEs.</p>
-                                 <div class="card-actions">
-                                      <a href="contact.html?project=MCC Grant" class="cta-button">Discuss Similar Project</a>
-                                      <button class="view-details-button" data-pdf="assets/pdf/portfolio/mcc_grant.pdf">View Details</button>
-                                 </div>
-                            </div>
-                        </div>
-                        <!-- Project 9 -->
-                        <!-- Project 9 - Flagged for Review -->
-                        <div class="card project" data-category="legacy-review"> <!-- Flagged: Doesn't fit new categories -->
-                             <div class="card-image">
-                                <img src="assets/images/portfolio/performance_appraisal.webp" alt="Performance Appraisal System">
-                             </div>
-                            <div class="card-content">
-                                <h4>Performance Appraisal System Development</h4>
-                                <span class="project-category-label" style="color: #888; font-style: italic;">Review: Legacy Project</span> <!-- Flagged label -->
-                                <p>Creating a performance appraisal system for Rumah Siap Kerja's learning team using 10 core competencies and 360-degree feedback.</p>
-                                 <div class="card-actions">
-                                      <a href="contact.html?project=Performance Appraisal System" class="cta-button">Discuss Similar Project</a>
-                                      <button class="view-details-button" data-pdf="assets/pdf/portfolio/performance_appraisal.pdf">View Details</button>
-                                 </div>
-                            </div>
-                        </div>
-                        <!-- Project 10 -->
-                        <!-- Project 10 -->
-                        <div class="card project" data-category="training-workshop mentoring">
-                             <div class="card-image">
-                                <img src="assets/images/portfolio/NHI_incubation_bootcamp.webp" alt="NHI Bandung Incubation Bootcamp">
-                             </div>
-                            <div class="card-content">
-                                <h4>NHI Bandung Business Incubation Bootcamp</h4>
-                                <span class="project-category-label"><a href="custom-training.html" title="View Service Details">Custom Training & Workshops</a></span>
-                                <p>Encouraging entrepreneurship among NHI Bandung alumni through a 3-day offline incubation bootcamp with engaging activities.</p>
-                                 <div class="card-actions">
-                                      <a href="contact.html?project=NHI Incubation Bootcamp" class="cta-button">Discuss Similar Project</a>
-                                      <button class="view-details-button" data-pdf="assets/pdf/portfolio/nhi_incubation.pdf">View Details</button>
-                                 </div>
-                            </div>
-                        </div>
-                         <!-- Project 11 -->
-                        <!-- Project 11 -->
-                        <div class="card project" data-category="training-workshop mentoring"> <!-- Seminar implies training/workshop format -->
-                             <div class="card-image">
-                                <img src="assets/images/portfolio/entrepreneurial_mindset.webp" alt="Entrepreneurial Mindset Seminar">
-                             </div>
-                            <div class="card-content">
-                                <h4>Entrepreneurial Mindset Seminar</h4>
-                                <span class="project-category-label"><a href="custom-training.html" title="View Service Details">Custom Training & Workshops</a></span>
-                                <p>An offline seminar with engaging activities designed to help Rumah Siap Kerja users cultivate resilience and grow their businesses.</p>
-                                 <div class="card-actions">
-                                      <a href="contact.html?project=Mindset Seminar" class="cta-button">Discuss Similar Project</a>
-                                      <button class="view-details-button" data-pdf="assets/pdf/portfolio/growth_mindset.pdf">View Details</button>
-                                 </div>
-                            </div>
-                        </div>
-                        <!-- Project: Mastering Critical Thinking -->
-                        <div class="card project" data-category="powerpoint">
-                             <div class="card-image">
-                                <img src="assets/images/portfolio/critical_thinking.webp" alt="Mastering Critical Thinking for Future-Proofing Your Career">
-                             </div>
-                            <div class="card-content">
-                                <h4>Mastering Critical Thinking for Future-Proofing Your Career</h4>
-                                <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                                <p>Practical frameworks, fallacies & cognitive biases in Indonesian context. Build calm, reflective decisions across HR, marketing, finance, ops & IT - interactive and job-ready.</p>
-                                 <div class="card-actions">
-                                      <a href="contact.html?project=Critical Thinking" class="cta-button">Discuss Similar Project</a>
-                                      <button class="view-details-button" data-pdf="assets/pdf/portfolio/critical_thinking.pdf">View Details</button>
-                                 </div>
-                            </div>
-                        </div>
-                        <!-- Project: Menguasai Komunikasi Maritim yang Efektif -->
-                        <div class="card project" data-category="powerpoint">
-                             <div class="card-image">
-                                <img src="assets/images/portfolio/komunikasi_maritim.webp" alt="Menguasai Komunikasi Maritim yang Efektif">
-                             </div>
-                            <div class="card-content">
-                                <h4>Menguasai Komunikasi Maritim yang Efektif</h4>
-                                <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                                <p>Teach SMCP, Closed-Loop, SBAR, Teach-Back, PACE & graded assertiveness. Roleplays plus human-factors and psych-safety to cut miscommunication and boost safety onboard.</p>
-                                 <div class="card-actions">
-                                      <a href="contact.html?project=Komunikasi Maritim" class="cta-button">Discuss Similar Project</a>
-                                      <button class="view-details-button" data-pdf="assets/pdf/portfolio/komunikasi_maritim.pdf">View Details</button>
-                                 </div>
-                            </div>
-                        </div>
-                 <!-- Project: Mental Preparedness -->
-                <div class="card project" data-category="powerpoint">
-                    <div class="card-image">
-                        <img src="assets/images/portfolio/mental_preparedness_emergency.webp" alt="Mental Preparedness: Preparation for Emergencies">
-                    </div>
-                    <div class="card-content">
-                        <h4>Mental Preparedness: Preparation for Emergencies</h4>
-                        <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                        <p>This PowerPoint teaches crisis response skills, resilience, and self-leadership strategies for handling high-pressure situations effectively.</p>
-                         <div class="card-actions">
-                            <a href="contact.html?project=Mental Preparedness" class="cta-button">Discuss Similar Project</a>
-                            <button class="view-details-button" data-pdf="assets/pdf/portfolio/mental_preparedness_emergency.pdf">View Details</button>
                         </div>
                     </div>
-                </div>
+                    <!-- Project 7 -->
+                    <!-- Project 7 -->
+                    <div class="card project" data-category="training-workshop mentoring">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/budikdamber.webp" alt="Budikdamber Program">
+                        </div>
+                        <div class="card-content">
+                            <h4>Budikdamber Program for 7 Rumah Yatim Asrama</h4>
+                            <span class="project-category-label"><a href="custom-training.html"
+                                    title="View Service Details">Custom Training & Workshops</a></span>
+                            <p>Fostering independence at Rumah Yatim through a program focused on cultivating and
+                                selling catfish and kale.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Budikdamber Program" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button" data-pdf="assets/pdf/portfolio/budikdamber.pdf">View
+                                    Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 8 -->
+                    <!-- Project 8 -->
+                    <div class="card project" data-category="training-workshop">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/MCC.webp" alt="MCC Grant">
+                        </div>
+                        <div class="card-content">
+                            <h4>The Millennium Challenge Corporation (MCC) Grant</h4>
+                            <span class="project-category-label"><a href="custom-training.html"
+                                    title="View Service Details">Custom Training & Workshops</a></span>
+                            <p>Consulting support for digital and financial literacy training and capacity enhancement
+                                for women-owned MSMEs.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=MCC Grant" class="cta-button">Discuss Similar Project</a>
+                                <button class="view-details-button" data-pdf="assets/pdf/portfolio/mcc_grant.pdf">View
+                                    Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 9 -->
+                    <!-- Project 9 - Flagged for Review -->
+                    <div class="card project" data-category="legacy-review">
+                        <!-- Flagged: Doesn't fit new categories -->
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/performance_appraisal.webp"
+                                alt="Performance Appraisal System">
+                        </div>
+                        <div class="card-content">
+                            <h4>Performance Appraisal System Development</h4>
+                            <span class="project-category-label" style="color: #888; font-style: italic;">Review: Legacy
+                                Project</span> <!-- Flagged label -->
+                            <p>Creating a performance appraisal system for Rumah Siap Kerja's learning team using 10
+                                core competencies and 360-degree feedback.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Performance Appraisal System" class="cta-button">Discuss
+                                    Similar Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/performance_appraisal.pdf">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 10 -->
+                    <!-- Project 10 -->
+                    <div class="card project" data-category="training-workshop mentoring">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/NHI_incubation_bootcamp.webp"
+                                alt="NHI Bandung Incubation Bootcamp">
+                        </div>
+                        <div class="card-content">
+                            <h4>NHI Bandung Business Incubation Bootcamp</h4>
+                            <span class="project-category-label"><a href="custom-training.html"
+                                    title="View Service Details">Custom Training & Workshops</a></span>
+                            <p>Encouraging entrepreneurship among NHI Bandung alumni through a 3-day offline incubation
+                                bootcamp with engaging activities.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=NHI Incubation Bootcamp" class="cta-button">Discuss
+                                    Similar Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/nhi_incubation.pdf">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 11 -->
+                    <!-- Project 11 -->
+                    <div class="card project" data-category="training-workshop mentoring">
+                        <!-- Seminar implies training/workshop format -->
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/entrepreneurial_mindset.webp"
+                                alt="Entrepreneurial Mindset Seminar">
+                        </div>
+                        <div class="card-content">
+                            <h4>Entrepreneurial Mindset Seminar</h4>
+                            <span class="project-category-label"><a href="custom-training.html"
+                                    title="View Service Details">Custom Training & Workshops</a></span>
+                            <p>An offline seminar with engaging activities designed to help Rumah Siap Kerja users
+                                cultivate resilience and grow their businesses.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Mindset Seminar" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/growth_mindset.pdf">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project: Mastering Critical Thinking -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/critical_thinking.webp"
+                                alt="Mastering Critical Thinking for Future-Proofing Your Career">
+                        </div>
+                        <div class="card-content">
+                            <h4>Mastering Critical Thinking for Future-Proofing Your Career</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Practical frameworks, fallacies & cognitive biases in Indonesian context. Build calm,
+                                reflective decisions across HR, marketing, finance, ops & IT - interactive and
+                                job-ready.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Critical Thinking" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/critical_thinking.pdf">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project: Menguasai Komunikasi Maritim yang Efektif -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/komunikasi_maritim.webp"
+                                alt="Menguasai Komunikasi Maritim yang Efektif">
+                        </div>
+                        <div class="card-content">
+                            <h4>Menguasai Komunikasi Maritim yang Efektif</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Teach SMCP, Closed-Loop, SBAR, Teach-Back, PACE & graded assertiveness. Roleplays plus
+                                human-factors and psych-safety to cut miscommunication and boost safety onboard.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Komunikasi Maritim" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/komunikasi_maritim.pdf">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project: Mental Preparedness -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/mental_preparedness_emergency.webp"
+                                alt="Mental Preparedness: Preparation for Emergencies">
+                        </div>
+                        <div class="card-content">
+                            <h4>Mental Preparedness: Preparation for Emergencies</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>This PowerPoint teaches crisis response skills, resilience, and self-leadership
+                                strategies for handling high-pressure situations effectively.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Mental Preparedness" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/mental_preparedness_emergency.pdf">View
+                                    Details</button>
+                            </div>
+                        </div>
+                    </div>
 
-                <!-- Project: Landing Your Dream Job -->
-                <div class="card project" data-category="powerpoint">
-                    <div class="card-image">
-                        <img src="assets/images/portfolio/top_employability_skills.webp" alt="Landing Your Dream Job">
-                    </div>
-                    <div class="card-content">
-                        <h4>Landing Your Dream Job: Top Employability Skills for New Grads</h4>
-                        <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                        <p>This PowerPoint covers essential 2025 job market skills like communication, AI proficiency, and resilience. It includes practical tips for resumes, LinkedIn branding, and leveraging internships, helping graduates stand out.</p>
-                         <div class="card-actions">
-                            <a href="contact.html?project=Employability Skills" class="cta-button">Discuss Similar Project</a>
-                            <button class="view-details-button" data-pdf="assets/pdf/portfolio/top_employability_skills.pdf">View Details</button>
+                    <!-- Project: Landing Your Dream Job -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/top_employability_skills.webp"
+                                alt="Landing Your Dream Job">
                         </div>
-                    </div>
-                </div>
-                <!-- Project: GIG-ECONOMY & RESILIENCE -->
-                <div class="card project" data-category="powerpoint">
-                    <div class="card-image">
-                        <img src="assets/images/portfolio/gig_economy_resilience.webp" alt="GIG-ECONOMY & RESILIENCE: The Future is Beyond Milestones">
-                    </div>
-                    <div class="card-content">
-                        <h4>GIG-ECONOMY & RESILIENCE: The Future is Beyond Milestones</h4>
-                        <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                        <p>"GIG-ECONOMY & RESILIENCE" explores gig work's benefits (flexibility) and challenges (instability), emphasizing resilience strategies for success. Includes global/Indonesian trends and practical tools.</p>
-                         <div class="card-actions">
-                            <a href="contact.html?project=GIG-ECONOMY & RESILIENCE" class="cta-button">Discuss Similar Project</a>
-                            <button class="view-details-button" data-pdf="assets/pdf/portfolio/gig_economy_resilience.pdf">View Details</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project: GIG-ECONOMY -->
-                <div class="card project" data-category="powerpoint">
-                    <div class="card-image">
-                        <img src="assets/images/portfolio/gig_economy_hustle.webp" alt="GIG-ECONOMY: The Rise of Side Hustling">
-                    </div>
-                    <div class="card-content">
-                        <h4>GIG-ECONOMY: The Rise of Side Hustling</h4>
-                        <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                        <p>"GIG-ECONOMY: The Rise of Side Hustling" covers gig work's pros/cons and practical steps to start, with trends and case studies.</p>
+                        <div class="card-content">
+                            <h4>Landing Your Dream Job: Top Employability Skills for New Grads</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>This PowerPoint covers essential 2025 job market skills like communication, AI
+                                proficiency, and resilience. It includes practical tips for resumes, LinkedIn branding,
+                                and leveraging internships, helping graduates stand out.</p>
                             <div class="card-actions">
-                            <a href="contact.html?project=GIG-ECONOMY" class="cta-button">Discuss Similar Project</a>
-                            <button class="view-details-button" data-pdf="assets/pdf/portfolio/gig_economy_hustle.pdf">View Details</button>
+                                <a href="contact.html?project=Employability Skills" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/top_employability_skills.pdf">View Details</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-   
-                   <!-- Project: UMKM's Simple Financial Management -->
-                   <div class="card project" data-category="powerpoint">
-                       <div class="card-image">
-                           <img src="assets/images/portfolio/financial_management.webp" alt="UMKM's Simple Financial Management">
-                       </div>
-                       <div class="card-content">
-                           <h4>UMKM's Simple Financial Management</h4>
-                           <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                           <p>Master financial basics for UMKM”planning, budgeting, accounting”with interactive exercises to boost profits & cash flow management.</p>
+                    <!-- Project: GIG-ECONOMY & RESILIENCE -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/gig_economy_resilience.webp"
+                                alt="GIG-ECONOMY & RESILIENCE: The Future is Beyond Milestones">
+                        </div>
+                        <div class="card-content">
+                            <h4>GIG-ECONOMY & RESILIENCE: The Future is Beyond Milestones</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>"GIG-ECONOMY & RESILIENCE" explores gig work's benefits (flexibility) and challenges
+                                (instability), emphasizing resilience strategies for success. Includes global/Indonesian
+                                trends and practical tools.</p>
                             <div class="card-actions">
-                               <a href="contact.html?project=UMKM's Simple Financial Management" class="cta-button">Discuss Similar Project</a>
-                               <button class="view-details-button" data-pdf="assets/pdf/portfolio/financial_management.pdf">View Details</button>
-                           </div>
-                       </div>
-                   </div>
-   
-                   <!-- Project: Financial Modeling -->
-                   <div class="card project" data-category="powerpoint">
-                       <div class="card-image">
-                           <img src="assets/images/portfolio/financial_modeling.webp" alt="Financial Modeling">
-                       </div>
-                       <div class="card-content">
-                           <h4>Financial Modeling</h4>
-                           <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                           <p>Master financial modeling”revenue, costs, pricing”via interactive games & lean canvas. Perfect for startups building financial foundations.</p>
+                                <a href="contact.html?project=GIG-ECONOMY & RESILIENCE" class="cta-button">Discuss
+                                    Similar Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/gig_economy_resilience.pdf">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project: GIG-ECONOMY -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/gig_economy_hustle.webp"
+                                alt="GIG-ECONOMY: The Rise of Side Hustling">
+                        </div>
+                        <div class="card-content">
+                            <h4>GIG-ECONOMY: The Rise of Side Hustling</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>"GIG-ECONOMY: The Rise of Side Hustling" covers gig work's pros/cons and practical steps
+                                to start, with trends and case studies.</p>
                             <div class="card-actions">
-                               <a href="contact.html?project=Financial Modeling" class="cta-button">Discuss Similar Project</a>
-                               <button class="view-details-button" data-pdf="assets/pdf/portfolio/financial_modeling.pdf">View Details</button>
-                           </div>
-                       </div>
-                   </div>
-   
-                   <!-- Project: Growth Mindset -->
-                   <div class="card project" data-category="powerpoint">
-                       <div class="card-image">
-                           <img src="assets/images/portfolio/growth_mindset.webp" alt="Growth Mindset">
-                       </div>
-                       <div class="card-content">
-                           <h4>Growth Mindset</h4>
-                           <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                           <p>This PowerPoint on "Growth Mindset" teaches entrepreneurs resilience, learning from failures, and embracing challenges. Includes real-life examples and the SiapUsaha program for practical growth.</p>
-                            <div class="card-actions">
-                               <a href="contact.html?project=Growth Mindset" class="cta-button">Discuss Similar Project</a>
-                               <button class="view-details-button" data-pdf="assets/pdf/portfolio/growth_mindset.pdf">View Details</button>
-                           </div>
-                       </div>
-                   </div>
-                   <!-- Project: Cultivating Growth Mindset for Self-Motivation -->
-                   <div class="card project" data-category="powerpoint">
-                       <div class="card-image">
-                           <img src="assets/images/portfolio/self-motivation.webp" alt="Cultivating Growth Mindset for Self-Motivation">
-                       </div>
-                       <div class="card-content">
-                           <h4>Cultivating Growth Mindset for Self-Motivation</h4>
-                           <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                           <p>Empower your team with growth mindset tools to stay motivated at work. Includes MILES framework, reflective journaling, and practical steps to turn setbacks into progress and purpose.</p>
-                            <div class="card-actions">
-                               <a href="contact.html?project=Self-Motivation" class="cta-button">Discuss Similar Project</a>
-                               <button class="view-details-button" data-pdf="assets/pdf/portfolio/self-motivation.pdf">View Details</button>
-                           </div>
-                       </div>
-                   </div>
-                        <!-- Project: Design Thinking -->
-                        <div class="card project" data-category="powerpoint">
-                            <div class="card-image">
-                                <img src="assets/images/portfolio/design_thinking.webp" alt="Make Your Product Fit with Design Thinking">
-                            </div>
-                            <div class="card-content">
-                                <h4>Make Your Product Fit with Design Thinking</h4>
-                                <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                                <p>Master design thinking”empathize, define, ideate, prototype, test”through hands-on wallet project. Perfect for creating user-centered solutions.</p>
-                                <div class="card-actions">
-                                     <a href="contact.html?project=Design Thinking" class="cta-button">Discuss Similar Project</a>
-                                     <button class="view-details-button" data-pdf="assets/pdf/portfolio/design_thinking.pdf">View Details</button>
-                                </div>
+                                <a href="contact.html?project=GIG-ECONOMY" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/gig_economy_hustle.pdf">View Details</button>
                             </div>
                         </div>
-                        <!-- Project: Business Management -->
-                        <div class="card project" data-category="powerpoint">
-                            <div class="card-image">
-                                <img src="assets/images/portfolio/business_management.webp" alt="Business Management & Adaptability for MSMEs">
-                            </div>
-                            <div class="card-content">
-                                <h4>Business Management & Adaptability for MSMEs</h4>
-                                <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                                <p>Master business management & adaptability for MSMEs”planning, lean canvas, flexibility”to thrive in changing markets. Essential for resilient entrepreneurs.</p>
-                                <div class="card-actions">
-                                     <a href="contact.html?project=Business Management" class="cta-button">Discuss Similar Project</a>
-                                     <button class="view-details-button" data-pdf="assets/pdf/portfolio/business_management.pdf">View Details</button>
-                                </div>
-                            </div>
-                        </div>
-<!-- Project: How to Face Layoff Storm -->
-                        <div class="card project" data-category="powerpoint">
-                            <div class="card-image">
-                                <img src="assets/images/portfolio/layoff_storm.webp" alt="How to Face Layoff Storm">
-                            </div>
-                            <div class="card-content">
-                                <h4>How to Face Layoff Storm</h4>
-                                <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                                <p>Learn how to navigate layoffs with expert strategies”assess risks, strengthen skills, manage finances, and find new opportunities. Essential for job security!</p>
-                                <div class="card-actions">
-                                    <a href="contact.html?project=Layoff Storm" class="cta-button">Discuss Similar Project</a>
-                                    <button class="view-details-button" data-pdf="assets/pdf/portfolio/layoff_storm.pdf">View Details</button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Project: Brand Yourself -->
-                        <div class="card project" data-category="powerpoint">
-                            <div class="card-image">
-                                <img src="assets/images/portfolio/personal_branding.webp" alt="Brand Yourself: Stand Out with Personal Branding & LinkedIn Optimization">
-                            </div>
-                            <div class="card-content">
-                                <h4>Brand Yourself: Stand Out with Personal Branding & LinkedIn Optimization</h4>
-                                <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                                <p>Master personal branding & LinkedIn optimization to stand out professionally. Learn strategies, best practices, and tools to build a strong digital presence!</p>
-                                <div class="card-actions">
-                                    <a href="contact.html?project=Personal Branding" class="cta-button">Discuss Similar Project</a>
-                                    <button class="view-details-button" data-pdf="assets/pdf/portfolio/personal_branding.pdf">View Details</button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Project: Public Speaking & Confidence Boost -->
-                        <div class="card project" data-category="powerpoint">
-                            <div class="card-image">
-                                <img src="assets/images/portfolio/public_speaking_confidence_boost.webp" alt="Public Speaking & Confidence Boost">
-                            </div>
-                            <div class="card-content">
-                                <h4>Public Speaking & Confidence Boost</h4>
-                                <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                                <p>Boost your public speaking confidence with this PowerPoint! Learn data-driven presentations, storytelling techniques, and how to overcome glossophobia. Perfect for professionals and beginners alike.</p>
-                                <div class="card-actions">
-                                    <a href="contact.html?project=Public Speaking Confidence Boost" class="cta-button">Discuss Similar Project</a>
-                                    <button class="view-details-button" data-pdf="assets/pdf/portfolio/public_speaking_confidence_boost.pdf">View Details</button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Project: Color Personality -->
-                        <div class="card project" data-category="powerpoint">
-                            <div class="card-image">
-                                <img src="assets/images/portfolio/color_personality.webp" alt="Color Personality">
-                            </div>
-                            <div class="card-content">
-                                <h4>Color Personality</h4>
-                                <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                                <p>Discover your personality type with the True Colors framework! This PowerPoint explores Blue, Gold, Green, and Orange traits to improve communication, teamwork, and conflict resolution.</p>
-                                <div class="card-actions">
-                                    <a href="contact.html?project=Color Personality" class="cta-button">Discuss Similar Project</a>
-                                    <button class="view-details-button" data-pdf="assets/pdf/portfolio/color_personality.pdf">View Details</button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Project: Managing Crew Fatigue Onboard -->
-                        <div class="card project" data-category="powerpoint">
-                            <div class="card-image">
-                                <img src="assets/images/portfolio/crew_fatigue_onboard.webp" alt="Managing Crew Fatigue Onboard">
-                            </div>
-                            <div class="card-content">
-                                <h4>Managing Crew Fatigue Onboard</h4>
-                                <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                                <p>Discover effective strategies to manage crew fatigue onboard in this comprehensive PowerPoint. Learn about onboarding, mental health, and best practices to enhance productivity and well-being at sea.</p>
-                                <div class="card-actions">
-                                    <a href="contact.html?project=Crew Fatigue" class="cta-button">Discuss Similar Project</a>
-                                    <button class="view-details-button" data-pdf="assets/pdf/portfolio/crew_fatigue_onboard.pdf">View Details</button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Project: Speak Up, Stand Out -->
-                        <div class="card project" data-category="powerpoint">
-                            <div class="card-image">
-                                <img src="assets/images/portfolio/public_speaking.webp" alt="Speak Up, Stand Out: Public Speaking in the Hybrid Era">
-                            </div>
-                            <div class="card-content">
-                                <h4>Speak Up, Stand Out: Public Speaking in the Hybrid Era</h4>
-                                <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                                <p>Master public speaking for hybrid settings with confidence, voice techniques, body language, and practical tips for interviews & online presentations. Elevate your career today!</p>
-                                <div class="card-actions">
-                                    <a href="contact.html?project=Public Speaking" class="cta-button">Discuss Similar Project</a>
-                                    <button class="view-details-button" data-pdf="assets/pdf/portfolio/public_speaking.pdf">View Details</button>
-                                </div>
-                            </div>
-                        </div>
-<!-- Project: Startup Development Class -->
-                        <div class="card project" data-category="powerpoint">
-                            <div class="card-image">
-                                <img src="assets/images/portfolio/startup_development_class.webp" alt="Startup Development Class">
-                            </div>
-                            <div class="card-content">
-                                <h4>Startup Development Class</h4>
-                                <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                                <p>Startup Development Class PowerPoint: A comprehensive guide covering entrepreneurship basics, design thinking, lean canvas, financial management, and pitching strategies for aspiring startup founders.</p>
-                                <div class="card-actions">
-                                    <a href="contact.html?project=Startup Development Class" class="cta-button">Discuss Similar Project</a>
-                                    <button class="view-details-button" data-pdf="assets/pdf/portfolio/startup_development_class.pdf">View Details</button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Project: How to Leverage Social Media Instagram for MSMEs -->
-                        <div class="card project" data-category="powerpoint">
-                            <div class="card-image">
-                                <img src="assets/images/portfolio/instagram_umkm.webp" alt="How to Leverage Social Media Instagram for MSMEs">
-                            </div>
-                            <div class="card-content">
-                                <h4>How to Leverage Social Media Instagram for MSMEs</h4>
-                                <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                                <p>Learn to optimize Instagram Business Profiles, leverage ads, shopping features, and insights. Master influencer marketing, interactive content, and engagement strategies for growth.</p>
-                                <div class="card-actions">
-                                    <a href="contact.html?project=Instagram for MSMEs" class="cta-button">Discuss Similar Project</a>
-                                    <button class="view-details-button" data-pdf="assets/pdf/portfolio/instagram_umkm.pdf">View Details</button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Project: Managing Crew Onboard Stress -->
-                        <div class="card project" data-category="powerpoint">
-                            <div class="card-image">
-                                <img src="assets/images/portfolio/stress_management.webp" alt="Managing Crew Onboard Stress">
-                            </div>
-                            <div class="card-content">
-                                <h4>Managing Crew Onboard Stress</h4>
-                                <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                                <p>Professional PowerPoint on managing crew stress onboard. Covers causes, symptoms, impacts, and solutions for workplace stress, burnout, and mental health in maritime settings. Ideal for training and awareness.</p>
-                                <div class="card-actions">
-                                    <a href="contact.html?project=Managing Crew Onboard Stress" class="cta-button">Discuss Similar Project</a>
-                                    <button class="view-details-button" data-pdf="assets/pdf/portfolio/stress_management.pdf">View Details</button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Project: Smart Steps to Start an Employee Side Hustle -->
-                        <div class="card project" data-category="powerpoint">
-                            <div class="card-image">
-                                <img src="assets/images/portfolio/side_hustle.webp" alt="Smart Steps to Start an Employee Side Hustle">
-                            </div>
-                            <div class="card-content">
-                                <h4>Smart Steps to Start an Employee Side Hustle</h4>
-                                <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                                <p>PowerPoint guide on launching a successful side hustle while employed. Covers gig economy trends, niche identification, portfolio building, pricing strategies, and avoiding common pitfalls. Ideal for aspiring entrepreneurs.</p>
-                                <div class="card-actions">
-                                    <a href="contact.html?project=Smart Steps to Start an Employee Side Hustle" class="cta-button">Discuss Similar Project</a>
-                                    <button class="view-details-button" data-pdf="assets/pdf/portfolio/side_hustle.pdf">View Details</button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Project: Anyone Can Get a Job -->
-                        <div class="card project" data-category="powerpoint">
-                            <div class="card-image">
-                                <img src="assets/images/portfolio/triangle.webp" alt="Anyone Can Get a Job">
-                            </div>
-                            <div class="card-content">
-                                <h4>Anyone Can Get a Job</h4>
-                                <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                                <p>PowerPoint guide on launching a successful side hustle while employed. Covers gig economy trends, niche identification, portfolio building, pricing strategies, and avoiding common pitfalls. Ideal for aspiring entrepreneurs.</p>
-                                <div class="card-actions">
-                                    <a href="contact.html?project=Anyone Can Get a Job" class="cta-button">Discuss Similar Project</a>
-                                    <button class="view-details-button" data-pdf="assets/pdf/portfolio/triangle.pdf">View Details</button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Project: Crafting Deck and Impactful Presentation -->
-                        <div class="card project" data-category="powerpoint">
-                            <div class="card-image">
-                                <img src="assets/images/portfolio/crafting_deck.webp" alt="Crafting Deck and Impactful Presentation">
-                            </div>
-                            <div class="card-content">
-                                <h4>Crafting Deck and Impactful Presentation</h4>
-                                <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                                <p>Data-driven presentation skills PowerPoint to craft clear, concise, decision-moving slides. Teach SCQA, Pyramid Principle & MECE, visual hierarchy, and delivery tips. With labs, before/after examples, and worksheet links.</p>
-                                <div class="card-actions">
-                                    <a href="contact.html?project=Crafting Deck and Impactful Presentation" class="cta-button">Discuss Similar Project</a>
-                                    <button class="view-details-button" data-pdf="assets/pdf/portfolio/crafting_deck.pdf">View Details</button>
-                                </div>
-                            </div>
-                        </div>
+                    </div>
 
-                        <!-- Project: Stress & Time Management -->
-                        <div class="card project" data-category="powerpoint">
-                            <div class="card-image">
-                                <img src="assets/images/portfolio/time_management.webp" alt="Stress &amp; Time Management">
-                            </div>
-                            <div class="card-content">
-                                <h4>Stress &amp; Time Management</h4>
-                                <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                                <p>Facilitator-ready PowerPoint to cut stress and master time. Teach signs, root causes, and tools like Eisenhower, Time-Blocking, and Pomodoro. Includes activities, worksheets, and prompts for a 60“120 min workshop.</p>
-                                <div class="card-actions">
-                                    <a href="contact.html?project=Stress &amp; Time Management" class="cta-button">Discuss Similar Project</a>
-                                    <button class="view-details-button" data-pdf="assets/pdf/portfolio/time_management.pdf">View Details</button>
-                                </div>
+                    <!-- Project: UMKM's Simple Financial Management -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/financial_management.webp"
+                                alt="UMKM's Simple Financial Management">
+                        </div>
+                        <div class="card-content">
+                            <h4>UMKM's Simple Financial Management</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Master financial basics for UMKM”planning, budgeting, accounting”with interactive
+                                exercises to boost profits & cash flow management.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=UMKM's Simple Financial Management"
+                                    class="cta-button">Discuss Similar Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/financial_management.pdf">View Details</button>
                             </div>
                         </div>
-                        <div class="card project" data-category="powerpoint">
-                            <div class="card-image">
-                                <img src="assets/images/portfolio/adaptive_communication_1.webp" alt="Adaptive Communication: Decode & Connect">
-                            </div>
-                            <div class="card-content">
-                                <h4>Adaptive Communication: Decode & Connect</h4>
-                                <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                                <p>Decode &amp; connect across personalities. Teach DISC, active listening (Receive-Appreciate-Summarize-Ask), conflict skills, leader messaging. Roleplays, scenarios, templates for schools &amp; teams.</p>
-                                <div class="card-actions">
-                                    <a href="contact.html?project=Adaptive Communication" class="cta-button">Discuss Similar Project</a>
-                                    <button class="view-details-button" data-pdf="assets/pdf/portfolio/adaptive_communication_1.pdf">View Details</button>
-                                </div>
+                    </div>
+
+                    <!-- Project: Financial Modeling -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/financial_modeling.webp" alt="Financial Modeling">
+                        </div>
+                        <div class="card-content">
+                            <h4>Financial Modeling</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Master financial modeling”revenue, costs, pricing”via interactive games & lean canvas.
+                                Perfect for startups building financial foundations.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Financial Modeling" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/financial_modeling.pdf">View Details</button>
                             </div>
                         </div>
-                        <div class="card project" data-category="powerpoint">
-                            <div class="card-image">
-                                <img src="assets/images/portfolio/teamwork.webp" alt="Strengthen Teamwork with Empathy &amp; Communication">
-                            </div>
-                            <div class="card-content">
-                                <h4>Strengthen Teamwork with Empathy &amp; Communication</h4>
-                                <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                                <p>Build trust, clarity, and collaboration. Teach empathy, active listening (RASA), SACCIA safety, respectful feedback, and 360-degree feedback - rooted in Indonesian workplace culture. With drills, roleplays, and notes.</p>
-                                <div class="card-actions">
-                                    <a href="contact.html?project=Strengthen Teamwork" class="cta-button">Discuss Similar Project</a>
-                                    <button class="view-details-button" data-pdf="assets/pdf/portfolio/teamwork.pdf">View Details</button>
-                                </div>
+                    </div>
+
+                    <!-- Project: Growth Mindset -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/growth_mindset.webp" alt="Growth Mindset">
+                        </div>
+                        <div class="card-content">
+                            <h4>Growth Mindset</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>This PowerPoint on "Growth Mindset" teaches entrepreneurs resilience, learning from
+                                failures, and embracing challenges. Includes real-life examples and the SiapUsaha
+                                program for practical growth.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Growth Mindset" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/growth_mindset.pdf">View Details</button>
                             </div>
                         </div>
+                    </div>
+                    <!-- Project: Cultivating Growth Mindset for Self-Motivation -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/self-motivation.webp"
+                                alt="Cultivating Growth Mindset for Self-Motivation">
+                        </div>
+                        <div class="card-content">
+                            <h4>Cultivating Growth Mindset for Self-Motivation</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Empower your team with growth mindset tools to stay motivated at work. Includes MILES
+                                framework, reflective journaling, and practical steps to turn setbacks into progress and
+                                purpose.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Self-Motivation" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/self-motivation.pdf">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project: Design Thinking -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/design_thinking.webp"
+                                alt="Make Your Product Fit with Design Thinking">
+                        </div>
+                        <div class="card-content">
+                            <h4>Make Your Product Fit with Design Thinking</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Master design thinking”empathize, define, ideate, prototype, test”through hands-on wallet
+                                project. Perfect for creating user-centered solutions.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Design Thinking" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/design_thinking.pdf">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project: Business Management -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/business_management.webp"
+                                alt="Business Management & Adaptability for MSMEs">
+                        </div>
+                        <div class="card-content">
+                            <h4>Business Management & Adaptability for MSMEs</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Master business management & adaptability for MSMEs”planning, lean canvas, flexibility”to
+                                thrive in changing markets. Essential for resilient entrepreneurs.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Business Management" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/business_management.pdf">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project: How to Face Layoff Storm -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/layoff_storm.webp" alt="How to Face Layoff Storm">
+                        </div>
+                        <div class="card-content">
+                            <h4>How to Face Layoff Storm</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Learn how to navigate layoffs with expert strategies”assess risks, strengthen skills,
+                                manage finances, and find new opportunities. Essential for job security!</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Layoff Storm" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/layoff_storm.pdf">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project: Brand Yourself -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/personal_branding.webp"
+                                alt="Brand Yourself: Stand Out with Personal Branding & LinkedIn Optimization">
+                        </div>
+                        <div class="card-content">
+                            <h4>Brand Yourself: Stand Out with Personal Branding & LinkedIn Optimization</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Master personal branding & LinkedIn optimization to stand out professionally. Learn
+                                strategies, best practices, and tools to build a strong digital presence!</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Personal Branding" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/personal_branding.pdf">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project: Public Speaking & Confidence Boost -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/public_speaking_confidence_boost.webp"
+                                alt="Public Speaking & Confidence Boost">
+                        </div>
+                        <div class="card-content">
+                            <h4>Public Speaking & Confidence Boost</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Boost your public speaking confidence with this PowerPoint! Learn data-driven
+                                presentations, storytelling techniques, and how to overcome glossophobia. Perfect for
+                                professionals and beginners alike.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Public Speaking Confidence Boost"
+                                    class="cta-button">Discuss Similar Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/public_speaking_confidence_boost.pdf">View
+                                    Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project: Color Personality -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/color_personality.webp" alt="Color Personality">
+                        </div>
+                        <div class="card-content">
+                            <h4>Color Personality</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Discover your personality type with the True Colors framework! This PowerPoint explores
+                                Blue, Gold, Green, and Orange traits to improve communication, teamwork, and conflict
+                                resolution.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Color Personality" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/color_personality.pdf">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project: Managing Crew Fatigue Onboard -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/crew_fatigue_onboard.webp"
+                                alt="Managing Crew Fatigue Onboard">
+                        </div>
+                        <div class="card-content">
+                            <h4>Managing Crew Fatigue Onboard</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Discover effective strategies to manage crew fatigue onboard in this comprehensive
+                                PowerPoint. Learn about onboarding, mental health, and best practices to enhance
+                                productivity and well-being at sea.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Crew Fatigue" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/crew_fatigue_onboard.pdf">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project: Speak Up, Stand Out -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/public_speaking.webp"
+                                alt="Speak Up, Stand Out: Public Speaking in the Hybrid Era">
+                        </div>
+                        <div class="card-content">
+                            <h4>Speak Up, Stand Out: Public Speaking in the Hybrid Era</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Master public speaking for hybrid settings with confidence, voice techniques, body
+                                language, and practical tips for interviews & online presentations. Elevate your career
+                                today!</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Public Speaking" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/public_speaking.pdf">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project: Startup Development Class -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/startup_development_class.webp"
+                                alt="Startup Development Class">
+                        </div>
+                        <div class="card-content">
+                            <h4>Startup Development Class</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Startup Development Class PowerPoint: A comprehensive guide covering entrepreneurship
+                                basics, design thinking, lean canvas, financial management, and pitching strategies for
+                                aspiring startup founders.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Startup Development Class" class="cta-button">Discuss
+                                    Similar Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/startup_development_class.pdf">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project: How to Leverage Social Media Instagram for MSMEs -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/instagram_umkm.webp"
+                                alt="How to Leverage Social Media Instagram for MSMEs">
+                        </div>
+                        <div class="card-content">
+                            <h4>How to Leverage Social Media Instagram for MSMEs</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Learn to optimize Instagram Business Profiles, leverage ads, shopping features, and
+                                insights. Master influencer marketing, interactive content, and engagement strategies
+                                for growth.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Instagram for MSMEs" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/instagram_umkm.pdf">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project: Managing Crew Onboard Stress -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/stress_management.webp"
+                                alt="Managing Crew Onboard Stress">
+                        </div>
+                        <div class="card-content">
+                            <h4>Managing Crew Onboard Stress</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Professional PowerPoint on managing crew stress onboard. Covers causes, symptoms,
+                                impacts, and solutions for workplace stress, burnout, and mental health in maritime
+                                settings. Ideal for training and awareness.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Managing Crew Onboard Stress" class="cta-button">Discuss
+                                    Similar Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/stress_management.pdf">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project: Smart Steps to Start an Employee Side Hustle -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/side_hustle.webp"
+                                alt="Smart Steps to Start an Employee Side Hustle">
+                        </div>
+                        <div class="card-content">
+                            <h4>Smart Steps to Start an Employee Side Hustle</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>PowerPoint guide on launching a successful side hustle while employed. Covers gig economy
+                                trends, niche identification, portfolio building, pricing strategies, and avoiding
+                                common pitfalls. Ideal for aspiring entrepreneurs.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Smart Steps to Start an Employee Side Hustle"
+                                    class="cta-button">Discuss Similar Project</a>
+                                <button class="view-details-button" data-pdf="assets/pdf/portfolio/side_hustle.pdf">View
+                                    Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project: Anyone Can Get a Job -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/triangle.webp" alt="Anyone Can Get a Job">
+                        </div>
+                        <div class="card-content">
+                            <h4>Anyone Can Get a Job</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>PowerPoint guide on launching a successful side hustle while employed. Covers gig economy
+                                trends, niche identification, portfolio building, pricing strategies, and avoiding
+                                common pitfalls. Ideal for aspiring entrepreneurs.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Anyone Can Get a Job" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button" data-pdf="assets/pdf/portfolio/triangle.pdf">View
+                                    Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project: Crafting Deck and Impactful Presentation -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/crafting_deck.webp"
+                                alt="Crafting Deck and Impactful Presentation">
+                        </div>
+                        <div class="card-content">
+                            <h4>Crafting Deck and Impactful Presentation</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Data-driven presentation skills PowerPoint to craft clear, concise, decision-moving
+                                slides. Teach SCQA, Pyramid Principle & MECE, visual hierarchy, and delivery tips. With
+                                labs, before/after examples, and worksheet links.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Crafting Deck and Impactful Presentation"
+                                    class="cta-button">Discuss Similar Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/crafting_deck.pdf">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project: Stress & Time Management -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/time_management.webp" alt="Stress &amp; Time Management">
+                        </div>
+                        <div class="card-content">
+                            <h4>Stress &amp; Time Management</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Facilitator-ready PowerPoint to cut stress and master time. Teach signs, root causes, and
+                                tools like Eisenhower, Time-Blocking, and Pomodoro. Includes activities, worksheets, and
+                                prompts for a 60“120 min workshop.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Stress &amp; Time Management" class="cta-button">Discuss
+                                    Similar Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/time_management.pdf">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/adaptive_communication_1.webp"
+                                alt="Adaptive Communication: Decode & Connect">
+                        </div>
+                        <div class="card-content">
+                            <h4>Adaptive Communication: Decode & Connect</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Decode &amp; connect across personalities. Teach DISC, active listening
+                                (Receive-Appreciate-Summarize-Ask), conflict skills, leader messaging. Roleplays,
+                                scenarios, templates for schools &amp; teams.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Adaptive Communication" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/adaptive_communication_1.pdf">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/teamwork.webp"
+                                alt="Strengthen Teamwork with Empathy &amp; Communication">
+                        </div>
+                        <div class="card-content">
+                            <h4>Strengthen Teamwork with Empathy &amp; Communication</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Build trust, clarity, and collaboration. Teach empathy, active listening (RASA), SACCIA
+                                safety, respectful feedback, and 360-degree feedback - rooted in Indonesian workplace
+                                culture. With drills, roleplays, and notes.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Strengthen Teamwork" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button" data-pdf="assets/pdf/portfolio/teamwork.pdf">View
+                                    Details</button>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Project: Building a Culture of Service Excellence in the Digital Era -->
                     <div class="card project" data-category="powerpoint">
                         <div class="card-image">
-                            <img src="assets/images/portfolio/service_excellence.webp" alt="Building a Culture of Service Excellence in the Digital Era">
+                            <img src="assets/images/portfolio/service_excellence.webp"
+                                alt="Building a Culture of Service Excellence in the Digital Era">
                         </div>
                         <div class="card-content">
                             <h4>Building a Culture of Service Excellence in the Digital Era</h4>
-                            <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                            <p>Unlock 'Building Service Excellence in the Digital Era': 2025 workshop deck on definitions, AI trends, human touch & Kano Model. Boost loyalty now!</p>
-                             <div class="card-actions">
-                                <a href="contact.html?project=Service Excellence" class="cta-button">Discuss Similar Project</a>
-                                <button class="view-details-button" data-pdf="assets/pdf/portfolio/service_excellence.pdf">View Details</button>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Unlock 'Building Service Excellence in the Digital Era': 2025 workshop deck on
+                                definitions, AI trends, human touch & Kano Model. Boost loyalty now!</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Service Excellence" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/service_excellence.pdf">View Details</button>
                             </div>
                         </div>
                     </div>
                     <!-- Project: Unlock Flows: Adaptive Decode for Corporate Connections -->
                     <div class="card project" data-category="powerpoint">
                         <div class="card-image">
-                            <img src="assets/images/portfolio/adaptive_communication_2.webp" alt="Unlock Flows: Adaptive Decode for Corporate Connections">
+                            <img src="assets/images/portfolio/adaptive_communication_2.webp"
+                                alt="Unlock Flows: Adaptive Decode for Corporate Connections">
                         </div>
                         <div class="card-content">
                             <h4>Unlock Flows: Adaptive Decode for Corporate Connections</h4>
-                            <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                            <p>Master adaptive communication with clarity, empathy & effectiveness. Learn active listening, DISC styles, and conflict handling through case studies & reflection exercises.</p>
-                             <div class="card-actions">
-                                <a href="contact.html?project=Unlock Flows" class="cta-button">Discuss Similar Project</a>
-                                <button class="view-details-button" data-pdf="assets/pdf/portfolio/adaptive_communication_2.pdf">View Details</button>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Master adaptive communication with clarity, empathy & effectiveness. Learn active
+                                listening, DISC styles, and conflict handling through case studies & reflection
+                                exercises.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Unlock Flows" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/adaptive_communication_2.pdf">View Details</button>
                             </div>
                         </div>
                     </div>
                     <!-- Project: Calibrate Links: Decode Insights, Connect Precisely -->
                     <div class="card project" data-category="powerpoint">
                         <div class="card-image">
-                            <img src="assets/images/portfolio/adaptive_communication_3.webp" alt="Calibrate Links: Decode Insights, Connect Precisely">
+                            <img src="assets/images/portfolio/adaptive_communication_3.webp"
+                                alt="Calibrate Links: Decode Insights, Connect Precisely">
                         </div>
                         <div class="card-content">
                             <h4>Calibrate Links: Decode Insights, Connect Precisely</h4>
-                            <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                            <p>Corporate-ready deck to align cross-functional teams. Teach message tailoring, active listening, and "baby language" techniques for better collaboration & stakeholder influence.</p>
-                             <div class="card-actions">
-                                <a href="contact.html?project=Calibrate Links" class="cta-button">Discuss Similar Project</a>
-                                <button class="view-details-button" data-pdf="assets/pdf/portfolio/adaptive_communication_3.pdf">View Details</button>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Corporate-ready deck to align cross-functional teams. Teach message tailoring, active
+                                listening, and "baby language" techniques for better collaboration & stakeholder
+                                influence.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Calibrate Links" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/adaptive_communication_3.pdf">View Details</button>
                             </div>
                         </div>
                     </div>
                     <!-- Project: Sync Up: Decode Signals, Connect Teams – McDonald's Edition -->
                     <div class="card project" data-category="powerpoint">
                         <div class="card-image">
-                            <img src="assets/images/portfolio/adaptive_communication_4.webp" alt="Sync Up: Decode Signals, Connect Teams – McDonald's Edition">
+                            <img src="assets/images/portfolio/adaptive_communication_4.webp"
+                                alt="Sync Up: Decode Signals, Connect Teams – McDonald's Edition">
                         </div>
                         <div class="card-content">
                             <h4>Sync Up: Decode Signals, Connect Teams – McDonald's Edition</h4>
-                            <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                            <p>Applied communication toolkit for frontliners & leaders. Train clarity, empathy, and tone adjustment across roles—from drive-thru to HQ—to build trust and handle conflict smoothly.</p>
-                             <div class="card-actions">
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Applied communication toolkit for frontliners & leaders. Train clarity, empathy, and tone
+                                adjustment across roles—from drive-thru to HQ—to build trust and handle conflict
+                                smoothly.</p>
+                            <div class="card-actions">
                                 <a href="contact.html?project=Sync Up" class="cta-button">Discuss Similar Project</a>
-                                <button class="view-details-button" data-pdf="assets/pdf/portfolio/adaptive_communication_4.pdf">View Details</button>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/adaptive_communication_4.pdf">View Details</button>
                             </div>
                         </div>
                     </div>
                     <!-- Project: Adaptive Communication Solution for Home Credit Indonesia -->
                     <div class="card project" data-category="powerpoint">
                         <div class="card-image">
-                            <img src="assets/images/portfolio/adaptive_communication_5.webp" alt="Adaptive Communication Solution for Home Credit Indonesia">
+                            <img src="assets/images/portfolio/adaptive_communication_5.webp"
+                                alt="Adaptive Communication Solution for Home Credit Indonesia">
                         </div>
                         <div class="card-content">
                             <h4>Adaptive Communication Solution for Home Credit Indonesia</h4>
-                            <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                            <p>Complete Adaptive Communication training deck for corporates. DISC frameworks, active listening, real fintech case studies, AI sentiment tools & CX metrics. Reduce complaints, boost NPS, align stakeholders. Templates and quizzes included.</p>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Complete Adaptive Communication training deck for corporates. DISC frameworks, active
+                                listening, real fintech case studies, AI sentiment tools & CX metrics. Reduce
+                                complaints, boost NPS, align stakeholders. Templates and quizzes included.</p>
                             <div class="card-actions">
-                                <a href="contact.html?project=Adaptive Communication HCI" class="cta-button">Discuss Similar Project</a>
-                                <button class="view-details-button" data-pdf="assets/pdf/portfolio/adaptive_communication_5.pdf">View Details</button>
+                                <a href="contact.html?project=Adaptive Communication HCI" class="cta-button">Discuss
+                                    Similar Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/adaptive_communication_5.pdf">View Details</button>
                             </div>
                         </div>
                     </div>
-                         <!-- Project: How to Win Friends and Influence People -->
-                         <div class="card project" data-category="powerpoint">
-                             <div class="card-image">
-                                 <img src="assets/images/portfolio/win_friends.png" alt="How to Win Friends and Influence People">
-                             </div>
-                             <div class="card-content">
-                                 <h4>How to Win Friends and Influence People</h4>
-                                 <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                                 <p>Practical deck to master human relations—build trust, empathy, and influence. Covers Dale Carnegie's timeless principles with modern workplace examples and guided reflection.</p>
-                                 <div class="card-actions">
-                                     <a href="contact.html?project=Win Friends" class="cta-button">Discuss Similar Project</a>
-                                     <button class="view-details-button" data-pdf="assets/pdf/portfolio/win_friends.pdf">View Details</button>
-                                 </div>
-                             </div>
-                         </div>
-                         <!-- Project: Managing Pressure Without Losing Yourself -->
-                         <div class="card project" data-category="powerpoint">
-                             <div class="card-image">
-                                 <img src="assets/images/portfolio/managing_pressure.webp" alt="Managing Pressure Without Losing Yourself">
-                             </div>
-                             <div class="card-content">
-                                 <h4>Managing Pressure Without Losing Yourself</h4>
-                                 <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                                 <p>Engaging deck on stress awareness, burnout signs, and time mastery. Includes reflection games, Eisenhower Relay, and resilience tools for healthier, sustainable performance.</p>
-                                 <div class="card-actions">
-                                     <a href="contact.html?project=Managing Pressure Without Losing Yourself" class="cta-button">Discuss Similar Project</a>
-                                     <button class="view-details-button" data-pdf="assets/pdf/portfolio/managing_pressure.pdf">View Details</button>
-                                 </div>
-                             </div>
-                         </div>
-                         <!-- Project: Mental Health in the Workplace for being Supervisor -->
-                         <div class="card project" data-category="powerpoint">
-                             <div class="card-image">
-                                 <img src="assets/images/portfolio/mental_health_supervisor.webp" alt="Mental Health in the Workplace for being Supervisor">
-                             </div>
-                             <div class="card-content">
-                                 <h4>Mental Health in the Workplace for being Supervisor</h4>
-                                 <span class="project-category-label"><a href="learning-powerpoint.html" title="View Service Details">Learning PowerPoint Development</a></span>
-                                 <p>Train leaders to spot stress, foster empathy, and build psychological safety. Practical checklists, RASA listening, and roleplays to support team well-being effectively.</p>
-                                 <div class="card-actions">
-                                     <a href="contact.html?project=Mental Health in the Workplace for being Supervisor" class="cta-button">Discuss Similar Project</a>
-                                     <button class="view-details-button" data-pdf="assets/pdf/portfolio/mental_health_supervisor.pdf">View Details</button>
-                                 </div>
-                             </div>
-                         </div>
-                        <!-- Project: From Impostor to Influencer -->
-                        <div class="card project" data-category="mentoring">
-                            <div class="card-image">
-                                <img src="assets/images/portfolio/linkedIn_post.webp" alt="From Impostor to Influencer">
-                            </div>
-                            <div class="card-content">
-                                <h4>From Impostor to Influencer</h4>
-                                <span class="project-category-label"><a href="mentoring.html" title="View Service Details">Mentoring & Speaking</a></span>
-                                <p>Transform self-doubt into influence. Learn to create authentic, high-impact LinkedIn posts with confidence using storytelling, reflection, and the "Value Over Perfect" mindset.</p>
-                                <div class="card-actions">
-                                    <a href="contact.html?project=From Impostor to Influencer" class="cta-button">Discuss Similar Project</a>
-                                    <button class="view-details-button" data-pdf="assets/pdf/portfolio/linkedIn_post.pdf">View Details</button>
-                                </div>
+                    <!-- Project: How to Win Friends and Influence People -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/win_friends.png"
+                                alt="How to Win Friends and Influence People">
+                        </div>
+                        <div class="card-content">
+                            <h4>How to Win Friends and Influence People</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Practical deck to master human relations—build trust, empathy, and influence. Covers Dale
+                                Carnegie's timeless principles with modern workplace examples and guided reflection.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Win Friends" class="cta-button">Discuss Similar
+                                    Project</a>
+                                <button class="view-details-button" data-pdf="assets/pdf/portfolio/win_friends.pdf">View
+                                    Details</button>
                             </div>
                         </div>
+                    </div>
+                    <!-- Project: Managing Pressure Without Losing Yourself -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/managing_pressure.webp"
+                                alt="Managing Pressure Without Losing Yourself">
+                        </div>
+                        <div class="card-content">
+                            <h4>Managing Pressure Without Losing Yourself</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Engaging deck on stress awareness, burnout signs, and time mastery. Includes reflection
+                                games, Eisenhower Relay, and resilience tools for healthier, sustainable performance.
+                            </p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Managing Pressure Without Losing Yourself"
+                                    class="cta-button">Discuss Similar Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/managing_pressure.pdf">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project: Mental Health in the Workplace for being Supervisor -->
+                    <div class="card project" data-category="powerpoint">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/mental_health_supervisor.webp"
+                                alt="Mental Health in the Workplace for being Supervisor">
+                        </div>
+                        <div class="card-content">
+                            <h4>Mental Health in the Workplace for being Supervisor</h4>
+                            <span class="project-category-label"><a href="learning-powerpoint.html"
+                                    title="View Service Details">Learning PowerPoint Development</a></span>
+                            <p>Train leaders to spot stress, foster empathy, and build psychological safety. Practical
+                                checklists, RASA listening, and roleplays to support team well-being effectively.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=Mental Health in the Workplace for being Supervisor"
+                                    class="cta-button">Discuss Similar Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/mental_health_supervisor.pdf">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project: From Impostor to Influencer -->
+                    <div class="card project" data-category="mentoring">
+                        <div class="card-image">
+                            <img src="assets/images/portfolio/linkedIn_post.webp" alt="From Impostor to Influencer">
+                        </div>
+                        <div class="card-content">
+                            <h4>From Impostor to Influencer</h4>
+                            <span class="project-category-label"><a href="mentoring.html"
+                                    title="View Service Details">Mentoring & Speaking</a></span>
+                            <p>Transform self-doubt into influence. Learn to create authentic, high-impact LinkedIn
+                                posts with confidence using storytelling, reflection, and the "Value Over Perfect"
+                                mindset.</p>
+                            <div class="card-actions">
+                                <a href="contact.html?project=From Impostor to Influencer" class="cta-button">Discuss
+                                    Similar Project</a>
+                                <button class="view-details-button"
+                                    data-pdf="assets/pdf/portfolio/linkedIn_post.pdf">View Details</button>
+                            </div>
+                        </div>
+                    </div>
                 </div> <!-- End of combined projects-grid -->
 
-                 <!-- Placeholder for Social Media Projects -->
-                <div class="card project project-placeholder" data-category="mentoring" style="display: none;"> <!-- Hidden by default, shown by filter -->
-                     <div class="placeholder-image card-image" style="height: 150px; display: flex; align-items: center; justify-content: center; background-color: #eee;">(Example Coming Soon)</div>
+                <!-- Placeholder for Social Media Projects -->
+                <div class="card project project-placeholder" data-category="mentoring" style="display: none;">
+                    <!-- Hidden by default, shown by filter -->
+                    <div class="placeholder-image card-image"
+                        style="height: 150px; display: flex; align-items: center; justify-content: center; background-color: #eee;">
+                        (Example Coming Soon)</div>
                     <div class="card-content">
                         <h4>Mentoring &amp; Speaking Sessions</h4>
-                         <span class="project-category-label"><a href="mentoring.html" title="View Service Details">Mentoring &amp; Speaking</a></span>
-                        <p>Examples showcasing successful social media campaigns and content strategies are being compiled. <a href="contact.html?service=mentoring">Contact us</a> to discuss how we can help your business.</p>
-                         <div class="card-actions">
+                        <span class="project-category-label"><a href="mentoring.html"
+                                title="View Service Details">Mentoring &amp; Speaking</a></span>
+                        <p>Examples showcasing successful social media campaigns and content strategies are being
+                            compiled. <a href="contact.html?service=mentoring">Contact us</a> to discuss how we can help
+                            your business.</p>
+                        <div class="card-actions">
                             <a href="contact.html?service=mentoring" class="cta-button">Discuss Your Goals</a>
                         </div>
                     </div>
@@ -791,9 +1075,11 @@
 
 
                 <!-- Portfolio CTA Section -->
-                 <div style="text-align: center; margin-top: 60px; padding: 40px; background-color: var(--light-bg); border-radius: 8px;">
+                <div
+                    style="text-align: center; margin-top: 60px; padding: 40px; background-color: var(--light-bg); border-radius: 8px;">
                     <h3>Interested in Collaborating?</h3>
-                    <p style="margin-bottom: 25px;">If you like what you see and have a project in mind, let's discuss how I can help.</p>
+                    <p style="margin-bottom: 25px;">If you like what you see and have a project in mind, let's discuss
+                        how I can help.</p>
                     <a href="contact.html" class="cta-button cta-button-primary">Request a Quote / Consultation</a>
                 </div>
 
@@ -808,37 +1094,46 @@
                     <!-- Repeat placeholder publications as needed -->
                     <!-- Publication 1: DaGrow Mindset -->
                     <div class="card publication"> <!-- Added 'publication' class for potential specific styling -->
-                         <div class="card-image">
-                             <a href="assets/pdf/publication/publication_pdf_dagrow_mindset_unlocking_your_talent_potential.pdf" target="_blank" rel="noopener noreferrer" title="Read DaGrow Mindset PDF">
-                                 <img src="assets/images/publication_cover/publication_cover_dagrowmindset.jpeg" alt="DaGrow Mindset: Unlocking Your Talent Potential Book Cover">
-                             </a>
-                         </div>
-                         <div class="card-content">
-                             <h4><em>DaGrow Mindset: Unlocking Your Talent Potential</em></h4>
-                             <p style="font-size: 0.9em; color: var(--text-color); opacity: 0.8; margin-bottom: 8px;">By Daffa Ghiffary Kusuma <br> Publisher: Relation Ship Community (2024)</p>
-                             <p>A practical playbook helping readers discover, develop, and maximize their unique talents through the <strong>Discover, Assess, Grow, Reflect</strong> framework. Combining real-life stories, science-backed insights, and hands-on activities, it offers actionable steps to break mental barriers, build skills, and create lasting impact. Written in a casual, conversational tone, it's ideal for students, professionals, or anyone seeking personal growth.</p>
-                             <!-- Key selling points highlighted: actionable framework, real-world examples, accessibility -->
-                         </div>
-                         <div class="card-actions">
-                             <a href="assets/pdf/publication/publication_pdf_dagrow_mindset_unlocking_your_talent_potential.pdf" target="_blank" rel="noopener noreferrer" class="cta-button">Read Now</a>
-                         </div>
+                        <div class="card-image">
+                            <a href="assets/pdf/publication/publication_pdf_dagrow_mindset_unlocking_your_talent_potential.pdf"
+                                target="_blank" rel="noopener noreferrer" title="Read DaGrow Mindset PDF">
+                                <img src="assets/images/publication_cover/publication_cover_dagrowmindset.jpeg"
+                                    alt="DaGrow Mindset: Unlocking Your Talent Potential Book Cover">
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <h4><em>DaGrow Mindset: Unlocking Your Talent Potential</em></h4>
+                            <p style="font-size: 0.9em; color: var(--text-color); opacity: 0.8; margin-bottom: 8px;">By
+                                Daffa Ghiffary Kusuma <br> Publisher: Relation Ship Community (2024)</p>
+                            <p>A practical playbook helping readers discover, develop, and maximize their unique talents
+                                through the <strong>Discover, Assess, Grow, Reflect</strong> framework. Combining
+                                real-life stories, science-backed insights, and hands-on activities, it offers
+                                actionable steps to break mental barriers, build skills, and create lasting impact.
+                                Written in a casual, conversational tone, it's ideal for students, professionals, or
+                                anyone seeking personal growth.</p>
+                            <!-- Key selling points highlighted: actionable framework, real-world examples, accessibility -->
+                        </div>
+                        <div class="card-actions">
+                            <a href="assets/pdf/publication/publication_pdf_dagrow_mindset_unlocking_your_talent_potential.pdf"
+                                target="_blank" rel="noopener noreferrer" class="cta-button">Read Now</a>
+                        </div>
                     </div>
-                     <div class="card">
-                         <div class="placeholder-image card-image" style="height: 150px;">Publication Thumbnail 2</div>
-                         <div class="card-content">
+                    <div class="card">
+                        <div class="placeholder-image card-image" style="height: 150px;">Publication Thumbnail 2</div>
+                        <div class="card-content">
                             <h4>Publication Title 2</h4>
                             <p>[Brief description or abstract placeholder]</p>
-                             <div class="card-actions">
+                            <div class="card-actions">
                                 <a href="#placeholder-pdf" class="cta-button">Read/Download</a>
                             </div>
                         </div>
                     </div>
-                     <div class="card">
-                         <div class="placeholder-image card-image" style="height: 150px;">Publication Thumbnail 3</div>
-                         <div class="card-content">
+                    <div class="card">
+                        <div class="placeholder-image card-image" style="height: 150px;">Publication Thumbnail 3</div>
+                        <div class="card-content">
                             <h4>Publication Title 3</h4>
                             <p>[Brief description or abstract placeholder]</p>
-                             <div class="card-actions">
+                            <div class="card-actions">
                                 <a href="#placeholder-pdf" class="cta-button">Read/Download</a>
                             </div>
                         </div>
@@ -865,7 +1160,7 @@
     <!-- End PDF Viewer Modal -->
 
 
-        <footer>
+    <footer>
         <div class="container">
             <div class="footer-cta">
                 <div class="footer-cta-copy">
@@ -883,18 +1178,95 @@
     <!-- Modal Structure (Copied from original index.html for JS compatibility, but not triggered by project items above) -->
     <!-- Project Modals -->
     <!-- CATEGORY 1 -->
-    <div id="modal-project-1" class="modal"> <div class="modal-content"> <div class="modal-header"> <span class="close js-close">&times;</span> <h2>Entrepreneurship Online Class</h2> </div> <div class="modal-body"> <!-- ... modal content ... --> </div> </div> </div>
-    <div id="modal-project-2" class="modal"> <div class="modal-content"> <div class="modal-header"> <span class="close js-close">&times;</span> <h2>Training for Trainer: Experiential Learning & Coaching Skills</h2> </div> <div class="modal-body"> <!-- ... modal content ... --> </div> </div> </div>
-    <div id="modal-project-3" class="modal"> <div class="modal-content"> <div class="modal-header"> <span class="close js-close">&times;</span> <h2>Entrepreneurship Mentorship for Sandination Community</h2> </div> <div class="modal-body"> <!-- ... modal content ... --> </div> </div> </div>
-    <div id="modal-project-4" class="modal"> <div class="modal-content"> <div class="modal-header"> <span class="close js-close">&times;</span> <h2>3rd Winner in KUMPUL JASA Jember Entrepreneurship Competition</h2> </div> <div class="modal-body"> <!-- ... modal content ... --> </div> </div> </div>
-    <div id="modal-project-5" class="modal"> <div class="modal-content"> <div class="modal-header"> <span class="close js-close">&times;</span> <h2>NHI Bandung Business Acceleration Bootcamp</h2> </div> <div class="modal-body"> <!-- ... modal content ... --> </div> </div> </div>
+    <div id="modal-project-1" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"> <span class="close js-close">&times;</span>
+                <h2>Entrepreneurship Online Class</h2>
+            </div>
+            <div class="modal-body"> <!-- ... modal content ... --> </div>
+        </div>
+    </div>
+    <div id="modal-project-2" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"> <span class="close js-close">&times;</span>
+                <h2>Training for Trainer: Experiential Learning & Coaching Skills</h2>
+            </div>
+            <div class="modal-body"> <!-- ... modal content ... --> </div>
+        </div>
+    </div>
+    <div id="modal-project-3" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"> <span class="close js-close">&times;</span>
+                <h2>Entrepreneurship Mentorship for Sandination Community</h2>
+            </div>
+            <div class="modal-body"> <!-- ... modal content ... --> </div>
+        </div>
+    </div>
+    <div id="modal-project-4" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"> <span class="close js-close">&times;</span>
+                <h2>3rd Winner in KUMPUL JASA Jember Entrepreneurship Competition</h2>
+            </div>
+            <div class="modal-body"> <!-- ... modal content ... --> </div>
+        </div>
+    </div>
+    <div id="modal-project-5" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"> <span class="close js-close">&times;</span>
+                <h2>NHI Bandung Business Acceleration Bootcamp</h2>
+            </div>
+            <div class="modal-body"> <!-- ... modal content ... --> </div>
+        </div>
+    </div>
     <!-- CATEGORY 2 -->
-    <div id="modal-project-6" class="modal"> <div class="modal-content"> <div class="modal-header"> <span class="close js-close">&times;</span> <h2>Entrepreneurship Program for 5000+ SMK Students</h2> </div> <div class="modal-body"> <!-- ... modal content ... --> </div> </div> </div>
-    <div id="modal-project-7" class="modal"> <div class="modal-content"> <div class="modal-header"> <span class="close js-close">&times;</span> <h2>Budikdamber Entrepreneurship Program for 7 Rumah Yatim Asrama</h2> </div> <div class="modal-body"> <!-- ... modal content ... --> </div> </div> </div>
-    <div id="modal-project-8" class="modal"> <div class="modal-content"> <div class="modal-header"> <span class="close js-close">&times;</span> <h2>The Millennium Challenge Corporation (MCC) Grant</h2> </div> <div class="modal-body"> <!-- ... modal content ... --> </div> </div> </div>
-    <div id="modal-project-9" class="modal"> <div class="modal-content"> <div class="modal-header"> <span class="close js-close">&times;</span> <h2>Performance Appraisal</h2> </div> <div class="modal-body"> <!-- ... modal content ... --> </div> </div> </div>
-    <div id="modal-project-10" class="modal"> <div class="modal-content"> <div class="modal-header"> <span class="close js-close">&times;</span> <h2>NHI Bandung Business Incubation Bootcamp</h2> </div> <div class="modal-body"> <!-- ... modal content ... --> </div> </div> </div>
-    <div id="modal-project-11" class="modal"> <div class="modal-content"> <div class="modal-header"> <span class="close js-close">&times;</span> <h2>Entrepreneurial Mindset Seminar</h2> </div> <div class="modal-body"> <!-- ... modal content ... --> </div> </div> </div>
+    <div id="modal-project-6" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"> <span class="close js-close">&times;</span>
+                <h2>Entrepreneurship Program for 5000+ SMK Students</h2>
+            </div>
+            <div class="modal-body"> <!-- ... modal content ... --> </div>
+        </div>
+    </div>
+    <div id="modal-project-7" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"> <span class="close js-close">&times;</span>
+                <h2>Budikdamber Entrepreneurship Program for 7 Rumah Yatim Asrama</h2>
+            </div>
+            <div class="modal-body"> <!-- ... modal content ... --> </div>
+        </div>
+    </div>
+    <div id="modal-project-8" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"> <span class="close js-close">&times;</span>
+                <h2>The Millennium Challenge Corporation (MCC) Grant</h2>
+            </div>
+            <div class="modal-body"> <!-- ... modal content ... --> </div>
+        </div>
+    </div>
+    <div id="modal-project-9" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"> <span class="close js-close">&times;</span>
+                <h2>Performance Appraisal</h2>
+            </div>
+            <div class="modal-body"> <!-- ... modal content ... --> </div>
+        </div>
+    </div>
+    <div id="modal-project-10" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"> <span class="close js-close">&times;</span>
+                <h2>NHI Bandung Business Incubation Bootcamp</h2>
+            </div>
+            <div class="modal-body"> <!-- ... modal content ... --> </div>
+        </div>
+    </div>
+    <div id="modal-project-11" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"> <span class="close js-close">&times;</span>
+                <h2>Entrepreneurial Mindset Seminar</h2>
+            </div>
+            <div class="modal-body"> <!-- ... modal content ... --> </div>
+        </div>
+    </div>
     <!-- End Modals -->
 
 
@@ -934,10 +1306,10 @@
                         // Show specific category items if filter matches OR if filter is 'all' (and not legacy/review)
                         let shouldShow = false;
                         if (filter === 'all') {
-                             // Show all non-placeholder items, plus flagged items. Hide placeholders in 'all'.
-                             if (!item.classList.contains('project-placeholder')) {
-                                 shouldShow = true;
-                             }
+                            // Show all non-placeholder items, plus flagged items. Hide placeholders in 'all'.
+                            if (!item.classList.contains('project-placeholder')) {
+                                shouldShow = true;
+                            }
                         } else if (itemCategories.includes(filter)) {
                             shouldShow = true; // Show if category matches filter
                         }
@@ -949,11 +1321,11 @@
                             if (item.classList.contains('project-placeholder') && item.parentNode !== projectGrid) {
                                 projectGrid.appendChild(item);
                             }
-                             hasVisibleItems = true;
+                            hasVisibleItems = true;
                         } else {
                             item.style.display = 'none'; // Hide item
                             // If the item is a placeholder and inside the main grid, move it out (or just hide)
-                             // Hiding might be simpler than moving DOM elements frequently
+                            // Hiding might be simpler than moving DOM elements frequently
                         }
                     });
 
@@ -967,8 +1339,8 @@
                 });
             });
 
-             // Initial filter application on page load (optional, if needed)
-             // filterButtons[0].click(); // Simulate click on 'All' button initially
+            // Initial filter application on page load (optional, if needed)
+            // filterButtons[0].click(); // Simulate click on 'All' button initially
 
         } else {
             console.warn('Portfolio filter elements or project grid not found.');
@@ -978,21 +1350,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
