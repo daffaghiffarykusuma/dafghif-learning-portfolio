@@ -1196,14 +1196,16 @@ h2.section-title::after { /* Underline effect for titles */
 }
 
 /* Style the link *inside* the label for contrast */
+.card-content .project-category-label a,
 .project-category-label a {
-    color: #000; /* Black text for contrast */
-    text-decoration: none; /* Optional: remove underline if desired */
+    color: #fff !important; /* White text to contrast with accent background */
+    text-decoration: none;
 }
 
+.card-content .project-category-label a:hover,
 .project-category-label a:hover {
-    color: #333; /* Slightly lighter black on hover */
-    text-decoration: underline; /* Add underline on hover */
+    color: #e6f1ff !important; /* Slightly lighter on hover */
+    text-decoration: underline;
 }
 
 /* Ensure project cards handle display toggling for filtering */
