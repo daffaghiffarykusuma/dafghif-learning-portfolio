@@ -7,6 +7,7 @@
     <meta name="description" content="Learning strategist focused on designing, facilitating, and measuring programs that help people and teams grow.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/improvements.css">
 </head>
 <body>
     <!-- Skip Navigation Links for Screen Readers -->
@@ -20,13 +21,23 @@
                 <div class="logo">
                     <a href="index.html"><h1>Daffa Ghiffary Kusuma</h1></a>
                 </div>
-                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="menu-icon"></span>
+                    <span class="sr-only">Menu</span>
+                </button>
             </div>
             <nav>
                 <ul>
                     <li class="current"><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
+                    <li class="has-dropdown">
+                        <a href="services.html">Services <span class="dropdown-arrow">▾</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="custom-training.html">Custom Training & Workshops</a></li>
+                            <li><a href="learning-powerpoint.html">Learning PowerPoint Development</a></li>
+                            <li><a href="mentoring.html">Mentoring & Speaking</a></li>
+                        </ul>
+                    </li>
                     <li><a href="portfolio.html">Portfolio</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html">Contact</a></li>
@@ -36,12 +47,18 @@
         </div>
     </header>
 
+    <!-- Mobile sticky CTA -->
+    <div class="mobile-sticky-cta">
+        <a href="contact.html" class="btn-primary">Get Started</a>
+    </div>
+
     <main id="main-content" role="main" aria-label="Main content">
         <section id="showcase">
             <div class="container hero-grid">
                 <div class="hero-copy">
+                    <p class="hero-eyebrow">Learning Strategist & Program Designer</p>
                     <h1>Empowering Growth Through Learning</h1>
-                    <p>I am a learning specialist who blends research-backed design, program operations, and data storytelling to help organisations and communities scale their impact.</p>
+                    <p class="hero-lead">I am a learning specialist who blends research-backed design, program operations, and data storytelling to help organisations and communities scale their impact.</p>
                     <ul class="hero-points">
                         <li>Custom learning programmes and train-the-trainer support</li>
                         <li>Instructional storytelling and facilitation-ready assets</li>
@@ -317,14 +334,6 @@
                     <img src="assets/images/logos/logo_faxtor.svg" alt="Faxtor logo" loading="lazy">
                     <img src="assets/images/logos/logo_rsk.svg" alt="Rumah Siap Kerja logo" loading="lazy">
                 </div>
-            </div>
-        </section>
-
-        <section id="home-cta" class="section-accent">
-            <div class="container text-center">
-                <h2 class="section-title">Ready to Elevate Your Learning Strategy?</h2>
-                <p>Let us map the learning experience, facilitation team, and metrics that will take your program to the next stage.</p>
-                <a href="contact.html" class="cta-button">Contact Me</a>
             </div>
         </section>
     </main>

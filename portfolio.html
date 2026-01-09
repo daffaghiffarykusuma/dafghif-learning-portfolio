@@ -12,10 +12,15 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/improvements.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> -->
 </head>
 
 <body>
+    <!-- Skip Navigation Links for Screen Readers -->
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+    <a href="#portfolio-projects" class="skip-nav">Skip to projects</a>
+
     <header>
         <div class="container">
             <div class="header-main">
@@ -24,14 +29,23 @@
                         <h1>Daffa Ghiffary Kusuma</h1>
                     </a>
                 </div>
-                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="menu-icon"></span>
+                </button>
             </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li class="current"><a href="portfolio.html">Portfolio</a></li> <!-- Mark Portfolio as current -->
+                    <li class="has-dropdown">
+                        <a href="services.html">Services <span class="dropdown-arrow">▾</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="custom-training.html">Custom Training & Workshops</a></li>
+                            <li><a href="learning-powerpoint.html">Learning PowerPoint Development</a></li>
+                            <li><a href="mentoring.html">Mentoring & Speaking</a></li>
+                        </ul>
+                    </li>
+                    <li class="current"><a href="portfolio.html">Portfolio</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -40,11 +54,27 @@
         </div>
     </header>
 
-    <main>
+    <!-- Mobile sticky CTA -->
+    <div class="mobile-sticky-cta">
+        <a href="contact.html" class="btn-primary">Get Started</a>
+    </div>
+
+    <main id="main-content" role="main" aria-label="Main content">
+        <!-- Portfolio Hero -->
+        <section class="portfolio-hero">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-eyebrow">Work & Impact</p>
+                    <h1 class="section-title">Portfolio</h1>
+                    <p class="section-subtitle">From training programs serving 1,200+ learners to data-driven presentation decks, explore the work that demonstrates my approach to learning design, facilitation, and measurable impact.</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Projects Section - Migrated and Adapted -->
         <section id="portfolio-projects">
             <div class="container">
-                <h2 class="section-title">My Projects & Work</h2>
+                <h2 class="section-title">Featured Projects</h2>
 
                 <!-- Filter Buttons -->
                 <div id="portfolio-filters" style="text-align: center; margin-bottom: 40px;">
@@ -1094,16 +1124,6 @@
                             <a href="contact.html?service=mentoring" class="cta-button">Discuss Your Goals</a>
                         </div>
                     </div>
-                </div>
-
-
-                <!-- Portfolio CTA Section -->
-                <div
-                    style="text-align: center; margin-top: 60px; padding: 40px; background-color: var(--light-bg); border-radius: 8px;">
-                    <h3>Interested in Collaborating?</h3>
-                    <p style="margin-bottom: 25px;">If you like what you see and have a project in mind, let's discuss
-                        how I can help.</p>
-                    <a href="contact.html" class="cta-button cta-button-primary">Request a Quote / Consultation</a>
                 </div>
 
             </div>

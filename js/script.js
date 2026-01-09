@@ -22,6 +22,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     }
 
+    // --- Dropdown Menu Toggle for Mobile ---
+    const dropdownItems = document.querySelectorAll('.has-dropdown');
+    dropdownItems.forEach(item => {
+        const link = item.querySelector('a');
+        if (link) {
+            link.addEventListener('click', (e) => {
+                // Only toggle on mobile when menu is active
+                if (window.innerWidth <= 1024 && nav && nav.classList.contains('active')) {
+                    e.preventDefault();
+                    item.classList.toggle('open');
+                }
+            });
+        }
+    });
+
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     navLinks.forEach(link => {
         const linkPage = link.getAttribute('href').split('/').pop() || 'index.html';
@@ -438,6 +453,116 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     }
     */
+
+    // --- FAQ Accordion Functionality ---
+    const faqItems = document.querySelectorAll('.faq-list article');
+    if (faqItems.length > 0) {
+        faqItems.forEach(item => {
+            const question = item.querySelector('h3');
+            const answer = item.querySelector('p');
+
+            if (question && answer) {
+                // Set initial state - all expanded by default for accessibility
+                item.classList.add('expanded');
+
+                // Add click handler
+                item.addEventListener('click', () => {
+                    // Toggle current item
+                    item.classList.toggle('expanded');
+
+                    // Update ARIA attributes for accessibility
+                    const isExpanded = item.classList.contains('expanded');
+                    question.setAttribute('aria-expanded', isExpanded);
+                    answer.setAttribute('aria-hidden', !isExpanded);
+                });
+
+                // Add keyboard support
+                item.setAttribute('tabindex', '0');
+                item.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        item.click();
+                    }
+                });
+            }
+        });
+    }
+
+    // --- Smooth Scroll for Anchor Links ---
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    anchorLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const targetId = link.getAttribute('href');
+            if (targetId && targetId !== '#') {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    const headerHeight = document.querySelector('header')?.offsetHeight || 80;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+
+                    // Update URL hash without jumping
+                    history.pushState(null, null, targetId);
+                }
+            }
+        });
+    });
+
+    // --- Scroll Reveal Animation ---
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+
+    const revealOnScroll = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                revealOnScroll.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe elements for scroll reveal
+    const revealElements = document.querySelectorAll(
+        '.section-heading, .package-card, .spotlight-card, .impact-card, ' +
+        '.feature-card, .service-preview-card, .visual-card, .approach-steps li, ' +
+        '.case-study-list article, .resource-grid article, .faq-list article'
+    );
+
+    revealElements.forEach(el => {
+        el.classList.add('reveal-on-scroll');
+        revealOnScroll.observe(el);
+    });
+
+    // --- Active Section Indicator for Long Pages ---
+    const sections = document.querySelectorAll('section[id]');
+    const navAnchors = document.querySelectorAll('.hero-breadcrumb a[href^="#"]');
+
+    if (sections.length > 0 && navAnchors.length > 0) {
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navAnchors.forEach(anchor => {
+                        anchor.classList.remove('active');
+                        if (anchor.getAttribute('href') === `#${id}`) {
+                            anchor.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+    }
 });
 
 

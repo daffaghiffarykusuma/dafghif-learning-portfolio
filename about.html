@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,181 +9,254 @@
         content="Daffa Ghiffary Kusuma - Learning specialist designing training and mentoring programs that get real results">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .highlight-box {
-            background-color: #f8f9fa;
-            border-left: 4px solid #64ffda;
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        .testimonial-quote {
-            font-style: italic;
-            position: relative;
-            padding-left: 20px;
-            border-left: 3px solid #eee;
-            margin: 20px 0;
-        }
-    </style>
+    <link rel="stylesheet" href="css/improvements.css">
 </head>
 
 <body>
+    <!-- Skip Navigation Links for Screen Readers -->
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+
     <header>
         <div class="container">
             <div class="header-main">
                  <div class="logo">
                    <a href="index.html"><h1>Daffa Ghiffary Kusuma</h1></a>
                 </div>
-                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="menu-icon"></span>
+                </button>
             </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li class="current"><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
+                    <li class="has-dropdown">
+                        <a href="services.html">Services <span class="dropdown-arrow">▾</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="custom-training.html">Custom Training & Workshops</a></li>
+                            <li><a href="learning-powerpoint.html">Learning PowerPoint Development</a></li>
+                            <li><a href="mentoring.html">Mentoring & Speaking</a></li>
+                        </ul>
+                    </li>
                     <li><a href="portfolio.html">Portfolio</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-                    <a href="contact.html" class="header-cta">Work With Me</a>
-                </nav>
+                <a href="contact.html" class="header-cta">Work With Me</a>
+            </nav>
         </div>
     </header>
 
-    <main>
+    <!-- Mobile sticky CTA -->
+    <div class="mobile-sticky-cta">
+        <a href="contact.html" class="btn-primary">Get Started</a>
+    </div>
+
+    <main id="main-content" role="main" aria-label="Main content">
+        <!-- About Hero Section -->
+        <section class="about-hero">
+            <div class="container">
+                <div class="section-heading" style="text-align: center;">
+                    <p class="section-eyebrow">Meet Your Partner</p>
+                    <h1 class="section-title">About Me</h1>
+                    <p class="section-subtitle" style="margin: 0 auto;">"How do you create training programs that actually work, and not just check a box?"</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Introduction Section -->
         <section id="about-intro">
             <div class="container">
-                <div class="highlight-box">
-                    <h2 style="margin-top: 0;">"How do you create training programs that actually work, and not just check a box?"</h2>
-                </div>
+                <div class="about-intro-grid">
+                    <div class="about-content">
+                        <p class="about-lead"><strong>I'm Daffa.</strong> A learning specialist who designs <strong>training, mentoring, and development programs that get results</strong>. No fluff. Just real skills people can use.</p>
 
-                <div class="grid grid-cols-2" style="align-items: center; gap: 40px;">
-                    <div>
-                        <p style="font-size: 1.2rem; line-height: 1.7;"><strong>I'm Daffa.</strong><br>
-                        A learning specialist who designs <strong>training, mentoring, and development programs that get results</strong>.<br>
-                        No fluff. Just real skills people can use.</p>
+                        <div class="about-services-preview">
+                            <article class="about-service-item">
+                                <h3>1-on-1 Mentoring</h3>
+                                <p>If you want to:</p>
+                                <ul>
+                                    <li><strong>Build leadership skills</strong> that actually inspire teams</li>
+                                    <li><strong>Design training</strong> that sticks (no more bored audiences)</li>
+                                    <li><strong>Use data</strong> to measure what's working (and fix what's not)</li>
+                                </ul>
+                            </article>
 
-                        <h3 style="margin-top: 30px;">Here's How I Can Help You:</h3>
-                        
-                        <p><strong>1-on-1 Mentoring</strong> If you want to:</p>
-                        <ul style="margin-bottom: 20px;">
-                            <li><strong>Build leadership skills</strong> that actually inspire teams</li>
-                            <li><strong>Design training</strong> that sticks (no more bored audiences)</li>
-                            <li><strong>Use data</strong> to measure what's working (and fix what's not)</li>
-                        </ul>
+                            <article class="about-service-item">
+                                <h3>Speaking at Your Event</h3>
+                                <p>Let's talk about:</p>
+                                <ul>
+                                    <li><strong>"Training that doesn't suck"</strong> (engagement hacks that work)</li>
+                                    <li><strong>"From zero to profit"</strong> (simple entrepreneurship for beginners)</li>
+                                    <li><strong>"How to measure training success"</strong> (without overcomplicating it)</li>
+                                </ul>
+                            </article>
 
-                        <p><strong>Speaking at Your Event</strong> Let's talk about:</p>
-                        <ul style="margin-bottom: 20px;">
-                            <li><strong>"Training that doesn't suck"</strong> (engagement hacks that work)</li>
-                            <li><strong>"From zero to profit"</strong> (simple entrepreneurship for beginners)</li>
-                            <li><strong>"How to measure training success (without overcomplicating it)"</strong></li>
-                        </ul>
-
-                        <p><strong>Custom Training Programs</strong> From scratch to results:</p>
-                        <ul>
-                            <li><strong>Pinpoint what your team actually needs</strong> (no generic BS)</li>
-                            <li><strong>Create interactive sessions</strong> (not just PowerPoint marathons)</li>
-                            <li><strong>Track progress with real data</strong> (so you know it's working)</li>
-                        </ul>
+                            <article class="about-service-item">
+                                <h3>Custom Training Programs</h3>
+                                <p>From scratch to results:</p>
+                                <ul>
+                                    <li><strong>Pinpoint what your team actually needs</strong> (no generic fluff)</li>
+                                    <li><strong>Create interactive sessions</strong> (not just PowerPoint marathons)</li>
+                                    <li><strong>Track progress with real data</strong> (so you know it's working)</li>
+                                </ul>
+                            </article>
+                        </div>
                     </div>
-                    <div>
-                        <img src="about_me_cover.webp" alt="Daffa Ghiffary Kusuma" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    <div class="about-image">
+                        <img src="about_me_cover.webp" alt="Daffa Ghiffary Kusuma" loading="lazy">
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="highlight-box" style="margin-top: 40px;">
-                    <h3 style="margin-top: 0;">Why Work With Me?</h3>
-                    <ul style="list-style-type: none; padding-left: 0;">
-                        <li style="margin-bottom: 15px;"><strong>I've done it myself</strong> Helped students win <strong>KUMPUL JASA 2024</strong>, trained sales teams to coach better, and boosted small biz sales.</li>
-                        <li style="margin-bottom: 15px;"><strong>Data-driven, not guesswork</strong> My psych + research background means everything gets tested.</li>
-                        <li style="margin-bottom: 15px;"><strong>No boring lectures</strong> “ I use <strong>role-plays, challenges, and real-world tasks</strong> so people actually learn.</li>
-                    </ul>
-
-                    <h3 style="margin-top: 30px;">Real examples:</h3>
-                    <ul style="list-style-type: none; padding-left: 0;">
-                        <li style="margin-bottom: 10px;"><strong>3-month mentorship program</strong> Sellers hit <strong>10+ sales/day</strong> (Aerputh product)</li>
-                        <li style="margin-bottom: 10px;"><strong>Sales team training</strong> Fixed their coaching gaps in <strong>2 weeks</strong></li>
-                        <li style="margin-bottom: 10px;"><strong>3-day business bootcamp</strong> NHI Bandung students launched side hustles</li>
-                    </ul>
+        <!-- Why Work With Me Section -->
+        <section class="about-why">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 class="section-title">Why Work With Me?</h2>
                 </div>
+                <div class="why-grid">
+                    <article class="why-card">
+                        <div class="why-icon">01</div>
+                        <h3>Proven Track Record</h3>
+                        <p>Helped students win <strong>KUMPUL JASA 2024</strong>, trained sales teams to coach better, and boosted small business sales across Indonesia.</p>
+                    </article>
+                    <article class="why-card">
+                        <div class="why-icon">02</div>
+                        <h3>Data-Driven Approach</h3>
+                        <p>My psychology and research background means everything gets tested. No guesswork - just results backed by real data.</p>
+                    </article>
+                    <article class="why-card">
+                        <div class="why-icon">03</div>
+                        <h3>Engaging Methods</h3>
+                        <p>No boring lectures here. I use <strong>role-plays, challenges, and real-world tasks</strong> so people actually learn and remember.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-                <div class="testimonial-quote">
+        <!-- Results Section -->
+        <section class="about-results">
+            <div class="container">
+                <div class="section-heading">
+                    <h2 class="section-title">Real Results</h2>
+                    <p>Here's what happens when we work together:</p>
+                </div>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <span class="result-value">10+</span>
+                        <span class="result-label">Sales/day achieved by mentees in 3-month program</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="result-value">2 weeks</span>
+                        <span class="result-label">To fix coaching gaps for sales teams</span>
+                    </div>
+                    <div class="result-card">
+                        <span class="result-value">3 days</span>
+                        <span class="result-label">To help NHI Bandung students launch side hustles</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="about-cta-section">
+            <div class="container">
+                <div class="about-cta-box">
                     <h3>If You're Thinking:</h3>
-                    <ul style="list-style-type: none; padding-left: 0;">
-                        <li style="margin-bottom: 10px;">"My training feels like a waste of time."</li>
-                        <li style="margin-bottom: 10px;">"I need a speaker who won't put people to sleep."</li>
-                        <li style="margin-bottom: 10px;">"How do I even start building a program?"</li>
+                    <ul class="cta-thoughts">
+                        <li>"My training feels like a waste of time."</li>
+                        <li>"I need a speaker who won't put people to sleep."</li>
+                        <li>"How do I even start building a program?"</li>
                     </ul>
-                    <p style="font-weight: 600; margin-top: 20px;">Let's fix that.</p>
-                    <p style="color: #666; margin-top: 10px;">#TrainingThatWorks #NoBSMentoring #SpeakerWhoDelivers</p>
+                    <p class="cta-answer">Let's fix that.</p>
+                    <a href="contact.html" class="cta-button">Start the Conversation</a>
                 </div>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills">
+        <section id="skills" class="skills-section">
             <div class="container">
-                <h2 class="section-title">My Skills</h2>
-                <ul>
-                    <li>Learning & Development</li>
-                    <li>Training Needs Analysis (TNA)</li>
-                    <li>Training Evaluation</li>
-                    <li>Psychological Assessment</li>
-                    <li>Data Analytics</li>
-                    <li>Adaptive</li>
-                    <li>Attention to detail</li>
-                    <li>Agile</li>
-                    <li>High self-motivation</li>
-                    <li>Communication</li>
-                    <li>Technology savvy</li>
-                </ul>
+                <div class="section-heading">
+                    <h2 class="section-title">My Skills</h2>
+                    <p>Core competencies developed through years of hands-on experience</p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Learning & Development</h3>
+                        <ul class="skill-tags">
+                            <li>Learning Experience Design</li>
+                            <li>Training Needs Analysis (TNA)</li>
+                            <li>Training Evaluation</li>
+                            <li>Curriculum Development</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Research & Analysis</h3>
+                        <ul class="skill-tags">
+                            <li>Psychological Assessment</li>
+                            <li>Data Analytics</li>
+                            <li>Program Evaluation</li>
+                            <li>Impact Measurement</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Professional Skills</h3>
+                        <ul class="skill-tags">
+                            <li>Communication</li>
+                            <li>Facilitation</li>
+                            <li>Agile Methodology</li>
+                            <li>Technology Savvy</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Certifications Section -->
-        <section id="certifications">
+        <section id="certifications" class="certifications-section">
             <div class="container">
-                <h2 class="section-title">Certifications</h2>
-                <div class="grid grid-cols-3" style="gap: 30px;">
+                <div class="section-heading">
+                    <h2 class="section-title">Certifications</h2>
+                    <p>Credentials that back up the expertise</p>
+                </div>
+                <div class="certifications-grid">
                     <!-- Certificate 1 -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="certificate_full_stack_data_analytics.webp" alt="Full Stack Data Analytics Certificate" style="height: 200px; object-fit: contain; background: #f8f8f8;">
+                    <article class="certification-card">
+                        <div class="certification-image">
+                            <img src="certificate_full_stack_data_analytics.webp" alt="Full Stack Data Analytics Certificate" loading="lazy">
                         </div>
-                        <div class="card-content">
+                        <div class="certification-content">
                             <h4>Full Stack Data Analytics</h4>
-                            <p><small>Issued by: <strong>REVOU</strong></small></p>
-                            <div class="card-actions">
-                                <a href="https://certificates.revou.co/daffa-ghiffary-kusuma-certificate-achievements-facfsda23.pdf" target="_blank" rel="noopener noreferrer" class="cta-button">Verify Certificate</a>
-                            </div>
+                            <p class="certification-issuer">Issued by: <strong>REVOU</strong></p>
+                            <a href="https://certificates.revou.co/daffa-ghiffary-kusuma-certificate-achievements-facfsda23.pdf" target="_blank" rel="noopener noreferrer" class="link-subtle">Verify Certificate</a>
                         </div>
-                    </div>
-                    
+                    </article>
+
                     <!-- Certificate 2 -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="certificate_critical_thinking_analyze_problem_and_make_decision.webp" alt="Critical Thinking Certificate" style="height: 200px; object-fit: contain; background: #f8f8f8;">
+                    <article class="certification-card">
+                        <div class="certification-image">
+                            <img src="certificate_critical_thinking_analyze_problem_and_make_decision.webp" alt="Critical Thinking Certificate" loading="lazy">
                         </div>
-                        <div class="card-content">
+                        <div class="certification-content">
                             <h4>Critical Thinking: Analyze Problem and Make Decision</h4>
-                            <p><small>Issued by: <strong>Dale Carnegie</strong></small></p>
+                            <p class="certification-issuer">Issued by: <strong>Dale Carnegie</strong></p>
                         </div>
-                    </div>
-                    
+                    </article>
+
                     <!-- Certificate 3 -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="certificate_introduction_to_prompt_engineering.webp" alt="Prompt Engineering Certificate" style="height: 200px; object-fit: contain; background: #f8f8f8;">
+                    <article class="certification-card">
+                        <div class="certification-image">
+                            <img src="certificate_introduction_to_prompt_engineering.webp" alt="Prompt Engineering Certificate" loading="lazy">
                         </div>
-                        <div class="card-content">
+                        <div class="certification-content">
                             <h4>Introduction to Prompt Engineering</h4>
-                            <p><small>Issued by: <strong>IBM</strong></small></p>
-                            <div class="card-actions">
-                                <a href="https://courses.edx.org/certificates/e1e2170fefea419481bc113133ac4409" target="_blank" rel="noopener noreferrer" class="cta-button">Verify Certificate</a>
-                            </div>
+                            <p class="certification-issuer">Issued by: <strong>IBM</strong></p>
+                            <a href="https://courses.edx.org/certificates/e1e2170fefea419481bc113133ac4409" target="_blank" rel="noopener noreferrer" class="link-subtle">Verify Certificate</a>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>

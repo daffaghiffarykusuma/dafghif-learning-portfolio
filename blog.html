@@ -8,35 +8,65 @@
     <meta name="description" content="Read blog articles by Daffa Ghiffary Kusuma on topics like employability skills, HR, AI, and more.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/improvements.css">
 </head>
 
 <body>
+    <!-- Skip Navigation Links for Screen Readers -->
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+    <a href="#blog-list" class="skip-nav">Skip to articles</a>
+
     <header>
         <div class="container">
             <div class="header-main">
                 <div class="logo">
                    <a href="index.html"><h1>Daffa Ghiffary Kusuma</h1></a>
                 </div>
-                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="menu-icon"></span>
+                </button>
             </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
+                    <li class="has-dropdown">
+                        <a href="services.html">Services <span class="dropdown-arrow">▾</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="custom-training.html">Custom Training & Workshops</a></li>
+                            <li><a href="learning-powerpoint.html">Learning PowerPoint Development</a></li>
+                            <li><a href="mentoring.html">Mentoring & Speaking</a></li>
+                        </ul>
+                    </li>
                     <li><a href="portfolio.html">Portfolio</a></li>
                     <li class="current"><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-                    <a href="contact.html" class="header-cta">Work With Me</a>
-                </nav>
+                <a href="contact.html" class="header-cta">Work With Me</a>
+            </nav>
         </div>
     </header>
 
-    <main>
+    <!-- Mobile sticky CTA -->
+    <div class="mobile-sticky-cta">
+        <a href="contact.html" class="btn-primary">Get Started</a>
+    </div>
+
+    <main id="main-content" role="main" aria-label="Main content">
+        <!-- Blog Hero -->
+        <section class="blog-hero">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-eyebrow">Insights & Articles</p>
+                    <h1 class="section-title">Blog</h1>
+                    <p class="section-subtitle">Practical insights on learning design, program evaluation, and strategies that help teams grow. Follow along on Medium for regular updates.</p>
+                </div>
+            </div>
+        </section>
+
         <section id="blog-list">
             <div class="container">
-                <h2 class="section-title">Blog</h2>
+                <h2 class="section-title">Latest Articles</h2>
                 <div id="blog-cards" class="grid grid-cols-2" style="gap: 20px;"></div>
             </div>
         </section>
