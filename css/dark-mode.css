@@ -1,0 +1,1257 @@
+/* =================================================================
+   MINIMAL DARK MODE DESIGN SYSTEM
+   A sleek, uncluttered dark-mode experience
+
+   Color Palette:
+   - Background: #121212 (deep charcoal)
+   - Cards/Surfaces: #1a1a1a (near-black)
+   - Panels/Elevated: #2a2a2a (subtle gray)
+   - Borders: #333333 (soft divider)
+   - Text Primary: #ffffff
+   - Text Secondary: #a0a0a0
+   - Text Muted: #6b6b6b
+   - Accent: #00b894 (teal - kept for brand recognition)
+   ================================================================= */
+
+/* =================================================================
+   LAYER 1: CSS CUSTOM PROPERTIES OVERRIDE
+   ================================================================= */
+:root {
+    /* === DARK MODE COLOR SYSTEM === */
+
+    /* Core backgrounds */
+    --dm-bg-primary: #121212;
+    --dm-bg-secondary: #1a1a1a;
+    --dm-bg-tertiary: #2a2a2a;
+    --dm-bg-elevated: #333333;
+
+    /* Text colors */
+    --dm-text-primary: #ffffff;
+    --dm-text-secondary: #a0a0a0;
+    --dm-text-muted: #6b6b6b;
+    --dm-text-inverse: #121212;
+
+    /* Border colors */
+    --dm-border-subtle: #2a2a2a;
+    --dm-border-default: #333333;
+    --dm-border-strong: #444444;
+
+    /* Accent colors (minimal, functional) */
+    --dm-accent: #00b894;
+    --dm-accent-hover: #00d9a5;
+    --dm-accent-muted: rgba(0, 184, 148, 0.15);
+    --dm-accent-subtle: rgba(0, 184, 148, 0.08);
+
+    /* Semantic colors */
+    --dm-success: #00b894;
+    --dm-warning: #f39c12;
+    --dm-error: #e74c3c;
+    --dm-info: #3498db;
+
+    /* Shadows for dark mode (subtle, not heavy) */
+    --dm-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --dm-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --dm-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+    --dm-shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
+
+    /* Override existing variables */
+    --color-primary: var(--dm-text-primary);
+    --color-primary-light: var(--dm-bg-tertiary);
+    --color-primary-dark: var(--dm-bg-primary);
+
+    --color-secondary: var(--dm-text-secondary);
+    --color-secondary-light: var(--dm-bg-secondary);
+    --color-secondary-dark: var(--dm-bg-primary);
+
+    --color-accent: var(--dm-accent);
+    --color-accent-light: var(--dm-accent-hover);
+    --color-accent-lighter: var(--dm-accent-muted);
+    --color-accent-dark: #009e7a;
+
+    --color-background: var(--dm-bg-primary);
+    --color-surface: var(--dm-bg-secondary);
+    --color-surface-variant: var(--dm-bg-tertiary);
+    --color-border: var(--dm-border-default);
+    --color-text: var(--dm-text-primary);
+    --color-text-secondary: var(--dm-text-secondary);
+    --color-text-muted: var(--dm-text-muted);
+
+    /* Legacy overrides */
+    --primary: var(--dm-text-primary);
+    --secondary: var(--dm-text-secondary);
+    --accent: var(--dm-accent);
+    --accent-hover: var(--dm-accent-hover);
+    --accent-light: var(--dm-accent-muted);
+
+    --bg: var(--dm-bg-primary);
+    --bg-light: var(--dm-bg-secondary);
+    --bg-dark: var(--dm-bg-tertiary);
+    --card-bg: var(--dm-bg-secondary);
+
+    --text-color: var(--dm-text-primary);
+    --text-muted: var(--dm-text-muted);
+    --text-light: var(--dm-text-secondary);
+    --text-white: var(--dm-text-primary);
+
+    --border-color: var(--dm-border-default);
+    --border-light: var(--dm-border-subtle);
+    --border-dark: var(--dm-border-strong);
+
+    --shadow-subtle: var(--dm-shadow-sm);
+    --shadow-elevated: var(--dm-shadow-md);
+    --shadow-floating: var(--dm-shadow-lg);
+    --card-shadow: var(--dm-shadow-md);
+
+    /* Neutral scale override */
+    --color-neutral-50: var(--dm-bg-tertiary);
+    --color-neutral-100: var(--dm-bg-tertiary);
+    --color-neutral-200: var(--dm-border-subtle);
+    --color-neutral-300: var(--dm-border-default);
+    --color-neutral-400: var(--dm-text-muted);
+    --color-neutral-500: var(--dm-text-muted);
+    --color-neutral-600: var(--dm-text-secondary);
+    --color-neutral-700: var(--dm-text-secondary);
+    --color-neutral-800: var(--dm-text-primary);
+    --color-neutral-900: var(--dm-text-primary);
+}
+
+/* =================================================================
+   LAYER 2: BASE STYLES
+   ================================================================= */
+
+/* Body */
+body {
+    background-color: var(--dm-bg-primary) !important;
+    color: var(--dm-text-primary) !important;
+}
+
+/* Remove alternating section backgrounds */
+section:nth-of-type(even) {
+    background-color: var(--dm-bg-primary) !important;
+}
+
+/* Links */
+a {
+    color: var(--dm-accent) !important;
+    transition: color 0.2s ease !important;
+}
+
+a:hover {
+    color: var(--dm-accent-hover) !important;
+}
+
+/* =================================================================
+   LAYER 3: HEADER & NAVIGATION
+   ================================================================= */
+
+body > header {
+    background: var(--dm-bg-secondary) !important;
+    border-bottom: 1px solid var(--dm-border-subtle) !important;
+    box-shadow: none !important;
+}
+
+body > header .logo h1 {
+    color: var(--dm-text-primary) !important;
+}
+
+body > header .logo a {
+    color: var(--dm-text-primary) !important;
+}
+
+body > header nav ul li a {
+    color: var(--dm-text-secondary) !important;
+}
+
+body > header nav ul li a:hover {
+    color: var(--dm-text-primary) !important;
+}
+
+body > header nav ul li.current a {
+    color: var(--dm-accent) !important;
+}
+
+body > header nav ul li.current a::after {
+    background: var(--dm-accent) !important;
+}
+
+/* Header CTA Button */
+.header-cta {
+    background: var(--dm-accent) !important;
+    color: var(--dm-bg-primary) !important;
+    border: none !important;
+    font-weight: 600 !important;
+    padding: 10px 24px !important;
+    border-radius: 6px !important;
+    transition: all 0.2s ease !important;
+}
+
+.header-cta:hover {
+    background: var(--dm-accent-hover) !important;
+    color: var(--dm-bg-primary) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    color: var(--dm-text-primary) !important;
+}
+
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
+    background: var(--dm-text-primary) !important;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    background: var(--dm-bg-secondary) !important;
+    border: 1px solid var(--dm-border-default) !important;
+    box-shadow: var(--dm-shadow-lg) !important;
+}
+
+.dropdown-menu::before {
+    border-bottom-color: var(--dm-bg-secondary) !important;
+}
+
+.dropdown-menu li a {
+    color: var(--dm-text-secondary) !important;
+}
+
+.dropdown-menu li a:hover {
+    background: var(--dm-bg-tertiary) !important;
+    color: var(--dm-text-primary) !important;
+}
+
+.dropdown-menu li.active a {
+    color: var(--dm-accent) !important;
+    background: var(--dm-accent-subtle) !important;
+}
+
+/* Mobile dropdown */
+@media (max-width: 1024px) {
+    body > header nav {
+        background: var(--dm-bg-secondary) !important;
+    }
+
+    .dropdown-menu {
+        background: var(--dm-bg-tertiary) !important;
+    }
+
+    .dropdown-menu li a {
+        color: var(--dm-text-secondary) !important;
+    }
+
+    .dropdown-menu li a:hover {
+        background: var(--dm-bg-elevated) !important;
+    }
+}
+
+/* =================================================================
+   LAYER 4: HERO SECTIONS
+   ================================================================= */
+
+#showcase {
+    background: var(--dm-bg-primary) !important;
+    color: var(--dm-text-primary) !important;
+}
+
+#showcase h1 {
+    color: var(--dm-text-primary) !important;
+}
+
+#showcase p,
+#showcase .hero-lead {
+    color: var(--dm-text-secondary) !important;
+    opacity: 1 !important;
+}
+
+.hero-eyebrow {
+    background: var(--dm-accent-subtle) !important;
+    color: var(--dm-accent) !important;
+    border: 1px solid var(--dm-accent-muted) !important;
+}
+
+.hero-points li {
+    color: var(--dm-text-secondary) !important;
+}
+
+.hero-points li::before {
+    background: var(--dm-accent-muted) !important;
+    color: var(--dm-accent) !important;
+}
+
+.hero-trustband {
+    color: var(--dm-text-muted) !important;
+}
+
+.hero-trustband span {
+    background: var(--dm-bg-tertiary) !important;
+    border-color: var(--dm-border-default) !important;
+    color: var(--dm-text-secondary) !important;
+}
+
+.hero-image-frame {
+    border: 1px solid var(--dm-border-subtle) !important;
+    box-shadow: var(--dm-shadow-lg) !important;
+}
+
+.hero-image-frame::after {
+    background: linear-gradient(180deg, transparent 0%, rgba(18, 18, 18, 0.6) 100%) !important;
+}
+
+.hero-metric {
+    background: var(--dm-bg-secondary) !important;
+    border: 1px solid var(--dm-border-default) !important;
+    color: var(--dm-text-primary) !important;
+    box-shadow: var(--dm-shadow-md) !important;
+}
+
+.hero-metric .metric-value {
+    color: var(--dm-accent) !important;
+}
+
+.hero-metric .metric-label {
+    color: var(--dm-text-secondary) !important;
+}
+
+/* Service Overview Hero */
+.service-overview-hero,
+.portfolio-hero,
+.blog-hero,
+.about-hero,
+.contact-hero,
+.contact-hero-new {
+    background: var(--dm-bg-primary) !important;
+    border-bottom: 1px solid var(--dm-border-subtle) !important;
+}
+
+.hero-split .hero-copy h1,
+.service-overview-hero h1,
+.portfolio-hero .section-title,
+.blog-hero .section-title,
+.about-hero .section-title,
+.contact-hero-title {
+    color: var(--dm-text-primary) !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: var(--dm-text-primary) !important;
+    background-clip: unset !important;
+}
+
+.service-eyebrow {
+    color: var(--dm-accent) !important;
+}
+
+.lead,
+.hero-copy .lead {
+    color: var(--dm-text-secondary) !important;
+}
+
+/* =================================================================
+   LAYER 5: BUTTONS & CTAs
+   ================================================================= */
+
+/* Primary CTA Button - Flat, no gradients */
+.cta-button,
+.btn-primary {
+    background: var(--dm-accent) !important;
+    color: var(--dm-bg-primary) !important;
+    border: none !important;
+    box-shadow: none !important;
+    font-weight: 600 !important;
+    border-radius: 6px !important;
+    transition: all 0.2s ease !important;
+}
+
+.cta-button::before,
+.btn-primary::before {
+    display: none !important;
+}
+
+.cta-button:hover,
+.btn-primary:hover {
+    background: var(--dm-accent-hover) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3) !important;
+}
+
+/* Secondary CTA Button */
+.cta-button.cta-secondary,
+.btn-secondary,
+.cta-secondary {
+    background: transparent !important;
+    color: var(--dm-accent) !important;
+    border: 2px solid var(--dm-accent) !important;
+    box-shadow: none !important;
+}
+
+.cta-button.cta-secondary:hover,
+.btn-secondary:hover,
+.cta-secondary:hover {
+    background: var(--dm-accent) !important;
+    color: var(--dm-bg-primary) !important;
+    border-color: var(--dm-accent) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Link subtle */
+.link-subtle {
+    color: var(--dm-text-secondary) !important;
+}
+
+.link-subtle:hover {
+    color: var(--dm-accent) !important;
+}
+
+/* Hero actions - specific overrides */
+#showcase .hero-actions .cta-button,
+.hero-actions .cta-button {
+    background: var(--dm-accent) !important;
+    color: var(--dm-bg-primary) !important;
+    box-shadow: none !important;
+}
+
+#showcase .hero-actions .cta-button:hover,
+.hero-actions .cta-button:hover {
+    background: var(--dm-accent-hover) !important;
+    box-shadow: 0 4px 16px rgba(0, 184, 148, 0.25) !important;
+}
+
+#showcase .hero-actions .link-subtle,
+.hero-actions .link-subtle {
+    color: var(--dm-text-secondary) !important;
+    border-color: var(--dm-border-default) !important;
+    background: transparent !important;
+}
+
+#showcase .hero-actions .link-subtle:hover,
+.hero-actions .link-subtle:hover {
+    color: var(--dm-accent) !important;
+    border-color: var(--dm-accent) !important;
+    background: var(--dm-accent-subtle) !important;
+}
+
+/* =================================================================
+   LAYER 6: CARDS
+   ================================================================= */
+
+/* Service Cards */
+.service-preview-card,
+.service-card,
+.spotlight-card,
+.testimonial-card,
+.certification-card,
+.why-card,
+.skill-category,
+.contact-card,
+.blog-card,
+.expect-step {
+    background: var(--dm-bg-secondary) !important;
+    border: 1px solid var(--dm-border-subtle) !important;
+    box-shadow: none !important;
+}
+
+.service-preview-card:hover,
+.service-card:hover,
+.spotlight-card:hover,
+.testimonial-card:hover,
+.certification-card:hover,
+.why-card:hover,
+.contact-card:hover,
+.blog-card:hover {
+    border-color: var(--dm-border-default) !important;
+    box-shadow: var(--dm-shadow-md) !important;
+    transform: translateY(-4px) !important;
+}
+
+/* Card titles */
+.service-preview-card h3,
+.service-card h3,
+.spotlight-card h3,
+.why-card h3,
+.skill-category h3,
+.certification-content h4,
+.blog-card-title,
+.blog-card-title a {
+    color: var(--dm-text-primary) !important;
+}
+
+/* Card descriptions */
+.service-preview-card p,
+.service-card p,
+.spotlight-card p,
+.why-card p,
+.service-preview-desc,
+.blog-card-desc {
+    color: var(--dm-text-secondary) !important;
+}
+
+/* Service icon */
+.service-icon {
+    background: var(--dm-accent) !important;
+    color: var(--dm-bg-primary) !important;
+    box-shadow: none !important;
+}
+
+/* Service metric badge */
+.service-metric-badge {
+    background: var(--dm-accent-subtle) !important;
+    color: var(--dm-accent) !important;
+    border: 1px solid var(--dm-accent-muted) !important;
+}
+
+/* Service highlights */
+.service-highlights li {
+    color: var(--dm-text-secondary) !important;
+}
+
+.service-highlights li::before {
+    color: var(--dm-accent) !important;
+}
+
+/* Service proof */
+.service-proof {
+    color: var(--dm-text-muted) !important;
+    border-left: 2px solid var(--dm-border-default) !important;
+}
+
+.service-proof span {
+    color: var(--dm-text-secondary) !important;
+}
+
+/* Spotlight cards */
+.spotlight-eyebrow {
+    color: var(--dm-accent) !important;
+}
+
+.spotlight-price {
+    color: var(--dm-text-secondary) !important;
+}
+
+.spotlight-price strong {
+    color: var(--dm-text-primary) !important;
+}
+
+.spotlight-list li {
+    color: var(--dm-text-secondary) !important;
+}
+
+/* Pricing cards */
+.pricing-card {
+    background: var(--dm-bg-secondary) !important;
+    border: 1px solid var(--dm-border-subtle) !important;
+}
+
+.pricing-card.featured {
+    border-color: var(--dm-accent) !important;
+}
+
+/* Visual cards */
+.visual-card {
+    background: var(--dm-bg-secondary) !important;
+    border: 1px solid var(--dm-border-subtle) !important;
+}
+
+.visual-card figcaption {
+    color: var(--dm-text-secondary) !important;
+    background: var(--dm-bg-tertiary) !important;
+}
+
+/* Contact method cards */
+.contact-method-card {
+    background: var(--dm-bg-secondary) !important;
+    border: 2px solid var(--dm-border-subtle) !important;
+}
+
+.contact-method-card::before {
+    background: var(--dm-accent) !important;
+}
+
+.contact-method-card:hover {
+    border-color: var(--dm-accent) !important;
+    box-shadow: var(--dm-shadow-md) !important;
+}
+
+.contact-method-card.whatsapp:hover {
+    border-color: #25D366 !important;
+}
+
+.contact-method-card.linkedin:hover {
+    border-color: #0A66C2 !important;
+}
+
+.contact-method-content h2 {
+    color: var(--dm-text-primary) !important;
+}
+
+.contact-method-detail {
+    color: var(--dm-text-secondary) !important;
+}
+
+.contact-method-desc {
+    color: var(--dm-text-muted) !important;
+}
+
+.contact-method-icon {
+    background: var(--dm-accent) !important;
+}
+
+.contact-method-card.whatsapp .contact-method-icon {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%) !important;
+}
+
+.contact-method-card.linkedin .contact-method-icon {
+    background: linear-gradient(135deg, #0A66C2 0%, #004182 100%) !important;
+}
+
+/* =================================================================
+   LAYER 7: SECTIONS
+   ================================================================= */
+
+/* Section titles */
+.section-heading .section-title,
+h2.section-title {
+    color: var(--dm-text-primary) !important;
+}
+
+h2.section-title::after {
+    background: var(--dm-accent) !important;
+}
+
+.section-heading p,
+.section-subtitle {
+    color: var(--dm-text-secondary) !important;
+}
+
+.section-eyebrow {
+    color: var(--dm-accent) !important;
+}
+
+/* Services preview section */
+#services-preview {
+    background: var(--dm-bg-primary) !important;
+}
+
+/* Testimonials section */
+#testimonials {
+    background: var(--dm-bg-primary) !important;
+}
+
+.testimonial-quote {
+    color: var(--dm-text-secondary) !important;
+}
+
+.testimonial-name {
+    color: var(--dm-text-primary) !important;
+}
+
+.testimonial-role {
+    color: var(--dm-text-muted) !important;
+}
+
+.testimonial-avatar.placeholder {
+    background: var(--dm-bg-tertiary) !important;
+    color: var(--dm-text-secondary) !important;
+}
+
+.slider-control {
+    background: var(--dm-bg-tertiary) !important;
+    color: var(--dm-text-primary) !important;
+    border: 1px solid var(--dm-border-default) !important;
+}
+
+.slider-control:hover {
+    background: var(--dm-accent) !important;
+    color: var(--dm-bg-primary) !important;
+    border-color: var(--dm-accent) !important;
+}
+
+/* Brands section */
+#brands {
+    background: var(--dm-bg-secondary) !important;
+    border-top: 1px solid var(--dm-border-subtle) !important;
+    border-bottom: 1px solid var(--dm-border-subtle) !important;
+}
+
+#brands h2 {
+    color: var(--dm-text-primary) !important;
+}
+
+.brand-logos-container img {
+    filter: grayscale(100%) brightness(1.5) !important;
+    opacity: 0.6 !important;
+    transition: all 0.3s ease !important;
+}
+
+.brand-logos-container img:hover {
+    filter: grayscale(0%) brightness(1) !important;
+    opacity: 1 !important;
+}
+
+/* Impact section */
+.service-overview-impact {
+    background: var(--dm-bg-secondary) !important;
+}
+
+.impact-card {
+    background: var(--dm-bg-tertiary) !important;
+    border: 1px solid var(--dm-border-subtle) !important;
+}
+
+.impact-value {
+    color: var(--dm-accent) !important;
+}
+
+.impact-label {
+    color: var(--dm-text-secondary) !important;
+}
+
+/* Process section */
+.service-overview-process {
+    background: var(--dm-bg-primary) !important;
+}
+
+.approach-steps li {
+    background: var(--dm-bg-secondary) !important;
+    border: 1px solid var(--dm-border-subtle) !important;
+}
+
+.approach-steps li h3 {
+    color: var(--dm-text-primary) !important;
+}
+
+.approach-steps li p {
+    color: var(--dm-text-secondary) !important;
+}
+
+.approach-steps li::before {
+    background: var(--dm-accent) !important;
+    color: var(--dm-bg-primary) !important;
+}
+
+/* Services collage */
+.services-collage {
+    background: var(--dm-bg-primary) !important;
+}
+
+/* Services spotlight */
+.services-spotlight {
+    background: var(--dm-bg-secondary) !important;
+}
+
+/* About page sections */
+.about-why {
+    background: var(--dm-bg-secondary) !important;
+}
+
+.about-results {
+    background: var(--dm-bg-primary) !important;
+}
+
+.result-card {
+    background: var(--dm-bg-tertiary) !important;
+}
+
+.result-value {
+    color: var(--dm-accent) !important;
+}
+
+.result-label {
+    color: var(--dm-text-secondary) !important;
+}
+
+.about-cta-section {
+    background: var(--dm-accent) !important;
+}
+
+.about-cta-section .cta-button {
+    background: var(--dm-bg-primary) !important;
+    color: var(--dm-text-primary) !important;
+}
+
+.about-cta-section .cta-button:hover {
+    background: var(--dm-bg-secondary) !important;
+}
+
+/* Skills section */
+.skills-section {
+    background: var(--dm-bg-secondary) !important;
+}
+
+.skill-tags li {
+    background: var(--dm-bg-tertiary) !important;
+    color: var(--dm-text-secondary) !important;
+}
+
+.skill-tags li:hover {
+    background: var(--dm-accent-subtle) !important;
+    color: var(--dm-accent) !important;
+}
+
+.skill-category h3 {
+    border-bottom-color: var(--dm-accent) !important;
+}
+
+/* Certifications section */
+.certifications-section {
+    background: var(--dm-bg-primary) !important;
+}
+
+.certification-image {
+    background: var(--dm-bg-tertiary) !important;
+}
+
+.certification-issuer {
+    color: var(--dm-text-muted) !important;
+}
+
+/* About intro */
+.about-lead {
+    color: var(--dm-text-secondary) !important;
+}
+
+.about-service-item {
+    background: var(--dm-bg-secondary) !important;
+    border-left-color: var(--dm-accent) !important;
+}
+
+.about-service-item:hover {
+    background: var(--dm-bg-tertiary) !important;
+}
+
+.about-service-item h3 {
+    color: var(--dm-text-primary) !important;
+}
+
+.about-service-item p {
+    color: var(--dm-text-secondary) !important;
+}
+
+.about-service-item li {
+    color: var(--dm-text-secondary) !important;
+}
+
+.about-service-item li::before {
+    color: var(--dm-accent) !important;
+}
+
+.about-image::after {
+    background: var(--dm-accent-muted) !important;
+    opacity: 0.3 !important;
+}
+
+/* Why cards */
+.why-icon {
+    background: var(--dm-accent) !important;
+    color: var(--dm-bg-primary) !important;
+}
+
+/* Contact page */
+.contact-expect-section {
+    background: var(--dm-bg-secondary) !important;
+}
+
+.expect-content h2 {
+    color: var(--dm-text-primary) !important;
+}
+
+.expect-step-number {
+    background: var(--dm-accent) !important;
+    color: var(--dm-bg-primary) !important;
+}
+
+.expect-step-text h3 {
+    color: var(--dm-text-primary) !important;
+}
+
+.expect-step-text p {
+    color: var(--dm-text-secondary) !important;
+}
+
+.contact-hero-subtitle {
+    color: var(--dm-text-secondary) !important;
+}
+
+/* Contact form */
+.contact-form-wrapper {
+    background: var(--dm-bg-secondary) !important;
+    border-color: var(--dm-border-subtle) !important;
+}
+
+.contact-form-wrapper h2 {
+    color: var(--dm-text-primary) !important;
+}
+
+.contact-form label {
+    color: var(--dm-text-secondary) !important;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    background: var(--dm-bg-tertiary) !important;
+    border-color: var(--dm-border-default) !important;
+    color: var(--dm-text-primary) !important;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: var(--dm-accent) !important;
+    box-shadow: 0 0 0 3px var(--dm-accent-subtle) !important;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--dm-text-muted) !important;
+}
+
+.contact-sidebar {
+    background: var(--dm-bg-secondary) !important;
+}
+
+.contact-sidebar h3 {
+    color: var(--dm-text-primary) !important;
+}
+
+.contact-sidebar p {
+    color: var(--dm-text-secondary) !important;
+}
+
+/* =================================================================
+   LAYER 8: FOOTER
+   ================================================================= */
+
+footer {
+    background: var(--dm-bg-secondary) !important;
+    border-top: 1px solid var(--dm-border-subtle) !important;
+}
+
+.footer-cta {
+    background: var(--dm-bg-tertiary) !important;
+    border: 1px solid var(--dm-border-subtle) !important;
+}
+
+.footer-cta-copy h2 {
+    color: var(--dm-text-primary) !important;
+}
+
+.footer-cta-copy p {
+    color: var(--dm-text-secondary) !important;
+}
+
+.footer-meta {
+    color: var(--dm-text-muted) !important;
+    border-top: 1px solid var(--dm-border-subtle) !important;
+}
+
+.footer-meta p {
+    color: var(--dm-text-muted) !important;
+}
+
+/* =================================================================
+   LAYER 9: MOBILE STICKY CTA
+   ================================================================= */
+
+.mobile-sticky-cta {
+    background: var(--dm-bg-secondary) !important;
+    border-top: 1px solid var(--dm-border-subtle) !important;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* =================================================================
+   LAYER 10: BREADCRUMBS
+   ================================================================= */
+
+.breadcrumb-nav {
+    background: var(--dm-bg-secondary) !important;
+    border-bottom: 1px solid var(--dm-border-subtle) !important;
+}
+
+.breadcrumb a {
+    color: var(--dm-text-secondary) !important;
+}
+
+.breadcrumb a:hover {
+    color: var(--dm-accent) !important;
+}
+
+.breadcrumb li:not(:last-child)::after {
+    color: var(--dm-text-muted) !important;
+}
+
+.breadcrumb li[aria-current="page"] {
+    color: var(--dm-text-primary) !important;
+}
+
+/* =================================================================
+   LAYER 11: FORMS & FILTERS
+   ================================================================= */
+
+.filter-button {
+    background: var(--dm-bg-secondary) !important;
+    border-color: var(--dm-border-default) !important;
+    color: var(--dm-text-secondary) !important;
+}
+
+.filter-button:hover {
+    border-color: var(--dm-accent) !important;
+    color: var(--dm-accent) !important;
+    background: var(--dm-accent-subtle) !important;
+}
+
+.filter-button.active {
+    background: var(--dm-accent) !important;
+    border-color: var(--dm-accent) !important;
+    color: var(--dm-bg-primary) !important;
+}
+
+/* =================================================================
+   LAYER 12: MISCELLANEOUS
+   ================================================================= */
+
+/* Skip nav */
+.skip-nav {
+    background: var(--dm-accent) !important;
+    color: var(--dm-bg-primary) !important;
+}
+
+/* Focus states */
+*:focus-visible {
+    outline: 2px solid var(--dm-accent) !important;
+    outline-offset: 2px !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dm-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--dm-bg-tertiary);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--dm-border-strong);
+}
+
+/* Selection */
+::selection {
+    background: var(--dm-accent-muted);
+    color: var(--dm-text-primary);
+}
+
+/* Source tags */
+.source-tag {
+    color: var(--dm-text-muted) !important;
+    background: var(--dm-bg-tertiary) !important;
+}
+
+/* Portfolio cards */
+.portfolio-card,
+.project-card,
+.card,
+.card.project,
+.card.publication {
+    background: var(--dm-bg-secondary) !important;
+    border: 1px solid var(--dm-border-subtle) !important;
+    box-shadow: none !important;
+}
+
+.portfolio-card:hover,
+.project-card:hover,
+.card:hover,
+.card.project:hover {
+    border-color: var(--dm-border-default) !important;
+    box-shadow: var(--dm-shadow-md) !important;
+    transform: translateY(-4px) !important;
+}
+
+/* Card content */
+.card-content {
+    background: var(--dm-bg-secondary) !important;
+}
+
+.card-content h4,
+.card-content h3 {
+    color: var(--dm-text-primary) !important;
+}
+
+.card-content p {
+    color: var(--dm-text-secondary) !important;
+}
+
+/* Project category label */
+.project-category-label {
+    color: var(--dm-text-muted) !important;
+}
+
+.project-category-label a {
+    color: var(--dm-accent) !important;
+}
+
+/* Card actions */
+.card-actions {
+    border-top-color: var(--dm-border-subtle) !important;
+}
+
+/* View details button */
+.view-details-button {
+    background: transparent !important;
+    color: var(--dm-accent) !important;
+    border: 1px solid var(--dm-accent) !important;
+    cursor: pointer !important;
+    padding: 8px 16px !important;
+    border-radius: 6px !important;
+    transition: all 0.2s ease !important;
+}
+
+.view-details-button:hover {
+    background: var(--dm-accent) !important;
+    color: var(--dm-bg-primary) !important;
+}
+
+/* Placeholder cards */
+.placeholder-image,
+.card-image {
+    background: var(--dm-bg-tertiary) !important;
+}
+
+/* Publications section */
+#publications {
+    background: var(--dm-bg-primary) !important;
+}
+
+.placeholder-section {
+    background: var(--dm-bg-primary) !important;
+}
+
+/* PDF Modal */
+.pdf-modal-content {
+    background: var(--dm-bg-secondary) !important;
+    border: 1px solid var(--dm-border-default) !important;
+}
+
+.pdf-modal-header {
+    background: var(--dm-bg-tertiary) !important;
+    border-bottom: 1px solid var(--dm-border-subtle) !important;
+}
+
+.pdf-modal-header h2,
+#pdf-modal-title {
+    color: var(--dm-text-primary) !important;
+}
+
+.close-modal,
+.js-close-modal {
+    color: var(--dm-text-secondary) !important;
+}
+
+.close-modal:hover,
+.js-close-modal:hover {
+    color: var(--dm-text-primary) !important;
+}
+
+/* Modal styling */
+.modal,
+.pdf-modal {
+    background: rgba(18, 18, 18, 0.95) !important;
+}
+
+.modal-content {
+    background: var(--dm-bg-secondary) !important;
+    border: 1px solid var(--dm-border-default) !important;
+}
+
+.modal-close {
+    color: var(--dm-text-secondary) !important;
+}
+
+.modal-close:hover {
+    color: var(--dm-text-primary) !important;
+}
+
+/* Blog specific */
+.blog-card-footer {
+    border-top: 1px solid var(--dm-border-subtle) !important;
+}
+
+.blog-card-cta {
+    background: var(--dm-accent) !important;
+    color: var(--dm-bg-primary) !important;
+}
+
+/* Trust signals */
+.trust-signal {
+    background: var(--dm-bg-tertiary) !important;
+    color: var(--dm-text-secondary) !important;
+}
+
+.trust-signal::before {
+    color: var(--dm-accent) !important;
+}
+
+/* Conversion indicators */
+.conversion-indicator {
+    background: var(--dm-accent-subtle) !important;
+    border-color: var(--dm-accent-muted) !important;
+    color: var(--dm-accent) !important;
+}
+
+/* Social proof */
+.social-proof-badge {
+    background: var(--dm-bg-secondary) !important;
+    border-color: var(--dm-border-subtle) !important;
+}
+
+.social-proof-text {
+    color: var(--dm-text-secondary) !important;
+}
+
+.social-proof-author {
+    color: var(--dm-text-primary) !important;
+}
+
+/* Slider dots */
+.slider-dots button {
+    background: var(--dm-bg-tertiary) !important;
+}
+
+.slider-dots button.active {
+    background: var(--dm-accent) !important;
+}
+
+/* =================================================================
+   LAYER 13: PRINT STYLES OVERRIDE
+   ================================================================= */
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+    }
+
+    * {
+        background: transparent !important;
+        color: black !important;
+        box-shadow: none !important;
+    }
+}
+
+/* =================================================================
+   LAYER 14: REDUCED MOTION
+   ================================================================= */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
