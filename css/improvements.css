@@ -634,6 +634,15 @@
     max-width: 70ch;
 }
 
+/* Home page spacing adjustment between services and testimonials */
+#services-preview {
+    padding-bottom: var(--space-6);
+}
+
+#testimonials {
+    padding-top: var(--space-6);
+}
+
 @media (max-width: 768px) {
     .section-heading .section-title {
         font-size: var(--font-size-3xl);
