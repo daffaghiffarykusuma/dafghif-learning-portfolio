@@ -183,7 +183,23 @@
         --font-size-5xl: 3rem;       /* 48px */
         --font-size-6xl: 3.75rem;    /* 60px */
         --font-size-7xl: 4.5rem;     /* 72px */
-        
+
+        /* Fluid Typography Scale - Responsive font sizes using clamp() */
+        --font-size-fluid-hero: clamp(2.5rem, 5vw + 1rem, 4rem);
+        --font-size-fluid-h1: clamp(2rem, 4vw + 0.5rem, 3rem);
+        --font-size-fluid-h2: clamp(1.5rem, 3vw + 0.5rem, 2.25rem);
+        --font-size-fluid-h3: clamp(1.25rem, 2vw + 0.5rem, 1.5rem);
+        --font-size-fluid-body: clamp(1rem, 1vw + 0.5rem, 1.125rem);
+        --font-size-fluid-small: clamp(0.875rem, 0.5vw + 0.5rem, 0.9375rem);
+
+        /* Service-specific accent colors for visual differentiation */
+        --color-service-training: #00b894;
+        --color-service-training-dark: #009e7a;
+        --color-service-powerpoint: #3498db;
+        --color-service-powerpoint-dark: #2980b9;
+        --color-service-mentoring: #9b59b6;
+        --color-service-mentoring-dark: #8e44ad;
+
         /* Legacy Typography Variables */
         --text-xs: var(--font-size-xs);
         --text-sm: var(--font-size-sm);

@@ -8,8 +8,8 @@
    - Panels/Elevated: #2a2a2a (subtle gray)
    - Borders: #333333 (soft divider)
    - Text Primary: #ffffff
-   - Text Secondary: #a0a0a0
-   - Text Muted: #6b6b6b
+   - Text Secondary: #b0b0b0 (improved contrast)
+   - Text Muted: #8a8a8a (improved contrast)
    - Accent: #00b894 (teal - kept for brand recognition)
    ================================================================= */
 
@@ -25,10 +25,10 @@
     --dm-bg-tertiary: #2a2a2a;
     --dm-bg-elevated: #333333;
 
-    /* Text colors */
+    /* Text colors - improved contrast for WCAG AA compliance */
     --dm-text-primary: #ffffff;
-    --dm-text-secondary: #a0a0a0;
-    --dm-text-muted: #6b6b6b;
+    --dm-text-secondary: #b0b0b0;
+    --dm-text-muted: #8a8a8a;
     --dm-text-inverse: #121212;
 
     /* Border colors */
@@ -1016,10 +1016,11 @@ footer {
     color: var(--dm-bg-primary) !important;
 }
 
-/* Focus states */
+/* Focus states - enhanced for better visibility */
 *:focus-visible {
     outline: 2px solid var(--dm-accent) !important;
-    outline-offset: 2px !important;
+    outline-offset: 3px !important;
+    box-shadow: 0 0 0 4px rgba(0, 184, 148, 0.2) !important;
 }
 
 /* Scrollbar styling */

@@ -461,7 +461,31 @@
 
 .btn-primary:active,
 .cta-button:active {
-    transform: translateY(0);
+    transform: translateY(0) scale(0.98);
+}
+
+/* Ripple effect for buttons */
+.btn-primary::after,
+.cta-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.btn-primary:active::after,
+.cta-button:active::after {
+    width: 200px;
+    height: 200px;
+    opacity: 1;
 }
 
 .btn-secondary,
@@ -531,9 +555,9 @@
 
 .service-preview-card:hover,
 .service-card:hover {
-    border-color: var(--color-accent-light);
-    box-shadow: 0 8px 24px rgba(0, 184, 148, 0.12);
-    transform: translateY(-4px);
+    border-color: var(--service-accent, var(--color-accent-light));
+    box-shadow: 0 12px 40px var(--service-hover-shadow, rgba(0, 184, 148, 0.15));
+    transform: translateY(-8px);
 }
 
 .service-preview-visual {
@@ -552,22 +576,80 @@
 
 .service-preview-card:hover .service-preview-visual img,
 .service-card:hover .service-preview-visual img {
-    transform: scale(1.05);
+    transform: scale(1.08);
+    filter: brightness(1.05);
 }
 
 .service-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
-    height: 60px;
+    width: 72px;
+    height: 72px;
     font-weight: 700;
-    font-size: var(--font-size-xl);
+    font-size: 1.5rem;
     color: white;
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+    background: linear-gradient(135deg, var(--service-accent, var(--color-accent)) 0%, var(--service-accent-dark, var(--color-accent-dark)) 100%);
     border-radius: var(--radius-xl);
     margin-bottom: var(--space-4);
-    box-shadow: 0 4px 12px rgba(0, 184, 148, 0.2);
+    box-shadow: 0 4px 12px var(--service-shadow, rgba(0, 184, 148, 0.25));
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Service-specific accent colors for visual differentiation */
+.service-preview-card[data-service="training"] {
+    --service-accent: var(--color-service-training, #00b894);
+    --service-accent-dark: var(--color-service-training-dark, #009e7a);
+    --service-shadow: rgba(0, 184, 148, 0.25);
+    --service-hover-shadow: rgba(0, 184, 148, 0.15);
+}
+
+.service-preview-card[data-service="powerpoint"] {
+    --service-accent: var(--color-service-powerpoint, #3498db);
+    --service-accent-dark: var(--color-service-powerpoint-dark, #2980b9);
+    --service-shadow: rgba(52, 152, 219, 0.25);
+    --service-hover-shadow: rgba(52, 152, 219, 0.15);
+}
+
+.service-preview-card[data-service="mentoring"] {
+    --service-accent: var(--color-service-mentoring, #9b59b6);
+    --service-accent-dark: var(--color-service-mentoring-dark, #8e44ad);
+    --service-shadow: rgba(155, 89, 182, 0.25);
+    --service-hover-shadow: rgba(155, 89, 182, 0.15);
+}
+
+/* Enhanced service icon hover animation */
+.service-preview-card:hover .service-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 16px var(--service-shadow, rgba(0, 184, 148, 0.3));
+}
+
+/* Popular badge for featured services */
+.service-popular-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--service-accent, var(--color-accent)) 0%, var(--service-accent-dark, var(--color-accent-dark)) 100%);
+    color: white;
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    box-shadow: 0 2px 8px var(--service-shadow, rgba(0, 184, 148, 0.3));
+}
+
+/* Service metric badge with service-specific accent */
+.service-metric-badge {
+    display: inline-block;
+    background: rgba(0, 184, 148, 0.1);
+    color: var(--service-accent, var(--color-accent));
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-3);
 }
 
 .service-card-actions {
