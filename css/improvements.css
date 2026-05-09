@@ -14,7 +14,7 @@
     right: 0;
     z-index: 1000;
     padding: var(--space-4);
-    background: linear-gradient(to top, rgba(10, 25, 47, 0.98) 0%, rgba(10, 25, 47, 0.95) 100%);
+    background: linear-gradient(to top, rgba(15, 27, 30, 0.98) 0%, rgba(15, 27, 30, 0.95) 100%);
     backdrop-filter: blur(10px);
     box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
     display: none;
@@ -112,7 +112,7 @@
     color: var(--color-accent);
     margin-bottom: var(--space-3);
     padding: var(--space-2) var(--space-4);
-    background: linear-gradient(135deg, rgba(0, 184, 148, 0.1) 0%, rgba(0, 184, 148, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(42, 157, 143, 0.1) 0%, rgba(42, 157, 143, 0.05) 100%);
     border-radius: var(--radius-full);
 }
 
@@ -122,7 +122,7 @@
 .hero-lead {
     font-size: var(--font-size-xl) !important;
     line-height: var(--line-height-relaxed) !important;
-    color: #e6f1ff !important; /* Light color for dark background */
+    color: #F8FAFC !important; /* Light color for dark background */
     font-weight: 400 !important;
     margin: var(--space-5) 0 !important;
     max-width: 65ch;
@@ -143,16 +143,16 @@
 /* Primary CTA button - Force visibility */
 #showcase .hero-actions .cta-button,
 .hero-actions .cta-button {
-    background: linear-gradient(135deg, #00b894 0%, #009e7a 100%) !important;
-    box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3) !important;
+    background: linear-gradient(135deg, #2A9D8F 0%, #264653 100%) !important;
+    box-shadow: 0 4px 12px rgba(42, 157, 143, 0.3) !important;
     color: white !important;
     font-weight: 600 !important;
 }
 
 #showcase .hero-actions .cta-button:hover,
 .hero-actions .cta-button:hover {
-    background: linear-gradient(135deg, #009e7a 0%, #007f65 100%) !important;
-    box-shadow: 0 6px 20px rgba(0, 184, 148, 0.4) !important;
+    background: linear-gradient(135deg, #264653 0%, #0F1B1E 100%) !important;
+    box-shadow: 0 6px 20px rgba(42, 157, 143, 0.4) !important;
     transform: translateY(-3px) !important;
 }
 
@@ -161,9 +161,9 @@
 .hero-actions .link-subtle {
     font-size: var(--font-size-base) !important;
     font-weight: 600 !important;
-    color: #e6f1ff !important;
+    color: #F8FAFC !important;
     padding: 12px 24px !important;
-    border: 2px solid rgba(230, 241, 255, 0.5) !important;
+    border: 2px solid rgba(248, 250, 252, 0.5) !important;
     border-radius: var(--radius-full) !important;
     background: transparent !important;
     transition: all 0.3s ease !important;
@@ -172,9 +172,9 @@
 
 #showcase .hero-actions .link-subtle:hover,
 .hero-actions .link-subtle:hover {
-    color: #00b894 !important;
-    border-color: #00b894 !important;
-    background: rgba(0, 184, 148, 0.15) !important;
+    color: #2A9D8F !important;
+    border-color: #2A9D8F !important;
+    background: rgba(42, 157, 143, 0.15) !important;
     transform: translateY(-2px) !important;
 }
 
@@ -313,7 +313,7 @@
 
 .dropdown-menu li.active a {
     color: var(--color-accent);
-    background: rgba(0, 184, 148, 0.08);
+    background: rgba(42, 157, 143, 0.08);
 }
 
 /* Dropdown indicator line */
@@ -364,7 +364,7 @@
 
     .dropdown-menu li.active a {
         color: var(--color-accent);
-        background: rgba(0, 184, 148, 0.15);
+        background: rgba(42, 157, 143, 0.15);
     }
 }
 
@@ -431,7 +431,7 @@
     border-radius: var(--radius-full);
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 184, 148, 0.2);
+    box-shadow: 0 2px 8px rgba(42, 157, 143, 0.2);
     position: relative;
     overflow: hidden;
 }
@@ -451,7 +451,7 @@
 .btn-primary:hover,
 .cta-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0, 184, 148, 0.3);
+    box-shadow: 0 4px 16px rgba(42, 157, 143, 0.3);
 }
 
 .btn-primary:hover::before,
@@ -512,7 +512,7 @@
     background: var(--color-accent);
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0, 184, 148, 0.2);
+    box-shadow: 0 4px 16px rgba(42, 157, 143, 0.2);
 }
 
 /* Link-style CTA */
@@ -556,7 +556,7 @@
 .service-preview-card:hover,
 .service-card:hover {
     border-color: var(--service-accent, var(--color-accent-light));
-    box-shadow: 0 12px 40px var(--service-hover-shadow, rgba(0, 184, 148, 0.15));
+    box-shadow: 0 12px 40px var(--service-hover-shadow, rgba(42, 157, 143, 0.15));
     transform: translateY(-8px);
 }
 
@@ -592,16 +592,16 @@
     background: linear-gradient(135deg, var(--service-accent, var(--color-accent)) 0%, var(--service-accent-dark, var(--color-accent-dark)) 100%);
     border-radius: var(--radius-xl);
     margin-bottom: var(--space-4);
-    box-shadow: 0 4px 12px var(--service-shadow, rgba(0, 184, 148, 0.25));
+    box-shadow: 0 4px 12px var(--service-shadow, rgba(42, 157, 143, 0.25));
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Service-specific accent colors for visual differentiation */
 .service-preview-card[data-service="training"] {
-    --service-accent: var(--color-service-training, #00b894);
-    --service-accent-dark: var(--color-service-training-dark, #009e7a);
-    --service-shadow: rgba(0, 184, 148, 0.25);
-    --service-hover-shadow: rgba(0, 184, 148, 0.15);
+    --service-accent: var(--color-service-training, #2A9D8F);
+    --service-accent-dark: var(--color-service-training-dark, #264653);
+    --service-shadow: rgba(42, 157, 143, 0.25);
+    --service-hover-shadow: rgba(42, 157, 143, 0.15);
 }
 
 .service-preview-card[data-service="powerpoint"] {
@@ -621,7 +621,7 @@
 /* Enhanced service icon hover animation */
 .service-preview-card:hover .service-icon {
     transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 6px 16px var(--service-shadow, rgba(0, 184, 148, 0.3));
+    box-shadow: 0 6px 16px var(--service-shadow, rgba(42, 157, 143, 0.3));
 }
 
 /* Popular badge for featured services */
@@ -637,13 +637,13 @@
     letter-spacing: 0.05em;
     padding: 6px 14px;
     border-radius: var(--radius-full);
-    box-shadow: 0 2px 8px var(--service-shadow, rgba(0, 184, 148, 0.3));
+    box-shadow: 0 2px 8px var(--service-shadow, rgba(42, 157, 143, 0.3));
 }
 
 /* Service metric badge with service-specific accent */
 .service-metric-badge {
     display: inline-block;
-    background: rgba(0, 184, 148, 0.1);
+    background: rgba(42, 157, 143, 0.1);
     color: var(--service-accent, var(--color-accent));
     font-size: var(--font-size-xs);
     font-weight: 600;
@@ -685,14 +685,14 @@
 .filter-button:hover {
     border-color: var(--color-accent-light);
     color: var(--color-accent);
-    background: rgba(0, 184, 148, 0.05);
+    background: rgba(42, 157, 143, 0.05);
 }
 
 .filter-button.active {
     color: white;
     background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
     border-color: var(--color-accent);
-    box-shadow: 0 2px 8px rgba(0, 184, 148, 0.2);
+    box-shadow: 0 2px 8px rgba(42, 157, 143, 0.2);
 }
 
 /* =================================================================
@@ -929,7 +929,7 @@
 .contact-form textarea:focus {
     outline: none;
     border-color: var(--color-accent);
-    box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.1);
+    box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.1);
 }
 
 .contact-form textarea {
@@ -1001,7 +1001,7 @@
 
 .contact-card:hover {
     border-color: var(--color-accent);
-    box-shadow: 0 4px 12px rgba(0, 184, 148, 0.1);
+    box-shadow: 0 4px 12px rgba(42, 157, 143, 0.1);
     transform: translateY(-2px);
 }
 
@@ -1195,7 +1195,7 @@
 
 .why-card:hover {
     border-color: var(--color-accent-light);
-    box-shadow: 0 8px 24px rgba(0, 184, 148, 0.12);
+    box-shadow: 0 8px 24px rgba(42, 157, 143, 0.12);
     transform: translateY(-4px);
 }
 
@@ -1395,7 +1395,7 @@
 
 .certification-card:hover {
     border-color: var(--color-accent-light);
-    box-shadow: 0 8px 24px rgba(0, 184, 148, 0.12);
+    box-shadow: 0 8px 24px rgba(42, 157, 143, 0.12);
     transform: translateY(-4px);
 }
 
@@ -1557,7 +1557,7 @@
 
 .contact-method-card:hover {
     border-color: var(--color-accent);
-    box-shadow: 0 8px 32px rgba(0, 184, 148, 0.15);
+    box-shadow: 0 8px 32px rgba(42, 157, 143, 0.15);
     transform: translateY(-6px);
 }
 
@@ -1577,7 +1577,7 @@
 
 .contact-method-card.email:hover {
     border-color: var(--color-accent);
-    box-shadow: 0 8px 32px rgba(0, 184, 148, 0.2);
+    box-shadow: 0 8px 32px rgba(42, 157, 143, 0.2);
 }
 
 .contact-method-card.linkedin:hover {
@@ -1652,7 +1652,7 @@
     font-weight: 600;
     color: var(--color-accent);
     padding: var(--space-3) var(--space-5);
-    background: rgba(0, 184, 148, 0.1);
+    background: rgba(42, 157, 143, 0.1);
     border-radius: var(--radius-full);
     transition: all 0.3s ease;
 }

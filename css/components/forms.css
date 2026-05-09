@@ -86,7 +86,7 @@ Author: Kilo Code
 .form-textarea:focus,
 .form-select:focus {
   border-color: var(--color-accent-500);
-  box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.1);
+  box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.1);
 }
 
 .form-input:hover,

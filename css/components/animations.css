@@ -198,7 +198,7 @@ Author: Kilo Code
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 20px rgba(0, 184, 148, 0.3);
+  box-shadow: 0 0 20px rgba(42, 157, 143, 0.3);
 }
 
 .hover-brightness {
@@ -281,7 +281,7 @@ Author: Kilo Code
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(0, 184, 148, 0.05), rgba(0, 184, 148, 0.1));
+  background: linear-gradient(135deg, rgba(42, 157, 143, 0.05), rgba(42, 157, 143, 0.1));
   opacity: 0;
   transition: opacity var(--animation-duration-base) var(--animation-timing-ease-out);
   pointer-events: none;
@@ -303,7 +303,7 @@ Author: Kilo Code
 
 .form-field-animated:focus {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 184, 148, 0.15);
+  box-shadow: 0 4px 12px rgba(42, 157, 143, 0.15);
 }
 
 .form-field-animated:invalid {

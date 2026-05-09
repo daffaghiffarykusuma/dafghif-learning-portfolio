@@ -3,14 +3,14 @@
    A sleek, uncluttered dark-mode experience
 
    Color Palette:
-   - Background: #121212 (deep charcoal)
-   - Cards/Surfaces: #1a1a1a (near-black)
-   - Panels/Elevated: #2a2a2a (subtle gray)
-   - Borders: #333333 (soft divider)
-   - Text Primary: #ffffff
-   - Text Secondary: #b0b0b0 (improved contrast)
-   - Text Muted: #8a8a8a (improved contrast)
-   - Accent: #00b894 (teal - kept for brand recognition)
+   - Background: #0F1B1E (deep beach-night teal)
+   - Cards/Surfaces: #172A2E (dark coastal teal)
+   - Panels/Elevated: #1F2937 (slate)
+   - Borders: rgba(203, 213, 225, 0.16)
+   - Text Primary: #F8FAFC
+   - Text Secondary: #CBD5E1
+   - Text Muted: #94A3B8
+   - Accent: #2A9D8F
    ================================================================= */
 
 /* =================================================================
@@ -20,33 +20,33 @@
     /* === DARK MODE COLOR SYSTEM === */
 
     /* Core backgrounds */
-    --dm-bg-primary: #121212;
-    --dm-bg-secondary: #1a1a1a;
-    --dm-bg-tertiary: #2a2a2a;
-    --dm-bg-elevated: #333333;
+    --dm-bg-primary: #0F1B1E;
+    --dm-bg-secondary: #172A2E;
+    --dm-bg-tertiary: #1F2937;
+    --dm-bg-elevated: #264653;
 
     /* Text colors - improved contrast for WCAG AA compliance */
-    --dm-text-primary: #ffffff;
-    --dm-text-secondary: #b0b0b0;
-    --dm-text-muted: #8a8a8a;
-    --dm-text-inverse: #121212;
+    --dm-text-primary: #F8FAFC;
+    --dm-text-secondary: #CBD5E1;
+    --dm-text-muted: #94A3B8;
+    --dm-text-inverse: #0F1B1E;
 
     /* Border colors */
-    --dm-border-subtle: #2a2a2a;
-    --dm-border-default: #333333;
-    --dm-border-strong: #444444;
+    --dm-border-subtle: rgba(203, 213, 225, 0.12);
+    --dm-border-default: rgba(203, 213, 225, 0.16);
+    --dm-border-strong: rgba(203, 213, 225, 0.28);
 
     /* Accent colors (minimal, functional) */
-    --dm-accent: #00b894;
-    --dm-accent-hover: #00d9a5;
-    --dm-accent-muted: rgba(0, 184, 148, 0.15);
-    --dm-accent-subtle: rgba(0, 184, 148, 0.08);
+    --dm-accent: #2A9D8F;
+    --dm-accent-hover: #E76F51;
+    --dm-accent-muted: rgba(42, 157, 143, 0.16);
+    --dm-accent-subtle: rgba(42, 157, 143, 0.08);
 
     /* Semantic colors */
-    --dm-success: #00b894;
-    --dm-warning: #f39c12;
-    --dm-error: #e74c3c;
-    --dm-info: #3498db;
+    --dm-success: #2A9D8F;
+    --dm-warning: #E9C46A;
+    --dm-error: #E76F51;
+    --dm-info: #F4A261;
 
     /* Shadows for dark mode (subtle, not heavy) */
     --dm-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -66,7 +66,26 @@
     --color-accent: var(--dm-accent);
     --color-accent-light: var(--dm-accent-hover);
     --color-accent-lighter: var(--dm-accent-muted);
-    --color-accent-dark: #009e7a;
+    --color-accent-dark: #264653;
+
+    --color-bg-primary: var(--dm-bg-secondary);
+    --color-bg-secondary: var(--dm-bg-primary);
+    --color-bg-tertiary: var(--dm-bg-tertiary);
+    --color-bg-accent: var(--dm-accent-muted);
+    --color-text-primary: var(--dm-text-primary);
+    --color-text-inverse: var(--dm-text-inverse);
+    --color-border-light: var(--dm-border-subtle);
+    --color-border-medium: var(--dm-border-default);
+    --color-border-dark: var(--dm-border-strong);
+    --color-primary-700: var(--dm-bg-secondary);
+    --color-primary-900: var(--dm-bg-primary);
+    --color-accent-200: rgba(42, 157, 143, 0.28);
+    --color-accent-300: #E9C46A;
+    --color-accent-400: #F4A261;
+    --color-accent-500: #2A9D8F;
+    --color-gray-400: #94A3B8;
+    --color-gray-800: var(--dm-bg-tertiary);
+    --color-gray-900: #111827;
 
     --color-background: var(--dm-bg-primary);
     --color-surface: var(--dm-bg-secondary);
@@ -372,7 +391,7 @@ body > header nav ul li.current a::after {
 .btn-primary:hover {
     background: var(--dm-accent-hover) !important;
     transform: translateY(-2px) !important;
-    box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3) !important;
+    box-shadow: 0 4px 12px rgba(42, 157, 143, 0.3) !important;
 }
 
 /* Secondary CTA Button */
@@ -414,7 +433,7 @@ body > header nav ul li.current a::after {
 #showcase .hero-actions .cta-button:hover,
 .hero-actions .cta-button:hover {
     background: var(--dm-accent-hover) !important;
-    box-shadow: 0 4px 16px rgba(0, 184, 148, 0.25) !important;
+    box-shadow: 0 4px 16px rgba(42, 157, 143, 0.25) !important;
 }
 
 #showcase .hero-actions .link-subtle,
@@ -1020,7 +1039,7 @@ footer {
 *:focus-visible {
     outline: 2px solid var(--dm-accent) !important;
     outline-offset: 3px !important;
-    box-shadow: 0 0 0 4px rgba(0, 184, 148, 0.2) !important;
+    box-shadow: 0 0 0 4px rgba(42, 157, 143, 0.2) !important;
 }
 
 /* Scrollbar styling */

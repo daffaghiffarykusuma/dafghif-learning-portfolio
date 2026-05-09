@@ -30,16 +30,20 @@ graph LR
 ```mermaid
 pie
     title Color Usage
-    "Primary (Navy)" : 40
-    "Secondary (Light Gray)" : 30
-    "Accent (Teal)" : 20
-    "Background (Off-white)" : 10
+    "Main Background" : 35
+    "Card Background" : 25
+    "Primary Accent" : 20
+    "Warm Highlight" : 15
+    "Rare CTA Accent" : 5
 ```
 
-- **Primary**: `#0a192f` (Deep Navy)
-- **Secondary**: `#e6f1ff` (Light Gray)
-- **Accent**: `#64ffda` (Soft Teal)
-- **Background**: `#f8f8f8` (Off-white)
+- **Main Background**: `#0F1B1E` or `#111827`
+- **Card / Section Background**: `#172A2E` or `#1F2937`
+- **Main Text**: `#F8FAFC`
+- **Secondary Text**: `#CBD5E1`
+- **Primary Accent**: `#2A9D8F`
+- **Warm Highlight**: `#E9C46A`
+- **Rare CTA / Hover Accent**: `#E76F51`
 
 ## Spacing & Layout
 
@@ -68,18 +72,18 @@ stateDiagram-v2
     Hover --> Normal: mouseout
     
     state Normal {
-        fill: #0a192f
-        text: #e6f1ff
+        fill: #2A9D8F
+        text: #0F1B1E
     }
     
     state Hover {
-        fill: #112240
+        fill: #E76F51
         transform: translateY(-2px)
         shadow: 0 4px 8px rgba(0,0,0,0.1)
     }
     
     state Active {
-        fill: #020c1b
+        fill: #264653
         transform: translateY(0)
     }
 ```
@@ -139,10 +143,13 @@ journey
 2. **CSS Variables**:
    ```css
    :root {
-     --primary: #0a192f;
-     --secondary: #e6f1ff;
-     --accent: #64ffda;
-     --bg: #f8f8f8;
+     --primary: #F8FAFC;
+     --secondary: #CBD5E1;
+     --accent: #2A9D8F;
+     --accent-hover: #E76F51;
+     --highlight: #E9C46A;
+     --bg: #0F1B1E;
+     --card-bg: #172A2E;
      --spacing-base: 8px;
      --max-width: 1200px;
    }

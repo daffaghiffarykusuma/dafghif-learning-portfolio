@@ -22,7 +22,7 @@ Author: Kilo Code
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0, 184, 148, 0.5), transparent);
+  background: linear-gradient(90deg, transparent, rgba(42, 157, 143, 0.5), transparent);
 }
 
 .footer-container {
@@ -41,8 +41,8 @@ Author: Kilo Code
 
 /* ===== FOOTER CTA SECTION ===== */
 .footer-cta {
-  background: linear-gradient(135deg, rgba(0, 184, 148, 0.1), rgba(0, 184, 148, 0.05));
-  border: 1px solid rgba(0, 184, 148, 0.2);
+  background: linear-gradient(135deg, rgba(42, 157, 143, 0.1), rgba(42, 157, 143, 0.05));
+  border: 1px solid rgba(42, 157, 143, 0.2);
   border-radius: var(--radius-3xl);
   padding: var(--space-12);
   text-align: center;
@@ -57,7 +57,7 @@ Author: Kilo Code
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(45deg, transparent 30%, rgba(0, 184, 148, 0.03) 50%, transparent 70%);
+  background: linear-gradient(45deg, transparent 30%, rgba(42, 157, 143, 0.03) 50%, transparent 70%);
   pointer-events: none;
 }
 
