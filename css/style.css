@@ -1047,9 +1047,9 @@ h2.section-title::after { /* Underline effect for titles */
 }
 
 #portfolio-projects .cta-button:hover {
-    background: rgba(100, 255, 218, 0.1);
-    color: var(--secondary);
-    border-color: var(--secondary);
+    background: #2A9D8F;
+    color: #0F1B1E;
+    border-color: #2A9D8F;
 }
 
 #portfolio-projects .view-details-button {
@@ -4422,6 +4422,13 @@ body.dark-mode .phase-section a:hover {
 .view-details-button:focus-visible {
     background: #6ee7d8 !important;
     color: #0f1b1e !important;
+}
+
+#portfolio-projects .card-actions .cta-button:hover,
+#portfolio-projects .card-actions .cta-button:focus-visible {
+    background: #6ee7d8 !important;
+    color: #0f1b1e !important;
+    border-color: #6ee7d8 !important;
 }
 
 .card-image {

@@ -1299,3 +1299,10 @@ footer {
     background: #6ee7d8 !important;
     color: #0f1b1e !important;
 }
+
+#portfolio-projects .card-actions .cta-button:hover,
+#portfolio-projects .card-actions .cta-button:focus-visible {
+    background: #6ee7d8 !important;
+    color: #0f1b1e !important;
+    border-color: #6ee7d8 !important;
+}
