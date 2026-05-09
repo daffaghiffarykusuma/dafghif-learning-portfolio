@@ -787,6 +787,7 @@ h2.section-title::after { /* Underline effect for titles */
     overflow: hidden;
     box-shadow: 0 25px 55px rgba(15, 27, 30, 0.35);
     position: relative;
+    aspect-ratio: 2 / 1;
 }
 
 .hero-image-frame::after {
@@ -798,6 +799,8 @@ h2.section-title::after { /* Underline effect for titles */
 
 .hero-visual img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
     filter: saturate(1.05);
 }
@@ -4394,5 +4397,70 @@ body.dark-mode .phase-section a:hover {
     .reveal-on-scroll {
         opacity: 1;
         transform: none;
+    }
+}
+
+/* --- Lighthouse Accessibility & Portfolio Performance Fixes --- */
+.project-category-label {
+    background: #1f7f74;
+    color: #ffffff !important;
+}
+
+.project-category-label a {
+    color: #ffffff;
+}
+
+#portfolio-projects .view-details-button,
+.view-details-button {
+    color: #6ee7d8 !important;
+    border-color: #6ee7d8 !important;
+}
+
+#portfolio-projects .view-details-button:hover,
+#portfolio-projects .view-details-button:focus-visible,
+.view-details-button:hover,
+.view-details-button:focus-visible {
+    background: #6ee7d8 !important;
+    color: #0f1b1e !important;
+}
+
+.card-image {
+    aspect-ratio: 33 / 20;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#portfolio-projects .project {
+    content-visibility: auto;
+    contain-intrinsic-size: 560px;
+}
+
+#portfolio-projects .project:nth-child(-n+6) {
+    content-visibility: visible;
+}
+
+.testimonial-actions .link-subtle {
+    color: #264653 !important;
+    border-color: #264653 !important;
+}
+
+.testimonial-actions .link-subtle:hover,
+.testimonial-actions .link-subtle:focus-visible {
+    background: #264653 !important;
+    color: #ffffff !important;
+}
+
+#blog-cards {
+    min-height: 7600px;
+}
+
+@media (max-width: 767px) {
+    #blog-cards {
+        min-height: 15400px;
     }
 }

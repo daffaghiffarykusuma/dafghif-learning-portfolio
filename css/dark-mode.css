@@ -1275,3 +1275,27 @@ footer {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* Lighthouse contrast overrides loaded after optional theme styles. */
+.project-category-label {
+    background: #1f7f74;
+    color: #ffffff !important;
+}
+
+.project-category-label a {
+    color: #ffffff;
+}
+
+#portfolio-projects .view-details-button,
+.view-details-button {
+    color: #6ee7d8 !important;
+    border-color: #6ee7d8 !important;
+}
+
+#portfolio-projects .view-details-button:hover,
+#portfolio-projects .view-details-button:focus-visible,
+.view-details-button:hover,
+.view-details-button:focus-visible {
+    background: #6ee7d8 !important;
+    color: #0f1b1e !important;
+}

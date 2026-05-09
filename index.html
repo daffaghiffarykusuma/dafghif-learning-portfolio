@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daffa Ghiffary Kusuma - Learning Specialist</title>
     <meta name="description" content="Portfolio of Daffa Ghiffary Kusuma, a learning specialist who designs practical training, learning materials, mentoring, and publications with measurable outcomes.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/improvements.css">
     <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="preload" as="image" href="dafghif_cover.png" fetchpriority="high">
 </head>
 <body>
     <!-- Skip Navigation Links for Screen Readers -->
@@ -67,7 +67,7 @@
                 </div>
                 <div class="hero-visual">
                     <div class="hero-image-frame">
-                        <img src="dafghif_cover.png" alt="Daffa Ghiffary Kusuma facilitating an engaging workshop" loading="lazy">
+                        <img src="dafghif_cover.png" alt="Daffa Ghiffary Kusuma facilitating an engaging workshop" width="1200" height="600" loading="eager" fetchpriority="high" decoding="async">
                     </div>
                     <div class="hero-metric">
                         <span class="metric-value">30+</span>
@@ -460,7 +460,7 @@
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>

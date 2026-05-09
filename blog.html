@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Daffa Ghiffary Kusuma</title>
     <meta name="description" content="Insights on learning design, training effectiveness, and workplace development. Practical tips from real program experience.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/improvements.css">
-    <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="preload" href="css/improvements.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/improvements.css"></noscript>
+    <link rel="preload" href="css/dark-mode.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/dark-mode.css"></noscript>
 </head>
 
 <body>
@@ -68,7 +69,7 @@
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
@@ -89,14 +90,14 @@
                         container.innerHTML = '<p>No blog posts found.</p>';
                         return;
                     }
-                    container.innerHTML = posts.map(p => {
+                    container.innerHTML = posts.map((p, index) => {
                         const title = p.title || 'Untitled Post';
                         const url = p.url || '#';
                         const desc = p.description || '';
                         const img = p.image || '';
                         return `
                             <article class="blog-card">
-                                ${img ? `<div class=\"blog-card-media\"><img src=\"${img}\" alt=\"${title}\" loading=\"lazy\" referrerpolicy=\"no-referrer\"></div>` : ''}
+                                ${img ? `<div class="blog-card-media"><img src="${img}" alt="${title}" loading="${index === 0 ? 'eager' : 'lazy'}" ${index === 0 ? 'fetchpriority="high"' : ''} decoding="async" referrerpolicy="no-referrer"></div>` : ''}
                                 <div class="blog-card-body">
                                     <h3 class="blog-card-title"><a href="${url}" target="_blank" rel="noopener noreferrer">${title}</a></h3>
                                     ${desc ? `<p class="blog-card-desc">${desc}</p>` : ''}

@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
                 // Get project title
                 const cardContent = button.closest('.card-content');
-                const projectTitleElement = cardContent?.querySelector('h4');
+                const projectTitleElement = cardContent?.querySelector('h3, h4');
                 const projectTitle = projectTitleElement ? projectTitleElement.textContent : 'Project Details';
 
                 // Close any other open modals first
