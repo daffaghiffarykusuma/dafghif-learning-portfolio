@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     let windowClickEventHandler = null;
 
     // --- Navigation ---
-    const servicePages = new Set(['services.html', 'custom-training.html', 'learning-powerpoint.html', 'mentoring.html']);
     const portfolioPages = new Set(['portfolio.html', 'case-entrepreneurship.html']);
 
     if (menuToggle && nav) {
@@ -41,7 +40,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     navLinks.forEach(link => {
         const linkPage = link.getAttribute('href').split('/').pop() || 'index.html';
         const parentItem = link.parentElement;
-        const shouldHighlight = linkPage === currentPage || (servicePages.has(currentPage) && linkPage === 'services.html') || (portfolioPages.has(currentPage) && linkPage === 'portfolio.html');
+        const shouldHighlight = linkPage === currentPage || (portfolioPages.has(currentPage) && linkPage === 'portfolio.html');
 
         if (shouldHighlight) {
             parentItem.classList.add('current');
@@ -377,8 +376,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
             const mapping = new Map([
                 ['custom-training', 'training'],
                 ['training', 'training'],
-                ['powerpoint', 'powerpoint'],
-                ['learning-powerpoint', 'powerpoint'],
+                ['learning-materials', 'learning-materials'],
+                ['powerpoint', 'learning-materials'],
+                ['learning-powerpoint', 'learning-materials'],
                 ['mentoring', 'mentoring'],
                 ['speaking', 'speaking']
             ]);
@@ -393,8 +393,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
             const lookup = {
                 'training': 'a custom training programme',
                 'custom-training': 'a custom training programme',
-                'powerpoint': 'a learning PowerPoint engagement',
-                'learning-powerpoint': 'a learning PowerPoint engagement',
+                'learning-materials': 'a learning materials project',
+                'powerpoint': 'a learning materials project',
+                'learning-powerpoint': 'a learning materials project',
                 'mentoring': 'a mentoring or speaking engagement',
                 'speaking': 'an event speaking engagement'
             };
