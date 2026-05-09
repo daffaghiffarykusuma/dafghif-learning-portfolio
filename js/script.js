@@ -133,6 +133,25 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     }
 
+    const safePreviewPath = (path, allowedPrefix, allowedExtension) => {
+        if (!path || /[\u0000-\u001f]/.test(path)) return '';
+        try {
+            const normalizedPath = decodeURI(path).replace(/\\/g, '/');
+            const url = new URL(normalizedPath, window.location.href);
+            const sameOrigin = url.origin === window.location.origin;
+            const cleanPath = url.pathname.replace(/^\/+/, '');
+            const normalizedPrefix = allowedPrefix.replace(/^\/+/, '');
+            return sameOrigin
+                && !cleanPath.includes('../')
+                && cleanPath.startsWith(normalizedPrefix)
+                && cleanPath.endsWith(allowedExtension)
+                ? url.href
+                : '';
+        } catch {
+            return '';
+        }
+    };
+
     // Initialize PDF modal functionality if elements exist
     if (pdfModal && pdfModalTitle && pdfIframe && viewDetailsButtons.length > 0) {
         // Add click handlers for all view details buttons
@@ -159,11 +178,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
                 // Set modal title and project preview source
                 pdfModalTitle.textContent = projectTitle;
-                
+                 
                 // Hide native PDF controls when possible; spreadsheet decks use generated read-only HTML previews.
-                pdfIframe.src = pdfPath
-                    ? pdfPath + '#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-width&statusbar=0&messages=0&pagemode=none'
-                    : viewerPath;
+                const safePdfPath = safePreviewPath(pdfPath, 'assets/pdf/portfolio/', '.pdf');
+                const safeViewerPath = safePreviewPath(viewerPath, 'assets/portfolio-viewers/', '.html');
+                const previewUrl = safePdfPath || safeViewerPath;
+                if (!previewUrl) {
+                    console.warn('Blocked unsafe portfolio preview path.');
+                    return;
+                }
+                pdfIframe.src = safePdfPath
+                    ? previewUrl + '#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-width&statusbar=0&messages=0&pagemode=none'
+                    : previewUrl;
 
                 // Show the modal
                 pdfModal.style.display = 'block';

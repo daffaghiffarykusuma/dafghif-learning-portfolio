@@ -78,6 +78,37 @@
             const container = document.getElementById('blog-cards');
             if (!container) return;
 
+            const allowedBlogUrl = (value) => {
+                try {
+                    const url = new URL(value, window.location.href);
+                    const host = url.hostname.toLowerCase();
+                    const isMediumHost = host === 'medium.com' || host.endsWith('.medium.com');
+                    return url.protocol === 'https:' && isMediumHost ? url.href : '#';
+                } catch {
+                    return '#';
+                }
+            };
+
+            const allowedImageUrl = (value) => {
+                try {
+                    const url = new URL(value, window.location.href);
+                    const allowedHosts = new Set(['cdn-images-1.medium.com', 'miro.medium.com']);
+                    return url.protocol === 'https:' && allowedHosts.has(url.hostname) ? url.href : '';
+                } catch {
+                    return '';
+                }
+            };
+
+            const appendMediumLink = (parent, href, text, className) => {
+                const link = document.createElement('a');
+                link.href = href;
+                link.textContent = text;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                if (className) link.className = className;
+                parent.appendChild(link);
+            };
+
             const jsonPath = 'assets/blog.json';
             fetch(jsonPath)
                 .then(res => {
@@ -86,34 +117,62 @@
                 })
                 .then(data => {
                     const posts = Array.isArray(data) ? data : (data.posts || []);
+                    container.replaceChildren();
                     if (!posts.length) {
-                        container.innerHTML = '<p>No blog posts found.</p>';
+                        const emptyMessage = document.createElement('p');
+                        emptyMessage.textContent = 'No blog posts found.';
+                        container.appendChild(emptyMessage);
                         return;
                     }
-                    container.innerHTML = posts.map((p, index) => {
+                    const fragment = document.createDocumentFragment();
+                    posts.forEach((p, index) => {
                         const title = p.title || 'Untitled Post';
-                        const url = p.url || '#';
+                        const url = allowedBlogUrl(p.url || '#');
                         const desc = p.description || '';
-                        const img = p.image || '';
-                        return `
-                            <article class="blog-card">
-                                ${img ? `<div class="blog-card-media"><img src="${img}" alt="${title}" loading="${index === 0 ? 'eager' : 'lazy'}" ${index === 0 ? 'fetchpriority="high"' : ''} decoding="async" referrerpolicy="no-referrer"></div>` : ''}
-                                <div class="blog-card-body">
-                                    <h3 class="blog-card-title"><a href="${url}" target="_blank" rel="noopener noreferrer">${title}</a></h3>
-                                    ${desc ? `<p class="blog-card-desc">${desc}</p>` : ''}
-                                </div>
-                                <div class="blog-card-footer">
-                                    <a class="blog-card-cta" href="${url}" target="_blank" rel="noopener noreferrer">Read on Medium</a>
-                                </div>
-                            </article>
-                        `;
-                    }).join('');
+                        const img = allowedImageUrl(p.image || '');
+
+                        const article = document.createElement('article');
+                        article.className = 'blog-card';
+
+                        if (img) {
+                            const media = document.createElement('div');
+                            media.className = 'blog-card-media';
+                            const image = document.createElement('img');
+                            image.src = img;
+                            image.alt = title;
+                            image.loading = index === 0 ? 'eager' : 'lazy';
+                            if (index === 0) image.fetchPriority = 'high';
+                            image.decoding = 'async';
+                            image.referrerPolicy = 'no-referrer';
+                            media.appendChild(image);
+                            article.appendChild(media);
+                        }
+
+                        const body = document.createElement('div');
+                        body.className = 'blog-card-body';
+                        const heading = document.createElement('h3');
+                        heading.className = 'blog-card-title';
+                        appendMediumLink(heading, url, title);
+                        body.appendChild(heading);
+                        if (desc) {
+                            const description = document.createElement('p');
+                            description.className = 'blog-card-desc';
+                            description.textContent = desc;
+                            body.appendChild(description);
+                        }
+                        article.appendChild(body);
+
+                        const footer = document.createElement('div');
+                        footer.className = 'blog-card-footer';
+                        appendMediumLink(footer, url, 'Read on Medium', 'blog-card-cta');
+                        article.appendChild(footer);
+                        fragment.appendChild(article);
+                    });
+                    container.appendChild(fragment);
                 })
                 .catch(() => {
-                    // Graceful fallback: simple link list
-                    container.innerHTML = `
-                        <a href="https://medium.com/@daffaghiffarykusuma" target="_blank" rel="noopener noreferrer">View all articles on Medium</a>
-                    `;
+                    container.replaceChildren();
+                    appendMediumLink(container, 'https://medium.com/@daffaghiffarykusuma', 'View all articles on Medium');
                 });
         })();
     </script>
