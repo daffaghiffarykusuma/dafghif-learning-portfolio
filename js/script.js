@@ -129,6 +129,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         if (activePdfModal) {
             activePdfModal.style.display = "none";
             pdfIframe.src = "";
+            pdfIframe.removeAttribute("sandbox");
             activePdfModal = null;
         }
     }
@@ -179,13 +180,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 // Set modal title and project preview source
                 pdfModalTitle.textContent = projectTitle;
                  
-                // Hide native PDF controls when possible; spreadsheet decks use generated read-only HTML previews.
+                // Keep previews same-origin and path-scoped before allowing them into the frame.
                 const safePdfPath = safePreviewPath(pdfPath, 'assets/pdf/portfolio/', '.pdf');
                 const safeViewerPath = safePreviewPath(viewerPath, 'assets/portfolio-viewers/', '.html');
                 const previewUrl = safePdfPath || safeViewerPath;
                 if (!previewUrl) {
                     console.warn('Blocked unsafe portfolio preview path.');
                     return;
+                }
+                if (safePdfPath) {
+                    // Chrome's built-in PDF viewer is blocked by a fully sandboxed frame.
+                    // The URL is already restricted to same-origin portfolio PDFs above.
+                    pdfIframe.removeAttribute("sandbox");
+                } else {
+                    pdfIframe.setAttribute("sandbox", "allow-same-origin");
                 }
                 pdfIframe.src = safePdfPath
                     ? previewUrl + '#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-width&statusbar=0&messages=0&pagemode=none'
