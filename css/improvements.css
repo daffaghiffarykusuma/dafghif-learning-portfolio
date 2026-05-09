@@ -618,6 +618,13 @@
     --service-hover-shadow: rgba(155, 89, 182, 0.15);
 }
 
+.service-preview-card[data-service="analytics"] {
+    --service-accent: var(--color-warning, #E9C46A);
+    --service-accent-dark: var(--color-info, #F4A261);
+    --service-shadow: rgba(233, 196, 106, 0.25);
+    --service-hover-shadow: rgba(233, 196, 106, 0.15);
+}
+
 /* Enhanced service icon hover animation */
 .service-preview-card:hover .service-icon {
     transform: scale(1.1) rotate(5deg);
@@ -1377,6 +1384,7 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-6);
+    margin-top: var(--space-8);
 }
 
 @media (min-width: 768px) {
