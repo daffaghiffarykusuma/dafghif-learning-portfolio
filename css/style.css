@@ -3173,7 +3173,6 @@ body.dark-mode .phase-section a:hover {
 
 .testimonial-track {
     display: flex;
-    gap: 24px;
     transition: transform 0.6s ease;
 }
 
