@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 
-    // --- PDF Viewer Modal Functionality ---
+    // --- Portfolio Viewer Modal Functionality ---
     const pdfModal = document.getElementById('pdf-modal');
     const pdfModalTitle = document.getElementById('pdf-modal-title');
     const pdfIframe = document.getElementById('pdf-iframe');
@@ -142,8 +142,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 e.stopPropagation();
 
                 const pdfPath = button.dataset.pdf;
-                if (!pdfPath) {
-                    console.warn('View Details button clicked has no data-pdf attribute.');
+                const viewerPath = button.dataset.viewer;
+                if (!pdfPath && !viewerPath) {
+                    console.warn('View Details button clicked has no data-pdf or data-viewer attribute.');
                     return;
                 }
 
@@ -156,11 +157,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 closeActiveModal();
                 closePdfModal();
 
-                // Set modal title and PDF source
+                // Set modal title and project preview source
                 pdfModalTitle.textContent = projectTitle;
                 
-                // Add security parameters to prevent downloads while allowing viewing
-                pdfIframe.src = pdfPath + '#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-width&statusbar=0&messages=0&pagemode=none';
+                // Hide native PDF controls when possible; spreadsheet decks use generated read-only HTML previews.
+                pdfIframe.src = pdfPath
+                    ? pdfPath + '#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-width&statusbar=0&messages=0&pagemode=none'
+                    : viewerPath;
 
                 // Show the modal
                 pdfModal.style.display = 'block';

@@ -1219,6 +1219,26 @@ h2.section-title::after { /* Underline effect for titles */
     box-shadow: 0 10px 24px rgba(15, 27, 30, 0.18);
 }
 
+@media (max-width: 768px) {
+    #portfolio-filters {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: 12px;
+        gap: 8px;
+        border-radius: 12px;
+        position: static;
+        scroll-snap-type: x proximity;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #portfolio-filters .filter-button {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        scroll-snap-align: start;
+    }
+}
+
 .project-category-label {
     display: inline-block;
     background-color: var(--accent);
