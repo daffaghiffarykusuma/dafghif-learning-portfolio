@@ -357,6 +357,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     }
 
+    document.querySelectorAll('[data-quote-toggle]').forEach(button => {
+        const quote = button.previousElementSibling;
+        if (!quote || !quote.matches('[data-collapsible-quote]')) return;
+
+        button.addEventListener('click', () => {
+            const isExpanded = quote.classList.toggle('is-expanded');
+            button.textContent = isExpanded ? 'show less' : '... more';
+            button.setAttribute('aria-expanded', String(isExpanded));
+        });
+    });
+
     const SERVICE_INQUIRY_STORAGE_KEY = 'serviceInquiry';
 
     if (serviceInquiryForms && serviceInquiryForms.length > 0) {

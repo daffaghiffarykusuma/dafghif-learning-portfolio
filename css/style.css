@@ -3195,6 +3195,31 @@ body.dark-mode .phase-section a:hover {
     margin: 0;
 }
 
+.testimonial-quote-long:not(.is-expanded) {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.testimonial-more {
+    align-self: flex-start;
+    border: 0;
+    background: transparent;
+    color: var(--accent);
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600;
+    margin-top: -14px;
+    padding: 0;
+}
+
+.testimonial-more:hover,
+.testimonial-more:focus-visible {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
 .testimonial-footer {
     display: flex;
     align-items: center;
