@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             activePdfModal.hidden = true;
             activePdfModal.style.display = "";
             pdfIframe.src = "";
-            pdfIframe.setAttribute("sandbox", "allow-same-origin");
+            pdfIframe.removeAttribute("sandbox");
             activePdfModal = null;
             lastPreviewTrigger?.focus();
             lastPreviewTrigger = null;
@@ -199,7 +199,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     return;
                 }
                 if (safePdfPath) {
-                    pdfIframe.setAttribute("sandbox", "allow-same-origin allow-downloads");
+                    // Chrome's built-in PDF viewer is blocked by a sandbox without scripts.
+                    // Keep this branch restricted to same-origin portfolio PDFs via safePreviewPath.
+                    pdfIframe.removeAttribute("sandbox");
                 } else {
                     pdfIframe.setAttribute("sandbox", "allow-same-origin");
                 }
