@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,13 +11,16 @@
     <link rel="stylesheet" href="css/dark-mode.css">
 </head>
 <body>
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
     <header>
         <div class="container">
             <div class="header-main">
                 <div class="logo">
                     <a href="index.html"><h1>Daffa Ghiffary Kusuma</h1></a>
                 </div>
-                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+                <button type="button" class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="menu-icon"></span>
+                </button>
             </div>
             <nav>
                 <ul>
@@ -31,8 +34,8 @@
         </div>
     </header>
 
-    <main>
-        <section class="service-hero" style="padding-bottom: 60px;">
+    <main id="main-content" role="main" aria-label="Main content">
+        <section class="service-hero service-hero-compact">
             <div class="container">
                 <p class="service-eyebrow">Case Study</p>
                 <h1>Entrepreneurship Program for 5,000+ SMK Students</h1>
@@ -94,7 +97,7 @@
             <div class="container">
                 <div class="section-heading">
                     <h2 class="section-title">Challenge</h2>
-                    <p>Vocational students needed more than theory�they required hands-on experience, community support, and metrics to prove the viability of their ideas.</p>
+                    <p>Vocational students needed more than theoryï¿½they required hands-on experience, community support, and metrics to prove the viability of their ideas.</p>
                 </div>
                 <div class="feature-grid">
                     <article class="feature-card">
@@ -142,7 +145,7 @@
                     <h2 class="section-title">Voices from the Program</h2>
                     <p>Testimonials from students and partners who experienced the transformation firsthand.</p>
                 </div>
-                <div class="testimonial-archive" style="margin-top: 0;">
+                <div class="testimonial-archive testimonial-archive-flush">
                     <article class="testimonial-card">
                         <p class="testimonial-quote">"Programnya menarik dan membantu kami belajar menjadi wirausaha yang baik melalui praktik langsung."</p>
                         <div class="testimonial-footer">
@@ -203,7 +206,7 @@
         <section class="service-cta">
             <div class="container text-center">
                 <h2 class="section-title">Design a Similar Learning Journey</h2>
-                <p>Need to mobilise students, employees, or community members around entrepreneurship? Let�s map the curriculum, facilitation, and measurement together.</p>
+                <p>Need to mobilise students, employees, or community members around entrepreneurship? Letï¿½s map the curriculum, facilitation, and measurement together.</p>
                 <a href="contact.html?project=SMK Program" class="cta-button">Build your program</a>
             </div>
         </section>
@@ -224,9 +227,6 @@
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
-    <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
+    <script src="js/script.js" defer></script>
 </body>
 </html>

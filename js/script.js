@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const body = document.body;
+    const currentYear = document.getElementById('current-year');
     const menuToggle = document.querySelector('.menu-toggle');
     const nav = document.querySelector('header nav');
     const navLinks = document.querySelectorAll('header nav ul li a');
@@ -9,6 +10,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     let activeProjectModal = null;
     let windowClickEventHandler = null;
+
+    if (currentYear) {
+        currentYear.textContent = new Date().getFullYear();
+    }
 
     // --- Navigation ---
     const portfolioPages = new Set(['portfolio.html', 'case-entrepreneurship.html']);
@@ -124,13 +129,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const viewDetailsButtons = document.querySelectorAll('.view-details-button');
 
     let activePdfModal = null;
+    let lastPreviewTrigger = null;
 
     function closePdfModal() {
         if (activePdfModal) {
-            activePdfModal.style.display = "none";
+            activePdfModal.hidden = true;
+            activePdfModal.style.display = "";
             pdfIframe.src = "";
-            pdfIframe.removeAttribute("sandbox");
+            pdfIframe.setAttribute("sandbox", "allow-same-origin");
             activePdfModal = null;
+            lastPreviewTrigger?.focus();
+            lastPreviewTrigger = null;
         }
     }
 
@@ -176,6 +185,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 // Close any other open modals first
                 closeActiveModal();
                 closePdfModal();
+                lastPreviewTrigger = button;
 
                 // Set modal title and project preview source
                 pdfModalTitle.textContent = projectTitle;
@@ -189,9 +199,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     return;
                 }
                 if (safePdfPath) {
-                    // Chrome's built-in PDF viewer is blocked by a fully sandboxed frame.
-                    // The URL is already restricted to same-origin portfolio PDFs above.
-                    pdfIframe.removeAttribute("sandbox");
+                    pdfIframe.setAttribute("sandbox", "allow-same-origin allow-downloads");
                 } else {
                     pdfIframe.setAttribute("sandbox", "allow-same-origin");
                 }
@@ -200,8 +208,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     : previewUrl;
 
                 // Show the modal
+                pdfModal.hidden = false;
                 pdfModal.style.display = 'block';
                 activePdfModal = pdfModal;
+                pdfModal.querySelector('.close-modal')?.focus();
 
                 // Scroll to top of modal to ensure it's visible
                 setTimeout(() => {

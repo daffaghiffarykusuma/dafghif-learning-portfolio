@@ -1,0 +1,12 @@
+{
+  "name": "dafghif-learning-portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "node scripts/validate-site.mjs",
+    "serve": "node scripts/serve-static.mjs",
+    "test": "node scripts/validate-site.mjs",
+    "validate": "node scripts/validate-site.mjs"
+  },
+  "devDependencies": {}
+}

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,10 +7,8 @@
     <title>Blog - Daffa Ghiffary Kusuma</title>
     <meta name="description" content="Insights on learning design, training effectiveness, and workplace development. Practical tips from real program experience.">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="preload" href="css/improvements.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/improvements.css"></noscript>
-    <link rel="preload" href="css/dark-mode.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/dark-mode.css"></noscript>
+    <link rel="stylesheet" href="css/improvements.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
 </head>
 
 <body>
@@ -24,7 +22,7 @@
                 <div class="logo">
                    <a href="index.html"><h1>Daffa Ghiffary Kusuma</h1></a>
                 </div>
-                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <button type="button" class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
                     <span class="menu-icon"></span>
                 </button>
             </div>
@@ -49,7 +47,7 @@
         <section id="blog-list">
             <div class="container">
                 <h2 class="section-title">Latest Articles</h2>
-                <div id="blog-cards" class="grid grid-cols-2" style="gap: 20px;"></div>
+            <div id="blog-cards" class="grid grid-cols-2 blog-card-grid"></div>
             </div>
         </section>
     </main>
@@ -70,112 +68,7 @@
     </footer>
 
     <script src="js/script.js" defer></script>
-    <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        // Render blog cards from pre-populated JSON (no third-party).
-        (function renderBlogCards() {
-            const container = document.getElementById('blog-cards');
-            if (!container) return;
-
-            const allowedBlogUrl = (value) => {
-                try {
-                    const url = new URL(value, window.location.href);
-                    const host = url.hostname.toLowerCase();
-                    const isMediumHost = host === 'medium.com' || host.endsWith('.medium.com');
-                    return url.protocol === 'https:' && isMediumHost ? url.href : '#';
-                } catch {
-                    return '#';
-                }
-            };
-
-            const allowedImageUrl = (value) => {
-                try {
-                    const url = new URL(value, window.location.href);
-                    const allowedHosts = new Set(['cdn-images-1.medium.com', 'miro.medium.com']);
-                    return url.protocol === 'https:' && allowedHosts.has(url.hostname) ? url.href : '';
-                } catch {
-                    return '';
-                }
-            };
-
-            const appendMediumLink = (parent, href, text, className) => {
-                const link = document.createElement('a');
-                link.href = href;
-                link.textContent = text;
-                link.target = '_blank';
-                link.rel = 'noopener noreferrer';
-                if (className) link.className = className;
-                parent.appendChild(link);
-            };
-
-            const jsonPath = 'assets/blog.json';
-            fetch(jsonPath)
-                .then(res => {
-                    if (!res.ok) throw new Error('Failed to load blog metadata');
-                    return res.json();
-                })
-                .then(data => {
-                    const posts = Array.isArray(data) ? data : (data.posts || []);
-                    container.replaceChildren();
-                    if (!posts.length) {
-                        const emptyMessage = document.createElement('p');
-                        emptyMessage.textContent = 'No blog posts found.';
-                        container.appendChild(emptyMessage);
-                        return;
-                    }
-                    const fragment = document.createDocumentFragment();
-                    posts.forEach((p, index) => {
-                        const title = p.title || 'Untitled Post';
-                        const url = allowedBlogUrl(p.url || '#');
-                        const desc = p.description || '';
-                        const img = allowedImageUrl(p.image || '');
-
-                        const article = document.createElement('article');
-                        article.className = 'blog-card';
-
-                        if (img) {
-                            const media = document.createElement('div');
-                            media.className = 'blog-card-media';
-                            const image = document.createElement('img');
-                            image.src = img;
-                            image.alt = title;
-                            image.loading = index === 0 ? 'eager' : 'lazy';
-                            if (index === 0) image.fetchPriority = 'high';
-                            image.decoding = 'async';
-                            image.referrerPolicy = 'no-referrer';
-                            media.appendChild(image);
-                            article.appendChild(media);
-                        }
-
-                        const body = document.createElement('div');
-                        body.className = 'blog-card-body';
-                        const heading = document.createElement('h3');
-                        heading.className = 'blog-card-title';
-                        appendMediumLink(heading, url, title);
-                        body.appendChild(heading);
-                        if (desc) {
-                            const description = document.createElement('p');
-                            description.className = 'blog-card-desc';
-                            description.textContent = desc;
-                            body.appendChild(description);
-                        }
-                        article.appendChild(body);
-
-                        const footer = document.createElement('div');
-                        footer.className = 'blog-card-footer';
-                        appendMediumLink(footer, url, 'Read on Medium', 'blog-card-cta');
-                        article.appendChild(footer);
-                        fragment.appendChild(article);
-                    });
-                    container.appendChild(fragment);
-                })
-                .catch(() => {
-                    container.replaceChildren();
-                    appendMediumLink(container, 'https://medium.com/@daffaghiffarykusuma', 'View all articles on Medium');
-                });
-        })();
-    </script>
+    <script src="js/blog.js" defer></script>
 </body>
 
 </html>

@@ -2207,13 +2207,54 @@ body.dark-mode section:nth-of-type(even) {
 }
 
 body.dark-mode #showcase {
-     background: linear-gradient(rgba(15, 27, 30, 0.95), rgba(15, 27, 30, 0.85)), url('../images/dafghif_cover.png') no-repeat center center/cover; /* Darker overlay */
+     background: linear-gradient(rgba(15, 27, 30, 0.95), rgba(15, 27, 30, 0.85)), url('../dafghif_cover.png') no-repeat center center/cover; /* Darker overlay */
      color: var(--primary);
 }
 
 body.dark-mode .cta-button {
     color: var(--accent);
     border-color: var(--accent);
+}
+
+.blog-card-grid {
+    gap: 20px;
+}
+
+.service-hero-compact {
+    padding-bottom: 60px;
+}
+
+.testimonial-archive-flush {
+    margin-top: 0;
+}
+
+.portfolio-filters {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.project-category-muted {
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
+.placeholder-card-image {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-surface-variant);
+}
+
+.surface-section {
+    background-color: var(--color-surface);
+}
+
+.publication-meta {
+    font-size: 0.9em;
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 8px;
 }
 
 body.dark-mode .cta-button:hover {
