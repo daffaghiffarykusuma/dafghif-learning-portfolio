@@ -1,0 +1,2803 @@
+{
+  "schemaVersion": 1,
+  "generatedFrom": "portfolio.html",
+  "generatedAt": "2026-05-10T09:03:35.958Z",
+  "owner": "Daffa Ghiffary Kusuma",
+  "positioning": "Learning Designer and Program Manager focused on competency-based training, learning assets, evaluation systems, mentoring, and learning analytics.",
+  "usage": "Use this file as AI-readable context for tailored CVs, cover letters, recruiter summaries, and project matching when the original portfolio artifacts are unavailable.",
+  "evidenceNote": "Project titles, categories, descriptions, tags, and source artifact paths are extracted from portfolio.html. Role, audience, deliverables, skills, tools, impact, and CV bullets are inferred from those public snippets and should be refined when exact project details are available.",
+  "projectCount": 75,
+  "categoryProfiles": {
+    "Training Needs Analysis": {
+      "defaultRole": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
+      "defaultDeliverables": [
+        "needs analysis",
+        "gap diagnosis",
+        "learning priorities"
+      ],
+      "defaultSkills": [
+        "training needs analysis",
+        "performance consulting",
+        "competency mapping",
+        "learning design"
+      ],
+      "cvVerb": "Diagnosed"
+    },
+    "Training Proposal": {
+      "defaultRole": "Converted learning needs into a structured proposal with objectives, program logic, delivery plan, and expected outcomes.",
+      "defaultDeliverables": [
+        "training proposal",
+        "program objectives",
+        "delivery plan"
+      ],
+      "defaultSkills": [
+        "proposal development",
+        "instructional design",
+        "curriculum planning",
+        "stakeholder communication"
+      ],
+      "cvVerb": "Developed"
+    },
+    "Instructional Design": {
+      "defaultRole": "Structured learning objectives, session flow, learner activities, practice tasks, and evidence of competency.",
+      "defaultDeliverables": [
+        "lesson plan",
+        "learning flow",
+        "practice activities"
+      ],
+      "defaultSkills": [
+        "instructional design",
+        "competency-based learning",
+        "activity design",
+        "assessment alignment"
+      ],
+      "cvVerb": "Designed"
+    },
+    "Curriculum Development": {
+      "defaultRole": "Mapped competencies, learning sequence, program structure, and evidence requirements into a usable curriculum asset.",
+      "defaultDeliverables": [
+        "curriculum map",
+        "competency matrix",
+        "syllabus"
+      ],
+      "defaultSkills": [
+        "curriculum development",
+        "competency mapping",
+        "learning architecture",
+        "program design"
+      ],
+      "cvVerb": "Built"
+    },
+    "Learning Materials": {
+      "defaultRole": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+      "defaultDeliverables": [
+        "training deck",
+        "facilitator material",
+        "learner activities"
+      ],
+      "defaultSkills": [
+        "learning material development",
+        "presentation design",
+        "facilitation design",
+        "adult learning"
+      ],
+      "cvVerb": "Created"
+    },
+    "Assessment & Evaluation": {
+      "defaultRole": "Designed assessment and evaluation tools to measure learner understanding, behavior, quality, or decision readiness.",
+      "defaultDeliverables": [
+        "assessment tool",
+        "evaluation form",
+        "scoring structure"
+      ],
+      "defaultSkills": [
+        "assessment design",
+        "learning evaluation",
+        "rubric design",
+        "measurement"
+      ],
+      "cvVerb": "Designed"
+    },
+    "Learning Analytics": {
+      "defaultRole": "Converted learning data, response inputs, or budget assumptions into analysis-ready dashboards and decision tools.",
+      "defaultDeliverables": [
+        "analysis dashboard",
+        "calculation model",
+        "decision report"
+      ],
+      "defaultSkills": [
+        "learning analytics",
+        "dashboard design",
+        "Kirkpatrick evaluation",
+        "spreadsheet modeling"
+      ],
+      "cvVerb": "Built"
+    },
+    "L&D Strategy": {
+      "defaultRole": "Framed learning products, business goals, capability priorities, and growth logic into an actionable L&D plan.",
+      "defaultDeliverables": [
+        "strategy plan",
+        "business roadmap",
+        "portfolio positioning"
+      ],
+      "defaultSkills": [
+        "L&D strategy",
+        "business planning",
+        "program portfolio design",
+        "go-to-market planning"
+      ],
+      "cvVerb": "Framed"
+    },
+    "Mentoring & Coaching": {
+      "defaultRole": "Structured mentoring activities, reflection prompts, and action planning tools to help learners move from insight to execution.",
+      "defaultDeliverables": [
+        "mentoring workbook",
+        "reflection prompts",
+        "action plan"
+      ],
+      "defaultSkills": [
+        "mentoring design",
+        "coaching tools",
+        "workbook design",
+        "learner reflection"
+      ],
+      "cvVerb": "Structured"
+    },
+    "Presentation Design": {
+      "defaultRole": "Organized complex ideas into a clear slide narrative, evidence structure, and presentation-ready flow.",
+      "defaultDeliverables": [
+        "presentation template",
+        "slide narrative",
+        "pitch structure"
+      ],
+      "defaultSkills": [
+        "presentation design",
+        "storytelling",
+        "visual communication",
+        "pitch design"
+      ],
+      "cvVerb": "Designed"
+    },
+    "Custom Training & Workshops": {
+      "defaultRole": "Designed and delivered applied training or workshop experiences using practical activities, facilitation, and implementation support.",
+      "defaultDeliverables": [
+        "workshop design",
+        "facilitation plan",
+        "participant activities"
+      ],
+      "defaultSkills": [
+        "training facilitation",
+        "workshop design",
+        "experiential learning",
+        "program delivery"
+      ],
+      "cvVerb": "Delivered"
+    },
+    "Review: Legacy Project": {
+      "defaultRole": "Produced an earlier portfolio project that demonstrates applied program, people, or learning operations capability.",
+      "defaultDeliverables": [
+        "legacy project artifact",
+        "operational framework",
+        "implementation support"
+      ],
+      "defaultSkills": [
+        "program design",
+        "people development",
+        "operations improvement",
+        "stakeholder collaboration"
+      ],
+      "cvVerb": "Created"
+    },
+    "Mentoring & Speaking": {
+      "defaultRole": "Designed a mentoring or speaking asset that helps learners build confidence, communication, and professional influence.",
+      "defaultDeliverables": [
+        "speaking material",
+        "mentoring prompts",
+        "reflection activities"
+      ],
+      "defaultSkills": [
+        "mentoring",
+        "public speaking",
+        "career development",
+        "storytelling"
+      ],
+      "cvVerb": "Created"
+    }
+  },
+  "projects": [
+    {
+      "id": "administrative-communication-training-needs-analysis",
+      "title": "Administrative Communication Training Needs Analysis",
+      "category": "Training Needs Analysis",
+      "tags": [
+        "training-needs-analysis",
+        "instructional-design"
+      ],
+      "publicDescription": "Pinpoints workplace communication gaps and translates them into a competency-based training path.",
+      "sourceArtifact": "assets/pdf/portfolio/bnsp4_training_need_analysis.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
+        "audience": "working professionals",
+        "deliverables": [
+          "needs analysis",
+          "gap diagnosis",
+          "learning priorities"
+        ],
+        "skills": [
+          "training needs analysis",
+          "performance consulting",
+          "competency mapping",
+          "learning design",
+          "instructional design"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Clarified the real performance gap before investing in training design or delivery.",
+        "cvBullet": "Diagnosed Administrative Communication Training Needs Analysis as a training needs analysis project, creating practical context for working professionals and supporting this outcome: Clarified the real performance gap before investing in training design or delivery."
+      }
+    },
+    {
+      "id": "competency-based-communication-training-proposal",
+      "title": "Competency-Based Communication Training Proposal",
+      "category": "Training Proposal",
+      "tags": [
+        "training-proposal",
+        "instructional-design",
+        "curriculum-development"
+      ],
+      "publicDescription": "Turns TNA findings into a structured, standards-aligned program proposal for administrative communication skills.",
+      "sourceArtifact": "assets/pdf/portfolio/bnsp4_program_proposal.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Converted learning needs into a structured proposal with objectives, program logic, delivery plan, and expected outcomes.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "training proposal",
+          "program objectives",
+          "delivery plan"
+        ],
+        "skills": [
+          "proposal development",
+          "instructional design",
+          "curriculum planning",
+          "stakeholder communication",
+          "training proposal",
+          "curriculum development"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making.",
+        "cvBullet": "Developed Competency-Based Communication Training Proposal as a training proposal project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
+      }
+    },
+    {
+      "id": "administrative-communication-lesson-plan",
+      "title": "Administrative Communication Lesson Plan",
+      "category": "Instructional Design",
+      "tags": [
+        "instructional-design",
+        "curriculum-development"
+      ],
+      "publicDescription": "Maps 36 learning hours into clear sessions, activities, OJT practice, and competency evidence.",
+      "sourceArtifact": "assets/pdf/portfolio/bnsp4_lesson_plan.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Structured learning objectives, session flow, learner activities, practice tasks, and evidence of competency.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "lesson plan",
+          "learning flow",
+          "practice activities"
+        ],
+        "skills": [
+          "instructional design",
+          "competency-based learning",
+          "activity design",
+          "assessment alignment",
+          "curriculum development"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [
+          "36"
+        ],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Designed Administrative Communication Lesson Plan as a instructional design project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "communication-confidence-training-deck",
+      "title": "Communication Confidence Training Deck",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials",
+        "instructional-design",
+        "presentation-design"
+      ],
+      "publicDescription": "A complete facilitator deck for building confident, professional, and structured workplace communication.",
+      "sourceArtifact": "assets/pdf/portfolio/bnsp4_materi_pelatihan.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "working professionals",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials",
+          "instructional design"
+        ],
+        "tools": [
+          "PowerPoint or Google Slides",
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Communication Confidence Training Deck as a learning materials project, creating practical context for working professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "communication-skills-post-test-form",
+      "title": "Communication Skills Post-Test Form",
+      "category": "Assessment & Evaluation",
+      "tags": [
+        "assessment",
+        "learning-evaluation"
+      ],
+      "publicDescription": "Measures learner understanding with competency-mapped questions tied to the training objectives.",
+      "sourceArtifact": "assets/pdf/portfolio/bnsp4_form_soal_post_test.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Designed assessment and evaluation tools to measure learner understanding, behavior, quality, or decision readiness.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "assessment tool",
+          "evaluation form",
+          "scoring structure"
+        ],
+        "skills": [
+          "assessment design",
+          "learning evaluation",
+          "rubric design",
+          "measurement",
+          "assessment"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
+        "cvBullet": "Designed Communication Skills Post-Test Form as a assessment & evaluation project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
+      }
+    },
+    {
+      "id": "training-feedback-form-level-1-reaction",
+      "title": "Training Feedback Form: Level 1 Reaction",
+      "category": "Assessment & Evaluation",
+      "tags": [
+        "assessment",
+        "learning-evaluation"
+      ],
+      "publicDescription": "Captures participant reaction data so training quality, relevance, and delivery can be improved fast.",
+      "sourceArtifact": "assets/pdf/portfolio/bnsp4_form_feedback.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Designed assessment and evaluation tools to measure learner understanding, behavior, quality, or decision readiness.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "assessment tool",
+          "evaluation form",
+          "scoring structure"
+        ],
+        "skills": [
+          "assessment design",
+          "learning evaluation",
+          "rubric design",
+          "measurement",
+          "assessment"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [
+          "1"
+        ],
+        "impact": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
+        "cvBullet": "Designed Training Feedback Form: Level 1 Reaction as a assessment & evaluation project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
+      }
+    },
+    {
+      "id": "communication-observation-form-and-performance-rubric",
+      "title": "Communication Observation Form and Performance Rubric",
+      "category": "Assessment & Evaluation",
+      "tags": [
+        "assessment",
+        "learning-evaluation"
+      ],
+      "publicDescription": "Assesses workplace behavior transfer through observable communication tasks and structured rubrics.",
+      "sourceArtifact": "assets/pdf/portfolio/bnsp4_form_observasi_dan_rubrik_penilaian.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Designed assessment and evaluation tools to measure learner understanding, behavior, quality, or decision readiness.",
+        "audience": "working professionals",
+        "deliverables": [
+          "assessment tool",
+          "evaluation form",
+          "scoring structure"
+        ],
+        "skills": [
+          "assessment design",
+          "learning evaluation",
+          "rubric design",
+          "measurement",
+          "assessment"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
+        "cvBullet": "Designed Communication Observation Form and Performance Rubric as a assessment & evaluation project, creating practical context for working professionals and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
+      }
+    },
+    {
+      "id": "macro-training-needs-analysis-dki-jakarta",
+      "title": "Macro Training Needs Analysis: DKI Jakarta",
+      "category": "Training Needs Analysis",
+      "tags": [
+        "training-needs-analysis",
+        "learning-strategy"
+      ],
+      "publicDescription": "Synthesizes labor-market signals into practical training priorities for future-ready workplace skills.",
+      "sourceArtifact": "assets/pdf/portfolio/bnsp6_kebutuhan_pelatihan_makro.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
+        "audience": "working professionals",
+        "deliverables": [
+          "needs analysis",
+          "gap diagnosis",
+          "learning priorities"
+        ],
+        "skills": [
+          "training needs analysis",
+          "performance consulting",
+          "competency mapping",
+          "learning design",
+          "learning strategy"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Clarified the real performance gap before investing in training design or delivery.",
+        "cvBullet": "Diagnosed Macro Training Needs Analysis: DKI Jakarta as a training needs analysis project, creating practical context for working professionals and supporting this outcome: Clarified the real performance gap before investing in training design or delivery."
+      }
+    },
+    {
+      "id": "competency-matrix-for-training-organization",
+      "title": "Competency Matrix for Training Organization",
+      "category": "Curriculum Development",
+      "tags": [
+        "curriculum-development",
+        "learning-strategy",
+        "assessment"
+      ],
+      "publicDescription": "Maps organizational capability against program priorities to clarify readiness and development focus.",
+      "sourceArtifact": "assets/pdf/portfolio/bnsp6_matriks_kompetensi.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Mapped competencies, learning sequence, program structure, and evidence requirements into a usable curriculum asset.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "curriculum map",
+          "competency matrix",
+          "syllabus"
+        ],
+        "skills": [
+          "curriculum development",
+          "competency mapping",
+          "learning architecture",
+          "program design",
+          "learning strategy",
+          "assessment"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Built Competency Matrix for Training Organization as a curriculum development project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+      }
+    },
+    {
+      "id": "competency-based-training-syllabus",
+      "title": "Competency-Based Training Syllabus",
+      "category": "Curriculum Development",
+      "tags": [
+        "curriculum-development",
+        "instructional-design"
+      ],
+      "publicDescription": "Builds a multi-program syllabus that connects competency standards, delivery design, and evidence of learning.",
+      "sourceArtifact": "assets/pdf/portfolio/bnsp6_silabus_pelatihan_berbasis_kompetensi.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Mapped competencies, learning sequence, program structure, and evidence requirements into a usable curriculum asset.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "curriculum map",
+          "competency matrix",
+          "syllabus"
+        ],
+        "skills": [
+          "curriculum development",
+          "competency mapping",
+          "learning architecture",
+          "program design",
+          "instructional design"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Built Competency-Based Training Syllabus as a curriculum development project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+      }
+    },
+    {
+      "id": "learning-business-plan-eighteen-rekrutmen-asia",
+      "title": "Learning Business Plan: Eighteen Rekrutmen Asia",
+      "category": "L&D Strategy",
+      "tags": [
+        "learning-strategy",
+        "training-proposal"
+      ],
+      "publicDescription": "Frames a learning business roadmap around employability, communication, and organizational capability services.",
+      "sourceArtifact": "assets/pdf/portfolio/bnsp6_business_plan.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Framed learning products, business goals, capability priorities, and growth logic into an actionable L&D plan.",
+        "audience": "entrepreneurs and startup founders",
+        "deliverables": [
+          "strategy plan",
+          "business roadmap",
+          "portfolio positioning"
+        ],
+        "skills": [
+          "L&D strategy",
+          "business planning",
+          "program portfolio design",
+          "go-to-market planning",
+          "learning strategy",
+          "training proposal"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making.",
+        "cvBullet": "Framed Learning Business Plan: Eighteen Rekrutmen Asia as a l&d strategy project, creating practical context for entrepreneurs and startup founders and supporting this outcome: Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
+      }
+    },
+    {
+      "id": "marketing-plan-for-training-solutions",
+      "title": "Marketing Plan for Training Solutions",
+      "category": "L&D Strategy",
+      "tags": [
+        "learning-strategy",
+        "training-proposal"
+      ],
+      "publicDescription": "Connects training portfolio positioning with demand generation, conversion, and client retention strategy.",
+      "sourceArtifact": "assets/pdf/portfolio/bnsp6_marketing_plan.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Framed learning products, business goals, capability priorities, and growth logic into an actionable L&D plan.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "strategy plan",
+          "business roadmap",
+          "portfolio positioning"
+        ],
+        "skills": [
+          "L&D strategy",
+          "business planning",
+          "program portfolio design",
+          "go-to-market planning",
+          "learning strategy",
+          "training proposal"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making.",
+        "cvBullet": "Framed Marketing Plan for Training Solutions as a l&d strategy project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
+      }
+    },
+    {
+      "id": "training-budget-and-roti-calculator",
+      "title": "Training Budget and ROTI Calculator",
+      "category": "Learning Analytics",
+      "tags": [
+        "learning-analytics",
+        "worksheet",
+        "training-proposal"
+      ],
+      "publicDescription": "Models training investment, budget logic, and return on training impact in one practical workbook.",
+      "sourceArtifact": "assets/portfolio-viewers/bnsp6-rab-roti-pelatihan.html",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Converted learning data, response inputs, or budget assumptions into analysis-ready dashboards and decision tools.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "analysis dashboard",
+          "calculation model",
+          "decision report"
+        ],
+        "skills": [
+          "learning analytics",
+          "dashboard design",
+          "Kirkpatrick evaluation",
+          "spreadsheet modeling",
+          "worksheet",
+          "training proposal"
+        ],
+        "tools": [
+          "Excel or Google Sheets"
+        ],
+        "scaleSignals": [],
+        "impact": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
+        "cvBullet": "Built Training Budget and ROTI Calculator as a learning analytics project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+      }
+    },
+    {
+      "id": "kirkpatrick-level-1-reaction-dashboard",
+      "title": "Kirkpatrick Level 1 Reaction Dashboard",
+      "category": "Learning Analytics",
+      "tags": [
+        "assessment",
+        "learning-evaluation",
+        "learning-analytics"
+      ],
+      "publicDescription": "Transforms participant reaction forms into a dashboard for rapid training experience decisions.",
+      "sourceArtifact": "assets/portfolio-viewers/bnsp6-evaluation-level1-reaction.html",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Converted learning data, response inputs, or budget assumptions into analysis-ready dashboards and decision tools.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "analysis dashboard",
+          "calculation model",
+          "decision report"
+        ],
+        "skills": [
+          "learning analytics",
+          "dashboard design",
+          "Kirkpatrick evaluation",
+          "spreadsheet modeling",
+          "assessment",
+          "learning evaluation"
+        ],
+        "tools": [
+          "Excel or Google Sheets"
+        ],
+        "scaleSignals": [
+          "1"
+        ],
+        "impact": "Improved visibility into learning data so decisions, remediation, and program improvements could be made faster.",
+        "cvBullet": "Built Kirkpatrick Level 1 Reaction Dashboard as a learning analytics project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Improved visibility into learning data so decisions, remediation, and program improvements could be made faster."
+      }
+    },
+    {
+      "id": "kirkpatrick-level-2-learning-dashboard",
+      "title": "Kirkpatrick Level 2 Learning Dashboard",
+      "category": "Learning Analytics",
+      "tags": [
+        "assessment",
+        "learning-evaluation",
+        "learning-analytics"
+      ],
+      "publicDescription": "Combines question bank, learner response form, and analysis dashboard to track learning gains.",
+      "sourceArtifact": "assets/portfolio-viewers/bnsp6-evaluation-level2-learning.html",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Converted learning data, response inputs, or budget assumptions into analysis-ready dashboards and decision tools.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "analysis dashboard",
+          "calculation model",
+          "decision report"
+        ],
+        "skills": [
+          "learning analytics",
+          "dashboard design",
+          "Kirkpatrick evaluation",
+          "spreadsheet modeling",
+          "assessment",
+          "learning evaluation"
+        ],
+        "tools": [
+          "Excel or Google Sheets"
+        ],
+        "scaleSignals": [
+          "2"
+        ],
+        "impact": "Improved visibility into learning data so decisions, remediation, and program improvements could be made faster.",
+        "cvBullet": "Built Kirkpatrick Level 2 Learning Dashboard as a learning analytics project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Improved visibility into learning data so decisions, remediation, and program improvements could be made faster."
+      }
+    },
+    {
+      "id": "training-and-coaching-need-analysis-framework",
+      "title": "Training and Coaching Need Analysis Framework",
+      "category": "Training Needs Analysis",
+      "tags": [
+        "training-needs-analysis",
+        "worksheet",
+        "instructional-design"
+      ],
+      "publicDescription": "A consultant-ready discovery workbook for diagnosing business needs before recommending training or coaching.",
+      "sourceArtifact": "assets/portfolio-viewers/need-analysis-framework-training-coaching.html",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
+        "audience": "entrepreneurs and startup founders",
+        "deliverables": [
+          "needs analysis",
+          "gap diagnosis",
+          "learning priorities"
+        ],
+        "skills": [
+          "training needs analysis",
+          "performance consulting",
+          "competency mapping",
+          "learning design",
+          "worksheet",
+          "instructional design"
+        ],
+        "tools": [
+          "Excel or Google Sheets"
+        ],
+        "scaleSignals": [],
+        "impact": "Clarified the real performance gap before investing in training design or delivery.",
+        "cvBullet": "Diagnosed Training and Coaching Need Analysis Framework as a training needs analysis project, creating practical context for entrepreneurs and startup founders and supporting this outcome: Clarified the real performance gap before investing in training design or delivery."
+      }
+    },
+    {
+      "id": "need-assessment-cross-department-communication",
+      "title": "Need Assessment: Cross-Department Communication",
+      "category": "Training Needs Analysis",
+      "tags": [
+        "training-needs-analysis",
+        "instructional-design",
+        "curriculum-development"
+      ],
+      "publicDescription": "Defines the real skill gap behind cross-functional friction and converts it into design-ready learning priorities.",
+      "sourceArtifact": "assets/pdf/portfolio/need_assessment_communication_between_departments.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "needs analysis",
+          "gap diagnosis",
+          "learning priorities"
+        ],
+        "skills": [
+          "training needs analysis",
+          "performance consulting",
+          "competency mapping",
+          "learning design",
+          "instructional design",
+          "curriculum development"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Clarified the real performance gap before investing in training design or delivery.",
+        "cvBullet": "Diagnosed Need Assessment: Cross-Department Communication as a training needs analysis project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Clarified the real performance gap before investing in training design or delivery."
+      }
+    },
+    {
+      "id": "need-assessment-manager-communication-to-staff",
+      "title": "Need Assessment: Manager Communication to Staff",
+      "category": "Training Needs Analysis",
+      "tags": [
+        "training-needs-analysis",
+        "instructional-design",
+        "curriculum-development"
+      ],
+      "publicDescription": "Clarifies the managerial communication capabilities needed for feedback, clarity, change, and psychological safety.",
+      "sourceArtifact": "assets/pdf/portfolio/need_assessment_manager_communication_to_staff.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
+        "audience": "managers and team leaders",
+        "deliverables": [
+          "needs analysis",
+          "gap diagnosis",
+          "learning priorities"
+        ],
+        "skills": [
+          "training needs analysis",
+          "performance consulting",
+          "competency mapping",
+          "learning design",
+          "instructional design",
+          "curriculum development"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
+        "cvBullet": "Diagnosed Need Assessment: Manager Communication to Staff as a training needs analysis project, creating practical context for managers and team leaders and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
+      }
+    },
+    {
+      "id": "recruitment-assessment-blueprint",
+      "title": "Recruitment Assessment Blueprint",
+      "category": "Assessment & Evaluation",
+      "tags": [
+        "assessment",
+        "learning-analytics"
+      ],
+      "publicDescription": "A structured assessment bank covering DISC, accuracy, math, cognitive tasks, and scoring norms for hiring decisions.",
+      "sourceArtifact": "assets/portfolio-viewers/recruitment-assessment-blueprint.html",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Designed assessment and evaluation tools to measure learner understanding, behavior, quality, or decision readiness.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "assessment tool",
+          "evaluation form",
+          "scoring structure"
+        ],
+        "skills": [
+          "assessment design",
+          "learning evaluation",
+          "rubric design",
+          "measurement",
+          "assessment",
+          "learning analytics"
+        ],
+        "tools": [
+          "Excel or Google Sheets"
+        ],
+        "scaleSignals": [],
+        "impact": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
+        "cvBullet": "Designed Recruitment Assessment Blueprint as a assessment & evaluation project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
+      }
+    },
+    {
+      "id": "miles-unfair-advantage-mentoring-workbook",
+      "title": "MILES Unfair Advantage Mentoring Workbook",
+      "category": "Mentoring & Coaching",
+      "tags": [
+        "worksheet",
+        "mentoring",
+        "learning-materials"
+      ],
+      "publicDescription": "Helps mentees audit assets across Money, Intelligence, Location, Expertise, and Status to build a focused action plan.",
+      "sourceArtifact": "assets/portfolio-viewers/miles-unfair-advantage-mentoring-workbook.html",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Structured mentoring activities, reflection prompts, and action planning tools to help learners move from insight to execution.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "mentoring workbook",
+          "reflection prompts",
+          "action plan"
+        ],
+        "skills": [
+          "mentoring design",
+          "coaching tools",
+          "workbook design",
+          "learner reflection",
+          "worksheet",
+          "mentoring",
+          "learning materials"
+        ],
+        "tools": [
+          "Excel or Google Sheets"
+        ],
+        "scaleSignals": [],
+        "impact": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
+        "cvBullet": "Structured MILES Unfair Advantage Mentoring Workbook as a mentoring & coaching project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+      }
+    },
+    {
+      "id": "mentoring-workbook-week-1-idea-exploration",
+      "title": "Mentoring Workbook: Week 1 Idea Exploration",
+      "category": "Mentoring & Coaching",
+      "tags": [
+        "worksheet",
+        "mentoring"
+      ],
+      "publicDescription": "Guides mentees from individual SDG ideas into a shared problem statement and early project direction.",
+      "sourceArtifact": "assets/portfolio-viewers/ybb-mentoring-workbook-week-1.html",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Structured mentoring activities, reflection prompts, and action planning tools to help learners move from insight to execution.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "mentoring workbook",
+          "reflection prompts",
+          "action plan"
+        ],
+        "skills": [
+          "mentoring design",
+          "coaching tools",
+          "workbook design",
+          "learner reflection",
+          "worksheet",
+          "mentoring"
+        ],
+        "tools": [
+          "Excel or Google Sheets"
+        ],
+        "scaleSignals": [
+          "1"
+        ],
+        "impact": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
+        "cvBullet": "Structured Mentoring Workbook: Week 1 Idea Exploration as a mentoring & coaching project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+      }
+    },
+    {
+      "id": "mentoring-workbook-week-2-concept-development",
+      "title": "Mentoring Workbook: Week 2 Concept Development",
+      "category": "Mentoring & Coaching",
+      "tags": [
+        "worksheet",
+        "mentoring"
+      ],
+      "publicDescription": "Uses SDG voting, reality checks, and project canvases to move a diverse team toward one feasible concept.",
+      "sourceArtifact": "assets/portfolio-viewers/ybb-mentoring-workbook-week-2.html",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Structured mentoring activities, reflection prompts, and action planning tools to help learners move from insight to execution.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "mentoring workbook",
+          "reflection prompts",
+          "action plan"
+        ],
+        "skills": [
+          "mentoring design",
+          "coaching tools",
+          "workbook design",
+          "learner reflection",
+          "worksheet",
+          "mentoring"
+        ],
+        "tools": [
+          "Excel or Google Sheets"
+        ],
+        "scaleSignals": [
+          "2"
+        ],
+        "impact": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
+        "cvBullet": "Structured Mentoring Workbook: Week 2 Concept Development as a mentoring & coaching project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+      }
+    },
+    {
+      "id": "mentoring-workbook-week-3-presentation-readiness",
+      "title": "Mentoring Workbook: Week 3 Presentation Readiness",
+      "category": "Mentoring & Coaching",
+      "tags": [
+        "worksheet",
+        "mentoring",
+        "presentation-design"
+      ],
+      "publicDescription": "Tracks evidence, ownership, and slide readiness so a student team can sharpen its final project deck.",
+      "sourceArtifact": "assets/portfolio-viewers/ybb-mentoring-workbook-week-3.html",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Structured mentoring activities, reflection prompts, and action planning tools to help learners move from insight to execution.",
+        "audience": "students and early-career talent",
+        "deliverables": [
+          "mentoring workbook",
+          "reflection prompts",
+          "action plan"
+        ],
+        "skills": [
+          "mentoring design",
+          "coaching tools",
+          "workbook design",
+          "learner reflection",
+          "worksheet",
+          "mentoring",
+          "presentation design"
+        ],
+        "tools": [
+          "Excel or Google Sheets",
+          "PowerPoint or Google Slides"
+        ],
+        "scaleSignals": [
+          "3"
+        ],
+        "impact": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
+        "cvBullet": "Structured Mentoring Workbook: Week 3 Presentation Readiness as a mentoring & coaching project, creating practical context for students and early-career talent and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+      }
+    },
+    {
+      "id": "pitch-deck-template-week-4",
+      "title": "Pitch Deck Template: Week 4",
+      "category": "Presentation Design",
+      "tags": [
+        "presentation-design",
+        "mentoring",
+        "learning-materials"
+      ],
+      "publicDescription": "A 16-slide final pitch structure that helps mentees present problem, evidence, solution, impact, and sustainability.",
+      "sourceArtifact": "assets/portfolio-viewers/ybb-pitch-deck-template-week-4.html",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Organized complex ideas into a clear slide narrative, evidence structure, and presentation-ready flow.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "presentation template",
+          "slide narrative",
+          "pitch structure"
+        ],
+        "skills": [
+          "presentation design",
+          "storytelling",
+          "visual communication",
+          "pitch design",
+          "mentoring",
+          "learning materials"
+        ],
+        "tools": [
+          "Excel or Google Sheets",
+          "PowerPoint or Google Slides"
+        ],
+        "scaleSignals": [
+          "4",
+          "16"
+        ],
+        "impact": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
+        "cvBullet": "Designed Pitch Deck Template: Week 4 as a presentation design project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+      }
+    },
+    {
+      "id": "learning-from-abroad-education-and-career-pathways",
+      "title": "Learning from Abroad: Education and Career Pathways",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials",
+        "presentation-design",
+        "mentoring"
+      ],
+      "publicDescription": "A workshop deck helping Indonesian students explore overseas study, scholarship, and career pathway decisions.",
+      "sourceArtifact": "assets/pdf/portfolio/scholarship_powerpoint.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "students and early-career talent",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials",
+          "mentoring"
+        ],
+        "tools": [
+          "PowerPoint or Google Slides",
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Created Learning from Abroad: Education and Career Pathways as a learning materials project, creating practical context for students and early-career talent and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+      }
+    },
+    {
+      "id": "digital-marketing-portfolio-workshop-deck",
+      "title": "Digital Marketing Portfolio Workshop Deck",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials",
+        "presentation-design"
+      ],
+      "publicDescription": "Teaches portfolio thinking for digital marketing through a focused, presentation-ready learning experience.",
+      "sourceArtifact": "assets/pdf/portfolio/digital_marketing_portfolio_powerpoint.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PowerPoint or Google Slides",
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Created Digital Marketing Portfolio Workshop Deck as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+      }
+    },
+    {
+      "id": "theory-of-change-as-program-framework",
+      "title": "Theory of Change as Program Framework",
+      "category": "Custom Training & Workshops",
+      "tags": [
+        "training-workshop"
+      ],
+      "publicDescription": "Master program planning with this Theory of Change deck. Covers Intervention Mapping steps, logic models, and evaluation strategies to design high-impact interventions.",
+      "sourceArtifact": "assets/pdf/portfolio/toc.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Designed and delivered applied training or workshop experiences using practical activities, facilitation, and implementation support.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "workshop design",
+          "facilitation plan",
+          "participant activities"
+        ],
+        "skills": [
+          "training facilitation",
+          "workshop design",
+          "experiential learning",
+          "program delivery",
+          "training workshop"
+        ],
+        "tools": [
+          "PowerPoint or Google Slides",
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Delivered Theory of Change as Program Framework as a custom training & workshops project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+      }
+    },
+    {
+      "id": "entrepreneurship-online-class",
+      "title": "Entrepreneurship Online Class",
+      "category": "Learning Materials",
+      "tags": [
+        "training-workshop"
+      ],
+      "publicDescription": "Expanding business requires more than sales skills. This course focuses on leveraging social media and sales teams for growth.",
+      "sourceArtifact": "assets/portfolio-viewers/entrepreneurship-online-class.html",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "entrepreneurs and startup founders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "training workshop"
+        ],
+        "tools": [
+          "Excel or Google Sheets"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Entrepreneurship Online Class as a learning materials project, creating practical context for entrepreneurs and startup founders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "training-for-trainer-experiential-learning-and-coaching",
+      "title": "Training for Trainer: Experiential Learning & Coaching",
+      "category": "Learning Materials",
+      "tags": [
+        "training-workshop"
+      ],
+      "publicDescription": "Equipping sales teams with teaching and coaching skills for effective on-site community engagement through training and role-play.",
+      "sourceArtifact": "assets/pdf/portfolio/training_for_trainer.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "sales teams",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "training workshop"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Training for Trainer: Experiential Learning & Coaching as a learning materials project, creating practical context for sales teams and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "entrepreneurship-mentorship-for-sandination-community",
+      "title": "Entrepreneurship Mentorship for Sandination Community",
+      "category": "Custom Training & Workshops",
+      "tags": [
+        "legacy-review"
+      ],
+      "publicDescription": "A 3-month mentorship program designed to help Sandination community members increase income by selling Aerputh products.",
+      "sourceArtifact": "assets/pdf/portfolio/sandination_mentorship.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Designed and delivered applied training or workshop experiences using practical activities, facilitation, and implementation support.",
+        "audience": "entrepreneurs and startup founders",
+        "deliverables": [
+          "workshop design",
+          "facilitation plan",
+          "participant activities"
+        ],
+        "skills": [
+          "training facilitation",
+          "workshop design",
+          "experiential learning",
+          "program delivery",
+          "legacy review"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [
+          "3"
+        ],
+        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Delivered Entrepreneurship Mentorship for Sandination Community as a custom training & workshops project, creating practical context for entrepreneurs and startup founders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+      }
+    },
+    {
+      "id": "3rd-winner-in-kumpul-jasa-jember-competition",
+      "title": "3rd Winner in KUMPUL JASA Jember Competition",
+      "category": "Custom Training & Workshops",
+      "tags": [
+        "training-workshop"
+      ],
+      "publicDescription": "Mentoring Prakerja alumni to train Jember's MSMEs in digitalization as part of an entrepreneurship competition.",
+      "sourceArtifact": "assets/pdf/portfolio/kumpul_jasa.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Designed and delivered applied training or workshop experiences using practical activities, facilitation, and implementation support.",
+        "audience": "MSME owners and entrepreneurs",
+        "deliverables": [
+          "workshop design",
+          "facilitation plan",
+          "participant activities"
+        ],
+        "skills": [
+          "training facilitation",
+          "workshop design",
+          "experiential learning",
+          "program delivery",
+          "training workshop"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Delivered 3rd Winner in KUMPUL JASA Jember Competition as a custom training & workshops project, creating practical context for MSME owners and entrepreneurs and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "nhi-bandung-business-acceleration-bootcamp",
+      "title": "NHI Bandung Business Acceleration Bootcamp",
+      "category": "Custom Training & Workshops",
+      "tags": [
+        "training-workshop"
+      ],
+      "publicDescription": "An engaging 3-day offline bootcamp addressing finance, operations, and legal challenges for student entrepreneurs at NHI Bandung.",
+      "sourceArtifact": "assets/pdf/portfolio/nhi_acceleration.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Designed and delivered applied training or workshop experiences using practical activities, facilitation, and implementation support.",
+        "audience": "students and early-career talent",
+        "deliverables": [
+          "workshop design",
+          "facilitation plan",
+          "participant activities"
+        ],
+        "skills": [
+          "training facilitation",
+          "workshop design",
+          "experiential learning",
+          "program delivery",
+          "training workshop"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [
+          "3"
+        ],
+        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Delivered NHI Bandung Business Acceleration Bootcamp as a custom training & workshops project, creating practical context for students and early-career talent and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+      }
+    },
+    {
+      "id": "entrepreneurship-program-for-5000-smk-students",
+      "title": "Entrepreneurship Program for 5000+ SMK Students",
+      "category": "Custom Training & Workshops",
+      "tags": [
+        "training-workshop",
+        "mentoring"
+      ],
+      "publicDescription": "Providing entrepreneurship as an alternative path for SMK students through a hands-on milk-based product creation and sales project.",
+      "sourceArtifact": "assets/portfolio-viewers/smk-entrepreneurship-program.html",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Designed and delivered applied training or workshop experiences using practical activities, facilitation, and implementation support.",
+        "audience": "vocational students",
+        "deliverables": [
+          "workshop design",
+          "facilitation plan",
+          "participant activities"
+        ],
+        "skills": [
+          "training facilitation",
+          "workshop design",
+          "experiential learning",
+          "program delivery",
+          "training workshop",
+          "mentoring"
+        ],
+        "tools": [
+          "Excel or Google Sheets"
+        ],
+        "scaleSignals": [],
+        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Delivered Entrepreneurship Program for 5000+ SMK Students as a custom training & workshops project, creating practical context for vocational students and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+      }
+    },
+    {
+      "id": "budikdamber-program-for-7-rumah-yatim-asrama",
+      "title": "Budikdamber Program for 7 Rumah Yatim Asrama",
+      "category": "Custom Training & Workshops",
+      "tags": [
+        "training-workshop",
+        "mentoring"
+      ],
+      "publicDescription": "Fostering independence at Rumah Yatim through a program focused on cultivating and selling catfish and kale.",
+      "sourceArtifact": "assets/pdf/portfolio/budikdamber.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Designed and delivered applied training or workshop experiences using practical activities, facilitation, and implementation support.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "workshop design",
+          "facilitation plan",
+          "participant activities"
+        ],
+        "skills": [
+          "training facilitation",
+          "workshop design",
+          "experiential learning",
+          "program delivery",
+          "training workshop",
+          "mentoring"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [
+          "7"
+        ],
+        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Delivered Budikdamber Program for 7 Rumah Yatim Asrama as a custom training & workshops project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+      }
+    },
+    {
+      "id": "the-millennium-challenge-corporation-mcc-grant",
+      "title": "The Millennium Challenge Corporation (MCC) Grant",
+      "category": "Custom Training & Workshops",
+      "tags": [
+        "training-workshop"
+      ],
+      "publicDescription": "Consulting support for digital and financial literacy training and capacity enhancement for women-owned MSMEs.",
+      "sourceArtifact": "assets/pdf/portfolio/mcc_grant.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Designed and delivered applied training or workshop experiences using practical activities, facilitation, and implementation support.",
+        "audience": "MSME owners and entrepreneurs",
+        "deliverables": [
+          "workshop design",
+          "facilitation plan",
+          "participant activities"
+        ],
+        "skills": [
+          "training facilitation",
+          "workshop design",
+          "experiential learning",
+          "program delivery",
+          "training workshop"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Delivered The Millennium Challenge Corporation (MCC) Grant as a custom training & workshops project, creating practical context for MSME owners and entrepreneurs and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "performance-appraisal-system-development",
+      "title": "Performance Appraisal System Development",
+      "category": "Review: Legacy Project",
+      "tags": [
+        "legacy-review"
+      ],
+      "publicDescription": "Creating a performance appraisal system for Rumah Siap Kerja's learning team using 10 core competencies and 360-degree feedback.",
+      "sourceArtifact": "assets/portfolio-viewers/performance-appraisal-system.html",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Produced an earlier portfolio project that demonstrates applied program, people, or learning operations capability.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "legacy project artifact",
+          "operational framework",
+          "implementation support"
+        ],
+        "skills": [
+          "program design",
+          "people development",
+          "operations improvement",
+          "stakeholder collaboration",
+          "legacy review"
+        ],
+        "tools": [
+          "Excel or Google Sheets"
+        ],
+        "scaleSignals": [
+          "10",
+          "360"
+        ],
+        "impact": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
+        "cvBullet": "Created Performance Appraisal System Development as a review: legacy project project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
+      }
+    },
+    {
+      "id": "nhi-bandung-business-incubation-bootcamp",
+      "title": "NHI Bandung Business Incubation Bootcamp",
+      "category": "Custom Training & Workshops",
+      "tags": [
+        "training-workshop",
+        "mentoring"
+      ],
+      "publicDescription": "Encouraging entrepreneurship among NHI Bandung alumni through a 3-day offline incubation bootcamp with engaging activities.",
+      "sourceArtifact": "assets/pdf/portfolio/nhi_incubation.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Designed and delivered applied training or workshop experiences using practical activities, facilitation, and implementation support.",
+        "audience": "entrepreneurs and startup founders",
+        "deliverables": [
+          "workshop design",
+          "facilitation plan",
+          "participant activities"
+        ],
+        "skills": [
+          "training facilitation",
+          "workshop design",
+          "experiential learning",
+          "program delivery",
+          "training workshop",
+          "mentoring"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [
+          "3"
+        ],
+        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Delivered NHI Bandung Business Incubation Bootcamp as a custom training & workshops project, creating practical context for entrepreneurs and startup founders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+      }
+    },
+    {
+      "id": "entrepreneurial-mindset-seminar",
+      "title": "Entrepreneurial Mindset Seminar",
+      "category": "Custom Training & Workshops",
+      "tags": [
+        "training-workshop",
+        "mentoring"
+      ],
+      "publicDescription": "An offline seminar with engaging activities designed to help Rumah Siap Kerja users cultivate resilience and grow their businesses.",
+      "sourceArtifact": "assets/pdf/portfolio/growth_mindset.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Designed and delivered applied training or workshop experiences using practical activities, facilitation, and implementation support.",
+        "audience": "entrepreneurs and startup founders",
+        "deliverables": [
+          "workshop design",
+          "facilitation plan",
+          "participant activities"
+        ],
+        "skills": [
+          "training facilitation",
+          "workshop design",
+          "experiential learning",
+          "program delivery",
+          "training workshop",
+          "mentoring"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Delivered Entrepreneurial Mindset Seminar as a custom training & workshops project, creating practical context for entrepreneurs and startup founders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+      }
+    },
+    {
+      "id": "mastering-critical-thinking-for-future-proofing-your-career",
+      "title": "Mastering Critical Thinking for Future-Proofing Your Career",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Practical frameworks, fallacies & cognitive biases in Indonesian context. Build calm, reflective decisions across HR, marketing, finance, ops & IT - interactive and job-ready.",
+      "sourceArtifact": "assets/pdf/portfolio/critical_thinking.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Mastering Critical Thinking for Future-Proofing Your Career as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "menguasai-komunikasi-maritim-yang-efektif",
+      "title": "Menguasai Komunikasi Maritim yang Efektif",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Teach SMCP, Closed-Loop, SBAR, Teach-Back, PACE & graded assertiveness. Roleplays plus human-factors and psych-safety to cut miscommunication and boost safety onboard.",
+      "sourceArtifact": "assets/pdf/portfolio/komunikasi_maritim.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "maritime professionals",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact",
+          "AI-enabled analysis concepts"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Menguasai Komunikasi Maritim yang Efektif as a learning materials project, creating practical context for maritime professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "mental-preparedness-preparation-for-emergencies",
+      "title": "Mental Preparedness: Preparation for Emergencies",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "This learning material teaches crisis response skills, resilience, and self-leadership strategies for handling high-pressure situations effectively.",
+      "sourceArtifact": "assets/pdf/portfolio/mental_preparedness_emergency.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "managers and team leaders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Mental Preparedness: Preparation for Emergencies as a learning materials project, creating practical context for managers and team leaders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "landing-your-dream-job-top-employability-skills-for-new-grads",
+      "title": "Landing Your Dream Job: Top Employability Skills for New Grads",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "This learning material covers essential 2025 job market skills like communication, AI proficiency, and resilience. It includes practical tips for resumes, LinkedIn branding, and leveraging internships, helping graduates stand out.",
+      "sourceArtifact": "assets/pdf/portfolio/top_employability_skills.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "students and early-career talent",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact",
+          "AI-enabled analysis concepts"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Landing Your Dream Job: Top Employability Skills for New Grads as a learning materials project, creating practical context for students and early-career talent and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "gig-economy-and-resilience-the-future-is-beyond-milestones",
+      "title": "GIG-ECONOMY & RESILIENCE: The Future is Beyond Milestones",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "\"GIG-ECONOMY & RESILIENCE\" explores gig work's benefits (flexibility) and challenges (instability), emphasizing resilience strategies for success. Includes global/Indonesian trends and practical tools.",
+      "sourceArtifact": "assets/pdf/portfolio/gig_economy_resilience.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created GIG-ECONOMY & RESILIENCE: The Future is Beyond Milestones as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "gig-economy-the-rise-of-side-hustling",
+      "title": "GIG-ECONOMY: The Rise of Side Hustling",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "\"GIG-ECONOMY: The Rise of Side Hustling\" covers gig work's pros/cons and practical steps to start, with trends and case studies.",
+      "sourceArtifact": "assets/pdf/portfolio/gig_economy_hustle.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created GIG-ECONOMY: The Rise of Side Hustling as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "umkm-s-simple-financial-management",
+      "title": "UMKM's Simple Financial Management",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Master financial basics for UMKM-planning, budgeting, accounting-with interactive exercises to boost profits & cash flow management.",
+      "sourceArtifact": "assets/pdf/portfolio/financial_management.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "MSME owners and entrepreneurs",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created UMKM's Simple Financial Management as a learning materials project, creating practical context for MSME owners and entrepreneurs and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "financial-modeling",
+      "title": "Financial Modeling",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Master financial modeling-revenue, costs, pricing-via interactive games & lean canvas. Perfect for startups building financial foundations.",
+      "sourceArtifact": "assets/pdf/portfolio/financial_modeling.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "entrepreneurs and startup founders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Financial Modeling as a learning materials project, creating practical context for entrepreneurs and startup founders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "growth-mindset",
+      "title": "Growth Mindset",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "This learning material on \"Growth Mindset\" teaches entrepreneurs resilience, learning from failures, and embracing challenges. Includes real-life examples and the SiapUsaha program for practical growth.",
+      "sourceArtifact": "assets/pdf/portfolio/growth_mindset.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "entrepreneurs and startup founders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Created Growth Mindset as a learning materials project, creating practical context for entrepreneurs and startup founders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+      }
+    },
+    {
+      "id": "cultivating-growth-mindset-for-self-motivation",
+      "title": "Cultivating Growth Mindset for Self-Motivation",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Empower your team with growth mindset tools to stay motivated at work. Includes MILES framework, reflective journaling, and practical steps to turn setbacks into progress and purpose.",
+      "sourceArtifact": "assets/pdf/portfolio/self-motivation.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Cultivating Growth Mindset for Self-Motivation as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "make-your-product-fit-with-design-thinking",
+      "title": "Make Your Product Fit with Design Thinking",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Master design thinking-empathize, define, ideate, prototype, test-through hands-on wallet project. Perfect for creating user-centered solutions.",
+      "sourceArtifact": "assets/pdf/portfolio/design_thinking.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Make Your Product Fit with Design Thinking as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "business-management-and-adaptability-for-msmes",
+      "title": "Business Management & Adaptability for MSMEs",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Master business management & adaptability for MSMEs-planning, lean canvas, flexibility-to thrive in changing markets. Essential for resilient entrepreneurs.",
+      "sourceArtifact": "assets/pdf/portfolio/business_management.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "MSME owners and entrepreneurs",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Business Management & Adaptability for MSMEs as a learning materials project, creating practical context for MSME owners and entrepreneurs and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "how-to-face-layoff-storm",
+      "title": "How to Face Layoff Storm",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Learn how to navigate layoffs with expert strategies-assess risks, strengthen skills, manage finances, and find new opportunities. Essential for job security!",
+      "sourceArtifact": "assets/pdf/portfolio/layoff_storm.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created How to Face Layoff Storm as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "brand-yourself-stand-out-with-personal-branding-and-linkedin-optimization",
+      "title": "Brand Yourself: Stand Out with Personal Branding & LinkedIn Optimization",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Master personal branding & LinkedIn optimization to stand out professionally. Learn strategies, best practices, and tools to build a strong digital presence!",
+      "sourceArtifact": "assets/pdf/portfolio/personal_branding.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Brand Yourself: Stand Out with Personal Branding & LinkedIn Optimization as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "public-speaking-and-confidence-boost",
+      "title": "Public Speaking & Confidence Boost",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Boost your public speaking confidence with This learning material! Learn data-driven presentations, storytelling techniques, and how to overcome glossophobia. Perfect for professionals and beginners alike.",
+      "sourceArtifact": "assets/pdf/portfolio/public_speaking_confidence_boost.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PowerPoint or Google Slides",
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Public Speaking & Confidence Boost as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "color-personality",
+      "title": "Color Personality",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Discover your personality type with the True Colors framework! This learning material explores Blue, Gold, Green, and Orange traits to improve communication, teamwork, and conflict resolution.",
+      "sourceArtifact": "assets/pdf/portfolio/color_personality.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Color Personality as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "managing-crew-fatigue-onboard",
+      "title": "Managing Crew Fatigue Onboard",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Discover effective strategies to manage crew fatigue onboard in this comprehensive learning material. Learn about onboarding, mental health, and best practices to enhance productivity and well-being at sea.",
+      "sourceArtifact": "assets/pdf/portfolio/crew_fatigue_onboard.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "maritime professionals",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Managing Crew Fatigue Onboard as a learning materials project, creating practical context for maritime professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "speak-up-stand-out-public-speaking-in-the-hybrid-era",
+      "title": "Speak Up, Stand Out: Public Speaking in the Hybrid Era",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Master public speaking for hybrid settings with confidence, voice techniques, body language, and practical tips for interviews & online presentations. Elevate your career today!",
+      "sourceArtifact": "assets/pdf/portfolio/public_speaking.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PowerPoint or Google Slides",
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Speak Up, Stand Out: Public Speaking in the Hybrid Era as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "startup-development-class",
+      "title": "Startup Development Class",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Startup Development Class learning material: A comprehensive guide covering entrepreneurship basics, design thinking, lean canvas, financial management, and pitching strategies for aspiring startup founders.",
+      "sourceArtifact": "assets/pdf/portfolio/startup_development_class.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "entrepreneurs and startup founders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PowerPoint or Google Slides",
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Startup Development Class as a learning materials project, creating practical context for entrepreneurs and startup founders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "how-to-leverage-social-media-instagram-for-msmes",
+      "title": "How to Leverage Social Media Instagram for MSMEs",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Learn to optimize Instagram Business Profiles, leverage ads, shopping features, and insights. Master influencer marketing, interactive content, and engagement strategies for growth.",
+      "sourceArtifact": "assets/pdf/portfolio/instagram_umkm.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "MSME owners and entrepreneurs",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created How to Leverage Social Media Instagram for MSMEs as a learning materials project, creating practical context for MSME owners and entrepreneurs and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "managing-crew-onboard-stress",
+      "title": "Managing Crew Onboard Stress",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Professional learning material on managing crew stress onboard. Covers causes, symptoms, impacts, and solutions for workplace stress, burnout, and mental health in maritime settings. Ideal for training and awareness.",
+      "sourceArtifact": "assets/pdf/portfolio/stress_management.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "maritime professionals",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Managing Crew Onboard Stress as a learning materials project, creating practical context for maritime professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "smart-steps-to-start-an-employee-side-hustle",
+      "title": "Smart Steps to Start an Employee Side Hustle",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "learning guide on launching a successful side hustle while employed. Covers gig economy trends, niche identification, portfolio building, pricing strategies, and avoiding common pitfalls. Ideal for aspiring entrepreneurs.",
+      "sourceArtifact": "assets/pdf/portfolio/side_hustle.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "entrepreneurs and startup founders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Smart Steps to Start an Employee Side Hustle as a learning materials project, creating practical context for entrepreneurs and startup founders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "anyone-can-get-a-job",
+      "title": "Anyone Can Get a Job",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "learning guide on launching a successful side hustle while employed. Covers gig economy trends, niche identification, portfolio building, pricing strategies, and avoiding common pitfalls. Ideal for aspiring entrepreneurs.",
+      "sourceArtifact": "assets/pdf/portfolio/triangle.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "entrepreneurs and startup founders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Anyone Can Get a Job as a learning materials project, creating practical context for entrepreneurs and startup founders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "crafting-deck-and-impactful-presentation",
+      "title": "Crafting Deck and Impactful Presentation",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Data-driven presentation skills learning material to craft clear, concise, decision-moving slides. Teach SCQA, Pyramid Principle & MECE, visual hierarchy, and delivery tips. With labs, before/after examples, and worksheet links.",
+      "sourceArtifact": "assets/pdf/portfolio/crafting_deck.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PowerPoint or Google Slides",
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
+        "cvBullet": "Created Crafting Deck and Impactful Presentation as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+      }
+    },
+    {
+      "id": "stress-and-time-management",
+      "title": "Stress & Time Management",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Facilitator-ready learning material to cut stress and master time. Teach signs, root causes, and tools like Eisenhower, Time-Blocking, and Pomodoro. Includes activities, worksheets, and prompts for a 60-120 min workshop.",
+      "sourceArtifact": "assets/pdf/portfolio/time_management.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [
+          "60",
+          "120"
+        ],
+        "impact": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
+        "cvBullet": "Created Stress & Time Management as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+      }
+    },
+    {
+      "id": "adaptive-communication-decode-and-connect",
+      "title": "Adaptive Communication: Decode & Connect",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Decode & connect across personalities. Teach DISC, active listening (Receive-Appreciate-Summarize-Ask), conflict skills, leader messaging. Roleplays, scenarios, templates for schools & teams.",
+      "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_1.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "managers and team leaders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
+        "cvBullet": "Created Adaptive Communication: Decode & Connect as a learning materials project, creating practical context for managers and team leaders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+      }
+    },
+    {
+      "id": "strengthen-teamwork-with-empathy-and-communication",
+      "title": "Strengthen Teamwork with Empathy & Communication",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Build trust, clarity, and collaboration. Teach empathy, active listening (RASA), SACCIA safety, respectful feedback, and 360-degree feedback - rooted in Indonesian workplace culture. With drills, roleplays, and notes.",
+      "sourceArtifact": "assets/pdf/portfolio/teamwork.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "working professionals",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [
+          "360"
+        ],
+        "impact": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
+        "cvBullet": "Created Strengthen Teamwork with Empathy & Communication as a learning materials project, creating practical context for working professionals and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
+      }
+    },
+    {
+      "id": "building-a-culture-of-service-excellence-in-the-digital-era",
+      "title": "Building a Culture of Service Excellence in the Digital Era",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Unlock 'Building Service Excellence in the Digital Era': 2025 workshop deck on definitions, AI trends, human touch & Kano Model. Boost loyalty now!",
+      "sourceArtifact": "assets/pdf/portfolio/service_excellence.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PowerPoint or Google Slides",
+          "PDF learning artifact",
+          "AI-enabled analysis concepts"
+        ],
+        "scaleSignals": [],
+        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Created Building a Culture of Service Excellence in the Digital Era as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+      }
+    },
+    {
+      "id": "unlock-flows-adaptive-decode-for-corporate-connections",
+      "title": "Unlock Flows: Adaptive Decode for Corporate Connections",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Master adaptive communication with clarity, empathy & effectiveness. Learn active listening, DISC styles, and conflict handling through case studies & reflection exercises.",
+      "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_2.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "working professionals",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Unlock Flows: Adaptive Decode for Corporate Connections as a learning materials project, creating practical context for working professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "calibrate-links-decode-insights-connect-precisely",
+      "title": "Calibrate Links: Decode Insights, Connect Precisely",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Corporate-ready deck to align cross-functional teams. Teach message tailoring, active listening, and \"baby language\" techniques for better collaboration & stakeholder influence.",
+      "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_3.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "working professionals",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PowerPoint or Google Slides",
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Calibrate Links: Decode Insights, Connect Precisely as a learning materials project, creating practical context for working professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "sync-up-decode-signals-connect-teams-mcdonald-s-edition",
+      "title": "Sync Up: Decode Signals, Connect Teams - McDonald's Edition",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Applied communication toolkit for frontliners & leaders. Train clarity, empathy, and tone adjustment across roles-from drive-thru to HQ-to build trust and handle conflict smoothly.",
+      "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_4.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "managers and team leaders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Sync Up: Decode Signals, Connect Teams - McDonald's Edition as a learning materials project, creating practical context for managers and team leaders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "adaptive-communication-solution-for-home-credit-indonesia",
+      "title": "Adaptive Communication Solution for Home Credit Indonesia",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Complete Adaptive Communication training deck for corporates. DISC frameworks, active listening, real fintech case studies, AI sentiment tools & CX metrics. Reduce complaints, boost NPS, align stakeholders. Templates and quizzes included.",
+      "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_5.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "working professionals",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PowerPoint or Google Slides",
+          "PDF learning artifact",
+          "AI-enabled analysis concepts"
+        ],
+        "scaleSignals": [],
+        "impact": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
+        "cvBullet": "Created Adaptive Communication Solution for Home Credit Indonesia as a learning materials project, creating practical context for working professionals and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+      }
+    },
+    {
+      "id": "how-to-win-friends-and-influence-people",
+      "title": "How to Win Friends and Influence People",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Practical deck to master human relations-build trust, empathy, and influence. Covers Dale Carnegie's timeless principles with modern workplace examples and guided reflection.",
+      "sourceArtifact": "assets/pdf/portfolio/win_friends.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "working professionals",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PowerPoint or Google Slides",
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created How to Win Friends and Influence People as a learning materials project, creating practical context for working professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "managing-pressure-without-losing-yourself",
+      "title": "Managing Pressure Without Losing Yourself",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Engaging deck on stress awareness, burnout signs, and time mastery. Includes reflection games, Eisenhower Relay, and resilience tools for healthier, sustainable performance.",
+      "sourceArtifact": "assets/pdf/portfolio/managing_pressure.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PowerPoint or Google Slides",
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Managing Pressure Without Losing Yourself as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "mental-health-in-the-workplace-for-being-supervisor",
+      "title": "Mental Health in the Workplace for being Supervisor",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Train leaders to spot stress, foster empathy, and build psychological safety. Practical checklists, RASA listening, and roleplays to support team well-being effectively.",
+      "sourceArtifact": "assets/pdf/portfolio/mental_health_supervisor.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "managers and team leaders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Mental Health in the Workplace for being Supervisor as a learning materials project, creating practical context for managers and team leaders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "from-impostor-to-influencer",
+      "title": "From Impostor to Influencer",
+      "category": "Mentoring & Speaking",
+      "tags": [
+        "mentoring"
+      ],
+      "publicDescription": "Transform self-doubt into influence. Learn to create authentic, high-impact LinkedIn posts with confidence using storytelling, reflection, and the \"Value Over Perfect\" mindset.",
+      "sourceArtifact": "assets/pdf/portfolio/linkedIn_post.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Designed a mentoring or speaking asset that helps learners build confidence, communication, and professional influence.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "speaking material",
+          "mentoring prompts",
+          "reflection activities"
+        ],
+        "skills": [
+          "mentoring",
+          "public speaking",
+          "career development",
+          "storytelling"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created From Impostor to Influencer as a mentoring & speaking project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "the-psychology-of-money-understanding-how-we-think-about-wealth",
+      "title": "The Psychology of Money: Understanding How We Think About Wealth",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Visually captivating learning deck unpacking Morgan Housel's The Psychology of Money. Modern gradient design, playful illustrations, clear charts, and deep insights on behavior, luck, risk, and compounding. Ready-to-use for webinars or workshops.",
+      "sourceArtifact": "assets/pdf/portfolio/psychology_of_money.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PowerPoint or Google Slides",
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Created The Psychology of Money: Understanding How We Think About Wealth as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+      }
+    }
+  ]
+}

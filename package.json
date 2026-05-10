@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "generate:portfolio-ai": "node scripts/generate-portfolio-ai-context.mjs",
     "lint": "node scripts/validate-site.mjs",
     "serve": "node scripts/serve-static.mjs",
     "test": "node scripts/validate-site.mjs",
