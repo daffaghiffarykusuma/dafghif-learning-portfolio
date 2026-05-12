@@ -1,6 +1,5 @@
 import { copyFileSync, cpSync, existsSync, mkdirSync, readdirSync, statSync } from 'node:fs';
 import { basename, extname, resolve } from 'node:path';
-import { defineConfig } from 'vite';
 
 const root = process.cwd();
 
@@ -10,7 +9,7 @@ const htmlInputs = Object.fromEntries(
     .map((file) => [basename(file, '.html'), resolve(root, file)]),
 );
 
-const staticDirectories = ['assets', 'cv'];
+const staticDirectories = ['assets', 'css', 'cv', 'js'];
 const rootStaticExtensions = new Set(['.png', '.jpg', '.jpeg', '.webp', '.svg', '.ico', '.pdf']);
 
 function copyStaticFiles() {
@@ -42,7 +41,7 @@ function copyStaticFiles() {
   };
 }
 
-export default defineConfig({
+export default {
   base: './',
   build: {
     outDir: 'dist',
@@ -52,4 +51,4 @@ export default defineConfig({
     },
   },
   plugins: [copyStaticFiles()],
-});
+};

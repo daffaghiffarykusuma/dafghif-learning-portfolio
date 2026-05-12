@@ -163,6 +163,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     };
 
     // Initialize PDF modal functionality if elements exist
+    const hasPortfolioPreviewMarkup = pdfModal || pdfModalTitle || pdfIframe || viewDetailsButtons.length > 0;
+
     if (pdfModal && pdfModalTitle && pdfIframe && viewDetailsButtons.length > 0) {
         // Add click handlers for all view details buttons
         viewDetailsButtons.forEach(button => {
@@ -253,7 +255,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
 
         console.log(`PDF Viewer initialized with ${viewDetailsButtons.length} buttons`);
-    } else {
+    } else if (hasPortfolioPreviewMarkup) {
         if (!pdfModal) console.warn("PDF Modal element (#pdf-modal) not found.");
         if (!pdfModalTitle) console.warn("PDF Modal title element (#pdf-modal-title) not found.");
         if (!pdfIframe) console.warn("PDF iframe element (#pdf-iframe) not found.");

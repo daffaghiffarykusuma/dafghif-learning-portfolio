@@ -1,3 +1,5 @@
+import blogData from '../assets/blog.json';
+
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('blog-cards');
     if (!container) return;
@@ -33,70 +35,59 @@ document.addEventListener('DOMContentLoaded', () => {
         parent.appendChild(link);
     };
 
-    fetch('assets/blog.json')
-        .then((res) => {
-            if (!res.ok) throw new Error('Failed to load blog metadata');
-            return res.json();
-        })
-        .then((data) => {
-            const posts = Array.isArray(data) ? data : (data.posts || []);
-            container.replaceChildren();
-            if (!posts.length) {
-                const emptyMessage = document.createElement('p');
-                emptyMessage.textContent = 'No blog posts found.';
-                container.appendChild(emptyMessage);
-                return;
-            }
+    const posts = Array.isArray(blogData) ? blogData : (blogData.posts || []);
+    container.replaceChildren();
+    if (!posts.length) {
+        const emptyMessage = document.createElement('p');
+        emptyMessage.textContent = 'No blog posts found.';
+        container.appendChild(emptyMessage);
+        return;
+    }
 
-            const fragment = document.createDocumentFragment();
-            posts.forEach((post, index) => {
-                const title = post.title || 'Untitled Post';
-                const url = allowedBlogUrl(post.url || '#');
-                const desc = post.description || '';
-                const img = allowedImageUrl(post.image || '');
+    const fragment = document.createDocumentFragment();
+    posts.forEach((post, index) => {
+        const title = post.title || 'Untitled Post';
+        const url = allowedBlogUrl(post.url || '#');
+        const desc = post.description || '';
+        const img = allowedImageUrl(post.image || '');
 
-                const article = document.createElement('article');
-                article.className = 'blog-card';
+        const article = document.createElement('article');
+        article.className = 'blog-card';
 
-                if (img) {
-                    const media = document.createElement('div');
-                    media.className = 'blog-card-media';
-                    const image = document.createElement('img');
-                    image.src = img;
-                    image.alt = title;
-                    image.loading = index === 0 ? 'eager' : 'lazy';
-                    if (index === 0) image.fetchPriority = 'high';
-                    image.decoding = 'async';
-                    image.referrerPolicy = 'no-referrer';
-                    media.appendChild(image);
-                    article.appendChild(media);
-                }
+        if (img) {
+            const media = document.createElement('div');
+            media.className = 'blog-card-media';
+            const image = document.createElement('img');
+            image.src = img;
+            image.alt = title;
+            image.loading = index === 0 ? 'eager' : 'lazy';
+            if (index === 0) image.fetchPriority = 'high';
+            image.decoding = 'async';
+            image.referrerPolicy = 'no-referrer';
+            media.appendChild(image);
+            article.appendChild(media);
+        }
 
-                const body = document.createElement('div');
-                body.className = 'blog-card-body';
-                const heading = document.createElement('h3');
-                heading.className = 'blog-card-title';
-                appendMediumLink(heading, url, title);
-                body.appendChild(heading);
+        const body = document.createElement('div');
+        body.className = 'blog-card-body';
+        const heading = document.createElement('h3');
+        heading.className = 'blog-card-title';
+        appendMediumLink(heading, url, title);
+        body.appendChild(heading);
 
-                if (desc) {
-                    const description = document.createElement('p');
-                    description.className = 'blog-card-desc';
-                    description.textContent = desc;
-                    body.appendChild(description);
-                }
-                article.appendChild(body);
+        if (desc) {
+            const description = document.createElement('p');
+            description.className = 'blog-card-desc';
+            description.textContent = desc;
+            body.appendChild(description);
+        }
+        article.appendChild(body);
 
-                const footer = document.createElement('div');
-                footer.className = 'blog-card-footer';
-                appendMediumLink(footer, url, 'Read on Medium', 'blog-card-cta');
-                article.appendChild(footer);
-                fragment.appendChild(article);
-            });
-            container.appendChild(fragment);
-        })
-        .catch(() => {
-            container.replaceChildren();
-            appendMediumLink(container, 'https://medium.com/@daffaghiffarykusuma', 'View all articles on Medium');
-        });
+        const footer = document.createElement('div');
+        footer.className = 'blog-card-footer';
+        appendMediumLink(footer, url, 'Read on Medium', 'blog-card-cta');
+        article.appendChild(footer);
+        fragment.appendChild(article);
+    });
+    container.appendChild(fragment);
 });
