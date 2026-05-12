@@ -7,22 +7,33 @@ Static portfolio site for Daffa Ghiffary Kusuma.
 Open the HTML files directly for quick content checks, or serve the folder locally:
 
 ```bash
-npm run serve
+bun install
+bun run dev
 ```
 
-The default local URL is `http://127.0.0.1:4173/`. Use Node.js 18 or newer.
+The default local URL is `http://127.0.0.1:5173/`. Use Bun `1.3.13` or newer.
+
+Build the production site with Vite:
+
+```bash
+bun run build
+```
+
+Preview the production build:
+
+```bash
+bun run preview
+```
 
 Run validation before publishing:
 
 ```bash
-npm run validate
+bun run validate
 ```
-
-On Windows PowerShell, use `npm.cmd run validate` if script execution policy blocks `npm run validate`.
 
 The validator checks deployed HTML pages, generated portfolio viewers, CSS asset URLs, missing local assets, broken fragments, unreviewed external hosts, unsafe inline scripts, `target="_blank"` rel attributes, CSP hardening, and blog metadata URL allowlists.
 
-`npm run test` and `npm run lint` currently run the same static validation suite so CI and contributors have conventional commands while the project remains dependency-free.
+`bun run test` and `bun run lint` currently run the same static validation suite so CI and contributors have conventional commands.
 
 ## Security Notes
 
