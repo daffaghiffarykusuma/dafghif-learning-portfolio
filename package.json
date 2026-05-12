@@ -10,10 +10,13 @@
     "serve": "vite preview --host 127.0.0.1",
     "generate:portfolio-ai": "bun scripts/generate-portfolio-ai-context.mjs",
     "lint": "bun scripts/validate-site.mjs",
-    "test": "bun scripts/validate-site.mjs",
+    "test": "bun test",
+    "test:unit": "bun test test/unit",
+    "test:integration": "bun test test/integration",
     "validate": "bun scripts/validate-site.mjs"
   },
   "devDependencies": {
+    "happy-dom": "^20.9.0",
     "vite": "^8.0.12"
   }
 }
