@@ -13,6 +13,7 @@
     "test": "bun test",
     "test:unit": "bun test test/unit",
     "test:integration": "bun test test/integration",
+    "test:system": "bun test test/system",
     "validate": "bun scripts/validate-site.mjs"
   },
   "devDependencies": {

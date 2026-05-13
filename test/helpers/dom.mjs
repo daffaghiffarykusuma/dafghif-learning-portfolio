@@ -14,6 +14,8 @@ const nativeGlobals = new Map([
   ['FormData', globalThis.FormData],
   ['URL', globalThis.URL],
   ['IntersectionObserver', globalThis.IntersectionObserver],
+  ['setTimeout', globalThis.setTimeout],
+  ['clearTimeout', globalThis.clearTimeout],
   ['console', globalThis.console]
 ]);
 
@@ -49,6 +51,8 @@ export const createDom = (html, url = 'http://127.0.0.1/index.html') => {
 
   window.scrollTo = window.scrollTo || (() => {});
   window.HTMLElement.prototype.scrollIntoView = window.HTMLElement.prototype.scrollIntoView || (() => {});
+  window.setTimeout = () => 0;
+  window.clearTimeout = () => {};
 
   globalThis.window = window;
   globalThis.document = window.document;
@@ -59,6 +63,8 @@ export const createDom = (html, url = 'http://127.0.0.1/index.html') => {
   globalThis.FormData = window.FormData;
   globalThis.URL = window.URL;
   globalThis.IntersectionObserver = window.IntersectionObserver;
+  globalThis.setTimeout = window.setTimeout;
+  globalThis.clearTimeout = window.clearTimeout;
 
   return window;
 };
