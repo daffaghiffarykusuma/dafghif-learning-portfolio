@@ -256,6 +256,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
             });
         });
 
+        const openPreviewFromHash = () => {
+            if (!window.location.hash?.startsWith('#project-')) return;
+            const projectCard = document.querySelector(window.location.hash);
+            const previewButton = projectCard?.querySelector('.view-details-button');
+            if (!previewButton) return;
+            openPortfolioPreview(previewButton, {
+                trigger: previewButton,
+                updateHash: false
+            });
+        };
+
+        window.addEventListener('hashchange', openPreviewFromHash);
+        openPreviewFromHash();
+
         // Add close button functionality
         const closeButton = pdfModal.querySelector('.close-modal');
         if (closeButton) {

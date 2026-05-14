@@ -42,6 +42,23 @@ describe('site browser behavior', () => {
     expect(warnings.some((message) => message.includes('Blocked unsafe portfolio preview path'))).toBe(true);
   });
 
+  test('portfolio page opens a project preview from a direct hash link', async () => {
+    const html = await readPage('portfolio.html');
+    createDom(html, 'http://127.0.0.1/portfolio.html#project-administrative-communication-training-needs-analysis');
+    globalThis.console = window.console;
+
+    await importFresh('../../js/script.js');
+    fireDOMContentLoaded();
+
+    const modal = document.getElementById('pdf-modal');
+    const title = document.getElementById('pdf-modal-title');
+    const iframe = document.getElementById('pdf-iframe');
+
+    expect(modal.hidden).toBe(false);
+    expect(title.textContent).toBe('Administrative Communication Training Needs Analysis');
+    expect(iframe.src).toContain('/assets/pdf/portfolio/bnsp4_training_need_analysis.pdf');
+  });
+
   test('contact page pre-fills inquiry context and clears stored data', async () => {
     const html = await readPage('contact.html');
     createDom(html, 'http://127.0.0.1/contact.html?service=mentoring');
