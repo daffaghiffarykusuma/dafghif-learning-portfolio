@@ -1274,6 +1274,10 @@ h2.section-title::after { /* Underline effect for titles */
      /* The JavaScript will set display: none; when filtered out */
 }
 
+#portfolio-projects .project[hidden] {
+    display: none !important;
+}
+
 
 /* Skills Section (About Page) */
 #skills ul {
