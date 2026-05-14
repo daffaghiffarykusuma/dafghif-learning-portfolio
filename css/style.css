@@ -2960,6 +2960,20 @@ body.dark-mode .phase-section a:hover {
     color: rgba(248, 250, 252, 0.8);
 }
 
+.footer-cta .cta-button,
+.footer-cta .cta-button:hover,
+.footer-cta .cta-button:focus-visible {
+    color: #0f1b1e !important;
+    background: #6ee7d8 !important;
+    border-color: #6ee7d8 !important;
+}
+
+.footer-cta .cta-button:hover,
+.footer-cta .cta-button:focus-visible {
+    background: #ee6c4d !important;
+    border-color: #ee6c4d !important;
+}
+
 .footer-meta {
     border-top: 1px solid rgba(248, 250, 252, 0.2);
     padding-top: 24px;
