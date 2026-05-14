@@ -1266,6 +1266,27 @@ h2.section-title::after { /* Underline effect for titles */
     text-decoration: underline;
 }
 
+.project-title-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.project-title-link:hover,
+.project-title-link:focus-visible {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.project-thumbnail-link {
+    display: block;
+    color: inherit;
+}
+
+.project-thumbnail-link:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
 /* Ensure project cards handle display toggling for filtering */
 .projects-grid .project {
     display: flex; /* Assuming card uses flex direction column */

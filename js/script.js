@@ -127,6 +127,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const pdfModalTitle = document.getElementById('pdf-modal-title');
     const pdfIframe = document.getElementById('pdf-iframe');
     const viewDetailsButtons = document.querySelectorAll('.view-details-button');
+    const projectAnchorLinks = document.querySelectorAll('.project-title-link, .project-thumbnail-link');
 
     let activePdfModal = null;
     let lastPreviewTrigger = null;
@@ -165,75 +166,93 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Initialize PDF modal functionality if elements exist
     const hasPortfolioPreviewMarkup = pdfModal || pdfModalTitle || pdfIframe || viewDetailsButtons.length > 0;
 
+    const openPortfolioPreview = (button, options = {}) => {
+        const pdfPath = button.dataset.pdf;
+        const viewerPath = button.dataset.viewer;
+        if (!pdfPath && !viewerPath) {
+            console.warn('View Details button clicked has no data-pdf or data-viewer attribute.');
+            return;
+        }
+
+        const projectCard = button.closest('.project');
+        const cardContent = button.closest('.card-content') || projectCard?.querySelector('.card-content');
+        const projectTitleElement = cardContent?.querySelector('h3, h4');
+        const projectTitle = projectTitleElement ? projectTitleElement.textContent : 'Project Details';
+
+        // Close any other open modals first
+        closeActiveModal();
+        closePdfModal();
+        lastPreviewTrigger = options.trigger || button;
+
+        // Set modal title and project preview source
+        pdfModalTitle.textContent = projectTitle;
+                 
+        // Keep previews same-origin and path-scoped before allowing them into the frame.
+        const safePdfPath = safePreviewPath(pdfPath, 'assets/pdf/portfolio/', '.pdf');
+        const safeViewerPath = safePreviewPath(viewerPath, 'assets/portfolio-viewers/', '.html');
+        const previewUrl = safePdfPath || safeViewerPath;
+        if (!previewUrl) {
+            console.warn('Blocked unsafe portfolio preview path.');
+            return;
+        }
+        if (safePdfPath) {
+            // Chrome's built-in PDF viewer is blocked by a sandbox without scripts.
+            // Keep this branch restricted to same-origin portfolio PDFs via safePreviewPath.
+            pdfIframe.removeAttribute("sandbox");
+        } else {
+            pdfIframe.setAttribute("sandbox", "allow-same-origin");
+        }
+        pdfIframe.src = safePdfPath
+            ? previewUrl + '#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-width&statusbar=0&messages=0&pagemode=none'
+            : previewUrl;
+
+        if (projectCard?.id && options.updateHash !== false) {
+            history.pushState(null, '', `#${projectCard.id}`);
+        }
+
+        // Show the modal
+        pdfModal.hidden = false;
+        pdfModal.style.display = 'block';
+        activePdfModal = pdfModal;
+        pdfModal.querySelector('.close-modal')?.focus();
+
+        // Scroll to top of modal to ensure it's visible
+        setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setTimeout(() => {
+                pdfModal.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 300);
+        }, 50);
+
+        // Add escape key handler
+        const escapeHandler = (event) => {
+            if (event.key === 'Escape') {
+                closePdfModal();
+                document.removeEventListener('keydown', escapeHandler);
+            }
+        };
+        document.addEventListener('keydown', escapeHandler);
+    };
+
     if (pdfModal && pdfModalTitle && pdfIframe && viewDetailsButtons.length > 0) {
         // Add click handlers for all view details buttons
         viewDetailsButtons.forEach(button => {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
+                openPortfolioPreview(button, { trigger: button });
+            });
+        });
 
-                const pdfPath = button.dataset.pdf;
-                const viewerPath = button.dataset.viewer;
-                if (!pdfPath && !viewerPath) {
-                    console.warn('View Details button clicked has no data-pdf or data-viewer attribute.');
-                    return;
-                }
-
-                // Get project title
-                const cardContent = button.closest('.card-content');
-                const projectTitleElement = cardContent?.querySelector('h3, h4');
-                const projectTitle = projectTitleElement ? projectTitleElement.textContent : 'Project Details';
-
-                // Close any other open modals first
-                closeActiveModal();
-                closePdfModal();
-                lastPreviewTrigger = button;
-
-                // Set modal title and project preview source
-                pdfModalTitle.textContent = projectTitle;
-                 
-                // Keep previews same-origin and path-scoped before allowing them into the frame.
-                const safePdfPath = safePreviewPath(pdfPath, 'assets/pdf/portfolio/', '.pdf');
-                const safeViewerPath = safePreviewPath(viewerPath, 'assets/portfolio-viewers/', '.html');
-                const previewUrl = safePdfPath || safeViewerPath;
-                if (!previewUrl) {
-                    console.warn('Blocked unsafe portfolio preview path.');
-                    return;
-                }
-                if (safePdfPath) {
-                    // Chrome's built-in PDF viewer is blocked by a sandbox without scripts.
-                    // Keep this branch restricted to same-origin portfolio PDFs via safePreviewPath.
-                    pdfIframe.removeAttribute("sandbox");
-                } else {
-                    pdfIframe.setAttribute("sandbox", "allow-same-origin");
-                }
-                pdfIframe.src = safePdfPath
-                    ? previewUrl + '#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-width&statusbar=0&messages=0&pagemode=none'
-                    : previewUrl;
-
-                // Show the modal
-                pdfModal.hidden = false;
-                pdfModal.style.display = 'block';
-                activePdfModal = pdfModal;
-                pdfModal.querySelector('.close-modal')?.focus();
-
-                // Scroll to top of modal to ensure it's visible
-                setTimeout(() => {
-                    // Scroll to top of page first, then scroll modal into view
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    setTimeout(() => {
-                        pdfModal.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 300);
-                }, 50);
-
-                // Add escape key handler
-                const escapeHandler = (event) => {
-                    if (event.key === 'Escape') {
-                        closePdfModal();
-                        document.removeEventListener('keydown', escapeHandler);
-                    }
-                };
-                document.addEventListener('keydown', escapeHandler);
+        projectAnchorLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const targetHash = new URL(link.href, window.location.href).hash;
+                const projectCard = targetHash ? document.querySelector(targetHash) : null;
+                const previewButton = projectCard?.querySelector('.view-details-button');
+                if (!previewButton) return;
+                e.preventDefault();
+                e.stopPropagation();
+                openPortfolioPreview(previewButton, { trigger: link });
             });
         });
 
