@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "portfolio.html",
-  "generatedAt": "2026-05-10T09:03:35.958Z",
+  "generatedAt": "2026-05-14T00:55:36.134Z",
   "owner": "Daffa Ghiffary Kusuma",
   "positioning": "Learning Designer and Program Manager focused on competency-based training, learning assets, evaluation systems, mentoring, and learning analytics.",
   "usage": "Use this file as AI-readable context for tailored CVs, cover letters, recruiter summaries, and project matching when the original portfolio artifacts are unavailable.",
   "evidenceNote": "Project titles, categories, descriptions, tags, and source artifact paths are extracted from portfolio.html. Role, audience, deliverables, skills, tools, impact, and CV bullets are inferred from those public snippets and should be refined when exact project details are available.",
-  "projectCount": 75,
+  "projectCount": 76,
   "categoryProfiles": {
     "Training Needs Analysis": {
       "defaultRole": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
@@ -1767,7 +1767,7 @@
       "tags": [
         "learning-materials"
       ],
-      "publicDescription": "Master financial basics for UMKM-planning, budgeting, accounting-with interactive exercises to boost profits & cash flow management.",
+      "publicDescription": "Master financial basics for UMKM planning, budgeting, and accounting with interactive exercises to boost profits and cash flow management.",
       "sourceArtifact": "assets/pdf/portfolio/financial_management.pdf",
       "aiContext": {
         "evidenceLevel": "inferred from public portfolio card",
@@ -1800,7 +1800,7 @@
       "tags": [
         "learning-materials"
       ],
-      "publicDescription": "Master financial modeling-revenue, costs, pricing-via interactive games & lean canvas. Perfect for startups building financial foundations.",
+      "publicDescription": "Master financial modeling with revenue, costs, and pricing via interactive games and lean canvas. Perfect for startups building financial foundations.",
       "sourceArtifact": "assets/pdf/portfolio/financial_modeling.pdf",
       "aiContext": {
         "evidenceLevel": "inferred from public portfolio card",
@@ -1899,7 +1899,7 @@
       "tags": [
         "learning-materials"
       ],
-      "publicDescription": "Master design thinking-empathize, define, ideate, prototype, test-through hands-on wallet project. Perfect for creating user-centered solutions.",
+      "publicDescription": "Master design thinking through empathize, define, ideate, prototype, and test activities in a hands-on wallet project. Perfect for creating user-centered solutions.",
       "sourceArtifact": "assets/pdf/portfolio/design_thinking.pdf",
       "aiContext": {
         "evidenceLevel": "inferred from public portfolio card",
@@ -1932,7 +1932,7 @@
       "tags": [
         "learning-materials"
       ],
-      "publicDescription": "Master business management & adaptability for MSMEs-planning, lean canvas, flexibility-to thrive in changing markets. Essential for resilient entrepreneurs.",
+      "publicDescription": "Master business management and adaptability for MSMEs through planning, lean canvas, and flexibility to thrive in changing markets. Essential for resilient entrepreneurs.",
       "sourceArtifact": "assets/pdf/portfolio/business_management.pdf",
       "aiContext": {
         "evidenceLevel": "inferred from public portfolio card",
@@ -1965,7 +1965,7 @@
       "tags": [
         "learning-materials"
       ],
-      "publicDescription": "Learn how to navigate layoffs with expert strategies-assess risks, strengthen skills, manage finances, and find new opportunities. Essential for job security!",
+      "publicDescription": "Learn how to navigate layoffs with expert strategies to assess risks, strengthen skills, manage finances, and find new opportunities. Essential for job security!",
       "sourceArtifact": "assets/pdf/portfolio/layoff_storm.pdf",
       "aiContext": {
         "evidenceLevel": "inferred from public portfolio card",
@@ -2022,6 +2022,40 @@
         "scaleSignals": [],
         "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
         "cvBullet": "Created Brand Yourself: Stand Out with Personal Branding & LinkedIn Optimization as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "ai-powered-personal-branding-for-linkedin",
+      "title": "AI-Powered Personal Branding for LinkedIn",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials"
+      ],
+      "publicDescription": "Practical learning module for building a clearer professional presence with AI-assisted positioning, profile refinement, content planning, and LinkedIn visibility habits.",
+      "sourceArtifact": "assets/pdf/portfolio/ai_powered_personal_branding_linkedIn_module.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from public portfolio card",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials"
+        ],
+        "tools": [
+          "PDF learning artifact",
+          "AI-enabled analysis concepts"
+        ],
+        "scaleSignals": [],
+        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created AI-Powered Personal Branding for LinkedIn as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -2571,7 +2605,7 @@
       "tags": [
         "learning-materials"
       ],
-      "publicDescription": "Applied communication toolkit for frontliners & leaders. Train clarity, empathy, and tone adjustment across roles-from drive-thru to HQ-to build trust and handle conflict smoothly.",
+      "publicDescription": "Applied communication toolkit for frontliners & leaders. Train clarity, empathy, and tone adjustment across roles from drive-thru to HQ to build trust and handle conflict smoothly.",
       "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_4.pdf",
       "aiContext": {
         "evidenceLevel": "inferred from public portfolio card",
@@ -2639,7 +2673,7 @@
       "tags": [
         "learning-materials"
       ],
-      "publicDescription": "Practical deck to master human relations-build trust, empathy, and influence. Covers Dale Carnegie's timeless principles with modern workplace examples and guided reflection.",
+      "publicDescription": "Practical deck to master human relations by building trust, empathy, and influence. Covers Dale Carnegie's timeless principles with modern workplace examples and guided reflection.",
       "sourceArtifact": "assets/pdf/portfolio/win_friends.pdf",
       "aiContext": {
         "evidenceLevel": "inferred from public portfolio card",
