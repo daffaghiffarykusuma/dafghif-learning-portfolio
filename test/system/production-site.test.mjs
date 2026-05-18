@@ -88,13 +88,9 @@ describe('production site system checks', () => {
 
   test('serves core production assets referenced by pages', async () => {
     const assets = [
-      '/css/style.css',
-      '/css/components/navigation.css',
-      '/js/script.js',
-      '/js/portfolio-filters.js',
       '/assets/blog.json',
       '/assets/data/portfolio-ai-context.json',
-      '/assets/images/portfolio/adaptive_communication_1.webp',
+      '/assets/data/portfolio-projects.json',
       '/assets/pdf/portfolio/adaptive_communication_1.pdf',
       '/cv/Profile.pdf',
       '/_headers'

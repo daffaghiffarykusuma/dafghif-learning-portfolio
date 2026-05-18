@@ -1612,6 +1612,17 @@
     transition: all 0.3s ease;
 }
 
+.contact-method-icon svg {
+    width: 2rem;
+    height: 2rem;
+    fill: currentColor;
+}
+
+.contact-method-arrow {
+    display: inline-block;
+    margin-left: 0.35rem;
+}
+
 .contact-method-card.whatsapp .contact-method-icon {
     background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
 }

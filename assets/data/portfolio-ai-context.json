@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedFrom": "portfolio.html",
-  "generatedAt": "2026-05-14T00:55:36.134Z",
+  "generatedFrom": "assets/data/portfolio-projects.json",
+  "generatedAt": "2026-05-18T09:17:38.027Z",
   "owner": "Daffa Ghiffary Kusuma",
   "positioning": "Learning Designer and Program Manager focused on competency-based training, learning assets, evaluation systems, mentoring, and learning analytics.",
   "usage": "Use this file as AI-readable context for tailored CVs, cover letters, recruiter summaries, and project matching when the original portfolio artifacts are unavailable.",
-  "evidenceNote": "Project titles, categories, descriptions, tags, and source artifact paths are extracted from portfolio.html. Role, audience, deliverables, skills, tools, impact, and CV bullets are inferred from those public snippets and should be refined when exact project details are available.",
+  "evidenceNote": "Project titles, categories, descriptions, tags, and source artifact paths are read from the structured portfolio source. Role, audience, deliverables, skills, tools, impact, and CV bullets are inferred from those public snippets and should be refined when exact project details are available.",
   "projectCount": 76,
   "categoryProfiles": {
     "Training Needs Analysis": {
@@ -206,7 +206,7 @@
   },
   "projects": [
     {
-      "id": "administrative-communication-training-needs-analysis",
+      "id": "project-administrative-communication-training-needs-analysis",
       "title": "Administrative Communication Training Needs Analysis",
       "category": "Training Needs Analysis",
       "tags": [
@@ -216,7 +216,7 @@
       "publicDescription": "Pinpoints workplace communication gaps and translates them into a competency-based training path.",
       "sourceArtifact": "assets/pdf/portfolio/bnsp4_training_need_analysis.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
         "audience": "working professionals",
         "deliverables": [
@@ -240,7 +240,7 @@
       }
     },
     {
-      "id": "competency-based-communication-training-proposal",
+      "id": "project-competency-based-communication-training-proposal",
       "title": "Competency-Based Communication Training Proposal",
       "category": "Training Proposal",
       "tags": [
@@ -251,7 +251,7 @@
       "publicDescription": "Turns TNA findings into a structured, standards-aligned program proposal for administrative communication skills.",
       "sourceArtifact": "assets/pdf/portfolio/bnsp4_program_proposal.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Converted learning needs into a structured proposal with objectives, program logic, delivery plan, and expected outcomes.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -276,7 +276,7 @@
       }
     },
     {
-      "id": "administrative-communication-lesson-plan",
+      "id": "project-administrative-communication-lesson-plan",
       "title": "Administrative Communication Lesson Plan",
       "category": "Instructional Design",
       "tags": [
@@ -286,7 +286,7 @@
       "publicDescription": "Maps 36 learning hours into clear sessions, activities, OJT practice, and competency evidence.",
       "sourceArtifact": "assets/pdf/portfolio/bnsp4_lesson_plan.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Structured learning objectives, session flow, learner activities, practice tasks, and evidence of competency.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -312,7 +312,7 @@
       }
     },
     {
-      "id": "communication-confidence-training-deck",
+      "id": "project-communication-confidence-training-deck",
       "title": "Communication Confidence Training Deck",
       "category": "Learning Materials",
       "tags": [
@@ -323,7 +323,7 @@
       "publicDescription": "A complete facilitator deck for building confident, professional, and structured workplace communication.",
       "sourceArtifact": "assets/pdf/portfolio/bnsp4_materi_pelatihan.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "working professionals",
         "deliverables": [
@@ -349,7 +349,7 @@
       }
     },
     {
-      "id": "communication-skills-post-test-form",
+      "id": "project-communication-skills-post-test-form",
       "title": "Communication Skills Post-Test Form",
       "category": "Assessment & Evaluation",
       "tags": [
@@ -359,7 +359,7 @@
       "publicDescription": "Measures learner understanding with competency-mapped questions tied to the training objectives.",
       "sourceArtifact": "assets/pdf/portfolio/bnsp4_form_soal_post_test.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Designed assessment and evaluation tools to measure learner understanding, behavior, quality, or decision readiness.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -383,7 +383,7 @@
       }
     },
     {
-      "id": "training-feedback-form-level-1-reaction",
+      "id": "project-training-feedback-form-level-1-reaction",
       "title": "Training Feedback Form: Level 1 Reaction",
       "category": "Assessment & Evaluation",
       "tags": [
@@ -393,7 +393,7 @@
       "publicDescription": "Captures participant reaction data so training quality, relevance, and delivery can be improved fast.",
       "sourceArtifact": "assets/pdf/portfolio/bnsp4_form_feedback.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Designed assessment and evaluation tools to measure learner understanding, behavior, quality, or decision readiness.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -419,7 +419,7 @@
       }
     },
     {
-      "id": "communication-observation-form-and-performance-rubric",
+      "id": "project-communication-observation-form-and-performance-rubric",
       "title": "Communication Observation Form and Performance Rubric",
       "category": "Assessment & Evaluation",
       "tags": [
@@ -429,7 +429,7 @@
       "publicDescription": "Assesses workplace behavior transfer through observable communication tasks and structured rubrics.",
       "sourceArtifact": "assets/pdf/portfolio/bnsp4_form_observasi_dan_rubrik_penilaian.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Designed assessment and evaluation tools to measure learner understanding, behavior, quality, or decision readiness.",
         "audience": "working professionals",
         "deliverables": [
@@ -453,7 +453,7 @@
       }
     },
     {
-      "id": "macro-training-needs-analysis-dki-jakarta",
+      "id": "project-macro-training-needs-analysis-dki-jakarta",
       "title": "Macro Training Needs Analysis: DKI Jakarta",
       "category": "Training Needs Analysis",
       "tags": [
@@ -463,7 +463,7 @@
       "publicDescription": "Synthesizes labor-market signals into practical training priorities for future-ready workplace skills.",
       "sourceArtifact": "assets/pdf/portfolio/bnsp6_kebutuhan_pelatihan_makro.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
         "audience": "working professionals",
         "deliverables": [
@@ -487,7 +487,7 @@
       }
     },
     {
-      "id": "competency-matrix-for-training-organization",
+      "id": "project-competency-matrix-for-training-organization",
       "title": "Competency Matrix for Training Organization",
       "category": "Curriculum Development",
       "tags": [
@@ -498,7 +498,7 @@
       "publicDescription": "Maps organizational capability against program priorities to clarify readiness and development focus.",
       "sourceArtifact": "assets/pdf/portfolio/bnsp6_matriks_kompetensi.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Mapped competencies, learning sequence, program structure, and evidence requirements into a usable curriculum asset.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -523,7 +523,7 @@
       }
     },
     {
-      "id": "competency-based-training-syllabus",
+      "id": "project-competency-based-training-syllabus",
       "title": "Competency-Based Training Syllabus",
       "category": "Curriculum Development",
       "tags": [
@@ -533,7 +533,7 @@
       "publicDescription": "Builds a multi-program syllabus that connects competency standards, delivery design, and evidence of learning.",
       "sourceArtifact": "assets/pdf/portfolio/bnsp6_silabus_pelatihan_berbasis_kompetensi.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Mapped competencies, learning sequence, program structure, and evidence requirements into a usable curriculum asset.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -557,7 +557,7 @@
       }
     },
     {
-      "id": "learning-business-plan-eighteen-rekrutmen-asia",
+      "id": "project-learning-business-plan-eighteen-rekrutmen-asia",
       "title": "Learning Business Plan: Eighteen Rekrutmen Asia",
       "category": "L&D Strategy",
       "tags": [
@@ -567,7 +567,7 @@
       "publicDescription": "Frames a learning business roadmap around employability, communication, and organizational capability services.",
       "sourceArtifact": "assets/pdf/portfolio/bnsp6_business_plan.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Framed learning products, business goals, capability priorities, and growth logic into an actionable L&D plan.",
         "audience": "entrepreneurs and startup founders",
         "deliverables": [
@@ -592,7 +592,7 @@
       }
     },
     {
-      "id": "marketing-plan-for-training-solutions",
+      "id": "project-marketing-plan-for-training-solutions",
       "title": "Marketing Plan for Training Solutions",
       "category": "L&D Strategy",
       "tags": [
@@ -602,7 +602,7 @@
       "publicDescription": "Connects training portfolio positioning with demand generation, conversion, and client retention strategy.",
       "sourceArtifact": "assets/pdf/portfolio/bnsp6_marketing_plan.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Framed learning products, business goals, capability priorities, and growth logic into an actionable L&D plan.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -627,7 +627,7 @@
       }
     },
     {
-      "id": "training-budget-and-roti-calculator",
+      "id": "project-training-budget-and-roti-calculator",
       "title": "Training Budget and ROTI Calculator",
       "category": "Learning Analytics",
       "tags": [
@@ -638,7 +638,7 @@
       "publicDescription": "Models training investment, budget logic, and return on training impact in one practical workbook.",
       "sourceArtifact": "assets/portfolio-viewers/bnsp6-rab-roti-pelatihan.html",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Converted learning data, response inputs, or budget assumptions into analysis-ready dashboards and decision tools.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -663,7 +663,7 @@
       }
     },
     {
-      "id": "kirkpatrick-level-1-reaction-dashboard",
+      "id": "project-kirkpatrick-level-1-reaction-dashboard",
       "title": "Kirkpatrick Level 1 Reaction Dashboard",
       "category": "Learning Analytics",
       "tags": [
@@ -674,7 +674,7 @@
       "publicDescription": "Transforms participant reaction forms into a dashboard for rapid training experience decisions.",
       "sourceArtifact": "assets/portfolio-viewers/bnsp6-evaluation-level1-reaction.html",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Converted learning data, response inputs, or budget assumptions into analysis-ready dashboards and decision tools.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -701,7 +701,7 @@
       }
     },
     {
-      "id": "kirkpatrick-level-2-learning-dashboard",
+      "id": "project-kirkpatrick-level-2-learning-dashboard",
       "title": "Kirkpatrick Level 2 Learning Dashboard",
       "category": "Learning Analytics",
       "tags": [
@@ -712,7 +712,7 @@
       "publicDescription": "Combines question bank, learner response form, and analysis dashboard to track learning gains.",
       "sourceArtifact": "assets/portfolio-viewers/bnsp6-evaluation-level2-learning.html",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Converted learning data, response inputs, or budget assumptions into analysis-ready dashboards and decision tools.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -739,7 +739,7 @@
       }
     },
     {
-      "id": "training-and-coaching-need-analysis-framework",
+      "id": "project-training-and-coaching-need-analysis-framework",
       "title": "Training and Coaching Need Analysis Framework",
       "category": "Training Needs Analysis",
       "tags": [
@@ -750,7 +750,7 @@
       "publicDescription": "A consultant-ready discovery workbook for diagnosing business needs before recommending training or coaching.",
       "sourceArtifact": "assets/portfolio-viewers/need-analysis-framework-training-coaching.html",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
         "audience": "entrepreneurs and startup founders",
         "deliverables": [
@@ -775,7 +775,7 @@
       }
     },
     {
-      "id": "need-assessment-cross-department-communication",
+      "id": "project-need-assessment-cross-department-communication",
       "title": "Need Assessment: Cross-Department Communication",
       "category": "Training Needs Analysis",
       "tags": [
@@ -786,7 +786,7 @@
       "publicDescription": "Defines the real skill gap behind cross-functional friction and converts it into design-ready learning priorities.",
       "sourceArtifact": "assets/pdf/portfolio/need_assessment_communication_between_departments.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -811,7 +811,7 @@
       }
     },
     {
-      "id": "need-assessment-manager-communication-to-staff",
+      "id": "project-need-assessment-manager-communication-to-staff",
       "title": "Need Assessment: Manager Communication to Staff",
       "category": "Training Needs Analysis",
       "tags": [
@@ -822,7 +822,7 @@
       "publicDescription": "Clarifies the managerial communication capabilities needed for feedback, clarity, change, and psychological safety.",
       "sourceArtifact": "assets/pdf/portfolio/need_assessment_manager_communication_to_staff.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
         "audience": "managers and team leaders",
         "deliverables": [
@@ -847,7 +847,7 @@
       }
     },
     {
-      "id": "recruitment-assessment-blueprint",
+      "id": "project-recruitment-assessment-blueprint",
       "title": "Recruitment Assessment Blueprint",
       "category": "Assessment & Evaluation",
       "tags": [
@@ -857,7 +857,7 @@
       "publicDescription": "A structured assessment bank covering DISC, accuracy, math, cognitive tasks, and scoring norms for hiring decisions.",
       "sourceArtifact": "assets/portfolio-viewers/recruitment-assessment-blueprint.html",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Designed assessment and evaluation tools to measure learner understanding, behavior, quality, or decision readiness.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -882,7 +882,7 @@
       }
     },
     {
-      "id": "miles-unfair-advantage-mentoring-workbook",
+      "id": "project-miles-unfair-advantage-mentoring-workbook",
       "title": "MILES Unfair Advantage Mentoring Workbook",
       "category": "Mentoring & Coaching",
       "tags": [
@@ -893,7 +893,7 @@
       "publicDescription": "Helps mentees audit assets across Money, Intelligence, Location, Expertise, and Status to build a focused action plan.",
       "sourceArtifact": "assets/portfolio-viewers/miles-unfair-advantage-mentoring-workbook.html",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Structured mentoring activities, reflection prompts, and action planning tools to help learners move from insight to execution.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -919,7 +919,7 @@
       }
     },
     {
-      "id": "mentoring-workbook-week-1-idea-exploration",
+      "id": "project-mentoring-workbook-week-1-idea-exploration",
       "title": "Mentoring Workbook: Week 1 Idea Exploration",
       "category": "Mentoring & Coaching",
       "tags": [
@@ -929,7 +929,7 @@
       "publicDescription": "Guides mentees from individual SDG ideas into a shared problem statement and early project direction.",
       "sourceArtifact": "assets/portfolio-viewers/ybb-mentoring-workbook-week-1.html",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Structured mentoring activities, reflection prompts, and action planning tools to help learners move from insight to execution.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -956,7 +956,7 @@
       }
     },
     {
-      "id": "mentoring-workbook-week-2-concept-development",
+      "id": "project-mentoring-workbook-week-2-concept-development",
       "title": "Mentoring Workbook: Week 2 Concept Development",
       "category": "Mentoring & Coaching",
       "tags": [
@@ -966,7 +966,7 @@
       "publicDescription": "Uses SDG voting, reality checks, and project canvases to move a diverse team toward one feasible concept.",
       "sourceArtifact": "assets/portfolio-viewers/ybb-mentoring-workbook-week-2.html",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Structured mentoring activities, reflection prompts, and action planning tools to help learners move from insight to execution.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -993,7 +993,7 @@
       }
     },
     {
-      "id": "mentoring-workbook-week-3-presentation-readiness",
+      "id": "project-mentoring-workbook-week-3-presentation-readiness",
       "title": "Mentoring Workbook: Week 3 Presentation Readiness",
       "category": "Mentoring & Coaching",
       "tags": [
@@ -1004,7 +1004,7 @@
       "publicDescription": "Tracks evidence, ownership, and slide readiness so a student team can sharpen its final project deck.",
       "sourceArtifact": "assets/portfolio-viewers/ybb-mentoring-workbook-week-3.html",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Structured mentoring activities, reflection prompts, and action planning tools to help learners move from insight to execution.",
         "audience": "students and early-career talent",
         "deliverables": [
@@ -1033,7 +1033,7 @@
       }
     },
     {
-      "id": "pitch-deck-template-week-4",
+      "id": "project-pitch-deck-template-week-4",
       "title": "Pitch Deck Template: Week 4",
       "category": "Presentation Design",
       "tags": [
@@ -1044,7 +1044,7 @@
       "publicDescription": "A 16-slide final pitch structure that helps mentees present problem, evidence, solution, impact, and sustainability.",
       "sourceArtifact": "assets/portfolio-viewers/ybb-pitch-deck-template-week-4.html",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Organized complex ideas into a clear slide narrative, evidence structure, and presentation-ready flow.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -1073,7 +1073,7 @@
       }
     },
     {
-      "id": "learning-from-abroad-education-and-career-pathways",
+      "id": "project-learning-from-abroad-education-and-career-pathways",
       "title": "Learning from Abroad: Education and Career Pathways",
       "category": "Learning Materials",
       "tags": [
@@ -1084,7 +1084,7 @@
       "publicDescription": "A workshop deck helping Indonesian students explore overseas study, scholarship, and career pathway decisions.",
       "sourceArtifact": "assets/pdf/portfolio/scholarship_powerpoint.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "students and early-career talent",
         "deliverables": [
@@ -1110,7 +1110,7 @@
       }
     },
     {
-      "id": "digital-marketing-portfolio-workshop-deck",
+      "id": "project-digital-marketing-portfolio-workshop-deck",
       "title": "Digital Marketing Portfolio Workshop Deck",
       "category": "Learning Materials",
       "tags": [
@@ -1120,7 +1120,7 @@
       "publicDescription": "Teaches portfolio thinking for digital marketing through a focused, presentation-ready learning experience.",
       "sourceArtifact": "assets/pdf/portfolio/digital_marketing_portfolio_powerpoint.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -1145,7 +1145,7 @@
       }
     },
     {
-      "id": "theory-of-change-as-program-framework",
+      "id": "project-theory-of-change-as-program-framework",
       "title": "Theory of Change as Program Framework",
       "category": "Custom Training & Workshops",
       "tags": [
@@ -1154,7 +1154,7 @@
       "publicDescription": "Master program planning with this Theory of Change deck. Covers Intervention Mapping steps, logic models, and evaluation strategies to design high-impact interventions.",
       "sourceArtifact": "assets/pdf/portfolio/toc.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Designed and delivered applied training or workshop experiences using practical activities, facilitation, and implementation support.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -1179,7 +1179,7 @@
       }
     },
     {
-      "id": "entrepreneurship-online-class",
+      "id": "project-entrepreneurship-online-class",
       "title": "Entrepreneurship Online Class",
       "category": "Learning Materials",
       "tags": [
@@ -1188,7 +1188,7 @@
       "publicDescription": "Expanding business requires more than sales skills. This course focuses on leveraging social media and sales teams for growth.",
       "sourceArtifact": "assets/portfolio-viewers/entrepreneurship-online-class.html",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "entrepreneurs and startup founders",
         "deliverables": [
@@ -1212,7 +1212,7 @@
       }
     },
     {
-      "id": "training-for-trainer-experiential-learning-and-coaching",
+      "id": "project-training-for-trainer-experiential-learning-and-coaching",
       "title": "Training for Trainer: Experiential Learning & Coaching",
       "category": "Learning Materials",
       "tags": [
@@ -1221,7 +1221,7 @@
       "publicDescription": "Equipping sales teams with teaching and coaching skills for effective on-site community engagement through training and role-play.",
       "sourceArtifact": "assets/pdf/portfolio/training_for_trainer.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "sales teams",
         "deliverables": [
@@ -1245,7 +1245,7 @@
       }
     },
     {
-      "id": "entrepreneurship-mentorship-for-sandination-community",
+      "id": "project-entrepreneurship-mentorship-for-sandination-community",
       "title": "Entrepreneurship Mentorship for Sandination Community",
       "category": "Custom Training & Workshops",
       "tags": [
@@ -1254,7 +1254,7 @@
       "publicDescription": "A 3-month mentorship program designed to help Sandination community members increase income by selling Aerputh products.",
       "sourceArtifact": "assets/pdf/portfolio/sandination_mentorship.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Designed and delivered applied training or workshop experiences using practical activities, facilitation, and implementation support.",
         "audience": "entrepreneurs and startup founders",
         "deliverables": [
@@ -1280,7 +1280,7 @@
       }
     },
     {
-      "id": "3rd-winner-in-kumpul-jasa-jember-competition",
+      "id": "project-3rd-winner-in-kumpul-jasa-jember-competition",
       "title": "3rd Winner in KUMPUL JASA Jember Competition",
       "category": "Custom Training & Workshops",
       "tags": [
@@ -1289,7 +1289,7 @@
       "publicDescription": "Mentoring Prakerja alumni to train Jember's MSMEs in digitalization as part of an entrepreneurship competition.",
       "sourceArtifact": "assets/pdf/portfolio/kumpul_jasa.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Designed and delivered applied training or workshop experiences using practical activities, facilitation, and implementation support.",
         "audience": "MSME owners and entrepreneurs",
         "deliverables": [
@@ -1313,7 +1313,7 @@
       }
     },
     {
-      "id": "nhi-bandung-business-acceleration-bootcamp",
+      "id": "project-nhi-bandung-business-acceleration-bootcamp",
       "title": "NHI Bandung Business Acceleration Bootcamp",
       "category": "Custom Training & Workshops",
       "tags": [
@@ -1322,7 +1322,7 @@
       "publicDescription": "An engaging 3-day offline bootcamp addressing finance, operations, and legal challenges for student entrepreneurs at NHI Bandung.",
       "sourceArtifact": "assets/pdf/portfolio/nhi_acceleration.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Designed and delivered applied training or workshop experiences using practical activities, facilitation, and implementation support.",
         "audience": "students and early-career talent",
         "deliverables": [
@@ -1348,7 +1348,7 @@
       }
     },
     {
-      "id": "entrepreneurship-program-for-5000-smk-students",
+      "id": "project-entrepreneurship-program-for-5000-smk-students",
       "title": "Entrepreneurship Program for 5000+ SMK Students",
       "category": "Custom Training & Workshops",
       "tags": [
@@ -1358,7 +1358,7 @@
       "publicDescription": "Providing entrepreneurship as an alternative path for SMK students through a hands-on milk-based product creation and sales project.",
       "sourceArtifact": "assets/portfolio-viewers/smk-entrepreneurship-program.html",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Designed and delivered applied training or workshop experiences using practical activities, facilitation, and implementation support.",
         "audience": "vocational students",
         "deliverables": [
@@ -1383,7 +1383,7 @@
       }
     },
     {
-      "id": "budikdamber-program-for-7-rumah-yatim-asrama",
+      "id": "project-budikdamber-program-for-7-rumah-yatim-asrama",
       "title": "Budikdamber Program for 7 Rumah Yatim Asrama",
       "category": "Custom Training & Workshops",
       "tags": [
@@ -1393,7 +1393,7 @@
       "publicDescription": "Fostering independence at Rumah Yatim through a program focused on cultivating and selling catfish and kale.",
       "sourceArtifact": "assets/pdf/portfolio/budikdamber.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Designed and delivered applied training or workshop experiences using practical activities, facilitation, and implementation support.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -1420,7 +1420,7 @@
       }
     },
     {
-      "id": "the-millennium-challenge-corporation-mcc-grant",
+      "id": "project-the-millennium-challenge-corporation-mcc-grant",
       "title": "The Millennium Challenge Corporation (MCC) Grant",
       "category": "Custom Training & Workshops",
       "tags": [
@@ -1429,7 +1429,7 @@
       "publicDescription": "Consulting support for digital and financial literacy training and capacity enhancement for women-owned MSMEs.",
       "sourceArtifact": "assets/pdf/portfolio/mcc_grant.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Designed and delivered applied training or workshop experiences using practical activities, facilitation, and implementation support.",
         "audience": "MSME owners and entrepreneurs",
         "deliverables": [
@@ -1453,7 +1453,7 @@
       }
     },
     {
-      "id": "performance-appraisal-system-development",
+      "id": "project-performance-appraisal-system-development",
       "title": "Performance Appraisal System Development",
       "category": "Review: Legacy Project",
       "tags": [
@@ -1462,7 +1462,7 @@
       "publicDescription": "Creating a performance appraisal system for Rumah Siap Kerja's learning team using 10 core competencies and 360-degree feedback.",
       "sourceArtifact": "assets/portfolio-viewers/performance-appraisal-system.html",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Produced an earlier portfolio project that demonstrates applied program, people, or learning operations capability.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -1489,7 +1489,7 @@
       }
     },
     {
-      "id": "nhi-bandung-business-incubation-bootcamp",
+      "id": "project-nhi-bandung-business-incubation-bootcamp",
       "title": "NHI Bandung Business Incubation Bootcamp",
       "category": "Custom Training & Workshops",
       "tags": [
@@ -1499,7 +1499,7 @@
       "publicDescription": "Encouraging entrepreneurship among NHI Bandung alumni through a 3-day offline incubation bootcamp with engaging activities.",
       "sourceArtifact": "assets/pdf/portfolio/nhi_incubation.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Designed and delivered applied training or workshop experiences using practical activities, facilitation, and implementation support.",
         "audience": "entrepreneurs and startup founders",
         "deliverables": [
@@ -1526,7 +1526,7 @@
       }
     },
     {
-      "id": "entrepreneurial-mindset-seminar",
+      "id": "project-entrepreneurial-mindset-seminar",
       "title": "Entrepreneurial Mindset Seminar",
       "category": "Custom Training & Workshops",
       "tags": [
@@ -1536,7 +1536,7 @@
       "publicDescription": "An offline seminar with engaging activities designed to help Rumah Siap Kerja users cultivate resilience and grow their businesses.",
       "sourceArtifact": "assets/pdf/portfolio/growth_mindset.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Designed and delivered applied training or workshop experiences using practical activities, facilitation, and implementation support.",
         "audience": "entrepreneurs and startup founders",
         "deliverables": [
@@ -1561,7 +1561,7 @@
       }
     },
     {
-      "id": "mastering-critical-thinking-for-future-proofing-your-career",
+      "id": "project-mastering-critical-thinking-for-future-proofing-your-career",
       "title": "Mastering Critical Thinking for Future-Proofing Your Career",
       "category": "Learning Materials",
       "tags": [
@@ -1570,7 +1570,7 @@
       "publicDescription": "Practical frameworks, fallacies & cognitive biases in Indonesian context. Build calm, reflective decisions across HR, marketing, finance, ops & IT - interactive and job-ready.",
       "sourceArtifact": "assets/pdf/portfolio/critical_thinking.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -1594,7 +1594,7 @@
       }
     },
     {
-      "id": "menguasai-komunikasi-maritim-yang-efektif",
+      "id": "project-menguasai-komunikasi-maritim-yang-efektif",
       "title": "Menguasai Komunikasi Maritim yang Efektif",
       "category": "Learning Materials",
       "tags": [
@@ -1603,7 +1603,7 @@
       "publicDescription": "Teach SMCP, Closed-Loop, SBAR, Teach-Back, PACE & graded assertiveness. Roleplays plus human-factors and psych-safety to cut miscommunication and boost safety onboard.",
       "sourceArtifact": "assets/pdf/portfolio/komunikasi_maritim.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "maritime professionals",
         "deliverables": [
@@ -1628,7 +1628,7 @@
       }
     },
     {
-      "id": "mental-preparedness-preparation-for-emergencies",
+      "id": "project-mental-preparedness-preparation-for-emergencies",
       "title": "Mental Preparedness: Preparation for Emergencies",
       "category": "Learning Materials",
       "tags": [
@@ -1637,7 +1637,7 @@
       "publicDescription": "This learning material teaches crisis response skills, resilience, and self-leadership strategies for handling high-pressure situations effectively.",
       "sourceArtifact": "assets/pdf/portfolio/mental_preparedness_emergency.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "managers and team leaders",
         "deliverables": [
@@ -1661,7 +1661,7 @@
       }
     },
     {
-      "id": "landing-your-dream-job-top-employability-skills-for-new-grads",
+      "id": "project-landing-your-dream-job-top-employability-skills-for-new-grads",
       "title": "Landing Your Dream Job: Top Employability Skills for New Grads",
       "category": "Learning Materials",
       "tags": [
@@ -1670,7 +1670,7 @@
       "publicDescription": "This learning material covers essential 2025 job market skills like communication, AI proficiency, and resilience. It includes practical tips for resumes, LinkedIn branding, and leveraging internships, helping graduates stand out.",
       "sourceArtifact": "assets/pdf/portfolio/top_employability_skills.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "students and early-career talent",
         "deliverables": [
@@ -1695,7 +1695,7 @@
       }
     },
     {
-      "id": "gig-economy-and-resilience-the-future-is-beyond-milestones",
+      "id": "project-gig-economy-and-resilience-the-future-is-beyond-milestones",
       "title": "GIG-ECONOMY & RESILIENCE: The Future is Beyond Milestones",
       "category": "Learning Materials",
       "tags": [
@@ -1704,7 +1704,7 @@
       "publicDescription": "\"GIG-ECONOMY & RESILIENCE\" explores gig work's benefits (flexibility) and challenges (instability), emphasizing resilience strategies for success. Includes global/Indonesian trends and practical tools.",
       "sourceArtifact": "assets/pdf/portfolio/gig_economy_resilience.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -1728,7 +1728,7 @@
       }
     },
     {
-      "id": "gig-economy-the-rise-of-side-hustling",
+      "id": "project-gig-economy-the-rise-of-side-hustling",
       "title": "GIG-ECONOMY: The Rise of Side Hustling",
       "category": "Learning Materials",
       "tags": [
@@ -1737,7 +1737,7 @@
       "publicDescription": "\"GIG-ECONOMY: The Rise of Side Hustling\" covers gig work's pros/cons and practical steps to start, with trends and case studies.",
       "sourceArtifact": "assets/pdf/portfolio/gig_economy_hustle.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -1761,7 +1761,7 @@
       }
     },
     {
-      "id": "umkm-s-simple-financial-management",
+      "id": "project-umkm-s-simple-financial-management",
       "title": "UMKM's Simple Financial Management",
       "category": "Learning Materials",
       "tags": [
@@ -1770,7 +1770,7 @@
       "publicDescription": "Master financial basics for UMKM planning, budgeting, and accounting with interactive exercises to boost profits and cash flow management.",
       "sourceArtifact": "assets/pdf/portfolio/financial_management.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "MSME owners and entrepreneurs",
         "deliverables": [
@@ -1794,7 +1794,7 @@
       }
     },
     {
-      "id": "financial-modeling",
+      "id": "project-financial-modeling",
       "title": "Financial Modeling",
       "category": "Learning Materials",
       "tags": [
@@ -1803,7 +1803,7 @@
       "publicDescription": "Master financial modeling with revenue, costs, and pricing via interactive games and lean canvas. Perfect for startups building financial foundations.",
       "sourceArtifact": "assets/pdf/portfolio/financial_modeling.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "entrepreneurs and startup founders",
         "deliverables": [
@@ -1827,7 +1827,7 @@
       }
     },
     {
-      "id": "growth-mindset",
+      "id": "project-growth-mindset",
       "title": "Growth Mindset",
       "category": "Learning Materials",
       "tags": [
@@ -1836,7 +1836,7 @@
       "publicDescription": "This learning material on \"Growth Mindset\" teaches entrepreneurs resilience, learning from failures, and embracing challenges. Includes real-life examples and the SiapUsaha program for practical growth.",
       "sourceArtifact": "assets/pdf/portfolio/growth_mindset.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "entrepreneurs and startup founders",
         "deliverables": [
@@ -1860,7 +1860,7 @@
       }
     },
     {
-      "id": "cultivating-growth-mindset-for-self-motivation",
+      "id": "project-cultivating-growth-mindset-for-self-motivation",
       "title": "Cultivating Growth Mindset for Self-Motivation",
       "category": "Learning Materials",
       "tags": [
@@ -1869,7 +1869,7 @@
       "publicDescription": "Empower your team with growth mindset tools to stay motivated at work. Includes MILES framework, reflective journaling, and practical steps to turn setbacks into progress and purpose.",
       "sourceArtifact": "assets/pdf/portfolio/self-motivation.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -1893,7 +1893,7 @@
       }
     },
     {
-      "id": "make-your-product-fit-with-design-thinking",
+      "id": "project-make-your-product-fit-with-design-thinking",
       "title": "Make Your Product Fit with Design Thinking",
       "category": "Learning Materials",
       "tags": [
@@ -1902,7 +1902,7 @@
       "publicDescription": "Master design thinking through empathize, define, ideate, prototype, and test activities in a hands-on wallet project. Perfect for creating user-centered solutions.",
       "sourceArtifact": "assets/pdf/portfolio/design_thinking.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -1926,7 +1926,7 @@
       }
     },
     {
-      "id": "business-management-and-adaptability-for-msmes",
+      "id": "project-business-management-and-adaptability-for-msmes",
       "title": "Business Management & Adaptability for MSMEs",
       "category": "Learning Materials",
       "tags": [
@@ -1935,7 +1935,7 @@
       "publicDescription": "Master business management and adaptability for MSMEs through planning, lean canvas, and flexibility to thrive in changing markets. Essential for resilient entrepreneurs.",
       "sourceArtifact": "assets/pdf/portfolio/business_management.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "MSME owners and entrepreneurs",
         "deliverables": [
@@ -1959,7 +1959,7 @@
       }
     },
     {
-      "id": "how-to-face-layoff-storm",
+      "id": "project-how-to-face-layoff-storm",
       "title": "How to Face Layoff Storm",
       "category": "Learning Materials",
       "tags": [
@@ -1968,7 +1968,7 @@
       "publicDescription": "Learn how to navigate layoffs with expert strategies to assess risks, strengthen skills, manage finances, and find new opportunities. Essential for job security!",
       "sourceArtifact": "assets/pdf/portfolio/layoff_storm.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -1992,7 +1992,7 @@
       }
     },
     {
-      "id": "brand-yourself-stand-out-with-personal-branding-and-linkedin-optimization",
+      "id": "project-brand-yourself-stand-out-with-personal-branding-and-linkedin-optimization",
       "title": "Brand Yourself: Stand Out with Personal Branding & LinkedIn Optimization",
       "category": "Learning Materials",
       "tags": [
@@ -2001,7 +2001,7 @@
       "publicDescription": "Master personal branding & LinkedIn optimization to stand out professionally. Learn strategies, best practices, and tools to build a strong digital presence!",
       "sourceArtifact": "assets/pdf/portfolio/personal_branding.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -2025,7 +2025,7 @@
       }
     },
     {
-      "id": "ai-powered-personal-branding-for-linkedin",
+      "id": "project-ai-powered-personal-branding-for-linkedin",
       "title": "AI-Powered Personal Branding for LinkedIn",
       "category": "Learning Materials",
       "tags": [
@@ -2034,7 +2034,7 @@
       "publicDescription": "Practical learning module for building a clearer professional presence with AI-assisted positioning, profile refinement, content planning, and LinkedIn visibility habits.",
       "sourceArtifact": "assets/pdf/portfolio/ai_powered_personal_branding_linkedIn_module.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -2059,7 +2059,7 @@
       }
     },
     {
-      "id": "public-speaking-and-confidence-boost",
+      "id": "project-public-speaking-and-confidence-boost",
       "title": "Public Speaking & Confidence Boost",
       "category": "Learning Materials",
       "tags": [
@@ -2068,7 +2068,7 @@
       "publicDescription": "Boost your public speaking confidence with This learning material! Learn data-driven presentations, storytelling techniques, and how to overcome glossophobia. Perfect for professionals and beginners alike.",
       "sourceArtifact": "assets/pdf/portfolio/public_speaking_confidence_boost.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -2093,7 +2093,7 @@
       }
     },
     {
-      "id": "color-personality",
+      "id": "project-color-personality",
       "title": "Color Personality",
       "category": "Learning Materials",
       "tags": [
@@ -2102,7 +2102,7 @@
       "publicDescription": "Discover your personality type with the True Colors framework! This learning material explores Blue, Gold, Green, and Orange traits to improve communication, teamwork, and conflict resolution.",
       "sourceArtifact": "assets/pdf/portfolio/color_personality.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -2126,7 +2126,7 @@
       }
     },
     {
-      "id": "managing-crew-fatigue-onboard",
+      "id": "project-managing-crew-fatigue-onboard",
       "title": "Managing Crew Fatigue Onboard",
       "category": "Learning Materials",
       "tags": [
@@ -2135,7 +2135,7 @@
       "publicDescription": "Discover effective strategies to manage crew fatigue onboard in this comprehensive learning material. Learn about onboarding, mental health, and best practices to enhance productivity and well-being at sea.",
       "sourceArtifact": "assets/pdf/portfolio/crew_fatigue_onboard.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "maritime professionals",
         "deliverables": [
@@ -2159,7 +2159,7 @@
       }
     },
     {
-      "id": "speak-up-stand-out-public-speaking-in-the-hybrid-era",
+      "id": "project-speak-up-stand-out-public-speaking-in-the-hybrid-era",
       "title": "Speak Up, Stand Out: Public Speaking in the Hybrid Era",
       "category": "Learning Materials",
       "tags": [
@@ -2168,7 +2168,7 @@
       "publicDescription": "Master public speaking for hybrid settings with confidence, voice techniques, body language, and practical tips for interviews & online presentations. Elevate your career today!",
       "sourceArtifact": "assets/pdf/portfolio/public_speaking.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -2193,7 +2193,7 @@
       }
     },
     {
-      "id": "startup-development-class",
+      "id": "project-startup-development-class",
       "title": "Startup Development Class",
       "category": "Learning Materials",
       "tags": [
@@ -2202,7 +2202,7 @@
       "publicDescription": "Startup Development Class learning material: A comprehensive guide covering entrepreneurship basics, design thinking, lean canvas, financial management, and pitching strategies for aspiring startup founders.",
       "sourceArtifact": "assets/pdf/portfolio/startup_development_class.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "entrepreneurs and startup founders",
         "deliverables": [
@@ -2227,7 +2227,7 @@
       }
     },
     {
-      "id": "how-to-leverage-social-media-instagram-for-msmes",
+      "id": "project-how-to-leverage-social-media-instagram-for-msmes",
       "title": "How to Leverage Social Media Instagram for MSMEs",
       "category": "Learning Materials",
       "tags": [
@@ -2236,7 +2236,7 @@
       "publicDescription": "Learn to optimize Instagram Business Profiles, leverage ads, shopping features, and insights. Master influencer marketing, interactive content, and engagement strategies for growth.",
       "sourceArtifact": "assets/pdf/portfolio/instagram_umkm.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "MSME owners and entrepreneurs",
         "deliverables": [
@@ -2260,7 +2260,7 @@
       }
     },
     {
-      "id": "managing-crew-onboard-stress",
+      "id": "project-managing-crew-onboard-stress",
       "title": "Managing Crew Onboard Stress",
       "category": "Learning Materials",
       "tags": [
@@ -2269,7 +2269,7 @@
       "publicDescription": "Professional learning material on managing crew stress onboard. Covers causes, symptoms, impacts, and solutions for workplace stress, burnout, and mental health in maritime settings. Ideal for training and awareness.",
       "sourceArtifact": "assets/pdf/portfolio/stress_management.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "maritime professionals",
         "deliverables": [
@@ -2293,7 +2293,7 @@
       }
     },
     {
-      "id": "smart-steps-to-start-an-employee-side-hustle",
+      "id": "project-smart-steps-to-start-an-employee-side-hustle",
       "title": "Smart Steps to Start an Employee Side Hustle",
       "category": "Learning Materials",
       "tags": [
@@ -2302,7 +2302,7 @@
       "publicDescription": "learning guide on launching a successful side hustle while employed. Covers gig economy trends, niche identification, portfolio building, pricing strategies, and avoiding common pitfalls. Ideal for aspiring entrepreneurs.",
       "sourceArtifact": "assets/pdf/portfolio/side_hustle.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "entrepreneurs and startup founders",
         "deliverables": [
@@ -2326,7 +2326,7 @@
       }
     },
     {
-      "id": "anyone-can-get-a-job",
+      "id": "project-anyone-can-get-a-job",
       "title": "Anyone Can Get a Job",
       "category": "Learning Materials",
       "tags": [
@@ -2335,7 +2335,7 @@
       "publicDescription": "learning guide on launching a successful side hustle while employed. Covers gig economy trends, niche identification, portfolio building, pricing strategies, and avoiding common pitfalls. Ideal for aspiring entrepreneurs.",
       "sourceArtifact": "assets/pdf/portfolio/triangle.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "entrepreneurs and startup founders",
         "deliverables": [
@@ -2359,7 +2359,7 @@
       }
     },
     {
-      "id": "crafting-deck-and-impactful-presentation",
+      "id": "project-crafting-deck-and-impactful-presentation",
       "title": "Crafting Deck and Impactful Presentation",
       "category": "Learning Materials",
       "tags": [
@@ -2368,7 +2368,7 @@
       "publicDescription": "Data-driven presentation skills learning material to craft clear, concise, decision-moving slides. Teach SCQA, Pyramid Principle & MECE, visual hierarchy, and delivery tips. With labs, before/after examples, and worksheet links.",
       "sourceArtifact": "assets/pdf/portfolio/crafting_deck.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -2393,7 +2393,7 @@
       }
     },
     {
-      "id": "stress-and-time-management",
+      "id": "project-stress-and-time-management",
       "title": "Stress & Time Management",
       "category": "Learning Materials",
       "tags": [
@@ -2402,7 +2402,7 @@
       "publicDescription": "Facilitator-ready learning material to cut stress and master time. Teach signs, root causes, and tools like Eisenhower, Time-Blocking, and Pomodoro. Includes activities, worksheets, and prompts for a 60-120 min workshop.",
       "sourceArtifact": "assets/pdf/portfolio/time_management.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -2429,7 +2429,7 @@
       }
     },
     {
-      "id": "adaptive-communication-decode-and-connect",
+      "id": "project-adaptive-communication-decode-and-connect",
       "title": "Adaptive Communication: Decode & Connect",
       "category": "Learning Materials",
       "tags": [
@@ -2438,7 +2438,7 @@
       "publicDescription": "Decode & connect across personalities. Teach DISC, active listening (Receive-Appreciate-Summarize-Ask), conflict skills, leader messaging. Roleplays, scenarios, templates for schools & teams.",
       "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_1.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "managers and team leaders",
         "deliverables": [
@@ -2462,7 +2462,7 @@
       }
     },
     {
-      "id": "strengthen-teamwork-with-empathy-and-communication",
+      "id": "project-strengthen-teamwork-with-empathy-and-communication",
       "title": "Strengthen Teamwork with Empathy & Communication",
       "category": "Learning Materials",
       "tags": [
@@ -2471,7 +2471,7 @@
       "publicDescription": "Build trust, clarity, and collaboration. Teach empathy, active listening (RASA), SACCIA safety, respectful feedback, and 360-degree feedback - rooted in Indonesian workplace culture. With drills, roleplays, and notes.",
       "sourceArtifact": "assets/pdf/portfolio/teamwork.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "working professionals",
         "deliverables": [
@@ -2497,7 +2497,7 @@
       }
     },
     {
-      "id": "building-a-culture-of-service-excellence-in-the-digital-era",
+      "id": "project-building-a-culture-of-service-excellence-in-the-digital-era",
       "title": "Building a Culture of Service Excellence in the Digital Era",
       "category": "Learning Materials",
       "tags": [
@@ -2506,7 +2506,7 @@
       "publicDescription": "Unlock 'Building Service Excellence in the Digital Era': 2025 workshop deck on definitions, AI trends, human touch & Kano Model. Boost loyalty now!",
       "sourceArtifact": "assets/pdf/portfolio/service_excellence.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -2532,7 +2532,7 @@
       }
     },
     {
-      "id": "unlock-flows-adaptive-decode-for-corporate-connections",
+      "id": "project-unlock-flows-adaptive-decode-for-corporate-connections",
       "title": "Unlock Flows: Adaptive Decode for Corporate Connections",
       "category": "Learning Materials",
       "tags": [
@@ -2541,7 +2541,7 @@
       "publicDescription": "Master adaptive communication with clarity, empathy & effectiveness. Learn active listening, DISC styles, and conflict handling through case studies & reflection exercises.",
       "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_2.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "working professionals",
         "deliverables": [
@@ -2565,7 +2565,7 @@
       }
     },
     {
-      "id": "calibrate-links-decode-insights-connect-precisely",
+      "id": "project-calibrate-links-decode-insights-connect-precisely",
       "title": "Calibrate Links: Decode Insights, Connect Precisely",
       "category": "Learning Materials",
       "tags": [
@@ -2574,7 +2574,7 @@
       "publicDescription": "Corporate-ready deck to align cross-functional teams. Teach message tailoring, active listening, and \"baby language\" techniques for better collaboration & stakeholder influence.",
       "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_3.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "working professionals",
         "deliverables": [
@@ -2599,7 +2599,7 @@
       }
     },
     {
-      "id": "sync-up-decode-signals-connect-teams-mcdonald-s-edition",
+      "id": "project-sync-up-decode-signals-connect-teams-mcdonald-s-edition",
       "title": "Sync Up: Decode Signals, Connect Teams - McDonald's Edition",
       "category": "Learning Materials",
       "tags": [
@@ -2608,7 +2608,7 @@
       "publicDescription": "Applied communication toolkit for frontliners & leaders. Train clarity, empathy, and tone adjustment across roles from drive-thru to HQ to build trust and handle conflict smoothly.",
       "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_4.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "managers and team leaders",
         "deliverables": [
@@ -2632,7 +2632,7 @@
       }
     },
     {
-      "id": "adaptive-communication-solution-for-home-credit-indonesia",
+      "id": "project-adaptive-communication-solution-for-home-credit-indonesia",
       "title": "Adaptive Communication Solution for Home Credit Indonesia",
       "category": "Learning Materials",
       "tags": [
@@ -2641,7 +2641,7 @@
       "publicDescription": "Complete Adaptive Communication training deck for corporates. DISC frameworks, active listening, real fintech case studies, AI sentiment tools & CX metrics. Reduce complaints, boost NPS, align stakeholders. Templates and quizzes included.",
       "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_5.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "working professionals",
         "deliverables": [
@@ -2667,7 +2667,7 @@
       }
     },
     {
-      "id": "how-to-win-friends-and-influence-people",
+      "id": "project-how-to-win-friends-and-influence-people",
       "title": "How to Win Friends and Influence People",
       "category": "Learning Materials",
       "tags": [
@@ -2676,7 +2676,7 @@
       "publicDescription": "Practical deck to master human relations by building trust, empathy, and influence. Covers Dale Carnegie's timeless principles with modern workplace examples and guided reflection.",
       "sourceArtifact": "assets/pdf/portfolio/win_friends.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "working professionals",
         "deliverables": [
@@ -2701,7 +2701,7 @@
       }
     },
     {
-      "id": "managing-pressure-without-losing-yourself",
+      "id": "project-managing-pressure-without-losing-yourself",
       "title": "Managing Pressure Without Losing Yourself",
       "category": "Learning Materials",
       "tags": [
@@ -2710,7 +2710,7 @@
       "publicDescription": "Engaging deck on stress awareness, burnout signs, and time mastery. Includes reflection games, Eisenhower Relay, and resilience tools for healthier, sustainable performance.",
       "sourceArtifact": "assets/pdf/portfolio/managing_pressure.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -2735,7 +2735,7 @@
       }
     },
     {
-      "id": "mental-health-in-the-workplace-for-being-supervisor",
+      "id": "project-mental-health-in-the-workplace-for-being-supervisor",
       "title": "Mental Health in the Workplace for being Supervisor",
       "category": "Learning Materials",
       "tags": [
@@ -2744,7 +2744,7 @@
       "publicDescription": "Train leaders to spot stress, foster empathy, and build psychological safety. Practical checklists, RASA listening, and roleplays to support team well-being effectively.",
       "sourceArtifact": "assets/pdf/portfolio/mental_health_supervisor.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "managers and team leaders",
         "deliverables": [
@@ -2768,7 +2768,7 @@
       }
     },
     {
-      "id": "from-impostor-to-influencer",
+      "id": "project-from-impostor-to-influencer",
       "title": "From Impostor to Influencer",
       "category": "Mentoring & Speaking",
       "tags": [
@@ -2777,7 +2777,7 @@
       "publicDescription": "Transform self-doubt into influence. Learn to create authentic, high-impact LinkedIn posts with confidence using storytelling, reflection, and the \"Value Over Perfect\" mindset.",
       "sourceArtifact": "assets/pdf/portfolio/linkedIn_post.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Designed a mentoring or speaking asset that helps learners build confidence, communication, and professional influence.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
@@ -2800,7 +2800,7 @@
       }
     },
     {
-      "id": "the-psychology-of-money-understanding-how-we-think-about-wealth",
+      "id": "project-the-psychology-of-money-understanding-how-we-think-about-wealth",
       "title": "The Psychology of Money: Understanding How We Think About Wealth",
       "category": "Learning Materials",
       "tags": [
@@ -2809,7 +2809,7 @@
       "publicDescription": "Visually captivating learning deck unpacking Morgan Housel's The Psychology of Money. Modern gradient design, playful illustrations, clear charts, and deep insights on behavior, luck, risk, and compounding. Ready-to-use for webinars or workshops.",
       "sourceArtifact": "assets/pdf/portfolio/psychology_of_money.pdf",
       "aiContext": {
-        "evidenceLevel": "inferred from public portfolio card",
+        "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [

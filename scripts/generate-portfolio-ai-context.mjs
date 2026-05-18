@@ -1,21 +1,10 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
-const portfolioPath = 'portfolio.html';
+const portfolioSourcePath = 'assets/data/portfolio-projects.json';
 const outputPath = 'assets/data/portfolio-ai-context.json';
 
-const html = await readFile(portfolioPath, 'utf8');
-
-const decodeHtml = (value) =>
-  value
-    .replace(/&amp;/g, '&')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&nbsp;/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-
-const stripHtml = (value) => decodeHtml(value.replace(/<[^>]+>/g, ''));
+const portfolioSource = JSON.parse(await readFile(portfolioSourcePath, 'utf8'));
 
 const slugify = (value) =>
   value
@@ -24,13 +13,7 @@ const slugify = (value) =>
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
 
-const normalizeText = (value) =>
-  value
-    .replace(/â€|â€œ/g, '-')
-    .replace(/â€”|â€“/g, '-')
-    .replace(/\s+-\s+/g, ' - ')
-    .replace(/\s+/g, ' ')
-    .trim();
+const normalizeText = (value = '') => value.replace(/\s+/g, ' ').trim();
 
 const categoryProfiles = {
   'Training Needs Analysis': {
@@ -192,19 +175,12 @@ const inferImpact = (project) => {
 const makeCvBullet = (project, profile, impact) =>
   `${profile.cvVerb} ${project.title} as a ${project.category.toLowerCase()} project, creating practical context for ${project.audience} and supporting this outcome: ${impact}`;
 
-const cardPattern =
-  /<div class="card project"(?<attrs>[^>]*)>(?<body>[\s\S]*?)(?=\n\s*<div class="card project"|\n\s*<\/div>\s*<!-- End of combined projects-grid -->|\n\s*<\/div>\s*<!-- PDF Modal)/g;
-
-const projects = [...html.matchAll(cardPattern)].filter((match) => !match.groups.attrs.includes('project-placeholder')).map((match) => {
-  const attrs = match.groups.attrs;
-  const body = match.groups.body;
-  const title = normalizeText(stripHtml((body.match(/<h3>([\s\S]*?)<\/h3>/) || [])[1] || ''));
-  const category = normalizeText(
-    stripHtml((body.match(/project-category-label[\s\S]*?>(?:<a[^>]*>)?([\s\S]*?)(?:<\/a>)?<\/span>/) || [])[1] || '')
-  );
-  const description = normalizeText(stripHtml((body.match(/<p>([\s\S]*?)<\/p>/) || [])[1] || ''));
-  const tags = ((attrs.match(/data-category="([^"]+)"/) || [])[1] || '').split(/\s+/).filter(Boolean);
-  const source = ((body.match(/data-viewer="([^"]+)"/) || body.match(/data-pdf="([^"]+)"/) || [])[1] || '').trim();
+const projects = portfolioSource.projects.map((sourceProject) => {
+  const title = normalizeText(sourceProject.title);
+  const category = normalizeText(sourceProject.category);
+  const description = normalizeText(sourceProject.description);
+  const tags = sourceProject.tags || [];
+  const source = sourceProject.sourceArtifact || '';
   const profile = categoryProfiles[category] || categoryProfiles['Learning Materials'];
   const audience = inferAudience({ title, description, category });
   const tools = inferTools({ title, description, category, source });
@@ -213,14 +189,14 @@ const projects = [...html.matchAll(cardPattern)].filter((match) => !match.groups
   const baseProject = { title, category, audience };
 
   return {
-    id: slugify(title),
+    id: sourceProject.id || slugify(title),
     title,
     category,
     tags,
     publicDescription: description,
     sourceArtifact: source,
     aiContext: {
-      evidenceLevel: 'inferred from public portfolio card',
+      evidenceLevel: 'inferred from structured portfolio source',
       role: profile.defaultRole,
       audience,
       deliverables: profile.defaultDeliverables,
@@ -232,10 +208,9 @@ const projects = [...html.matchAll(cardPattern)].filter((match) => !match.groups
     }
   };
 });
-
 const data = {
   schemaVersion: 1,
-  generatedFrom: portfolioPath,
+  generatedFrom: portfolioSourcePath,
   generatedAt: new Date().toISOString(),
   owner: 'Daffa Ghiffary Kusuma',
   positioning:
@@ -243,7 +218,7 @@ const data = {
   usage:
     'Use this file as AI-readable context for tailored CVs, cover letters, recruiter summaries, and project matching when the original portfolio artifacts are unavailable.',
   evidenceNote:
-    'Project titles, categories, descriptions, tags, and source artifact paths are extracted from portfolio.html. Role, audience, deliverables, skills, tools, impact, and CV bullets are inferred from those public snippets and should be refined when exact project details are available.',
+    'Project titles, categories, descriptions, tags, and source artifact paths are read from the structured portfolio source. Role, audience, deliverables, skills, tools, impact, and CV bullets are inferred from those public snippets and should be refined when exact project details are available.',
   projectCount: projects.length,
   categoryProfiles,
   projects

@@ -31,7 +31,20 @@ Run validation before publishing:
 bun run validate
 ```
 
-The validator checks deployed HTML pages, generated portfolio viewers, CSS asset URLs, missing local assets, broken fragments, unreviewed external hosts, unsafe inline scripts, `target="_blank"` rel attributes, CSP hardening, and blog metadata URL allowlists.
+The validator checks deployed HTML pages, generated portfolio viewers, CSS asset URLs, missing local assets, broken fragments, unreviewed external hosts, unsafe inline scripts, `target="_blank"` rel attributes, CSP hardening, blog metadata URL allowlists, and structured portfolio project data.
+
+Portfolio project data is generated from the public portfolio cards:
+
+```bash
+bun run generate:portfolio-source
+bun run generate:portfolio-ai
+```
+
+Check production performance budgets after a build:
+
+```bash
+bun run budget
+```
 
 `bun run test` and `bun run lint` currently run the same static validation suite so CI and contributors have conventional commands.
 

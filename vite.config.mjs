@@ -9,7 +9,15 @@ const htmlInputs = Object.fromEntries(
     .map((file) => [basename(file, '.html'), resolve(root, file)]),
 );
 
-const staticDirectories = ['assets', 'css', 'cv', 'js'];
+const staticDirectories = [
+  'assets/data',
+  'assets/pdf',
+  'assets/portfolio-viewers',
+  'assets/presentations',
+  'assets/spreadsheets',
+  'cv',
+];
+const staticFiles = ['assets/blog.json'];
 const rootStaticExtensions = new Set(['.png', '.jpg', '.jpeg', '.webp', '.svg', '.ico', '.pdf']);
 
 function copyStaticFiles() {
@@ -23,6 +31,15 @@ function copyStaticFiles() {
         const source = resolve(root, directory);
         if (existsSync(source)) {
           cpSync(source, resolve(outDir, directory), { recursive: true, force: true });
+        }
+      }
+
+      for (const file of staticFiles) {
+        const source = resolve(root, file);
+        if (existsSync(source)) {
+          const target = resolve(outDir, file);
+          mkdirSync(resolve(target, '..'), { recursive: true });
+          copyFileSync(source, target);
         }
       }
 
