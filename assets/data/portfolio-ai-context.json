@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-projects.json",
-  "generatedAt": "2026-05-18T09:17:38.027Z",
+  "generatedAt": "2026-05-21T23:00:13.411Z",
   "owner": "Daffa Ghiffary Kusuma",
   "positioning": "Learning Designer and Program Manager focused on competency-based training, learning assets, evaluation systems, mentoring, and learning analytics.",
   "usage": "Use this file as AI-readable context for tailored CVs, cover letters, recruiter summaries, and project matching when the original portfolio artifacts are unavailable.",
   "evidenceNote": "Project titles, categories, descriptions, tags, and source artifact paths are read from the structured portfolio source. Role, audience, deliverables, skills, tools, impact, and CV bullets are inferred from those public snippets and should be refined when exact project details are available.",
-  "projectCount": 76,
+  "projectCount": 77,
   "categoryProfiles": {
     "Training Needs Analysis": {
       "defaultRole": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
@@ -2032,7 +2032,7 @@
         "learning-materials"
       ],
       "publicDescription": "Practical learning module for building a clearer professional presence with AI-assisted positioning, profile refinement, content planning, and LinkedIn visibility habits.",
-      "sourceArtifact": "assets/pdf/portfolio/ai_powered_personal_branding_linkedIn_module.pdf",
+      "sourceArtifact": "assets/pdf/portfolio/20260520_ai_powered_personal_branding_linkedIn_module.pdf",
       "aiContext": {
         "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
@@ -2156,6 +2156,43 @@
         "scaleSignals": [],
         "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
         "cvBullet": "Created Managing Crew Fatigue Onboard as a learning materials project, creating practical context for maritime professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "project-komunikasi-sehat-antar-crew-di-tengah-tekanan-kerja",
+      "title": "Komunikasi Sehat Antar Crew di Tengah Tekanan Kerja",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials",
+        "instructional-design",
+        "presentation-design"
+      ],
+      "publicDescription": "Indonesian maritime workshop deck on healthy crew communication under pressure. Covers mental health screening, miscommunication risks, conflict patterns, active listening, and practical emotion regulation.",
+      "sourceArtifact": "assets/pdf/portfolio/komunikasi_sehat_antar_crew.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from structured portfolio source",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "maritime professionals",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials",
+          "instructional design"
+        ],
+        "tools": [
+          "PowerPoint or Google Slides",
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Created Komunikasi Sehat Antar Crew di Tengah Tekanan Kerja as a learning materials project, creating practical context for maritime professionals and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {

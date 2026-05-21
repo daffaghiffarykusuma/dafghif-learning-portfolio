@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "portfolio.html",
-  "generatedAt": "2026-05-18T09:17:37.704Z",
-  "projectCount": 76,
+  "generatedAt": "2026-05-21T23:00:13.008Z",
+  "projectCount": 77,
   "projects": [
     {
       "id": "project-administrative-communication-training-needs-analysis",
@@ -943,7 +943,7 @@
         "src": "assets/images/portfolio/ai-powered-personal-branding-linkedin-module.webp",
         "alt": "AI-Powered Personal Branding for LinkedIn module thumbnail"
       },
-      "sourceArtifact": "assets/pdf/portfolio/ai_powered_personal_branding_linkedIn_module.pdf",
+      "sourceArtifact": "assets/pdf/portfolio/20260520_ai_powered_personal_branding_linkedIn_module.pdf",
       "sourceType": "pdf",
       "projectUrl": "portfolio.html#project-ai-powered-personal-branding-for-linkedin",
       "discussUrl": "contact.html?project=AI-Powered Personal Branding for LinkedIn"
@@ -998,6 +998,25 @@
       "sourceType": "pdf",
       "projectUrl": "portfolio.html#project-managing-crew-fatigue-onboard",
       "discussUrl": "contact.html?project=Crew Fatigue"
+    },
+    {
+      "id": "project-komunikasi-sehat-antar-crew-di-tengah-tekanan-kerja",
+      "title": "Komunikasi Sehat Antar Crew di Tengah Tekanan Kerja",
+      "category": "Learning Materials",
+      "tags": [
+        "learning-materials",
+        "instructional-design",
+        "presentation-design"
+      ],
+      "description": "Indonesian maritime workshop deck on healthy crew communication under pressure. Covers mental health screening, miscommunication risks, conflict patterns, active listening, and practical emotion regulation.",
+      "image": {
+        "src": "assets/images/portfolio/komunikasi_sehat_antar_crew.webp",
+        "alt": "Komunikasi Sehat Antar Crew di Tengah Tekanan Kerja PowerPoint thumbnail"
+      },
+      "sourceArtifact": "assets/pdf/portfolio/komunikasi_sehat_antar_crew.pdf",
+      "sourceType": "pdf",
+      "projectUrl": "portfolio.html#project-komunikasi-sehat-antar-crew-di-tengah-tekanan-kerja",
+      "discussUrl": "contact.html?project=Komunikasi Sehat Antar Crew"
     },
     {
       "id": "project-speak-up-stand-out-public-speaking-in-the-hybrid-era",
