@@ -455,7 +455,7 @@ body > header nav ul li.current a::after {
    ================================================================= */
 
 /* Service Cards */
-.service-preview-card,
+.practice-area-card,
 .service-card,
 .spotlight-card,
 .testimonial-card,
@@ -470,7 +470,7 @@ body > header nav ul li.current a::after {
     box-shadow: none !important;
 }
 
-.service-preview-card:hover,
+.practice-area-card:hover,
 .service-card:hover,
 .spotlight-card:hover,
 .testimonial-card:hover,
@@ -484,7 +484,7 @@ body > header nav ul li.current a::after {
 }
 
 /* Card titles */
-.service-preview-card h3,
+.practice-area-card h3,
 .service-card h3,
 .spotlight-card h3,
 .why-card h3,
@@ -496,7 +496,7 @@ body > header nav ul li.current a::after {
 }
 
 /* Card descriptions */
-.service-preview-card p,
+.practice-area-card p,
 .service-card p,
 .spotlight-card p,
 .why-card p,
@@ -506,35 +506,35 @@ body > header nav ul li.current a::after {
 }
 
 /* Service icon */
-.service-icon {
+.practice-area-icon {
     background: var(--dm-accent) !important;
     color: var(--dm-bg-primary) !important;
     box-shadow: none !important;
 }
 
-/* Service metric badge */
-.service-metric-badge {
+/* Proof point badge */
+.proof-point-badge {
     background: var(--dm-accent-subtle) !important;
     color: var(--dm-accent) !important;
     border: 1px solid var(--dm-accent-muted) !important;
 }
 
 /* Service highlights */
-.service-highlights li {
+.practice-area-highlights li {
     color: var(--dm-text-secondary) !important;
 }
 
-.service-highlights li::before {
+.practice-area-highlights li::before {
     color: var(--dm-accent) !important;
 }
 
 /* Service proof */
-.service-proof {
+.proof-point-quote {
     color: var(--dm-text-muted) !important;
     border-left: 2px solid var(--dm-border-default) !important;
 }
 
-.service-proof span {
+.proof-point-quote span {
     color: var(--dm-text-secondary) !important;
 }
 
@@ -646,8 +646,8 @@ h2.section-title::after {
     color: var(--dm-accent) !important;
 }
 
-/* Services preview section */
-#services-preview {
+/* Practice areas preview section */
+#practice-areas-preview {
     background: var(--dm-bg-primary) !important;
 }
 
@@ -1075,9 +1075,9 @@ footer {
 
 /* Portfolio cards */
 .portfolio-card,
-.project-card,
+.portfolio-item-card,
 .card,
-.card.project,
+.card.portfolio-item,
 .card.publication {
     background: var(--dm-bg-secondary) !important;
     border: 1px solid var(--dm-border-subtle) !important;
@@ -1085,9 +1085,9 @@ footer {
 }
 
 .portfolio-card:hover,
-.project-card:hover,
+.portfolio-item-card:hover,
 .card:hover,
-.card.project:hover {
+.card.portfolio-item:hover {
     border-color: var(--dm-border-default) !important;
     box-shadow: var(--dm-shadow-md) !important;
     transform: translateY(-4px) !important;
@@ -1108,11 +1108,11 @@ footer {
 }
 
 /* Project category label */
-.project-category-label {
+.portfolio-item-practice-label {
     color: var(--dm-text-muted) !important;
 }
 
-.project-category-label a {
+.portfolio-item-practice-label a {
     color: var(--dm-accent) !important;
 }
 
@@ -1277,31 +1277,31 @@ footer {
 }
 
 /* Lighthouse contrast overrides loaded after optional theme styles. */
-.project-category-label {
+.portfolio-item-practice-label {
     background: #1f7f74;
     color: #ffffff !important;
 }
 
-.project-category-label a {
+.portfolio-item-practice-label a {
     color: #ffffff;
 }
 
-#portfolio-projects .view-details-button,
+#portfolio-items .view-details-button,
 .view-details-button {
     color: #6ee7d8 !important;
     border-color: #6ee7d8 !important;
 }
 
-#portfolio-projects .view-details-button:hover,
-#portfolio-projects .view-details-button:focus-visible,
+#portfolio-items .view-details-button:hover,
+#portfolio-items .view-details-button:focus-visible,
 .view-details-button:hover,
 .view-details-button:focus-visible {
     background: #6ee7d8 !important;
     color: #0f1b1e !important;
 }
 
-#portfolio-projects .card-actions .cta-button:hover,
-#portfolio-projects .card-actions .cta-button:focus-visible {
+#portfolio-items .card-actions .cta-button:hover,
+#portfolio-items .card-actions .cta-button:focus-visible {
     background: #6ee7d8 !important;
     color: #0f1b1e !important;
     border-color: #6ee7d8 !important;

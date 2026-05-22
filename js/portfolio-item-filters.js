@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const filterContainer = document.querySelector('#portfolio-filters');
+    const filterContainer = document.querySelector('#portfolio-item-filters');
     const filterButtons = filterContainer?.querySelectorAll('.filter-button');
-    const portfolioItems = document.querySelectorAll('#portfolio-projects .project');
+    const portfolioItems = document.querySelectorAll('#portfolio-items .portfolio-item');
 
     if (!filterContainer || !filterButtons?.length || !portfolioItems.length) {
         return;
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             portfolioItems.forEach((item) => {
                 const itemCategories = item.getAttribute('data-category')?.split(' ') || [];
                 const shouldShow = filter === 'all'
-                    ? !item.classList.contains('project-placeholder')
+                    ? !item.classList.contains('portfolio-item-placeholder')
                     : itemCategories.includes(filter);
                 item.hidden = !shouldShow;
             });

@@ -178,20 +178,22 @@ posts.forEach((post, index) => {
   }
 });
 
-const portfolioSource = JSON.parse(await readFile(path.join(root, 'assets/data/portfolio-projects.json'), 'utf8'));
-const portfolioProjects = Array.isArray(portfolioSource.projects) ? portfolioSource.projects : [];
-if (portfolioProjects.length === 0) {
-  failures.push('assets/data/portfolio-projects.json: expected at least one portfolio project');
+const portfolioSource = JSON.parse(await readFile(path.join(root, 'assets/data/portfolio-items.json'), 'utf8'));
+const portfolioItems = Array.isArray(portfolioSource.portfolioItems)
+  ? portfolioSource.portfolioItems
+  : portfolioSource.projects || [];
+if (portfolioItems.length === 0) {
+  failures.push('assets/data/portfolio-items.json: expected at least one portfolio item');
 }
 
-for (const [index, project] of portfolioProjects.entries()) {
-  const label = `assets/data/portfolio-projects.json: project ${index + 1}`;
-  for (const key of ['id', 'title', 'category', 'description', 'sourceArtifact']) {
-    if (!project[key]) {
+for (const [index, portfolioItem] of portfolioItems.entries()) {
+  const label = `assets/data/portfolio-items.json: portfolio item ${index + 1}`;
+  for (const key of ['id', 'title', 'practiceArea', 'description', 'sourceArtifact']) {
+    if (!portfolioItem[key]) {
       failures.push(`${label} is missing ${key}`);
     }
   }
-  for (const value of [project.image?.src, project.sourceArtifact].filter(Boolean)) {
+  for (const value of [portfolioItem.image?.src, portfolioItem.sourceArtifact].filter(Boolean)) {
     const targetPath = path.resolve(root, decodeURIComponent(value));
     if (!(await exists(targetPath))) {
       failures.push(`${label} references missing asset: ${value}`);
@@ -204,4 +206,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Validated ${htmlFiles.length} HTML files, ${cssFiles.length} CSS files, ${posts.length} blog posts, ${portfolioProjects.length} portfolio projects, local assets, fragments, external host allowlists, target=_blank rels, and CSP policies.`);
+console.log(`Validated ${htmlFiles.length} HTML files, ${cssFiles.length} CSS files, ${posts.length} blog posts, ${portfolioItems.length} portfolio items, local assets, fragments, external host allowlists, target=_blank rels, and CSP policies.`);

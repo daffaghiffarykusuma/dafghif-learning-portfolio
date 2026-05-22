@@ -90,7 +90,7 @@ describe('production site system checks', () => {
     const assets = [
       '/assets/blog.json',
       '/assets/data/portfolio-ai-context.json',
-      '/assets/data/portfolio-projects.json',
+      '/assets/data/portfolio-items.json',
       '/assets/pdf/portfolio/adaptive_communication_1.pdf',
       '/cv/Profile.pdf',
       '/_headers'

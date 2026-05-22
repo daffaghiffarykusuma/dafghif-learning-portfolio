@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
-const portfolioSourcePath = 'assets/data/portfolio-projects.json';
+const portfolioSourcePath = 'assets/data/portfolio-items.json';
 const outputPath = 'assets/data/portfolio-ai-context.json';
 
 const portfolioSource = JSON.parse(await readFile(portfolioSourcePath, 'utf8'));
@@ -15,7 +15,7 @@ const slugify = (value) =>
 
 const normalizeText = (value = '') => value.replace(/\s+/g, ' ').trim();
 
-const categoryProfiles = {
+const practiceAreaProfiles = {
   'Training Needs Analysis': {
     defaultRole:
       'Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.',
@@ -95,7 +95,7 @@ const categoryProfiles = {
   },
   'Review: Legacy Project': {
     defaultRole:
-      'Produced an earlier portfolio project that demonstrates applied program, people, or learning operations capability.',
+      'Produced an earlier portfolio item that demonstrates applied program, people, or learning operations capability.',
     defaultDeliverables: ['legacy project artifact', 'operational framework', 'implementation support'],
     defaultSkills: ['program design', 'people development', 'operations improvement', 'stakeholder collaboration'],
     cvVerb: 'Created'
@@ -109,9 +109,9 @@ const categoryProfiles = {
   }
 };
 
-const inferTools = (project) => {
-  const source = project.source.toLowerCase();
-  const text = `${project.title} ${project.description} ${project.category}`.toLowerCase();
+const inferTools = (portfolioItem) => {
+  const source = portfolioItem.source.toLowerCase();
+  const text = `${portfolioItem.title} ${portfolioItem.description} ${portfolioItem.practiceArea}`.toLowerCase();
   const tools = new Set();
 
   if (source.endsWith('.xlsx') || source.includes('portfolio-viewers') || text.includes('dashboard') || text.includes('calculator')) {
@@ -130,8 +130,8 @@ const inferTools = (project) => {
   return [...tools];
 };
 
-const inferAudience = (project) => {
-  const text = `${project.title} ${project.description}`.toLowerCase();
+const inferAudience = (portfolioItem) => {
+  const text = `${portfolioItem.title} ${portfolioItem.description}`.toLowerCase();
   if (text.includes('smk')) return 'vocational students';
   if (text.includes('msme') || text.includes('umkm')) return 'MSME owners and entrepreneurs';
   if (text.includes('student') || text.includes('graduate') || text.includes('scholarship')) return 'students and early-career talent';
@@ -143,14 +143,14 @@ const inferAudience = (project) => {
   return 'learners, teams, or program stakeholders';
 };
 
-const inferScale = (project) => {
-  const text = `${project.title} ${project.description}`;
+const inferScale = (portfolioItem) => {
+  const text = `${portfolioItem.title} ${portfolioItem.description}`;
   const matches = [...text.matchAll(/\b\d{1,3}(?:,\d{3})?\+?\b/g)].map((match) => match[0]);
   return matches.length ? matches : [];
 };
 
-const inferImpact = (project) => {
-  const text = `${project.title} ${project.description}`.toLowerCase();
+const inferOutcomeEvidence = (portfolioItem) => {
+  const text = `${portfolioItem.title} ${portfolioItem.description}`.toLowerCase();
   if (text.includes('needs') || text.includes('gap')) {
     return 'Clarified the real performance gap before investing in training design or delivery.';
   }
@@ -172,26 +172,30 @@ const inferImpact = (project) => {
   return 'Converted a learning topic into a usable artifact that supports understanding, practice, and application.';
 };
 
-const makeCvBullet = (project, profile, impact) =>
-  `${profile.cvVerb} ${project.title} as a ${project.category.toLowerCase()} project, creating practical context for ${project.audience} and supporting this outcome: ${impact}`;
+const makeCvBullet = (portfolioItem, profile, outcomeEvidence) =>
+  `${profile.cvVerb} ${portfolioItem.title} as a ${portfolioItem.practiceArea.toLowerCase()} portfolio item, creating practical context for ${portfolioItem.audience} and supporting this outcome: ${outcomeEvidence}`;
 
-const projects = portfolioSource.projects.map((sourceProject) => {
-  const title = normalizeText(sourceProject.title);
-  const category = normalizeText(sourceProject.category);
-  const description = normalizeText(sourceProject.description);
-  const tags = sourceProject.tags || [];
-  const source = sourceProject.sourceArtifact || '';
-  const profile = categoryProfiles[category] || categoryProfiles['Learning Materials'];
-  const audience = inferAudience({ title, description, category });
-  const tools = inferTools({ title, description, category, source });
+const sourceItems = Array.isArray(portfolioSource.portfolioItems)
+  ? portfolioSource.portfolioItems
+  : portfolioSource.projects || [];
+
+const portfolioItems = sourceItems.map((sourceItem) => {
+  const title = normalizeText(sourceItem.title);
+  const practiceArea = normalizeText(sourceItem.practiceArea || sourceItem.category);
+  const description = normalizeText(sourceItem.description);
+  const tags = sourceItem.tags || [];
+  const source = sourceItem.sourceArtifact || '';
+  const profile = practiceAreaProfiles[practiceArea] || practiceAreaProfiles['Learning Materials'];
+  const audience = inferAudience({ title, description, practiceArea });
+  const tools = inferTools({ title, description, practiceArea, source });
   const scaleSignals = inferScale({ title, description });
-  const impact = inferImpact({ title, description });
-  const baseProject = { title, category, audience };
+  const outcomeEvidence = inferOutcomeEvidence({ title, description });
+  const baseItem = { title, practiceArea, audience };
 
   return {
-    id: sourceProject.id || slugify(title),
+    id: sourceItem.id || slugify(title),
     title,
-    category,
+    practiceArea,
     tags,
     publicDescription: description,
     sourceArtifact: source,
@@ -203,8 +207,8 @@ const projects = portfolioSource.projects.map((sourceProject) => {
       skills: [...new Set([...profile.defaultSkills, ...tags.map((tag) => tag.replace(/-/g, ' '))])],
       tools,
       scaleSignals,
-      impact,
-      cvBullet: makeCvBullet(baseProject, profile, impact)
+      outcomeEvidence,
+      cvBullet: makeCvBullet(baseItem, profile, outcomeEvidence)
     }
   };
 });
@@ -216,15 +220,15 @@ const data = {
   positioning:
     'Learning Designer and Program Manager focused on competency-based training, learning assets, evaluation systems, mentoring, and learning analytics.',
   usage:
-    'Use this file as AI-readable context for tailored CVs, cover letters, recruiter summaries, and project matching when the original portfolio artifacts are unavailable.',
+    'Use this file as AI-readable context for tailored CVs, cover letters, recruiter summaries, and portfolio item matching when the original portfolio artifacts are unavailable.',
   evidenceNote:
-    'Project titles, categories, descriptions, tags, and source artifact paths are read from the structured portfolio source. Role, audience, deliverables, skills, tools, impact, and CV bullets are inferred from those public snippets and should be refined when exact project details are available.',
-  projectCount: projects.length,
-  categoryProfiles,
-  projects
+    'Portfolio item titles, practice areas, descriptions, tags, and source artifact paths are read from the structured portfolio source. Role, audience, deliverables, skills, tools, outcome evidence, and CV bullets are inferred from those public snippets and should be refined when exact portfolio item details are available.',
+  portfolioItemCount: portfolioItems.length,
+  practiceAreaProfiles,
+  portfolioItems
 };
 
 await mkdir(path.dirname(outputPath), { recursive: true });
 await writeFile(outputPath, `${JSON.stringify(data, null, 2)}\n`, 'utf8');
 
-console.log(`Generated ${projects.length} project records at ${outputPath}`);
+console.log(`Generated ${portfolioItems.length} portfolio item records at ${outputPath}`);

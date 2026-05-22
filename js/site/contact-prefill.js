@@ -1,12 +1,12 @@
-const SERVICE_INQUIRY_STORAGE_KEY = 'serviceInquiry';
+const ENGAGEMENT_INQUIRY_STORAGE_KEY = 'engagementInquiry';
 
 export function initContactPrefill() {
-    document.querySelectorAll('.service-inquiry-form').forEach((form) => {
+    document.querySelectorAll('.engagement-inquiry-form').forEach((form) => {
         form.addEventListener('submit', (event) => {
             event.preventDefault();
             const formData = new FormData(form);
             const payload = {
-                service: form.dataset.service || formData.get('service') || '',
+                engagementType: form.dataset.engagementType || form.dataset.service || formData.get('engagement') || formData.get('service') || '',
                 name: formData.get('name') || '',
                 email: formData.get('email') || '',
                 organisation: formData.get('organisation') || '',
@@ -15,7 +15,7 @@ export function initContactPrefill() {
             };
 
             try {
-                sessionStorage.setItem(SERVICE_INQUIRY_STORAGE_KEY, JSON.stringify(payload));
+                sessionStorage.setItem(ENGAGEMENT_INQUIRY_STORAGE_KEY, JSON.stringify(payload));
             } catch (error) {
                 console.warn('Unable to store inquiry context', error);
             }
@@ -25,7 +25,7 @@ export function initContactPrefill() {
     });
 
     const currentParams = new URLSearchParams(window.location.search);
-    const serviceFromQuery = currentParams.get('service');
+    const engagementFromQuery = currentParams.get('engagement') || currentParams.get('service');
     const contactForm = document.querySelector('.contact-form');
     if (!contactForm) return;
 
@@ -33,11 +33,11 @@ export function initContactPrefill() {
     const emailField = contactForm.querySelector('#email');
     const organisationField = contactForm.querySelector('input[name="organisation"], #company');
     const messageField = contactForm.querySelector('#message');
-    const serviceField = contactForm.querySelector('#service-interest');
+    const engagementField = contactForm.querySelector('#service-interest');
     const banner = document.getElementById('contact-prefill-message');
 
     const setSelectValue = (value) => {
-        if (!serviceField || !value) return;
+        if (!engagementField || !value) return;
         const mapping = new Map([
             ['custom-training', 'training'],
             ['training', 'training'],
@@ -48,22 +48,22 @@ export function initContactPrefill() {
             ['speaking', 'speaking']
         ]);
         const targetValue = mapping.get(value.toLowerCase()) || value.toLowerCase();
-        Array.from(serviceField.options).forEach((option) => {
+        Array.from(engagementField.options).forEach((option) => {
             option.selected = option.value === targetValue;
         });
     };
 
-    const friendlyServiceName = (value) => {
+    const friendlyEngagementName = (value) => {
         const lookup = {
             training: 'a custom training programme',
             'custom-training': 'a custom training programme',
-            'learning-materials': 'a learning materials project',
-            powerpoint: 'a learning materials project',
-            'learning-powerpoint': 'a learning materials project',
+            'learning-materials': 'a learning-materials engagement',
+            powerpoint: 'a learning-materials engagement',
+            'learning-powerpoint': 'a learning-materials engagement',
             mentoring: 'a mentoring or speaking engagement',
             speaking: 'an event speaking engagement'
         };
-        return lookup[value?.toLowerCase()] || value || 'this project';
+        return lookup[value?.toLowerCase()] || value || 'this engagement';
     };
 
     const applyPrefill = (data) => {
@@ -72,10 +72,10 @@ export function initContactPrefill() {
         if (emailField && data.email) emailField.value = data.email;
         if (organisationField && data.organisation) organisationField.value = data.organisation;
         if (messageField && data.goal?.trim()) messageField.value = data.goal.trim();
-        setSelectValue(data.service || serviceFromQuery);
+        setSelectValue(data.engagementType || engagementFromQuery);
         banner?.removeAttribute('hidden');
         try {
-            sessionStorage.removeItem(SERVICE_INQUIRY_STORAGE_KEY);
+            sessionStorage.removeItem(ENGAGEMENT_INQUIRY_STORAGE_KEY);
         } catch (error) {
             console.warn('Unable to clear stored inquiry context', error);
         }
@@ -83,7 +83,7 @@ export function initContactPrefill() {
 
     let storedValue = null;
     try {
-        const raw = sessionStorage.getItem(SERVICE_INQUIRY_STORAGE_KEY);
+        const raw = sessionStorage.getItem(ENGAGEMENT_INQUIRY_STORAGE_KEY);
         storedValue = raw ? JSON.parse(raw) : null;
     } catch (error) {
         console.warn('Unable to parse stored inquiry context', error);
@@ -91,10 +91,10 @@ export function initContactPrefill() {
 
     if (storedValue) {
         applyPrefill(storedValue);
-    } else if (serviceFromQuery) {
-        setSelectValue(serviceFromQuery);
+    } else if (engagementFromQuery) {
+        setSelectValue(engagementFromQuery);
         if (messageField) {
-            messageField.value = `Interested in ${friendlyServiceName(serviceFromQuery)}. Please share availability and next steps.`;
+            messageField.value = `Interested in ${friendlyEngagementName(engagementFromQuery)}. Please share availability and next steps.`;
         }
     }
 }

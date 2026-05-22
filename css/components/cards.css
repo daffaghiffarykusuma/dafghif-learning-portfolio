@@ -64,7 +64,7 @@ Author: Kilo Code
   margin-bottom: var(--space-6);
 }
 
-.service-icon {
+.practice-area-icon {
   flex-shrink: 0;
   width: 60px;
   height: 60px;
@@ -111,13 +111,13 @@ Author: Kilo Code
 }
 
 /* ===== SERVICE HIGHLIGHTS ===== */
-.service-highlights {
+.practice-area-highlights {
   list-style: none;
   margin: 0 0 var(--space-6);
   padding: 0;
 }
 
-.service-highlights li {
+.practice-area-highlights li {
   display: flex;
   align-items: flex-start;
   gap: var(--space-3);
@@ -127,7 +127,7 @@ Author: Kilo Code
   color: var(--color-text-secondary);
 }
 
-.service-highlights li::before {
+.practice-area-highlights li::before {
   content: '✓';
   flex-shrink: 0;
   width: 20px;
@@ -144,7 +144,7 @@ Author: Kilo Code
 }
 
 /* ===== SERVICE PROOF (TESTIMONIALS) ===== */
-.service-proof {
+.proof-point-quote {
   background: var(--color-bg-secondary);
   border: 1px solid var(--color-border-light);
   border-radius: var(--radius-lg);
@@ -153,7 +153,7 @@ Author: Kilo Code
   position: relative;
 }
 
-.service-proof::before {
+.proof-point-quote::before {
   content: '"';
   position: absolute;
   top: -8px;
@@ -164,7 +164,7 @@ Author: Kilo Code
   line-height: 1;
 }
 
-.service-proof-text {
+.proof-point-quote-text {
   font-size: var(--font-size-sm);
   font-style: italic;
   line-height: var(--line-height-relaxed);
@@ -172,7 +172,7 @@ Author: Kilo Code
   margin: 0;
 }
 
-.service-proof-author {
+.proof-point-quote-author {
   display: block;
   margin-top: var(--space-3);
   font-size: var(--font-size-xs);
@@ -181,7 +181,7 @@ Author: Kilo Code
 }
 
 /* ===== SERVICE CARD ACTIONS ===== */
-.service-card-actions {
+.engagement-card-actions {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
@@ -475,7 +475,7 @@ Author: Kilo Code
     gap: var(--space-3);
   }
   
-  .service-icon {
+  .practice-area-icon {
     width: 50px;
     height: 50px;
     font-size: var(--font-size-base);

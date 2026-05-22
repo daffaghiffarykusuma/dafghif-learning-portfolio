@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedFrom": "assets/data/portfolio-projects.json",
-  "generatedAt": "2026-05-22T01:48:51.980Z",
+  "generatedFrom": "assets/data/portfolio-items.json",
+  "generatedAt": "2026-05-22T04:34:18.693Z",
   "owner": "Daffa Ghiffary Kusuma",
   "positioning": "Learning Designer and Program Manager focused on competency-based training, learning assets, evaluation systems, mentoring, and learning analytics.",
-  "usage": "Use this file as AI-readable context for tailored CVs, cover letters, recruiter summaries, and project matching when the original portfolio artifacts are unavailable.",
-  "evidenceNote": "Project titles, categories, descriptions, tags, and source artifact paths are read from the structured portfolio source. Role, audience, deliverables, skills, tools, impact, and CV bullets are inferred from those public snippets and should be refined when exact project details are available.",
-  "projectCount": 78,
-  "categoryProfiles": {
+  "usage": "Use this file as AI-readable context for tailored CVs, cover letters, recruiter summaries, and portfolio item matching when the original portfolio artifacts are unavailable.",
+  "evidenceNote": "Portfolio item titles, practice areas, descriptions, tags, and source artifact paths are read from the structured portfolio source. Role, audience, deliverables, skills, tools, outcome evidence, and CV bullets are inferred from those public snippets and should be refined when exact portfolio item details are available.",
+  "portfolioItemCount": 78,
+  "practiceAreaProfiles": {
     "Training Needs Analysis": {
       "defaultRole": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
       "defaultDeliverables": [
@@ -174,7 +174,7 @@
       "cvVerb": "Delivered"
     },
     "Review: Legacy Project": {
-      "defaultRole": "Produced an earlier portfolio project that demonstrates applied program, people, or learning operations capability.",
+      "defaultRole": "Produced an earlier portfolio item that demonstrates applied program, people, or learning operations capability.",
       "defaultDeliverables": [
         "legacy project artifact",
         "operational framework",
@@ -204,11 +204,11 @@
       "cvVerb": "Created"
     }
   },
-  "projects": [
+  "portfolioItems": [
     {
       "id": "project-administrative-communication-training-needs-analysis",
       "title": "Administrative Communication Training Needs Analysis",
-      "category": "Training Needs Analysis",
+      "practiceArea": "Training Needs Analysis",
       "tags": [
         "training-needs-analysis",
         "instructional-design"
@@ -235,14 +235,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Clarified the real performance gap before investing in training design or delivery.",
-        "cvBullet": "Diagnosed Administrative Communication Training Needs Analysis as a training needs analysis project, creating practical context for working professionals and supporting this outcome: Clarified the real performance gap before investing in training design or delivery."
+        "outcomeEvidence": "Clarified the real performance gap before investing in training design or delivery.",
+        "cvBullet": "Diagnosed Administrative Communication Training Needs Analysis as a training needs analysis portfolio item, creating practical context for working professionals and supporting this outcome: Clarified the real performance gap before investing in training design or delivery."
       }
     },
     {
       "id": "project-competency-based-communication-training-proposal",
       "title": "Competency-Based Communication Training Proposal",
-      "category": "Training Proposal",
+      "practiceArea": "Training Proposal",
       "tags": [
         "training-proposal",
         "instructional-design",
@@ -271,14 +271,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making.",
-        "cvBullet": "Developed Competency-Based Communication Training Proposal as a training proposal project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
+        "outcomeEvidence": "Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making.",
+        "cvBullet": "Developed Competency-Based Communication Training Proposal as a training proposal portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
       }
     },
     {
       "id": "project-administrative-communication-lesson-plan",
       "title": "Administrative Communication Lesson Plan",
-      "category": "Instructional Design",
+      "practiceArea": "Instructional Design",
       "tags": [
         "instructional-design",
         "curriculum-development"
@@ -307,14 +307,14 @@
         "scaleSignals": [
           "36"
         ],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Designed Administrative Communication Lesson Plan as a instructional design project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Designed Administrative Communication Lesson Plan as a instructional design portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-communication-confidence-training-deck",
       "title": "Communication Confidence Training Deck",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials",
         "instructional-design",
@@ -344,14 +344,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Communication Confidence Training Deck as a learning materials project, creating practical context for working professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Communication Confidence Training Deck as a learning materials portfolio item, creating practical context for working professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-communication-skills-post-test-form",
       "title": "Communication Skills Post-Test Form",
-      "category": "Assessment & Evaluation",
+      "practiceArea": "Assessment & Evaluation",
       "tags": [
         "assessment",
         "learning-evaluation"
@@ -378,14 +378,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
-        "cvBullet": "Designed Communication Skills Post-Test Form as a assessment & evaluation project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
+        "outcomeEvidence": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
+        "cvBullet": "Designed Communication Skills Post-Test Form as a assessment & evaluation portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
       }
     },
     {
       "id": "project-training-feedback-form-level-1-reaction",
       "title": "Training Feedback Form: Level 1 Reaction",
-      "category": "Assessment & Evaluation",
+      "practiceArea": "Assessment & Evaluation",
       "tags": [
         "assessment",
         "learning-evaluation"
@@ -414,14 +414,14 @@
         "scaleSignals": [
           "1"
         ],
-        "impact": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
-        "cvBullet": "Designed Training Feedback Form: Level 1 Reaction as a assessment & evaluation project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
+        "outcomeEvidence": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
+        "cvBullet": "Designed Training Feedback Form: Level 1 Reaction as a assessment & evaluation portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
       }
     },
     {
       "id": "project-communication-observation-form-and-performance-rubric",
       "title": "Communication Observation Form and Performance Rubric",
-      "category": "Assessment & Evaluation",
+      "practiceArea": "Assessment & Evaluation",
       "tags": [
         "assessment",
         "learning-evaluation"
@@ -448,14 +448,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
-        "cvBullet": "Designed Communication Observation Form and Performance Rubric as a assessment & evaluation project, creating practical context for working professionals and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
+        "outcomeEvidence": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
+        "cvBullet": "Designed Communication Observation Form and Performance Rubric as a assessment & evaluation portfolio item, creating practical context for working professionals and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
       }
     },
     {
       "id": "project-macro-training-needs-analysis-dki-jakarta",
       "title": "Macro Training Needs Analysis: DKI Jakarta",
-      "category": "Training Needs Analysis",
+      "practiceArea": "Training Needs Analysis",
       "tags": [
         "training-needs-analysis",
         "learning-strategy"
@@ -482,14 +482,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Clarified the real performance gap before investing in training design or delivery.",
-        "cvBullet": "Diagnosed Macro Training Needs Analysis: DKI Jakarta as a training needs analysis project, creating practical context for working professionals and supporting this outcome: Clarified the real performance gap before investing in training design or delivery."
+        "outcomeEvidence": "Clarified the real performance gap before investing in training design or delivery.",
+        "cvBullet": "Diagnosed Macro Training Needs Analysis: DKI Jakarta as a training needs analysis portfolio item, creating practical context for working professionals and supporting this outcome: Clarified the real performance gap before investing in training design or delivery."
       }
     },
     {
       "id": "project-competency-matrix-for-training-organization",
       "title": "Competency Matrix for Training Organization",
-      "category": "Curriculum Development",
+      "practiceArea": "Curriculum Development",
       "tags": [
         "curriculum-development",
         "learning-strategy",
@@ -518,14 +518,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Built Competency Matrix for Training Organization as a curriculum development project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Built Competency Matrix for Training Organization as a curriculum development portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
       "id": "project-competency-based-training-syllabus",
       "title": "Competency-Based Training Syllabus",
-      "category": "Curriculum Development",
+      "practiceArea": "Curriculum Development",
       "tags": [
         "curriculum-development",
         "instructional-design"
@@ -552,14 +552,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Built Competency-Based Training Syllabus as a curriculum development project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Built Competency-Based Training Syllabus as a curriculum development portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
       "id": "project-learning-business-plan-eighteen-rekrutmen-asia",
       "title": "Learning Business Plan: Eighteen Rekrutmen Asia",
-      "category": "L&D Strategy",
+      "practiceArea": "L&D Strategy",
       "tags": [
         "learning-strategy",
         "training-proposal"
@@ -587,14 +587,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making.",
-        "cvBullet": "Framed Learning Business Plan: Eighteen Rekrutmen Asia as a l&d strategy project, creating practical context for entrepreneurs and startup founders and supporting this outcome: Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
+        "outcomeEvidence": "Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making.",
+        "cvBullet": "Framed Learning Business Plan: Eighteen Rekrutmen Asia as a l&d strategy portfolio item, creating practical context for entrepreneurs and startup founders and supporting this outcome: Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
       }
     },
     {
       "id": "project-marketing-plan-for-training-solutions",
       "title": "Marketing Plan for Training Solutions",
-      "category": "L&D Strategy",
+      "practiceArea": "L&D Strategy",
       "tags": [
         "learning-strategy",
         "training-proposal"
@@ -622,14 +622,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making.",
-        "cvBullet": "Framed Marketing Plan for Training Solutions as a l&d strategy project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
+        "outcomeEvidence": "Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making.",
+        "cvBullet": "Framed Marketing Plan for Training Solutions as a l&d strategy portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
       }
     },
     {
       "id": "project-training-budget-and-roti-calculator",
       "title": "Training Budget and ROTI Calculator",
-      "category": "Learning Analytics",
+      "practiceArea": "Learning Analytics",
       "tags": [
         "learning-analytics",
         "worksheet",
@@ -658,14 +658,14 @@
           "Excel or Google Sheets"
         ],
         "scaleSignals": [],
-        "impact": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
-        "cvBullet": "Built Training Budget and ROTI Calculator as a learning analytics project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        "outcomeEvidence": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
+        "cvBullet": "Built Training Budget and ROTI Calculator as a learning analytics portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
       }
     },
     {
       "id": "project-kirkpatrick-level-1-reaction-dashboard",
       "title": "Kirkpatrick Level 1 Reaction Dashboard",
-      "category": "Learning Analytics",
+      "practiceArea": "Learning Analytics",
       "tags": [
         "assessment",
         "learning-evaluation",
@@ -696,14 +696,14 @@
         "scaleSignals": [
           "1"
         ],
-        "impact": "Improved visibility into learning data so decisions, remediation, and program improvements could be made faster.",
-        "cvBullet": "Built Kirkpatrick Level 1 Reaction Dashboard as a learning analytics project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Improved visibility into learning data so decisions, remediation, and program improvements could be made faster."
+        "outcomeEvidence": "Improved visibility into learning data so decisions, remediation, and program improvements could be made faster.",
+        "cvBullet": "Built Kirkpatrick Level 1 Reaction Dashboard as a learning analytics portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Improved visibility into learning data so decisions, remediation, and program improvements could be made faster."
       }
     },
     {
       "id": "project-kirkpatrick-level-2-learning-dashboard",
       "title": "Kirkpatrick Level 2 Learning Dashboard",
-      "category": "Learning Analytics",
+      "practiceArea": "Learning Analytics",
       "tags": [
         "assessment",
         "learning-evaluation",
@@ -734,14 +734,14 @@
         "scaleSignals": [
           "2"
         ],
-        "impact": "Improved visibility into learning data so decisions, remediation, and program improvements could be made faster.",
-        "cvBullet": "Built Kirkpatrick Level 2 Learning Dashboard as a learning analytics project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Improved visibility into learning data so decisions, remediation, and program improvements could be made faster."
+        "outcomeEvidence": "Improved visibility into learning data so decisions, remediation, and program improvements could be made faster.",
+        "cvBullet": "Built Kirkpatrick Level 2 Learning Dashboard as a learning analytics portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Improved visibility into learning data so decisions, remediation, and program improvements could be made faster."
       }
     },
     {
       "id": "project-training-and-coaching-need-analysis-framework",
       "title": "Training and Coaching Need Analysis Framework",
-      "category": "Training Needs Analysis",
+      "practiceArea": "Training Needs Analysis",
       "tags": [
         "training-needs-analysis",
         "worksheet",
@@ -770,14 +770,14 @@
           "Excel or Google Sheets"
         ],
         "scaleSignals": [],
-        "impact": "Clarified the real performance gap before investing in training design or delivery.",
-        "cvBullet": "Diagnosed Training and Coaching Need Analysis Framework as a training needs analysis project, creating practical context for entrepreneurs and startup founders and supporting this outcome: Clarified the real performance gap before investing in training design or delivery."
+        "outcomeEvidence": "Clarified the real performance gap before investing in training design or delivery.",
+        "cvBullet": "Diagnosed Training and Coaching Need Analysis Framework as a training needs analysis portfolio item, creating practical context for entrepreneurs and startup founders and supporting this outcome: Clarified the real performance gap before investing in training design or delivery."
       }
     },
     {
       "id": "project-need-assessment-cross-department-communication",
       "title": "Need Assessment: Cross-Department Communication",
-      "category": "Training Needs Analysis",
+      "practiceArea": "Training Needs Analysis",
       "tags": [
         "training-needs-analysis",
         "instructional-design",
@@ -806,14 +806,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Clarified the real performance gap before investing in training design or delivery.",
-        "cvBullet": "Diagnosed Need Assessment: Cross-Department Communication as a training needs analysis project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Clarified the real performance gap before investing in training design or delivery."
+        "outcomeEvidence": "Clarified the real performance gap before investing in training design or delivery.",
+        "cvBullet": "Diagnosed Need Assessment: Cross-Department Communication as a training needs analysis portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Clarified the real performance gap before investing in training design or delivery."
       }
     },
     {
       "id": "project-need-assessment-manager-communication-to-staff",
       "title": "Need Assessment: Manager Communication to Staff",
-      "category": "Training Needs Analysis",
+      "practiceArea": "Training Needs Analysis",
       "tags": [
         "training-needs-analysis",
         "instructional-design",
@@ -842,14 +842,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
-        "cvBullet": "Diagnosed Need Assessment: Manager Communication to Staff as a training needs analysis project, creating practical context for managers and team leaders and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
+        "outcomeEvidence": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
+        "cvBullet": "Diagnosed Need Assessment: Manager Communication to Staff as a training needs analysis portfolio item, creating practical context for managers and team leaders and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
       }
     },
     {
       "id": "project-recruitment-assessment-blueprint",
       "title": "Recruitment Assessment Blueprint",
-      "category": "Assessment & Evaluation",
+      "practiceArea": "Assessment & Evaluation",
       "tags": [
         "assessment",
         "learning-analytics"
@@ -877,14 +877,14 @@
           "Excel or Google Sheets"
         ],
         "scaleSignals": [],
-        "impact": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
-        "cvBullet": "Designed Recruitment Assessment Blueprint as a assessment & evaluation project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
+        "outcomeEvidence": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
+        "cvBullet": "Designed Recruitment Assessment Blueprint as a assessment & evaluation portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
       }
     },
     {
       "id": "project-rancangan-sistem-asesmen-kompetensi-project-management",
       "title": "Rancangan Sistem Asesmen Kompetensi Project Management",
-      "category": "Training Proposal",
+      "practiceArea": "Training Proposal",
       "tags": [
         "training-proposal",
         "assessment",
@@ -918,14 +918,14 @@
         "scaleSignals": [
           "5"
         ],
-        "impact": "Clarified the real performance gap before investing in training design or delivery.",
-        "cvBullet": "Developed Rancangan Sistem Asesmen Kompetensi Project Management as a training proposal project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Clarified the real performance gap before investing in training design or delivery."
+        "outcomeEvidence": "Clarified the real performance gap before investing in training design or delivery.",
+        "cvBullet": "Developed Rancangan Sistem Asesmen Kompetensi Project Management as a training proposal portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Clarified the real performance gap before investing in training design or delivery."
       }
     },
     {
       "id": "project-miles-unfair-advantage-mentoring-workbook",
       "title": "MILES Unfair Advantage Mentoring Workbook",
-      "category": "Mentoring & Coaching",
+      "practiceArea": "Mentoring & Coaching",
       "tags": [
         "worksheet",
         "mentoring",
@@ -955,14 +955,14 @@
           "Excel or Google Sheets"
         ],
         "scaleSignals": [],
-        "impact": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
-        "cvBullet": "Structured MILES Unfair Advantage Mentoring Workbook as a mentoring & coaching project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        "outcomeEvidence": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
+        "cvBullet": "Structured MILES Unfair Advantage Mentoring Workbook as a mentoring & coaching portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
       }
     },
     {
       "id": "project-mentoring-workbook-week-1-idea-exploration",
       "title": "Mentoring Workbook: Week 1 Idea Exploration",
-      "category": "Mentoring & Coaching",
+      "practiceArea": "Mentoring & Coaching",
       "tags": [
         "worksheet",
         "mentoring"
@@ -992,14 +992,14 @@
         "scaleSignals": [
           "1"
         ],
-        "impact": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
-        "cvBullet": "Structured Mentoring Workbook: Week 1 Idea Exploration as a mentoring & coaching project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        "outcomeEvidence": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
+        "cvBullet": "Structured Mentoring Workbook: Week 1 Idea Exploration as a mentoring & coaching portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
       }
     },
     {
       "id": "project-mentoring-workbook-week-2-concept-development",
       "title": "Mentoring Workbook: Week 2 Concept Development",
-      "category": "Mentoring & Coaching",
+      "practiceArea": "Mentoring & Coaching",
       "tags": [
         "worksheet",
         "mentoring"
@@ -1029,14 +1029,14 @@
         "scaleSignals": [
           "2"
         ],
-        "impact": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
-        "cvBullet": "Structured Mentoring Workbook: Week 2 Concept Development as a mentoring & coaching project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        "outcomeEvidence": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
+        "cvBullet": "Structured Mentoring Workbook: Week 2 Concept Development as a mentoring & coaching portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
       }
     },
     {
       "id": "project-mentoring-workbook-week-3-presentation-readiness",
       "title": "Mentoring Workbook: Week 3 Presentation Readiness",
-      "category": "Mentoring & Coaching",
+      "practiceArea": "Mentoring & Coaching",
       "tags": [
         "worksheet",
         "mentoring",
@@ -1069,14 +1069,14 @@
         "scaleSignals": [
           "3"
         ],
-        "impact": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
-        "cvBullet": "Structured Mentoring Workbook: Week 3 Presentation Readiness as a mentoring & coaching project, creating practical context for students and early-career talent and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        "outcomeEvidence": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
+        "cvBullet": "Structured Mentoring Workbook: Week 3 Presentation Readiness as a mentoring & coaching portfolio item, creating practical context for students and early-career talent and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
       }
     },
     {
       "id": "project-pitch-deck-template-week-4",
       "title": "Pitch Deck Template: Week 4",
-      "category": "Presentation Design",
+      "practiceArea": "Presentation Design",
       "tags": [
         "presentation-design",
         "mentoring",
@@ -1109,14 +1109,14 @@
           "4",
           "16"
         ],
-        "impact": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
-        "cvBullet": "Designed Pitch Deck Template: Week 4 as a presentation design project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        "outcomeEvidence": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
+        "cvBullet": "Designed Pitch Deck Template: Week 4 as a presentation design portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
       }
     },
     {
       "id": "project-learning-from-abroad-education-and-career-pathways",
       "title": "Learning from Abroad: Education and Career Pathways",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials",
         "presentation-design",
@@ -1146,14 +1146,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Created Learning from Abroad: Education and Career Pathways as a learning materials project, creating practical context for students and early-career talent and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Created Learning from Abroad: Education and Career Pathways as a learning materials portfolio item, creating practical context for students and early-career talent and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
       "id": "project-digital-marketing-portfolio-workshop-deck",
       "title": "Digital Marketing Portfolio Workshop Deck",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials",
         "presentation-design"
@@ -1181,14 +1181,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Created Digital Marketing Portfolio Workshop Deck as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Created Digital Marketing Portfolio Workshop Deck as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
       "id": "project-theory-of-change-as-program-framework",
       "title": "Theory of Change as Program Framework",
-      "category": "Custom Training & Workshops",
+      "practiceArea": "Custom Training & Workshops",
       "tags": [
         "training-workshop"
       ],
@@ -1215,14 +1215,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Delivered Theory of Change as Program Framework as a custom training & workshops project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Delivered Theory of Change as Program Framework as a custom training & workshops portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
       "id": "project-entrepreneurship-online-class",
       "title": "Entrepreneurship Online Class",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "training-workshop"
       ],
@@ -1248,14 +1248,14 @@
           "Excel or Google Sheets"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Entrepreneurship Online Class as a learning materials project, creating practical context for entrepreneurs and startup founders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Entrepreneurship Online Class as a learning materials portfolio item, creating practical context for entrepreneurs and startup founders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-training-for-trainer-experiential-learning-and-coaching",
       "title": "Training for Trainer: Experiential Learning & Coaching",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "training-workshop"
       ],
@@ -1281,14 +1281,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Training for Trainer: Experiential Learning & Coaching as a learning materials project, creating practical context for sales teams and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Training for Trainer: Experiential Learning & Coaching as a learning materials portfolio item, creating practical context for sales teams and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-entrepreneurship-mentorship-for-sandination-community",
       "title": "Entrepreneurship Mentorship for Sandination Community",
-      "category": "Custom Training & Workshops",
+      "practiceArea": "Custom Training & Workshops",
       "tags": [
         "legacy-review"
       ],
@@ -1316,14 +1316,14 @@
         "scaleSignals": [
           "3"
         ],
-        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Delivered Entrepreneurship Mentorship for Sandination Community as a custom training & workshops project, creating practical context for entrepreneurs and startup founders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Delivered Entrepreneurship Mentorship for Sandination Community as a custom training & workshops portfolio item, creating practical context for entrepreneurs and startup founders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
       "id": "project-3rd-winner-in-kumpul-jasa-jember-competition",
       "title": "3rd Winner in KUMPUL JASA Jember Competition",
-      "category": "Custom Training & Workshops",
+      "practiceArea": "Custom Training & Workshops",
       "tags": [
         "training-workshop"
       ],
@@ -1349,14 +1349,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Delivered 3rd Winner in KUMPUL JASA Jember Competition as a custom training & workshops project, creating practical context for MSME owners and entrepreneurs and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Delivered 3rd Winner in KUMPUL JASA Jember Competition as a custom training & workshops portfolio item, creating practical context for MSME owners and entrepreneurs and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-nhi-bandung-business-acceleration-bootcamp",
       "title": "NHI Bandung Business Acceleration Bootcamp",
-      "category": "Custom Training & Workshops",
+      "practiceArea": "Custom Training & Workshops",
       "tags": [
         "training-workshop"
       ],
@@ -1384,14 +1384,14 @@
         "scaleSignals": [
           "3"
         ],
-        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Delivered NHI Bandung Business Acceleration Bootcamp as a custom training & workshops project, creating practical context for students and early-career talent and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Delivered NHI Bandung Business Acceleration Bootcamp as a custom training & workshops portfolio item, creating practical context for students and early-career talent and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
       "id": "project-entrepreneurship-program-for-5000-smk-students",
       "title": "Entrepreneurship Program for 5000+ SMK Students",
-      "category": "Custom Training & Workshops",
+      "practiceArea": "Custom Training & Workshops",
       "tags": [
         "training-workshop",
         "mentoring"
@@ -1419,14 +1419,14 @@
           "Excel or Google Sheets"
         ],
         "scaleSignals": [],
-        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Delivered Entrepreneurship Program for 5000+ SMK Students as a custom training & workshops project, creating practical context for vocational students and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Delivered Entrepreneurship Program for 5000+ SMK Students as a custom training & workshops portfolio item, creating practical context for vocational students and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
       "id": "project-budikdamber-program-for-7-rumah-yatim-asrama",
       "title": "Budikdamber Program for 7 Rumah Yatim Asrama",
-      "category": "Custom Training & Workshops",
+      "practiceArea": "Custom Training & Workshops",
       "tags": [
         "training-workshop",
         "mentoring"
@@ -1456,14 +1456,14 @@
         "scaleSignals": [
           "7"
         ],
-        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Delivered Budikdamber Program for 7 Rumah Yatim Asrama as a custom training & workshops project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Delivered Budikdamber Program for 7 Rumah Yatim Asrama as a custom training & workshops portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
       "id": "project-the-millennium-challenge-corporation-mcc-grant",
       "title": "The Millennium Challenge Corporation (MCC) Grant",
-      "category": "Custom Training & Workshops",
+      "practiceArea": "Custom Training & Workshops",
       "tags": [
         "training-workshop"
       ],
@@ -1489,14 +1489,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Delivered The Millennium Challenge Corporation (MCC) Grant as a custom training & workshops project, creating practical context for MSME owners and entrepreneurs and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Delivered The Millennium Challenge Corporation (MCC) Grant as a custom training & workshops portfolio item, creating practical context for MSME owners and entrepreneurs and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-performance-appraisal-system-development",
       "title": "Performance Appraisal System Development",
-      "category": "Review: Legacy Project",
+      "practiceArea": "Review: Legacy Project",
       "tags": [
         "legacy-review"
       ],
@@ -1504,7 +1504,7 @@
       "sourceArtifact": "assets/portfolio-viewers/performance-appraisal-system.html",
       "aiContext": {
         "evidenceLevel": "inferred from structured portfolio source",
-        "role": "Produced an earlier portfolio project that demonstrates applied program, people, or learning operations capability.",
+        "role": "Produced an earlier portfolio item that demonstrates applied program, people, or learning operations capability.",
         "audience": "learners, teams, or program stakeholders",
         "deliverables": [
           "legacy project artifact",
@@ -1525,14 +1525,14 @@
           "10",
           "360"
         ],
-        "impact": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
-        "cvBullet": "Created Performance Appraisal System Development as a review: legacy project project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
+        "outcomeEvidence": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
+        "cvBullet": "Created Performance Appraisal System Development as a review: legacy project portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
       }
     },
     {
       "id": "project-nhi-bandung-business-incubation-bootcamp",
       "title": "NHI Bandung Business Incubation Bootcamp",
-      "category": "Custom Training & Workshops",
+      "practiceArea": "Custom Training & Workshops",
       "tags": [
         "training-workshop",
         "mentoring"
@@ -1562,14 +1562,14 @@
         "scaleSignals": [
           "3"
         ],
-        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Delivered NHI Bandung Business Incubation Bootcamp as a custom training & workshops project, creating practical context for entrepreneurs and startup founders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Delivered NHI Bandung Business Incubation Bootcamp as a custom training & workshops portfolio item, creating practical context for entrepreneurs and startup founders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
       "id": "project-entrepreneurial-mindset-seminar",
       "title": "Entrepreneurial Mindset Seminar",
-      "category": "Custom Training & Workshops",
+      "practiceArea": "Custom Training & Workshops",
       "tags": [
         "training-workshop",
         "mentoring"
@@ -1597,14 +1597,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Delivered Entrepreneurial Mindset Seminar as a custom training & workshops project, creating practical context for entrepreneurs and startup founders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Delivered Entrepreneurial Mindset Seminar as a custom training & workshops portfolio item, creating practical context for entrepreneurs and startup founders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
       "id": "project-mastering-critical-thinking-for-future-proofing-your-career",
       "title": "Mastering Critical Thinking for Future-Proofing Your Career",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1630,14 +1630,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Mastering Critical Thinking for Future-Proofing Your Career as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Mastering Critical Thinking for Future-Proofing Your Career as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-menguasai-komunikasi-maritim-yang-efektif",
       "title": "Menguasai Komunikasi Maritim yang Efektif",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1664,14 +1664,14 @@
           "AI-enabled analysis concepts"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Menguasai Komunikasi Maritim yang Efektif as a learning materials project, creating practical context for maritime professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Menguasai Komunikasi Maritim yang Efektif as a learning materials portfolio item, creating practical context for maritime professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-mental-preparedness-preparation-for-emergencies",
       "title": "Mental Preparedness: Preparation for Emergencies",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1697,14 +1697,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Mental Preparedness: Preparation for Emergencies as a learning materials project, creating practical context for managers and team leaders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Mental Preparedness: Preparation for Emergencies as a learning materials portfolio item, creating practical context for managers and team leaders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-landing-your-dream-job-top-employability-skills-for-new-grads",
       "title": "Landing Your Dream Job: Top Employability Skills for New Grads",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1731,14 +1731,14 @@
           "AI-enabled analysis concepts"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Landing Your Dream Job: Top Employability Skills for New Grads as a learning materials project, creating practical context for students and early-career talent and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Landing Your Dream Job: Top Employability Skills for New Grads as a learning materials portfolio item, creating practical context for students and early-career talent and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-gig-economy-and-resilience-the-future-is-beyond-milestones",
       "title": "GIG-ECONOMY & RESILIENCE: The Future is Beyond Milestones",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1764,14 +1764,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created GIG-ECONOMY & RESILIENCE: The Future is Beyond Milestones as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created GIG-ECONOMY & RESILIENCE: The Future is Beyond Milestones as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-gig-economy-the-rise-of-side-hustling",
       "title": "GIG-ECONOMY: The Rise of Side Hustling",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1797,14 +1797,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created GIG-ECONOMY: The Rise of Side Hustling as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created GIG-ECONOMY: The Rise of Side Hustling as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-umkm-s-simple-financial-management",
       "title": "UMKM's Simple Financial Management",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1830,14 +1830,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created UMKM's Simple Financial Management as a learning materials project, creating practical context for MSME owners and entrepreneurs and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created UMKM's Simple Financial Management as a learning materials portfolio item, creating practical context for MSME owners and entrepreneurs and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-financial-modeling",
       "title": "Financial Modeling",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1863,14 +1863,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Financial Modeling as a learning materials project, creating practical context for entrepreneurs and startup founders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Financial Modeling as a learning materials portfolio item, creating practical context for entrepreneurs and startup founders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-growth-mindset",
       "title": "Growth Mindset",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1896,14 +1896,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Created Growth Mindset as a learning materials project, creating practical context for entrepreneurs and startup founders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Created Growth Mindset as a learning materials portfolio item, creating practical context for entrepreneurs and startup founders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
       "id": "project-cultivating-growth-mindset-for-self-motivation",
       "title": "Cultivating Growth Mindset for Self-Motivation",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1929,14 +1929,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Cultivating Growth Mindset for Self-Motivation as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Cultivating Growth Mindset for Self-Motivation as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-make-your-product-fit-with-design-thinking",
       "title": "Make Your Product Fit with Design Thinking",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1962,14 +1962,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Make Your Product Fit with Design Thinking as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Make Your Product Fit with Design Thinking as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-business-management-and-adaptability-for-msmes",
       "title": "Business Management & Adaptability for MSMEs",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1995,14 +1995,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Business Management & Adaptability for MSMEs as a learning materials project, creating practical context for MSME owners and entrepreneurs and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Business Management & Adaptability for MSMEs as a learning materials portfolio item, creating practical context for MSME owners and entrepreneurs and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-how-to-face-layoff-storm",
       "title": "How to Face Layoff Storm",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2028,14 +2028,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created How to Face Layoff Storm as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created How to Face Layoff Storm as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-brand-yourself-stand-out-with-personal-branding-and-linkedin-optimization",
       "title": "Brand Yourself: Stand Out with Personal Branding & LinkedIn Optimization",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2061,14 +2061,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Brand Yourself: Stand Out with Personal Branding & LinkedIn Optimization as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Brand Yourself: Stand Out with Personal Branding & LinkedIn Optimization as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-ai-powered-personal-branding-for-linkedin",
       "title": "AI-Powered Personal Branding for LinkedIn",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2095,14 +2095,14 @@
           "AI-enabled analysis concepts"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created AI-Powered Personal Branding for LinkedIn as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created AI-Powered Personal Branding for LinkedIn as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-public-speaking-and-confidence-boost",
       "title": "Public Speaking & Confidence Boost",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2129,14 +2129,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Public Speaking & Confidence Boost as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Public Speaking & Confidence Boost as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-color-personality",
       "title": "Color Personality",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2162,14 +2162,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Color Personality as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Color Personality as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-managing-crew-fatigue-onboard",
       "title": "Managing Crew Fatigue Onboard",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2195,14 +2195,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Managing Crew Fatigue Onboard as a learning materials project, creating practical context for maritime professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Managing Crew Fatigue Onboard as a learning materials portfolio item, creating practical context for maritime professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-komunikasi-sehat-antar-crew-di-tengah-tekanan-kerja",
       "title": "Komunikasi Sehat Antar Crew di Tengah Tekanan Kerja",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials",
         "instructional-design",
@@ -2232,14 +2232,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Created Komunikasi Sehat Antar Crew di Tengah Tekanan Kerja as a learning materials project, creating practical context for maritime professionals and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Created Komunikasi Sehat Antar Crew di Tengah Tekanan Kerja as a learning materials portfolio item, creating practical context for maritime professionals and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
       "id": "project-speak-up-stand-out-public-speaking-in-the-hybrid-era",
       "title": "Speak Up, Stand Out: Public Speaking in the Hybrid Era",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2266,14 +2266,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Speak Up, Stand Out: Public Speaking in the Hybrid Era as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Speak Up, Stand Out: Public Speaking in the Hybrid Era as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-startup-development-class",
       "title": "Startup Development Class",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2300,14 +2300,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Startup Development Class as a learning materials project, creating practical context for entrepreneurs and startup founders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Startup Development Class as a learning materials portfolio item, creating practical context for entrepreneurs and startup founders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-how-to-leverage-social-media-instagram-for-msmes",
       "title": "How to Leverage Social Media Instagram for MSMEs",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2333,14 +2333,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created How to Leverage Social Media Instagram for MSMEs as a learning materials project, creating practical context for MSME owners and entrepreneurs and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created How to Leverage Social Media Instagram for MSMEs as a learning materials portfolio item, creating practical context for MSME owners and entrepreneurs and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-managing-crew-onboard-stress",
       "title": "Managing Crew Onboard Stress",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2366,14 +2366,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Managing Crew Onboard Stress as a learning materials project, creating practical context for maritime professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Managing Crew Onboard Stress as a learning materials portfolio item, creating practical context for maritime professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-smart-steps-to-start-an-employee-side-hustle",
       "title": "Smart Steps to Start an Employee Side Hustle",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2399,14 +2399,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Smart Steps to Start an Employee Side Hustle as a learning materials project, creating practical context for entrepreneurs and startup founders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Smart Steps to Start an Employee Side Hustle as a learning materials portfolio item, creating practical context for entrepreneurs and startup founders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-anyone-can-get-a-job",
       "title": "Anyone Can Get a Job",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2432,14 +2432,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Anyone Can Get a Job as a learning materials project, creating practical context for entrepreneurs and startup founders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Anyone Can Get a Job as a learning materials portfolio item, creating practical context for entrepreneurs and startup founders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-crafting-deck-and-impactful-presentation",
       "title": "Crafting Deck and Impactful Presentation",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2466,14 +2466,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
-        "cvBullet": "Created Crafting Deck and Impactful Presentation as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        "outcomeEvidence": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
+        "cvBullet": "Created Crafting Deck and Impactful Presentation as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
       }
     },
     {
       "id": "project-stress-and-time-management",
       "title": "Stress & Time Management",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2502,14 +2502,14 @@
           "60",
           "120"
         ],
-        "impact": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
-        "cvBullet": "Created Stress & Time Management as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        "outcomeEvidence": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
+        "cvBullet": "Created Stress & Time Management as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
       }
     },
     {
       "id": "project-adaptive-communication-decode-and-connect",
       "title": "Adaptive Communication: Decode & Connect",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2535,14 +2535,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
-        "cvBullet": "Created Adaptive Communication: Decode & Connect as a learning materials project, creating practical context for managers and team leaders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        "outcomeEvidence": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
+        "cvBullet": "Created Adaptive Communication: Decode & Connect as a learning materials portfolio item, creating practical context for managers and team leaders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
       }
     },
     {
       "id": "project-strengthen-teamwork-with-empathy-and-communication",
       "title": "Strengthen Teamwork with Empathy & Communication",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2570,14 +2570,14 @@
         "scaleSignals": [
           "360"
         ],
-        "impact": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
-        "cvBullet": "Created Strengthen Teamwork with Empathy & Communication as a learning materials project, creating practical context for working professionals and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
+        "outcomeEvidence": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
+        "cvBullet": "Created Strengthen Teamwork with Empathy & Communication as a learning materials portfolio item, creating practical context for working professionals and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
       }
     },
     {
       "id": "project-building-a-culture-of-service-excellence-in-the-digital-era",
       "title": "Building a Culture of Service Excellence in the Digital Era",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2605,14 +2605,14 @@
           "AI-enabled analysis concepts"
         ],
         "scaleSignals": [],
-        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Created Building a Culture of Service Excellence in the Digital Era as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Created Building a Culture of Service Excellence in the Digital Era as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
       "id": "project-unlock-flows-adaptive-decode-for-corporate-connections",
       "title": "Unlock Flows: Adaptive Decode for Corporate Connections",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2638,14 +2638,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Unlock Flows: Adaptive Decode for Corporate Connections as a learning materials project, creating practical context for working professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Unlock Flows: Adaptive Decode for Corporate Connections as a learning materials portfolio item, creating practical context for working professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-calibrate-links-decode-insights-connect-precisely",
       "title": "Calibrate Links: Decode Insights, Connect Precisely",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2672,14 +2672,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Calibrate Links: Decode Insights, Connect Precisely as a learning materials project, creating practical context for working professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Calibrate Links: Decode Insights, Connect Precisely as a learning materials portfolio item, creating practical context for working professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-sync-up-decode-signals-connect-teams-mcdonald-s-edition",
       "title": "Sync Up: Decode Signals, Connect Teams - McDonald's Edition",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2705,14 +2705,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Sync Up: Decode Signals, Connect Teams - McDonald's Edition as a learning materials project, creating practical context for managers and team leaders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Sync Up: Decode Signals, Connect Teams - McDonald's Edition as a learning materials portfolio item, creating practical context for managers and team leaders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-adaptive-communication-solution-for-home-credit-indonesia",
       "title": "Adaptive Communication Solution for Home Credit Indonesia",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2740,14 +2740,14 @@
           "AI-enabled analysis concepts"
         ],
         "scaleSignals": [],
-        "impact": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
-        "cvBullet": "Created Adaptive Communication Solution for Home Credit Indonesia as a learning materials project, creating practical context for working professionals and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        "outcomeEvidence": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
+        "cvBullet": "Created Adaptive Communication Solution for Home Credit Indonesia as a learning materials portfolio item, creating practical context for working professionals and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
       }
     },
     {
       "id": "project-how-to-win-friends-and-influence-people",
       "title": "How to Win Friends and Influence People",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2774,14 +2774,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created How to Win Friends and Influence People as a learning materials project, creating practical context for working professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created How to Win Friends and Influence People as a learning materials portfolio item, creating practical context for working professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-managing-pressure-without-losing-yourself",
       "title": "Managing Pressure Without Losing Yourself",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2808,14 +2808,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Managing Pressure Without Losing Yourself as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Managing Pressure Without Losing Yourself as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-mental-health-in-the-workplace-for-being-supervisor",
       "title": "Mental Health in the Workplace for being Supervisor",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2841,14 +2841,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Mental Health in the Workplace for being Supervisor as a learning materials project, creating practical context for managers and team leaders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created Mental Health in the Workplace for being Supervisor as a learning materials portfolio item, creating practical context for managers and team leaders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-from-impostor-to-influencer",
       "title": "From Impostor to Influencer",
-      "category": "Mentoring & Speaking",
+      "practiceArea": "Mentoring & Speaking",
       "tags": [
         "mentoring"
       ],
@@ -2873,14 +2873,14 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created From Impostor to Influencer as a mentoring & speaking project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
+        "cvBullet": "Created From Impostor to Influencer as a mentoring & speaking portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
       "id": "project-the-psychology-of-money-understanding-how-we-think-about-wealth",
       "title": "The Psychology of Money: Understanding How We Think About Wealth",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -2907,8 +2907,8 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "impact": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Created The Psychology of Money: Understanding How We Think About Wealth as a learning materials project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
+        "cvBullet": "Created The Psychology of Money: Understanding How We Think About Wealth as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     }
   ]

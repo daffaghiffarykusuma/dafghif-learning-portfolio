@@ -211,13 +211,13 @@
         --font-size-fluid-body: clamp(1rem, 1vw + 0.5rem, 1.125rem);
         --font-size-fluid-small: clamp(0.875rem, 0.5vw + 0.5rem, 0.9375rem);
 
-        /* Service-specific accent colors for visual differentiation */
-        --color-service-training: #2A9D8F;
-        --color-service-training-dark: #264653;
-        --color-service-powerpoint: #E9C46A;
-        --color-service-powerpoint-dark: #F4A261;
-        --color-service-mentoring: #F4A261;
-        --color-service-mentoring-dark: #E76F51;
+        /* Practice-area-specific accent colors for visual differentiation */
+        --color-practice-area-training: #2A9D8F;
+        --color-practice-area-training-dark: #264653;
+        --color-practice-area-powerpoint: #E9C46A;
+        --color-practice-area-powerpoint-dark: #F4A261;
+        --color-practice-area-mentoring: #F4A261;
+        --color-practice-area-mentoring-dark: #E76F51;
 
         /* Legacy Typography Variables */
         --text-xs: var(--font-size-xs);
@@ -1019,7 +1019,7 @@ h2.section-title::after { /* Underline effect for titles */
 }
 
 /* Portfolio-specific button styles */
-#portfolio-projects .card-actions {
+#portfolio-items .card-actions {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -1028,7 +1028,7 @@ h2.section-title::after { /* Underline effect for titles */
     border-top: 1px solid rgba(15, 27, 30, 0.08);
 }
 
-#portfolio-projects .cta-button {
+#portfolio-items .cta-button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1046,13 +1046,13 @@ h2.section-title::after { /* Underline effect for titles */
     letter-spacing: normal;
 }
 
-#portfolio-projects .cta-button:hover {
+#portfolio-items .cta-button:hover {
     background: #2A9D8F;
     color: #0F1B1E;
     border-color: #2A9D8F;
 }
 
-#portfolio-projects .view-details-button {
+#portfolio-items .view-details-button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1068,7 +1068,7 @@ h2.section-title::after { /* Underline effect for titles */
     text-align: center;
 }
 
-#portfolio-projects .view-details-button:hover {
+#portfolio-items .view-details-button:hover {
     background: rgba(15, 27, 30, 0.05);
     color: var(--accent);
     border-color: var(--accent);
@@ -1117,7 +1117,7 @@ h2.section-title::after { /* Underline effect for titles */
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); /* Responsive 3-ish columns */
 }
 
-/* Card Style (Used for Projects, Services, etc.) */
+/* Card Style (Used for Portfolio Items, Engagement Types, etc.) */
 .card {
     background: var(--card-bg);
     border-radius: 8px;
@@ -1177,7 +1177,7 @@ h2.section-title::after { /* Underline effect for titles */
 
 
 /* --- Portfolio Specific Styles --- */
-#portfolio-filters {
+#portfolio-item-filters {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -1223,7 +1223,7 @@ h2.section-title::after { /* Underline effect for titles */
 }
 
 @media (max-width: 768px) {
-    #portfolio-filters {
+    #portfolio-item-filters {
         flex-wrap: nowrap;
         justify-content: flex-start;
         overflow-x: auto;
@@ -1235,14 +1235,14 @@ h2.section-title::after { /* Underline effect for titles */
         -webkit-overflow-scrolling: touch;
     }
 
-    #portfolio-filters .filter-button {
+    #portfolio-item-filters .filter-button {
         flex: 0 0 auto;
         white-space: nowrap;
         scroll-snap-align: start;
     }
 }
 
-.project-category-label {
+.portfolio-item-practice-label {
     display: inline-block;
     background-color: var(--accent);
     color: #fff;
@@ -1254,48 +1254,48 @@ h2.section-title::after { /* Underline effect for titles */
 }
 
 /* Style the link *inside* the label for contrast */
-.card-content .project-category-label a,
-.project-category-label a {
+.card-content .portfolio-item-practice-label a,
+.portfolio-item-practice-label a {
     color: #fff !important; /* White text to contrast with accent background */
     text-decoration: none;
 }
 
-.card-content .project-category-label a:hover,
-.project-category-label a:hover {
+.card-content .portfolio-item-practice-label a:hover,
+.portfolio-item-practice-label a:hover {
     color: #F8FAFC !important; /* Slightly lighter on hover */
     text-decoration: underline;
 }
 
-.project-title-link {
+.portfolio-item-title-link {
     color: inherit;
     text-decoration: none;
 }
 
-.project-title-link:hover,
-.project-title-link:focus-visible {
+.portfolio-item-title-link:hover,
+.portfolio-item-title-link:focus-visible {
     color: var(--primary-color);
     text-decoration: underline;
 }
 
-.project-thumbnail-link {
+.portfolio-item-thumbnail-link {
     display: block;
     color: inherit;
 }
 
-.project-thumbnail-link:focus-visible {
+.portfolio-item-thumbnail-link:focus-visible {
     outline: 3px solid var(--primary-color);
     outline-offset: 3px;
 }
 
 /* Ensure project cards handle display toggling for filtering */
-.projects-grid .project {
+.portfolio-items-grid .portfolio-item {
     display: flex; /* Assuming card uses flex direction column */
     flex-direction: column;
      /* If not using flex, ensure it's at least display: block; for show/hide */
      /* The JavaScript will set display: none; when filtered out */
 }
 
-#portfolio-projects .project[hidden] {
+#portfolio-items .portfolio-item[hidden] {
     display: none !important;
 }
 
@@ -2170,9 +2170,9 @@ footer a:hover {
     }
 }
 
-/* Force 3 columns for projects grid on larger screens */
+/* Force 3 columns for portfolio items grid on larger screens */
 @media (min-width: 769px) {
-    #portfolio-projects .projects-grid { /* Target the specific grid */
+    #portfolio-items .portfolio-items-grid { /* Target the specific grid */
         grid-template-columns: repeat(3, 1fr); /* Force exactly 3 columns */
     }
 }
@@ -2253,12 +2253,12 @@ body.dark-mode .cta-button {
     margin-top: 0;
 }
 
-.portfolio-filters {
+.portfolio-item-filters {
     text-align: center;
     margin-bottom: 40px;
 }
 
-.project-category-muted {
+.portfolio-item-practice-muted {
     color: var(--color-text-muted);
     font-style: italic;
 }
@@ -2955,7 +2955,7 @@ body.dark-mode .phase-section a:hover {
     color: #fff;
 }
 
-#services-preview {
+#practice-areas-preview {
     padding: 100px 0 90px;
 }
 
@@ -3002,11 +3002,11 @@ body.dark-mode .phase-section a:hover {
     color: rgba(248, 250, 252, 0.7);
 }
 
-.service-inquiry {
+.engagement-inquiry {
     background: #f5f7fb;
 }
 
-.service-inquiry-form {
+.engagement-inquiry-form {
     background: var(--card-bg);
     border-radius: 18px;
     box-shadow: var(--card-shadow);
@@ -3022,7 +3022,7 @@ body.dark-mode .phase-section a:hover {
     gap: 18px 24px;
 }
 
-.service-inquiry-form label {
+.engagement-inquiry-form label {
     display: flex;
     flex-direction: column;
     font-size: 0.9rem;
@@ -3030,9 +3030,9 @@ body.dark-mode .phase-section a:hover {
     gap: 8px;
 }
 
-.service-inquiry-form input,
-.service-inquiry-form select,
-.service-inquiry-form textarea {
+.engagement-inquiry-form input,
+.engagement-inquiry-form select,
+.engagement-inquiry-form textarea {
     padding: 12px 14px;
     border-radius: 10px;
     border: 1px solid rgba(15, 27, 30, 0.12);
@@ -3042,14 +3042,14 @@ body.dark-mode .phase-section a:hover {
     color: var(--primary);
 }
 
-.service-inquiry-form input:focus,
-.service-inquiry-form select:focus,
-.service-inquiry-form textarea:focus {
+.engagement-inquiry-form input:focus,
+.engagement-inquiry-form select:focus,
+.engagement-inquiry-form textarea:focus {
     outline: 2px solid rgba(42, 157, 143, 0.3);
     border-color: rgba(42, 157, 143, 0.5);
 }
 
-.service-inquiry-form textarea {
+.engagement-inquiry-form textarea {
     resize: vertical;
 }
 
@@ -3065,17 +3065,17 @@ body.dark-mode .phase-section a:hover {
     color: rgba(15, 27, 30, 0.6);
 }
 
-.service-inquiry-form .cta-button {
+.engagement-inquiry-form .cta-button {
     align-self: flex-start;
 }
 
-.services-preview-grid {
+.practice-areas-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 24px;
 }
 
-.service-icon {
+.practice-area-icon {
     width: 60px;
     height: 60px;
     border-radius: 16px;
@@ -3090,11 +3090,11 @@ body.dark-mode .phase-section a:hover {
     font-size: 0.9rem;
 }
 
-.service-icon::before {
+.practice-area-icon::before {
     content: attr(data-icon);
 }
 
-.service-preview-card {
+.practice-area-card {
     background: var(--card-bg);
     border-radius: 18px;
     padding: 32px 28px;
@@ -3106,12 +3106,12 @@ body.dark-mode .phase-section a:hover {
     position: relative;
 }
 
-.service-preview-card:hover {
+.practice-area-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 24px rgba(15, 27, 30, 0.12);
 }
 
-.service-metric-badge {
+.proof-point-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -3125,41 +3125,41 @@ body.dark-mode .phase-section a:hover {
     font-weight: 600;
 }
 
-.service-preview-card h3 {
+.practice-area-card h3 {
     margin: 0;
     font-size: 1.4rem;
     color: var(--primary);
 }
 
-.service-preview-card p {
+.practice-area-card p {
     margin: 0;
     color: rgba(20, 27, 43, 0.85);
 }
 
-.service-highlights {
+.practice-area-highlights {
     list-style: disc;
     padding-left: 18px;
     margin: 0;
     color: rgba(20, 27, 43, 0.8);
 }
 
-.service-highlights li { margin-bottom: 8px; }
+.practice-area-highlights li { margin-bottom: 8px; }
 
-.service-proof {
+.proof-point-quote {
     margin: 0;
     font-size: 0.95rem;
     color: rgba(20, 27, 43, 0.7);
     font-style: italic;
 }
 
-.service-proof span {
+.proof-point-quote span {
     display: block;
     margin-top: 6px;
     font-weight: 600;
     color: rgba(20, 27, 43, 0.8);
 }
 
-.service-card-actions {
+.engagement-card-actions {
     margin-top: auto;
     display: flex;
     flex-wrap: wrap;
@@ -3627,7 +3627,7 @@ body.dark-mode .phase-section a:hover {
         text-align: center;
     }
 
-    .service-preview-card {
+    .practice-area-card {
         padding: 28px 22px;
     }
 }
@@ -3738,7 +3738,7 @@ body.dark-mode .phase-section a:hover {
     display: inline-block;
 }
 
-.service-preview-visual {
+.practice-area-visual {
     margin: 0 0 16px;
     border-radius: 12px;
     overflow: hidden;
@@ -3746,7 +3746,7 @@ body.dark-mode .phase-section a:hover {
     height: 180px;
 }
 
-.service-preview-visual img {
+.practice-area-visual img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -3906,32 +3906,32 @@ body.dark-mode .phase-section a:hover {
     line-height: 1.6;
 }
 
-.service-preview-card h3 {
+.practice-area-card h3 {
     margin: 8px 0;
     font-size: 1.25rem;
     color: var(--primary);
     font-weight: 600;
 }
 
-.service-preview-card {
+.practice-area-card {
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
                 box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.service-preview-card:hover {
+.practice-area-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(15, 27, 30, 0.15);
 }
 
-.service-preview-card:hover .service-preview-visual img {
+.practice-area-card:hover .practice-area-visual img {
     transform: scale(1.05);
 }
 
-.service-preview-visual {
+.practice-area-visual {
     overflow: hidden;
 }
 
-.service-preview-visual img {
+.practice-area-visual img {
     transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -4143,39 +4143,39 @@ body.dark-mode .phase-section a:hover {
 }
 
 /* --- Form Enhancements --- */
-.service-inquiry-form {
+.engagement-inquiry-form {
     position: relative;
 }
 
-.service-inquiry-form label span {
+.engagement-inquiry-form label span {
     font-weight: 500;
     color: var(--primary);
 }
 
-.service-inquiry-form input,
-.service-inquiry-form select,
-.service-inquiry-form textarea {
+.engagement-inquiry-form input,
+.engagement-inquiry-form select,
+.engagement-inquiry-form textarea {
     transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
 
-.service-inquiry-form input:focus,
-.service-inquiry-form select:focus,
-.service-inquiry-form textarea:focus {
+.engagement-inquiry-form input:focus,
+.engagement-inquiry-form select:focus,
+.engagement-inquiry-form textarea:focus {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(42, 157, 143, 0.15);
 }
 
-.service-inquiry-form input:valid:not(:placeholder-shown),
-.service-inquiry-form select:valid,
-.service-inquiry-form textarea:valid:not(:placeholder-shown) {
+.engagement-inquiry-form input:valid:not(:placeholder-shown),
+.engagement-inquiry-form select:valid,
+.engagement-inquiry-form textarea:valid:not(:placeholder-shown) {
     border-color: var(--accent);
 }
 
-.service-inquiry-form .cta-button {
+.engagement-inquiry-form .cta-button {
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
-.service-inquiry-form .cta-button:hover {
+.engagement-inquiry-form .cta-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(42, 157, 143, 0.3);
 }
@@ -4306,20 +4306,20 @@ body.dark-mode .phase-section a:hover {
 .spotlight-card,
 .impact-card,
 .feature-card,
-.service-preview-card,
+.practice-area-card,
 .visual-card {
     animation: scaleIn 0.5s ease-out backwards;
 }
 
 .package-card:nth-child(1),
 .spotlight-card:nth-child(1),
-.service-preview-card:nth-child(1) { animation-delay: 0.1s; }
+.practice-area-card:nth-child(1) { animation-delay: 0.1s; }
 .package-card:nth-child(2),
 .spotlight-card:nth-child(2),
-.service-preview-card:nth-child(2) { animation-delay: 0.2s; }
+.practice-area-card:nth-child(2) { animation-delay: 0.2s; }
 .package-card:nth-child(3),
 .spotlight-card:nth-child(3),
-.service-preview-card:nth-child(3) { animation-delay: 0.3s; }
+.practice-area-card:nth-child(3) { animation-delay: 0.3s; }
 
 /* --- CTA Section Enhancement --- */
 .service-cta,
@@ -4416,7 +4416,7 @@ body.dark-mode .phase-section a:hover {
         align-items: flex-start;
     }
 
-    .service-preview-card h3 {
+    .practice-area-card h3 {
         font-size: 1.1rem;
     }
 
@@ -4447,7 +4447,7 @@ body.dark-mode .phase-section a:hover {
         padding: 60px 0;
     }
 
-    .service-inquiry-form {
+    .engagement-inquiry-form {
         padding: 24px;
     }
 
@@ -4505,31 +4505,31 @@ body.dark-mode .phase-section a:hover {
 }
 
 /* --- Lighthouse Accessibility & Portfolio Performance Fixes --- */
-.project-category-label {
+.portfolio-item-practice-label {
     background: #1f7f74;
     color: #ffffff !important;
 }
 
-.project-category-label a {
+.portfolio-item-practice-label a {
     color: #ffffff;
 }
 
-#portfolio-projects .view-details-button,
+#portfolio-items .view-details-button,
 .view-details-button {
     color: #6ee7d8 !important;
     border-color: #6ee7d8 !important;
 }
 
-#portfolio-projects .view-details-button:hover,
-#portfolio-projects .view-details-button:focus-visible,
+#portfolio-items .view-details-button:hover,
+#portfolio-items .view-details-button:focus-visible,
 .view-details-button:hover,
 .view-details-button:focus-visible {
     background: #6ee7d8 !important;
     color: #0f1b1e !important;
 }
 
-#portfolio-projects .card-actions .cta-button:hover,
-#portfolio-projects .card-actions .cta-button:focus-visible {
+#portfolio-items .card-actions .cta-button:hover,
+#portfolio-items .card-actions .cta-button:focus-visible {
     background: #6ee7d8 !important;
     color: #0f1b1e !important;
     border-color: #6ee7d8 !important;
@@ -4546,12 +4546,12 @@ body.dark-mode .phase-section a:hover {
     object-fit: cover;
 }
 
-#portfolio-projects .project {
+#portfolio-items .portfolio-item {
     content-visibility: auto;
     contain-intrinsic-size: 560px;
 }
 
-#portfolio-projects .project:nth-child(-n+6) {
+#portfolio-items .portfolio-item:nth-child(-n+6) {
     content-visibility: visible;
 }
 

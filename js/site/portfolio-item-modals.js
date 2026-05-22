@@ -1,22 +1,22 @@
-export function initProjectModals() {
+export function initPortfolioItemModals() {
     const modalCloseButtons = document.querySelectorAll('.modal .close');
-    const projectItems = document.querySelectorAll('.project');
-    let activeProjectModal = null;
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    let activePortfolioItemModal = null;
     let windowClickEventHandler = null;
 
     const closeActiveModal = () => {
-        if (!activeProjectModal) return;
-        activeProjectModal.style.display = 'none';
-        activeProjectModal = null;
+        if (!activePortfolioItemModal) return;
+        activePortfolioItemModal.style.display = 'none';
+        activePortfolioItemModal = null;
         if (windowClickEventHandler) {
             window.removeEventListener('click', windowClickEventHandler);
             windowClickEventHandler = null;
         }
     };
 
-    projectItems.forEach((project) => {
-        project.addEventListener('click', () => {
-            const targetModalId = project.dataset.target;
+    portfolioItems.forEach((portfolioItem) => {
+        portfolioItem.addEventListener('click', () => {
+            const targetModalId = portfolioItem.dataset.target;
             if (!targetModalId) return;
             const targetModalEl = document.querySelector(targetModalId);
             if (!targetModalEl) {
@@ -26,7 +26,7 @@ export function initProjectModals() {
 
             closeActiveModal();
             targetModalEl.style.display = 'block';
-            activeProjectModal = targetModalEl;
+            activePortfolioItemModal = targetModalEl;
             windowClickEventHandler = (event) => {
                 if (event.target === targetModalEl) closeActiveModal();
             };

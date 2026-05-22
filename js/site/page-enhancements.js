@@ -42,7 +42,7 @@ export function initPageEnhancements() {
 
     document.querySelectorAll(
         '.section-heading, .package-card, .spotlight-card, .impact-card, ' +
-        '.feature-card, .service-preview-card, .visual-card, .approach-steps li, ' +
+        '.feature-card, .practice-area-card, .visual-card, .approach-steps li, ' +
         '.case-study-list article, .resource-grid article, .faq-list article'
     ).forEach((element) => {
         element.classList.add('reveal-on-scroll');

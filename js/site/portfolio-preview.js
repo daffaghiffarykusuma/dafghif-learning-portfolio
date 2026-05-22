@@ -21,7 +21,7 @@ export function initPortfolioPreview(closeActiveModal = () => {}) {
     const pdfModalTitle = document.getElementById('pdf-modal-title');
     const pdfIframe = document.getElementById('pdf-iframe');
     const viewDetailsButtons = document.querySelectorAll('.view-details-button');
-    const projectAnchorLinks = document.querySelectorAll('.project-title-link, .project-thumbnail-link');
+    const portfolioItemAnchorLinks = document.querySelectorAll('.portfolio-item-title-link, .portfolio-item-thumbnail-link');
     const hasPortfolioPreviewMarkup = pdfModal || pdfModalTitle || pdfIframe || viewDetailsButtons.length > 0;
     let activePdfModal = null;
     let lastPreviewTrigger = null;
@@ -55,14 +55,14 @@ export function initPortfolioPreview(closeActiveModal = () => {}) {
             return;
         }
 
-        const projectCard = button.closest('.project');
-        const cardContent = button.closest('.card-content') || projectCard?.querySelector('.card-content');
-        const projectTitle = cardContent?.querySelector('h3, h4')?.textContent || 'Portfolio Item Details';
+        const portfolioItemCard = button.closest('.portfolio-item');
+        const cardContent = button.closest('.card-content') || portfolioItemCard?.querySelector('.card-content');
+        const portfolioItemTitle = cardContent?.querySelector('h3, h4')?.textContent || 'Portfolio Item Details';
 
         closeActiveModal();
         closePdfModal();
         lastPreviewTrigger = options.trigger || button;
-        pdfModalTitle.textContent = projectTitle;
+        pdfModalTitle.textContent = portfolioItemTitle;
 
         const safePdfPath = safePreviewPath(pdfPath, 'assets/pdf/portfolio/', '.pdf');
         const safeViewerPath = safePreviewPath(viewerPath, 'assets/portfolio-viewers/', '.html');
@@ -81,8 +81,8 @@ export function initPortfolioPreview(closeActiveModal = () => {}) {
             ? `${previewUrl}#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-width&statusbar=0&messages=0&pagemode=none`
             : previewUrl;
 
-        if (projectCard?.id && options.updateHash !== false) {
-            history.pushState(null, '', `#${projectCard.id}`);
+        if (portfolioItemCard?.id && options.updateHash !== false) {
+            history.pushState(null, '', `#${portfolioItemCard.id}`);
         }
 
         pdfModal.hidden = false;
@@ -104,7 +104,7 @@ export function initPortfolioPreview(closeActiveModal = () => {}) {
         });
     });
 
-    projectAnchorLinks.forEach((link) => {
+    portfolioItemAnchorLinks.forEach((link) => {
         link.addEventListener('click', (event) => {
             const targetHash = new URL(link.href, window.location.href).hash;
             const previewButton = targetHash ? document.querySelector(targetHash)?.querySelector('.view-details-button') : null;
@@ -116,7 +116,7 @@ export function initPortfolioPreview(closeActiveModal = () => {}) {
     });
 
     const openPreviewFromHash = () => {
-        if (!window.location.hash?.startsWith('#project-')) return;
+        if (!window.location.hash) return;
         const previewButton = document.querySelector(window.location.hash)?.querySelector('.view-details-button');
         if (previewButton) openPortfolioPreview(previewButton, { trigger: previewButton, updateHash: false });
     };

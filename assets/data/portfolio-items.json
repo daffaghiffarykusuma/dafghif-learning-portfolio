@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "portfolio.html",
-  "generatedAt": "2026-05-22T01:48:51.529Z",
-  "projectCount": 78,
-  "projects": [
+  "generatedAt": "2026-05-22T04:34:19.052Z",
+  "portfolioItemCount": 78,
+  "portfolioItems": [
     {
       "id": "project-administrative-communication-training-needs-analysis",
       "title": "Administrative Communication Training Needs Analysis",
-      "category": "Training Needs Analysis",
+      "practiceArea": "Training Needs Analysis",
       "tags": [
         "training-needs-analysis",
         "instructional-design"
@@ -19,13 +19,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/bnsp4_training_need_analysis.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-administrative-communication-training-needs-analysis",
-      "discussUrl": "contact.html?project=Administrative Communication Training Needs Analysis"
+      "portfolioItemUrl": "portfolio.html#project-administrative-communication-training-needs-analysis",
+      "discussUrl": "contact.html?portfolioItem=Administrative Communication Training Needs Analysis"
     },
     {
       "id": "project-competency-based-communication-training-proposal",
       "title": "Competency-Based Communication Training Proposal",
-      "category": "Training Proposal",
+      "practiceArea": "Training Proposal",
       "tags": [
         "training-proposal",
         "instructional-design",
@@ -38,13 +38,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/bnsp4_program_proposal.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-competency-based-communication-training-proposal",
-      "discussUrl": "contact.html?project=Competency-Based Communication Training Proposal"
+      "portfolioItemUrl": "portfolio.html#project-competency-based-communication-training-proposal",
+      "discussUrl": "contact.html?portfolioItem=Competency-Based Communication Training Proposal"
     },
     {
       "id": "project-administrative-communication-lesson-plan",
       "title": "Administrative Communication Lesson Plan",
-      "category": "Instructional Design",
+      "practiceArea": "Instructional Design",
       "tags": [
         "instructional-design",
         "curriculum-development"
@@ -56,13 +56,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/bnsp4_lesson_plan.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-administrative-communication-lesson-plan",
-      "discussUrl": "contact.html?project=Administrative Communication Lesson Plan"
+      "portfolioItemUrl": "portfolio.html#project-administrative-communication-lesson-plan",
+      "discussUrl": "contact.html?portfolioItem=Administrative Communication Lesson Plan"
     },
     {
       "id": "project-communication-confidence-training-deck",
       "title": "Communication Confidence Training Deck",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials",
         "instructional-design",
@@ -75,13 +75,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/bnsp4_materi_pelatihan.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-communication-confidence-training-deck",
-      "discussUrl": "contact.html?project=Communication Confidence Training Deck"
+      "portfolioItemUrl": "portfolio.html#project-communication-confidence-training-deck",
+      "discussUrl": "contact.html?portfolioItem=Communication Confidence Training Deck"
     },
     {
       "id": "project-communication-skills-post-test-form",
       "title": "Communication Skills Post-Test Form",
-      "category": "Assessment & Evaluation",
+      "practiceArea": "Assessment & Evaluation",
       "tags": [
         "assessment",
         "learning-evaluation"
@@ -93,13 +93,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/bnsp4_form_soal_post_test.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-communication-skills-post-test-form",
-      "discussUrl": "contact.html?project=Communication Skills Post-Test Form"
+      "portfolioItemUrl": "portfolio.html#project-communication-skills-post-test-form",
+      "discussUrl": "contact.html?portfolioItem=Communication Skills Post-Test Form"
     },
     {
       "id": "project-training-feedback-form-level-1-reaction",
       "title": "Training Feedback Form: Level 1 Reaction",
-      "category": "Assessment & Evaluation",
+      "practiceArea": "Assessment & Evaluation",
       "tags": [
         "assessment",
         "learning-evaluation"
@@ -111,13 +111,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/bnsp4_form_feedback.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-training-feedback-form-level-1-reaction",
-      "discussUrl": "contact.html?project=Training Feedback Form: Level 1 Reaction"
+      "portfolioItemUrl": "portfolio.html#project-training-feedback-form-level-1-reaction",
+      "discussUrl": "contact.html?portfolioItem=Training Feedback Form: Level 1 Reaction"
     },
     {
       "id": "project-communication-observation-form-and-performance-rubric",
       "title": "Communication Observation Form and Performance Rubric",
-      "category": "Assessment & Evaluation",
+      "practiceArea": "Assessment & Evaluation",
       "tags": [
         "assessment",
         "learning-evaluation"
@@ -129,13 +129,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/bnsp4_form_observasi_dan_rubrik_penilaian.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-communication-observation-form-and-performance-rubric",
-      "discussUrl": "contact.html?project=Communication Observation Form and Performance Rubric"
+      "portfolioItemUrl": "portfolio.html#project-communication-observation-form-and-performance-rubric",
+      "discussUrl": "contact.html?portfolioItem=Communication Observation Form and Performance Rubric"
     },
     {
       "id": "project-macro-training-needs-analysis-dki-jakarta",
       "title": "Macro Training Needs Analysis: DKI Jakarta",
-      "category": "Training Needs Analysis",
+      "practiceArea": "Training Needs Analysis",
       "tags": [
         "training-needs-analysis",
         "learning-strategy"
@@ -147,13 +147,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/bnsp6_kebutuhan_pelatihan_makro.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-macro-training-needs-analysis-dki-jakarta",
-      "discussUrl": "contact.html?project=Macro Training Needs Analysis: DKI Jakarta"
+      "portfolioItemUrl": "portfolio.html#project-macro-training-needs-analysis-dki-jakarta",
+      "discussUrl": "contact.html?portfolioItem=Macro Training Needs Analysis: DKI Jakarta"
     },
     {
       "id": "project-competency-matrix-for-training-organization",
       "title": "Competency Matrix for Training Organization",
-      "category": "Curriculum Development",
+      "practiceArea": "Curriculum Development",
       "tags": [
         "curriculum-development",
         "learning-strategy",
@@ -166,13 +166,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/bnsp6_matriks_kompetensi.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-competency-matrix-for-training-organization",
-      "discussUrl": "contact.html?project=Competency Matrix for Training Organization"
+      "portfolioItemUrl": "portfolio.html#project-competency-matrix-for-training-organization",
+      "discussUrl": "contact.html?portfolioItem=Competency Matrix for Training Organization"
     },
     {
       "id": "project-competency-based-training-syllabus",
       "title": "Competency-Based Training Syllabus",
-      "category": "Curriculum Development",
+      "practiceArea": "Curriculum Development",
       "tags": [
         "curriculum-development",
         "instructional-design"
@@ -184,13 +184,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/bnsp6_silabus_pelatihan_berbasis_kompetensi.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-competency-based-training-syllabus",
-      "discussUrl": "contact.html?project=Competency-Based Training Syllabus"
+      "portfolioItemUrl": "portfolio.html#project-competency-based-training-syllabus",
+      "discussUrl": "contact.html?portfolioItem=Competency-Based Training Syllabus"
     },
     {
       "id": "project-learning-business-plan-eighteen-rekrutmen-asia",
       "title": "Learning Business Plan: Eighteen Rekrutmen Asia",
-      "category": "L&D Strategy",
+      "practiceArea": "L&D Strategy",
       "tags": [
         "learning-strategy",
         "training-proposal"
@@ -202,13 +202,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/bnsp6_business_plan.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-learning-business-plan-eighteen-rekrutmen-asia",
-      "discussUrl": "contact.html?project=Learning Business Plan: Eighteen Rekrutmen Asia"
+      "portfolioItemUrl": "portfolio.html#project-learning-business-plan-eighteen-rekrutmen-asia",
+      "discussUrl": "contact.html?portfolioItem=Learning Business Plan: Eighteen Rekrutmen Asia"
     },
     {
       "id": "project-marketing-plan-for-training-solutions",
       "title": "Marketing Plan for Training Solutions",
-      "category": "L&D Strategy",
+      "practiceArea": "L&D Strategy",
       "tags": [
         "learning-strategy",
         "training-proposal"
@@ -220,13 +220,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/bnsp6_marketing_plan.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-marketing-plan-for-training-solutions",
-      "discussUrl": "contact.html?project=Marketing Plan for Training Solutions"
+      "portfolioItemUrl": "portfolio.html#project-marketing-plan-for-training-solutions",
+      "discussUrl": "contact.html?portfolioItem=Marketing Plan for Training Solutions"
     },
     {
       "id": "project-training-budget-and-roti-calculator",
       "title": "Training Budget and ROTI Calculator",
-      "category": "Learning Analytics",
+      "practiceArea": "Learning Analytics",
       "tags": [
         "learning-analytics",
         "worksheet",
@@ -239,13 +239,13 @@
       },
       "sourceArtifact": "assets/portfolio-viewers/bnsp6-rab-roti-pelatihan.html",
       "sourceType": "html-viewer",
-      "projectUrl": "portfolio.html#project-training-budget-and-roti-calculator",
-      "discussUrl": "contact.html?project=Training Budget and ROTI Calculator"
+      "portfolioItemUrl": "portfolio.html#project-training-budget-and-roti-calculator",
+      "discussUrl": "contact.html?portfolioItem=Training Budget and ROTI Calculator"
     },
     {
       "id": "project-kirkpatrick-level-1-reaction-dashboard",
       "title": "Kirkpatrick Level 1 Reaction Dashboard",
-      "category": "Learning Analytics",
+      "practiceArea": "Learning Analytics",
       "tags": [
         "assessment",
         "learning-evaluation",
@@ -258,13 +258,13 @@
       },
       "sourceArtifact": "assets/portfolio-viewers/bnsp6-evaluation-level1-reaction.html",
       "sourceType": "html-viewer",
-      "projectUrl": "portfolio.html#project-kirkpatrick-level-1-reaction-dashboard",
-      "discussUrl": "contact.html?project=Kirkpatrick Level 1 Reaction Dashboard"
+      "portfolioItemUrl": "portfolio.html#project-kirkpatrick-level-1-reaction-dashboard",
+      "discussUrl": "contact.html?portfolioItem=Kirkpatrick Level 1 Reaction Dashboard"
     },
     {
       "id": "project-kirkpatrick-level-2-learning-dashboard",
       "title": "Kirkpatrick Level 2 Learning Dashboard",
-      "category": "Learning Analytics",
+      "practiceArea": "Learning Analytics",
       "tags": [
         "assessment",
         "learning-evaluation",
@@ -277,13 +277,13 @@
       },
       "sourceArtifact": "assets/portfolio-viewers/bnsp6-evaluation-level2-learning.html",
       "sourceType": "html-viewer",
-      "projectUrl": "portfolio.html#project-kirkpatrick-level-2-learning-dashboard",
-      "discussUrl": "contact.html?project=Kirkpatrick Level 2 Learning Dashboard"
+      "portfolioItemUrl": "portfolio.html#project-kirkpatrick-level-2-learning-dashboard",
+      "discussUrl": "contact.html?portfolioItem=Kirkpatrick Level 2 Learning Dashboard"
     },
     {
       "id": "project-training-and-coaching-need-analysis-framework",
       "title": "Training and Coaching Need Analysis Framework",
-      "category": "Training Needs Analysis",
+      "practiceArea": "Training Needs Analysis",
       "tags": [
         "training-needs-analysis",
         "worksheet",
@@ -296,13 +296,13 @@
       },
       "sourceArtifact": "assets/portfolio-viewers/need-analysis-framework-training-coaching.html",
       "sourceType": "html-viewer",
-      "projectUrl": "portfolio.html#project-training-and-coaching-need-analysis-framework",
-      "discussUrl": "contact.html?project=Training and Coaching Need Analysis Framework"
+      "portfolioItemUrl": "portfolio.html#project-training-and-coaching-need-analysis-framework",
+      "discussUrl": "contact.html?portfolioItem=Training and Coaching Need Analysis Framework"
     },
     {
       "id": "project-need-assessment-cross-department-communication",
       "title": "Need Assessment: Cross-Department Communication",
-      "category": "Training Needs Analysis",
+      "practiceArea": "Training Needs Analysis",
       "tags": [
         "training-needs-analysis",
         "instructional-design",
@@ -315,13 +315,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/need_assessment_communication_between_departments.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-need-assessment-cross-department-communication",
-      "discussUrl": "contact.html?project=Need Assessment: Cross-Department Communication"
+      "portfolioItemUrl": "portfolio.html#project-need-assessment-cross-department-communication",
+      "discussUrl": "contact.html?portfolioItem=Need Assessment: Cross-Department Communication"
     },
     {
       "id": "project-need-assessment-manager-communication-to-staff",
       "title": "Need Assessment: Manager Communication to Staff",
-      "category": "Training Needs Analysis",
+      "practiceArea": "Training Needs Analysis",
       "tags": [
         "training-needs-analysis",
         "instructional-design",
@@ -334,13 +334,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/need_assessment_manager_communication_to_staff.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-need-assessment-manager-communication-to-staff",
-      "discussUrl": "contact.html?project=Need Assessment: Manager Communication to Staff"
+      "portfolioItemUrl": "portfolio.html#project-need-assessment-manager-communication-to-staff",
+      "discussUrl": "contact.html?portfolioItem=Need Assessment: Manager Communication to Staff"
     },
     {
       "id": "project-recruitment-assessment-blueprint",
       "title": "Recruitment Assessment Blueprint",
-      "category": "Assessment & Evaluation",
+      "practiceArea": "Assessment & Evaluation",
       "tags": [
         "assessment",
         "learning-analytics"
@@ -352,13 +352,13 @@
       },
       "sourceArtifact": "assets/portfolio-viewers/recruitment-assessment-blueprint.html",
       "sourceType": "html-viewer",
-      "projectUrl": "portfolio.html#project-recruitment-assessment-blueprint",
-      "discussUrl": "contact.html?project=Recruitment Assessment Blueprint"
+      "portfolioItemUrl": "portfolio.html#project-recruitment-assessment-blueprint",
+      "discussUrl": "contact.html?portfolioItem=Recruitment Assessment Blueprint"
     },
     {
       "id": "project-rancangan-sistem-asesmen-kompetensi-project-management",
       "title": "Rancangan Sistem Asesmen Kompetensi Project Management",
-      "category": "Training Proposal",
+      "practiceArea": "Training Proposal",
       "tags": [
         "training-proposal",
         "assessment",
@@ -372,13 +372,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/proposal_rancangan_sistem_asesmen_kompetensi_project_management.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-rancangan-sistem-asesmen-kompetensi-project-management",
-      "discussUrl": "contact.html?project=Project Management Competency Assessment"
+      "portfolioItemUrl": "portfolio.html#project-rancangan-sistem-asesmen-kompetensi-project-management",
+      "discussUrl": "contact.html?portfolioItem=Project Management Competency Assessment"
     },
     {
       "id": "project-miles-unfair-advantage-mentoring-workbook",
       "title": "MILES Unfair Advantage Mentoring Workbook",
-      "category": "Mentoring & Coaching",
+      "practiceArea": "Mentoring & Coaching",
       "tags": [
         "worksheet",
         "mentoring",
@@ -391,13 +391,13 @@
       },
       "sourceArtifact": "assets/portfolio-viewers/miles-unfair-advantage-mentoring-workbook.html",
       "sourceType": "html-viewer",
-      "projectUrl": "portfolio.html#project-miles-unfair-advantage-mentoring-workbook",
-      "discussUrl": "contact.html?project=MILES Unfair Advantage Mentoring Workbook"
+      "portfolioItemUrl": "portfolio.html#project-miles-unfair-advantage-mentoring-workbook",
+      "discussUrl": "contact.html?portfolioItem=MILES Unfair Advantage Mentoring Workbook"
     },
     {
       "id": "project-mentoring-workbook-week-1-idea-exploration",
       "title": "Mentoring Workbook: Week 1 Idea Exploration",
-      "category": "Mentoring & Coaching",
+      "practiceArea": "Mentoring & Coaching",
       "tags": [
         "worksheet",
         "mentoring"
@@ -409,13 +409,13 @@
       },
       "sourceArtifact": "assets/portfolio-viewers/ybb-mentoring-workbook-week-1.html",
       "sourceType": "html-viewer",
-      "projectUrl": "portfolio.html#project-mentoring-workbook-week-1-idea-exploration",
-      "discussUrl": "contact.html?project=Mentoring Workbook: Week 1 Idea Exploration"
+      "portfolioItemUrl": "portfolio.html#project-mentoring-workbook-week-1-idea-exploration",
+      "discussUrl": "contact.html?portfolioItem=Mentoring Workbook: Week 1 Idea Exploration"
     },
     {
       "id": "project-mentoring-workbook-week-2-concept-development",
       "title": "Mentoring Workbook: Week 2 Concept Development",
-      "category": "Mentoring & Coaching",
+      "practiceArea": "Mentoring & Coaching",
       "tags": [
         "worksheet",
         "mentoring"
@@ -427,13 +427,13 @@
       },
       "sourceArtifact": "assets/portfolio-viewers/ybb-mentoring-workbook-week-2.html",
       "sourceType": "html-viewer",
-      "projectUrl": "portfolio.html#project-mentoring-workbook-week-2-concept-development",
-      "discussUrl": "contact.html?project=Mentoring Workbook: Week 2 Concept Development"
+      "portfolioItemUrl": "portfolio.html#project-mentoring-workbook-week-2-concept-development",
+      "discussUrl": "contact.html?portfolioItem=Mentoring Workbook: Week 2 Concept Development"
     },
     {
       "id": "project-mentoring-workbook-week-3-presentation-readiness",
       "title": "Mentoring Workbook: Week 3 Presentation Readiness",
-      "category": "Mentoring & Coaching",
+      "practiceArea": "Mentoring & Coaching",
       "tags": [
         "worksheet",
         "mentoring",
@@ -446,13 +446,13 @@
       },
       "sourceArtifact": "assets/portfolio-viewers/ybb-mentoring-workbook-week-3.html",
       "sourceType": "html-viewer",
-      "projectUrl": "portfolio.html#project-mentoring-workbook-week-3-presentation-readiness",
-      "discussUrl": "contact.html?project=Mentoring Workbook: Week 3 Presentation Readiness"
+      "portfolioItemUrl": "portfolio.html#project-mentoring-workbook-week-3-presentation-readiness",
+      "discussUrl": "contact.html?portfolioItem=Mentoring Workbook: Week 3 Presentation Readiness"
     },
     {
       "id": "project-pitch-deck-template-week-4",
       "title": "Pitch Deck Template: Week 4",
-      "category": "Presentation Design",
+      "practiceArea": "Presentation Design",
       "tags": [
         "presentation-design",
         "mentoring",
@@ -465,13 +465,13 @@
       },
       "sourceArtifact": "assets/portfolio-viewers/ybb-pitch-deck-template-week-4.html",
       "sourceType": "html-viewer",
-      "projectUrl": "portfolio.html#project-pitch-deck-template-week-4",
-      "discussUrl": "contact.html?project=Pitch Deck Template: Week 4"
+      "portfolioItemUrl": "portfolio.html#project-pitch-deck-template-week-4",
+      "discussUrl": "contact.html?portfolioItem=Pitch Deck Template: Week 4"
     },
     {
       "id": "project-learning-from-abroad-education-and-career-pathways",
       "title": "Learning from Abroad: Education and Career Pathways",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials",
         "presentation-design",
@@ -484,13 +484,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/scholarship_powerpoint.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-learning-from-abroad-education-and-career-pathways",
-      "discussUrl": "contact.html?project=Learning from Abroad: Education and Career Pathways"
+      "portfolioItemUrl": "portfolio.html#project-learning-from-abroad-education-and-career-pathways",
+      "discussUrl": "contact.html?portfolioItem=Learning from Abroad: Education and Career Pathways"
     },
     {
       "id": "project-digital-marketing-portfolio-workshop-deck",
       "title": "Digital Marketing Portfolio Workshop Deck",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials",
         "presentation-design"
@@ -502,13 +502,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/digital_marketing_portfolio_powerpoint.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-digital-marketing-portfolio-workshop-deck",
-      "discussUrl": "contact.html?project=Digital Marketing Portfolio Workshop Deck"
+      "portfolioItemUrl": "portfolio.html#project-digital-marketing-portfolio-workshop-deck",
+      "discussUrl": "contact.html?portfolioItem=Digital Marketing Portfolio Workshop Deck"
     },
     {
       "id": "project-theory-of-change-as-program-framework",
       "title": "Theory of Change as Program Framework",
-      "category": "Custom Training & Workshops",
+      "practiceArea": "Custom Training & Workshops",
       "tags": [
         "training-workshop"
       ],
@@ -519,13 +519,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/toc.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-theory-of-change-as-program-framework",
-      "discussUrl": "contact.html?project=Theory of Change as Program Framework"
+      "portfolioItemUrl": "portfolio.html#project-theory-of-change-as-program-framework",
+      "discussUrl": "contact.html?portfolioItem=Theory of Change as Program Framework"
     },
     {
       "id": "project-entrepreneurship-online-class",
       "title": "Entrepreneurship Online Class",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "training-workshop"
       ],
@@ -536,13 +536,13 @@
       },
       "sourceArtifact": "assets/portfolio-viewers/entrepreneurship-online-class.html",
       "sourceType": "html-viewer",
-      "projectUrl": "portfolio.html#project-entrepreneurship-online-class",
-      "discussUrl": "contact.html?project=Online Class"
+      "portfolioItemUrl": "portfolio.html#project-entrepreneurship-online-class",
+      "discussUrl": "contact.html?portfolioItem=Online Class"
     },
     {
       "id": "project-training-for-trainer-experiential-learning-and-coaching",
       "title": "Training for Trainer: Experiential Learning & Coaching",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "training-workshop"
       ],
@@ -553,13 +553,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/training_for_trainer.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-training-for-trainer-experiential-learning-and-coaching",
-      "discussUrl": "contact.html?project=Training for Trainer"
+      "portfolioItemUrl": "portfolio.html#project-training-for-trainer-experiential-learning-and-coaching",
+      "discussUrl": "contact.html?portfolioItem=Training for Trainer"
     },
     {
       "id": "project-entrepreneurship-mentorship-for-sandination-community",
       "title": "Entrepreneurship Mentorship for Sandination Community",
-      "category": "Custom Training & Workshops",
+      "practiceArea": "Custom Training & Workshops",
       "tags": [
         "legacy-review"
       ],
@@ -570,13 +570,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/sandination_mentorship.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-entrepreneurship-mentorship-for-sandination-community",
-      "discussUrl": "contact.html?project=Sandination Mentorship"
+      "portfolioItemUrl": "portfolio.html#project-entrepreneurship-mentorship-for-sandination-community",
+      "discussUrl": "contact.html?portfolioItem=Sandination Mentorship"
     },
     {
       "id": "project-3rd-winner-in-kumpul-jasa-jember-competition",
       "title": "3rd Winner in KUMPUL JASA Jember Competition",
-      "category": "Custom Training & Workshops",
+      "practiceArea": "Custom Training & Workshops",
       "tags": [
         "training-workshop"
       ],
@@ -587,13 +587,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/kumpul_jasa.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-3rd-winner-in-kumpul-jasa-jember-competition",
-      "discussUrl": "contact.html?project=KUMPUL JASA"
+      "portfolioItemUrl": "portfolio.html#project-3rd-winner-in-kumpul-jasa-jember-competition",
+      "discussUrl": "contact.html?portfolioItem=KUMPUL JASA"
     },
     {
       "id": "project-nhi-bandung-business-acceleration-bootcamp",
       "title": "NHI Bandung Business Acceleration Bootcamp",
-      "category": "Custom Training & Workshops",
+      "practiceArea": "Custom Training & Workshops",
       "tags": [
         "training-workshop"
       ],
@@ -604,13 +604,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/nhi_acceleration.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-nhi-bandung-business-acceleration-bootcamp",
-      "discussUrl": "contact.html?project=NHI Acceleration Bootcamp"
+      "portfolioItemUrl": "portfolio.html#project-nhi-bandung-business-acceleration-bootcamp",
+      "discussUrl": "contact.html?portfolioItem=NHI Acceleration Bootcamp"
     },
     {
       "id": "project-entrepreneurship-program-for-5000-smk-students",
       "title": "Entrepreneurship Program for 5000+ SMK Students",
-      "category": "Custom Training & Workshops",
+      "practiceArea": "Custom Training & Workshops",
       "tags": [
         "training-workshop",
         "mentoring"
@@ -622,13 +622,13 @@
       },
       "sourceArtifact": "assets/portfolio-viewers/smk-entrepreneurship-program.html",
       "sourceType": "html-viewer",
-      "projectUrl": "portfolio.html#project-entrepreneurship-program-for-5000-smk-students",
-      "discussUrl": "contact.html?project=SMK Program"
+      "portfolioItemUrl": "portfolio.html#project-entrepreneurship-program-for-5000-smk-students",
+      "discussUrl": "contact.html?portfolioItem=SMK Program"
     },
     {
       "id": "project-budikdamber-program-for-7-rumah-yatim-asrama",
       "title": "Budikdamber Program for 7 Rumah Yatim Asrama",
-      "category": "Custom Training & Workshops",
+      "practiceArea": "Custom Training & Workshops",
       "tags": [
         "training-workshop",
         "mentoring"
@@ -640,13 +640,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/budikdamber.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-budikdamber-program-for-7-rumah-yatim-asrama",
-      "discussUrl": "contact.html?project=Budikdamber Program"
+      "portfolioItemUrl": "portfolio.html#project-budikdamber-program-for-7-rumah-yatim-asrama",
+      "discussUrl": "contact.html?portfolioItem=Budikdamber Program"
     },
     {
       "id": "project-the-millennium-challenge-corporation-mcc-grant",
       "title": "The Millennium Challenge Corporation (MCC) Grant",
-      "category": "Custom Training & Workshops",
+      "practiceArea": "Custom Training & Workshops",
       "tags": [
         "training-workshop"
       ],
@@ -657,13 +657,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/mcc_grant.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-the-millennium-challenge-corporation-mcc-grant",
-      "discussUrl": "contact.html?project=MCC Grant"
+      "portfolioItemUrl": "portfolio.html#project-the-millennium-challenge-corporation-mcc-grant",
+      "discussUrl": "contact.html?portfolioItem=MCC Grant"
     },
     {
       "id": "project-performance-appraisal-system-development",
       "title": "Performance Appraisal System Development",
-      "category": "Review: Legacy Project",
+      "practiceArea": "Review: Legacy Project",
       "tags": [
         "legacy-review"
       ],
@@ -674,13 +674,13 @@
       },
       "sourceArtifact": "assets/portfolio-viewers/performance-appraisal-system.html",
       "sourceType": "html-viewer",
-      "projectUrl": "portfolio.html#project-performance-appraisal-system-development",
-      "discussUrl": "contact.html?project=Performance Appraisal System"
+      "portfolioItemUrl": "portfolio.html#project-performance-appraisal-system-development",
+      "discussUrl": "contact.html?portfolioItem=Performance Appraisal System"
     },
     {
       "id": "project-nhi-bandung-business-incubation-bootcamp",
       "title": "NHI Bandung Business Incubation Bootcamp",
-      "category": "Custom Training & Workshops",
+      "practiceArea": "Custom Training & Workshops",
       "tags": [
         "training-workshop",
         "mentoring"
@@ -692,13 +692,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/nhi_incubation.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-nhi-bandung-business-incubation-bootcamp",
-      "discussUrl": "contact.html?project=NHI Incubation Bootcamp"
+      "portfolioItemUrl": "portfolio.html#project-nhi-bandung-business-incubation-bootcamp",
+      "discussUrl": "contact.html?portfolioItem=NHI Incubation Bootcamp"
     },
     {
       "id": "project-entrepreneurial-mindset-seminar",
       "title": "Entrepreneurial Mindset Seminar",
-      "category": "Custom Training & Workshops",
+      "practiceArea": "Custom Training & Workshops",
       "tags": [
         "training-workshop",
         "mentoring"
@@ -710,13 +710,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/growth_mindset.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-entrepreneurial-mindset-seminar",
-      "discussUrl": "contact.html?project=Mindset Seminar"
+      "portfolioItemUrl": "portfolio.html#project-entrepreneurial-mindset-seminar",
+      "discussUrl": "contact.html?portfolioItem=Mindset Seminar"
     },
     {
       "id": "project-mastering-critical-thinking-for-future-proofing-your-career",
       "title": "Mastering Critical Thinking for Future-Proofing Your Career",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -727,13 +727,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/critical_thinking.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-mastering-critical-thinking-for-future-proofing-your-career",
-      "discussUrl": "contact.html?project=Critical Thinking"
+      "portfolioItemUrl": "portfolio.html#project-mastering-critical-thinking-for-future-proofing-your-career",
+      "discussUrl": "contact.html?portfolioItem=Critical Thinking"
     },
     {
       "id": "project-menguasai-komunikasi-maritim-yang-efektif",
       "title": "Menguasai Komunikasi Maritim yang Efektif",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -744,13 +744,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/komunikasi_maritim.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-menguasai-komunikasi-maritim-yang-efektif",
-      "discussUrl": "contact.html?project=Komunikasi Maritim"
+      "portfolioItemUrl": "portfolio.html#project-menguasai-komunikasi-maritim-yang-efektif",
+      "discussUrl": "contact.html?portfolioItem=Komunikasi Maritim"
     },
     {
       "id": "project-mental-preparedness-preparation-for-emergencies",
       "title": "Mental Preparedness: Preparation for Emergencies",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -761,13 +761,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/mental_preparedness_emergency.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-mental-preparedness-preparation-for-emergencies",
-      "discussUrl": "contact.html?project=Mental Preparedness"
+      "portfolioItemUrl": "portfolio.html#project-mental-preparedness-preparation-for-emergencies",
+      "discussUrl": "contact.html?portfolioItem=Mental Preparedness"
     },
     {
       "id": "project-landing-your-dream-job-top-employability-skills-for-new-grads",
       "title": "Landing Your Dream Job: Top Employability Skills for New Grads",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -778,13 +778,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/top_employability_skills.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-landing-your-dream-job-top-employability-skills-for-new-grads",
-      "discussUrl": "contact.html?project=Employability Skills"
+      "portfolioItemUrl": "portfolio.html#project-landing-your-dream-job-top-employability-skills-for-new-grads",
+      "discussUrl": "contact.html?portfolioItem=Employability Skills"
     },
     {
       "id": "project-gig-economy-and-resilience-the-future-is-beyond-milestones",
       "title": "GIG-ECONOMY & RESILIENCE: The Future is Beyond Milestones",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -795,13 +795,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/gig_economy_resilience.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-gig-economy-and-resilience-the-future-is-beyond-milestones",
-      "discussUrl": "contact.html?project=GIG-ECONOMY & RESILIENCE"
+      "portfolioItemUrl": "portfolio.html#project-gig-economy-and-resilience-the-future-is-beyond-milestones",
+      "discussUrl": "contact.html?portfolioItem=GIG-ECONOMY & RESILIENCE"
     },
     {
       "id": "project-gig-economy-the-rise-of-side-hustling",
       "title": "GIG-ECONOMY: The Rise of Side Hustling",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -812,13 +812,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/gig_economy_hustle.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-gig-economy-the-rise-of-side-hustling",
-      "discussUrl": "contact.html?project=GIG-ECONOMY"
+      "portfolioItemUrl": "portfolio.html#project-gig-economy-the-rise-of-side-hustling",
+      "discussUrl": "contact.html?portfolioItem=GIG-ECONOMY"
     },
     {
       "id": "project-umkm-s-simple-financial-management",
       "title": "UMKM's Simple Financial Management",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -829,13 +829,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/financial_management.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-umkm-s-simple-financial-management",
-      "discussUrl": "contact.html?project=UMKM%27s%20Simple%20Financial%20Management"
+      "portfolioItemUrl": "portfolio.html#project-umkm-s-simple-financial-management",
+      "discussUrl": "contact.html?portfolioItem=UMKM%27s%20Simple%20Financial%20Management"
     },
     {
       "id": "project-financial-modeling",
       "title": "Financial Modeling",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -846,13 +846,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/financial_modeling.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-financial-modeling",
-      "discussUrl": "contact.html?project=Financial Modeling"
+      "portfolioItemUrl": "portfolio.html#project-financial-modeling",
+      "discussUrl": "contact.html?portfolioItem=Financial Modeling"
     },
     {
       "id": "project-growth-mindset",
       "title": "Growth Mindset",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -863,13 +863,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/growth_mindset.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-growth-mindset",
-      "discussUrl": "contact.html?project=Growth Mindset"
+      "portfolioItemUrl": "portfolio.html#project-growth-mindset",
+      "discussUrl": "contact.html?portfolioItem=Growth Mindset"
     },
     {
       "id": "project-cultivating-growth-mindset-for-self-motivation",
       "title": "Cultivating Growth Mindset for Self-Motivation",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -880,13 +880,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/self-motivation.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-cultivating-growth-mindset-for-self-motivation",
-      "discussUrl": "contact.html?project=Self-Motivation"
+      "portfolioItemUrl": "portfolio.html#project-cultivating-growth-mindset-for-self-motivation",
+      "discussUrl": "contact.html?portfolioItem=Self-Motivation"
     },
     {
       "id": "project-make-your-product-fit-with-design-thinking",
       "title": "Make Your Product Fit with Design Thinking",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -897,13 +897,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/design_thinking.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-make-your-product-fit-with-design-thinking",
-      "discussUrl": "contact.html?project=Design Thinking"
+      "portfolioItemUrl": "portfolio.html#project-make-your-product-fit-with-design-thinking",
+      "discussUrl": "contact.html?portfolioItem=Design Thinking"
     },
     {
       "id": "project-business-management-and-adaptability-for-msmes",
       "title": "Business Management & Adaptability for MSMEs",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -914,13 +914,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/business_management.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-business-management-and-adaptability-for-msmes",
-      "discussUrl": "contact.html?project=Business Management"
+      "portfolioItemUrl": "portfolio.html#project-business-management-and-adaptability-for-msmes",
+      "discussUrl": "contact.html?portfolioItem=Business Management"
     },
     {
       "id": "project-how-to-face-layoff-storm",
       "title": "How to Face Layoff Storm",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -931,13 +931,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/layoff_storm.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-how-to-face-layoff-storm",
-      "discussUrl": "contact.html?project=Layoff Storm"
+      "portfolioItemUrl": "portfolio.html#project-how-to-face-layoff-storm",
+      "discussUrl": "contact.html?portfolioItem=Layoff Storm"
     },
     {
       "id": "project-brand-yourself-stand-out-with-personal-branding-and-linkedin-optimization",
       "title": "Brand Yourself: Stand Out with Personal Branding & LinkedIn Optimization",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -948,13 +948,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/personal_branding.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-brand-yourself-stand-out-with-personal-branding-and-linkedin-optimization",
-      "discussUrl": "contact.html?project=Personal Branding"
+      "portfolioItemUrl": "portfolio.html#project-brand-yourself-stand-out-with-personal-branding-and-linkedin-optimization",
+      "discussUrl": "contact.html?portfolioItem=Personal Branding"
     },
     {
       "id": "project-ai-powered-personal-branding-for-linkedin",
       "title": "AI-Powered Personal Branding for LinkedIn",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -965,13 +965,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/20260520_ai_powered_personal_branding_linkedIn_module.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-ai-powered-personal-branding-for-linkedin",
-      "discussUrl": "contact.html?project=AI-Powered Personal Branding for LinkedIn"
+      "portfolioItemUrl": "portfolio.html#project-ai-powered-personal-branding-for-linkedin",
+      "discussUrl": "contact.html?portfolioItem=AI-Powered Personal Branding for LinkedIn"
     },
     {
       "id": "project-public-speaking-and-confidence-boost",
       "title": "Public Speaking & Confidence Boost",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -982,13 +982,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/public_speaking_confidence_boost.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-public-speaking-and-confidence-boost",
-      "discussUrl": "contact.html?project=Public Speaking Confidence Boost"
+      "portfolioItemUrl": "portfolio.html#project-public-speaking-and-confidence-boost",
+      "discussUrl": "contact.html?portfolioItem=Public Speaking Confidence Boost"
     },
     {
       "id": "project-color-personality",
       "title": "Color Personality",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -999,13 +999,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/color_personality.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-color-personality",
-      "discussUrl": "contact.html?project=Color Personality"
+      "portfolioItemUrl": "portfolio.html#project-color-personality",
+      "discussUrl": "contact.html?portfolioItem=Color Personality"
     },
     {
       "id": "project-managing-crew-fatigue-onboard",
       "title": "Managing Crew Fatigue Onboard",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1016,13 +1016,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/crew_fatigue_onboard.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-managing-crew-fatigue-onboard",
-      "discussUrl": "contact.html?project=Crew Fatigue"
+      "portfolioItemUrl": "portfolio.html#project-managing-crew-fatigue-onboard",
+      "discussUrl": "contact.html?portfolioItem=Crew Fatigue"
     },
     {
       "id": "project-komunikasi-sehat-antar-crew-di-tengah-tekanan-kerja",
       "title": "Komunikasi Sehat Antar Crew di Tengah Tekanan Kerja",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials",
         "instructional-design",
@@ -1035,13 +1035,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/komunikasi_sehat_antar_crew.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-komunikasi-sehat-antar-crew-di-tengah-tekanan-kerja",
-      "discussUrl": "contact.html?project=Komunikasi Sehat Antar Crew"
+      "portfolioItemUrl": "portfolio.html#project-komunikasi-sehat-antar-crew-di-tengah-tekanan-kerja",
+      "discussUrl": "contact.html?portfolioItem=Komunikasi Sehat Antar Crew"
     },
     {
       "id": "project-speak-up-stand-out-public-speaking-in-the-hybrid-era",
       "title": "Speak Up, Stand Out: Public Speaking in the Hybrid Era",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1052,13 +1052,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/public_speaking.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-speak-up-stand-out-public-speaking-in-the-hybrid-era",
-      "discussUrl": "contact.html?project=Public Speaking"
+      "portfolioItemUrl": "portfolio.html#project-speak-up-stand-out-public-speaking-in-the-hybrid-era",
+      "discussUrl": "contact.html?portfolioItem=Public Speaking"
     },
     {
       "id": "project-startup-development-class",
       "title": "Startup Development Class",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1069,13 +1069,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/startup_development_class.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-startup-development-class",
-      "discussUrl": "contact.html?project=Startup Development Class"
+      "portfolioItemUrl": "portfolio.html#project-startup-development-class",
+      "discussUrl": "contact.html?portfolioItem=Startup Development Class"
     },
     {
       "id": "project-how-to-leverage-social-media-instagram-for-msmes",
       "title": "How to Leverage Social Media Instagram for MSMEs",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1086,13 +1086,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/instagram_umkm.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-how-to-leverage-social-media-instagram-for-msmes",
-      "discussUrl": "contact.html?project=Instagram for MSMEs"
+      "portfolioItemUrl": "portfolio.html#project-how-to-leverage-social-media-instagram-for-msmes",
+      "discussUrl": "contact.html?portfolioItem=Instagram for MSMEs"
     },
     {
       "id": "project-managing-crew-onboard-stress",
       "title": "Managing Crew Onboard Stress",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1103,13 +1103,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/stress_management.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-managing-crew-onboard-stress",
-      "discussUrl": "contact.html?project=Managing Crew Onboard Stress"
+      "portfolioItemUrl": "portfolio.html#project-managing-crew-onboard-stress",
+      "discussUrl": "contact.html?portfolioItem=Managing Crew Onboard Stress"
     },
     {
       "id": "project-smart-steps-to-start-an-employee-side-hustle",
       "title": "Smart Steps to Start an Employee Side Hustle",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1120,13 +1120,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/side_hustle.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-smart-steps-to-start-an-employee-side-hustle",
-      "discussUrl": "contact.html?project=Smart Steps to Start an Employee Side Hustle"
+      "portfolioItemUrl": "portfolio.html#project-smart-steps-to-start-an-employee-side-hustle",
+      "discussUrl": "contact.html?portfolioItem=Smart Steps to Start an Employee Side Hustle"
     },
     {
       "id": "project-anyone-can-get-a-job",
       "title": "Anyone Can Get a Job",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1137,13 +1137,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/triangle.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-anyone-can-get-a-job",
-      "discussUrl": "contact.html?project=Anyone Can Get a Job"
+      "portfolioItemUrl": "portfolio.html#project-anyone-can-get-a-job",
+      "discussUrl": "contact.html?portfolioItem=Anyone Can Get a Job"
     },
     {
       "id": "project-crafting-deck-and-impactful-presentation",
       "title": "Crafting Deck and Impactful Presentation",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1154,13 +1154,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/crafting_deck.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-crafting-deck-and-impactful-presentation",
-      "discussUrl": "contact.html?project=Crafting Deck and Impactful Presentation"
+      "portfolioItemUrl": "portfolio.html#project-crafting-deck-and-impactful-presentation",
+      "discussUrl": "contact.html?portfolioItem=Crafting Deck and Impactful Presentation"
     },
     {
       "id": "project-stress-and-time-management",
       "title": "Stress & Time Management",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1171,13 +1171,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/time_management.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-stress-and-time-management",
-      "discussUrl": "contact.html?project=Stress & Time Management"
+      "portfolioItemUrl": "portfolio.html#project-stress-and-time-management",
+      "discussUrl": "contact.html?portfolioItem=Stress & Time Management"
     },
     {
       "id": "project-adaptive-communication-decode-and-connect",
       "title": "Adaptive Communication: Decode & Connect",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1188,13 +1188,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_1.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-adaptive-communication-decode-and-connect",
-      "discussUrl": "contact.html?project=Adaptive Communication"
+      "portfolioItemUrl": "portfolio.html#project-adaptive-communication-decode-and-connect",
+      "discussUrl": "contact.html?portfolioItem=Adaptive Communication"
     },
     {
       "id": "project-strengthen-teamwork-with-empathy-and-communication",
       "title": "Strengthen Teamwork with Empathy & Communication",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1205,13 +1205,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/teamwork.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-strengthen-teamwork-with-empathy-and-communication",
-      "discussUrl": "contact.html?project=Strengthen Teamwork"
+      "portfolioItemUrl": "portfolio.html#project-strengthen-teamwork-with-empathy-and-communication",
+      "discussUrl": "contact.html?portfolioItem=Strengthen Teamwork"
     },
     {
       "id": "project-building-a-culture-of-service-excellence-in-the-digital-era",
       "title": "Building a Culture of Service Excellence in the Digital Era",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1222,13 +1222,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/service_excellence.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-building-a-culture-of-service-excellence-in-the-digital-era",
-      "discussUrl": "contact.html?project=Service Excellence"
+      "portfolioItemUrl": "portfolio.html#project-building-a-culture-of-service-excellence-in-the-digital-era",
+      "discussUrl": "contact.html?portfolioItem=Service Excellence"
     },
     {
       "id": "project-unlock-flows-adaptive-decode-for-corporate-connections",
       "title": "Unlock Flows: Adaptive Decode for Corporate Connections",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1239,13 +1239,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_2.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-unlock-flows-adaptive-decode-for-corporate-connections",
-      "discussUrl": "contact.html?project=Unlock Flows"
+      "portfolioItemUrl": "portfolio.html#project-unlock-flows-adaptive-decode-for-corporate-connections",
+      "discussUrl": "contact.html?portfolioItem=Unlock Flows"
     },
     {
       "id": "project-calibrate-links-decode-insights-connect-precisely",
       "title": "Calibrate Links: Decode Insights, Connect Precisely",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1256,13 +1256,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_3.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-calibrate-links-decode-insights-connect-precisely",
-      "discussUrl": "contact.html?project=Calibrate Links"
+      "portfolioItemUrl": "portfolio.html#project-calibrate-links-decode-insights-connect-precisely",
+      "discussUrl": "contact.html?portfolioItem=Calibrate Links"
     },
     {
       "id": "project-sync-up-decode-signals-connect-teams-mcdonald-s-edition",
       "title": "Sync Up: Decode Signals, Connect Teams - McDonald's Edition",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1273,13 +1273,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_4.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-sync-up-decode-signals-connect-teams-mcdonald-s-edition",
-      "discussUrl": "contact.html?project=Sync Up"
+      "portfolioItemUrl": "portfolio.html#project-sync-up-decode-signals-connect-teams-mcdonald-s-edition",
+      "discussUrl": "contact.html?portfolioItem=Sync Up"
     },
     {
       "id": "project-adaptive-communication-solution-for-home-credit-indonesia",
       "title": "Adaptive Communication Solution for Home Credit Indonesia",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1290,13 +1290,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_5.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-adaptive-communication-solution-for-home-credit-indonesia",
-      "discussUrl": "contact.html?project=Adaptive Communication HCI"
+      "portfolioItemUrl": "portfolio.html#project-adaptive-communication-solution-for-home-credit-indonesia",
+      "discussUrl": "contact.html?portfolioItem=Adaptive Communication HCI"
     },
     {
       "id": "project-how-to-win-friends-and-influence-people",
       "title": "How to Win Friends and Influence People",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1307,13 +1307,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/win_friends.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-how-to-win-friends-and-influence-people",
-      "discussUrl": "contact.html?project=Win Friends"
+      "portfolioItemUrl": "portfolio.html#project-how-to-win-friends-and-influence-people",
+      "discussUrl": "contact.html?portfolioItem=Win Friends"
     },
     {
       "id": "project-managing-pressure-without-losing-yourself",
       "title": "Managing Pressure Without Losing Yourself",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1324,13 +1324,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/managing_pressure.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-managing-pressure-without-losing-yourself",
-      "discussUrl": "contact.html?project=Managing Pressure Without Losing Yourself"
+      "portfolioItemUrl": "portfolio.html#project-managing-pressure-without-losing-yourself",
+      "discussUrl": "contact.html?portfolioItem=Managing Pressure Without Losing Yourself"
     },
     {
       "id": "project-mental-health-in-the-workplace-for-being-supervisor",
       "title": "Mental Health in the Workplace for being Supervisor",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1341,13 +1341,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/mental_health_supervisor.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-mental-health-in-the-workplace-for-being-supervisor",
-      "discussUrl": "contact.html?project=Mental Health in the Workplace for being Supervisor"
+      "portfolioItemUrl": "portfolio.html#project-mental-health-in-the-workplace-for-being-supervisor",
+      "discussUrl": "contact.html?portfolioItem=Mental Health in the Workplace for being Supervisor"
     },
     {
       "id": "project-from-impostor-to-influencer",
       "title": "From Impostor to Influencer",
-      "category": "Mentoring & Speaking",
+      "practiceArea": "Mentoring & Speaking",
       "tags": [
         "mentoring"
       ],
@@ -1358,13 +1358,13 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/linkedIn_post.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-from-impostor-to-influencer",
-      "discussUrl": "contact.html?project=From Impostor to Influencer"
+      "portfolioItemUrl": "portfolio.html#project-from-impostor-to-influencer",
+      "discussUrl": "contact.html?portfolioItem=From Impostor to Influencer"
     },
     {
       "id": "project-the-psychology-of-money-understanding-how-we-think-about-wealth",
       "title": "The Psychology of Money: Understanding How We Think About Wealth",
-      "category": "Learning Materials",
+      "practiceArea": "Learning Materials",
       "tags": [
         "learning-materials"
       ],
@@ -1375,8 +1375,8 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/psychology_of_money.pdf",
       "sourceType": "pdf",
-      "projectUrl": "portfolio.html#project-the-psychology-of-money-understanding-how-we-think-about-wealth",
-      "discussUrl": "contact.html?project=The Psychology of Money"
+      "portfolioItemUrl": "portfolio.html#project-the-psychology-of-money-understanding-how-we-think-about-wealth",
+      "discussUrl": "contact.html?portfolioItem=The Psychology of Money"
     }
   ]
 }

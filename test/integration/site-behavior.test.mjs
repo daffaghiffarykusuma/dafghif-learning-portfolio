@@ -42,7 +42,7 @@ describe('site browser behavior', () => {
     expect(warnings.some((message) => message.includes('Blocked unsafe portfolio preview path'))).toBe(true);
   });
 
-  test('portfolio page opens a project preview from a direct hash link', async () => {
+  test('portfolio page opens an artifact preview from a direct hash link', async () => {
     const html = await readPage('portfolio.html');
     createDom(html, 'http://127.0.0.1/portfolio.html#project-administrative-communication-training-needs-analysis');
     globalThis.console = window.console;
@@ -61,7 +61,7 @@ describe('site browser behavior', () => {
 
   test('contact page pre-fills inquiry context and clears stored data', async () => {
     const html = await readPage('contact.html');
-    createDom(html, 'http://127.0.0.1/contact.html?service=mentoring');
+    createDom(html, 'http://127.0.0.1/contact.html?engagement=mentoring');
     document.body.insertAdjacentHTML('beforeend', `
       <form class="contact-form">
         <input id="name" name="name">
@@ -77,8 +77,8 @@ describe('site browser behavior', () => {
       </form>
       <p id="contact-prefill-message" hidden></p>
     `);
-    sessionStorage.setItem('serviceInquiry', JSON.stringify({
-      service: 'learning-powerpoint',
+    sessionStorage.setItem('engagementInquiry', JSON.stringify({
+      engagementType: 'learning-powerpoint',
       name: 'Daffa',
       email: 'daffa@example.com',
       organisation: 'Learning Lab',
@@ -93,12 +93,12 @@ describe('site browser behavior', () => {
     expect(document.querySelector('#message').value).toBe('Create a facilitator-ready learning deck.');
     expect(document.querySelector('#service-interest').value).toBe('learning-materials');
     expect(document.getElementById('contact-prefill-message').hasAttribute('hidden')).toBe(false);
-    expect(sessionStorage.getItem('serviceInquiry')).toBeNull();
+    expect(sessionStorage.getItem('engagementInquiry')).toBeNull();
   });
 
-  test('service inquiry forms save payloads before redirecting to contact page', async () => {
+  test('engagement inquiry forms save payloads before redirecting to contact page', async () => {
     const window = createDom(`
-      <form class="service-inquiry-form" data-service="custom-training" action="contact.html">
+      <form class="engagement-inquiry-form" data-engagement-type="custom-training" action="contact.html">
         <input name="name" value="Client">
         <input name="email" value="client@example.com">
         <input name="organisation" value="Company">
@@ -112,10 +112,10 @@ describe('site browser behavior', () => {
     fireDOMContentLoaded();
 
     document.querySelector('form').dispatchEvent(new window.Event('submit', { bubbles: true, cancelable: true }));
-    const payload = JSON.parse(sessionStorage.getItem('serviceInquiry'));
+    const payload = JSON.parse(sessionStorage.getItem('engagementInquiry'));
 
     expect(payload).toEqual({
-      service: 'custom-training',
+      engagementType: 'custom-training',
       name: 'Client',
       email: 'client@example.com',
       organisation: 'Company',

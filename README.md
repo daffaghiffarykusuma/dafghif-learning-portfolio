@@ -31,12 +31,12 @@ Run validation before publishing:
 bun run validate
 ```
 
-The validator checks deployed HTML pages, generated portfolio viewers, CSS asset URLs, missing local assets, broken fragments, unreviewed external hosts, unsafe inline scripts, `target="_blank"` rel attributes, CSP hardening, blog metadata URL allowlists, and structured portfolio project data.
+The validator checks deployed HTML pages, generated portfolio viewers, CSS asset URLs, missing local assets, broken fragments, unreviewed external hosts, unsafe inline scripts, `target="_blank"` rel attributes, CSP hardening, blog metadata URL allowlists, and structured portfolio item data.
 
-Portfolio project data is generated from the public portfolio cards:
+Portfolio item data is generated from the public portfolio cards:
 
 ```bash
-bun run generate:portfolio-source
+bun run generate:portfolio-items
 bun run generate:portfolio-ai
 ```
 
