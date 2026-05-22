@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-projects.json",
-  "generatedAt": "2026-05-21T23:00:13.411Z",
+  "generatedAt": "2026-05-22T01:48:51.980Z",
   "owner": "Daffa Ghiffary Kusuma",
   "positioning": "Learning Designer and Program Manager focused on competency-based training, learning assets, evaluation systems, mentoring, and learning analytics.",
   "usage": "Use this file as AI-readable context for tailored CVs, cover letters, recruiter summaries, and project matching when the original portfolio artifacts are unavailable.",
   "evidenceNote": "Project titles, categories, descriptions, tags, and source artifact paths are read from the structured portfolio source. Role, audience, deliverables, skills, tools, impact, and CV bullets are inferred from those public snippets and should be refined when exact project details are available.",
-  "projectCount": 77,
+  "projectCount": 78,
   "categoryProfiles": {
     "Training Needs Analysis": {
       "defaultRole": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
@@ -879,6 +879,47 @@
         "scaleSignals": [],
         "impact": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
         "cvBullet": "Designed Recruitment Assessment Blueprint as a assessment & evaluation project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
+      }
+    },
+    {
+      "id": "project-rancangan-sistem-asesmen-kompetensi-project-management",
+      "title": "Rancangan Sistem Asesmen Kompetensi Project Management",
+      "category": "Training Proposal",
+      "tags": [
+        "training-proposal",
+        "assessment",
+        "learning-strategy",
+        "learning-analytics"
+      ],
+      "publicDescription": "Proposal for a Project Management competency assessment system using a 5-level competency dictionary, role-level mapping, multi-source evidence, calibration panels, and gap-based action planning.",
+      "sourceArtifact": "assets/pdf/portfolio/proposal_rancangan_sistem_asesmen_kompetensi_project_management.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from structured portfolio source",
+        "role": "Converted learning needs into a structured proposal with objectives, program logic, delivery plan, and expected outcomes.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "training proposal",
+          "program objectives",
+          "delivery plan"
+        ],
+        "skills": [
+          "proposal development",
+          "instructional design",
+          "curriculum planning",
+          "stakeholder communication",
+          "training proposal",
+          "assessment",
+          "learning strategy",
+          "learning analytics"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [
+          "5"
+        ],
+        "impact": "Clarified the real performance gap before investing in training design or delivery.",
+        "cvBullet": "Developed Rancangan Sistem Asesmen Kompetensi Project Management as a training proposal project, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Clarified the real performance gap before investing in training design or delivery."
       }
     },
     {

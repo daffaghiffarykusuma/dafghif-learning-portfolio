@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "portfolio.html",
-  "generatedAt": "2026-05-21T23:00:13.008Z",
-  "projectCount": 77,
+  "generatedAt": "2026-05-22T01:48:51.529Z",
+  "projectCount": 78,
   "projects": [
     {
       "id": "project-administrative-communication-training-needs-analysis",
@@ -354,6 +354,26 @@
       "sourceType": "html-viewer",
       "projectUrl": "portfolio.html#project-recruitment-assessment-blueprint",
       "discussUrl": "contact.html?project=Recruitment Assessment Blueprint"
+    },
+    {
+      "id": "project-rancangan-sistem-asesmen-kompetensi-project-management",
+      "title": "Rancangan Sistem Asesmen Kompetensi Project Management",
+      "category": "Training Proposal",
+      "tags": [
+        "training-proposal",
+        "assessment",
+        "learning-strategy",
+        "learning-analytics"
+      ],
+      "description": "Proposal for a Project Management competency assessment system using a 5-level competency dictionary, role-level mapping, multi-source evidence, calibration panels, and gap-based action planning.",
+      "image": {
+        "src": "assets/images/portfolio/proposal-rancangan-sistem-asesmen-kompetensi-project-management.webp",
+        "alt": "Rancangan Sistem Asesmen Kompetensi Project Management proposal thumbnail"
+      },
+      "sourceArtifact": "assets/pdf/portfolio/proposal_rancangan_sistem_asesmen_kompetensi_project_management.pdf",
+      "sourceType": "pdf",
+      "projectUrl": "portfolio.html#project-rancangan-sistem-asesmen-kompetensi-project-management",
+      "discussUrl": "contact.html?project=Project Management Competency Assessment"
     },
     {
       "id": "project-miles-unfair-advantage-mentoring-workbook",
