@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-items.json",
-  "generatedAt": "2026-05-22T04:34:18.693Z",
+  "generatedAt": "2026-05-22T10:30:40.350Z",
   "owner": "Daffa Ghiffary Kusuma",
   "positioning": "Learning Designer and Program Manager focused on competency-based training, learning assets, evaluation systems, mentoring, and learning analytics.",
   "usage": "Use this file as AI-readable context for tailored CVs, cover letters, recruiter summaries, and portfolio item matching when the original portfolio artifacts are unavailable.",
@@ -2209,7 +2209,7 @@
         "presentation-design"
       ],
       "publicDescription": "Indonesian maritime workshop deck on healthy crew communication under pressure. Covers mental health screening, miscommunication risks, conflict patterns, active listening, and practical emotion regulation.",
-      "sourceArtifact": "assets/pdf/portfolio/komunikasi_sehat_antar_crew.pdf",
+      "sourceArtifact": "assets/pdf/portfolio/20260522_komunikasi_sehat_antar_crew.pdf",
       "aiContext": {
         "evidenceLevel": "inferred from structured portfolio source",
         "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
