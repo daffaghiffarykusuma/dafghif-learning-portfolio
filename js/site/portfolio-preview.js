@@ -57,7 +57,7 @@ export function initPortfolioPreview(closeActiveModal = () => {}) {
 
         const projectCard = button.closest('.project');
         const cardContent = button.closest('.card-content') || projectCard?.querySelector('.card-content');
-        const projectTitle = cardContent?.querySelector('h3, h4')?.textContent || 'Project Details';
+        const projectTitle = cardContent?.querySelector('h3, h4')?.textContent || 'Portfolio Item Details';
 
         closeActiveModal();
         closePdfModal();

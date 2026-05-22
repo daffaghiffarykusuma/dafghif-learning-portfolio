@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     container.replaceChildren();
     if (!posts.length) {
         const emptyMessage = document.createElement('p');
-        emptyMessage.textContent = 'No blog posts found.';
+        emptyMessage.textContent = 'No publications found.';
         container.appendChild(emptyMessage);
         return;
     }
