@@ -47,6 +47,13 @@ export function initPortfolioItemModals() {
             event.stopPropagation();
             closeActiveModal();
         });
+
+        button.addEventListener('keydown', (event) => {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            event.preventDefault();
+            event.stopPropagation();
+            closeActiveModal();
+        });
     });
 
     document.addEventListener('keydown', (event) => {

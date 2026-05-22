@@ -1550,12 +1550,8 @@ h2.section-title::after { /* Underline effect for titles */
 }
 
 .close-modal {
-    color: var(--primary);
-    font-size: 32px;
-    font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
-    background: none;
     border: none;
     padding: 0;
     width: 40px;
@@ -1565,12 +1561,39 @@ h2.section-title::after { /* Underline effect for titles */
     justify-content: center;
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.1);
+    position: relative;
+    flex: 0 0 40px;
+}
+
+.close-modal::before,
+.close-modal::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 18px;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--primary);
+    transform-origin: center;
+}
+
+.close-modal::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close-modal::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 .close-modal:hover {
-    color: var(--accent);
     background-color: rgba(42, 157, 143, 0.1);
     transform: scale(1.1);
+}
+
+.close-modal:hover::before,
+.close-modal:hover::after {
+    background: var(--accent);
 }
 
 .pdf-modal-body {
@@ -2440,21 +2463,52 @@ body.dark-mode .social-links li a:hover {
 }
 
 .modal .close {
-    color: var(--primary);
-    font-size: 2rem; /* Larger close button */
-    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
     transition: all 0.3s ease;
-    background: none; /* Remove potential background */
-    border: none; /* Remove potential border */
-    padding: 0 8px; /* Adjust padding */
-    line-height: 1; /* Ensure proper alignment */
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    padding: 0;
     cursor: pointer;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal .close::before,
+.modal .close::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 18px;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--primary);
+    transform-origin: center;
+}
+
+.modal .close::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.modal .close::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 .modal .close:hover,
 .modal .close:focus {
-    color: var(--accent);
+    background-color: rgba(42, 157, 143, 0.1);
     transform: scale(1.1);
+}
+
+.modal .close:hover::before,
+.modal .close:hover::after,
+.modal .close:focus::before,
+.modal .close:focus::after {
+    background: var(--accent);
 }
 
 .modal-body {

@@ -1173,9 +1173,23 @@ footer {
     color: var(--dm-text-secondary) !important;
 }
 
+.close-modal::before,
+.close-modal::after,
+.js-close-modal::before,
+.js-close-modal::after {
+    background: var(--dm-text-secondary) !important;
+}
+
 .close-modal:hover,
 .js-close-modal:hover {
     color: var(--dm-text-primary) !important;
+}
+
+.close-modal:hover::before,
+.close-modal:hover::after,
+.js-close-modal:hover::before,
+.js-close-modal:hover::after {
+    background: var(--dm-text-primary) !important;
 }
 
 /* Modal styling */
