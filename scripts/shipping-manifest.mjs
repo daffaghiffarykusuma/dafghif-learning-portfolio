@@ -6,12 +6,10 @@ export const shippingManifest = Object.freeze({
     'assets/data',
     'assets/pdf',
     'assets/portfolio-viewers',
-    'assets/presentations',
-    'assets/spreadsheets',
-    'cv',
   ]),
   files: Object.freeze([
     'assets/blog.json',
+    'cv/Profile.pdf',
   ]),
   rootFiles: Object.freeze({
     extensions: Object.freeze(['.png', '.jpg', '.jpeg', '.webp', '.svg', '.ico', '.pdf']),

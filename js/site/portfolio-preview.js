@@ -10,6 +10,15 @@ export function initPortfolioPreview(closeActiveModal = () => {}) {
     let activePdfModal = null;
     let lastPreviewTrigger = null;
 
+    const portfolioItemFromHash = (hash) => {
+        if (!hash || hash === '#') return null;
+        try {
+            return document.getElementById(decodeURIComponent(hash.slice(1)));
+        } catch {
+            return null;
+        }
+    };
+
     const closePdfModal = () => {
         if (!activePdfModal) return;
         activePdfModal.hidden = true;
@@ -83,7 +92,7 @@ export function initPortfolioPreview(closeActiveModal = () => {}) {
     portfolioItemAnchorLinks.forEach((link) => {
         link.addEventListener('click', (event) => {
             const targetHash = new URL(link.href, window.location.href).hash;
-            const previewButton = targetHash ? document.querySelector(targetHash)?.querySelector('.view-details-button') : null;
+            const previewButton = portfolioItemFromHash(targetHash)?.querySelector('.view-details-button');
             if (!previewButton) return;
             event.preventDefault();
             event.stopPropagation();
@@ -92,8 +101,7 @@ export function initPortfolioPreview(closeActiveModal = () => {}) {
     });
 
     const openPreviewFromHash = () => {
-        if (!window.location.hash) return;
-        const previewButton = document.querySelector(window.location.hash)?.querySelector('.view-details-button');
+        const previewButton = portfolioItemFromHash(window.location.hash)?.querySelector('.view-details-button');
         if (previewButton) openPortfolioPreview(previewButton, { trigger: previewButton, updateHash: false });
     };
 

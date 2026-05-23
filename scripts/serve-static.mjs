@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const port = Number.parseInt(process.env.PORT || '4173', 10);
 const host = process.env.HOST || '127.0.0.1';
+const blockedExtensions = new Set(['.docx', '.pptx', '.xlsx']);
 const mimeTypes = new Map([
   ['.html', 'text/html; charset=utf-8'],
   ['.css', 'text/css; charset=utf-8'],
@@ -16,21 +17,34 @@ const mimeTypes = new Map([
   ['.jpeg', 'image/jpeg'],
   ['.webp', 'image/webp'],
   ['.svg', 'image/svg+xml'],
-  ['.pdf', 'application/pdf'],
-  ['.xlsx', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'],
-  ['.pptx', 'application/vnd.openxmlformats-officedocument.presentationml.presentation']
+  ['.pdf', 'application/pdf']
 ]);
+
+const isInsideRoot = (filePath) => {
+  const relativePath = path.relative(root, filePath);
+  return relativePath === '' || (!relativePath.startsWith('..') && !path.isAbsolute(relativePath));
+};
 
 const server = createServer(async (req, res) => {
   try {
     const url = new URL(req.url || '/', `http://${host}:${port}`);
     let pathname = decodeURIComponent(url.pathname);
+    if (/[\u0000-\u001f]/.test(pathname)) {
+      res.writeHead(400, { 'content-type': 'text/plain; charset=utf-8' });
+      res.end('Bad request');
+      return;
+    }
     if (pathname === '/') pathname = '/index.html';
 
     const filePath = path.resolve(root, pathname.slice(1));
-    if (!filePath.startsWith(root)) {
+    if (!isInsideRoot(filePath)) {
       res.writeHead(403);
       res.end('Forbidden');
+      return;
+    }
+    if (blockedExtensions.has(path.extname(filePath).toLowerCase())) {
+      res.writeHead(404, { 'content-type': 'text/plain; charset=utf-8' });
+      res.end('Not found');
       return;
     }
 

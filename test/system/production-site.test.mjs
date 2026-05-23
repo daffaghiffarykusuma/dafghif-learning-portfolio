@@ -1,5 +1,7 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 import { spawn } from 'node:child_process';
+import { readdir } from 'node:fs/promises';
+import path from 'node:path';
 import { getProductionAssetProbePaths } from '../../scripts/shipping-manifest.mjs';
 import { projectRoot } from '../helpers/dom.mjs';
 
@@ -51,6 +53,19 @@ const request = async (path) => {
   return { response, body };
 };
 
+const walkFiles = async (dir, results = []) => {
+  const entries = await readdir(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const entryPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      await walkFiles(entryPath, results);
+    } else {
+      results.push(entryPath);
+    }
+  }
+  return results;
+};
+
 beforeAll(async () => {
   const build = await run('bun', ['run', 'build']);
   expect(build.code, build.stderr || build.stdout).toBe(0);
@@ -96,6 +111,15 @@ describe('production site system checks', () => {
       expect(response.status, asset).toBe(200);
       expect(body.length, asset).toBeGreaterThan(0);
     }
+  });
+
+  test('does not ship editable Office source files in the production build', async () => {
+    const distFiles = await walkFiles(path.join(projectRoot, 'dist'));
+    const editableOfficeFiles = distFiles
+      .map((filePath) => path.relative(path.join(projectRoot, 'dist'), filePath).split(path.sep).join('/'))
+      .filter((filePath) => /\.(?:docx|pptx|xlsx)$/i.test(filePath));
+
+    expect(editableOfficeFiles).toEqual([]);
   });
 
   test('delivers production blog data that matches the rendered blog page contract', async () => {

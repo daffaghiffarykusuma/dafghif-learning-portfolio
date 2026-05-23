@@ -35,7 +35,10 @@ describe('artifact preview policy', () => {
       'https://example.com/file.pdf',
       'assets/pdf/private/file.pdf',
       'assets/pdf/portfolio/file.html',
-      'assets/pdf/portfolio/file.pdf\n'
+      'assets/pdf/portfolio/file.pdf\n',
+      'assets/pdf/portfolio/%2e%2e/private.pdf',
+      'assets/pdf/portfolio/%2fprivate.pdf',
+      'assets/pdf/portfolio/%5cprivate.pdf'
     ];
 
     for (const rejectedPath of rejectedPaths) {

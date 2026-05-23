@@ -24,6 +24,7 @@ const toBaseUrl = (baseLocation) => new URL(baseLocation?.href || baseLocation |
 export const safeArtifactPreviewPath = (candidatePath, previewType, baseLocation = window.location) => {
     const policy = ARTIFACT_PREVIEW_TYPES[previewType];
     if (!policy || !candidatePath || /[\u0000-\u001f]/.test(candidatePath)) return '';
+    if (/%(?:2e|2f|5c)/i.test(candidatePath)) return '';
 
     try {
         const baseUrl = toBaseUrl(baseLocation);

@@ -55,6 +55,20 @@ const idsFor = (source) => new Set(
   Array.from(source.matchAll(/\bid=["']([^"']+)["']/gi), (match) => match[1])
 );
 
+const decodeUrlPart = (file, attr, value) => {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    failures.push(`${file}: ${attr} uses invalid percent-encoding: ${value}`);
+    return null;
+  }
+};
+
+const isInsideRoot = (targetPath) => {
+  const relativePath = path.relative(root, targetPath);
+  return relativePath === '' || (!relativePath.startsWith('..') && !path.isAbsolute(relativePath));
+};
+
 const validateExternal = (file, attr, value) => {
   const url = value.startsWith('//') ? new URL(`https:${value}`) : new URL(value);
   if (url.protocol !== 'https:' && url.protocol !== 'mailto:' && url.protocol !== 'tel:') {
@@ -78,9 +92,14 @@ const validateUrl = async ({ file, filePath, attr, rawValue, source, pageIds }) 
 
   const { pathname, fragment } = splitUrl(value);
   const baseDir = path.dirname(filePath);
-  const targetPath = pathname
-    ? path.resolve(baseDir, decodeURIComponent(pathname))
-    : filePath;
+  const decodedPathname = pathname ? decodeUrlPart(file, attr, pathname) : '';
+  if (pathname && decodedPathname === null) return;
+  const targetPath = pathname ? path.resolve(baseDir, decodedPathname) : filePath;
+
+  if (!isInsideRoot(targetPath)) {
+    failures.push(`${file}: local ${attr} escapes the project root: ${value}`);
+    return;
+  }
 
   if (pathname && !(await exists(targetPath))) {
     failures.push(`${file}: missing local ${attr} target: ${value}`);
@@ -88,9 +107,11 @@ const validateUrl = async ({ file, filePath, attr, rawValue, source, pageIds }) 
   }
 
   if (fragment) {
+    const decodedFragment = decodeUrlPart(file, attr, fragment);
+    if (decodedFragment === null) return;
     const targetSource = targetPath === filePath ? source : await readFile(targetPath, 'utf8').catch(() => '');
     const targetIds = targetPath === filePath ? pageIds : idsFor(targetSource);
-    if (!targetIds.has(decodeURIComponent(fragment))) {
+    if (!targetIds.has(decodedFragment)) {
       failures.push(`${file}: broken fragment in ${attr}: ${value}`);
     }
   }
@@ -133,7 +154,13 @@ for (const filePath of cssFiles) {
       continue;
     }
     const { pathname } = splitUrl(value);
-    const targetPath = path.resolve(path.dirname(filePath), decodeURIComponent(pathname));
+    const decodedPathname = decodeUrlPart(file, 'css url()', pathname);
+    if (decodedPathname === null) continue;
+    const targetPath = path.resolve(path.dirname(filePath), decodedPathname);
+    if (!isInsideRoot(targetPath)) {
+      failures.push(`${file}: CSS asset target escapes the project root: ${value}`);
+      continue;
+    }
     if (!(await exists(targetPath))) {
       failures.push(`${file}: missing CSS asset target: ${value}`);
     }
@@ -194,7 +221,13 @@ for (const [index, portfolioItem] of portfolioItems.entries()) {
     }
   }
   for (const value of [portfolioItem.image?.src, portfolioItem.sourceArtifact].filter(Boolean)) {
-    const targetPath = path.resolve(root, decodeURIComponent(value));
+    const decodedPath = decodeUrlPart('assets/data/portfolio-items.json', 'portfolio asset', value);
+    if (decodedPath === null) continue;
+    const targetPath = path.resolve(root, decodedPath);
+    if (!isInsideRoot(targetPath)) {
+      failures.push(`${label} references asset outside the project root: ${value}`);
+      continue;
+    }
     if (!(await exists(targetPath))) {
       failures.push(`${label} references missing asset: ${value}`);
     }

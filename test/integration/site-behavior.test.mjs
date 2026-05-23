@@ -72,6 +72,23 @@ describe('site browser behavior', () => {
     expect(iframe.src).toContain('/assets/pdf/portfolio/bnsp4_training_need_analysis.pdf');
   });
 
+  test('portfolio page ignores malformed hash selectors without aborting initialization', async () => {
+    const html = await readPage('portfolio.html');
+    createDom(html, 'http://127.0.0.1/portfolio.html#project-%5Bbroken');
+    globalThis.console = window.console;
+
+    await importFresh('../../js/script.js');
+    expect(() => fireDOMContentLoaded()).not.toThrow();
+
+    const modal = document.getElementById('pdf-modal');
+    const safeButton = Array.from(document.querySelectorAll('.view-details-button'))
+      .find((button) => button.dataset.pdf);
+
+    expect(modal.hidden).toBe(true);
+    safeButton.click();
+    expect(modal.hidden).toBe(false);
+  });
+
   test('contact page pre-fills inquiry context and clears stored data', async () => {
     const html = await readPage('contact.html');
     createDom(html, 'http://127.0.0.1/contact.html?engagement=mentoring');
