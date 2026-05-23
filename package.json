@@ -2,7 +2,7 @@
   "name": "dafghif-learning-portfolio",
   "private": true,
   "type": "module",
-  "packageManager": "bun@1.3.13",
+  "packageManager": "bun@1.3.14",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
@@ -21,6 +21,6 @@
   },
   "devDependencies": {
     "happy-dom": "^20.9.0",
-    "vite": "^8.0.12"
+    "vite": "^8.0.14"
   }
 }
