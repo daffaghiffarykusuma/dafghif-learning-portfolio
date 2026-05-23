@@ -1,20 +1,4 @@
-const safePreviewPath = (path, allowedPrefix, allowedExtension) => {
-    if (!path || /[\u0000-\u001f]/.test(path)) return '';
-    try {
-        const normalizedPath = decodeURI(path).replace(/\\/g, '/');
-        const url = new URL(normalizedPath, window.location.href);
-        const cleanPath = url.pathname.replace(/^\/+/, '');
-        const normalizedPrefix = allowedPrefix.replace(/^\/+/, '');
-        return url.origin === window.location.origin
-            && !cleanPath.includes('../')
-            && cleanPath.startsWith(normalizedPrefix)
-            && cleanPath.endsWith(allowedExtension)
-            ? url.href
-            : '';
-    } catch {
-        return '';
-    }
-};
+import { applyArtifactPreviewFramePolicy, resolveArtifactPreview } from './artifact-preview-policy.js';
 
 export function initPortfolioPreview(closeActiveModal = () => {}) {
     const pdfModal = document.getElementById('pdf-modal');
@@ -64,22 +48,14 @@ export function initPortfolioPreview(closeActiveModal = () => {}) {
         lastPreviewTrigger = options.trigger || button;
         pdfModalTitle.textContent = portfolioItemTitle;
 
-        const safePdfPath = safePreviewPath(pdfPath, 'assets/pdf/portfolio/', '.pdf');
-        const safeViewerPath = safePreviewPath(viewerPath, 'assets/portfolio-viewers/', '.html');
-        const previewUrl = safePdfPath || safeViewerPath;
-        if (!previewUrl) {
+        const preview = resolveArtifactPreview({ pdfPath, viewerPath });
+        if (!preview) {
             console.warn('Blocked unsafe portfolio preview path.');
             return;
         }
 
-        if (safePdfPath) {
-            pdfIframe.removeAttribute('sandbox');
-        } else {
-            pdfIframe.setAttribute('sandbox', 'allow-same-origin');
-        }
-        pdfIframe.src = safePdfPath
-            ? `${previewUrl}#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-width&statusbar=0&messages=0&pagemode=none`
-            : previewUrl;
+        applyArtifactPreviewFramePolicy(pdfIframe, preview);
+        pdfIframe.src = preview.src;
 
         if (portfolioItemCard?.id && options.updateHash !== false) {
             history.pushState(null, '', `#${portfolioItemCard.id}`);

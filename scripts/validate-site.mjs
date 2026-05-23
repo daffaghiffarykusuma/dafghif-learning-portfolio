@@ -3,7 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const ignoredDirs = new Set(['.git', '.vscode', 'node_modules']);
+const ignoredDirs = new Set(['.git', '.vscode', 'dist', 'node_modules']);
 const allowedExternalHosts = new Set([
   'fonts.googleapis.com',
   'fonts.gstatic.com',

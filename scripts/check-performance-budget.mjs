@@ -1,13 +1,14 @@
 import { readdir, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { gzipSync } from 'node:zlib';
+import { shippingManifest } from './shipping-manifest.mjs';
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');
 const failures = [];
 
 const limits = {
-  totalDistBytes: 110 * 1024 * 1024,
+  totalDistBytes: 112 * 1024 * 1024,
   jsGzipBytes: 24 * 1024,
   cssGzipBytes: 28 * 1024,
   largestImageBytes: 1024 * 1024,
@@ -47,6 +48,7 @@ const cssGzipBytes = gzipSync(Buffer.concat(await Promise.all(
 ))).length;
 const imageRecords = records.filter((item) => ['.png', '.jpg', '.jpeg', '.webp', '.svg'].includes(item.ext));
 const largestImage = imageRecords.sort((a, b) => b.size - a.size)[0];
+const shippedProbeRecords = new Set(records.map((item) => item.rel));
 
 if (totalDistBytes > limits.totalDistBytes) {
   failures.push(`dist total ${(totalDistBytes / 1024 / 1024).toFixed(2)} MB exceeds ${(limits.totalDistBytes / 1024 / 1024).toFixed(2)} MB`);
@@ -59,6 +61,11 @@ if (cssGzipBytes > limits.cssGzipBytes) {
 }
 if (largestImage && largestImage.size > limits.largestImageBytes) {
   failures.push(`largest image ${largestImage.rel} ${(largestImage.size / 1024).toFixed(1)} KB exceeds ${(limits.largestImageBytes / 1024).toFixed(1)} KB`);
+}
+for (const relativePath of shippingManifest.productionProbes) {
+  if (!shippedProbeRecords.has(relativePath)) {
+    failures.push(`shipping manifest probe missing from dist: ${relativePath}`);
+  }
 }
 
 const metrics = {

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+export function initPortfolioItemFilters() {
     const filterContainer = document.querySelector('#portfolio-item-filters');
     const filterButtons = filterContainer?.querySelectorAll('.filter-button');
     const portfolioItems = document.querySelectorAll('#portfolio-items .portfolio-item');
@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!filterContainer || !filterButtons?.length || !portfolioItems.length) {
         return;
     }
+
+    if (filterContainer.dataset.filtersInitialized === 'true') {
+        return;
+    }
+    filterContainer.dataset.filtersInitialized = 'true';
 
     filterButtons.forEach((button) => {
         button.setAttribute('aria-pressed', button.classList.contains('active') ? 'true' : 'false');
@@ -27,4 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initPortfolioItemFilters();
 });

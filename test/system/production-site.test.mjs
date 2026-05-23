@@ -1,5 +1,6 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 import { spawn } from 'node:child_process';
+import { getProductionAssetProbePaths } from '../../scripts/shipping-manifest.mjs';
 import { projectRoot } from '../helpers/dom.mjs';
 
 const host = '127.0.0.1';
@@ -87,14 +88,8 @@ describe('production site system checks', () => {
   });
 
   test('serves core production assets referenced by pages', async () => {
-    const assets = [
-      '/assets/blog.json',
-      '/assets/data/portfolio-ai-context.json',
-      '/assets/data/portfolio-items.json',
-      '/assets/pdf/portfolio/adaptive_communication_1.pdf',
-      '/cv/Profile.pdf',
-      '/_headers'
-    ];
+    const assets = getProductionAssetProbePaths(projectRoot);
+    expect(assets.length).toBeGreaterThan(0);
 
     for (const asset of assets) {
       const { response, body } = await request(asset);

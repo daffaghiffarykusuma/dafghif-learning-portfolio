@@ -29,11 +29,24 @@ describe('site browser behavior', () => {
     safeButton.click();
     expect(modal.hidden).toBe(false);
     expect(iframe.src.startsWith('http://127.0.0.1/assets/pdf/portfolio/')).toBe(true);
+    expect(iframe.src).toContain('#toolbar=0');
     expect(iframe.hasAttribute('sandbox')).toBe(false);
 
     modal.querySelector('.close-modal').click();
     expect(modal.hidden).toBe(true);
     expect(iframe.getAttribute('src')).toBe('');
+
+    const safeViewerButton = Array.from(document.querySelectorAll('.view-details-button'))
+      .find((button) => button.dataset.viewer);
+    expect(safeViewerButton).toBeTruthy();
+
+    safeViewerButton.click();
+    expect(modal.hidden).toBe(false);
+    expect(iframe.src.startsWith('http://127.0.0.1/assets/portfolio-viewers/')).toBe(true);
+    expect(iframe.src).not.toContain('#toolbar=0');
+    expect(iframe.getAttribute('sandbox')).toBe('allow-same-origin');
+
+    modal.querySelector('.close-modal').click();
 
     safeButton.dataset.pdf = 'https://example.com/file.pdf';
     safeButton.removeAttribute('data-viewer');

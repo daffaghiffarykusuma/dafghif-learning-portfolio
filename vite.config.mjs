@@ -1,5 +1,6 @@
-import { copyFileSync, cpSync, existsSync, mkdirSync, readdirSync, statSync } from 'node:fs';
+import { copyFileSync, cpSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
 import { basename, extname, resolve } from 'node:path';
+import { getRootShippedFiles, shippingManifest } from './scripts/shipping-manifest.mjs';
 
 const root = process.cwd();
 
@@ -9,17 +10,6 @@ const htmlInputs = Object.fromEntries(
     .map((file) => [basename(file, '.html'), resolve(root, file)]),
 );
 
-const staticDirectories = [
-  'assets/data',
-  'assets/pdf',
-  'assets/portfolio-viewers',
-  'assets/presentations',
-  'assets/spreadsheets',
-  'cv',
-];
-const staticFiles = ['assets/blog.json'];
-const rootStaticExtensions = new Set(['.png', '.jpg', '.jpeg', '.webp', '.svg', '.ico', '.pdf']);
-
 function copyStaticFiles() {
   return {
     name: 'copy-static-files',
@@ -27,14 +17,14 @@ function copyStaticFiles() {
       const outDir = resolve(root, 'dist');
       mkdirSync(outDir, { recursive: true });
 
-      for (const directory of staticDirectories) {
+      for (const directory of shippingManifest.directoryTrees) {
         const source = resolve(root, directory);
         if (existsSync(source)) {
           cpSync(source, resolve(outDir, directory), { recursive: true, force: true });
         }
       }
 
-      for (const file of staticFiles) {
+      for (const file of shippingManifest.files) {
         const source = resolve(root, file);
         if (existsSync(source)) {
           const target = resolve(outDir, file);
@@ -43,16 +33,15 @@ function copyStaticFiles() {
         }
       }
 
-      for (const file of readdirSync(root)) {
-        const source = resolve(root, file);
-        if (statSync(source).isFile() && rootStaticExtensions.has(extname(file).toLowerCase())) {
-          copyFileSync(source, resolve(outDir, file));
-        }
+      for (const file of getRootShippedFiles(root)) {
+        copyFileSync(resolve(root, file), resolve(outDir, file));
       }
 
-      const headers = resolve(root, '_headers');
-      if (existsSync(headers)) {
-        copyFileSync(headers, resolve(outDir, '_headers'));
+      for (const file of shippingManifest.platformFiles) {
+        const source = resolve(root, file);
+        if (existsSync(source)) {
+          copyFileSync(source, resolve(outDir, file));
+        }
       }
     },
   };

@@ -1,7 +1,12 @@
 const ENGAGEMENT_INQUIRY_STORAGE_KEY = 'engagementInquiry';
 
-export function initContactPrefill() {
+export function initEngagementInquiryForms() {
     document.querySelectorAll('.engagement-inquiry-form').forEach((form) => {
+        if (form.dataset.inquiryInitialized === 'true') {
+            return;
+        }
+        form.dataset.inquiryInitialized = 'true';
+
         form.addEventListener('submit', (event) => {
             event.preventDefault();
             const formData = new FormData(form);
@@ -23,7 +28,9 @@ export function initContactPrefill() {
             window.location.href = form.getAttribute('action') || 'contact.html';
         });
     });
+}
 
+export function initContactPrefill() {
     const currentParams = new URLSearchParams(window.location.search);
     const engagementFromQuery = currentParams.get('engagement') || currentParams.get('service');
     const contactForm = document.querySelector('.contact-form');
