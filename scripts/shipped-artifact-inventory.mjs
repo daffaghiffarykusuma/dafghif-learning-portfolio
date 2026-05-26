@@ -11,6 +11,11 @@ export const shippedArtifactInventory = Object.freeze({
     'assets/blog.json',
     'cv/Profile.pdf',
   ]),
+  routablePages: Object.freeze([
+    'case-administrative-communication.html',
+    'case-learning-organization-strategy.html',
+    'case-ybb-mentoring-workbook.html',
+  ]),
   rootFiles: Object.freeze({
     extensions: Object.freeze(['.png', '.jpg', '.jpeg', '.webp', '.svg', '.ico', '.pdf']),
   }),
@@ -22,6 +27,8 @@ export const shippedArtifactInventory = Object.freeze({
     'assets/data/portfolio-ai-context.json',
     'assets/data/portfolio-items.json',
     'assets/pdf/portfolio/adaptive_communication_1.pdf',
+    'case-studies.html',
+    'case-ybb-mentoring-workbook.html',
     'cv/Profile.pdf',
     '_headers',
   ]),
@@ -33,6 +40,7 @@ export const shippedArtifactInventory = Object.freeze({
 export const shippingManifest = Object.freeze({
   directoryTrees: shippedArtifactInventory.shippedDirectoryTrees,
   files: shippedArtifactInventory.shippedFiles,
+  routablePages: shippedArtifactInventory.routablePages,
   rootFiles: shippedArtifactInventory.rootFiles,
   platformFiles: shippedArtifactInventory.platformFiles,
   productionProbes: shippedArtifactInventory.productionProbes,
@@ -73,6 +81,7 @@ export function isPublicShippedArtifactPath(relativePath) {
   if (isDeniedShippedArtifactPath(normalizedPath)) return false;
 
   if (shippedArtifactInventory.shippedFiles.includes(normalizedPath)) return true;
+  if (shippedArtifactInventory.routablePages.includes(normalizedPath)) return true;
   if (shippedArtifactInventory.platformFiles.includes(normalizedPath)) return true;
 
   return shippedArtifactInventory.shippedDirectoryTrees.some(
@@ -107,5 +116,6 @@ export function getShippedArtifactValidationFacts({ rootDir, distRelativePaths =
     deniedArtifacts,
     publicRoots: shippedArtifactInventory.shippedDirectoryTrees,
     publicFiles: shippedArtifactInventory.shippedFiles,
+    routablePages: shippedArtifactInventory.routablePages,
   };
 }

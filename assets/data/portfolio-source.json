@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sourceOfTruth": "Portfolio Item source data for the Learning Portfolio Site.",
-  "portfolioItemCount": 65,
+  "portfolioItemCount": 62,
   "caseStudies": [
     {
       "id": "case-administrative-communication-learning-program",
@@ -24,8 +24,9 @@
         "src": "assets/images/portfolio/bnsp4-training-need-analysis.webp",
         "alt": "Administrative Communication Learning Program Case Study thumbnail"
       },
+      "pagePath": "case-administrative-communication.html",
       "outputPath": "assets/portfolio-viewers/bnsp4-administrative-communication-case-study.html",
-      "portfolioItemUrl": "portfolio.html#case-administrative-communication-learning-program",
+      "portfolioItemUrl": "case-administrative-communication.html",
       "discussUrl": "contact.html?portfolioItem=Administrative Communication Learning Program Case Study",
       "reviewerContext": [
         {
@@ -63,43 +64,43 @@
         {
           "title": "Administrative Communication Training Needs Analysis",
           "description": "Pinpoints workplace communication gaps and converts them into training priorities.",
-          "href": "../pdf/portfolio/bnsp4_training_need_analysis.pdf",
+          "href": "assets/pdf/portfolio/bnsp4_training_need_analysis.pdf",
           "linkLabel": "Open PDF artifact"
         },
         {
           "title": "Competency-Based Communication Training Proposal",
           "description": "Turns the diagnosis into a structured program proposal.",
-          "href": "../pdf/portfolio/bnsp4_program_proposal.pdf",
+          "href": "assets/pdf/portfolio/bnsp4_program_proposal.pdf",
           "linkLabel": "Open PDF artifact"
         },
         {
           "title": "Administrative Communication Lesson Plan",
           "description": "Maps 36 learning hours into sessions, OJT practice, and competency evidence.",
-          "href": "../pdf/portfolio/bnsp4_lesson_plan.pdf",
+          "href": "assets/pdf/portfolio/bnsp4_lesson_plan.pdf",
           "linkLabel": "Open PDF artifact"
         },
         {
           "title": "Communication Confidence Training Deck",
           "description": "Provides facilitator-ready material for workplace communication practice.",
-          "href": "../pdf/portfolio/bnsp4_materi_pelatihan.pdf",
+          "href": "assets/pdf/portfolio/bnsp4_materi_pelatihan.pdf",
           "linkLabel": "Open PDF artifact"
         },
         {
           "title": "Communication Skills Post-Test Form",
           "description": "Measures learner understanding against the training objectives.",
-          "href": "../pdf/portfolio/bnsp4_form_soal_post_test.pdf",
+          "href": "assets/pdf/portfolio/bnsp4_form_soal_post_test.pdf",
           "linkLabel": "Open PDF artifact"
         },
         {
           "title": "Training Feedback Form: Level 1 Reaction",
           "description": "Captures participant reaction data for program improvement.",
-          "href": "../pdf/portfolio/bnsp4_form_feedback.pdf",
+          "href": "assets/pdf/portfolio/bnsp4_form_feedback.pdf",
           "linkLabel": "Open PDF artifact"
         },
         {
           "title": "Communication Observation Form and Performance Rubric",
           "description": "Assesses behavior transfer through observable tasks and rubric evidence.",
-          "href": "../pdf/portfolio/bnsp4_form_observasi_dan_rubrik_penilaian.pdf",
+          "href": "assets/pdf/portfolio/bnsp4_form_observasi_dan_rubrik_penilaian.pdf",
           "linkLabel": "Open PDF artifact"
         }
       ]
@@ -127,8 +128,9 @@
         "src": "assets/images/portfolio/bnsp6-kebutuhan-pelatihan-makro.webp",
         "alt": "Learning Organization Strategy and Evaluation System Case Study thumbnail"
       },
+      "pagePath": "case-learning-organization-strategy.html",
       "outputPath": "assets/portfolio-viewers/bnsp6-learning-organization-case-study.html",
-      "portfolioItemUrl": "portfolio.html#case-learning-organization-strategy-evaluation-system",
+      "portfolioItemUrl": "case-learning-organization-strategy.html",
       "discussUrl": "contact.html?portfolioItem=Learning Organization Strategy and Evaluation System Case Study",
       "reviewerContext": [
         {
@@ -170,49 +172,137 @@
         {
           "title": "Macro Training Needs Analysis: DKI Jakarta",
           "description": "Synthesizes labor-market signals into practical training priorities.",
-          "href": "../pdf/portfolio/bnsp6_kebutuhan_pelatihan_makro.pdf",
+          "href": "assets/pdf/portfolio/bnsp6_kebutuhan_pelatihan_makro.pdf",
           "linkLabel": "Open PDF artifact"
         },
         {
           "title": "Competency Matrix for Training Organization",
           "description": "Maps organizational capability against program priorities.",
-          "href": "../pdf/portfolio/bnsp6_matriks_kompetensi.pdf",
+          "href": "assets/pdf/portfolio/bnsp6_matriks_kompetensi.pdf",
           "linkLabel": "Open PDF artifact"
         },
         {
           "title": "Competency-Based Training Syllabus",
           "description": "Connects competency standards, delivery design, and evidence of learning.",
-          "href": "../pdf/portfolio/bnsp6_silabus_pelatihan_berbasis_kompetensi.pdf",
+          "href": "assets/pdf/portfolio/bnsp6_silabus_pelatihan_berbasis_kompetensi.pdf",
           "linkLabel": "Open PDF artifact"
         },
         {
           "title": "Learning Business Plan: Eighteen Rekrutmen Asia",
           "description": "Frames a learning business roadmap around employability and organizational capability services.",
-          "href": "../pdf/portfolio/bnsp6_business_plan.pdf",
+          "href": "assets/pdf/portfolio/bnsp6_business_plan.pdf",
           "linkLabel": "Open PDF artifact"
         },
         {
           "title": "Marketing Plan for Training Solutions",
           "description": "Connects learning portfolio positioning with demand generation and retention strategy.",
-          "href": "../pdf/portfolio/bnsp6_marketing_plan.pdf",
+          "href": "assets/pdf/portfolio/bnsp6_marketing_plan.pdf",
           "linkLabel": "Open PDF artifact"
         },
         {
           "title": "Training Budget and ROTI Calculator",
           "description": "Models training investment, budget logic, and return on training impact.",
-          "href": "bnsp6-rab-roti-pelatihan.html",
+          "href": "assets/portfolio-viewers/bnsp6-rab-roti-pelatihan.html",
           "linkLabel": "Open Artifact Preview"
         },
         {
           "title": "Kirkpatrick Level 1 Reaction Dashboard",
           "description": "Transforms participant reaction forms into a dashboard for training experience decisions.",
-          "href": "bnsp6-evaluation-level1-reaction.html",
+          "href": "assets/portfolio-viewers/bnsp6-evaluation-level1-reaction.html",
           "linkLabel": "Open Artifact Preview"
         },
         {
           "title": "Kirkpatrick Level 2 Learning Dashboard",
           "description": "Combines question bank, learner response form, and analysis dashboard to track learning gains.",
-          "href": "bnsp6-evaluation-level2-learning.html",
+          "href": "assets/portfolio-viewers/bnsp6-evaluation-level2-learning.html",
+          "linkLabel": "Open Artifact Preview"
+        }
+      ]
+    },
+    {
+      "id": "case-ybb-mentoring-workbook",
+      "documentTitle": "Youth Mentoring Workbook Case Study",
+      "title": "Youth Mentoring Workbook and Final Pitch Readiness System",
+      "portfolioItemTitle": "Youth Mentoring Workbook and Pitch Readiness Case Study",
+      "practiceArea": "Mentoring & Coaching",
+      "accentColor": "#7c3aed",
+      "tags": [
+        "worksheet",
+        "mentoring",
+        "learning-materials",
+        "presentation-design"
+      ],
+      "absorbedPortfolioItemIds": [
+        "project-mentoring-workbook-week-1-idea-exploration",
+        "project-mentoring-workbook-week-2-concept-development",
+        "project-mentoring-workbook-week-3-presentation-readiness",
+        "project-pitch-deck-template-week-4"
+      ],
+      "description": "Combines three mentoring workbooks and a final pitch deck template into one staged youth project mentoring case.",
+      "summary": "This case study consolidates a four-week mentoring sequence: idea exploration, concept development, presentation readiness, and final pitch deck structure.",
+      "image": {
+        "src": "assets/images/portfolio/ybb-mentoring-workbook-week-1.webp",
+        "alt": "Youth mentoring workbook and pitch readiness case study thumbnail"
+      },
+      "pagePath": "case-ybb-mentoring-workbook.html",
+      "outputPath": "assets/portfolio-viewers/ybb-mentoring-workbook-case-study.html",
+      "portfolioItemUrl": "case-ybb-mentoring-workbook.html",
+      "discussUrl": "contact.html?portfolioItem=Youth Mentoring Workbook and Pitch Readiness Case Study",
+      "reviewerContext": [
+        {
+          "label": "Use case",
+          "value": "Review mentoring program design for a student or youth project team moving from idea selection to final pitch readiness."
+        },
+        {
+          "label": "Scope",
+          "value": "Week 1 idea exploration workbook, Week 2 concept development workbook, Week 3 presentation readiness workbook, and Week 4 pitch deck template."
+        },
+        {
+          "label": "Evidence limit",
+          "value": "The artifacts show mentoring structure, reflection prompts, project planning logic, and pitch-readiness support. They do not independently prove final project outcomes."
+        }
+      ],
+      "caseFlow": [
+        {
+          "label": "Explore ideas",
+          "value": "Guide mentees from individual SDG interests into shared problem statements and early project directions."
+        },
+        {
+          "label": "Develop the concept",
+          "value": "Use voting, feasibility checks, and project canvas prompts to converge on one workable concept."
+        },
+        {
+          "label": "Prepare the presentation",
+          "value": "Track evidence, ownership, storytelling, and slide readiness before the final pitch."
+        },
+        {
+          "label": "Package the pitch",
+          "value": "Use a structured deck template to present problem, evidence, solution, impact, implementation, and sustainability."
+        }
+      ],
+      "artifacts": [
+        {
+          "title": "Mentoring Workbook: Week 1 Idea Exploration",
+          "description": "Guides mentees from individual SDG ideas into a shared problem statement and early project direction.",
+          "href": "assets/portfolio-viewers/ybb-mentoring-workbook-week-1.html",
+          "linkLabel": "Open Artifact Preview"
+        },
+        {
+          "title": "Mentoring Workbook: Week 2 Concept Development",
+          "description": "Uses SDG voting, reality checks, and project canvases to move a diverse team toward one feasible concept.",
+          "href": "assets/portfolio-viewers/ybb-mentoring-workbook-week-2.html",
+          "linkLabel": "Open Artifact Preview"
+        },
+        {
+          "title": "Mentoring Workbook: Week 3 Presentation Readiness",
+          "description": "Tracks evidence, ownership, and slide readiness so a student team can sharpen its final project deck.",
+          "href": "assets/portfolio-viewers/ybb-mentoring-workbook-week-3.html",
+          "linkLabel": "Open Artifact Preview"
+        },
+        {
+          "title": "Pitch Deck Template: Week 4",
+          "description": "A 16-slide final pitch structure that helps mentees present problem, evidence, solution, impact, and sustainability.",
+          "href": "assets/portfolio-viewers/ybb-pitch-deck-template-week-4.html",
           "linkLabel": "Open Artifact Preview"
         }
       ]

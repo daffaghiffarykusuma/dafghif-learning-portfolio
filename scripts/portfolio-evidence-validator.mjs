@@ -1,6 +1,6 @@
 import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
-import { expandCaseStudyPortfolioSource } from './case-study-source.mjs';
+import { expandCaseStudyPortfolioSource } from './case-study-model.mjs';
 import { isDeniedShippedArtifactPath, isPublicShippedArtifactPath } from './shipped-artifact-inventory.mjs';
 
 export const getPortfolioEvidenceItems = (portfolioData = {}) => {

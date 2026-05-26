@@ -366,6 +366,20 @@ body > header nav ul li.current a::after {
     color: var(--dm-text-secondary) !important;
 }
 
+.generated-case-hero .service-hero-meta {
+    background: var(--dm-bg-secondary) !important;
+    border: 1px solid var(--dm-border-subtle) !important;
+}
+
+.generated-case-hero .service-hero-meta h2 {
+    color: var(--dm-text-primary) !important;
+}
+
+.generated-case-hero .service-hero-meta ul,
+.generated-case-hero .service-hero-meta li {
+    color: var(--dm-text-secondary) !important;
+}
+
 /* =================================================================
    LAYER 5: BUTTONS & CTAs
    ================================================================= */

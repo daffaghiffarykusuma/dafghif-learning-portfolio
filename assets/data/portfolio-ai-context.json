@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-items.json",
-  "generatedAt": "2026-05-26T08:15:09.485Z",
+  "generatedAt": "2026-05-26T09:02:50.872Z",
   "owner": "Daffa Ghiffary Kusuma",
   "positioning": "Learning Designer and Program Manager focused on competency-based training, learning assets, evaluation systems, mentoring, and learning analytics.",
   "usage": "Use this file as AI-readable context for tailored CVs, cover letters, recruiter summaries, and portfolio item matching when the original portfolio artifacts are unavailable.",
   "evidenceNote": "Portfolio item titles, practice areas, descriptions, tags, source artifact paths, proof points, and outcome evidence are read from structured portfolio sources. Outcome evidence is limited to direct Proof Point impact entries. Role, audience, deliverables, skills, tools, AI hints, and CV bullets may include inferred fields and should be refined when exact Portfolio Item details are available.",
-  "portfolioItemCount": 65,
+  "portfolioItemCount": 62,
   "practiceAreaProfiles": {
     "Training Needs Analysis": {
       "defaultRole": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
@@ -219,7 +219,7 @@
         "learning-evaluation"
       ],
       "publicDescription": "Combines needs analysis, proposal, lesson plan, facilitator material, and evaluation tools into one competency-based workplace communication learning case.",
-      "sourceArtifact": "assets/portfolio-viewers/bnsp4-administrative-communication-case-study.html",
+      "sourceArtifact": "case-administrative-communication.html",
       "aiContext": {
         "evidenceLevel": "inferred from structured portfolio source",
         "role": "Structured learning objectives, session flow, learner activities, practice tasks, and evidence of competency.",
@@ -241,9 +241,7 @@
           "assessment",
           "learning evaluation"
         ],
-        "tools": [
-          "Excel or Google Sheets"
-        ],
+        "tools": [],
         "scaleSignals": [],
         "aiHint": {
           "evidenceLevel": "inferred non-proof drafting hint",
@@ -280,7 +278,7 @@
         "worksheet"
       ],
       "publicDescription": "Combines macro needs analysis, competency architecture, business and marketing plans, budget modeling, and evaluation dashboards into one strategic L&D case.",
-      "sourceArtifact": "assets/portfolio-viewers/bnsp6-learning-organization-case-study.html",
+      "sourceArtifact": "case-learning-organization-strategy.html",
       "aiContext": {
         "evidenceLevel": "inferred from structured portfolio source",
         "role": "Framed learning products, business goals, capability priorities, and growth logic into an actionable L&D plan.",
@@ -326,6 +324,62 @@
           "impact": []
         },
         "cvBullet": "Framed Learning Organization Strategy and Evaluation System Case Study as a l&d strategy portfolio item, creating practical context for entrepreneurs and startup founders, with a non-proof AI application hint: Clarified the real performance gap before investing in training design or delivery."
+      }
+    },
+    {
+      "id": "case-ybb-mentoring-workbook",
+      "title": "Youth Mentoring Workbook and Pitch Readiness Case Study",
+      "practiceArea": "Mentoring & Coaching",
+      "tags": [
+        "case-study",
+        "worksheet",
+        "mentoring",
+        "learning-materials",
+        "presentation-design"
+      ],
+      "publicDescription": "Combines three mentoring workbooks and a final pitch deck template into one staged youth project mentoring case.",
+      "sourceArtifact": "case-ybb-mentoring-workbook.html",
+      "aiContext": {
+        "evidenceLevel": "inferred from structured portfolio source",
+        "role": "Structured mentoring activities, reflection prompts, and action planning tools to help learners move from insight to execution.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "mentoring workbook",
+          "reflection prompts",
+          "action plan"
+        ],
+        "skills": [
+          "mentoring design",
+          "coaching tools",
+          "workbook design",
+          "learner reflection",
+          "case study",
+          "worksheet",
+          "mentoring",
+          "learning materials",
+          "presentation design"
+        ],
+        "tools": [
+          "PowerPoint or Google Slides"
+        ],
+        "scaleSignals": [],
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Structures reflection, planning, and follow-through.",
+          "workQuality": [
+            {
+              "claim": "Uses mentoring activities, reflection prompts, and action planning tools to support learner follow-through.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Structured Youth Mentoring Workbook and Pitch Readiness Case Study as a mentoring & coaching portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
       }
     },
     {
@@ -637,220 +691,6 @@
           "impact": []
         },
         "cvBullet": "Structured MILES Unfair Advantage Mentoring Workbook as a mentoring & coaching portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
-      }
-    },
-    {
-      "id": "project-mentoring-workbook-week-1-idea-exploration",
-      "title": "Mentoring Workbook: Week 1 Idea Exploration",
-      "practiceArea": "Mentoring & Coaching",
-      "tags": [
-        "worksheet",
-        "mentoring"
-      ],
-      "publicDescription": "Guides mentees from individual SDG ideas into a shared problem statement and early project direction.",
-      "sourceArtifact": "assets/portfolio-viewers/ybb-mentoring-workbook-week-1.html",
-      "aiContext": {
-        "evidenceLevel": "inferred from structured portfolio source",
-        "role": "Structured mentoring activities, reflection prompts, and action planning tools to help learners move from insight to execution.",
-        "audience": "learners, teams, or program stakeholders",
-        "deliverables": [
-          "mentoring workbook",
-          "reflection prompts",
-          "action plan"
-        ],
-        "skills": [
-          "mentoring design",
-          "coaching tools",
-          "workbook design",
-          "learner reflection",
-          "worksheet",
-          "mentoring"
-        ],
-        "tools": [
-          "Excel or Google Sheets"
-        ],
-        "scaleSignals": [
-          "1"
-        ],
-        "aiHint": {
-          "evidenceLevel": "inferred non-proof drafting hint",
-          "application": "Gave learners and facilitators practical tools for reflection, planning, and follow-through."
-        },
-        "outcomeEvidence": [],
-        "proof": {
-          "visibleProofLine": "Structures reflection, planning, and follow-through.",
-          "workQuality": [
-            {
-              "claim": "Uses mentoring activities, reflection prompts, and action planning tools to support learner follow-through.",
-              "sourceBasis": "practice-area default",
-              "confidence": "inferred"
-            }
-          ],
-          "impact": []
-        },
-        "cvBullet": "Structured Mentoring Workbook: Week 1 Idea Exploration as a mentoring & coaching portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
-      }
-    },
-    {
-      "id": "project-mentoring-workbook-week-2-concept-development",
-      "title": "Mentoring Workbook: Week 2 Concept Development",
-      "practiceArea": "Mentoring & Coaching",
-      "tags": [
-        "worksheet",
-        "mentoring"
-      ],
-      "publicDescription": "Uses SDG voting, reality checks, and project canvases to move a diverse team toward one feasible concept.",
-      "sourceArtifact": "assets/portfolio-viewers/ybb-mentoring-workbook-week-2.html",
-      "aiContext": {
-        "evidenceLevel": "inferred from structured portfolio source",
-        "role": "Structured mentoring activities, reflection prompts, and action planning tools to help learners move from insight to execution.",
-        "audience": "learners, teams, or program stakeholders",
-        "deliverables": [
-          "mentoring workbook",
-          "reflection prompts",
-          "action plan"
-        ],
-        "skills": [
-          "mentoring design",
-          "coaching tools",
-          "workbook design",
-          "learner reflection",
-          "worksheet",
-          "mentoring"
-        ],
-        "tools": [
-          "Excel or Google Sheets"
-        ],
-        "scaleSignals": [
-          "2"
-        ],
-        "aiHint": {
-          "evidenceLevel": "inferred non-proof drafting hint",
-          "application": "Gave learners and facilitators practical tools for reflection, planning, and follow-through."
-        },
-        "outcomeEvidence": [],
-        "proof": {
-          "visibleProofLine": "Structures reflection, planning, and follow-through.",
-          "workQuality": [
-            {
-              "claim": "Uses mentoring activities, reflection prompts, and action planning tools to support learner follow-through.",
-              "sourceBasis": "practice-area default",
-              "confidence": "inferred"
-            }
-          ],
-          "impact": []
-        },
-        "cvBullet": "Structured Mentoring Workbook: Week 2 Concept Development as a mentoring & coaching portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
-      }
-    },
-    {
-      "id": "project-mentoring-workbook-week-3-presentation-readiness",
-      "title": "Mentoring Workbook: Week 3 Presentation Readiness",
-      "practiceArea": "Mentoring & Coaching",
-      "tags": [
-        "worksheet",
-        "mentoring",
-        "presentation-design"
-      ],
-      "publicDescription": "Tracks evidence, ownership, and slide readiness so a student team can sharpen its final project deck.",
-      "sourceArtifact": "assets/portfolio-viewers/ybb-mentoring-workbook-week-3.html",
-      "aiContext": {
-        "evidenceLevel": "inferred from structured portfolio source",
-        "role": "Structured mentoring activities, reflection prompts, and action planning tools to help learners move from insight to execution.",
-        "audience": "students and early-career talent",
-        "deliverables": [
-          "mentoring workbook",
-          "reflection prompts",
-          "action plan"
-        ],
-        "skills": [
-          "mentoring design",
-          "coaching tools",
-          "workbook design",
-          "learner reflection",
-          "worksheet",
-          "mentoring",
-          "presentation design"
-        ],
-        "tools": [
-          "Excel or Google Sheets",
-          "PowerPoint or Google Slides"
-        ],
-        "scaleSignals": [
-          "3"
-        ],
-        "aiHint": {
-          "evidenceLevel": "inferred non-proof drafting hint",
-          "application": "Gave learners and facilitators practical tools for reflection, planning, and follow-through."
-        },
-        "outcomeEvidence": [],
-        "proof": {
-          "visibleProofLine": "Structures reflection, planning, and follow-through.",
-          "workQuality": [
-            {
-              "claim": "Uses mentoring activities, reflection prompts, and action planning tools to support learner follow-through.",
-              "sourceBasis": "practice-area default",
-              "confidence": "inferred"
-            }
-          ],
-          "impact": []
-        },
-        "cvBullet": "Structured Mentoring Workbook: Week 3 Presentation Readiness as a mentoring & coaching portfolio item, creating practical context for students and early-career talent, with a non-proof AI application hint: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
-      }
-    },
-    {
-      "id": "project-pitch-deck-template-week-4",
-      "title": "Pitch Deck Template: Week 4",
-      "practiceArea": "Presentation Design",
-      "tags": [
-        "presentation-design",
-        "mentoring",
-        "learning-materials"
-      ],
-      "publicDescription": "A 16-slide final pitch structure that helps mentees present problem, evidence, solution, impact, and sustainability.",
-      "sourceArtifact": "assets/portfolio-viewers/ybb-pitch-deck-template-week-4.html",
-      "aiContext": {
-        "evidenceLevel": "inferred from structured portfolio source",
-        "role": "Organized complex ideas into a clear slide narrative, evidence structure, and presentation-ready flow.",
-        "audience": "learners, teams, or program stakeholders",
-        "deliverables": [
-          "presentation template",
-          "slide narrative",
-          "pitch structure"
-        ],
-        "skills": [
-          "presentation design",
-          "storytelling",
-          "visual communication",
-          "pitch design",
-          "mentoring",
-          "learning materials"
-        ],
-        "tools": [
-          "Excel or Google Sheets",
-          "PowerPoint or Google Slides"
-        ],
-        "scaleSignals": [
-          "4",
-          "16"
-        ],
-        "aiHint": {
-          "evidenceLevel": "inferred non-proof drafting hint",
-          "application": "Gave learners and facilitators practical tools for reflection, planning, and follow-through."
-        },
-        "outcomeEvidence": [],
-        "proof": {
-          "visibleProofLine": "Organizes complex ideas into a clear slide narrative.",
-          "workQuality": [
-            {
-              "claim": "Shapes complex ideas into a presentation-ready narrative, evidence structure, and visual communication flow.",
-              "sourceBasis": "practice-area default",
-              "confidence": "inferred"
-            }
-          ],
-          "impact": []
-        },
-        "cvBullet": "Designed Pitch Deck Template: Week 4 as a presentation design portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
       }
     },
     {

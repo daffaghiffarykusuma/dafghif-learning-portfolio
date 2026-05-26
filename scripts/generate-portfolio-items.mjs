@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { createPortfolioEvidencePipeline } from './portfolio-evidence-pipeline.mjs';
-import { renderCaseStudyPreviews } from './case-study-source.mjs';
+import { renderCaseStudyPages } from './case-study-source.mjs';
 
 const portfolioPath = 'portfolio.html';
 const portfolioSourcePath = 'assets/data/portfolio-source.json';
@@ -22,8 +22,11 @@ const pipeline = createPortfolioEvidencePipeline({
 await mkdir(path.dirname(outputPath), { recursive: true });
 await writeFile(outputPath, `${JSON.stringify(pipeline.catalogData, null, 2)}\n`, 'utf8');
 
-for (const preview of renderCaseStudyPreviews(portfolioSource)) {
-  await mkdir(path.dirname(preview.outputPath), { recursive: true });
+for (const preview of renderCaseStudyPages(portfolioSource)) {
+  const outputDir = path.dirname(preview.outputPath);
+  if (outputDir && outputDir !== '.') {
+    await mkdir(outputDir, { recursive: true });
+  }
   await writeFile(preview.outputPath, preview.html, 'utf8');
 }
 

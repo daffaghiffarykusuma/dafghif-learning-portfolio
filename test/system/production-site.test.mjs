@@ -91,6 +91,10 @@ describe('production site system checks', () => {
     const pages = [
       '/index.html',
       '/portfolio.html',
+      '/case-studies.html',
+      '/case-administrative-communication.html',
+      '/case-learning-organization-strategy.html',
+      '/case-ybb-mentoring-workbook.html',
       '/blog.html',
       '/contact.html',
       '/case-entrepreneurship.html'
@@ -102,6 +106,22 @@ describe('production site system checks', () => {
       expect(response.headers.get('content-type')).toContain('text/html');
       expect(body).toContain('<!DOCTYPE html>');
       expect(body).toContain('</html>');
+    }
+  });
+
+  test('serves bundled styles on generated Case Study pages', async () => {
+    const pages = [
+      '/case-administrative-communication.html',
+      '/case-learning-organization-strategy.html',
+      '/case-ybb-mentoring-workbook.html'
+    ];
+
+    for (const page of pages) {
+      const { response, body } = await request(page);
+      expect(response.status, page).toBe(200);
+      expect(body, page).toContain('rel="stylesheet"');
+      expect(body, page).toContain('/assets/');
+      expect(body, page).not.toContain('href="css/style.css"');
     }
   });
 

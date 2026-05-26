@@ -9,7 +9,7 @@ import {
   parsePortfolioItemsFromDocument,
   practiceAreaProfiles
 } from './portfolio-item-catalog.mjs';
-import { expandCaseStudyPortfolioSource } from './case-study-source.mjs';
+import { expandCaseStudyPortfolioSource } from './case-study-model.mjs';
 
 export const createPortfolioDocument = (html) => {
   const window = new Window();
@@ -142,12 +142,20 @@ export const renderPortfolioItemCard = (document, portfolioItem, index = 0) => {
   detailsButton.className = 'view-details-button';
   detailsButton.type = 'button';
   detailsButton.textContent = 'View Details';
-  if (item.sourceType === 'html-viewer') {
-    detailsButton.dataset.viewer = item.sourceArtifact;
+  if (item.sourceType === 'case-study-page') {
+    const caseStudyLink = document.createElement('a');
+    caseStudyLink.className = 'view-details-button';
+    caseStudyLink.href = item.sourceArtifact;
+    caseStudyLink.textContent = 'Read Case Study';
+    actions.append(discussLink, caseStudyLink);
   } else {
-    detailsButton.dataset.pdf = item.sourceArtifact;
+    if (item.sourceType === 'html-viewer') {
+      detailsButton.dataset.viewer = item.sourceArtifact;
+    } else {
+      detailsButton.dataset.pdf = item.sourceArtifact;
+    }
+    actions.append(discussLink, detailsButton);
   }
-  actions.append(discussLink, detailsButton);
   content.append(title, practiceLabel, description, proof, actions);
   card.append(imageWrapper, content);
 

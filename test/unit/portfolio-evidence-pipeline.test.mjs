@@ -10,9 +10,18 @@ import {
 } from '../../scripts/portfolio-evidence-pipeline.mjs';
 import {
   createCaseStudyPortfolioItem,
-  expandCaseStudyPortfolioSource,
-  renderCaseStudyHtml
-} from '../../scripts/case-study-source.mjs';
+  expandCaseStudyPortfolioSource
+} from '../../scripts/case-study-model.mjs';
+import {
+  renderCaseStudyHtml,
+  renderCaseStudyPreviews
+} from '../../scripts/case-study-page-renderer.mjs';
+import {
+  renderCaseStudyIndexHtml
+} from '../../scripts/case-study-index-renderer.mjs';
+import {
+  renderGeneratedHtmlDocument
+} from '../../scripts/generated-site-chrome.mjs';
 
 const proofSource = {
   practiceAreaDefaults: {
@@ -256,9 +265,9 @@ describe('Portfolio Evidence Pipeline', () => {
       title: 'Sample Learning Program Case Study',
       practiceArea: 'Instructional Design',
       tags: ['case-study', 'instructional-design'],
-      sourceArtifact: 'assets/portfolio-viewers/sample-case-study.html',
-      sourceType: 'html-viewer',
-      portfolioItemUrl: 'portfolio.html#case-sample-learning-program'
+      sourceArtifact: 'case-sample-learning-program.html',
+      sourceType: 'case-study-page',
+      portfolioItemUrl: 'case-sample-learning-program.html'
     });
     expect(expandCaseStudyPortfolioSource({
       caseStudies: [caseStudy],
@@ -272,11 +281,49 @@ describe('Portfolio Evidence Pipeline', () => {
     ]);
   });
 
-  test('renders Case Study preview HTML from the same grouped source definition', () => {
+  test('renders a Case Study index page that links grouped case studies as first-class pages', () => {
+    const html = renderCaseStudyIndexHtml([
+      {
+        id: 'case-sample-learning-program',
+        portfolioItemTitle: 'Sample Learning Program Case Study',
+        practiceArea: 'Instructional Design',
+        description: 'Combines diagnosis and design artifacts into one case.',
+        pagePath: 'case-sample-learning-program.html',
+        image: { src: 'assets/images/portfolio/sample.webp', alt: 'Sample thumbnail' }
+      }
+    ]);
+
+    expect(html).toContain('<title>Case Studies | Daffa Ghiffary Kusuma</title>');
+    expect(html).toContain('href="case-sample-learning-program.html"');
+    expect(html).toContain('href="case-entrepreneurship.html"');
+    expect(html).toContain('Entrepreneurship Program for 5,000+ SMK Students');
+    expect(html).toContain('Sample Learning Program Case Study');
+    expect(html).toContain('Instructional Design');
+  });
+
+  test('renders generated site chrome from one document shell', () => {
+    const html = renderGeneratedHtmlDocument({
+      title: 'Generated Page',
+      description: 'Generated page description.',
+      currentPage: 'case-studies.html',
+      main: '<main id="main-content"><h1>Generated Page</h1></main>'
+    });
+
+    expect(html).toStartWith('<!DOCTYPE html>');
+    expect(html).toContain('<title>Generated Page</title>');
+    expect(html).toContain('<meta name="description" content="Generated page description.">');
+    expect(html).toContain('<link rel="stylesheet" href="css/style.css">');
+    expect(html).toContain('<li class="current"><a href="case-studies.html">Case Studies</a></li>');
+    expect(html).toContain('<script type="module" src="js/script.js"></script>');
+  });
+
+  test('renders Case Study pages with the richer service case-study layout', () => {
     const html = renderCaseStudyHtml({
       documentTitle: 'Sample Case Study',
       title: 'Sample Learning Program',
       summary: 'Shows a grouped learning program case.',
+      description: 'Combines diagnosis and design artifacts into one case.',
+      discussUrl: 'contact.html?portfolioItem=Sample',
       reviewerContext: [{ label: 'Evidence limit', value: 'Direct outcomes are not claimed.' }],
       caseFlow: [{ label: 'Diagnose', value: 'Review the learning need.' }],
       artifacts: [
@@ -291,8 +338,36 @@ describe('Portfolio Evidence Pipeline', () => {
 
     expect(html).toContain('<title>Sample Case Study</title>');
     expect(html).toContain('<h1>Sample Learning Program</h1>');
+    expect(html).toContain('class="service-hero service-hero-compact generated-case-hero"');
+    expect(html).toContain('class="service-impact generated-case-evidence"');
+    expect(html).toContain('class="feature-grid"');
+    expect(html).toContain('class="approach-steps"');
+    expect(html).toContain('class="service-resources generated-case-artifacts"');
+    expect(html).toContain('class="service-cta generated-case-cta"');
+    expect(html).not.toContain('class="service-trustband"');
     expect(html).toContain('<strong>Evidence limit:</strong> Direct outcomes are not claimed.');
     expect(html).toContain('<h3>Needs Analysis</h3>');
+    expect(html).toContain('Discuss a Similar Case');
     expect(html).not.toContain('Proof of quality:');
+    expect(html).not.toContain('<style>');
+  });
+
+  test('renders standalone Case Study page outputs from Portfolio Source case definitions', () => {
+    const pages = renderCaseStudyPreviews({
+      caseStudies: [
+        {
+          id: 'case-sample-learning-program',
+          title: 'Sample Learning Program',
+          summary: 'Shows a grouped learning program case.',
+          reviewerContext: [],
+          caseFlow: [],
+          artifacts: []
+        }
+      ]
+    });
+
+    expect(pages).toHaveLength(1);
+    expect(pages[0].outputPath).toBe('case-sample-learning-program.html');
+    expect(pages[0].html).toContain('<h1>Sample Learning Program</h1>');
   });
 });

@@ -8,7 +8,14 @@ export function initNavigation() {
         currentYear.textContent = new Date().getFullYear();
     }
 
-    const portfolioPages = new Set(['portfolio.html', 'case-entrepreneurship.html']);
+    const portfolioPages = new Set(['portfolio.html']);
+    const caseStudyPages = new Set([
+        'case-studies.html',
+        'case-entrepreneurship.html',
+        'case-administrative-communication.html',
+        'case-learning-organization-strategy.html',
+        'case-ybb-mentoring-workbook.html'
+    ]);
 
     if (menuToggle && nav) {
         menuToggle.addEventListener('click', () => {
@@ -31,7 +38,9 @@ export function initNavigation() {
     navLinks.forEach((link) => {
         const linkPage = link.getAttribute('href').split('/').pop() || 'index.html';
         const parentItem = link.parentElement;
-        const shouldHighlight = linkPage === currentPage || (portfolioPages.has(currentPage) && linkPage === 'portfolio.html');
+        const shouldHighlight = linkPage === currentPage
+            || (portfolioPages.has(currentPage) && linkPage === 'portfolio.html')
+            || (caseStudyPages.has(currentPage) && linkPage === 'case-studies.html');
 
         parentItem?.classList.toggle('current', shouldHighlight);
 

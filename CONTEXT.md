@@ -28,6 +28,22 @@ _Avoid_: Viewer, generated page, preview file, embedded document
 A narrative page or section that explains a selected **Portfolio Item** in context, including audience, challenge, approach, evidence, and impact. A **Case Study** is deeper than a normal **Portfolio Item** listing and should not be used for every item.
 _Avoid_: Project page, story, article, detailed card
 
+**Case Study Model**:
+The generation module that normalizes **Case Study** source data, page paths, featured **Case Study** entries, absorbed **Portfolio Item** IDs, and the **Portfolio Item** representation used by the **Portfolio Evidence Pipeline**.
+_Avoid_: Case helper, case data utility, grouped project logic
+
+**Case Study Index Renderer**:
+The generation module that renders the **Case Study** listing page and cards from **Case Study Model** data.
+_Avoid_: Index helper, page builder, case card utility
+
+**Case Study Page Renderer**:
+The generation module that renders a standalone **Case Study** page from **Case Study Model** data, including reviewer context, evidence limits, case flow, included **Artifacts**, and engagement CTA.
+_Avoid_: HTML helper, detail page builder, template function
+
+**Generated Site Chrome**:
+The generation module that renders shared navigation, stylesheet links, footer markup, and HTML escaping used by generated pages.
+_Avoid_: Header helper, layout utility, shared HTML bits
+
 **Reviewer**:
 A recruiter, hiring manager, potential client, collaborator, or evaluator who visits the **Learning Portfolio Site** to judge credibility, capability, and fit from visible evidence.
 _Avoid_: Visitor, user, audience, customer

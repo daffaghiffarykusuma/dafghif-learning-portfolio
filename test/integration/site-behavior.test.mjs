@@ -62,28 +62,62 @@ describe('site browser behavior', () => {
     const portfolioItems = Array.from(document.querySelectorAll('.card.portfolio-item:not(.portfolio-item-placeholder)'));
     const proofLines = Array.from(document.querySelectorAll('.portfolio-item-proof'));
 
-    expect(portfolioItems.length).toBe(65);
+    expect(portfolioItems.length).toBe(62);
     expect(proofLines.length).toBe(portfolioItems.length);
     expect(proofLines[0].textContent).toBe('Aligns objectives, activities, practice, and evidence.');
     expect(proofLines.every((line) => !line.textContent.startsWith('Proof of quality:'))).toBe(true);
   });
 
-  test('portfolio page opens an artifact preview from a direct hash link', async () => {
+  test('case study pages are linked from the main menu and portfolio cards', async () => {
+    const indexHtml = await readPage('case-studies.html');
+    createDom(indexHtml, 'http://127.0.0.1/case-studies.html');
+
+    expect(document.querySelector('header nav a[href="case-studies.html"]').parentElement.classList.contains('current')).toBe(true);
+    expect(Array.from(document.querySelectorAll('.case-study-card a'), (link) => link.getAttribute('href'))).toEqual(expect.arrayContaining([
+      'case-entrepreneurship.html',
+      'case-administrative-communication.html',
+      'case-learning-organization-strategy.html',
+      'case-ybb-mentoring-workbook.html'
+    ]));
+    expect(document.querySelectorAll('.case-study-card').length).toBe(4);
+
+    const caseHtml = await readPage('case-ybb-mentoring-workbook.html');
+    createDom(caseHtml, 'http://127.0.0.1/case-ybb-mentoring-workbook.html');
+
+    expect(document.querySelector('main h1').textContent).toBe('Youth Mentoring Workbook and Final Pitch Readiness System');
+    expect(document.querySelector('.service-hero.generated-case-hero')).toBeTruthy();
+    expect(document.querySelector('.service-impact.generated-case-evidence')).toBeTruthy();
+    expect(document.querySelector('.service-approach .approach-steps')).toBeTruthy();
+    expect(document.querySelector('.service-resources.generated-case-artifacts')).toBeTruthy();
+    expect(Array.from(document.querySelectorAll('.artifact-list h3'), (heading) => heading.textContent)).toEqual([
+      'Mentoring Workbook: Week 1 Idea Exploration',
+      'Mentoring Workbook: Week 2 Concept Development',
+      'Mentoring Workbook: Week 3 Presentation Readiness',
+      'Pitch Deck Template: Week 4'
+    ]);
+  });
+
+  test('generated case study hero meta text keeps readable dark-mode contrast', async () => {
+    const darkModeCss = await readPage('css/dark-mode.css');
+
+    expect(darkModeCss).toContain('.generated-case-hero .service-hero-meta');
+    expect(darkModeCss).toContain('.generated-case-hero .service-hero-meta li');
+    expect(darkModeCss).toContain('color: var(--dm-text-secondary) !important');
+  });
+
+  test('portfolio links Case Study cards to first-class pages instead of opening the preview frame', async () => {
     const html = await readPage('portfolio.html');
-    createDom(html, 'http://127.0.0.1/portfolio.html#case-administrative-communication-learning-program');
-    globalThis.console = window.console;
+    createDom(html, 'http://127.0.0.1/portfolio.html');
 
-    await importFresh('../../js/script.js');
-    fireDOMContentLoaded();
-
-    const modal = document.getElementById('pdf-modal');
-    const title = document.getElementById('pdf-modal-title');
-    const iframe = document.getElementById('pdf-iframe');
-
-    expect(modal.hidden).toBe(false);
-    expect(title.textContent).toBe('Administrative Communication Learning Program Case Study');
-    expect(iframe.src).toContain('/assets/portfolio-viewers/bnsp4-administrative-communication-case-study.html');
-    expect(iframe.getAttribute('sandbox')).toBe('allow-same-origin allow-popups allow-popups-to-escape-sandbox');
+    const caseCards = Array.from(document.querySelectorAll('.card.portfolio-item[data-category~="case-study"]'));
+    expect(caseCards.length).toBe(3);
+    expect(caseCards.map((card) => card.querySelector('.portfolio-item-title-link').getAttribute('href'))).toEqual([
+      'case-administrative-communication.html',
+      'case-learning-organization-strategy.html',
+      'case-ybb-mentoring-workbook.html'
+    ]);
+    expect(caseCards.every((card) => !card.querySelector('button.view-details-button'))).toBe(true);
+    expect(caseCards.every((card) => card.querySelector('a.view-details-button').textContent === 'Read Case Study')).toBe(true);
   });
 
   test('case study artifact links can open PDF artifacts outside the preview frame', async () => {
