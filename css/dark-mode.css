@@ -380,6 +380,17 @@ body > header nav ul li.current a::after {
     color: var(--dm-text-secondary) !important;
 }
 
+.generated-case-hero .service-trustband {
+    background: var(--dm-bg-secondary) !important;
+    border: 1px solid var(--dm-border-subtle) !important;
+    color: var(--dm-text-secondary) !important;
+}
+
+.generated-case-hero .service-trustband span {
+    background: var(--dm-accent-subtle) !important;
+    color: var(--dm-text-secondary) !important;
+}
+
 /* =================================================================
    LAYER 5: BUTTONS & CTAs
    ================================================================= */
@@ -404,8 +415,17 @@ body > header nav ul li.current a::after {
 .cta-button:hover,
 .btn-primary:hover {
     background: var(--dm-accent-hover) !important;
+    color: var(--dm-bg-primary) !important;
     transform: translateY(-2px) !important;
     box-shadow: 0 4px 12px rgba(42, 157, 143, 0.3) !important;
+}
+
+.cta-button:focus-visible,
+.btn-primary:focus-visible {
+    color: var(--dm-bg-primary) !important;
+    outline: 3px solid #6EE7D8 !important;
+    outline-offset: 3px !important;
+    box-shadow: 0 0 0 6px rgba(110, 231, 216, 0.24) !important;
 }
 
 /* Secondary CTA Button */
@@ -1333,4 +1353,13 @@ footer {
     background: #6ee7d8 !important;
     color: #0f1b1e !important;
     border-color: #6ee7d8 !important;
+}
+
+.case-study-card-body .cta-button:hover,
+.case-study-card-body .cta-button:focus-visible {
+    background: #6ee7d8 !important;
+    color: #0f1b1e !important;
+    outline: 3px solid rgba(248, 250, 252, 0.88) !important;
+    outline-offset: 3px !important;
+    box-shadow: 0 0 0 6px rgba(110, 231, 216, 0.24) !important;
 }

@@ -371,6 +371,10 @@
 /* =================================================================
    IMPROVED MENU TOGGLE - Better Accessibility
    ================================================================= */
+.menu-toggle::before {
+    content: none !important;
+}
+
 .menu-icon {
     display: block;
     position: relative;
@@ -378,6 +382,7 @@
     height: 2px;
     background: var(--color-text);
     transition: background 0.3s ease;
+    flex: 0 0 auto;
 }
 
 .menu-icon::before,
@@ -389,6 +394,7 @@
     height: 2px;
     background: var(--color-text);
     transition: transform 0.3s ease;
+    transform-origin: center;
 }
 
 .menu-icon::before {
