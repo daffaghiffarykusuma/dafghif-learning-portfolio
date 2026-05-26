@@ -1,0 +1,206 @@
+{
+  "schemaVersion": 1,
+  "evidencePolicy": {
+    "defaultProofType": "workQuality",
+    "impactProofRule": "Use impact proof only when directly supported by the portfolio item, artifact, CV, or external feedback.",
+    "claimBoundary": "Proof points describe artifact-visible work quality unless an item-level impact entry states a directly supported result."
+  },
+  "practiceAreaDefaults": {
+    "Training Needs Analysis": {
+      "visibleProofLine": "Maps performance gaps into clear training priorities.",
+      "workQuality": [
+        {
+          "claim": "Connects audience needs, performance gaps, and design-ready training priorities.",
+          "sourceBasis": "practice-area default",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    "Training Proposal": {
+      "visibleProofLine": "Turns learning needs into a structured delivery plan.",
+      "workQuality": [
+        {
+          "claim": "Defines objectives, program logic, delivery structure, and stakeholder-ready recommendations.",
+          "sourceBasis": "practice-area default",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    "Instructional Design": {
+      "visibleProofLine": "Aligns objectives, activities, practice, and evidence.",
+      "workQuality": [
+        {
+          "claim": "Structures learning objectives, session flow, learner activities, practice tasks, and evidence of competency.",
+          "sourceBasis": "practice-area default",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    "Curriculum Development": {
+      "visibleProofLine": "Maps competencies into a usable learning sequence.",
+      "workQuality": [
+        {
+          "claim": "Organizes competencies, learning sequence, program structure, and evidence requirements into a usable curriculum asset.",
+          "sourceBasis": "practice-area default",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    "Learning Materials": {
+      "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+      "workQuality": [
+        {
+          "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+          "sourceBasis": "practice-area default",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    "Assessment & Evaluation": {
+      "visibleProofLine": "Links measurement tools to learning outcomes.",
+      "workQuality": [
+        {
+          "claim": "Uses assessment, evaluation, rubric, or scoring structures to make learning evidence easier to collect and review.",
+          "sourceBasis": "practice-area default",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    "Learning Analytics": {
+      "visibleProofLine": "Turns learning data into decision-ready analysis.",
+      "workQuality": [
+        {
+          "claim": "Structures learning data, response inputs, or calculations into analysis-ready dashboards and decision tools.",
+          "sourceBasis": "practice-area default",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    "L&D Strategy": {
+      "visibleProofLine": "Connects capability priorities with actionable learning strategy.",
+      "workQuality": [
+        {
+          "claim": "Frames learning products, business goals, capability priorities, and growth logic into an actionable L&D plan.",
+          "sourceBasis": "practice-area default",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    "Mentoring & Coaching": {
+      "visibleProofLine": "Structures reflection, planning, and follow-through.",
+      "workQuality": [
+        {
+          "claim": "Uses mentoring activities, reflection prompts, and action planning tools to support learner follow-through.",
+          "sourceBasis": "practice-area default",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    "Presentation Design": {
+      "visibleProofLine": "Organizes complex ideas into a clear slide narrative.",
+      "workQuality": [
+        {
+          "claim": "Shapes complex ideas into a presentation-ready narrative, evidence structure, and visual communication flow.",
+          "sourceBasis": "practice-area default",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    "Custom Training & Workshops": {
+      "visibleProofLine": "Builds applied workshop flow around practice tasks.",
+      "workQuality": [
+        {
+          "claim": "Combines facilitation structure, participant activities, and practical implementation support.",
+          "sourceBasis": "practice-area default",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    "Review: Legacy Project": {
+      "visibleProofLine": "Shows applied program, people, or operations capability.",
+      "workQuality": [
+        {
+          "claim": "Demonstrates earlier applied program, people, or learning operations capability through a portfolio artifact.",
+          "sourceBasis": "practice-area default",
+          "confidence": "inferred"
+        }
+      ]
+    },
+    "Mentoring & Speaking": {
+      "visibleProofLine": "Builds confidence, communication, or professional influence.",
+      "workQuality": [
+        {
+          "claim": "Uses speaking or mentoring material to support confidence, communication, storytelling, or professional influence.",
+          "sourceBasis": "practice-area default",
+          "confidence": "inferred"
+        }
+      ]
+    }
+  },
+  "itemOverrides": {
+    "project-administrative-communication-lesson-plan": {
+      "visibleProofLine": "Maps 36 learning hours into sessions, OJT, and competency evidence.",
+      "workQuality": [
+        {
+          "claim": "Maps 36 learning hours into session structure, activities, OJT practice, and competency evidence.",
+          "sourceBasis": "portfolio-description",
+          "confidence": "direct"
+        }
+      ]
+    },
+    "project-communication-observation-form-and-performance-rubric": {
+      "visibleProofLine": "Translates observable communication behavior into rubric evidence.",
+      "workQuality": [
+        {
+          "claim": "Assesses workplace behavior transfer through observable communication tasks and structured rubrics.",
+          "sourceBasis": "portfolio-description",
+          "confidence": "direct"
+        }
+      ]
+    },
+    "project-macro-training-needs-analysis-dki-jakarta": {
+      "visibleProofLine": "Synthesizes labor-market signals into training priorities.",
+      "workQuality": [
+        {
+          "claim": "Synthesizes labor-market signals into practical training priorities for future-ready workplace skills.",
+          "sourceBasis": "portfolio-description",
+          "confidence": "direct"
+        }
+      ]
+    },
+    "project-entrepreneurship-program-for-5000-smk-students": {
+      "visibleProofLine": "Adapts entrepreneurship learning for a 5000+ student audience.",
+      "workQuality": [
+        {
+          "claim": "Structures entrepreneurship learning for a large vocational student audience.",
+          "sourceBasis": "portfolio-description",
+          "confidence": "direct"
+        }
+      ],
+      "impact": [
+        {
+          "claim": "The portfolio description identifies a 5000+ SMK student audience.",
+          "sourceBasis": "portfolio-title",
+          "confidence": "direct"
+        }
+      ]
+    },
+    "project-3rd-winner-in-kumpul-jasa-jember-competition": {
+      "visibleProofLine": "Competition result gives directly supported external recognition.",
+      "workQuality": [
+        {
+          "claim": "Shows applied entrepreneurship and presentation capability through a competition portfolio item.",
+          "sourceBasis": "portfolio-title",
+          "confidence": "direct"
+        }
+      ],
+      "impact": [
+        {
+          "claim": "The portfolio title states a 3rd winner result in KUMPUL JASA Jember Entrepreneurship Competition.",
+          "sourceBasis": "portfolio-title",
+          "confidence": "direct"
+        }
+      ]
+    }
+  }
+}

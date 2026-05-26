@@ -1,7 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedFrom": "assets/data/portfolio-source.json",
-  "generatedAt": "2026-05-26T03:35:17.961Z",
+  "sourceOfTruth": "Portfolio Item source data for the Learning Portfolio Site.",
   "portfolioItemCount": 78,
   "portfolioItems": [
     {
@@ -20,18 +19,7 @@
       "sourceArtifact": "assets/pdf/portfolio/bnsp4_training_need_analysis.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-administrative-communication-training-needs-analysis",
-      "discussUrl": "contact.html?portfolioItem=Administrative Communication Training Needs Analysis",
-      "proof": {
-        "visibleProofLine": "Maps performance gaps into clear training priorities.",
-        "workQuality": [
-          {
-            "claim": "Connects audience needs, performance gaps, and design-ready training priorities.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Administrative Communication Training Needs Analysis"
     },
     {
       "id": "project-competency-based-communication-training-proposal",
@@ -50,18 +38,7 @@
       "sourceArtifact": "assets/pdf/portfolio/bnsp4_program_proposal.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-competency-based-communication-training-proposal",
-      "discussUrl": "contact.html?portfolioItem=Competency-Based Communication Training Proposal",
-      "proof": {
-        "visibleProofLine": "Turns learning needs into a structured delivery plan.",
-        "workQuality": [
-          {
-            "claim": "Defines objectives, program logic, delivery structure, and stakeholder-ready recommendations.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Competency-Based Communication Training Proposal"
     },
     {
       "id": "project-administrative-communication-lesson-plan",
@@ -79,18 +56,7 @@
       "sourceArtifact": "assets/pdf/portfolio/bnsp4_lesson_plan.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-administrative-communication-lesson-plan",
-      "discussUrl": "contact.html?portfolioItem=Administrative Communication Lesson Plan",
-      "proof": {
-        "visibleProofLine": "Maps 36 learning hours into sessions, OJT, and competency evidence.",
-        "workQuality": [
-          {
-            "claim": "Maps 36 learning hours into session structure, activities, OJT practice, and competency evidence.",
-            "sourceBasis": "portfolio-description",
-            "confidence": "direct"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Administrative Communication Lesson Plan"
     },
     {
       "id": "project-communication-confidence-training-deck",
@@ -109,18 +75,7 @@
       "sourceArtifact": "assets/pdf/portfolio/bnsp4_materi_pelatihan.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-communication-confidence-training-deck",
-      "discussUrl": "contact.html?portfolioItem=Communication Confidence Training Deck",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Communication Confidence Training Deck"
     },
     {
       "id": "project-communication-skills-post-test-form",
@@ -138,18 +93,7 @@
       "sourceArtifact": "assets/pdf/portfolio/bnsp4_form_soal_post_test.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-communication-skills-post-test-form",
-      "discussUrl": "contact.html?portfolioItem=Communication Skills Post-Test Form",
-      "proof": {
-        "visibleProofLine": "Links measurement tools to learning outcomes.",
-        "workQuality": [
-          {
-            "claim": "Uses assessment, evaluation, rubric, or scoring structures to make learning evidence easier to collect and review.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Communication Skills Post-Test Form"
     },
     {
       "id": "project-training-feedback-form-level-1-reaction",
@@ -167,18 +111,7 @@
       "sourceArtifact": "assets/pdf/portfolio/bnsp4_form_feedback.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-training-feedback-form-level-1-reaction",
-      "discussUrl": "contact.html?portfolioItem=Training Feedback Form: Level 1 Reaction",
-      "proof": {
-        "visibleProofLine": "Links measurement tools to learning outcomes.",
-        "workQuality": [
-          {
-            "claim": "Uses assessment, evaluation, rubric, or scoring structures to make learning evidence easier to collect and review.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Training Feedback Form: Level 1 Reaction"
     },
     {
       "id": "project-communication-observation-form-and-performance-rubric",
@@ -196,18 +129,7 @@
       "sourceArtifact": "assets/pdf/portfolio/bnsp4_form_observasi_dan_rubrik_penilaian.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-communication-observation-form-and-performance-rubric",
-      "discussUrl": "contact.html?portfolioItem=Communication Observation Form and Performance Rubric",
-      "proof": {
-        "visibleProofLine": "Translates observable communication behavior into rubric evidence.",
-        "workQuality": [
-          {
-            "claim": "Assesses workplace behavior transfer through observable communication tasks and structured rubrics.",
-            "sourceBasis": "portfolio-description",
-            "confidence": "direct"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Communication Observation Form and Performance Rubric"
     },
     {
       "id": "project-macro-training-needs-analysis-dki-jakarta",
@@ -225,18 +147,7 @@
       "sourceArtifact": "assets/pdf/portfolio/bnsp6_kebutuhan_pelatihan_makro.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-macro-training-needs-analysis-dki-jakarta",
-      "discussUrl": "contact.html?portfolioItem=Macro Training Needs Analysis: DKI Jakarta",
-      "proof": {
-        "visibleProofLine": "Synthesizes labor-market signals into training priorities.",
-        "workQuality": [
-          {
-            "claim": "Synthesizes labor-market signals into practical training priorities for future-ready workplace skills.",
-            "sourceBasis": "portfolio-description",
-            "confidence": "direct"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Macro Training Needs Analysis: DKI Jakarta"
     },
     {
       "id": "project-competency-matrix-for-training-organization",
@@ -255,18 +166,7 @@
       "sourceArtifact": "assets/pdf/portfolio/bnsp6_matriks_kompetensi.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-competency-matrix-for-training-organization",
-      "discussUrl": "contact.html?portfolioItem=Competency Matrix for Training Organization",
-      "proof": {
-        "visibleProofLine": "Maps competencies into a usable learning sequence.",
-        "workQuality": [
-          {
-            "claim": "Organizes competencies, learning sequence, program structure, and evidence requirements into a usable curriculum asset.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Competency Matrix for Training Organization"
     },
     {
       "id": "project-competency-based-training-syllabus",
@@ -284,18 +184,7 @@
       "sourceArtifact": "assets/pdf/portfolio/bnsp6_silabus_pelatihan_berbasis_kompetensi.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-competency-based-training-syllabus",
-      "discussUrl": "contact.html?portfolioItem=Competency-Based Training Syllabus",
-      "proof": {
-        "visibleProofLine": "Maps competencies into a usable learning sequence.",
-        "workQuality": [
-          {
-            "claim": "Organizes competencies, learning sequence, program structure, and evidence requirements into a usable curriculum asset.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Competency-Based Training Syllabus"
     },
     {
       "id": "project-learning-business-plan-eighteen-rekrutmen-asia",
@@ -313,18 +202,7 @@
       "sourceArtifact": "assets/pdf/portfolio/bnsp6_business_plan.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-learning-business-plan-eighteen-rekrutmen-asia",
-      "discussUrl": "contact.html?portfolioItem=Learning Business Plan: Eighteen Rekrutmen Asia",
-      "proof": {
-        "visibleProofLine": "Connects capability priorities with actionable learning strategy.",
-        "workQuality": [
-          {
-            "claim": "Frames learning products, business goals, capability priorities, and growth logic into an actionable L&D plan.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Learning Business Plan: Eighteen Rekrutmen Asia"
     },
     {
       "id": "project-marketing-plan-for-training-solutions",
@@ -342,18 +220,7 @@
       "sourceArtifact": "assets/pdf/portfolio/bnsp6_marketing_plan.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-marketing-plan-for-training-solutions",
-      "discussUrl": "contact.html?portfolioItem=Marketing Plan for Training Solutions",
-      "proof": {
-        "visibleProofLine": "Connects capability priorities with actionable learning strategy.",
-        "workQuality": [
-          {
-            "claim": "Frames learning products, business goals, capability priorities, and growth logic into an actionable L&D plan.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Marketing Plan for Training Solutions"
     },
     {
       "id": "project-training-budget-and-roti-calculator",
@@ -372,18 +239,7 @@
       "sourceArtifact": "assets/portfolio-viewers/bnsp6-rab-roti-pelatihan.html",
       "sourceType": "html-viewer",
       "portfolioItemUrl": "portfolio.html#project-training-budget-and-roti-calculator",
-      "discussUrl": "contact.html?portfolioItem=Training Budget and ROTI Calculator",
-      "proof": {
-        "visibleProofLine": "Turns learning data into decision-ready analysis.",
-        "workQuality": [
-          {
-            "claim": "Structures learning data, response inputs, or calculations into analysis-ready dashboards and decision tools.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Training Budget and ROTI Calculator"
     },
     {
       "id": "project-kirkpatrick-level-1-reaction-dashboard",
@@ -402,18 +258,7 @@
       "sourceArtifact": "assets/portfolio-viewers/bnsp6-evaluation-level1-reaction.html",
       "sourceType": "html-viewer",
       "portfolioItemUrl": "portfolio.html#project-kirkpatrick-level-1-reaction-dashboard",
-      "discussUrl": "contact.html?portfolioItem=Kirkpatrick Level 1 Reaction Dashboard",
-      "proof": {
-        "visibleProofLine": "Turns learning data into decision-ready analysis.",
-        "workQuality": [
-          {
-            "claim": "Structures learning data, response inputs, or calculations into analysis-ready dashboards and decision tools.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Kirkpatrick Level 1 Reaction Dashboard"
     },
     {
       "id": "project-kirkpatrick-level-2-learning-dashboard",
@@ -432,18 +277,7 @@
       "sourceArtifact": "assets/portfolio-viewers/bnsp6-evaluation-level2-learning.html",
       "sourceType": "html-viewer",
       "portfolioItemUrl": "portfolio.html#project-kirkpatrick-level-2-learning-dashboard",
-      "discussUrl": "contact.html?portfolioItem=Kirkpatrick Level 2 Learning Dashboard",
-      "proof": {
-        "visibleProofLine": "Turns learning data into decision-ready analysis.",
-        "workQuality": [
-          {
-            "claim": "Structures learning data, response inputs, or calculations into analysis-ready dashboards and decision tools.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Kirkpatrick Level 2 Learning Dashboard"
     },
     {
       "id": "project-training-and-coaching-need-analysis-framework",
@@ -462,18 +296,7 @@
       "sourceArtifact": "assets/portfolio-viewers/need-analysis-framework-training-coaching.html",
       "sourceType": "html-viewer",
       "portfolioItemUrl": "portfolio.html#project-training-and-coaching-need-analysis-framework",
-      "discussUrl": "contact.html?portfolioItem=Training and Coaching Need Analysis Framework",
-      "proof": {
-        "visibleProofLine": "Maps performance gaps into clear training priorities.",
-        "workQuality": [
-          {
-            "claim": "Connects audience needs, performance gaps, and design-ready training priorities.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Training and Coaching Need Analysis Framework"
     },
     {
       "id": "project-need-assessment-cross-department-communication",
@@ -492,18 +315,7 @@
       "sourceArtifact": "assets/pdf/portfolio/need_assessment_communication_between_departments.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-need-assessment-cross-department-communication",
-      "discussUrl": "contact.html?portfolioItem=Need Assessment: Cross-Department Communication",
-      "proof": {
-        "visibleProofLine": "Maps performance gaps into clear training priorities.",
-        "workQuality": [
-          {
-            "claim": "Connects audience needs, performance gaps, and design-ready training priorities.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Need Assessment: Cross-Department Communication"
     },
     {
       "id": "project-need-assessment-manager-communication-to-staff",
@@ -522,18 +334,7 @@
       "sourceArtifact": "assets/pdf/portfolio/need_assessment_manager_communication_to_staff.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-need-assessment-manager-communication-to-staff",
-      "discussUrl": "contact.html?portfolioItem=Need Assessment: Manager Communication to Staff",
-      "proof": {
-        "visibleProofLine": "Maps performance gaps into clear training priorities.",
-        "workQuality": [
-          {
-            "claim": "Connects audience needs, performance gaps, and design-ready training priorities.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Need Assessment: Manager Communication to Staff"
     },
     {
       "id": "project-recruitment-assessment-blueprint",
@@ -551,18 +352,7 @@
       "sourceArtifact": "assets/portfolio-viewers/recruitment-assessment-blueprint.html",
       "sourceType": "html-viewer",
       "portfolioItemUrl": "portfolio.html#project-recruitment-assessment-blueprint",
-      "discussUrl": "contact.html?portfolioItem=Recruitment Assessment Blueprint",
-      "proof": {
-        "visibleProofLine": "Links measurement tools to learning outcomes.",
-        "workQuality": [
-          {
-            "claim": "Uses assessment, evaluation, rubric, or scoring structures to make learning evidence easier to collect and review.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Recruitment Assessment Blueprint"
     },
     {
       "id": "project-rancangan-sistem-asesmen-kompetensi-project-management",
@@ -582,18 +372,7 @@
       "sourceArtifact": "assets/pdf/portfolio/proposal_rancangan_sistem_asesmen_kompetensi_project_management.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-rancangan-sistem-asesmen-kompetensi-project-management",
-      "discussUrl": "contact.html?portfolioItem=Project Management Competency Assessment",
-      "proof": {
-        "visibleProofLine": "Turns learning needs into a structured delivery plan.",
-        "workQuality": [
-          {
-            "claim": "Defines objectives, program logic, delivery structure, and stakeholder-ready recommendations.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Project Management Competency Assessment"
     },
     {
       "id": "project-miles-unfair-advantage-mentoring-workbook",
@@ -612,18 +391,7 @@
       "sourceArtifact": "assets/portfolio-viewers/miles-unfair-advantage-mentoring-workbook.html",
       "sourceType": "html-viewer",
       "portfolioItemUrl": "portfolio.html#project-miles-unfair-advantage-mentoring-workbook",
-      "discussUrl": "contact.html?portfolioItem=MILES Unfair Advantage Mentoring Workbook",
-      "proof": {
-        "visibleProofLine": "Structures reflection, planning, and follow-through.",
-        "workQuality": [
-          {
-            "claim": "Uses mentoring activities, reflection prompts, and action planning tools to support learner follow-through.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=MILES Unfair Advantage Mentoring Workbook"
     },
     {
       "id": "project-mentoring-workbook-week-1-idea-exploration",
@@ -641,18 +409,7 @@
       "sourceArtifact": "assets/portfolio-viewers/ybb-mentoring-workbook-week-1.html",
       "sourceType": "html-viewer",
       "portfolioItemUrl": "portfolio.html#project-mentoring-workbook-week-1-idea-exploration",
-      "discussUrl": "contact.html?portfolioItem=Mentoring Workbook: Week 1 Idea Exploration",
-      "proof": {
-        "visibleProofLine": "Structures reflection, planning, and follow-through.",
-        "workQuality": [
-          {
-            "claim": "Uses mentoring activities, reflection prompts, and action planning tools to support learner follow-through.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Mentoring Workbook: Week 1 Idea Exploration"
     },
     {
       "id": "project-mentoring-workbook-week-2-concept-development",
@@ -670,18 +427,7 @@
       "sourceArtifact": "assets/portfolio-viewers/ybb-mentoring-workbook-week-2.html",
       "sourceType": "html-viewer",
       "portfolioItemUrl": "portfolio.html#project-mentoring-workbook-week-2-concept-development",
-      "discussUrl": "contact.html?portfolioItem=Mentoring Workbook: Week 2 Concept Development",
-      "proof": {
-        "visibleProofLine": "Structures reflection, planning, and follow-through.",
-        "workQuality": [
-          {
-            "claim": "Uses mentoring activities, reflection prompts, and action planning tools to support learner follow-through.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Mentoring Workbook: Week 2 Concept Development"
     },
     {
       "id": "project-mentoring-workbook-week-3-presentation-readiness",
@@ -700,18 +446,7 @@
       "sourceArtifact": "assets/portfolio-viewers/ybb-mentoring-workbook-week-3.html",
       "sourceType": "html-viewer",
       "portfolioItemUrl": "portfolio.html#project-mentoring-workbook-week-3-presentation-readiness",
-      "discussUrl": "contact.html?portfolioItem=Mentoring Workbook: Week 3 Presentation Readiness",
-      "proof": {
-        "visibleProofLine": "Structures reflection, planning, and follow-through.",
-        "workQuality": [
-          {
-            "claim": "Uses mentoring activities, reflection prompts, and action planning tools to support learner follow-through.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Mentoring Workbook: Week 3 Presentation Readiness"
     },
     {
       "id": "project-pitch-deck-template-week-4",
@@ -730,18 +465,7 @@
       "sourceArtifact": "assets/portfolio-viewers/ybb-pitch-deck-template-week-4.html",
       "sourceType": "html-viewer",
       "portfolioItemUrl": "portfolio.html#project-pitch-deck-template-week-4",
-      "discussUrl": "contact.html?portfolioItem=Pitch Deck Template: Week 4",
-      "proof": {
-        "visibleProofLine": "Organizes complex ideas into a clear slide narrative.",
-        "workQuality": [
-          {
-            "claim": "Shapes complex ideas into a presentation-ready narrative, evidence structure, and visual communication flow.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Pitch Deck Template: Week 4"
     },
     {
       "id": "project-learning-from-abroad-education-and-career-pathways",
@@ -760,18 +484,7 @@
       "sourceArtifact": "assets/pdf/portfolio/scholarship_powerpoint.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-learning-from-abroad-education-and-career-pathways",
-      "discussUrl": "contact.html?portfolioItem=Learning from Abroad: Education and Career Pathways",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Learning from Abroad: Education and Career Pathways"
     },
     {
       "id": "project-digital-marketing-portfolio-workshop-deck",
@@ -789,18 +502,7 @@
       "sourceArtifact": "assets/pdf/portfolio/digital_marketing_portfolio_powerpoint.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-digital-marketing-portfolio-workshop-deck",
-      "discussUrl": "contact.html?portfolioItem=Digital Marketing Portfolio Workshop Deck",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Digital Marketing Portfolio Workshop Deck"
     },
     {
       "id": "project-theory-of-change-as-program-framework",
@@ -817,18 +519,7 @@
       "sourceArtifact": "assets/pdf/portfolio/toc.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-theory-of-change-as-program-framework",
-      "discussUrl": "contact.html?portfolioItem=Theory of Change as Program Framework",
-      "proof": {
-        "visibleProofLine": "Builds applied workshop flow around practice tasks.",
-        "workQuality": [
-          {
-            "claim": "Combines facilitation structure, participant activities, and practical implementation support.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Theory of Change as Program Framework"
     },
     {
       "id": "project-entrepreneurship-online-class",
@@ -845,18 +536,7 @@
       "sourceArtifact": "assets/portfolio-viewers/entrepreneurship-online-class.html",
       "sourceType": "html-viewer",
       "portfolioItemUrl": "portfolio.html#project-entrepreneurship-online-class",
-      "discussUrl": "contact.html?portfolioItem=Online Class",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Online Class"
     },
     {
       "id": "project-training-for-trainer-experiential-learning-and-coaching",
@@ -873,18 +553,7 @@
       "sourceArtifact": "assets/pdf/portfolio/training_for_trainer.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-training-for-trainer-experiential-learning-and-coaching",
-      "discussUrl": "contact.html?portfolioItem=Training for Trainer",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Training for Trainer"
     },
     {
       "id": "project-entrepreneurship-mentorship-for-sandination-community",
@@ -901,18 +570,7 @@
       "sourceArtifact": "assets/pdf/portfolio/sandination_mentorship.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-entrepreneurship-mentorship-for-sandination-community",
-      "discussUrl": "contact.html?portfolioItem=Sandination Mentorship",
-      "proof": {
-        "visibleProofLine": "Builds applied workshop flow around practice tasks.",
-        "workQuality": [
-          {
-            "claim": "Combines facilitation structure, participant activities, and practical implementation support.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Sandination Mentorship"
     },
     {
       "id": "project-3rd-winner-in-kumpul-jasa-jember-competition",
@@ -929,24 +587,7 @@
       "sourceArtifact": "assets/pdf/portfolio/kumpul_jasa.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-3rd-winner-in-kumpul-jasa-jember-competition",
-      "discussUrl": "contact.html?portfolioItem=KUMPUL JASA",
-      "proof": {
-        "visibleProofLine": "Competition result gives directly supported external recognition.",
-        "workQuality": [
-          {
-            "claim": "Shows applied entrepreneurship and presentation capability through a competition portfolio item.",
-            "sourceBasis": "portfolio-title",
-            "confidence": "direct"
-          }
-        ],
-        "impact": [
-          {
-            "claim": "The portfolio title states a 3rd winner result in KUMPUL JASA Jember Entrepreneurship Competition.",
-            "sourceBasis": "portfolio-title",
-            "confidence": "direct"
-          }
-        ]
-      }
+      "discussUrl": "contact.html?portfolioItem=KUMPUL JASA"
     },
     {
       "id": "project-nhi-bandung-business-acceleration-bootcamp",
@@ -963,18 +604,7 @@
       "sourceArtifact": "assets/pdf/portfolio/nhi_acceleration.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-nhi-bandung-business-acceleration-bootcamp",
-      "discussUrl": "contact.html?portfolioItem=NHI Acceleration Bootcamp",
-      "proof": {
-        "visibleProofLine": "Builds applied workshop flow around practice tasks.",
-        "workQuality": [
-          {
-            "claim": "Combines facilitation structure, participant activities, and practical implementation support.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=NHI Acceleration Bootcamp"
     },
     {
       "id": "project-entrepreneurship-program-for-5000-smk-students",
@@ -992,24 +622,7 @@
       "sourceArtifact": "assets/portfolio-viewers/smk-entrepreneurship-program.html",
       "sourceType": "html-viewer",
       "portfolioItemUrl": "portfolio.html#project-entrepreneurship-program-for-5000-smk-students",
-      "discussUrl": "contact.html?portfolioItem=SMK Program",
-      "proof": {
-        "visibleProofLine": "Adapts entrepreneurship learning for a 5000+ student audience.",
-        "workQuality": [
-          {
-            "claim": "Structures entrepreneurship learning for a large vocational student audience.",
-            "sourceBasis": "portfolio-description",
-            "confidence": "direct"
-          }
-        ],
-        "impact": [
-          {
-            "claim": "The portfolio description identifies a 5000+ SMK student audience.",
-            "sourceBasis": "portfolio-title",
-            "confidence": "direct"
-          }
-        ]
-      }
+      "discussUrl": "contact.html?portfolioItem=SMK Program"
     },
     {
       "id": "project-budikdamber-program-for-7-rumah-yatim-asrama",
@@ -1027,18 +640,7 @@
       "sourceArtifact": "assets/pdf/portfolio/budikdamber.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-budikdamber-program-for-7-rumah-yatim-asrama",
-      "discussUrl": "contact.html?portfolioItem=Budikdamber Program",
-      "proof": {
-        "visibleProofLine": "Builds applied workshop flow around practice tasks.",
-        "workQuality": [
-          {
-            "claim": "Combines facilitation structure, participant activities, and practical implementation support.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Budikdamber Program"
     },
     {
       "id": "project-the-millennium-challenge-corporation-mcc-grant",
@@ -1055,18 +657,7 @@
       "sourceArtifact": "assets/pdf/portfolio/mcc_grant.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-the-millennium-challenge-corporation-mcc-grant",
-      "discussUrl": "contact.html?portfolioItem=MCC Grant",
-      "proof": {
-        "visibleProofLine": "Builds applied workshop flow around practice tasks.",
-        "workQuality": [
-          {
-            "claim": "Combines facilitation structure, participant activities, and practical implementation support.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=MCC Grant"
     },
     {
       "id": "project-performance-appraisal-system-development",
@@ -1083,18 +674,7 @@
       "sourceArtifact": "assets/portfolio-viewers/performance-appraisal-system.html",
       "sourceType": "html-viewer",
       "portfolioItemUrl": "portfolio.html#project-performance-appraisal-system-development",
-      "discussUrl": "contact.html?portfolioItem=Performance Appraisal System",
-      "proof": {
-        "visibleProofLine": "Shows applied program, people, or operations capability.",
-        "workQuality": [
-          {
-            "claim": "Demonstrates earlier applied program, people, or learning operations capability through a portfolio artifact.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Performance Appraisal System"
     },
     {
       "id": "project-nhi-bandung-business-incubation-bootcamp",
@@ -1112,18 +692,7 @@
       "sourceArtifact": "assets/pdf/portfolio/nhi_incubation.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-nhi-bandung-business-incubation-bootcamp",
-      "discussUrl": "contact.html?portfolioItem=NHI Incubation Bootcamp",
-      "proof": {
-        "visibleProofLine": "Builds applied workshop flow around practice tasks.",
-        "workQuality": [
-          {
-            "claim": "Combines facilitation structure, participant activities, and practical implementation support.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=NHI Incubation Bootcamp"
     },
     {
       "id": "project-entrepreneurial-mindset-seminar",
@@ -1141,18 +710,7 @@
       "sourceArtifact": "assets/pdf/portfolio/growth_mindset.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-entrepreneurial-mindset-seminar",
-      "discussUrl": "contact.html?portfolioItem=Mindset Seminar",
-      "proof": {
-        "visibleProofLine": "Builds applied workshop flow around practice tasks.",
-        "workQuality": [
-          {
-            "claim": "Combines facilitation structure, participant activities, and practical implementation support.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Mindset Seminar"
     },
     {
       "id": "project-mastering-critical-thinking-for-future-proofing-your-career",
@@ -1169,18 +727,7 @@
       "sourceArtifact": "assets/pdf/portfolio/critical_thinking.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-mastering-critical-thinking-for-future-proofing-your-career",
-      "discussUrl": "contact.html?portfolioItem=Critical Thinking",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Critical Thinking"
     },
     {
       "id": "project-menguasai-komunikasi-maritim-yang-efektif",
@@ -1197,18 +744,7 @@
       "sourceArtifact": "assets/pdf/portfolio/komunikasi_maritim.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-menguasai-komunikasi-maritim-yang-efektif",
-      "discussUrl": "contact.html?portfolioItem=Komunikasi Maritim",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Komunikasi Maritim"
     },
     {
       "id": "project-mental-preparedness-preparation-for-emergencies",
@@ -1225,18 +761,7 @@
       "sourceArtifact": "assets/pdf/portfolio/mental_preparedness_emergency.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-mental-preparedness-preparation-for-emergencies",
-      "discussUrl": "contact.html?portfolioItem=Mental Preparedness",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Mental Preparedness"
     },
     {
       "id": "project-landing-your-dream-job-top-employability-skills-for-new-grads",
@@ -1253,18 +778,7 @@
       "sourceArtifact": "assets/pdf/portfolio/top_employability_skills.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-landing-your-dream-job-top-employability-skills-for-new-grads",
-      "discussUrl": "contact.html?portfolioItem=Employability Skills",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Employability Skills"
     },
     {
       "id": "project-gig-economy-and-resilience-the-future-is-beyond-milestones",
@@ -1281,18 +795,7 @@
       "sourceArtifact": "assets/pdf/portfolio/gig_economy_resilience.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-gig-economy-and-resilience-the-future-is-beyond-milestones",
-      "discussUrl": "contact.html?portfolioItem=GIG-ECONOMY & RESILIENCE",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=GIG-ECONOMY & RESILIENCE"
     },
     {
       "id": "project-gig-economy-the-rise-of-side-hustling",
@@ -1309,18 +812,7 @@
       "sourceArtifact": "assets/pdf/portfolio/gig_economy_hustle.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-gig-economy-the-rise-of-side-hustling",
-      "discussUrl": "contact.html?portfolioItem=GIG-ECONOMY",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=GIG-ECONOMY"
     },
     {
       "id": "project-umkm-s-simple-financial-management",
@@ -1337,18 +829,7 @@
       "sourceArtifact": "assets/pdf/portfolio/financial_management.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-umkm-s-simple-financial-management",
-      "discussUrl": "contact.html?portfolioItem=UMKM%27s%20Simple%20Financial%20Management",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=UMKM%27s%20Simple%20Financial%20Management"
     },
     {
       "id": "project-financial-modeling",
@@ -1365,18 +846,7 @@
       "sourceArtifact": "assets/pdf/portfolio/financial_modeling.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-financial-modeling",
-      "discussUrl": "contact.html?portfolioItem=Financial Modeling",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Financial Modeling"
     },
     {
       "id": "project-growth-mindset",
@@ -1393,18 +863,7 @@
       "sourceArtifact": "assets/pdf/portfolio/growth_mindset.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-growth-mindset",
-      "discussUrl": "contact.html?portfolioItem=Growth Mindset",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Growth Mindset"
     },
     {
       "id": "project-cultivating-growth-mindset-for-self-motivation",
@@ -1421,18 +880,7 @@
       "sourceArtifact": "assets/pdf/portfolio/self-motivation.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-cultivating-growth-mindset-for-self-motivation",
-      "discussUrl": "contact.html?portfolioItem=Self-Motivation",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Self-Motivation"
     },
     {
       "id": "project-make-your-product-fit-with-design-thinking",
@@ -1449,18 +897,7 @@
       "sourceArtifact": "assets/pdf/portfolio/design_thinking.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-make-your-product-fit-with-design-thinking",
-      "discussUrl": "contact.html?portfolioItem=Design Thinking",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Design Thinking"
     },
     {
       "id": "project-business-management-and-adaptability-for-msmes",
@@ -1477,18 +914,7 @@
       "sourceArtifact": "assets/pdf/portfolio/business_management.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-business-management-and-adaptability-for-msmes",
-      "discussUrl": "contact.html?portfolioItem=Business Management",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Business Management"
     },
     {
       "id": "project-how-to-face-layoff-storm",
@@ -1505,18 +931,7 @@
       "sourceArtifact": "assets/pdf/portfolio/layoff_storm.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-how-to-face-layoff-storm",
-      "discussUrl": "contact.html?portfolioItem=Layoff Storm",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Layoff Storm"
     },
     {
       "id": "project-brand-yourself-stand-out-with-personal-branding-and-linkedin-optimization",
@@ -1533,18 +948,7 @@
       "sourceArtifact": "assets/pdf/portfolio/personal_branding.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-brand-yourself-stand-out-with-personal-branding-and-linkedin-optimization",
-      "discussUrl": "contact.html?portfolioItem=Personal Branding",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Personal Branding"
     },
     {
       "id": "project-ai-powered-personal-branding-for-linkedin",
@@ -1561,18 +965,7 @@
       "sourceArtifact": "assets/pdf/portfolio/20260520_ai_powered_personal_branding_linkedIn_module.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-ai-powered-personal-branding-for-linkedin",
-      "discussUrl": "contact.html?portfolioItem=AI-Powered Personal Branding for LinkedIn",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=AI-Powered Personal Branding for LinkedIn"
     },
     {
       "id": "project-public-speaking-and-confidence-boost",
@@ -1589,18 +982,7 @@
       "sourceArtifact": "assets/pdf/portfolio/public_speaking_confidence_boost.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-public-speaking-and-confidence-boost",
-      "discussUrl": "contact.html?portfolioItem=Public Speaking Confidence Boost",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Public Speaking Confidence Boost"
     },
     {
       "id": "project-color-personality",
@@ -1617,18 +999,7 @@
       "sourceArtifact": "assets/pdf/portfolio/color_personality.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-color-personality",
-      "discussUrl": "contact.html?portfolioItem=Color Personality",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Color Personality"
     },
     {
       "id": "project-managing-crew-fatigue-onboard",
@@ -1645,18 +1016,7 @@
       "sourceArtifact": "assets/pdf/portfolio/crew_fatigue_onboard.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-managing-crew-fatigue-onboard",
-      "discussUrl": "contact.html?portfolioItem=Crew Fatigue",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Crew Fatigue"
     },
     {
       "id": "project-komunikasi-sehat-antar-crew-di-tengah-tekanan-kerja",
@@ -1675,18 +1035,7 @@
       "sourceArtifact": "assets/pdf/portfolio/20260522_komunikasi_sehat_antar_crew.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-komunikasi-sehat-antar-crew-di-tengah-tekanan-kerja",
-      "discussUrl": "contact.html?portfolioItem=Komunikasi Sehat Antar Crew",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Komunikasi Sehat Antar Crew"
     },
     {
       "id": "project-speak-up-stand-out-public-speaking-in-the-hybrid-era",
@@ -1703,18 +1052,7 @@
       "sourceArtifact": "assets/pdf/portfolio/public_speaking.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-speak-up-stand-out-public-speaking-in-the-hybrid-era",
-      "discussUrl": "contact.html?portfolioItem=Public Speaking",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Public Speaking"
     },
     {
       "id": "project-startup-development-class",
@@ -1731,18 +1069,7 @@
       "sourceArtifact": "assets/pdf/portfolio/startup_development_class.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-startup-development-class",
-      "discussUrl": "contact.html?portfolioItem=Startup Development Class",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Startup Development Class"
     },
     {
       "id": "project-how-to-leverage-social-media-instagram-for-msmes",
@@ -1759,18 +1086,7 @@
       "sourceArtifact": "assets/pdf/portfolio/instagram_umkm.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-how-to-leverage-social-media-instagram-for-msmes",
-      "discussUrl": "contact.html?portfolioItem=Instagram for MSMEs",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Instagram for MSMEs"
     },
     {
       "id": "project-managing-crew-onboard-stress",
@@ -1787,18 +1103,7 @@
       "sourceArtifact": "assets/pdf/portfolio/stress_management.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-managing-crew-onboard-stress",
-      "discussUrl": "contact.html?portfolioItem=Managing Crew Onboard Stress",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Managing Crew Onboard Stress"
     },
     {
       "id": "project-smart-steps-to-start-an-employee-side-hustle",
@@ -1815,18 +1120,7 @@
       "sourceArtifact": "assets/pdf/portfolio/side_hustle.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-smart-steps-to-start-an-employee-side-hustle",
-      "discussUrl": "contact.html?portfolioItem=Smart Steps to Start an Employee Side Hustle",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Smart Steps to Start an Employee Side Hustle"
     },
     {
       "id": "project-anyone-can-get-a-job",
@@ -1843,18 +1137,7 @@
       "sourceArtifact": "assets/pdf/portfolio/triangle.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-anyone-can-get-a-job",
-      "discussUrl": "contact.html?portfolioItem=Anyone Can Get a Job",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Anyone Can Get a Job"
     },
     {
       "id": "project-crafting-deck-and-impactful-presentation",
@@ -1871,18 +1154,7 @@
       "sourceArtifact": "assets/pdf/portfolio/crafting_deck.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-crafting-deck-and-impactful-presentation",
-      "discussUrl": "contact.html?portfolioItem=Crafting Deck and Impactful Presentation",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Crafting Deck and Impactful Presentation"
     },
     {
       "id": "project-stress-and-time-management",
@@ -1899,18 +1171,7 @@
       "sourceArtifact": "assets/pdf/portfolio/time_management.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-stress-and-time-management",
-      "discussUrl": "contact.html?portfolioItem=Stress & Time Management",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Stress & Time Management"
     },
     {
       "id": "project-adaptive-communication-decode-and-connect",
@@ -1927,18 +1188,7 @@
       "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_1.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-adaptive-communication-decode-and-connect",
-      "discussUrl": "contact.html?portfolioItem=Adaptive Communication",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Adaptive Communication"
     },
     {
       "id": "project-strengthen-teamwork-with-empathy-and-communication",
@@ -1955,18 +1205,7 @@
       "sourceArtifact": "assets/pdf/portfolio/teamwork.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-strengthen-teamwork-with-empathy-and-communication",
-      "discussUrl": "contact.html?portfolioItem=Strengthen Teamwork",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Strengthen Teamwork"
     },
     {
       "id": "project-building-a-culture-of-service-excellence-in-the-digital-era",
@@ -1983,18 +1222,7 @@
       "sourceArtifact": "assets/pdf/portfolio/service_excellence.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-building-a-culture-of-service-excellence-in-the-digital-era",
-      "discussUrl": "contact.html?portfolioItem=Service Excellence",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Service Excellence"
     },
     {
       "id": "project-unlock-flows-adaptive-decode-for-corporate-connections",
@@ -2011,18 +1239,7 @@
       "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_2.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-unlock-flows-adaptive-decode-for-corporate-connections",
-      "discussUrl": "contact.html?portfolioItem=Unlock Flows",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Unlock Flows"
     },
     {
       "id": "project-calibrate-links-decode-insights-connect-precisely",
@@ -2039,18 +1256,7 @@
       "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_3.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-calibrate-links-decode-insights-connect-precisely",
-      "discussUrl": "contact.html?portfolioItem=Calibrate Links",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Calibrate Links"
     },
     {
       "id": "project-sync-up-decode-signals-connect-teams-mcdonald-s-edition",
@@ -2067,18 +1273,7 @@
       "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_4.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-sync-up-decode-signals-connect-teams-mcdonald-s-edition",
-      "discussUrl": "contact.html?portfolioItem=Sync Up",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Sync Up"
     },
     {
       "id": "project-adaptive-communication-solution-for-home-credit-indonesia",
@@ -2095,18 +1290,7 @@
       "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_5.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-adaptive-communication-solution-for-home-credit-indonesia",
-      "discussUrl": "contact.html?portfolioItem=Adaptive Communication HCI",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Adaptive Communication HCI"
     },
     {
       "id": "project-how-to-win-friends-and-influence-people",
@@ -2123,18 +1307,7 @@
       "sourceArtifact": "assets/pdf/portfolio/win_friends.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-how-to-win-friends-and-influence-people",
-      "discussUrl": "contact.html?portfolioItem=Win Friends",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Win Friends"
     },
     {
       "id": "project-managing-pressure-without-losing-yourself",
@@ -2151,18 +1324,7 @@
       "sourceArtifact": "assets/pdf/portfolio/managing_pressure.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-managing-pressure-without-losing-yourself",
-      "discussUrl": "contact.html?portfolioItem=Managing Pressure Without Losing Yourself",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Managing Pressure Without Losing Yourself"
     },
     {
       "id": "project-mental-health-in-the-workplace-for-being-supervisor",
@@ -2179,18 +1341,7 @@
       "sourceArtifact": "assets/pdf/portfolio/mental_health_supervisor.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-mental-health-in-the-workplace-for-being-supervisor",
-      "discussUrl": "contact.html?portfolioItem=Mental Health in the Workplace for being Supervisor",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=Mental Health in the Workplace for being Supervisor"
     },
     {
       "id": "project-from-impostor-to-influencer",
@@ -2207,18 +1358,7 @@
       "sourceArtifact": "assets/pdf/portfolio/linkedIn_post.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-from-impostor-to-influencer",
-      "discussUrl": "contact.html?portfolioItem=From Impostor to Influencer",
-      "proof": {
-        "visibleProofLine": "Builds confidence, communication, or professional influence.",
-        "workQuality": [
-          {
-            "claim": "Uses speaking or mentoring material to support confidence, communication, storytelling, or professional influence.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=From Impostor to Influencer"
     },
     {
       "id": "project-the-psychology-of-money-understanding-how-we-think-about-wealth",
@@ -2235,18 +1375,7 @@
       "sourceArtifact": "assets/pdf/portfolio/psychology_of_money.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-the-psychology-of-money-understanding-how-we-think-about-wealth",
-      "discussUrl": "contact.html?portfolioItem=The Psychology of Money",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
+      "discussUrl": "contact.html?portfolioItem=The Psychology of Money"
     }
   ]
 }

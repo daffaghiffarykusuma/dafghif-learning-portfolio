@@ -156,7 +156,12 @@ export const normalizePortfolioItem = (sourceItem) => {
     sourceArtifact: normalizeText(sourceItem.sourceArtifact || sourceItem.source),
     sourceType: normalizeText(sourceItem.sourceType),
     portfolioItemUrl: normalizeText(sourceItem.portfolioItemUrl || sourceItem.projectUrl),
-    discussUrl: normalizeText(sourceItem.discussUrl)
+    discussUrl: normalizeText(sourceItem.discussUrl),
+    proof: sourceItem.proof || {
+      visibleProofLine: '',
+      workQuality: [],
+      impact: []
+    }
   };
 };
 
@@ -207,7 +212,7 @@ export const inferScale = (portfolioItem) => {
   return [...text.matchAll(/\b\d{1,3}(?:,\d{3})?\+?\b/g)].map((match) => match[0]);
 };
 
-export const inferOutcomeEvidence = (portfolioItem) => {
+export const inferApplicationHint = (portfolioItem) => {
   const text = `${portfolioItem.title} ${portfolioItem.description}`.toLowerCase();
   if (text.includes('needs') || text.includes('gap')) {
     return 'Clarified the real performance gap before investing in training design or delivery.';
@@ -230,8 +235,23 @@ export const inferOutcomeEvidence = (portfolioItem) => {
   return 'Converted a learning topic into a usable artifact that supports understanding, practice, and application.';
 };
 
-export const makeCvBullet = (portfolioItem, profile, outcomeEvidence) =>
-  `${profile.cvVerb} ${portfolioItem.title} as a ${portfolioItem.practiceArea.toLowerCase()} portfolio item, creating practical context for ${portfolioItem.audience} and supporting this outcome: ${outcomeEvidence}`;
+export const getDirectOutcomeEvidence = (portfolioItem) =>
+  (Array.isArray(portfolioItem.proof?.impact) ? portfolioItem.proof.impact : [])
+    .filter((entry) => normalizeText(entry.claim) && normalizeText(entry.confidence) === 'direct')
+    .map((entry) => ({
+      claim: normalizeText(entry.claim),
+      sourceBasis: normalizeText(entry.sourceBasis),
+      confidence: normalizeText(entry.confidence)
+    }));
+
+export const makeCvBullet = (portfolioItem, profile, outcomeEvidence, applicationHint) => {
+  const supportedOutcome = outcomeEvidence[0]?.claim;
+  const evidenceClause = supportedOutcome
+    ? `with supported outcome evidence: ${supportedOutcome}`
+    : `with a non-proof AI application hint: ${applicationHint}`;
+
+  return `${profile.cvVerb} ${portfolioItem.title} as a ${portfolioItem.practiceArea.toLowerCase()} portfolio item, creating practical context for ${portfolioItem.audience}, ${evidenceClause}`;
+};
 
 export const createAiContextPortfolioItem = (sourceItem) => {
   const item = normalizePortfolioItem(sourceItem);
@@ -239,7 +259,8 @@ export const createAiContextPortfolioItem = (sourceItem) => {
   const audience = inferAudience(item);
   const tools = inferTools(item);
   const scaleSignals = inferScale(item);
-  const outcomeEvidence = inferOutcomeEvidence(item);
+  const outcomeEvidence = getDirectOutcomeEvidence(item);
+  const applicationHint = inferApplicationHint(item);
   const baseItem = { title: item.title, practiceArea: item.practiceArea, audience };
 
   return {
@@ -257,9 +278,13 @@ export const createAiContextPortfolioItem = (sourceItem) => {
       skills: [...new Set([...profile.defaultSkills, ...item.tags.map((tag) => tag.replace(/-/g, ' '))])],
       tools,
       scaleSignals,
+      aiHint: {
+        evidenceLevel: 'inferred non-proof drafting hint',
+        application: applicationHint
+      },
       outcomeEvidence,
-      cvBullet: makeCvBullet(baseItem, profile, outcomeEvidence)
+      proof: item.proof,
+      cvBullet: makeCvBullet(baseItem, profile, outcomeEvidence, applicationHint)
     }
   };
 };
-

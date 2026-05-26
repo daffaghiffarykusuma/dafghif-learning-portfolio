@@ -1170,6 +1170,16 @@ h2.section-title::after { /* Underline effect for titles */
     flex-grow: 1; /* Push actions to bottom */
 }
 
+.portfolio-item-proof {
+    margin-top: -4px;
+    padding-left: 12px;
+    border-left: 3px solid #1f7f74;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
 .card-actions {
     margin-top: auto; /* Push actions to the bottom */
     padding-top: 16px;

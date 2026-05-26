@@ -55,6 +55,18 @@ describe('site browser behavior', () => {
     expect(warnings.some((message) => message.includes('Blocked unsafe portfolio preview path'))).toBe(true);
   });
 
+  test('portfolio cards render concise proof-of-quality lines', async () => {
+    const html = await readPage('portfolio.html');
+    createDom(html, 'http://127.0.0.1/portfolio.html');
+
+    const portfolioItems = Array.from(document.querySelectorAll('.card.portfolio-item:not(.portfolio-item-placeholder)'));
+    const proofLines = Array.from(document.querySelectorAll('.portfolio-item-proof'));
+
+    expect(portfolioItems.length).toBe(78);
+    expect(proofLines.length).toBe(portfolioItems.length);
+    expect(proofLines[0].textContent).toStartWith('Proof of quality: ');
+  });
+
   test('portfolio page opens an artifact preview from a direct hash link', async () => {
     const html = await readPage('portfolio.html');
     createDom(html, 'http://127.0.0.1/portfolio.html#project-administrative-communication-training-needs-analysis');

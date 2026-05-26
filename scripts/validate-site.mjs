@@ -1,6 +1,7 @@
 import { readdir, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { validatePortfolioEvidence } from './portfolio-evidence-validator.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ignoredDirs = new Set(['.git', '.vscode', 'dist', 'node_modules']);
@@ -205,38 +206,12 @@ posts.forEach((post, index) => {
   }
 });
 
-const portfolioSource = JSON.parse(await readFile(path.join(root, 'assets/data/portfolio-items.json'), 'utf8'));
-const portfolioItems = Array.isArray(portfolioSource.portfolioItems)
-  ? portfolioSource.portfolioItems
-  : portfolioSource.projects || [];
-if (portfolioItems.length === 0) {
-  failures.push('assets/data/portfolio-items.json: expected at least one portfolio item');
-}
-
-for (const [index, portfolioItem] of portfolioItems.entries()) {
-  const label = `assets/data/portfolio-items.json: portfolio item ${index + 1}`;
-  for (const key of ['id', 'title', 'practiceArea', 'description', 'sourceArtifact']) {
-    if (!portfolioItem[key]) {
-      failures.push(`${label} is missing ${key}`);
-    }
-  }
-  for (const value of [portfolioItem.image?.src, portfolioItem.sourceArtifact].filter(Boolean)) {
-    const decodedPath = decodeUrlPart('assets/data/portfolio-items.json', 'portfolio asset', value);
-    if (decodedPath === null) continue;
-    const targetPath = path.resolve(root, decodedPath);
-    if (!isInsideRoot(targetPath)) {
-      failures.push(`${label} references asset outside the project root: ${value}`);
-      continue;
-    }
-    if (!(await exists(targetPath))) {
-      failures.push(`${label} references missing asset: ${value}`);
-    }
-  }
-}
+const portfolioEvidence = await validatePortfolioEvidence({ root });
+failures.push(...portfolioEvidence.failures);
 
 if (failures.length) {
   console.error(failures.join('\n'));
   process.exit(1);
 }
 
-console.log(`Validated ${htmlFiles.length} HTML files, ${cssFiles.length} CSS files, ${posts.length} blog posts, ${portfolioItems.length} portfolio items, local assets, fragments, external host allowlists, target=_blank rels, and CSP policies.`);
+console.log(`Validated ${htmlFiles.length} HTML files, ${cssFiles.length} CSS files, ${posts.length} blog posts, ${portfolioEvidence.portfolioItemCount} portfolio items, local assets, fragments, external host allowlists, target=_blank rels, and CSP policies.`);

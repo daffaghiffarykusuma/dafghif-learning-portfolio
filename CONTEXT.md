@@ -12,6 +12,10 @@ _Avoid_: Personal website, generic portfolio, marketing site
 A distinct work sample shown on the **Learning Portfolio Site**, usually representing a training program, learning material, deck, workbook, evaluation dashboard, case study, publication, or related evidence of capability.
 _Avoid_: Project, card, asset, sample
 
+**Portfolio Item Source**:
+The structured source data used to render visible **Portfolio Item** listings and generate portfolio metadata. The **Portfolio Item Source** is the source of truth for titles, descriptions, Practice Areas, tags, thumbnails, Artifact Preview links, and discussion links.
+_Avoid_: Scraped HTML, generated catalog, card markup
+
 **Artifact**:
 A concrete deliverable or source file that provides evidence for a **Portfolio Item**, such as a PDF, slide deck, workbook, document, dashboard, template, or generated preview. Thumbnails, stylesheets, and other supporting site assets are not **Artifacts**.
 _Avoid_: Asset, attachment, file, material
@@ -63,6 +67,10 @@ _Avoid_: Dashboard, spreadsheet, analytics file, report
 **Outcome Evidence**:
 A **Proof Point** that describes what changed, what was produced, or what was achieved through a **Learning Program**, **Artifact**, or **Engagement Type**.
 _Avoid_: Impact, result, metric, achievement
+
+**Portfolio Evidence Pipeline**:
+The generation module that turns the **Portfolio Item Source** and curated **Proof Point** data into visible **Portfolio Item** listings, structured portfolio metadata, and AI-readable portfolio context. It owns Proof Point application so visible copy, metadata, and validation do not drift.
+_Avoid_: Proof script, metadata helper, rendering utility
 
 **Portfolio Owner**:
 Daffa Ghiffary Kusuma, the person whose learning, facilitation, coaching, analytics, and artifact-production work is represented on the **Learning Portfolio Site**.

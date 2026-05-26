@@ -11,6 +11,8 @@
     "generate:portfolio-items": "bun scripts/generate-portfolio-items.mjs",
     "generate:portfolio-source": "bun scripts/generate-portfolio-items.mjs",
     "generate:portfolio-ai": "bun scripts/generate-portfolio-ai-context.mjs",
+    "render:portfolio-proof-lines": "bun scripts/render-portfolio-proof-lines.mjs",
+    "render:portfolio-items": "bun scripts/render-portfolio-items.mjs",
     "lint": "bun scripts/validate-site.mjs",
     "budget": "bun scripts/check-performance-budget.mjs",
     "test": "bun test",

@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-items.json",
-  "generatedAt": "2026-05-23T04:31:21.717Z",
+  "generatedAt": "2026-05-26T03:36:21.758Z",
   "owner": "Daffa Ghiffary Kusuma",
   "positioning": "Learning Designer and Program Manager focused on competency-based training, learning assets, evaluation systems, mentoring, and learning analytics.",
   "usage": "Use this file as AI-readable context for tailored CVs, cover letters, recruiter summaries, and portfolio item matching when the original portfolio artifacts are unavailable.",
-  "evidenceNote": "Portfolio item titles, practice areas, descriptions, tags, and source artifact paths are read from the structured portfolio source. Role, audience, deliverables, skills, tools, outcome evidence, and CV bullets are inferred from those public snippets and should be refined when exact portfolio item details are available.",
+  "evidenceNote": "Portfolio item titles, practice areas, descriptions, tags, source artifact paths, proof points, and outcome evidence are read from structured portfolio sources. Outcome evidence is limited to direct Proof Point impact entries. Role, audience, deliverables, skills, tools, AI hints, and CV bullets may include inferred fields and should be refined when exact Portfolio Item details are available.",
   "portfolioItemCount": 78,
   "practiceAreaProfiles": {
     "Training Needs Analysis": {
@@ -235,8 +235,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Clarified the real performance gap before investing in training design or delivery.",
-        "cvBullet": "Diagnosed Administrative Communication Training Needs Analysis as a training needs analysis portfolio item, creating practical context for working professionals and supporting this outcome: Clarified the real performance gap before investing in training design or delivery."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Clarified the real performance gap before investing in training design or delivery."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Maps performance gaps into clear training priorities.",
+          "workQuality": [
+            {
+              "claim": "Connects audience needs, performance gaps, and design-ready training priorities.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Diagnosed Administrative Communication Training Needs Analysis as a training needs analysis portfolio item, creating practical context for working professionals, with a non-proof AI application hint: Clarified the real performance gap before investing in training design or delivery."
       }
     },
     {
@@ -271,8 +286,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making.",
-        "cvBullet": "Developed Competency-Based Communication Training Proposal as a training proposal portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Turns learning needs into a structured delivery plan.",
+          "workQuality": [
+            {
+              "claim": "Defines objectives, program logic, delivery structure, and stakeholder-ready recommendations.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Developed Competency-Based Communication Training Proposal as a training proposal portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
       }
     },
     {
@@ -307,8 +337,23 @@
         "scaleSignals": [
           "36"
         ],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Designed Administrative Communication Lesson Plan as a instructional design portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Maps 36 learning hours into sessions, OJT, and competency evidence.",
+          "workQuality": [
+            {
+              "claim": "Maps 36 learning hours into session structure, activities, OJT practice, and competency evidence.",
+              "sourceBasis": "portfolio-description",
+              "confidence": "direct"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Designed Administrative Communication Lesson Plan as a instructional design portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -344,8 +389,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Communication Confidence Training Deck as a learning materials portfolio item, creating practical context for working professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Communication Confidence Training Deck as a learning materials portfolio item, creating practical context for working professionals, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -378,8 +438,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
-        "cvBullet": "Designed Communication Skills Post-Test Form as a assessment & evaluation portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Made learning outcomes and participant experience easier to measure, compare, and improve."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Links measurement tools to learning outcomes.",
+          "workQuality": [
+            {
+              "claim": "Uses assessment, evaluation, rubric, or scoring structures to make learning evidence easier to collect and review.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Designed Communication Skills Post-Test Form as a assessment & evaluation portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Made learning outcomes and participant experience easier to measure, compare, and improve."
       }
     },
     {
@@ -414,8 +489,23 @@
         "scaleSignals": [
           "1"
         ],
-        "outcomeEvidence": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
-        "cvBullet": "Designed Training Feedback Form: Level 1 Reaction as a assessment & evaluation portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Made learning outcomes and participant experience easier to measure, compare, and improve."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Links measurement tools to learning outcomes.",
+          "workQuality": [
+            {
+              "claim": "Uses assessment, evaluation, rubric, or scoring structures to make learning evidence easier to collect and review.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Designed Training Feedback Form: Level 1 Reaction as a assessment & evaluation portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Made learning outcomes and participant experience easier to measure, compare, and improve."
       }
     },
     {
@@ -448,8 +538,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
-        "cvBullet": "Designed Communication Observation Form and Performance Rubric as a assessment & evaluation portfolio item, creating practical context for working professionals and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Made learning outcomes and participant experience easier to measure, compare, and improve."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Translates observable communication behavior into rubric evidence.",
+          "workQuality": [
+            {
+              "claim": "Assesses workplace behavior transfer through observable communication tasks and structured rubrics.",
+              "sourceBasis": "portfolio-description",
+              "confidence": "direct"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Designed Communication Observation Form and Performance Rubric as a assessment & evaluation portfolio item, creating practical context for working professionals, with a non-proof AI application hint: Made learning outcomes and participant experience easier to measure, compare, and improve."
       }
     },
     {
@@ -482,8 +587,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Clarified the real performance gap before investing in training design or delivery.",
-        "cvBullet": "Diagnosed Macro Training Needs Analysis: DKI Jakarta as a training needs analysis portfolio item, creating practical context for working professionals and supporting this outcome: Clarified the real performance gap before investing in training design or delivery."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Clarified the real performance gap before investing in training design or delivery."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Synthesizes labor-market signals into training priorities.",
+          "workQuality": [
+            {
+              "claim": "Synthesizes labor-market signals into practical training priorities for future-ready workplace skills.",
+              "sourceBasis": "portfolio-description",
+              "confidence": "direct"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Diagnosed Macro Training Needs Analysis: DKI Jakarta as a training needs analysis portfolio item, creating practical context for working professionals, with a non-proof AI application hint: Clarified the real performance gap before investing in training design or delivery."
       }
     },
     {
@@ -518,8 +638,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Built Competency Matrix for Training Organization as a curriculum development portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Maps competencies into a usable learning sequence.",
+          "workQuality": [
+            {
+              "claim": "Organizes competencies, learning sequence, program structure, and evidence requirements into a usable curriculum asset.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Built Competency Matrix for Training Organization as a curriculum development portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
@@ -552,8 +687,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Built Competency-Based Training Syllabus as a curriculum development portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Maps competencies into a usable learning sequence.",
+          "workQuality": [
+            {
+              "claim": "Organizes competencies, learning sequence, program structure, and evidence requirements into a usable curriculum asset.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Built Competency-Based Training Syllabus as a curriculum development portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
@@ -587,8 +737,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making.",
-        "cvBullet": "Framed Learning Business Plan: Eighteen Rekrutmen Asia as a l&d strategy portfolio item, creating practical context for entrepreneurs and startup founders and supporting this outcome: Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Connects capability priorities with actionable learning strategy.",
+          "workQuality": [
+            {
+              "claim": "Frames learning products, business goals, capability priorities, and growth logic into an actionable L&D plan.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Framed Learning Business Plan: Eighteen Rekrutmen Asia as a l&d strategy portfolio item, creating practical context for entrepreneurs and startup founders, with a non-proof AI application hint: Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
       }
     },
     {
@@ -622,8 +787,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making.",
-        "cvBullet": "Framed Marketing Plan for Training Solutions as a l&d strategy portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Connects capability priorities with actionable learning strategy.",
+          "workQuality": [
+            {
+              "claim": "Frames learning products, business goals, capability priorities, and growth logic into an actionable L&D plan.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Framed Marketing Plan for Training Solutions as a l&d strategy portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
       }
     },
     {
@@ -658,8 +838,23 @@
           "Excel or Google Sheets"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
-        "cvBullet": "Built Training Budget and ROTI Calculator as a learning analytics portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Turns learning data into decision-ready analysis.",
+          "workQuality": [
+            {
+              "claim": "Structures learning data, response inputs, or calculations into analysis-ready dashboards and decision tools.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Built Training Budget and ROTI Calculator as a learning analytics portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
       }
     },
     {
@@ -696,8 +891,23 @@
         "scaleSignals": [
           "1"
         ],
-        "outcomeEvidence": "Improved visibility into learning data so decisions, remediation, and program improvements could be made faster.",
-        "cvBullet": "Built Kirkpatrick Level 1 Reaction Dashboard as a learning analytics portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Improved visibility into learning data so decisions, remediation, and program improvements could be made faster."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Improved visibility into learning data so decisions, remediation, and program improvements could be made faster."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Turns learning data into decision-ready analysis.",
+          "workQuality": [
+            {
+              "claim": "Structures learning data, response inputs, or calculations into analysis-ready dashboards and decision tools.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Built Kirkpatrick Level 1 Reaction Dashboard as a learning analytics portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Improved visibility into learning data so decisions, remediation, and program improvements could be made faster."
       }
     },
     {
@@ -734,8 +944,23 @@
         "scaleSignals": [
           "2"
         ],
-        "outcomeEvidence": "Improved visibility into learning data so decisions, remediation, and program improvements could be made faster.",
-        "cvBullet": "Built Kirkpatrick Level 2 Learning Dashboard as a learning analytics portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Improved visibility into learning data so decisions, remediation, and program improvements could be made faster."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Improved visibility into learning data so decisions, remediation, and program improvements could be made faster."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Turns learning data into decision-ready analysis.",
+          "workQuality": [
+            {
+              "claim": "Structures learning data, response inputs, or calculations into analysis-ready dashboards and decision tools.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Built Kirkpatrick Level 2 Learning Dashboard as a learning analytics portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Improved visibility into learning data so decisions, remediation, and program improvements could be made faster."
       }
     },
     {
@@ -770,8 +995,23 @@
           "Excel or Google Sheets"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Clarified the real performance gap before investing in training design or delivery.",
-        "cvBullet": "Diagnosed Training and Coaching Need Analysis Framework as a training needs analysis portfolio item, creating practical context for entrepreneurs and startup founders and supporting this outcome: Clarified the real performance gap before investing in training design or delivery."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Clarified the real performance gap before investing in training design or delivery."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Maps performance gaps into clear training priorities.",
+          "workQuality": [
+            {
+              "claim": "Connects audience needs, performance gaps, and design-ready training priorities.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Diagnosed Training and Coaching Need Analysis Framework as a training needs analysis portfolio item, creating practical context for entrepreneurs and startup founders, with a non-proof AI application hint: Clarified the real performance gap before investing in training design or delivery."
       }
     },
     {
@@ -806,8 +1046,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Clarified the real performance gap before investing in training design or delivery.",
-        "cvBullet": "Diagnosed Need Assessment: Cross-Department Communication as a training needs analysis portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Clarified the real performance gap before investing in training design or delivery."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Clarified the real performance gap before investing in training design or delivery."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Maps performance gaps into clear training priorities.",
+          "workQuality": [
+            {
+              "claim": "Connects audience needs, performance gaps, and design-ready training priorities.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Diagnosed Need Assessment: Cross-Department Communication as a training needs analysis portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Clarified the real performance gap before investing in training design or delivery."
       }
     },
     {
@@ -842,8 +1097,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
-        "cvBullet": "Diagnosed Need Assessment: Manager Communication to Staff as a training needs analysis portfolio item, creating practical context for managers and team leaders and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Made learning outcomes and participant experience easier to measure, compare, and improve."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Maps performance gaps into clear training priorities.",
+          "workQuality": [
+            {
+              "claim": "Connects audience needs, performance gaps, and design-ready training priorities.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Diagnosed Need Assessment: Manager Communication to Staff as a training needs analysis portfolio item, creating practical context for managers and team leaders, with a non-proof AI application hint: Made learning outcomes and participant experience easier to measure, compare, and improve."
       }
     },
     {
@@ -877,8 +1147,23 @@
           "Excel or Google Sheets"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
-        "cvBullet": "Designed Recruitment Assessment Blueprint as a assessment & evaluation portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Made learning outcomes and participant experience easier to measure, compare, and improve."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Links measurement tools to learning outcomes.",
+          "workQuality": [
+            {
+              "claim": "Uses assessment, evaluation, rubric, or scoring structures to make learning evidence easier to collect and review.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Designed Recruitment Assessment Blueprint as a assessment & evaluation portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Made learning outcomes and participant experience easier to measure, compare, and improve."
       }
     },
     {
@@ -918,8 +1203,23 @@
         "scaleSignals": [
           "5"
         ],
-        "outcomeEvidence": "Clarified the real performance gap before investing in training design or delivery.",
-        "cvBullet": "Developed Rancangan Sistem Asesmen Kompetensi Project Management as a training proposal portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Clarified the real performance gap before investing in training design or delivery."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Clarified the real performance gap before investing in training design or delivery."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Turns learning needs into a structured delivery plan.",
+          "workQuality": [
+            {
+              "claim": "Defines objectives, program logic, delivery structure, and stakeholder-ready recommendations.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Developed Rancangan Sistem Asesmen Kompetensi Project Management as a training proposal portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Clarified the real performance gap before investing in training design or delivery."
       }
     },
     {
@@ -955,8 +1255,23 @@
           "Excel or Google Sheets"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
-        "cvBullet": "Structured MILES Unfair Advantage Mentoring Workbook as a mentoring & coaching portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Structures reflection, planning, and follow-through.",
+          "workQuality": [
+            {
+              "claim": "Uses mentoring activities, reflection prompts, and action planning tools to support learner follow-through.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Structured MILES Unfair Advantage Mentoring Workbook as a mentoring & coaching portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
       }
     },
     {
@@ -992,8 +1307,23 @@
         "scaleSignals": [
           "1"
         ],
-        "outcomeEvidence": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
-        "cvBullet": "Structured Mentoring Workbook: Week 1 Idea Exploration as a mentoring & coaching portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Structures reflection, planning, and follow-through.",
+          "workQuality": [
+            {
+              "claim": "Uses mentoring activities, reflection prompts, and action planning tools to support learner follow-through.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Structured Mentoring Workbook: Week 1 Idea Exploration as a mentoring & coaching portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
       }
     },
     {
@@ -1029,8 +1359,23 @@
         "scaleSignals": [
           "2"
         ],
-        "outcomeEvidence": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
-        "cvBullet": "Structured Mentoring Workbook: Week 2 Concept Development as a mentoring & coaching portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Structures reflection, planning, and follow-through.",
+          "workQuality": [
+            {
+              "claim": "Uses mentoring activities, reflection prompts, and action planning tools to support learner follow-through.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Structured Mentoring Workbook: Week 2 Concept Development as a mentoring & coaching portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
       }
     },
     {
@@ -1069,8 +1414,23 @@
         "scaleSignals": [
           "3"
         ],
-        "outcomeEvidence": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
-        "cvBullet": "Structured Mentoring Workbook: Week 3 Presentation Readiness as a mentoring & coaching portfolio item, creating practical context for students and early-career talent and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Structures reflection, planning, and follow-through.",
+          "workQuality": [
+            {
+              "claim": "Uses mentoring activities, reflection prompts, and action planning tools to support learner follow-through.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Structured Mentoring Workbook: Week 3 Presentation Readiness as a mentoring & coaching portfolio item, creating practical context for students and early-career talent, with a non-proof AI application hint: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
       }
     },
     {
@@ -1109,8 +1469,23 @@
           "4",
           "16"
         ],
-        "outcomeEvidence": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
-        "cvBullet": "Designed Pitch Deck Template: Week 4 as a presentation design portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Organizes complex ideas into a clear slide narrative.",
+          "workQuality": [
+            {
+              "claim": "Shapes complex ideas into a presentation-ready narrative, evidence structure, and visual communication flow.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Designed Pitch Deck Template: Week 4 as a presentation design portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
       }
     },
     {
@@ -1146,8 +1521,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Created Learning from Abroad: Education and Career Pathways as a learning materials portfolio item, creating practical context for students and early-career talent and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Learning from Abroad: Education and Career Pathways as a learning materials portfolio item, creating practical context for students and early-career talent, with a non-proof AI application hint: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
@@ -1181,8 +1571,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Created Digital Marketing Portfolio Workshop Deck as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Digital Marketing Portfolio Workshop Deck as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
@@ -1215,8 +1620,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Delivered Theory of Change as Program Framework as a custom training & workshops portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Builds applied workshop flow around practice tasks.",
+          "workQuality": [
+            {
+              "claim": "Combines facilitation structure, participant activities, and practical implementation support.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Delivered Theory of Change as Program Framework as a custom training & workshops portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
@@ -1248,8 +1668,23 @@
           "Excel or Google Sheets"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Entrepreneurship Online Class as a learning materials portfolio item, creating practical context for entrepreneurs and startup founders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Entrepreneurship Online Class as a learning materials portfolio item, creating practical context for entrepreneurs and startup founders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -1281,8 +1716,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Training for Trainer: Experiential Learning & Coaching as a learning materials portfolio item, creating practical context for sales teams and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Training for Trainer: Experiential Learning & Coaching as a learning materials portfolio item, creating practical context for sales teams, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -1316,8 +1766,23 @@
         "scaleSignals": [
           "3"
         ],
-        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Delivered Entrepreneurship Mentorship for Sandination Community as a custom training & workshops portfolio item, creating practical context for entrepreneurs and startup founders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Builds applied workshop flow around practice tasks.",
+          "workQuality": [
+            {
+              "claim": "Combines facilitation structure, participant activities, and practical implementation support.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Delivered Entrepreneurship Mentorship for Sandination Community as a custom training & workshops portfolio item, creating practical context for entrepreneurs and startup founders, with a non-proof AI application hint: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
@@ -1349,8 +1814,35 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Delivered 3rd Winner in KUMPUL JASA Jember Competition as a custom training & workshops portfolio item, creating practical context for MSME owners and entrepreneurs and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [
+          {
+            "claim": "The portfolio title states a 3rd winner result in KUMPUL JASA Jember Entrepreneurship Competition.",
+            "sourceBasis": "portfolio-title",
+            "confidence": "direct"
+          }
+        ],
+        "proof": {
+          "visibleProofLine": "Competition result gives directly supported external recognition.",
+          "workQuality": [
+            {
+              "claim": "Shows applied entrepreneurship and presentation capability through a competition portfolio item.",
+              "sourceBasis": "portfolio-title",
+              "confidence": "direct"
+            }
+          ],
+          "impact": [
+            {
+              "claim": "The portfolio title states a 3rd winner result in KUMPUL JASA Jember Entrepreneurship Competition.",
+              "sourceBasis": "portfolio-title",
+              "confidence": "direct"
+            }
+          ]
+        },
+        "cvBullet": "Delivered 3rd Winner in KUMPUL JASA Jember Competition as a custom training & workshops portfolio item, creating practical context for MSME owners and entrepreneurs, with supported outcome evidence: The portfolio title states a 3rd winner result in KUMPUL JASA Jember Entrepreneurship Competition."
       }
     },
     {
@@ -1384,8 +1876,23 @@
         "scaleSignals": [
           "3"
         ],
-        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Delivered NHI Bandung Business Acceleration Bootcamp as a custom training & workshops portfolio item, creating practical context for students and early-career talent and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Builds applied workshop flow around practice tasks.",
+          "workQuality": [
+            {
+              "claim": "Combines facilitation structure, participant activities, and practical implementation support.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Delivered NHI Bandung Business Acceleration Bootcamp as a custom training & workshops portfolio item, creating practical context for students and early-career talent, with a non-proof AI application hint: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
@@ -1419,8 +1926,35 @@
           "Excel or Google Sheets"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Delivered Entrepreneurship Program for 5000+ SMK Students as a custom training & workshops portfolio item, creating practical context for vocational students and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        },
+        "outcomeEvidence": [
+          {
+            "claim": "The portfolio description identifies a 5000+ SMK student audience.",
+            "sourceBasis": "portfolio-title",
+            "confidence": "direct"
+          }
+        ],
+        "proof": {
+          "visibleProofLine": "Adapts entrepreneurship learning for a 5000+ student audience.",
+          "workQuality": [
+            {
+              "claim": "Structures entrepreneurship learning for a large vocational student audience.",
+              "sourceBasis": "portfolio-description",
+              "confidence": "direct"
+            }
+          ],
+          "impact": [
+            {
+              "claim": "The portfolio description identifies a 5000+ SMK student audience.",
+              "sourceBasis": "portfolio-title",
+              "confidence": "direct"
+            }
+          ]
+        },
+        "cvBullet": "Delivered Entrepreneurship Program for 5000+ SMK Students as a custom training & workshops portfolio item, creating practical context for vocational students, with supported outcome evidence: The portfolio description identifies a 5000+ SMK student audience."
       }
     },
     {
@@ -1456,8 +1990,23 @@
         "scaleSignals": [
           "7"
         ],
-        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Delivered Budikdamber Program for 7 Rumah Yatim Asrama as a custom training & workshops portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Builds applied workshop flow around practice tasks.",
+          "workQuality": [
+            {
+              "claim": "Combines facilitation structure, participant activities, and practical implementation support.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Delivered Budikdamber Program for 7 Rumah Yatim Asrama as a custom training & workshops portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
@@ -1489,8 +2038,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Delivered The Millennium Challenge Corporation (MCC) Grant as a custom training & workshops portfolio item, creating practical context for MSME owners and entrepreneurs and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Builds applied workshop flow around practice tasks.",
+          "workQuality": [
+            {
+              "claim": "Combines facilitation structure, participant activities, and practical implementation support.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Delivered The Millennium Challenge Corporation (MCC) Grant as a custom training & workshops portfolio item, creating practical context for MSME owners and entrepreneurs, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -1525,8 +2089,23 @@
           "10",
           "360"
         ],
-        "outcomeEvidence": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
-        "cvBullet": "Created Performance Appraisal System Development as a review: legacy project portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Made learning outcomes and participant experience easier to measure, compare, and improve."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Shows applied program, people, or operations capability.",
+          "workQuality": [
+            {
+              "claim": "Demonstrates earlier applied program, people, or learning operations capability through a portfolio artifact.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Performance Appraisal System Development as a review: legacy project portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Made learning outcomes and participant experience easier to measure, compare, and improve."
       }
     },
     {
@@ -1562,8 +2141,23 @@
         "scaleSignals": [
           "3"
         ],
-        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Delivered NHI Bandung Business Incubation Bootcamp as a custom training & workshops portfolio item, creating practical context for entrepreneurs and startup founders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Builds applied workshop flow around practice tasks.",
+          "workQuality": [
+            {
+              "claim": "Combines facilitation structure, participant activities, and practical implementation support.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Delivered NHI Bandung Business Incubation Bootcamp as a custom training & workshops portfolio item, creating practical context for entrepreneurs and startup founders, with a non-proof AI application hint: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
@@ -1597,8 +2191,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Delivered Entrepreneurial Mindset Seminar as a custom training & workshops portfolio item, creating practical context for entrepreneurs and startup founders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Builds applied workshop flow around practice tasks.",
+          "workQuality": [
+            {
+              "claim": "Combines facilitation structure, participant activities, and practical implementation support.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Delivered Entrepreneurial Mindset Seminar as a custom training & workshops portfolio item, creating practical context for entrepreneurs and startup founders, with a non-proof AI application hint: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
@@ -1630,8 +2239,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Mastering Critical Thinking for Future-Proofing Your Career as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Mastering Critical Thinking for Future-Proofing Your Career as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -1664,8 +2288,23 @@
           "AI-enabled analysis concepts"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Menguasai Komunikasi Maritim yang Efektif as a learning materials portfolio item, creating practical context for maritime professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Menguasai Komunikasi Maritim yang Efektif as a learning materials portfolio item, creating practical context for maritime professionals, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -1697,8 +2336,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Mental Preparedness: Preparation for Emergencies as a learning materials portfolio item, creating practical context for managers and team leaders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Mental Preparedness: Preparation for Emergencies as a learning materials portfolio item, creating practical context for managers and team leaders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -1731,8 +2385,23 @@
           "AI-enabled analysis concepts"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Landing Your Dream Job: Top Employability Skills for New Grads as a learning materials portfolio item, creating practical context for students and early-career talent and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Landing Your Dream Job: Top Employability Skills for New Grads as a learning materials portfolio item, creating practical context for students and early-career talent, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -1764,8 +2433,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created GIG-ECONOMY & RESILIENCE: The Future is Beyond Milestones as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created GIG-ECONOMY & RESILIENCE: The Future is Beyond Milestones as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -1797,8 +2481,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created GIG-ECONOMY: The Rise of Side Hustling as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created GIG-ECONOMY: The Rise of Side Hustling as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -1830,8 +2529,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created UMKM's Simple Financial Management as a learning materials portfolio item, creating practical context for MSME owners and entrepreneurs and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created UMKM's Simple Financial Management as a learning materials portfolio item, creating practical context for MSME owners and entrepreneurs, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -1863,8 +2577,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Financial Modeling as a learning materials portfolio item, creating practical context for entrepreneurs and startup founders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Financial Modeling as a learning materials portfolio item, creating practical context for entrepreneurs and startup founders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -1896,8 +2625,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Created Growth Mindset as a learning materials portfolio item, creating practical context for entrepreneurs and startup founders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Growth Mindset as a learning materials portfolio item, creating practical context for entrepreneurs and startup founders, with a non-proof AI application hint: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
@@ -1929,8 +2673,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Cultivating Growth Mindset for Self-Motivation as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Cultivating Growth Mindset for Self-Motivation as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -1962,8 +2721,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Make Your Product Fit with Design Thinking as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Make Your Product Fit with Design Thinking as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -1995,8 +2769,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Business Management & Adaptability for MSMEs as a learning materials portfolio item, creating practical context for MSME owners and entrepreneurs and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Business Management & Adaptability for MSMEs as a learning materials portfolio item, creating practical context for MSME owners and entrepreneurs, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -2028,8 +2817,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created How to Face Layoff Storm as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created How to Face Layoff Storm as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -2061,8 +2865,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Brand Yourself: Stand Out with Personal Branding & LinkedIn Optimization as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Brand Yourself: Stand Out with Personal Branding & LinkedIn Optimization as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -2095,8 +2914,23 @@
           "AI-enabled analysis concepts"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created AI-Powered Personal Branding for LinkedIn as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created AI-Powered Personal Branding for LinkedIn as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -2129,8 +2963,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Public Speaking & Confidence Boost as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Public Speaking & Confidence Boost as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -2162,8 +3011,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Color Personality as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Color Personality as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -2195,8 +3059,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Managing Crew Fatigue Onboard as a learning materials portfolio item, creating practical context for maritime professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Managing Crew Fatigue Onboard as a learning materials portfolio item, creating practical context for maritime professionals, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -2232,8 +3111,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Created Komunikasi Sehat Antar Crew di Tengah Tekanan Kerja as a learning materials portfolio item, creating practical context for maritime professionals and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Komunikasi Sehat Antar Crew di Tengah Tekanan Kerja as a learning materials portfolio item, creating practical context for maritime professionals, with a non-proof AI application hint: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
@@ -2266,8 +3160,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Speak Up, Stand Out: Public Speaking in the Hybrid Era as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Speak Up, Stand Out: Public Speaking in the Hybrid Era as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -2300,8 +3209,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Startup Development Class as a learning materials portfolio item, creating practical context for entrepreneurs and startup founders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Startup Development Class as a learning materials portfolio item, creating practical context for entrepreneurs and startup founders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -2333,8 +3257,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created How to Leverage Social Media Instagram for MSMEs as a learning materials portfolio item, creating practical context for MSME owners and entrepreneurs and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created How to Leverage Social Media Instagram for MSMEs as a learning materials portfolio item, creating practical context for MSME owners and entrepreneurs, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -2366,8 +3305,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Managing Crew Onboard Stress as a learning materials portfolio item, creating practical context for maritime professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Managing Crew Onboard Stress as a learning materials portfolio item, creating practical context for maritime professionals, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -2399,8 +3353,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Smart Steps to Start an Employee Side Hustle as a learning materials portfolio item, creating practical context for entrepreneurs and startup founders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Smart Steps to Start an Employee Side Hustle as a learning materials portfolio item, creating practical context for entrepreneurs and startup founders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -2432,8 +3401,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Anyone Can Get a Job as a learning materials portfolio item, creating practical context for entrepreneurs and startup founders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Anyone Can Get a Job as a learning materials portfolio item, creating practical context for entrepreneurs and startup founders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -2466,8 +3450,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
-        "cvBullet": "Created Crafting Deck and Impactful Presentation as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Crafting Deck and Impactful Presentation as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
       }
     },
     {
@@ -2502,8 +3501,23 @@
           "60",
           "120"
         ],
-        "outcomeEvidence": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
-        "cvBullet": "Created Stress & Time Management as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Stress & Time Management as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
       }
     },
     {
@@ -2535,8 +3549,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
-        "cvBullet": "Created Adaptive Communication: Decode & Connect as a learning materials portfolio item, creating practical context for managers and team leaders and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Adaptive Communication: Decode & Connect as a learning materials portfolio item, creating practical context for managers and team leaders, with a non-proof AI application hint: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
       }
     },
     {
@@ -2570,8 +3599,23 @@
         "scaleSignals": [
           "360"
         ],
-        "outcomeEvidence": "Made learning outcomes and participant experience easier to measure, compare, and improve.",
-        "cvBullet": "Created Strengthen Teamwork with Empathy & Communication as a learning materials portfolio item, creating practical context for working professionals and supporting this outcome: Made learning outcomes and participant experience easier to measure, compare, and improve."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Made learning outcomes and participant experience easier to measure, compare, and improve."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Strengthen Teamwork with Empathy & Communication as a learning materials portfolio item, creating practical context for working professionals, with a non-proof AI application hint: Made learning outcomes and participant experience easier to measure, compare, and improve."
       }
     },
     {
@@ -2605,8 +3649,23 @@
           "AI-enabled analysis concepts"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Created Building a Culture of Service Excellence in the Digital Era as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Building a Culture of Service Excellence in the Digital Era as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     },
     {
@@ -2638,8 +3697,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Unlock Flows: Adaptive Decode for Corporate Connections as a learning materials portfolio item, creating practical context for working professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Unlock Flows: Adaptive Decode for Corporate Connections as a learning materials portfolio item, creating practical context for working professionals, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -2672,8 +3746,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Calibrate Links: Decode Insights, Connect Precisely as a learning materials portfolio item, creating practical context for working professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Calibrate Links: Decode Insights, Connect Precisely as a learning materials portfolio item, creating practical context for working professionals, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -2705,8 +3794,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Sync Up: Decode Signals, Connect Teams - McDonald's Edition as a learning materials portfolio item, creating practical context for managers and team leaders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Sync Up: Decode Signals, Connect Teams - McDonald's Edition as a learning materials portfolio item, creating practical context for managers and team leaders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -2740,8 +3844,23 @@
           "AI-enabled analysis concepts"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Gave learners and facilitators practical tools for reflection, planning, and follow-through.",
-        "cvBullet": "Created Adaptive Communication Solution for Home Credit Indonesia as a learning materials portfolio item, creating practical context for working professionals and supporting this outcome: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Adaptive Communication Solution for Home Credit Indonesia as a learning materials portfolio item, creating practical context for working professionals, with a non-proof AI application hint: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
       }
     },
     {
@@ -2774,8 +3893,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created How to Win Friends and Influence People as a learning materials portfolio item, creating practical context for working professionals and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created How to Win Friends and Influence People as a learning materials portfolio item, creating practical context for working professionals, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -2808,8 +3942,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Managing Pressure Without Losing Yourself as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Managing Pressure Without Losing Yourself as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -2841,8 +3990,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created Mental Health in the Workplace for being Supervisor as a learning materials portfolio item, creating practical context for managers and team leaders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Mental Health in the Workplace for being Supervisor as a learning materials portfolio item, creating practical context for managers and team leaders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -2873,8 +4037,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Converted a learning topic into a usable artifact that supports understanding, practice, and application.",
-        "cvBullet": "Created From Impostor to Influencer as a mentoring & speaking portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Builds confidence, communication, or professional influence.",
+          "workQuality": [
+            {
+              "claim": "Uses speaking or mentoring material to support confidence, communication, storytelling, or professional influence.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created From Impostor to Influencer as a mentoring & speaking portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
       }
     },
     {
@@ -2907,8 +4086,23 @@
           "PDF learning artifact"
         ],
         "scaleSignals": [],
-        "outcomeEvidence": "Supported applied learning through structured activities, facilitation, and practical implementation tasks.",
-        "cvBullet": "Created The Psychology of Money: Understanding How We Think About Wealth as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders and supporting this outcome: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created The Psychology of Money: Understanding How We Think About Wealth as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     }
   ]
