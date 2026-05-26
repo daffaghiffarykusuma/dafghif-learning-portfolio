@@ -221,6 +221,14 @@ body > header nav ul li.current a::after {
     background: var(--dm-text-primary) !important;
 }
 
+.menu-toggle[aria-expanded="true"] .menu-icon {
+    background: transparent !important;
+}
+
+body > header nav.active ul li.current a {
+    color: var(--dm-bg-primary) !important;
+}
+
 /* Dropdown Menu */
 .dropdown-menu {
     background: var(--dm-bg-secondary) !important;
