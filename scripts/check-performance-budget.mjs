@@ -1,7 +1,7 @@
 import { readdir, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { gzipSync } from 'node:zlib';
-import { shippingManifest } from './shipping-manifest.mjs';
+import { getProductionProbeFacts } from './shipped-artifact-inventory.mjs';
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');
@@ -62,9 +62,9 @@ if (cssGzipBytes > limits.cssGzipBytes) {
 if (largestImage && largestImage.size > limits.largestImageBytes) {
   failures.push(`largest image ${largestImage.rel} ${(largestImage.size / 1024).toFixed(1)} KB exceeds ${(limits.largestImageBytes / 1024).toFixed(1)} KB`);
 }
-for (const relativePath of shippingManifest.productionProbes) {
-  if (!shippedProbeRecords.has(relativePath)) {
-    failures.push(`shipping manifest probe missing from dist: ${relativePath}`);
+for (const probe of getProductionProbeFacts(root)) {
+  if (!shippedProbeRecords.has(probe.path)) {
+    failures.push(`shipping manifest probe missing from dist: ${probe.path}`);
   }
 }
 

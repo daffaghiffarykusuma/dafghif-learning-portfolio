@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-items.json",
-  "generatedAt": "2026-05-26T03:36:21.758Z",
+  "generatedAt": "2026-05-26T08:15:09.485Z",
   "owner": "Daffa Ghiffary Kusuma",
   "positioning": "Learning Designer and Program Manager focused on competency-based training, learning assets, evaluation systems, mentoring, and learning analytics.",
   "usage": "Use this file as AI-readable context for tailored CVs, cover letters, recruiter summaries, and portfolio item matching when the original portfolio artifacts are unavailable.",
   "evidenceNote": "Portfolio item titles, practice areas, descriptions, tags, source artifact paths, proof points, and outcome evidence are read from structured portfolio sources. Outcome evidence is limited to direct Proof Point impact entries. Role, audience, deliverables, skills, tools, AI hints, and CV bullets may include inferred fields and should be refined when exact Portfolio Item details are available.",
-  "portfolioItemCount": 78,
+  "portfolioItemCount": 65,
   "practiceAreaProfiles": {
     "Training Needs Analysis": {
       "defaultRole": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
@@ -206,119 +206,24 @@
   },
   "portfolioItems": [
     {
-      "id": "project-administrative-communication-training-needs-analysis",
-      "title": "Administrative Communication Training Needs Analysis",
-      "practiceArea": "Training Needs Analysis",
-      "tags": [
-        "training-needs-analysis",
-        "instructional-design"
-      ],
-      "publicDescription": "Pinpoints workplace communication gaps and translates them into a competency-based training path.",
-      "sourceArtifact": "assets/pdf/portfolio/bnsp4_training_need_analysis.pdf",
-      "aiContext": {
-        "evidenceLevel": "inferred from structured portfolio source",
-        "role": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
-        "audience": "working professionals",
-        "deliverables": [
-          "needs analysis",
-          "gap diagnosis",
-          "learning priorities"
-        ],
-        "skills": [
-          "training needs analysis",
-          "performance consulting",
-          "competency mapping",
-          "learning design",
-          "instructional design"
-        ],
-        "tools": [
-          "PDF learning artifact"
-        ],
-        "scaleSignals": [],
-        "aiHint": {
-          "evidenceLevel": "inferred non-proof drafting hint",
-          "application": "Clarified the real performance gap before investing in training design or delivery."
-        },
-        "outcomeEvidence": [],
-        "proof": {
-          "visibleProofLine": "Maps performance gaps into clear training priorities.",
-          "workQuality": [
-            {
-              "claim": "Connects audience needs, performance gaps, and design-ready training priorities.",
-              "sourceBasis": "practice-area default",
-              "confidence": "inferred"
-            }
-          ],
-          "impact": []
-        },
-        "cvBullet": "Diagnosed Administrative Communication Training Needs Analysis as a training needs analysis portfolio item, creating practical context for working professionals, with a non-proof AI application hint: Clarified the real performance gap before investing in training design or delivery."
-      }
-    },
-    {
-      "id": "project-competency-based-communication-training-proposal",
-      "title": "Competency-Based Communication Training Proposal",
-      "practiceArea": "Training Proposal",
-      "tags": [
-        "training-proposal",
-        "instructional-design",
-        "curriculum-development"
-      ],
-      "publicDescription": "Turns TNA findings into a structured, standards-aligned program proposal for administrative communication skills.",
-      "sourceArtifact": "assets/pdf/portfolio/bnsp4_program_proposal.pdf",
-      "aiContext": {
-        "evidenceLevel": "inferred from structured portfolio source",
-        "role": "Converted learning needs into a structured proposal with objectives, program logic, delivery plan, and expected outcomes.",
-        "audience": "learners, teams, or program stakeholders",
-        "deliverables": [
-          "training proposal",
-          "program objectives",
-          "delivery plan"
-        ],
-        "skills": [
-          "proposal development",
-          "instructional design",
-          "curriculum planning",
-          "stakeholder communication",
-          "training proposal",
-          "curriculum development"
-        ],
-        "tools": [
-          "PDF learning artifact"
-        ],
-        "scaleSignals": [],
-        "aiHint": {
-          "evidenceLevel": "inferred non-proof drafting hint",
-          "application": "Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
-        },
-        "outcomeEvidence": [],
-        "proof": {
-          "visibleProofLine": "Turns learning needs into a structured delivery plan.",
-          "workQuality": [
-            {
-              "claim": "Defines objectives, program logic, delivery structure, and stakeholder-ready recommendations.",
-              "sourceBasis": "practice-area default",
-              "confidence": "inferred"
-            }
-          ],
-          "impact": []
-        },
-        "cvBullet": "Developed Competency-Based Communication Training Proposal as a training proposal portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
-      }
-    },
-    {
-      "id": "project-administrative-communication-lesson-plan",
-      "title": "Administrative Communication Lesson Plan",
+      "id": "case-administrative-communication-learning-program",
+      "title": "Administrative Communication Learning Program Case Study",
       "practiceArea": "Instructional Design",
       "tags": [
+        "case-study",
+        "training-needs-analysis",
+        "training-proposal",
         "instructional-design",
-        "curriculum-development"
+        "learning-materials",
+        "assessment",
+        "learning-evaluation"
       ],
-      "publicDescription": "Maps 36 learning hours into clear sessions, activities, OJT practice, and competency evidence.",
-      "sourceArtifact": "assets/pdf/portfolio/bnsp4_lesson_plan.pdf",
+      "publicDescription": "Combines needs analysis, proposal, lesson plan, facilitator material, and evaluation tools into one competency-based workplace communication learning case.",
+      "sourceArtifact": "assets/portfolio-viewers/bnsp4-administrative-communication-case-study.html",
       "aiContext": {
         "evidenceLevel": "inferred from structured portfolio source",
         "role": "Structured learning objectives, session flow, learner activities, practice tasks, and evidence of competency.",
-        "audience": "learners, teams, or program stakeholders",
+        "audience": "working professionals",
         "deliverables": [
           "lesson plan",
           "learning flow",
@@ -329,262 +234,15 @@
           "competency-based learning",
           "activity design",
           "assessment alignment",
-          "curriculum development"
-        ],
-        "tools": [
-          "PDF learning artifact"
-        ],
-        "scaleSignals": [
-          "36"
-        ],
-        "aiHint": {
-          "evidenceLevel": "inferred non-proof drafting hint",
-          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
-        },
-        "outcomeEvidence": [],
-        "proof": {
-          "visibleProofLine": "Maps 36 learning hours into sessions, OJT, and competency evidence.",
-          "workQuality": [
-            {
-              "claim": "Maps 36 learning hours into session structure, activities, OJT practice, and competency evidence.",
-              "sourceBasis": "portfolio-description",
-              "confidence": "direct"
-            }
-          ],
-          "impact": []
-        },
-        "cvBullet": "Designed Administrative Communication Lesson Plan as a instructional design portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
-      }
-    },
-    {
-      "id": "project-communication-confidence-training-deck",
-      "title": "Communication Confidence Training Deck",
-      "practiceArea": "Learning Materials",
-      "tags": [
-        "learning-materials",
-        "instructional-design",
-        "presentation-design"
-      ],
-      "publicDescription": "A complete facilitator deck for building confident, professional, and structured workplace communication.",
-      "sourceArtifact": "assets/pdf/portfolio/bnsp4_materi_pelatihan.pdf",
-      "aiContext": {
-        "evidenceLevel": "inferred from structured portfolio source",
-        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
-        "audience": "working professionals",
-        "deliverables": [
-          "training deck",
-          "facilitator material",
-          "learner activities"
-        ],
-        "skills": [
-          "learning material development",
-          "presentation design",
-          "facilitation design",
-          "adult learning",
-          "learning materials",
-          "instructional design"
-        ],
-        "tools": [
-          "PowerPoint or Google Slides",
-          "PDF learning artifact"
-        ],
-        "scaleSignals": [],
-        "aiHint": {
-          "evidenceLevel": "inferred non-proof drafting hint",
-          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
-        },
-        "outcomeEvidence": [],
-        "proof": {
-          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-          "workQuality": [
-            {
-              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-              "sourceBasis": "practice-area default",
-              "confidence": "inferred"
-            }
-          ],
-          "impact": []
-        },
-        "cvBullet": "Created Communication Confidence Training Deck as a learning materials portfolio item, creating practical context for working professionals, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
-      }
-    },
-    {
-      "id": "project-communication-skills-post-test-form",
-      "title": "Communication Skills Post-Test Form",
-      "practiceArea": "Assessment & Evaluation",
-      "tags": [
-        "assessment",
-        "learning-evaluation"
-      ],
-      "publicDescription": "Measures learner understanding with competency-mapped questions tied to the training objectives.",
-      "sourceArtifact": "assets/pdf/portfolio/bnsp4_form_soal_post_test.pdf",
-      "aiContext": {
-        "evidenceLevel": "inferred from structured portfolio source",
-        "role": "Designed assessment and evaluation tools to measure learner understanding, behavior, quality, or decision readiness.",
-        "audience": "learners, teams, or program stakeholders",
-        "deliverables": [
-          "assessment tool",
-          "evaluation form",
-          "scoring structure"
-        ],
-        "skills": [
-          "assessment design",
-          "learning evaluation",
-          "rubric design",
-          "measurement",
-          "assessment"
-        ],
-        "tools": [
-          "PDF learning artifact"
-        ],
-        "scaleSignals": [],
-        "aiHint": {
-          "evidenceLevel": "inferred non-proof drafting hint",
-          "application": "Made learning outcomes and participant experience easier to measure, compare, and improve."
-        },
-        "outcomeEvidence": [],
-        "proof": {
-          "visibleProofLine": "Links measurement tools to learning outcomes.",
-          "workQuality": [
-            {
-              "claim": "Uses assessment, evaluation, rubric, or scoring structures to make learning evidence easier to collect and review.",
-              "sourceBasis": "practice-area default",
-              "confidence": "inferred"
-            }
-          ],
-          "impact": []
-        },
-        "cvBullet": "Designed Communication Skills Post-Test Form as a assessment & evaluation portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Made learning outcomes and participant experience easier to measure, compare, and improve."
-      }
-    },
-    {
-      "id": "project-training-feedback-form-level-1-reaction",
-      "title": "Training Feedback Form: Level 1 Reaction",
-      "practiceArea": "Assessment & Evaluation",
-      "tags": [
-        "assessment",
-        "learning-evaluation"
-      ],
-      "publicDescription": "Captures participant reaction data so training quality, relevance, and delivery can be improved fast.",
-      "sourceArtifact": "assets/pdf/portfolio/bnsp4_form_feedback.pdf",
-      "aiContext": {
-        "evidenceLevel": "inferred from structured portfolio source",
-        "role": "Designed assessment and evaluation tools to measure learner understanding, behavior, quality, or decision readiness.",
-        "audience": "learners, teams, or program stakeholders",
-        "deliverables": [
-          "assessment tool",
-          "evaluation form",
-          "scoring structure"
-        ],
-        "skills": [
-          "assessment design",
-          "learning evaluation",
-          "rubric design",
-          "measurement",
-          "assessment"
-        ],
-        "tools": [
-          "PDF learning artifact"
-        ],
-        "scaleSignals": [
-          "1"
-        ],
-        "aiHint": {
-          "evidenceLevel": "inferred non-proof drafting hint",
-          "application": "Made learning outcomes and participant experience easier to measure, compare, and improve."
-        },
-        "outcomeEvidence": [],
-        "proof": {
-          "visibleProofLine": "Links measurement tools to learning outcomes.",
-          "workQuality": [
-            {
-              "claim": "Uses assessment, evaluation, rubric, or scoring structures to make learning evidence easier to collect and review.",
-              "sourceBasis": "practice-area default",
-              "confidence": "inferred"
-            }
-          ],
-          "impact": []
-        },
-        "cvBullet": "Designed Training Feedback Form: Level 1 Reaction as a assessment & evaluation portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Made learning outcomes and participant experience easier to measure, compare, and improve."
-      }
-    },
-    {
-      "id": "project-communication-observation-form-and-performance-rubric",
-      "title": "Communication Observation Form and Performance Rubric",
-      "practiceArea": "Assessment & Evaluation",
-      "tags": [
-        "assessment",
-        "learning-evaluation"
-      ],
-      "publicDescription": "Assesses workplace behavior transfer through observable communication tasks and structured rubrics.",
-      "sourceArtifact": "assets/pdf/portfolio/bnsp4_form_observasi_dan_rubrik_penilaian.pdf",
-      "aiContext": {
-        "evidenceLevel": "inferred from structured portfolio source",
-        "role": "Designed assessment and evaluation tools to measure learner understanding, behavior, quality, or decision readiness.",
-        "audience": "working professionals",
-        "deliverables": [
-          "assessment tool",
-          "evaluation form",
-          "scoring structure"
-        ],
-        "skills": [
-          "assessment design",
-          "learning evaluation",
-          "rubric design",
-          "measurement",
-          "assessment"
-        ],
-        "tools": [
-          "PDF learning artifact"
-        ],
-        "scaleSignals": [],
-        "aiHint": {
-          "evidenceLevel": "inferred non-proof drafting hint",
-          "application": "Made learning outcomes and participant experience easier to measure, compare, and improve."
-        },
-        "outcomeEvidence": [],
-        "proof": {
-          "visibleProofLine": "Translates observable communication behavior into rubric evidence.",
-          "workQuality": [
-            {
-              "claim": "Assesses workplace behavior transfer through observable communication tasks and structured rubrics.",
-              "sourceBasis": "portfolio-description",
-              "confidence": "direct"
-            }
-          ],
-          "impact": []
-        },
-        "cvBullet": "Designed Communication Observation Form and Performance Rubric as a assessment & evaluation portfolio item, creating practical context for working professionals, with a non-proof AI application hint: Made learning outcomes and participant experience easier to measure, compare, and improve."
-      }
-    },
-    {
-      "id": "project-macro-training-needs-analysis-dki-jakarta",
-      "title": "Macro Training Needs Analysis: DKI Jakarta",
-      "practiceArea": "Training Needs Analysis",
-      "tags": [
-        "training-needs-analysis",
-        "learning-strategy"
-      ],
-      "publicDescription": "Synthesizes labor-market signals into practical training priorities for future-ready workplace skills.",
-      "sourceArtifact": "assets/pdf/portfolio/bnsp6_kebutuhan_pelatihan_makro.pdf",
-      "aiContext": {
-        "evidenceLevel": "inferred from structured portfolio source",
-        "role": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
-        "audience": "working professionals",
-        "deliverables": [
-          "needs analysis",
-          "gap diagnosis",
-          "learning priorities"
-        ],
-        "skills": [
+          "case study",
           "training needs analysis",
-          "performance consulting",
-          "competency mapping",
-          "learning design",
-          "learning strategy"
+          "training proposal",
+          "learning materials",
+          "assessment",
+          "learning evaluation"
         ],
         "tools": [
-          "PDF learning artifact"
+          "Excel or Google Sheets"
         ],
         "scaleSignals": [],
         "aiHint": {
@@ -593,129 +251,36 @@
         },
         "outcomeEvidence": [],
         "proof": {
-          "visibleProofLine": "Synthesizes labor-market signals into training priorities.",
+          "visibleProofLine": "Aligns objectives, activities, practice, and evidence.",
           "workQuality": [
             {
-              "claim": "Synthesizes labor-market signals into practical training priorities for future-ready workplace skills.",
-              "sourceBasis": "portfolio-description",
-              "confidence": "direct"
-            }
-          ],
-          "impact": []
-        },
-        "cvBullet": "Diagnosed Macro Training Needs Analysis: DKI Jakarta as a training needs analysis portfolio item, creating practical context for working professionals, with a non-proof AI application hint: Clarified the real performance gap before investing in training design or delivery."
-      }
-    },
-    {
-      "id": "project-competency-matrix-for-training-organization",
-      "title": "Competency Matrix for Training Organization",
-      "practiceArea": "Curriculum Development",
-      "tags": [
-        "curriculum-development",
-        "learning-strategy",
-        "assessment"
-      ],
-      "publicDescription": "Maps organizational capability against program priorities to clarify readiness and development focus.",
-      "sourceArtifact": "assets/pdf/portfolio/bnsp6_matriks_kompetensi.pdf",
-      "aiContext": {
-        "evidenceLevel": "inferred from structured portfolio source",
-        "role": "Mapped competencies, learning sequence, program structure, and evidence requirements into a usable curriculum asset.",
-        "audience": "learners, teams, or program stakeholders",
-        "deliverables": [
-          "curriculum map",
-          "competency matrix",
-          "syllabus"
-        ],
-        "skills": [
-          "curriculum development",
-          "competency mapping",
-          "learning architecture",
-          "program design",
-          "learning strategy",
-          "assessment"
-        ],
-        "tools": [
-          "PDF learning artifact"
-        ],
-        "scaleSignals": [],
-        "aiHint": {
-          "evidenceLevel": "inferred non-proof drafting hint",
-          "application": "Supported applied learning through structured activities, facilitation, and practical implementation tasks."
-        },
-        "outcomeEvidence": [],
-        "proof": {
-          "visibleProofLine": "Maps competencies into a usable learning sequence.",
-          "workQuality": [
-            {
-              "claim": "Organizes competencies, learning sequence, program structure, and evidence requirements into a usable curriculum asset.",
+              "claim": "Structures learning objectives, session flow, learner activities, practice tasks, and evidence of competency.",
               "sourceBasis": "practice-area default",
               "confidence": "inferred"
             }
           ],
           "impact": []
         },
-        "cvBullet": "Built Competency Matrix for Training Organization as a curriculum development portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        "cvBullet": "Designed Administrative Communication Learning Program Case Study as a instructional design portfolio item, creating practical context for working professionals, with a non-proof AI application hint: Clarified the real performance gap before investing in training design or delivery."
       }
     },
     {
-      "id": "project-competency-based-training-syllabus",
-      "title": "Competency-Based Training Syllabus",
-      "practiceArea": "Curriculum Development",
-      "tags": [
-        "curriculum-development",
-        "instructional-design"
-      ],
-      "publicDescription": "Builds a multi-program syllabus that connects competency standards, delivery design, and evidence of learning.",
-      "sourceArtifact": "assets/pdf/portfolio/bnsp6_silabus_pelatihan_berbasis_kompetensi.pdf",
-      "aiContext": {
-        "evidenceLevel": "inferred from structured portfolio source",
-        "role": "Mapped competencies, learning sequence, program structure, and evidence requirements into a usable curriculum asset.",
-        "audience": "learners, teams, or program stakeholders",
-        "deliverables": [
-          "curriculum map",
-          "competency matrix",
-          "syllabus"
-        ],
-        "skills": [
-          "curriculum development",
-          "competency mapping",
-          "learning architecture",
-          "program design",
-          "instructional design"
-        ],
-        "tools": [
-          "PDF learning artifact"
-        ],
-        "scaleSignals": [],
-        "aiHint": {
-          "evidenceLevel": "inferred non-proof drafting hint",
-          "application": "Supported applied learning through structured activities, facilitation, and practical implementation tasks."
-        },
-        "outcomeEvidence": [],
-        "proof": {
-          "visibleProofLine": "Maps competencies into a usable learning sequence.",
-          "workQuality": [
-            {
-              "claim": "Organizes competencies, learning sequence, program structure, and evidence requirements into a usable curriculum asset.",
-              "sourceBasis": "practice-area default",
-              "confidence": "inferred"
-            }
-          ],
-          "impact": []
-        },
-        "cvBullet": "Built Competency-Based Training Syllabus as a curriculum development portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
-      }
-    },
-    {
-      "id": "project-learning-business-plan-eighteen-rekrutmen-asia",
-      "title": "Learning Business Plan: Eighteen Rekrutmen Asia",
+      "id": "case-learning-organization-strategy-evaluation-system",
+      "title": "Learning Organization Strategy and Evaluation System Case Study",
       "practiceArea": "L&D Strategy",
       "tags": [
+        "case-study",
+        "training-needs-analysis",
         "learning-strategy",
-        "training-proposal"
+        "curriculum-development",
+        "training-proposal",
+        "learning-analytics",
+        "assessment",
+        "learning-evaluation",
+        "worksheet"
       ],
-      "publicDescription": "Frames a learning business roadmap around employability, communication, and organizational capability services.",
-      "sourceArtifact": "assets/pdf/portfolio/bnsp6_business_plan.pdf",
+      "publicDescription": "Combines macro needs analysis, competency architecture, business and marketing plans, budget modeling, and evaluation dashboards into one strategic L&D case.",
+      "sourceArtifact": "assets/portfolio-viewers/bnsp6-learning-organization-case-study.html",
       "aiContext": {
         "evidenceLevel": "inferred from structured portfolio source",
         "role": "Framed learning products, business goals, capability priorities, and growth logic into an actionable L&D plan.",
@@ -730,16 +295,23 @@
           "business planning",
           "program portfolio design",
           "go-to-market planning",
+          "case study",
+          "training needs analysis",
           "learning strategy",
-          "training proposal"
+          "curriculum development",
+          "training proposal",
+          "learning analytics",
+          "assessment",
+          "learning evaluation",
+          "worksheet"
         ],
         "tools": [
-          "PDF learning artifact"
+          "Excel or Google Sheets"
         ],
         "scaleSignals": [],
         "aiHint": {
           "evidenceLevel": "inferred non-proof drafting hint",
-          "application": "Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
+          "application": "Clarified the real performance gap before investing in training design or delivery."
         },
         "outcomeEvidence": [],
         "proof": {
@@ -753,214 +325,7 @@
           ],
           "impact": []
         },
-        "cvBullet": "Framed Learning Business Plan: Eighteen Rekrutmen Asia as a l&d strategy portfolio item, creating practical context for entrepreneurs and startup founders, with a non-proof AI application hint: Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
-      }
-    },
-    {
-      "id": "project-marketing-plan-for-training-solutions",
-      "title": "Marketing Plan for Training Solutions",
-      "practiceArea": "L&D Strategy",
-      "tags": [
-        "learning-strategy",
-        "training-proposal"
-      ],
-      "publicDescription": "Connects training portfolio positioning with demand generation, conversion, and client retention strategy.",
-      "sourceArtifact": "assets/pdf/portfolio/bnsp6_marketing_plan.pdf",
-      "aiContext": {
-        "evidenceLevel": "inferred from structured portfolio source",
-        "role": "Framed learning products, business goals, capability priorities, and growth logic into an actionable L&D plan.",
-        "audience": "learners, teams, or program stakeholders",
-        "deliverables": [
-          "strategy plan",
-          "business roadmap",
-          "portfolio positioning"
-        ],
-        "skills": [
-          "L&D strategy",
-          "business planning",
-          "program portfolio design",
-          "go-to-market planning",
-          "learning strategy",
-          "training proposal"
-        ],
-        "tools": [
-          "PDF learning artifact"
-        ],
-        "scaleSignals": [],
-        "aiHint": {
-          "evidenceLevel": "inferred non-proof drafting hint",
-          "application": "Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
-        },
-        "outcomeEvidence": [],
-        "proof": {
-          "visibleProofLine": "Connects capability priorities with actionable learning strategy.",
-          "workQuality": [
-            {
-              "claim": "Frames learning products, business goals, capability priorities, and growth logic into an actionable L&D plan.",
-              "sourceBasis": "practice-area default",
-              "confidence": "inferred"
-            }
-          ],
-          "impact": []
-        },
-        "cvBullet": "Framed Marketing Plan for Training Solutions as a l&d strategy portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
-      }
-    },
-    {
-      "id": "project-training-budget-and-roti-calculator",
-      "title": "Training Budget and ROTI Calculator",
-      "practiceArea": "Learning Analytics",
-      "tags": [
-        "learning-analytics",
-        "worksheet",
-        "training-proposal"
-      ],
-      "publicDescription": "Models training investment, budget logic, and return on training impact in one practical workbook.",
-      "sourceArtifact": "assets/portfolio-viewers/bnsp6-rab-roti-pelatihan.html",
-      "aiContext": {
-        "evidenceLevel": "inferred from structured portfolio source",
-        "role": "Converted learning data, response inputs, or budget assumptions into analysis-ready dashboards and decision tools.",
-        "audience": "learners, teams, or program stakeholders",
-        "deliverables": [
-          "analysis dashboard",
-          "calculation model",
-          "decision report"
-        ],
-        "skills": [
-          "learning analytics",
-          "dashboard design",
-          "Kirkpatrick evaluation",
-          "spreadsheet modeling",
-          "worksheet",
-          "training proposal"
-        ],
-        "tools": [
-          "Excel or Google Sheets"
-        ],
-        "scaleSignals": [],
-        "aiHint": {
-          "evidenceLevel": "inferred non-proof drafting hint",
-          "application": "Gave learners and facilitators practical tools for reflection, planning, and follow-through."
-        },
-        "outcomeEvidence": [],
-        "proof": {
-          "visibleProofLine": "Turns learning data into decision-ready analysis.",
-          "workQuality": [
-            {
-              "claim": "Structures learning data, response inputs, or calculations into analysis-ready dashboards and decision tools.",
-              "sourceBasis": "practice-area default",
-              "confidence": "inferred"
-            }
-          ],
-          "impact": []
-        },
-        "cvBullet": "Built Training Budget and ROTI Calculator as a learning analytics portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
-      }
-    },
-    {
-      "id": "project-kirkpatrick-level-1-reaction-dashboard",
-      "title": "Kirkpatrick Level 1 Reaction Dashboard",
-      "practiceArea": "Learning Analytics",
-      "tags": [
-        "assessment",
-        "learning-evaluation",
-        "learning-analytics"
-      ],
-      "publicDescription": "Transforms participant reaction forms into a dashboard for rapid training experience decisions.",
-      "sourceArtifact": "assets/portfolio-viewers/bnsp6-evaluation-level1-reaction.html",
-      "aiContext": {
-        "evidenceLevel": "inferred from structured portfolio source",
-        "role": "Converted learning data, response inputs, or budget assumptions into analysis-ready dashboards and decision tools.",
-        "audience": "learners, teams, or program stakeholders",
-        "deliverables": [
-          "analysis dashboard",
-          "calculation model",
-          "decision report"
-        ],
-        "skills": [
-          "learning analytics",
-          "dashboard design",
-          "Kirkpatrick evaluation",
-          "spreadsheet modeling",
-          "assessment",
-          "learning evaluation"
-        ],
-        "tools": [
-          "Excel or Google Sheets"
-        ],
-        "scaleSignals": [
-          "1"
-        ],
-        "aiHint": {
-          "evidenceLevel": "inferred non-proof drafting hint",
-          "application": "Improved visibility into learning data so decisions, remediation, and program improvements could be made faster."
-        },
-        "outcomeEvidence": [],
-        "proof": {
-          "visibleProofLine": "Turns learning data into decision-ready analysis.",
-          "workQuality": [
-            {
-              "claim": "Structures learning data, response inputs, or calculations into analysis-ready dashboards and decision tools.",
-              "sourceBasis": "practice-area default",
-              "confidence": "inferred"
-            }
-          ],
-          "impact": []
-        },
-        "cvBullet": "Built Kirkpatrick Level 1 Reaction Dashboard as a learning analytics portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Improved visibility into learning data so decisions, remediation, and program improvements could be made faster."
-      }
-    },
-    {
-      "id": "project-kirkpatrick-level-2-learning-dashboard",
-      "title": "Kirkpatrick Level 2 Learning Dashboard",
-      "practiceArea": "Learning Analytics",
-      "tags": [
-        "assessment",
-        "learning-evaluation",
-        "learning-analytics"
-      ],
-      "publicDescription": "Combines question bank, learner response form, and analysis dashboard to track learning gains.",
-      "sourceArtifact": "assets/portfolio-viewers/bnsp6-evaluation-level2-learning.html",
-      "aiContext": {
-        "evidenceLevel": "inferred from structured portfolio source",
-        "role": "Converted learning data, response inputs, or budget assumptions into analysis-ready dashboards and decision tools.",
-        "audience": "learners, teams, or program stakeholders",
-        "deliverables": [
-          "analysis dashboard",
-          "calculation model",
-          "decision report"
-        ],
-        "skills": [
-          "learning analytics",
-          "dashboard design",
-          "Kirkpatrick evaluation",
-          "spreadsheet modeling",
-          "assessment",
-          "learning evaluation"
-        ],
-        "tools": [
-          "Excel or Google Sheets"
-        ],
-        "scaleSignals": [
-          "2"
-        ],
-        "aiHint": {
-          "evidenceLevel": "inferred non-proof drafting hint",
-          "application": "Improved visibility into learning data so decisions, remediation, and program improvements could be made faster."
-        },
-        "outcomeEvidence": [],
-        "proof": {
-          "visibleProofLine": "Turns learning data into decision-ready analysis.",
-          "workQuality": [
-            {
-              "claim": "Structures learning data, response inputs, or calculations into analysis-ready dashboards and decision tools.",
-              "sourceBasis": "practice-area default",
-              "confidence": "inferred"
-            }
-          ],
-          "impact": []
-        },
-        "cvBullet": "Built Kirkpatrick Level 2 Learning Dashboard as a learning analytics portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Improved visibility into learning data so decisions, remediation, and program improvements could be made faster."
+        "cvBullet": "Framed Learning Organization Strategy and Evaluation System Case Study as a l&d strategy portfolio item, creating practical context for entrepreneurs and startup founders, with a non-proof AI application hint: Clarified the real performance gap before investing in training design or delivery."
       }
     },
     {

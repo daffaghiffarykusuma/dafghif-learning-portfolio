@@ -129,6 +129,24 @@ describe('Portfolio Evidence validator', () => {
     ]);
   });
 
+  test('keeps sourceArtifact validation tied to the shipped Artifact Inventory', async () => {
+    const result = await validatePortfolioEvidenceData({
+      portfolioSourceData: { portfolioItems: [validSourceItem] },
+      portfolioCatalog: {
+        portfolioItems: [
+          {
+            ...validCatalogItem,
+            sourceArtifact: 'assets/spreadsheets/portfolio/source-workbook.xlsx'
+          }
+        ]
+      },
+      root,
+      assetExists: async () => true
+    });
+
+    expect(result.failures).toContain('assets/data/portfolio-items.json: portfolio item 1 references a denied shipped Artifact source type: assets/spreadsheets/portfolio/source-workbook.xlsx');
+  });
+
   test('keeps AI-context Outcome Evidence directness local to the module', async () => {
     const result = await validatePortfolioEvidenceData({
       portfolioSourceData: { portfolioItems: [validSourceItem] },

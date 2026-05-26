@@ -2,7 +2,10 @@ import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 import { spawn } from 'node:child_process';
 import { readdir } from 'node:fs/promises';
 import path from 'node:path';
-import { getProductionAssetProbePaths } from '../../scripts/shipping-manifest.mjs';
+import {
+  getDeniedShippedArtifactFacts,
+  getProductionAssetProbePaths
+} from '../../scripts/shipped-artifact-inventory.mjs';
 import { projectRoot } from '../helpers/dom.mjs';
 
 const host = '127.0.0.1';
@@ -115,9 +118,9 @@ describe('production site system checks', () => {
 
   test('does not ship editable Office source files in the production build', async () => {
     const distFiles = await walkFiles(path.join(projectRoot, 'dist'));
-    const editableOfficeFiles = distFiles
-      .map((filePath) => path.relative(path.join(projectRoot, 'dist'), filePath).split(path.sep).join('/'))
-      .filter((filePath) => /\.(?:docx|pptx|xlsx)$/i.test(filePath));
+    const distRelativePaths = distFiles
+      .map((filePath) => path.relative(path.join(projectRoot, 'dist'), filePath).split(path.sep).join('/'));
+    const editableOfficeFiles = getDeniedShippedArtifactFacts(distRelativePaths);
 
     expect(editableOfficeFiles).toEqual([]);
   });

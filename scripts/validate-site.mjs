@@ -2,6 +2,7 @@ import { readdir, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { validatePortfolioEvidence } from './portfolio-evidence-validator.mjs';
+import { getShippedArtifactValidationFacts } from './shipped-artifact-inventory.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ignoredDirs = new Set(['.git', '.vscode', 'dist', 'node_modules']);
@@ -209,9 +210,16 @@ posts.forEach((post, index) => {
 const portfolioEvidence = await validatePortfolioEvidence({ root });
 failures.push(...portfolioEvidence.failures);
 
+const shippedArtifactFacts = getShippedArtifactValidationFacts({ rootDir: root });
+for (const probe of shippedArtifactFacts.productionProbes) {
+  if (!probe.existsInSource) {
+    failures.push(`Shipped Artifact Inventory production probe missing from source: ${probe.path}`);
+  }
+}
+
 if (failures.length) {
   console.error(failures.join('\n'));
   process.exit(1);
 }
 
-console.log(`Validated ${htmlFiles.length} HTML files, ${cssFiles.length} CSS files, ${posts.length} blog posts, ${portfolioEvidence.portfolioItemCount} portfolio items, local assets, fragments, external host allowlists, target=_blank rels, and CSP policies.`);
+console.log(`Validated ${htmlFiles.length} HTML files, ${cssFiles.length} CSS files, ${posts.length} blog posts, ${portfolioEvidence.portfolioItemCount} portfolio items, ${shippedArtifactFacts.productionProbes.length} shipped Artifact probes, local assets, fragments, external host allowlists, target=_blank rels, and CSP policies.`);

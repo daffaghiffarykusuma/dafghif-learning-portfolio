@@ -9,10 +9,12 @@ export function initCurrentPage({ pathname = window.location.pathname } = {}) {
 
     const pageName = pageNameFromPath(pathname);
     if (pageName === 'portfolio.html') {
-        initPortfolioPage();
+        return initPortfolioPage();
     }
 
     if (pageName === 'contact.html') {
         initContactPage();
     }
+
+    return null;
 }

@@ -2,9 +2,14 @@ import { describe, expect, test } from 'bun:test';
 import { resolveArtifactPreview, safeArtifactPreviewPath } from '../../js/site/artifact-preview-policy.js';
 
 const baseUrl = 'http://127.0.0.1/portfolio.html';
+const outsidePreviewLinkPolicy = {
+  target: '_blank',
+  rel: 'noopener noreferrer',
+  opensOutsidePreviewFrame: true
+};
 
 describe('artifact preview policy', () => {
-  test('allows same-origin portfolio PDFs and applies the PDF viewer fragment', () => {
+  test('allows same-origin portfolio PDFs and returns frame and navigation expectations', () => {
     const preview = resolveArtifactPreview({
       pdfPath: 'assets/pdf/portfolio/sample.pdf'
     }, baseUrl);
@@ -13,11 +18,19 @@ describe('artifact preview policy', () => {
       type: 'pdf',
       url: 'http://127.0.0.1/assets/pdf/portfolio/sample.pdf',
       src: 'http://127.0.0.1/assets/pdf/portfolio/sample.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-width&statusbar=0&messages=0&pagemode=none',
-      sandbox: ''
+      frameAttributes: {},
+      linkPolicy: outsidePreviewLinkPolicy,
+      navigationPolicy: {
+        allowedOrigin: 'http://127.0.0.1',
+        allowedPathPrefix: 'assets/pdf/portfolio/',
+        allowedExtension: '.pdf',
+        previewFrameNavigation: 'validated-artifact-src-only',
+        artifactLinks: 'open-outside-preview-frame'
+      }
     });
   });
 
-  test('allows same-origin HTML artifact viewers with the viewer sandbox policy', () => {
+  test('allows same-origin HTML artifact viewers with frame and link expectations', () => {
     const preview = resolveArtifactPreview({
       viewerPath: 'assets/portfolio-viewers/sample.html'
     }, baseUrl);
@@ -26,7 +39,17 @@ describe('artifact preview policy', () => {
       type: 'viewer',
       url: 'http://127.0.0.1/assets/portfolio-viewers/sample.html',
       src: 'http://127.0.0.1/assets/portfolio-viewers/sample.html',
-      sandbox: 'allow-same-origin'
+      frameAttributes: {
+        sandbox: 'allow-same-origin allow-popups allow-popups-to-escape-sandbox'
+      },
+      linkPolicy: outsidePreviewLinkPolicy,
+      navigationPolicy: {
+        allowedOrigin: 'http://127.0.0.1',
+        allowedPathPrefix: 'assets/portfolio-viewers/',
+        allowedExtension: '.html',
+        previewFrameNavigation: 'validated-artifact-src-only',
+        artifactLinks: 'open-outside-preview-frame'
+      }
     });
   });
 

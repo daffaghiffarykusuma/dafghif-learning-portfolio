@@ -1,443 +1,72 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-source.json",
-  "generatedAt": "2026-05-26T03:35:17.961Z",
-  "portfolioItemCount": 78,
+  "generatedAt": "2026-05-26T08:15:09.512Z",
+  "portfolioItemCount": 65,
   "portfolioItems": [
     {
-      "id": "project-administrative-communication-training-needs-analysis",
-      "title": "Administrative Communication Training Needs Analysis",
-      "practiceArea": "Training Needs Analysis",
-      "tags": [
-        "training-needs-analysis",
-        "instructional-design"
-      ],
-      "description": "Pinpoints workplace communication gaps and translates them into a competency-based training path.",
-      "image": {
-        "src": "assets/images/portfolio/bnsp4-training-need-analysis.webp",
-        "alt": "Administrative Communication Training Needs Analysis thumbnail"
-      },
-      "sourceArtifact": "assets/pdf/portfolio/bnsp4_training_need_analysis.pdf",
-      "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-administrative-communication-training-needs-analysis",
-      "discussUrl": "contact.html?portfolioItem=Administrative Communication Training Needs Analysis",
-      "proof": {
-        "visibleProofLine": "Maps performance gaps into clear training priorities.",
-        "workQuality": [
-          {
-            "claim": "Connects audience needs, performance gaps, and design-ready training priorities.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
-    },
-    {
-      "id": "project-competency-based-communication-training-proposal",
-      "title": "Competency-Based Communication Training Proposal",
-      "practiceArea": "Training Proposal",
-      "tags": [
-        "training-proposal",
-        "instructional-design",
-        "curriculum-development"
-      ],
-      "description": "Turns TNA findings into a structured, standards-aligned program proposal for administrative communication skills.",
-      "image": {
-        "src": "assets/images/portfolio/bnsp4-program-proposal.webp",
-        "alt": "Competency-Based Communication Training Proposal thumbnail"
-      },
-      "sourceArtifact": "assets/pdf/portfolio/bnsp4_program_proposal.pdf",
-      "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-competency-based-communication-training-proposal",
-      "discussUrl": "contact.html?portfolioItem=Competency-Based Communication Training Proposal",
-      "proof": {
-        "visibleProofLine": "Turns learning needs into a structured delivery plan.",
-        "workQuality": [
-          {
-            "claim": "Defines objectives, program logic, delivery structure, and stakeholder-ready recommendations.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
-    },
-    {
-      "id": "project-administrative-communication-lesson-plan",
-      "title": "Administrative Communication Lesson Plan",
+      "id": "case-administrative-communication-learning-program",
+      "title": "Administrative Communication Learning Program Case Study",
       "practiceArea": "Instructional Design",
       "tags": [
-        "instructional-design",
-        "curriculum-development"
-      ],
-      "description": "Maps 36 learning hours into clear sessions, activities, OJT practice, and competency evidence.",
-      "image": {
-        "src": "assets/images/portfolio/bnsp4-lesson-plan.webp",
-        "alt": "Administrative Communication Lesson Plan thumbnail"
-      },
-      "sourceArtifact": "assets/pdf/portfolio/bnsp4_lesson_plan.pdf",
-      "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-administrative-communication-lesson-plan",
-      "discussUrl": "contact.html?portfolioItem=Administrative Communication Lesson Plan",
-      "proof": {
-        "visibleProofLine": "Maps 36 learning hours into sessions, OJT, and competency evidence.",
-        "workQuality": [
-          {
-            "claim": "Maps 36 learning hours into session structure, activities, OJT practice, and competency evidence.",
-            "sourceBasis": "portfolio-description",
-            "confidence": "direct"
-          }
-        ],
-        "impact": []
-      }
-    },
-    {
-      "id": "project-communication-confidence-training-deck",
-      "title": "Communication Confidence Training Deck",
-      "practiceArea": "Learning Materials",
-      "tags": [
-        "learning-materials",
-        "instructional-design",
-        "presentation-design"
-      ],
-      "description": "A complete facilitator deck for building confident, professional, and structured workplace communication.",
-      "image": {
-        "src": "assets/images/portfolio/bnsp4-materi-pelatihan.webp",
-        "alt": "Communication Confidence Training Deck thumbnail"
-      },
-      "sourceArtifact": "assets/pdf/portfolio/bnsp4_materi_pelatihan.pdf",
-      "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-communication-confidence-training-deck",
-      "discussUrl": "contact.html?portfolioItem=Communication Confidence Training Deck",
-      "proof": {
-        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
-        "workQuality": [
-          {
-            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
-    },
-    {
-      "id": "project-communication-skills-post-test-form",
-      "title": "Communication Skills Post-Test Form",
-      "practiceArea": "Assessment & Evaluation",
-      "tags": [
-        "assessment",
-        "learning-evaluation"
-      ],
-      "description": "Measures learner understanding with competency-mapped questions tied to the training objectives.",
-      "image": {
-        "src": "assets/images/portfolio/bnsp4-form-soal-post-test.webp",
-        "alt": "Communication Skills Post-Test Form thumbnail"
-      },
-      "sourceArtifact": "assets/pdf/portfolio/bnsp4_form_soal_post_test.pdf",
-      "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-communication-skills-post-test-form",
-      "discussUrl": "contact.html?portfolioItem=Communication Skills Post-Test Form",
-      "proof": {
-        "visibleProofLine": "Links measurement tools to learning outcomes.",
-        "workQuality": [
-          {
-            "claim": "Uses assessment, evaluation, rubric, or scoring structures to make learning evidence easier to collect and review.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
-    },
-    {
-      "id": "project-training-feedback-form-level-1-reaction",
-      "title": "Training Feedback Form: Level 1 Reaction",
-      "practiceArea": "Assessment & Evaluation",
-      "tags": [
-        "assessment",
-        "learning-evaluation"
-      ],
-      "description": "Captures participant reaction data so training quality, relevance, and delivery can be improved fast.",
-      "image": {
-        "src": "assets/images/portfolio/bnsp4-form-feedback.webp",
-        "alt": "Training Feedback Form: Level 1 Reaction thumbnail"
-      },
-      "sourceArtifact": "assets/pdf/portfolio/bnsp4_form_feedback.pdf",
-      "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-training-feedback-form-level-1-reaction",
-      "discussUrl": "contact.html?portfolioItem=Training Feedback Form: Level 1 Reaction",
-      "proof": {
-        "visibleProofLine": "Links measurement tools to learning outcomes.",
-        "workQuality": [
-          {
-            "claim": "Uses assessment, evaluation, rubric, or scoring structures to make learning evidence easier to collect and review.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
-    },
-    {
-      "id": "project-communication-observation-form-and-performance-rubric",
-      "title": "Communication Observation Form and Performance Rubric",
-      "practiceArea": "Assessment & Evaluation",
-      "tags": [
-        "assessment",
-        "learning-evaluation"
-      ],
-      "description": "Assesses workplace behavior transfer through observable communication tasks and structured rubrics.",
-      "image": {
-        "src": "assets/images/portfolio/bnsp4-observation-rubric.webp",
-        "alt": "Communication Observation Form and Performance Rubric thumbnail"
-      },
-      "sourceArtifact": "assets/pdf/portfolio/bnsp4_form_observasi_dan_rubrik_penilaian.pdf",
-      "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-communication-observation-form-and-performance-rubric",
-      "discussUrl": "contact.html?portfolioItem=Communication Observation Form and Performance Rubric",
-      "proof": {
-        "visibleProofLine": "Translates observable communication behavior into rubric evidence.",
-        "workQuality": [
-          {
-            "claim": "Assesses workplace behavior transfer through observable communication tasks and structured rubrics.",
-            "sourceBasis": "portfolio-description",
-            "confidence": "direct"
-          }
-        ],
-        "impact": []
-      }
-    },
-    {
-      "id": "project-macro-training-needs-analysis-dki-jakarta",
-      "title": "Macro Training Needs Analysis: DKI Jakarta",
-      "practiceArea": "Training Needs Analysis",
-      "tags": [
+        "case-study",
         "training-needs-analysis",
-        "learning-strategy"
+        "training-proposal",
+        "instructional-design",
+        "learning-materials",
+        "assessment",
+        "learning-evaluation"
       ],
-      "description": "Synthesizes labor-market signals into practical training priorities for future-ready workplace skills.",
+      "description": "Combines needs analysis, proposal, lesson plan, facilitator material, and evaluation tools into one competency-based workplace communication learning case.",
+      "image": {
+        "src": "assets/images/portfolio/bnsp4-training-need-analysis.webp",
+        "alt": "Administrative Communication Learning Program Case Study thumbnail"
+      },
+      "sourceArtifact": "assets/portfolio-viewers/bnsp4-administrative-communication-case-study.html",
+      "sourceType": "html-viewer",
+      "portfolioItemUrl": "portfolio.html#case-administrative-communication-learning-program",
+      "discussUrl": "contact.html?portfolioItem=Administrative Communication Learning Program Case Study",
+      "proof": {
+        "visibleProofLine": "Aligns objectives, activities, practice, and evidence.",
+        "workQuality": [
+          {
+            "claim": "Structures learning objectives, session flow, learner activities, practice tasks, and evidence of competency.",
+            "sourceBasis": "practice-area default",
+            "confidence": "inferred"
+          }
+        ],
+        "impact": []
+      }
+    },
+    {
+      "id": "case-learning-organization-strategy-evaluation-system",
+      "title": "Learning Organization Strategy and Evaluation System Case Study",
+      "practiceArea": "L&D Strategy",
+      "tags": [
+        "case-study",
+        "training-needs-analysis",
+        "learning-strategy",
+        "curriculum-development",
+        "training-proposal",
+        "learning-analytics",
+        "assessment",
+        "learning-evaluation",
+        "worksheet"
+      ],
+      "description": "Combines macro needs analysis, competency architecture, business and marketing plans, budget modeling, and evaluation dashboards into one strategic L&D case.",
       "image": {
         "src": "assets/images/portfolio/bnsp6-kebutuhan-pelatihan-makro.webp",
-        "alt": "Macro Training Needs Analysis: DKI Jakarta thumbnail"
+        "alt": "Learning Organization Strategy and Evaluation System Case Study thumbnail"
       },
-      "sourceArtifact": "assets/pdf/portfolio/bnsp6_kebutuhan_pelatihan_makro.pdf",
-      "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-macro-training-needs-analysis-dki-jakarta",
-      "discussUrl": "contact.html?portfolioItem=Macro Training Needs Analysis: DKI Jakarta",
-      "proof": {
-        "visibleProofLine": "Synthesizes labor-market signals into training priorities.",
-        "workQuality": [
-          {
-            "claim": "Synthesizes labor-market signals into practical training priorities for future-ready workplace skills.",
-            "sourceBasis": "portfolio-description",
-            "confidence": "direct"
-          }
-        ],
-        "impact": []
-      }
-    },
-    {
-      "id": "project-competency-matrix-for-training-organization",
-      "title": "Competency Matrix for Training Organization",
-      "practiceArea": "Curriculum Development",
-      "tags": [
-        "curriculum-development",
-        "learning-strategy",
-        "assessment"
-      ],
-      "description": "Maps organizational capability against program priorities to clarify readiness and development focus.",
-      "image": {
-        "src": "assets/images/portfolio/bnsp6-matriks-kompetensi.webp",
-        "alt": "Competency Matrix for Training Organization thumbnail"
-      },
-      "sourceArtifact": "assets/pdf/portfolio/bnsp6_matriks_kompetensi.pdf",
-      "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-competency-matrix-for-training-organization",
-      "discussUrl": "contact.html?portfolioItem=Competency Matrix for Training Organization",
-      "proof": {
-        "visibleProofLine": "Maps competencies into a usable learning sequence.",
-        "workQuality": [
-          {
-            "claim": "Organizes competencies, learning sequence, program structure, and evidence requirements into a usable curriculum asset.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
-    },
-    {
-      "id": "project-competency-based-training-syllabus",
-      "title": "Competency-Based Training Syllabus",
-      "practiceArea": "Curriculum Development",
-      "tags": [
-        "curriculum-development",
-        "instructional-design"
-      ],
-      "description": "Builds a multi-program syllabus that connects competency standards, delivery design, and evidence of learning.",
-      "image": {
-        "src": "assets/images/portfolio/bnsp6-silabus-pelatihan.webp",
-        "alt": "Competency-Based Training Syllabus thumbnail"
-      },
-      "sourceArtifact": "assets/pdf/portfolio/bnsp6_silabus_pelatihan_berbasis_kompetensi.pdf",
-      "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-competency-based-training-syllabus",
-      "discussUrl": "contact.html?portfolioItem=Competency-Based Training Syllabus",
-      "proof": {
-        "visibleProofLine": "Maps competencies into a usable learning sequence.",
-        "workQuality": [
-          {
-            "claim": "Organizes competencies, learning sequence, program structure, and evidence requirements into a usable curriculum asset.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
-    },
-    {
-      "id": "project-learning-business-plan-eighteen-rekrutmen-asia",
-      "title": "Learning Business Plan: Eighteen Rekrutmen Asia",
-      "practiceArea": "L&D Strategy",
-      "tags": [
-        "learning-strategy",
-        "training-proposal"
-      ],
-      "description": "Frames a learning business roadmap around employability, communication, and organizational capability services.",
-      "image": {
-        "src": "assets/images/portfolio/bnsp6-business-plan.webp",
-        "alt": "Learning Business Plan: Eighteen Rekrutmen Asia thumbnail"
-      },
-      "sourceArtifact": "assets/pdf/portfolio/bnsp6_business_plan.pdf",
-      "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-learning-business-plan-eighteen-rekrutmen-asia",
-      "discussUrl": "contact.html?portfolioItem=Learning Business Plan: Eighteen Rekrutmen Asia",
+      "sourceArtifact": "assets/portfolio-viewers/bnsp6-learning-organization-case-study.html",
+      "sourceType": "html-viewer",
+      "portfolioItemUrl": "portfolio.html#case-learning-organization-strategy-evaluation-system",
+      "discussUrl": "contact.html?portfolioItem=Learning Organization Strategy and Evaluation System Case Study",
       "proof": {
         "visibleProofLine": "Connects capability priorities with actionable learning strategy.",
         "workQuality": [
           {
             "claim": "Frames learning products, business goals, capability priorities, and growth logic into an actionable L&D plan.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
-    },
-    {
-      "id": "project-marketing-plan-for-training-solutions",
-      "title": "Marketing Plan for Training Solutions",
-      "practiceArea": "L&D Strategy",
-      "tags": [
-        "learning-strategy",
-        "training-proposal"
-      ],
-      "description": "Connects training portfolio positioning with demand generation, conversion, and client retention strategy.",
-      "image": {
-        "src": "assets/images/portfolio/bnsp6-marketing-plan.webp",
-        "alt": "Marketing Plan for Training Solutions thumbnail"
-      },
-      "sourceArtifact": "assets/pdf/portfolio/bnsp6_marketing_plan.pdf",
-      "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-marketing-plan-for-training-solutions",
-      "discussUrl": "contact.html?portfolioItem=Marketing Plan for Training Solutions",
-      "proof": {
-        "visibleProofLine": "Connects capability priorities with actionable learning strategy.",
-        "workQuality": [
-          {
-            "claim": "Frames learning products, business goals, capability priorities, and growth logic into an actionable L&D plan.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
-    },
-    {
-      "id": "project-training-budget-and-roti-calculator",
-      "title": "Training Budget and ROTI Calculator",
-      "practiceArea": "Learning Analytics",
-      "tags": [
-        "learning-analytics",
-        "worksheet",
-        "training-proposal"
-      ],
-      "description": "Models training investment, budget logic, and return on training impact in one practical workbook.",
-      "image": {
-        "src": "assets/images/portfolio/bnsp6-rab-roti-pelatihan.webp",
-        "alt": "Training Budget and ROTI Calculator thumbnail"
-      },
-      "sourceArtifact": "assets/portfolio-viewers/bnsp6-rab-roti-pelatihan.html",
-      "sourceType": "html-viewer",
-      "portfolioItemUrl": "portfolio.html#project-training-budget-and-roti-calculator",
-      "discussUrl": "contact.html?portfolioItem=Training Budget and ROTI Calculator",
-      "proof": {
-        "visibleProofLine": "Turns learning data into decision-ready analysis.",
-        "workQuality": [
-          {
-            "claim": "Structures learning data, response inputs, or calculations into analysis-ready dashboards and decision tools.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
-    },
-    {
-      "id": "project-kirkpatrick-level-1-reaction-dashboard",
-      "title": "Kirkpatrick Level 1 Reaction Dashboard",
-      "practiceArea": "Learning Analytics",
-      "tags": [
-        "assessment",
-        "learning-evaluation",
-        "learning-analytics"
-      ],
-      "description": "Transforms participant reaction forms into a dashboard for rapid training experience decisions.",
-      "image": {
-        "src": "assets/images/portfolio/bnsp6-evaluation-level1-reaction.webp",
-        "alt": "Kirkpatrick Level 1 Reaction Dashboard thumbnail"
-      },
-      "sourceArtifact": "assets/portfolio-viewers/bnsp6-evaluation-level1-reaction.html",
-      "sourceType": "html-viewer",
-      "portfolioItemUrl": "portfolio.html#project-kirkpatrick-level-1-reaction-dashboard",
-      "discussUrl": "contact.html?portfolioItem=Kirkpatrick Level 1 Reaction Dashboard",
-      "proof": {
-        "visibleProofLine": "Turns learning data into decision-ready analysis.",
-        "workQuality": [
-          {
-            "claim": "Structures learning data, response inputs, or calculations into analysis-ready dashboards and decision tools.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
-    },
-    {
-      "id": "project-kirkpatrick-level-2-learning-dashboard",
-      "title": "Kirkpatrick Level 2 Learning Dashboard",
-      "practiceArea": "Learning Analytics",
-      "tags": [
-        "assessment",
-        "learning-evaluation",
-        "learning-analytics"
-      ],
-      "description": "Combines question bank, learner response form, and analysis dashboard to track learning gains.",
-      "image": {
-        "src": "assets/images/portfolio/bnsp6-evaluation-level2-learning.webp",
-        "alt": "Kirkpatrick Level 2 Learning Dashboard thumbnail"
-      },
-      "sourceArtifact": "assets/portfolio-viewers/bnsp6-evaluation-level2-learning.html",
-      "sourceType": "html-viewer",
-      "portfolioItemUrl": "portfolio.html#project-kirkpatrick-level-2-learning-dashboard",
-      "discussUrl": "contact.html?portfolioItem=Kirkpatrick Level 2 Learning Dashboard",
-      "proof": {
-        "visibleProofLine": "Turns learning data into decision-ready analysis.",
-        "workQuality": [
-          {
-            "claim": "Structures learning data, response inputs, or calculations into analysis-ready dashboards and decision tools.",
             "sourceBasis": "practice-area default",
             "confidence": "inferred"
           }

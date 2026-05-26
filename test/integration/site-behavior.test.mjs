@@ -44,7 +44,7 @@ describe('site browser behavior', () => {
     expect(modal.hidden).toBe(false);
     expect(iframe.src.startsWith('http://127.0.0.1/assets/portfolio-viewers/')).toBe(true);
     expect(iframe.src).not.toContain('#toolbar=0');
-    expect(iframe.getAttribute('sandbox')).toBe('allow-same-origin');
+    expect(iframe.getAttribute('sandbox')).toBe('allow-same-origin allow-popups allow-popups-to-escape-sandbox');
 
     modal.querySelector('.close-modal').click();
 
@@ -55,21 +55,22 @@ describe('site browser behavior', () => {
     expect(warnings.some((message) => message.includes('Blocked unsafe portfolio preview path'))).toBe(true);
   });
 
-  test('portfolio cards render concise proof-of-quality lines', async () => {
+  test('portfolio cards render concise proof lines without a visible prefix', async () => {
     const html = await readPage('portfolio.html');
     createDom(html, 'http://127.0.0.1/portfolio.html');
 
     const portfolioItems = Array.from(document.querySelectorAll('.card.portfolio-item:not(.portfolio-item-placeholder)'));
     const proofLines = Array.from(document.querySelectorAll('.portfolio-item-proof'));
 
-    expect(portfolioItems.length).toBe(78);
+    expect(portfolioItems.length).toBe(65);
     expect(proofLines.length).toBe(portfolioItems.length);
-    expect(proofLines[0].textContent).toStartWith('Proof of quality: ');
+    expect(proofLines[0].textContent).toBe('Aligns objectives, activities, practice, and evidence.');
+    expect(proofLines.every((line) => !line.textContent.startsWith('Proof of quality:'))).toBe(true);
   });
 
   test('portfolio page opens an artifact preview from a direct hash link', async () => {
     const html = await readPage('portfolio.html');
-    createDom(html, 'http://127.0.0.1/portfolio.html#project-administrative-communication-training-needs-analysis');
+    createDom(html, 'http://127.0.0.1/portfolio.html#case-administrative-communication-learning-program');
     globalThis.console = window.console;
 
     await importFresh('../../js/script.js');
@@ -80,8 +81,21 @@ describe('site browser behavior', () => {
     const iframe = document.getElementById('pdf-iframe');
 
     expect(modal.hidden).toBe(false);
-    expect(title.textContent).toBe('Administrative Communication Training Needs Analysis');
-    expect(iframe.src).toContain('/assets/pdf/portfolio/bnsp4_training_need_analysis.pdf');
+    expect(title.textContent).toBe('Administrative Communication Learning Program Case Study');
+    expect(iframe.src).toContain('/assets/portfolio-viewers/bnsp4-administrative-communication-case-study.html');
+    expect(iframe.getAttribute('sandbox')).toBe('allow-same-origin allow-popups allow-popups-to-escape-sandbox');
+  });
+
+  test('case study artifact links can open PDF artifacts outside the preview frame', async () => {
+    const html = await readPage('assets/portfolio-viewers/bnsp4-administrative-communication-case-study.html');
+    createDom(html, 'http://127.0.0.1/assets/portfolio-viewers/bnsp4-administrative-communication-case-study.html');
+
+    const pdfLinks = Array.from(document.querySelectorAll('a[href$=".pdf"]'));
+
+    expect(pdfLinks.length).toBeGreaterThan(0);
+    expect(pdfLinks.every((link) => link.target === '_blank')).toBe(true);
+    expect(pdfLinks.every((link) => link.relList.contains('noopener'))).toBe(true);
+    expect(pdfLinks.every((link) => link.relList.contains('noreferrer'))).toBe(true);
   });
 
   test('portfolio page ignores malformed hash selectors without aborting initialization', async () => {

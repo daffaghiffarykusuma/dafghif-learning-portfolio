@@ -8,6 +8,11 @@ import {
   renderProofLines,
   serializePortfolioDocument
 } from '../../scripts/portfolio-evidence-pipeline.mjs';
+import {
+  createCaseStudyPortfolioItem,
+  expandCaseStudyPortfolioSource,
+  renderCaseStudyHtml
+} from '../../scripts/case-study-source.mjs';
 
 const proofSource = {
   practiceAreaDefaults: {
@@ -121,8 +126,8 @@ describe('Portfolio Evidence Pipeline', () => {
 
     expect(renderProofLines(document, portfolioItems)).toBe(2);
     expect(Array.from(document.querySelectorAll('.portfolio-item-proof'), (node) => node.textContent)).toEqual([
-      'Proof of quality: Converts concepts into facilitator-ready learning material.',
-      'Proof of quality: Uses roleplay instructions and reflection prompts.'
+      'Converts concepts into facilitator-ready learning material.',
+      'Uses roleplay instructions and reflection prompts.'
     ]);
     expect(serializePortfolioDocument(document)).toStartWith('<!DOCTYPE html>');
   });
@@ -154,7 +159,7 @@ describe('Portfolio Evidence Pipeline', () => {
     expect(renderPortfolioItemCards(document, portfolioItems)).toBe(1);
     expect(document.querySelector('#stale-card')).toBeNull();
     expect(document.querySelector('#custom-deck .portfolio-item-proof').textContent)
-      .toBe('Proof of quality: Uses roleplay instructions and reflection prompts.');
+      .toBe('Uses roleplay instructions and reflection prompts.');
     expect(document.querySelector('#custom-deck .view-details-button').dataset.pdf)
       .toBe('assets/pdf/portfolio/custom.pdf');
   });
@@ -232,5 +237,62 @@ describe('Portfolio Evidence Pipeline', () => {
       generatedFrom: 'assets/data/portfolio-items.json',
       generatedAt: '2026-05-26T00:00:00.000Z'
     }).portfolioItems[0].aiContext.proof.visibleProofLine).toBe('Uses roleplay instructions and reflection prompts.');
+  });
+
+  test('derives Case Study Portfolio Items from grouped source definitions', () => {
+    const caseStudy = {
+      id: 'case-sample-learning-program',
+      title: 'Sample Learning Program',
+      portfolioItemTitle: 'Sample Learning Program Case Study',
+      practiceArea: 'Instructional Design',
+      tags: ['instructional-design'],
+      description: 'Combines diagnosis and design artifacts into one case.',
+      image: { src: 'assets/images/portfolio/sample.webp', alt: 'Sample thumbnail' },
+      outputPath: 'assets/portfolio-viewers/sample-case-study.html'
+    };
+
+    expect(createCaseStudyPortfolioItem(caseStudy)).toMatchObject({
+      id: 'case-sample-learning-program',
+      title: 'Sample Learning Program Case Study',
+      practiceArea: 'Instructional Design',
+      tags: ['case-study', 'instructional-design'],
+      sourceArtifact: 'assets/portfolio-viewers/sample-case-study.html',
+      sourceType: 'html-viewer',
+      portfolioItemUrl: 'portfolio.html#case-sample-learning-program'
+    });
+    expect(expandCaseStudyPortfolioSource({
+      caseStudies: [caseStudy],
+      portfolioItems: [
+        { id: 'case-sample-learning-program', title: 'Manual duplicate' },
+        { id: 'project-other', title: 'Other Portfolio Item' }
+      ]
+    }).portfolioItems.map((item) => item.id)).toEqual([
+      'case-sample-learning-program',
+      'project-other'
+    ]);
+  });
+
+  test('renders Case Study preview HTML from the same grouped source definition', () => {
+    const html = renderCaseStudyHtml({
+      documentTitle: 'Sample Case Study',
+      title: 'Sample Learning Program',
+      summary: 'Shows a grouped learning program case.',
+      reviewerContext: [{ label: 'Evidence limit', value: 'Direct outcomes are not claimed.' }],
+      caseFlow: [{ label: 'Diagnose', value: 'Review the learning need.' }],
+      artifacts: [
+        {
+          title: 'Needs Analysis',
+          description: 'Defines the learning gap.',
+          href: '../pdf/portfolio/needs.pdf',
+          linkLabel: 'Open PDF artifact'
+        }
+      ]
+    });
+
+    expect(html).toContain('<title>Sample Case Study</title>');
+    expect(html).toContain('<h1>Sample Learning Program</h1>');
+    expect(html).toContain('<strong>Evidence limit:</strong> Direct outcomes are not claimed.');
+    expect(html).toContain('<h3>Needs Analysis</h3>');
+    expect(html).not.toContain('Proof of quality:');
   });
 });

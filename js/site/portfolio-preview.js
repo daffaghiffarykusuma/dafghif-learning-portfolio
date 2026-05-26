@@ -1,6 +1,6 @@
 import { applyArtifactPreviewFramePolicy, resolveArtifactPreview } from './artifact-preview-policy.js';
 
-export function initPortfolioPreview(closeActiveModal = () => {}) {
+export function initPortfolioPreview(closeActiveModal = () => {}, { openHashOnInit = true } = {}) {
     const pdfModal = document.getElementById('pdf-modal');
     const pdfModalTitle = document.getElementById('pdf-modal-title');
     const pdfIframe = document.getElementById('pdf-iframe');
@@ -37,7 +37,11 @@ export function initPortfolioPreview(closeActiveModal = () => {}) {
             if (!pdfIframe) console.warn('PDF iframe element (#pdf-iframe) not found.');
             if (viewDetailsButtons.length === 0) console.warn('No view details buttons found.');
         }
-        return { closePdfModal };
+        return {
+            closePdfModal,
+            openPreviewFromHash: () => false,
+            destroy: closePdfModal
+        };
     }
 
     const openPortfolioPreview = (button, options = {}) => {
@@ -102,11 +106,13 @@ export function initPortfolioPreview(closeActiveModal = () => {}) {
 
     const openPreviewFromHash = () => {
         const previewButton = portfolioItemFromHash(window.location.hash)?.querySelector('.view-details-button');
-        if (previewButton) openPortfolioPreview(previewButton, { trigger: previewButton, updateHash: false });
+        if (!previewButton) return false;
+        openPortfolioPreview(previewButton, { trigger: previewButton, updateHash: false });
+        return true;
     };
 
     window.addEventListener('hashchange', openPreviewFromHash);
-    openPreviewFromHash();
+    if (openHashOnInit) openPreviewFromHash();
 
     pdfModal.querySelector('.close-modal')?.addEventListener('click', (event) => {
         event.preventDefault();
@@ -123,5 +129,10 @@ export function initPortfolioPreview(closeActiveModal = () => {}) {
     });
 
     console.log(`PDF Viewer initialized with ${viewDetailsButtons.length} buttons`);
-    return { closePdfModal };
+    const destroy = () => {
+        closePdfModal();
+        window.removeEventListener('hashchange', openPreviewFromHash);
+    };
+
+    return { closePdfModal, openPreviewFromHash, destroy };
 }

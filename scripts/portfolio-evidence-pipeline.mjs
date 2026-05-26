@@ -9,6 +9,7 @@ import {
   parsePortfolioItemsFromDocument,
   practiceAreaProfiles
 } from './portfolio-item-catalog.mjs';
+import { expandCaseStudyPortfolioSource } from './case-study-source.mjs';
 
 export const createPortfolioDocument = (html) => {
   const window = new Window();
@@ -19,7 +20,7 @@ export const createPortfolioDocument = (html) => {
 };
 
 export const getPortfolioSourceItems = (portfolioSource) =>
-  getPortfolioItemSourceItems(portfolioSource).map(normalizePortfolioItem);
+  getPortfolioItemSourceItems(expandCaseStudyPortfolioSource(portfolioSource)).map(normalizePortfolioItem);
 
 export const normalizeProofEntry = (entry = {}) => ({
   claim: normalizeText(entry.claim),
@@ -61,7 +62,7 @@ export const renderProofLines = (document, portfolioItems) => {
 
     const existingProof = card.querySelector('.portfolio-item-proof');
     if (existingProof) {
-      existingProof.textContent = `Proof of quality: ${proofLine}`;
+      existingProof.textContent = proofLine;
       renderedCount += 1;
       return;
     }
@@ -71,7 +72,7 @@ export const renderProofLines = (document, portfolioItems) => {
 
     const proofElement = document.createElement('p');
     proofElement.className = 'portfolio-item-proof';
-    proofElement.textContent = `Proof of quality: ${proofLine}`;
+    proofElement.textContent = proofLine;
     description.insertAdjacentElement('afterend', proofElement);
     renderedCount += 1;
   });
@@ -129,7 +130,7 @@ export const renderPortfolioItemCard = (document, portfolioItem, index = 0) => {
 
   const proof = document.createElement('p');
   proof.className = 'portfolio-item-proof';
-  proof.textContent = `Proof of quality: ${item.proof.visibleProofLine}`;
+  proof.textContent = item.proof.visibleProofLine;
 
   const actions = document.createElement('div');
   actions.className = 'card-actions';
@@ -181,7 +182,7 @@ export const createPortfolioAiContextData = ({
   generatedFrom,
   generatedAt = new Date().toISOString()
 }) => {
-  const portfolioItems = getPortfolioItemSourceItems(portfolioSource).map(createAiContextPortfolioItem);
+  const portfolioItems = getPortfolioItemSourceItems(expandCaseStudyPortfolioSource(portfolioSource)).map(createAiContextPortfolioItem);
 
   return {
     schemaVersion: PORTFOLIO_ITEM_SCHEMA_VERSION,

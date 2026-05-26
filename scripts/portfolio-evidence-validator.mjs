@@ -1,11 +1,16 @@
 import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
+import { expandCaseStudyPortfolioSource } from './case-study-source.mjs';
+import { isDeniedShippedArtifactPath, isPublicShippedArtifactPath } from './shipped-artifact-inventory.mjs';
 
 export const getPortfolioEvidenceItems = (portfolioData = {}) => {
   if (Array.isArray(portfolioData.portfolioItems)) return portfolioData.portfolioItems;
   if (Array.isArray(portfolioData.projects)) return portfolioData.projects;
   return [];
 };
+
+export const getExpandedPortfolioEvidenceItems = (portfolioData = {}) =>
+  getPortfolioEvidenceItems(expandCaseStudyPortfolioSource(portfolioData));
 
 const defaultAssetExists = async (absolutePath) => {
   try {
@@ -39,7 +44,7 @@ export const validatePortfolioEvidenceData = async ({
     }
   };
 
-  const portfolioSourceItems = getPortfolioEvidenceItems(portfolioSourceData);
+  const portfolioSourceItems = getExpandedPortfolioEvidenceItems(portfolioSourceData);
   if (portfolioSourceItems.length === 0) {
     failures.push('assets/data/portfolio-source.json: expected at least one Portfolio Item source record');
   }
@@ -76,6 +81,14 @@ export const validatePortfolioEvidenceData = async ({
       }
       if (!(await assetExists(targetPath))) {
         failures.push(`${label} references missing asset: ${value}`);
+      }
+    }
+
+    if (portfolioItem.sourceArtifact) {
+      if (isDeniedShippedArtifactPath(portfolioItem.sourceArtifact)) {
+        failures.push(`${label} references a denied shipped Artifact source type: ${portfolioItem.sourceArtifact}`);
+      } else if (!isPublicShippedArtifactPath(portfolioItem.sourceArtifact)) {
+        failures.push(`${label} sourceArtifact is outside the shipped Artifact Inventory: ${portfolioItem.sourceArtifact}`);
       }
     }
 
