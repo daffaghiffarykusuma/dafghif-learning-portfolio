@@ -1,6 +1,6 @@
 import { applyArtifactPreviewFramePolicy, resolveArtifactPreview } from './artifact-preview-policy.js';
 
-export function initPortfolioPreview(closeActiveModal = () => {}, { openHashOnInit = true } = {}) {
+export function initPortfolioPreview(closeActiveModal = () => {}, { openHashOnInit = true, updateHashOnOpen = true } = {}) {
     const pdfModal = document.getElementById('pdf-modal');
     const pdfModalTitle = document.getElementById('pdf-modal-title');
     const pdfIframe = document.getElementById('pdf-iframe');
@@ -70,7 +70,7 @@ export function initPortfolioPreview(closeActiveModal = () => {}, { openHashOnIn
         applyArtifactPreviewFramePolicy(pdfIframe, preview);
         pdfIframe.src = preview.src;
 
-        if (portfolioItemCard?.id && options.updateHash !== false) {
+        if (updateHashOnOpen && portfolioItemCard?.id && options.updateHash !== false) {
             history.pushState(null, '', `#${portfolioItemCard.id}`);
         }
 
@@ -96,7 +96,8 @@ export function initPortfolioPreview(closeActiveModal = () => {}, { openHashOnIn
     portfolioItemAnchorLinks.forEach((link) => {
         link.addEventListener('click', (event) => {
             const targetHash = new URL(link.href, window.location.href).hash;
-            const previewButton = portfolioItemFromHash(targetHash)?.querySelector('.view-details-button');
+            const previewButton = portfolioItemFromHash(targetHash)?.querySelector('.view-details-button')
+                || link.closest('.portfolio-item')?.querySelector('.view-details-button');
             if (!previewButton) return;
             event.preventDefault();
             event.stopPropagation();

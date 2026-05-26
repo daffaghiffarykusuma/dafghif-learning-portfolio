@@ -168,15 +168,59 @@ describe('production site system checks', () => {
   });
 
   test('keeps portfolio preview files reachable in the built site', async () => {
-    const { response, body } = await request('/portfolio.html');
-    expect(response.status).toBe(200);
+    const pages = [
+      '/portfolio.html',
+      '/case-administrative-communication.html',
+      '/case-learning-organization-strategy.html',
+      '/case-ybb-mentoring-workbook.html'
+    ];
+    const bodies = [];
 
-    const previewPaths = Array.from(body.matchAll(/\b(?:data-pdf|data-viewer)="([^"]+)"/g), (match) => `/${match[1]}`);
+    for (const page of pages) {
+      const { response, body } = await request(page);
+      expect(response.status, page).toBe(200);
+      bodies.push(body);
+    }
+
+    const previewPaths = bodies.flatMap((body) =>
+      Array.from(body.matchAll(/\b(?:data-pdf|data-viewer)="([^"]+)"/g), (match) => `/${match[1]}`)
+    );
     expect(previewPaths.length).toBeGreaterThan(0);
 
     for (const previewPath of previewPaths.slice(0, 20)) {
       const preview = await fetch(`${baseUrl}${previewPath}`);
       expect(preview.status, previewPath).toBe(200);
     }
+  });
+
+  test('keeps generated case-study artifact UI and AI metadata discoverable in production', async () => {
+    const pages = [
+      '/case-administrative-communication.html',
+      '/case-learning-organization-strategy.html',
+      '/case-ybb-mentoring-workbook.html'
+    ];
+
+    for (const page of pages) {
+      const { response, body } = await request(page);
+      expect(response.status, page).toBe(200);
+      expect(body, page).toContain('case-artifact-card');
+      expect(body, page).toContain('View Details');
+      expect(body, page).toContain('rel="alternate"');
+      const metadataHref = body.match(/<link href="([^"]+\.json)" rel="alternate" title="Portfolio AI Context" type="application\/json">/)?.[1];
+      expect(metadataHref, page).toBeTruthy();
+      expect(body, page).not.toContain('Open PDF artifact');
+      expect(body, page).not.toContain('Open Artifact Preview');
+    }
+
+    const { body: firstPageBody } = await request(pages[0]);
+    const metadataHref = firstPageBody.match(/<link href="([^"]+\.json)" rel="alternate" title="Portfolio AI Context" type="application\/json">/)?.[1];
+    const metadataPath = `/${metadataHref.replace(/^\.\//, '')}`;
+    const { response, body } = await request(metadataPath);
+    expect(response.status).toBe(200);
+    const aiContext = JSON.parse(body);
+    expect(aiContext.portfolioItemCount).toBe(62);
+    expect(aiContext.caseStudyArtifactCount).toBeGreaterThan(0);
+    expect(aiContext.portfolioItems.find((item) => item.id === 'case-administrative-communication-learning-program').caseStudyArtifacts)
+      .toHaveLength(7);
   });
 });

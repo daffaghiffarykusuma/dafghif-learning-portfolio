@@ -14,7 +14,17 @@ export const siteNavItems = Object.freeze([
   Object.freeze({ href: 'contact.html', label: 'Contact' })
 ]);
 
-export const renderStylesheetLinks = () => `<link rel="stylesheet" href="css/style.css">
+export const portfolioAiContextMetadataLink = Object.freeze({
+  href: 'assets/data/portfolio-ai-context.json',
+  rel: 'alternate',
+  title: 'Portfolio AI Context',
+  type: 'application/json'
+});
+
+export const renderMetadataLink = ({ href = '', rel = '', title = '', type = '' } = {}) =>
+  `<link href="${escapeHtml(href)}" rel="${escapeHtml(rel)}" title="${escapeHtml(title)}" type="${escapeHtml(type)}">`;
+
+export const renderStylesheetLinks = ({ metadataLinks = [] } = {}) => `${metadataLinks.map(renderMetadataLink).join('\n  ')}${metadataLinks.length ? '\n  ' : ''}<link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/improvements.css">
   <link rel="stylesheet" href="css/dark-mode.css">`;
 
@@ -58,12 +68,25 @@ export const renderSimpleGeneratedSiteFooter = () => `<footer>
         </div>
     </footer>`;
 
+export const renderArtifactPreviewModal = () => `<div aria-labelledby="pdf-modal-title" aria-modal="true" class="pdf-modal" hidden id="pdf-modal" role="dialog">
+    <div class="pdf-modal-content" role="document">
+      <div class="pdf-modal-header">
+        <button type="button" class="close-modal js-close-modal" aria-label="Close artifact preview"></button>
+        <h2 id="pdf-modal-title">Portfolio Item Details</h2>
+      </div>
+      <div class="pdf-modal-body">
+        <iframe frameborder="0" height="500px" id="pdf-iframe" referrerpolicy="same-origin" src="" title="Artifact preview" width="100%"></iframe>
+      </div>
+    </div>
+  </div>`;
+
 export const renderGeneratedHtmlDocument = ({
   title,
   description,
   currentPage = '',
   main,
-  footer = renderGeneratedSiteFooter()
+  footer = renderGeneratedSiteFooter(),
+  metadataLinks = []
 } = {}) => `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,7 +94,7 @@ export const renderGeneratedHtmlDocument = ({
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(description)}">
-  ${renderStylesheetLinks()}
+  ${renderStylesheetLinks({ metadataLinks })}
 </head>
 <body>
   <a href="#main-content" class="skip-nav">Skip to main content</a>

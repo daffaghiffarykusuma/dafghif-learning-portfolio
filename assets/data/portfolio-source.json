@@ -65,43 +65,113 @@
           "title": "Administrative Communication Training Needs Analysis",
           "description": "Pinpoints workplace communication gaps and converts them into training priorities.",
           "href": "assets/pdf/portfolio/bnsp4_training_need_analysis.pdf",
-          "linkLabel": "Open PDF artifact"
+          "id": "artifact-bnsp4-training-need-analysis",
+          "sourceType": "pdf",
+          "practiceArea": "Training Needs Analysis",
+          "tags": [
+            "training-needs-analysis",
+            "instructional-design"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/bnsp4-training-need-analysis.webp",
+            "alt": "Administrative Communication Training Needs Analysis thumbnail"
+          }
         },
         {
           "title": "Competency-Based Communication Training Proposal",
           "description": "Turns the diagnosis into a structured program proposal.",
           "href": "assets/pdf/portfolio/bnsp4_program_proposal.pdf",
-          "linkLabel": "Open PDF artifact"
+          "id": "artifact-bnsp4-program-proposal",
+          "sourceType": "pdf",
+          "practiceArea": "Training Proposal",
+          "tags": [
+            "training-proposal",
+            "instructional-design"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/bnsp4-program-proposal.webp",
+            "alt": "Competency-Based Communication Training Proposal thumbnail"
+          }
         },
         {
           "title": "Administrative Communication Lesson Plan",
           "description": "Maps 36 learning hours into sessions, OJT practice, and competency evidence.",
           "href": "assets/pdf/portfolio/bnsp4_lesson_plan.pdf",
-          "linkLabel": "Open PDF artifact"
+          "id": "artifact-bnsp4-lesson-plan",
+          "sourceType": "pdf",
+          "practiceArea": "Instructional Design",
+          "tags": [
+            "instructional-design",
+            "curriculum-development"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/bnsp4-lesson-plan.webp",
+            "alt": "Administrative Communication Lesson Plan thumbnail"
+          }
         },
         {
           "title": "Communication Confidence Training Deck",
           "description": "Provides facilitator-ready material for workplace communication practice.",
           "href": "assets/pdf/portfolio/bnsp4_materi_pelatihan.pdf",
-          "linkLabel": "Open PDF artifact"
+          "id": "artifact-bnsp4-materi-pelatihan",
+          "sourceType": "pdf",
+          "practiceArea": "Learning Materials",
+          "tags": [
+            "learning-materials",
+            "presentation-design"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/bnsp4-materi-pelatihan.webp",
+            "alt": "Communication Confidence Training Deck thumbnail"
+          }
         },
         {
           "title": "Communication Skills Post-Test Form",
           "description": "Measures learner understanding against the training objectives.",
           "href": "assets/pdf/portfolio/bnsp4_form_soal_post_test.pdf",
-          "linkLabel": "Open PDF artifact"
+          "id": "artifact-bnsp4-form-soal-post-test",
+          "sourceType": "pdf",
+          "practiceArea": "Assessment & Evaluation",
+          "tags": [
+            "assessment",
+            "learning-evaluation"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/bnsp4-form-soal-post-test.webp",
+            "alt": "Communication Skills Post-Test Form thumbnail"
+          }
         },
         {
           "title": "Training Feedback Form: Level 1 Reaction",
           "description": "Captures participant reaction data for program improvement.",
           "href": "assets/pdf/portfolio/bnsp4_form_feedback.pdf",
-          "linkLabel": "Open PDF artifact"
+          "id": "artifact-bnsp4-form-feedback",
+          "sourceType": "pdf",
+          "practiceArea": "Assessment & Evaluation",
+          "tags": [
+            "assessment",
+            "learning-evaluation"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/bnsp4-form-feedback.webp",
+            "alt": "Training Feedback Form: Level 1 Reaction thumbnail"
+          }
         },
         {
           "title": "Communication Observation Form and Performance Rubric",
           "description": "Assesses behavior transfer through observable tasks and rubric evidence.",
           "href": "assets/pdf/portfolio/bnsp4_form_observasi_dan_rubrik_penilaian.pdf",
-          "linkLabel": "Open PDF artifact"
+          "id": "artifact-bnsp4-observation-rubric",
+          "sourceType": "pdf",
+          "practiceArea": "Assessment & Evaluation",
+          "tags": [
+            "assessment",
+            "learning-evaluation"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/bnsp4-observation-rubric.webp",
+            "alt": "Communication Observation Form and Performance Rubric thumbnail"
+          }
         }
       ]
     },
@@ -173,49 +243,129 @@
           "title": "Macro Training Needs Analysis: DKI Jakarta",
           "description": "Synthesizes labor-market signals into practical training priorities.",
           "href": "assets/pdf/portfolio/bnsp6_kebutuhan_pelatihan_makro.pdf",
-          "linkLabel": "Open PDF artifact"
+          "id": "artifact-bnsp6-kebutuhan-pelatihan-makro",
+          "sourceType": "pdf",
+          "practiceArea": "Training Needs Analysis",
+          "tags": [
+            "training-needs-analysis",
+            "learning-strategy"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/bnsp6-kebutuhan-pelatihan-makro.webp",
+            "alt": "Macro Training Needs Analysis: DKI Jakarta thumbnail"
+          }
         },
         {
           "title": "Competency Matrix for Training Organization",
           "description": "Maps organizational capability against program priorities.",
           "href": "assets/pdf/portfolio/bnsp6_matriks_kompetensi.pdf",
-          "linkLabel": "Open PDF artifact"
+          "id": "artifact-bnsp6-matriks-kompetensi",
+          "sourceType": "pdf",
+          "practiceArea": "Curriculum Development",
+          "tags": [
+            "curriculum-development",
+            "competency-mapping"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/bnsp6-matriks-kompetensi.webp",
+            "alt": "Competency Matrix for Training Organization thumbnail"
+          }
         },
         {
           "title": "Competency-Based Training Syllabus",
           "description": "Connects competency standards, delivery design, and evidence of learning.",
           "href": "assets/pdf/portfolio/bnsp6_silabus_pelatihan_berbasis_kompetensi.pdf",
-          "linkLabel": "Open PDF artifact"
+          "id": "artifact-bnsp6-silabus-pelatihan",
+          "sourceType": "pdf",
+          "practiceArea": "Curriculum Development",
+          "tags": [
+            "curriculum-development",
+            "instructional-design"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/bnsp6-silabus-pelatihan.webp",
+            "alt": "Competency-Based Training Syllabus thumbnail"
+          }
         },
         {
           "title": "Learning Business Plan: Eighteen Rekrutmen Asia",
           "description": "Frames a learning business roadmap around employability and organizational capability services.",
           "href": "assets/pdf/portfolio/bnsp6_business_plan.pdf",
-          "linkLabel": "Open PDF artifact"
+          "id": "artifact-bnsp6-business-plan",
+          "sourceType": "pdf",
+          "practiceArea": "L&D Strategy",
+          "tags": [
+            "learning-strategy",
+            "training-proposal"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/bnsp6-business-plan.webp",
+            "alt": "Learning Business Plan: Eighteen Rekrutmen Asia thumbnail"
+          }
         },
         {
           "title": "Marketing Plan for Training Solutions",
           "description": "Connects learning portfolio positioning with demand generation and retention strategy.",
           "href": "assets/pdf/portfolio/bnsp6_marketing_plan.pdf",
-          "linkLabel": "Open PDF artifact"
+          "id": "artifact-bnsp6-marketing-plan",
+          "sourceType": "pdf",
+          "practiceArea": "L&D Strategy",
+          "tags": [
+            "learning-strategy",
+            "training-proposal"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/bnsp6-marketing-plan.webp",
+            "alt": "Marketing Plan for Training Solutions thumbnail"
+          }
         },
         {
           "title": "Training Budget and ROTI Calculator",
           "description": "Models training investment, budget logic, and return on training impact.",
           "href": "assets/portfolio-viewers/bnsp6-rab-roti-pelatihan.html",
-          "linkLabel": "Open Artifact Preview"
+          "id": "artifact-bnsp6-rab-roti-pelatihan",
+          "sourceType": "html-viewer",
+          "practiceArea": "Learning Analytics",
+          "tags": [
+            "learning-analytics",
+            "worksheet"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/bnsp6-rab-roti-pelatihan.webp",
+            "alt": "Training Budget and ROTI Calculator thumbnail"
+          }
         },
         {
           "title": "Kirkpatrick Level 1 Reaction Dashboard",
           "description": "Transforms participant reaction forms into a dashboard for training experience decisions.",
           "href": "assets/portfolio-viewers/bnsp6-evaluation-level1-reaction.html",
-          "linkLabel": "Open Artifact Preview"
+          "id": "artifact-bnsp6-evaluation-level1-reaction",
+          "sourceType": "html-viewer",
+          "practiceArea": "Learning Analytics",
+          "tags": [
+            "learning-analytics",
+            "learning-evaluation"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/bnsp6-evaluation-level1-reaction.webp",
+            "alt": "Kirkpatrick Level 1 Reaction Dashboard thumbnail"
+          }
         },
         {
           "title": "Kirkpatrick Level 2 Learning Dashboard",
           "description": "Combines question bank, learner response form, and analysis dashboard to track learning gains.",
           "href": "assets/portfolio-viewers/bnsp6-evaluation-level2-learning.html",
-          "linkLabel": "Open Artifact Preview"
+          "id": "artifact-bnsp6-evaluation-level2-learning",
+          "sourceType": "html-viewer",
+          "practiceArea": "Learning Analytics",
+          "tags": [
+            "learning-analytics",
+            "learning-evaluation"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/bnsp6-evaluation-level2-learning.webp",
+            "alt": "Kirkpatrick Level 2 Learning Dashboard thumbnail"
+          }
         }
       ]
     },
@@ -285,25 +435,68 @@
           "title": "Mentoring Workbook: Week 1 Idea Exploration",
           "description": "Guides mentees from individual SDG ideas into a shared problem statement and early project direction.",
           "href": "assets/portfolio-viewers/ybb-mentoring-workbook-week-1.html",
-          "linkLabel": "Open Artifact Preview"
+          "id": "artifact-ybb-mentoring-workbook-week-1",
+          "sourceType": "html-viewer",
+          "practiceArea": "Mentoring & Coaching",
+          "tags": [
+            "worksheet",
+            "mentoring",
+            "learning-materials"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/ybb-mentoring-workbook-week-1.webp",
+            "alt": "Mentoring Workbook: Week 1 Idea Exploration thumbnail"
+          }
         },
         {
           "title": "Mentoring Workbook: Week 2 Concept Development",
           "description": "Uses SDG voting, reality checks, and project canvases to move a diverse team toward one feasible concept.",
           "href": "assets/portfolio-viewers/ybb-mentoring-workbook-week-2.html",
-          "linkLabel": "Open Artifact Preview"
+          "id": "artifact-ybb-mentoring-workbook-week-2",
+          "sourceType": "html-viewer",
+          "practiceArea": "Mentoring & Coaching",
+          "tags": [
+            "worksheet",
+            "mentoring",
+            "learning-materials"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/ybb-mentoring-workbook-week-2.webp",
+            "alt": "Mentoring Workbook: Week 2 Concept Development thumbnail"
+          }
         },
         {
           "title": "Mentoring Workbook: Week 3 Presentation Readiness",
           "description": "Tracks evidence, ownership, and slide readiness so a student team can sharpen its final project deck.",
           "href": "assets/portfolio-viewers/ybb-mentoring-workbook-week-3.html",
-          "linkLabel": "Open Artifact Preview"
+          "id": "artifact-ybb-mentoring-workbook-week-3",
+          "sourceType": "html-viewer",
+          "practiceArea": "Mentoring & Coaching",
+          "tags": [
+            "worksheet",
+            "mentoring",
+            "learning-materials"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/ybb-mentoring-workbook-week-3.webp",
+            "alt": "Mentoring Workbook: Week 3 Presentation Readiness thumbnail"
+          }
         },
         {
           "title": "Pitch Deck Template: Week 4",
           "description": "A 16-slide final pitch structure that helps mentees present problem, evidence, solution, impact, and sustainability.",
           "href": "assets/portfolio-viewers/ybb-pitch-deck-template-week-4.html",
-          "linkLabel": "Open Artifact Preview"
+          "id": "artifact-ybb-pitch-deck-template-week-4",
+          "sourceType": "html-viewer",
+          "practiceArea": "Presentation Design",
+          "tags": [
+            "presentation-design",
+            "mentoring"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/ybb-pitch-deck-template-week-4.webp",
+            "alt": "Pitch Deck Template: Week 4 thumbnail"
+          }
         }
       ]
     }

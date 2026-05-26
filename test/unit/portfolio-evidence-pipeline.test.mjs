@@ -9,6 +9,8 @@ import {
   serializePortfolioDocument
 } from '../../scripts/portfolio-evidence-pipeline.mjs';
 import {
+  createCaseStudyArtifactMetadata,
+  createCaseStudyArtifactPreviewModel,
   createCaseStudyPortfolioItem,
   expandCaseStudyPortfolioSource
 } from '../../scripts/case-study-model.mjs';
@@ -281,6 +283,35 @@ describe('Portfolio Evidence Pipeline', () => {
     ]);
   });
 
+  test('normalizes Case Study Artifact preview and metadata contracts from one model interface', () => {
+    const artifact = {
+      title: 'Needs Analysis',
+      description: 'Defines the learning gap.',
+      href: 'assets/pdf/portfolio/needs.pdf',
+      practiceArea: 'Training Needs Analysis',
+      tags: ['training-needs-analysis'],
+      image: { src: 'assets/images/portfolio/needs.webp' }
+    };
+
+    expect(createCaseStudyArtifactPreviewModel(artifact)).toMatchObject({
+      id: 'artifact-needs-analysis',
+      title: 'Needs Analysis',
+      sourceType: 'pdf',
+      categories: 'training-needs-analysis',
+      previewDataset: { pdf: 'assets/pdf/portfolio/needs.pdf' },
+      image: {
+        src: 'assets/images/portfolio/needs.webp',
+        alt: 'Needs Analysis'
+      }
+    });
+    expect(createCaseStudyArtifactMetadata({ id: 'case-sample' }, artifact)).toMatchObject({
+      id: 'artifact-needs-analysis',
+      parentCaseStudy: 'case-sample',
+      sourceArtifact: 'assets/pdf/portfolio/needs.pdf',
+      sourceType: 'pdf'
+    });
+  });
+
   test('renders a Case Study index page that links grouped case studies as first-class pages', () => {
     const html = renderCaseStudyIndexHtml([
       {
@@ -328,10 +359,17 @@ describe('Portfolio Evidence Pipeline', () => {
       caseFlow: [{ label: 'Diagnose', value: 'Review the learning need.' }],
       artifacts: [
         {
+          id: 'artifact-needs-analysis',
           title: 'Needs Analysis',
           description: 'Defines the learning gap.',
-          href: '../pdf/portfolio/needs.pdf',
-          linkLabel: 'Open PDF artifact'
+          href: 'assets/pdf/portfolio/needs.pdf',
+          sourceType: 'pdf',
+          practiceArea: 'Training Needs Analysis',
+          tags: ['training-needs-analysis', 'instructional-design'],
+          image: {
+            src: 'assets/images/portfolio/needs.webp',
+            alt: 'Needs analysis artifact thumbnail'
+          }
         }
       ]
     });
@@ -346,10 +384,70 @@ describe('Portfolio Evidence Pipeline', () => {
     expect(html).toContain('class="service-cta generated-case-cta"');
     expect(html).not.toContain('class="service-trustband"');
     expect(html).toContain('<strong>Evidence limit:</strong> Direct outcomes are not claimed.');
-    expect(html).toContain('<h3>Needs Analysis</h3>');
+    expect(html).toContain('id="artifact-needs-analysis"');
+    expect(html).toContain('class="card portfolio-item case-artifact-card"');
+    expect(html).toContain('src="assets/images/portfolio/needs.webp"');
+    expect(html).toContain('data-category="training-needs-analysis instructional-design"');
+    expect(html).toContain('<button class="view-details-button" type="button" data-pdf="assets/pdf/portfolio/needs.pdf">View Details</button>');
+    expect(html).not.toContain('href="assets/pdf/portfolio/needs.pdf"');
+    expect(html).not.toContain('Open PDF artifact');
     expect(html).toContain('Discuss a Similar Case');
     expect(html).not.toContain('Proof of quality:');
     expect(html).not.toContain('<style>');
+  });
+
+  test('adds nested Case Study Artifact metadata without changing Portfolio Item count', () => {
+    const aiContextData = createPortfolioAiContextData({
+      portfolioSource: {
+        portfolioItemCount: 1,
+        portfolioItems: [],
+        caseStudies: [
+          {
+            id: 'case-sample-learning-program',
+            title: 'Sample Learning Program',
+            portfolioItemTitle: 'Sample Learning Program Case Study',
+            practiceArea: 'Instructional Design',
+            tags: ['instructional-design'],
+            description: 'Combines diagnosis and design artifacts into one case.',
+            image: { src: 'assets/images/portfolio/sample.webp', alt: 'Sample thumbnail' },
+            artifacts: [
+              {
+                id: 'artifact-needs-analysis',
+                title: 'Needs Analysis',
+                description: 'Defines the learning gap.',
+                href: 'assets/pdf/portfolio/needs.pdf',
+                sourceType: 'pdf',
+                practiceArea: 'Training Needs Analysis',
+                tags: ['training-needs-analysis'],
+                image: { src: 'assets/images/portfolio/needs.webp', alt: 'Needs thumbnail' }
+              }
+            ]
+          }
+        ]
+      },
+      generatedFrom: 'assets/data/portfolio-items.json',
+      generatedAt: '2026-05-26T00:00:00.000Z'
+    });
+
+    expect(aiContextData.portfolioItemCount).toBe(1);
+    expect(aiContextData.caseStudyArtifactCount).toBe(1);
+    expect(aiContextData.portfolioItems).toHaveLength(1);
+    expect(aiContextData.portfolioItems[0].caseStudyArtifacts).toEqual([
+      expect.objectContaining({
+        id: 'artifact-needs-analysis',
+        title: 'Needs Analysis',
+        practiceArea: 'Training Needs Analysis',
+        tags: ['training-needs-analysis'],
+        publicDescription: 'Defines the learning gap.',
+        sourceArtifact: 'assets/pdf/portfolio/needs.pdf',
+        sourceType: 'pdf',
+        parentCaseStudy: 'case-sample-learning-program',
+        image: {
+          src: 'assets/images/portfolio/needs.webp',
+          alt: 'Needs thumbnail'
+        }
+      })
+    ]);
   });
 
   test('renders standalone Case Study page outputs from Portfolio Source case definitions', () => {

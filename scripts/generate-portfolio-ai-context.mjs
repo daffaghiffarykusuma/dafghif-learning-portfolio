@@ -3,11 +3,14 @@ import path from 'node:path';
 import { createPortfolioAiContextData } from './portfolio-evidence-pipeline.mjs';
 
 const portfolioSourcePath = 'assets/data/portfolio-items.json';
+const caseStudySourcePath = 'assets/data/portfolio-source.json';
 const outputPath = 'assets/data/portfolio-ai-context.json';
 
 const portfolioSource = JSON.parse(await readFile(portfolioSourcePath, 'utf8'));
+const caseStudySource = JSON.parse(await readFile(caseStudySourcePath, 'utf8'));
 const data = createPortfolioAiContextData({
   portfolioSource,
+  caseStudySource,
   generatedFrom: portfolioSourcePath,
 });
 

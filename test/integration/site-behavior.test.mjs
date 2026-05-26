@@ -95,6 +95,8 @@ describe('site browser behavior', () => {
       'Mentoring Workbook: Week 3 Presentation Readiness',
       'Pitch Deck Template: Week 4'
     ]);
+    expect(document.querySelector('link[rel="alternate"][type="application/json"]')?.getAttribute('href'))
+      .toBe('assets/data/portfolio-ai-context.json');
   });
 
   test('generated case study hero meta text keeps readable dark-mode contrast', async () => {
@@ -120,16 +122,33 @@ describe('site browser behavior', () => {
     expect(caseCards.every((card) => card.querySelector('a.view-details-button').textContent === 'Read Case Study')).toBe(true);
   });
 
-  test('case study artifact links can open PDF artifacts outside the preview frame', async () => {
-    const html = await readPage('assets/portfolio-viewers/bnsp4-administrative-communication-case-study.html');
-    createDom(html, 'http://127.0.0.1/assets/portfolio-viewers/bnsp4-administrative-communication-case-study.html');
+  test('case study artifact cards open same-origin previews without visible direct artifact links', async () => {
+    const html = await readPage('case-administrative-communication.html');
+    const window = createDom(html, 'http://127.0.0.1/case-administrative-communication.html');
+    globalThis.console = window.console;
 
-    const pdfLinks = Array.from(document.querySelectorAll('a[href$=".pdf"]'));
+    await importFresh('../../js/script.js');
+    fireDOMContentLoaded();
 
-    expect(pdfLinks.length).toBeGreaterThan(0);
-    expect(pdfLinks.every((link) => link.target === '_blank')).toBe(true);
-    expect(pdfLinks.every((link) => link.relList.contains('noopener'))).toBe(true);
-    expect(pdfLinks.every((link) => link.relList.contains('noreferrer'))).toBe(true);
+    const artifactCards = Array.from(document.querySelectorAll('.case-artifact-card'));
+    expect(artifactCards.length).toBe(7);
+    expect(artifactCards[0].querySelector('.card-image img').getAttribute('src'))
+      .toBe('assets/images/portfolio/bnsp4-training-need-analysis.webp');
+    expect(document.querySelectorAll('.generated-case-artifacts a[href$=".pdf"]').length).toBe(0);
+    expect(document.querySelector('.generated-case-artifacts').textContent).not.toContain('Open PDF artifact');
+
+    const firstButton = artifactCards[0].querySelector('.view-details-button');
+    expect(firstButton.dataset.pdf).toBe('assets/pdf/portfolio/bnsp4_training_need_analysis.pdf');
+    firstButton.click();
+
+    expect(document.getElementById('pdf-modal').hidden).toBe(false);
+    expect(document.getElementById('pdf-modal-title').textContent).toBe('Administrative Communication Training Needs Analysis');
+    expect(document.getElementById('pdf-iframe').src).toContain('/assets/pdf/portfolio/bnsp4_training_need_analysis.pdf#toolbar=0');
+
+    document.querySelector('.close-modal').click();
+    artifactCards[1].querySelector('.portfolio-item-thumbnail-link').click();
+    expect(document.getElementById('pdf-modal').hidden).toBe(false);
+    expect(document.getElementById('pdf-modal-title').textContent).toBe('Competency-Based Communication Training Proposal');
   });
 
   test('portfolio page ignores malformed hash selectors without aborting initialization', async () => {

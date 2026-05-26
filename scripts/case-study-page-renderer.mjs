@@ -1,7 +1,9 @@
 import { normalizeText } from './portfolio-item-catalog.mjs';
-import { getCaseStudyPagePath, getCaseStudySources, normalizeArtifact } from './case-study-model.mjs';
+import { createCaseStudyArtifactPreviewModel, getCaseStudyPagePath, getCaseStudySources } from './case-study-model.mjs';
 import {
   escapeHtml,
+  portfolioAiContextMetadataLink,
+  renderArtifactPreviewModal,
   renderGeneratedHtmlDocument
 } from './generated-site-chrome.mjs';
 
@@ -29,15 +31,31 @@ const renderApproachSteps = (items = []) =>
                         </li>`)
     .join('\n                        ');
 
+const previewAttribute = (previewDataset = {}) =>
+  previewDataset.pdf
+    ? `data-pdf="${escapeHtml(previewDataset.pdf)}"`
+    : `data-viewer="${escapeHtml(previewDataset.viewer)}"`;
+
 const renderArtifactItems = (artifacts = []) =>
   artifacts
     .map((artifact) => {
-      const item = normalizeArtifact(artifact);
-      return `<article>
-          <h3>${escapeHtml(item.title)}</h3>
-          <p>${escapeHtml(item.description)}</p>
-          <a href="${escapeHtml(item.href)}"${item.href.startsWith('http') || item.href.endsWith('.pdf') ? ' target="_blank" rel="noopener noreferrer"' : ''}>${escapeHtml(item.linkLabel)}</a>
-        </article>`;
+      const item = createCaseStudyArtifactPreviewModel(artifact);
+      const previewData = previewAttribute(item.previewDataset);
+      return `<article id="${escapeHtml(item.id)}" class="card portfolio-item case-artifact-card" data-category="${escapeHtml(item.categories)}" data-portfolio-item-id="${escapeHtml(item.id)}">
+            <div class="card-image">
+              <a class="portfolio-item-thumbnail-link" href="#${escapeHtml(item.id)}" aria-label="Preview ${escapeHtml(item.title)}">
+                <img src="${escapeHtml(item.image.src)}" alt="${escapeHtml(item.image.alt)}" loading="lazy" decoding="async">
+              </a>
+            </div>
+            <div class="card-content">
+              <h3><a class="portfolio-item-title-link" href="#${escapeHtml(item.id)}">${escapeHtml(item.title)}</a></h3>
+              ${item.practiceArea ? `<span class="portfolio-item-practice-label">${escapeHtml(item.practiceArea)}</span>` : ''}
+              <p>${escapeHtml(item.description)}</p>
+              <div class="card-actions">
+                <button class="view-details-button" type="button" ${previewData}>View Details</button>
+              </div>
+            </div>
+          </article>`;
     })
     .join('\n        ');
 
@@ -115,6 +133,8 @@ export const renderCaseStudyHtml = (caseStudy = {}) => {
       </div>
     </section>
 
+    ${renderArtifactPreviewModal()}
+
     <section class="service-cta generated-case-cta">
       <div class="container text-center">
         <h2 class="section-title">Discuss a Similar Case</h2>
@@ -128,7 +148,8 @@ export const renderCaseStudyHtml = (caseStudy = {}) => {
     title: caseStudy.documentTitle || title,
     description: caseStudy.description || caseStudy.summary,
     currentPage: pagePath,
-    main
+    main,
+    metadataLinks: [portfolioAiContextMetadataLink]
   });
 };
 

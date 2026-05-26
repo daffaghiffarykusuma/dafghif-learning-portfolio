@@ -1,3 +1,4 @@
+import { hasCaseStudyArtifactPreviews, initCaseStudyPage } from './case-study-page.js';
 import { initContactPage } from './contact-page.js';
 import { initPortfolioPage } from './portfolio-page.js';
 import { initSharedPage } from './shared-page.js';
@@ -10,6 +11,10 @@ export function initCurrentPage({ pathname = window.location.pathname } = {}) {
     const pageName = pageNameFromPath(pathname);
     if (pageName === 'portfolio.html') {
         return initPortfolioPage();
+    }
+
+    if (hasCaseStudyArtifactPreviews()) {
+        return initCaseStudyPage();
     }
 
     if (pageName === 'contact.html') {

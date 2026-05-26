@@ -9,7 +9,7 @@ import {
   parsePortfolioItemsFromDocument,
   practiceAreaProfiles
 } from './portfolio-item-catalog.mjs';
-import { expandCaseStudyPortfolioSource } from './case-study-model.mjs';
+import { expandCaseStudyPortfolioSource, getCaseStudyArtifactMetadata, getCaseStudySources } from './case-study-model.mjs';
 
 export const createPortfolioDocument = (html) => {
   const window = new Window();
@@ -187,10 +187,23 @@ export const serializePortfolioDocument = (document) => `<!DOCTYPE html>\n${docu
 
 export const createPortfolioAiContextData = ({
   portfolioSource,
+  caseStudySource,
   generatedFrom,
   generatedAt = new Date().toISOString()
 }) => {
   const portfolioItems = getPortfolioItemSourceItems(expandCaseStudyPortfolioSource(portfolioSource)).map(createAiContextPortfolioItem);
+  const caseStudyArtifactsByParent = new Map(
+    getCaseStudySources(caseStudySource || portfolioSource).map((caseStudy) => [
+      normalizeText(caseStudy.id),
+      getCaseStudyArtifactMetadata(caseStudy)
+    ])
+  );
+  const portfolioItemsWithCaseArtifacts = portfolioItems.map((item) => {
+    const caseStudyArtifacts = caseStudyArtifactsByParent.get(item.id) || [];
+    return caseStudyArtifacts.length ? { ...item, caseStudyArtifacts } : item;
+  });
+  const caseStudyArtifactCount = [...caseStudyArtifactsByParent.values()]
+    .reduce((count, artifacts) => count + artifacts.length, 0);
 
   return {
     schemaVersion: PORTFOLIO_ITEM_SCHEMA_VERSION,
@@ -204,8 +217,9 @@ export const createPortfolioAiContextData = ({
     evidenceNote:
       'Portfolio item titles, practice areas, descriptions, tags, source artifact paths, proof points, and outcome evidence are read from structured portfolio sources. Outcome evidence is limited to direct Proof Point impact entries. Role, audience, deliverables, skills, tools, AI hints, and CV bullets may include inferred fields and should be refined when exact Portfolio Item details are available.',
     portfolioItemCount: portfolioItems.length,
+    caseStudyArtifactCount,
     practiceAreaProfiles,
-    portfolioItems
+    portfolioItems: portfolioItemsWithCaseArtifacts
   };
 };
 
@@ -234,6 +248,7 @@ export const createPortfolioEvidencePipeline = ({
     serializeDocument: () => serializePortfolioDocument(document),
     createAiContextData: (options = {}) => createPortfolioAiContextData({
       portfolioSource: catalogData,
+      caseStudySource: portfolioSource,
       generatedFrom: options.generatedFrom || generatedFrom,
       generatedAt: options.generatedAt || generatedAt
     })

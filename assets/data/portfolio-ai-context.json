@@ -1,12 +1,13 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-items.json",
-  "generatedAt": "2026-05-26T09:02:50.872Z",
+  "generatedAt": "2026-05-26T14:31:39.361Z",
   "owner": "Daffa Ghiffary Kusuma",
   "positioning": "Learning Designer and Program Manager focused on competency-based training, learning assets, evaluation systems, mentoring, and learning analytics.",
   "usage": "Use this file as AI-readable context for tailored CVs, cover letters, recruiter summaries, and portfolio item matching when the original portfolio artifacts are unavailable.",
   "evidenceNote": "Portfolio item titles, practice areas, descriptions, tags, source artifact paths, proof points, and outcome evidence are read from structured portfolio sources. Outcome evidence is limited to direct Proof Point impact entries. Role, audience, deliverables, skills, tools, AI hints, and CV bullets may include inferred fields and should be refined when exact Portfolio Item details are available.",
   "portfolioItemCount": 62,
+  "caseStudyArtifactCount": 19,
   "practiceAreaProfiles": {
     "Training Needs Analysis": {
       "defaultRole": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
@@ -260,7 +261,128 @@
           "impact": []
         },
         "cvBullet": "Designed Administrative Communication Learning Program Case Study as a instructional design portfolio item, creating practical context for working professionals, with a non-proof AI application hint: Clarified the real performance gap before investing in training design or delivery."
-      }
+      },
+      "caseStudyArtifacts": [
+        {
+          "id": "artifact-bnsp4-training-need-analysis",
+          "title": "Administrative Communication Training Needs Analysis",
+          "practiceArea": "Training Needs Analysis",
+          "tags": [
+            "training-needs-analysis",
+            "instructional-design"
+          ],
+          "publicDescription": "Pinpoints workplace communication gaps and converts them into training priorities.",
+          "sourceArtifact": "assets/pdf/portfolio/bnsp4_training_need_analysis.pdf",
+          "sourceType": "pdf",
+          "parentCaseStudy": "case-administrative-communication-learning-program",
+          "image": {
+            "src": "assets/images/portfolio/bnsp4-training-need-analysis.webp",
+            "alt": "Administrative Communication Training Needs Analysis thumbnail"
+          }
+        },
+        {
+          "id": "artifact-bnsp4-program-proposal",
+          "title": "Competency-Based Communication Training Proposal",
+          "practiceArea": "Training Proposal",
+          "tags": [
+            "training-proposal",
+            "instructional-design"
+          ],
+          "publicDescription": "Turns the diagnosis into a structured program proposal.",
+          "sourceArtifact": "assets/pdf/portfolio/bnsp4_program_proposal.pdf",
+          "sourceType": "pdf",
+          "parentCaseStudy": "case-administrative-communication-learning-program",
+          "image": {
+            "src": "assets/images/portfolio/bnsp4-program-proposal.webp",
+            "alt": "Competency-Based Communication Training Proposal thumbnail"
+          }
+        },
+        {
+          "id": "artifact-bnsp4-lesson-plan",
+          "title": "Administrative Communication Lesson Plan",
+          "practiceArea": "Instructional Design",
+          "tags": [
+            "instructional-design",
+            "curriculum-development"
+          ],
+          "publicDescription": "Maps 36 learning hours into sessions, OJT practice, and competency evidence.",
+          "sourceArtifact": "assets/pdf/portfolio/bnsp4_lesson_plan.pdf",
+          "sourceType": "pdf",
+          "parentCaseStudy": "case-administrative-communication-learning-program",
+          "image": {
+            "src": "assets/images/portfolio/bnsp4-lesson-plan.webp",
+            "alt": "Administrative Communication Lesson Plan thumbnail"
+          }
+        },
+        {
+          "id": "artifact-bnsp4-materi-pelatihan",
+          "title": "Communication Confidence Training Deck",
+          "practiceArea": "Learning Materials",
+          "tags": [
+            "learning-materials",
+            "presentation-design"
+          ],
+          "publicDescription": "Provides facilitator-ready material for workplace communication practice.",
+          "sourceArtifact": "assets/pdf/portfolio/bnsp4_materi_pelatihan.pdf",
+          "sourceType": "pdf",
+          "parentCaseStudy": "case-administrative-communication-learning-program",
+          "image": {
+            "src": "assets/images/portfolio/bnsp4-materi-pelatihan.webp",
+            "alt": "Communication Confidence Training Deck thumbnail"
+          }
+        },
+        {
+          "id": "artifact-bnsp4-form-soal-post-test",
+          "title": "Communication Skills Post-Test Form",
+          "practiceArea": "Assessment & Evaluation",
+          "tags": [
+            "assessment",
+            "learning-evaluation"
+          ],
+          "publicDescription": "Measures learner understanding against the training objectives.",
+          "sourceArtifact": "assets/pdf/portfolio/bnsp4_form_soal_post_test.pdf",
+          "sourceType": "pdf",
+          "parentCaseStudy": "case-administrative-communication-learning-program",
+          "image": {
+            "src": "assets/images/portfolio/bnsp4-form-soal-post-test.webp",
+            "alt": "Communication Skills Post-Test Form thumbnail"
+          }
+        },
+        {
+          "id": "artifact-bnsp4-form-feedback",
+          "title": "Training Feedback Form: Level 1 Reaction",
+          "practiceArea": "Assessment & Evaluation",
+          "tags": [
+            "assessment",
+            "learning-evaluation"
+          ],
+          "publicDescription": "Captures participant reaction data for program improvement.",
+          "sourceArtifact": "assets/pdf/portfolio/bnsp4_form_feedback.pdf",
+          "sourceType": "pdf",
+          "parentCaseStudy": "case-administrative-communication-learning-program",
+          "image": {
+            "src": "assets/images/portfolio/bnsp4-form-feedback.webp",
+            "alt": "Training Feedback Form: Level 1 Reaction thumbnail"
+          }
+        },
+        {
+          "id": "artifact-bnsp4-observation-rubric",
+          "title": "Communication Observation Form and Performance Rubric",
+          "practiceArea": "Assessment & Evaluation",
+          "tags": [
+            "assessment",
+            "learning-evaluation"
+          ],
+          "publicDescription": "Assesses behavior transfer through observable tasks and rubric evidence.",
+          "sourceArtifact": "assets/pdf/portfolio/bnsp4_form_observasi_dan_rubrik_penilaian.pdf",
+          "sourceType": "pdf",
+          "parentCaseStudy": "case-administrative-communication-learning-program",
+          "image": {
+            "src": "assets/images/portfolio/bnsp4-observation-rubric.webp",
+            "alt": "Communication Observation Form and Performance Rubric thumbnail"
+          }
+        }
+      ]
     },
     {
       "id": "case-learning-organization-strategy-evaluation-system",
@@ -324,7 +446,145 @@
           "impact": []
         },
         "cvBullet": "Framed Learning Organization Strategy and Evaluation System Case Study as a l&d strategy portfolio item, creating practical context for entrepreneurs and startup founders, with a non-proof AI application hint: Clarified the real performance gap before investing in training design or delivery."
-      }
+      },
+      "caseStudyArtifacts": [
+        {
+          "id": "artifact-bnsp6-kebutuhan-pelatihan-makro",
+          "title": "Macro Training Needs Analysis: DKI Jakarta",
+          "practiceArea": "Training Needs Analysis",
+          "tags": [
+            "training-needs-analysis",
+            "learning-strategy"
+          ],
+          "publicDescription": "Synthesizes labor-market signals into practical training priorities.",
+          "sourceArtifact": "assets/pdf/portfolio/bnsp6_kebutuhan_pelatihan_makro.pdf",
+          "sourceType": "pdf",
+          "parentCaseStudy": "case-learning-organization-strategy-evaluation-system",
+          "image": {
+            "src": "assets/images/portfolio/bnsp6-kebutuhan-pelatihan-makro.webp",
+            "alt": "Macro Training Needs Analysis: DKI Jakarta thumbnail"
+          }
+        },
+        {
+          "id": "artifact-bnsp6-matriks-kompetensi",
+          "title": "Competency Matrix for Training Organization",
+          "practiceArea": "Curriculum Development",
+          "tags": [
+            "curriculum-development",
+            "competency-mapping"
+          ],
+          "publicDescription": "Maps organizational capability against program priorities.",
+          "sourceArtifact": "assets/pdf/portfolio/bnsp6_matriks_kompetensi.pdf",
+          "sourceType": "pdf",
+          "parentCaseStudy": "case-learning-organization-strategy-evaluation-system",
+          "image": {
+            "src": "assets/images/portfolio/bnsp6-matriks-kompetensi.webp",
+            "alt": "Competency Matrix for Training Organization thumbnail"
+          }
+        },
+        {
+          "id": "artifact-bnsp6-silabus-pelatihan",
+          "title": "Competency-Based Training Syllabus",
+          "practiceArea": "Curriculum Development",
+          "tags": [
+            "curriculum-development",
+            "instructional-design"
+          ],
+          "publicDescription": "Connects competency standards, delivery design, and evidence of learning.",
+          "sourceArtifact": "assets/pdf/portfolio/bnsp6_silabus_pelatihan_berbasis_kompetensi.pdf",
+          "sourceType": "pdf",
+          "parentCaseStudy": "case-learning-organization-strategy-evaluation-system",
+          "image": {
+            "src": "assets/images/portfolio/bnsp6-silabus-pelatihan.webp",
+            "alt": "Competency-Based Training Syllabus thumbnail"
+          }
+        },
+        {
+          "id": "artifact-bnsp6-business-plan",
+          "title": "Learning Business Plan: Eighteen Rekrutmen Asia",
+          "practiceArea": "L&D Strategy",
+          "tags": [
+            "learning-strategy",
+            "training-proposal"
+          ],
+          "publicDescription": "Frames a learning business roadmap around employability and organizational capability services.",
+          "sourceArtifact": "assets/pdf/portfolio/bnsp6_business_plan.pdf",
+          "sourceType": "pdf",
+          "parentCaseStudy": "case-learning-organization-strategy-evaluation-system",
+          "image": {
+            "src": "assets/images/portfolio/bnsp6-business-plan.webp",
+            "alt": "Learning Business Plan: Eighteen Rekrutmen Asia thumbnail"
+          }
+        },
+        {
+          "id": "artifact-bnsp6-marketing-plan",
+          "title": "Marketing Plan for Training Solutions",
+          "practiceArea": "L&D Strategy",
+          "tags": [
+            "learning-strategy",
+            "training-proposal"
+          ],
+          "publicDescription": "Connects learning portfolio positioning with demand generation and retention strategy.",
+          "sourceArtifact": "assets/pdf/portfolio/bnsp6_marketing_plan.pdf",
+          "sourceType": "pdf",
+          "parentCaseStudy": "case-learning-organization-strategy-evaluation-system",
+          "image": {
+            "src": "assets/images/portfolio/bnsp6-marketing-plan.webp",
+            "alt": "Marketing Plan for Training Solutions thumbnail"
+          }
+        },
+        {
+          "id": "artifact-bnsp6-rab-roti-pelatihan",
+          "title": "Training Budget and ROTI Calculator",
+          "practiceArea": "Learning Analytics",
+          "tags": [
+            "learning-analytics",
+            "worksheet"
+          ],
+          "publicDescription": "Models training investment, budget logic, and return on training impact.",
+          "sourceArtifact": "assets/portfolio-viewers/bnsp6-rab-roti-pelatihan.html",
+          "sourceType": "html-viewer",
+          "parentCaseStudy": "case-learning-organization-strategy-evaluation-system",
+          "image": {
+            "src": "assets/images/portfolio/bnsp6-rab-roti-pelatihan.webp",
+            "alt": "Training Budget and ROTI Calculator thumbnail"
+          }
+        },
+        {
+          "id": "artifact-bnsp6-evaluation-level1-reaction",
+          "title": "Kirkpatrick Level 1 Reaction Dashboard",
+          "practiceArea": "Learning Analytics",
+          "tags": [
+            "learning-analytics",
+            "learning-evaluation"
+          ],
+          "publicDescription": "Transforms participant reaction forms into a dashboard for training experience decisions.",
+          "sourceArtifact": "assets/portfolio-viewers/bnsp6-evaluation-level1-reaction.html",
+          "sourceType": "html-viewer",
+          "parentCaseStudy": "case-learning-organization-strategy-evaluation-system",
+          "image": {
+            "src": "assets/images/portfolio/bnsp6-evaluation-level1-reaction.webp",
+            "alt": "Kirkpatrick Level 1 Reaction Dashboard thumbnail"
+          }
+        },
+        {
+          "id": "artifact-bnsp6-evaluation-level2-learning",
+          "title": "Kirkpatrick Level 2 Learning Dashboard",
+          "practiceArea": "Learning Analytics",
+          "tags": [
+            "learning-analytics",
+            "learning-evaluation"
+          ],
+          "publicDescription": "Combines question bank, learner response form, and analysis dashboard to track learning gains.",
+          "sourceArtifact": "assets/portfolio-viewers/bnsp6-evaluation-level2-learning.html",
+          "sourceType": "html-viewer",
+          "parentCaseStudy": "case-learning-organization-strategy-evaluation-system",
+          "image": {
+            "src": "assets/images/portfolio/bnsp6-evaluation-level2-learning.webp",
+            "alt": "Kirkpatrick Level 2 Learning Dashboard thumbnail"
+          }
+        }
+      ]
     },
     {
       "id": "case-ybb-mentoring-workbook",
@@ -380,7 +640,80 @@
           "impact": []
         },
         "cvBullet": "Structured Youth Mentoring Workbook and Pitch Readiness Case Study as a mentoring & coaching portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
-      }
+      },
+      "caseStudyArtifacts": [
+        {
+          "id": "artifact-ybb-mentoring-workbook-week-1",
+          "title": "Mentoring Workbook: Week 1 Idea Exploration",
+          "practiceArea": "Mentoring & Coaching",
+          "tags": [
+            "worksheet",
+            "mentoring",
+            "learning-materials"
+          ],
+          "publicDescription": "Guides mentees from individual SDG ideas into a shared problem statement and early project direction.",
+          "sourceArtifact": "assets/portfolio-viewers/ybb-mentoring-workbook-week-1.html",
+          "sourceType": "html-viewer",
+          "parentCaseStudy": "case-ybb-mentoring-workbook",
+          "image": {
+            "src": "assets/images/portfolio/ybb-mentoring-workbook-week-1.webp",
+            "alt": "Mentoring Workbook: Week 1 Idea Exploration thumbnail"
+          }
+        },
+        {
+          "id": "artifact-ybb-mentoring-workbook-week-2",
+          "title": "Mentoring Workbook: Week 2 Concept Development",
+          "practiceArea": "Mentoring & Coaching",
+          "tags": [
+            "worksheet",
+            "mentoring",
+            "learning-materials"
+          ],
+          "publicDescription": "Uses SDG voting, reality checks, and project canvases to move a diverse team toward one feasible concept.",
+          "sourceArtifact": "assets/portfolio-viewers/ybb-mentoring-workbook-week-2.html",
+          "sourceType": "html-viewer",
+          "parentCaseStudy": "case-ybb-mentoring-workbook",
+          "image": {
+            "src": "assets/images/portfolio/ybb-mentoring-workbook-week-2.webp",
+            "alt": "Mentoring Workbook: Week 2 Concept Development thumbnail"
+          }
+        },
+        {
+          "id": "artifact-ybb-mentoring-workbook-week-3",
+          "title": "Mentoring Workbook: Week 3 Presentation Readiness",
+          "practiceArea": "Mentoring & Coaching",
+          "tags": [
+            "worksheet",
+            "mentoring",
+            "learning-materials"
+          ],
+          "publicDescription": "Tracks evidence, ownership, and slide readiness so a student team can sharpen its final project deck.",
+          "sourceArtifact": "assets/portfolio-viewers/ybb-mentoring-workbook-week-3.html",
+          "sourceType": "html-viewer",
+          "parentCaseStudy": "case-ybb-mentoring-workbook",
+          "image": {
+            "src": "assets/images/portfolio/ybb-mentoring-workbook-week-3.webp",
+            "alt": "Mentoring Workbook: Week 3 Presentation Readiness thumbnail"
+          }
+        },
+        {
+          "id": "artifact-ybb-pitch-deck-template-week-4",
+          "title": "Pitch Deck Template: Week 4",
+          "practiceArea": "Presentation Design",
+          "tags": [
+            "presentation-design",
+            "mentoring"
+          ],
+          "publicDescription": "A 16-slide final pitch structure that helps mentees present problem, evidence, solution, impact, and sustainability.",
+          "sourceArtifact": "assets/portfolio-viewers/ybb-pitch-deck-template-week-4.html",
+          "sourceType": "html-viewer",
+          "parentCaseStudy": "case-ybb-mentoring-workbook",
+          "image": {
+            "src": "assets/images/portfolio/ybb-pitch-deck-template-week-4.webp",
+            "alt": "Pitch Deck Template: Week 4 thumbnail"
+          }
+        }
+      ]
     },
     {
       "id": "project-training-and-coaching-need-analysis-framework",
