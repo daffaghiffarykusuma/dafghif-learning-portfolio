@@ -193,6 +193,53 @@ describe('production site system checks', () => {
     }
   });
 
+  test('keeps built Portfolio Item loading contract real and click-triggered', async () => {
+    const { response, body } = await request('/portfolio.html');
+    expect(response.status).toBe(200);
+
+    const portfolioItemCount = [...body.matchAll(/<[^>]+\bclass="([^"]*\bcard\b[^"]*\bportfolio-item\b[^"]*)"[^>]*>/g)]
+      .filter((match) => !match[1].includes('portfolio-item-placeholder')).length;
+    const firstImage = body.match(/<img\b[^>]*>/)?.[0] || '';
+    const previewIframe = body.match(/<iframe\b[^>]*\bid="pdf-iframe"[^>]*>/)?.[0] || '';
+
+    expect(portfolioItemCount).toBe(62);
+    expect(firstImage).toContain('loading="eager"');
+    expect(firstImage).toContain('fetchpriority="high"');
+    expect(firstImage).toContain('width="660"');
+    expect(firstImage).toContain('height="400"');
+    expect(body).toContain('loading="lazy"');
+    expect(body).toContain('decoding="async"');
+    expect(previewIframe).toContain('src=""');
+    expect(body).not.toContain('data-portfolio-item-id=');
+    expect(body).not.toContain('data-portfolio-item-url=');
+  });
+
+  test('keeps built Case Study Artifact loading contract real and click-triggered', async () => {
+    const pages = [
+      '/case-administrative-communication.html',
+      '/case-learning-organization-strategy.html',
+      '/case-ybb-mentoring-workbook.html'
+    ];
+
+    for (const page of pages) {
+      const { response, body } = await request(page);
+      expect(response.status, page).toBe(200);
+
+      const artifactSection = body.slice(body.indexOf('generated-case-artifacts'));
+      const firstArtifactImage = artifactSection.match(/<img\b[^>]*>/)?.[0] || '';
+      const previewIframe = body.match(/<iframe\b[^>]*\bid="pdf-iframe"[^>]*>/)?.[0] || '';
+
+      expect(body, page).toContain('case-artifact-card');
+      expect(firstArtifactImage, page).toContain('loading="eager"');
+      expect(firstArtifactImage, page).toContain('fetchpriority="high"');
+      expect(firstArtifactImage, page).toContain('width="660"');
+      expect(firstArtifactImage, page).toContain('height="400"');
+      expect(body, page).toContain('loading="lazy"');
+      expect(previewIframe, page).toContain('src=""');
+      expect(body, page).not.toContain('data-portfolio-item-id=');
+    }
+  });
+
   test('keeps generated case-study artifact UI and AI metadata discoverable in production', async () => {
     const pages = [
       '/case-administrative-communication.html',

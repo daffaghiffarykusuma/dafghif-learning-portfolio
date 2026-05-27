@@ -1,4 +1,5 @@
 import { Window } from 'happy-dom';
+import { createArtifactPreviewContract } from '../js/site/artifact-preview-policy.js';
 import {
   PORTFOLIO_ITEM_SCHEMA_VERSION,
   createAiContextPortfolioItem,
@@ -86,22 +87,19 @@ export const renderPortfolioItemCard = (document, portfolioItem, index = 0) => {
   card.className = 'card portfolio-item';
   card.id = item.id;
   card.dataset.category = item.tags.join(' ');
-  card.dataset.portfolioItemId = item.id;
-  card.dataset.portfolioItemUrl = item.portfolioItemUrl;
 
   const imageWrapper = document.createElement('div');
   imageWrapper.className = 'card-image';
   const imageLink = document.createElement('a');
   imageLink.className = 'portfolio-item-thumbnail-link';
   imageLink.href = item.portfolioItemUrl;
-  imageLink.setAttribute('aria-label', `Open ${item.title} portfolio item details`);
   const image = document.createElement('img');
   image.src = item.image.src;
   image.alt = item.image.alt || item.title;
   image.decoding = 'async';
   image.loading = index === 0 ? 'eager' : 'lazy';
   if (index === 0) {
-    image.fetchPriority = 'high';
+    image.setAttribute('fetchpriority', 'high');
     image.width = 660;
     image.height = 400;
   }
@@ -121,7 +119,6 @@ export const renderPortfolioItemCard = (document, portfolioItem, index = 0) => {
   practiceLabel.className = 'portfolio-item-practice-label';
   const practiceLink = document.createElement('a');
   practiceLink.href = 'portfolio.html';
-  practiceLink.title = 'View Portfolio';
   practiceLink.textContent = item.practiceArea;
   practiceLabel.append(practiceLink);
 
@@ -149,10 +146,12 @@ export const renderPortfolioItemCard = (document, portfolioItem, index = 0) => {
     caseStudyLink.textContent = 'Read Case Study';
     actions.append(discussLink, caseStudyLink);
   } else {
-    if (item.sourceType === 'html-viewer') {
-      detailsButton.dataset.viewer = item.sourceArtifact;
-    } else {
-      detailsButton.dataset.pdf = item.sourceArtifact;
+    const previewContract = createArtifactPreviewContract({
+      sourceArtifact: item.sourceArtifact,
+      sourceType: item.sourceType
+    });
+    for (const [attribute, value] of Object.entries(previewContract?.triggerAttributes || {})) {
+      detailsButton.setAttribute(attribute, value);
     }
     actions.append(discussLink, detailsButton);
   }

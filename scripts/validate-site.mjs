@@ -1,11 +1,11 @@
-import { readdir, readFile, stat } from 'node:fs/promises';
+import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { validatePortfolioEvidence } from './portfolio-evidence-validator.mjs';
 import { getShippedArtifactValidationFacts } from './shipped-artifact-inventory.mjs';
+import { createSourceSiteInventory, idsForSource, toPosixPath } from './site-inventory.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const ignoredDirs = new Set(['.git', '.vscode', 'dist', 'node_modules']);
 const allowedExternalHosts = new Set([
   'fonts.googleapis.com',
   'fonts.gstatic.com',
@@ -17,24 +17,7 @@ const allowedExternalHosts = new Set([
 ]);
 const failures = [];
 
-const toPosix = (value) => value.split(path.sep).join('/');
-const rel = (absolutePath) => toPosix(path.relative(root, absolutePath));
-
-const walk = async (dir, extensions, results = []) => {
-  const entries = await readdir(dir, { withFileTypes: true });
-  for (const entry of entries) {
-    if (entry.isDirectory()) {
-      if (!ignoredDirs.has(entry.name)) {
-        await walk(path.join(dir, entry.name), extensions, results);
-      }
-      continue;
-    }
-    if (extensions.has(path.extname(entry.name).toLowerCase())) {
-      results.push(path.join(dir, entry.name));
-    }
-  }
-  return results;
-};
+const rel = (absolutePath) => toPosixPath(path.relative(root, absolutePath));
 
 const exists = async (absolutePath) => {
   try {
@@ -52,10 +35,6 @@ const splitUrl = (value) => {
   const [pathname] = withoutFragment.split('?');
   return { pathname, fragment };
 };
-
-const idsFor = (source) => new Set(
-  Array.from(source.matchAll(/\bid=["']([^"']+)["']/gi), (match) => match[1])
-);
 
 const decodeUrlPart = (file, attr, value) => {
   try {
@@ -112,44 +91,42 @@ const validateUrl = async ({ file, filePath, attr, rawValue, source, pageIds }) 
     const decodedFragment = decodeUrlPart(file, attr, fragment);
     if (decodedFragment === null) return;
     const targetSource = targetPath === filePath ? source : await readFile(targetPath, 'utf8').catch(() => '');
-    const targetIds = targetPath === filePath ? pageIds : idsFor(targetSource);
+    const targetIds = targetPath === filePath ? pageIds : new Set(idsForSource(targetSource));
     if (!targetIds.has(decodedFragment)) {
       failures.push(`${file}: broken fragment in ${attr}: ${value}`);
     }
   }
 };
 
-const htmlFiles = (await walk(root, new Set(['.html']))).sort();
-for (const filePath of htmlFiles) {
-  const file = rel(filePath);
-  const source = await readFile(filePath, 'utf8');
-  const pageIds = idsFor(source);
+const sourceInventory = await createSourceSiteInventory({ rootDir: root });
+for (const page of sourceInventory.htmlPages) {
+  const filePath = page.filePath;
+  const file = page.relPath;
+  const source = page.source;
+  const pageIds = new Set(page.ids);
 
-  if (/<script(?![^>]*\bsrc=)[^>]*>/i.test(source)) {
+  if (page.hasInlineScript) {
     failures.push(`${file}: contains inline script; use an external JS file so CSP can block inline execution`);
   }
-  if (/\son\w+=["']/i.test(source)) {
+  if (page.hasInlineEventHandler) {
     failures.push(`${file}: contains inline event handler; use external JavaScript instead`);
   }
 
-  for (const match of source.matchAll(/\b(href|src|data-pdf|data-viewer)=["']([^"']+)["']/gi)) {
-    await validateUrl({ file, filePath, attr: match[1], rawValue: match[2], source, pageIds });
+  for (const attribute of page.urlAttributes) {
+    await validateUrl({ file, filePath, attr: attribute.attr, rawValue: attribute.value, source, pageIds });
   }
 
-  for (const match of source.matchAll(/<a\b[^>]*target=["']_blank["'][^>]*>/gi)) {
-    const tag = match[0];
+  for (const tag of page.blankTargetTags) {
     if (!/\brel=["'][^"']*\bnoopener\b[^"']*\bnoreferrer\b[^"']*["']/i.test(tag)) {
       failures.push(`${file}: target="_blank" link is missing rel="noopener noreferrer": ${tag}`);
     }
   }
 }
 
-const cssFiles = (await walk(root, new Set(['.css']))).sort();
-for (const filePath of cssFiles) {
-  const file = rel(filePath);
-  const source = await readFile(filePath, 'utf8');
-  for (const match of source.matchAll(/url\((["']?)([^"')]+)\1\)/gi)) {
-    const value = match[2].trim();
+for (const cssFile of sourceInventory.cssFiles) {
+  const filePath = cssFile.filePath;
+  const file = cssFile.relPath;
+  for (const value of cssFile.urls) {
     if (!value || value.startsWith('data:') || value.startsWith('#')) continue;
     if (isExternal(value)) {
       validateExternal(file, 'css url()', value);
@@ -222,4 +199,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Validated ${htmlFiles.length} HTML files, ${cssFiles.length} CSS files, ${posts.length} blog posts, ${portfolioEvidence.portfolioItemCount} portfolio items, ${shippedArtifactFacts.productionProbes.length} shipped Artifact probes, local assets, fragments, external host allowlists, target=_blank rels, and CSP policies.`);
+console.log(`Validated ${sourceInventory.htmlPages.length} HTML files, ${sourceInventory.cssFiles.length} CSS files, ${posts.length} blog posts, ${portfolioEvidence.portfolioItemCount} portfolio items, ${shippedArtifactFacts.productionProbes.length} shipped Artifact probes, local assets, fragments, external host allowlists, target=_blank rels, and CSP policies.`);

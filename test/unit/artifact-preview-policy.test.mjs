@@ -1,5 +1,9 @@
 import { describe, expect, test } from 'bun:test';
-import { resolveArtifactPreview, safeArtifactPreviewPath } from '../../js/site/artifact-preview-policy.js';
+import {
+  createArtifactPreviewContract,
+  resolveArtifactPreview,
+  safeArtifactPreviewPath
+} from '../../js/site/artifact-preview-policy.js';
 
 const baseUrl = 'http://127.0.0.1/portfolio.html';
 const outsidePreviewLinkPolicy = {
@@ -9,6 +13,34 @@ const outsidePreviewLinkPolicy = {
 };
 
 describe('artifact preview policy', () => {
+  test('creates one Artifact Preview contract for renderers and runtime resolution', () => {
+    expect(createArtifactPreviewContract({
+      sourceArtifact: 'assets/pdf/portfolio/sample.pdf',
+      sourceType: 'pdf'
+    }, baseUrl)).toMatchObject({
+      type: 'pdf',
+      triggerAttributes: {
+        'data-pdf': 'assets/pdf/portfolio/sample.pdf'
+      },
+      frameAttributes: {},
+      src: 'http://127.0.0.1/assets/pdf/portfolio/sample.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-width&statusbar=0&messages=0&pagemode=none'
+    });
+
+    expect(createArtifactPreviewContract({
+      sourceArtifact: 'assets/portfolio-viewers/sample.html',
+      sourceType: 'html-viewer'
+    }, baseUrl)).toMatchObject({
+      type: 'viewer',
+      triggerAttributes: {
+        'data-viewer': 'assets/portfolio-viewers/sample.html'
+      },
+      frameAttributes: {
+        sandbox: 'allow-same-origin allow-popups allow-popups-to-escape-sandbox'
+      },
+      src: 'http://127.0.0.1/assets/portfolio-viewers/sample.html'
+    });
+  });
+
   test('allows same-origin portfolio PDFs and returns frame and navigation expectations', () => {
     const preview = resolveArtifactPreview({
       pdfPath: 'assets/pdf/portfolio/sample.pdf'

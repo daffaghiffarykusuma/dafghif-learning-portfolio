@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, test } from 'bun:test';
-import { createDom, fireDOMContentLoaded, importFresh, resetDom } from '../helpers/dom.mjs';
+import { createDom, importFresh, resetDom } from '../helpers/dom.mjs';
 
 afterEach(() => {
   resetDom();
@@ -20,8 +20,8 @@ describe('portfolio item filters', () => {
       </section>
     `, 'http://127.0.0.1/portfolio.html');
 
-    await importFresh('../../js/portfolio-item-filters.js');
-    fireDOMContentLoaded();
+    const { initPortfolioItemFilters } = await importFresh('../../js/portfolio-item-filters.js');
+    initPortfolioItemFilters();
 
     const [allButton, trainingButton, coachingButton] = document.querySelectorAll('.filter-button');
     expect(allButton.getAttribute('aria-pressed')).toBe('true');
@@ -49,7 +49,7 @@ describe('portfolio item filters', () => {
   test('returns cleanly when required markup is absent', async () => {
     createDom('<section id="portfolio-items"></section>', 'http://127.0.0.1/portfolio.html');
 
-    await expect(importFresh('../../js/portfolio-item-filters.js')).resolves.toBeDefined();
-    expect(() => fireDOMContentLoaded()).not.toThrow();
+    const { initPortfolioItemFilters } = await importFresh('../../js/portfolio-item-filters.js');
+    expect(() => initPortfolioItemFilters()).not.toThrow();
   });
 });

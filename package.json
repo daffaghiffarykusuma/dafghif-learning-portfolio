@@ -10,6 +10,7 @@
     "serve": "vite preview --host 127.0.0.1",
     "generate:portfolio-items": "bun scripts/generate-portfolio-items.mjs",
     "generate:portfolio-source": "bun scripts/generate-portfolio-items.mjs",
+    "generate:portfolio": "bun scripts/portfolio-generation-command.mjs",
     "generate:portfolio-ai": "bun scripts/generate-portfolio-ai-context.mjs",
     "render:portfolio-proof-lines": "bun scripts/render-portfolio-proof-lines.mjs",
     "render:portfolio-items": "bun scripts/render-portfolio-items.mjs",

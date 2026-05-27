@@ -1,12 +1,11 @@
-import { applyArtifactPreviewFramePolicy, resolveArtifactPreview } from './artifact-preview-policy.js';
+import { applyArtifactPreviewFramePolicy, createArtifactPreviewContract } from './artifact-preview-policy.js';
 
 export function initPortfolioPreview(closeActiveModal = () => {}, { openHashOnInit = true, updateHashOnOpen = true } = {}) {
     const pdfModal = document.getElementById('pdf-modal');
     const pdfModalTitle = document.getElementById('pdf-modal-title');
     const pdfIframe = document.getElementById('pdf-iframe');
-    const viewDetailsButtons = document.querySelectorAll('.view-details-button');
-    const portfolioItemAnchorLinks = document.querySelectorAll('.portfolio-item-title-link, .portfolio-item-thumbnail-link');
-    const hasPortfolioPreviewMarkup = pdfModal || pdfModalTitle || pdfIframe || viewDetailsButtons.length > 0;
+    const hasPreviewTriggers = Boolean(document.querySelector('.view-details-button'));
+    const hasPortfolioPreviewMarkup = pdfModal || pdfModalTitle || pdfIframe || hasPreviewTriggers;
     let activePdfModal = null;
     let lastPreviewTrigger = null;
 
@@ -32,12 +31,12 @@ export function initPortfolioPreview(closeActiveModal = () => {}, { openHashOnIn
         lastPreviewTrigger = null;
     };
 
-    if (!(pdfModal && pdfModalTitle && pdfIframe && viewDetailsButtons.length > 0)) {
+    if (!(pdfModal && pdfModalTitle && pdfIframe && hasPreviewTriggers)) {
         if (hasPortfolioPreviewMarkup) {
             if (!pdfModal) console.warn('PDF Modal element (#pdf-modal) not found.');
             if (!pdfModalTitle) console.warn('PDF Modal title element (#pdf-modal-title) not found.');
             if (!pdfIframe) console.warn('PDF iframe element (#pdf-iframe) not found.');
-            if (viewDetailsButtons.length === 0) console.warn('No view details buttons found.');
+            if (!hasPreviewTriggers) console.warn('No view details buttons found.');
         }
         return {
             closePdfModal,
@@ -63,7 +62,10 @@ export function initPortfolioPreview(closeActiveModal = () => {}, { openHashOnIn
         lastPreviewTrigger = options.trigger || button;
         pdfModalTitle.textContent = portfolioItemTitle;
 
-        const preview = resolveArtifactPreview({ pdfPath, viewerPath });
+        const preview = createArtifactPreviewContract({
+            sourceArtifact: pdfPath || viewerPath,
+            sourceType: pdfPath ? 'pdf' : 'html-viewer'
+        });
         if (!preview) {
             console.warn('Blocked unsafe portfolio preview path.');
             return;
@@ -87,26 +89,26 @@ export function initPortfolioPreview(closeActiveModal = () => {}, { openHashOnIn
         }, 50);
     };
 
-    viewDetailsButtons.forEach((button) => {
-        button.addEventListener('click', (event) => {
-            if (!isPreviewTrigger(button)) return;
+    const handlePreviewClick = (event) => {
+        const eventTarget = event.target?.closest ? event.target : null;
+        const button = eventTarget?.closest('.view-details-button');
+        if (button && isPreviewTrigger(button)) {
             event.preventDefault();
             event.stopPropagation();
             openPortfolioPreview(button, { trigger: button });
-        });
-    });
+            return;
+        }
 
-    portfolioItemAnchorLinks.forEach((link) => {
-        link.addEventListener('click', (event) => {
-            const targetHash = new URL(link.href, window.location.href).hash;
-            const previewButton = portfolioItemFromHash(targetHash)?.querySelector('.view-details-button')
-                || link.closest('.portfolio-item')?.querySelector('.view-details-button');
-            if (!isPreviewTrigger(previewButton)) return;
-            event.preventDefault();
-            event.stopPropagation();
-            openPortfolioPreview(previewButton, { trigger: link });
-        });
-    });
+        const link = eventTarget?.closest('.portfolio-item-title-link, .portfolio-item-thumbnail-link');
+        if (!link) return;
+        const targetHash = new URL(link.href, window.location.href).hash;
+        const previewButton = portfolioItemFromHash(targetHash)?.querySelector('.view-details-button')
+            || link.closest('.portfolio-item')?.querySelector('.view-details-button');
+        if (!isPreviewTrigger(previewButton)) return;
+        event.preventDefault();
+        event.stopPropagation();
+        openPortfolioPreview(previewButton, { trigger: link });
+    };
 
     const openPreviewFromHash = () => {
         const previewButton = portfolioItemFromHash(window.location.hash)?.querySelector('.view-details-button');
@@ -115,6 +117,7 @@ export function initPortfolioPreview(closeActiveModal = () => {}, { openHashOnIn
         return true;
     };
 
+    document.addEventListener('click', handlePreviewClick);
     window.addEventListener('hashchange', openPreviewFromHash);
     if (openHashOnInit) openPreviewFromHash();
 
@@ -132,9 +135,9 @@ export function initPortfolioPreview(closeActiveModal = () => {}, { openHashOnIn
         if (event.key === 'Escape') closePdfModal();
     });
 
-    console.log(`PDF Viewer initialized with ${viewDetailsButtons.length} buttons`);
     const destroy = () => {
         closePdfModal();
+        document.removeEventListener('click', handlePreviewClick);
         window.removeEventListener('hashchange', openPreviewFromHash);
     };
 

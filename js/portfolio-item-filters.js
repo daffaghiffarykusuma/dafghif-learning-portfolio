@@ -33,7 +33,3 @@ export function initPortfolioItemFilters() {
         });
     });
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    initPortfolioItemFilters();
-});

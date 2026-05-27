@@ -35,6 +35,7 @@ describe('portfolio page lifecycle', () => {
     const { createPortfolioPageLifecycle } = await importFresh('../../js/site/pages/portfolio-page.js');
 
     const lifecycle = createPortfolioPageLifecycle();
+    expect(document.getElementById('pdf-iframe').getAttribute('src')).toBeNull();
     const state = lifecycle.init();
 
     expect(state).toEqual({
@@ -54,6 +55,7 @@ describe('portfolio page lifecycle', () => {
 
     const lifecycle = createPortfolioPageLifecycle();
     lifecycle.init();
+    expect(document.getElementById('pdf-iframe').getAttribute('src')).toBeNull();
     document.querySelector('.view-details-button').click();
 
     expect(document.getElementById('pdf-modal').hidden).toBe(false);

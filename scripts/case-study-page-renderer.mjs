@@ -1,5 +1,6 @@
 import { normalizeText } from './portfolio-item-catalog.mjs';
 import { createCaseStudyArtifactPreviewModel, getCaseStudyPagePath, getCaseStudySources } from './case-study-model.mjs';
+import { createArtifactPreviewContract } from '../js/site/artifact-preview-policy.js';
 import {
   escapeHtml,
   portfolioAiContextMetadataLink,
@@ -31,20 +32,28 @@ const renderApproachSteps = (items = []) =>
                         </li>`)
     .join('\n                        ');
 
-const previewAttribute = (previewDataset = {}) =>
-  previewDataset.pdf
-    ? `data-pdf="${escapeHtml(previewDataset.pdf)}"`
-    : `data-viewer="${escapeHtml(previewDataset.viewer)}"`;
+const renderPreviewAttributes = (artifact = {}) => {
+  const previewContract = createArtifactPreviewContract({
+    sourceArtifact: artifact.href,
+    sourceType: artifact.sourceType
+  });
+  return Object.entries(previewContract?.triggerAttributes || {})
+    .map(([attribute, value]) => `${attribute}="${escapeHtml(value)}"`)
+    .join(' ');
+};
 
 const renderArtifactItems = (artifacts = []) =>
   artifacts
-    .map((artifact) => {
+    .map((artifact, index) => {
       const item = createCaseStudyArtifactPreviewModel(artifact);
-      const previewData = previewAttribute(item.previewDataset);
-      return `<article id="${escapeHtml(item.id)}" class="card portfolio-item case-artifact-card" data-category="${escapeHtml(item.categories)}" data-portfolio-item-id="${escapeHtml(item.id)}">
+      const previewData = renderPreviewAttributes(item);
+      const imageLoading = index === 0
+        ? 'loading="eager" fetchpriority="high" width="660" height="400"'
+        : 'loading="lazy"';
+      return `<article id="${escapeHtml(item.id)}" class="card portfolio-item case-artifact-card" data-category="${escapeHtml(item.categories)}">
             <div class="card-image">
-              <a class="portfolio-item-thumbnail-link" href="#${escapeHtml(item.id)}" aria-label="Preview ${escapeHtml(item.title)}">
-                <img src="${escapeHtml(item.image.src)}" alt="${escapeHtml(item.image.alt)}" loading="lazy" decoding="async">
+              <a class="portfolio-item-thumbnail-link" href="#${escapeHtml(item.id)}">
+                <img src="${escapeHtml(item.image.src)}" alt="${escapeHtml(item.image.alt)}" ${imageLoading} decoding="async">
               </a>
             </div>
             <div class="card-content">

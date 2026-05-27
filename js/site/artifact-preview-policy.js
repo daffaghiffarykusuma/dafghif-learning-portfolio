@@ -26,9 +26,36 @@ export const ARTIFACT_PREVIEW_TYPES = Object.freeze({
 
 const ARTIFACT_PREVIEW_ORDER = Object.freeze(['pdf', 'viewer']);
 
-const toBaseUrl = (baseLocation) => new URL(baseLocation?.href || baseLocation || window.location.href);
+const defaultBaseLocation = () => globalThis.window?.location || 'http://127.0.0.1/';
+const toBaseUrl = (baseLocation) => new URL(baseLocation?.href || baseLocation || defaultBaseLocation());
 
-export const safeArtifactPreviewPath = (candidatePath, previewType, baseLocation = window.location) => {
+export const artifactPreviewTypeForSource = (sourceType = '') => {
+    if (sourceType === 'pdf') return 'pdf';
+    if (sourceType === 'html-viewer' || sourceType === 'viewer') return 'viewer';
+    return '';
+};
+
+export const createArtifactPreviewContract = ({ sourceArtifact = '', sourceType = '' } = {}, baseLocation = defaultBaseLocation()) => {
+    const previewType = artifactPreviewTypeForSource(sourceType);
+    if (!previewType) return null;
+
+    const triggerAttributes = previewType === 'pdf'
+        ? { 'data-pdf': sourceArtifact }
+        : { 'data-viewer': sourceArtifact };
+    const preview = resolveArtifactPreview(
+        previewType === 'pdf'
+            ? { pdfPath: sourceArtifact }
+            : { viewerPath: sourceArtifact },
+        baseLocation
+    );
+
+    return preview ? {
+        ...preview,
+        triggerAttributes
+    } : null;
+};
+
+export const safeArtifactPreviewPath = (candidatePath, previewType, baseLocation = defaultBaseLocation()) => {
     const policy = ARTIFACT_PREVIEW_TYPES[previewType];
     if (!policy || !candidatePath || /[\u0000-\u001f]/.test(candidatePath)) return '';
     if (/%(?:2e|2f|5c)/i.test(candidatePath)) return '';
@@ -51,7 +78,7 @@ export const safeArtifactPreviewPath = (candidatePath, previewType, baseLocation
     }
 };
 
-export const resolveArtifactPreview = (candidatePaths, baseLocation = window.location) => {
+export const resolveArtifactPreview = (candidatePaths, baseLocation = defaultBaseLocation()) => {
     for (const previewType of ARTIFACT_PREVIEW_ORDER) {
         const policy = ARTIFACT_PREVIEW_TYPES[previewType];
         const baseUrl = toBaseUrl(baseLocation);

@@ -164,15 +164,40 @@ describe('Portfolio Evidence Pipeline', () => {
         sourceType: 'pdf',
         portfolioItemUrl: 'portfolio.html#custom-deck',
         discussUrl: 'contact.html?portfolioItem=Custom%20Deck'
+      },
+      {
+        id: 'second-deck',
+        title: 'Second Deck',
+        practiceArea: 'Learning Materials',
+        tags: ['learning-materials'],
+        description: 'A second deck.',
+        image: { src: 'assets/images/portfolio/second.webp', alt: 'Second deck thumbnail' },
+        sourceArtifact: 'assets/pdf/portfolio/second.pdf',
+        sourceType: 'pdf',
+        portfolioItemUrl: 'portfolio.html#second-deck',
+        discussUrl: 'contact.html?portfolioItem=Second%20Deck'
       }
     ], proofSource);
 
-    expect(renderPortfolioItemCards(document, portfolioItems)).toBe(1);
+    expect(renderPortfolioItemCards(document, portfolioItems)).toBe(2);
     expect(document.querySelector('#stale-card')).toBeNull();
     expect(document.querySelector('#custom-deck .portfolio-item-proof').textContent)
       .toBe('Uses roleplay instructions and reflection prompts.');
     expect(document.querySelector('#custom-deck .view-details-button').dataset.pdf)
       .toBe('assets/pdf/portfolio/custom.pdf');
+    expect(document.querySelector('#custom-deck').hasAttribute('data-portfolio-item-id')).toBe(false);
+    expect(document.querySelector('#custom-deck').hasAttribute('data-portfolio-item-url')).toBe(false);
+
+    const firstImage = document.querySelector('#custom-deck img');
+    expect(firstImage.loading).toBe('eager');
+    expect(firstImage.getAttribute('fetchpriority')).toBe('high');
+    expect(firstImage.getAttribute('width')).toBe('660');
+    expect(firstImage.getAttribute('height')).toBe('400');
+    expect(document.querySelector('#custom-deck .portfolio-item-thumbnail-link').hasAttribute('aria-label')).toBe(false);
+
+    const secondImage = document.querySelector('#second-deck img');
+    expect(secondImage.loading).toBe('lazy');
+    expect(secondImage.getAttribute('fetchpriority')).toBeNull();
   });
 
   test('renders HTML Artifact Preview buttons from structured source data', () => {
@@ -370,6 +395,19 @@ describe('Portfolio Evidence Pipeline', () => {
             src: 'assets/images/portfolio/needs.webp',
             alt: 'Needs analysis artifact thumbnail'
           }
+        },
+        {
+          id: 'artifact-design-plan',
+          title: 'Design Plan',
+          description: 'Plans the learning path.',
+          href: 'assets/pdf/portfolio/design.pdf',
+          sourceType: 'pdf',
+          practiceArea: 'Instructional Design',
+          tags: ['instructional-design'],
+          image: {
+            src: 'assets/images/portfolio/design.webp',
+            alt: 'Design plan artifact thumbnail'
+          }
         }
       ]
     });
@@ -386,8 +424,11 @@ describe('Portfolio Evidence Pipeline', () => {
     expect(html).toContain('<strong>Evidence limit:</strong> Direct outcomes are not claimed.');
     expect(html).toContain('id="artifact-needs-analysis"');
     expect(html).toContain('class="card portfolio-item case-artifact-card"');
-    expect(html).toContain('src="assets/images/portfolio/needs.webp"');
+    expect(html).toContain('<img src="assets/images/portfolio/needs.webp" alt="Needs analysis artifact thumbnail" loading="eager" fetchpriority="high" width="660" height="400" decoding="async">');
+    expect(html).toContain('<img src="assets/images/portfolio/design.webp" alt="Design plan artifact thumbnail" loading="lazy" decoding="async">');
     expect(html).toContain('data-category="training-needs-analysis instructional-design"');
+    expect(html).not.toContain('data-portfolio-item-id=');
+    expect(html).not.toContain('aria-label="Preview Needs Analysis"');
     expect(html).toContain('<button class="view-details-button" type="button" data-pdf="assets/pdf/portfolio/needs.pdf">View Details</button>');
     expect(html).not.toContain('href="assets/pdf/portfolio/needs.pdf"');
     expect(html).not.toContain('Open PDF artifact');
