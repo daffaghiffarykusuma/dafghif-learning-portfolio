@@ -19,6 +19,8 @@ export function initPortfolioPreview(closeActiveModal = () => {}, { openHashOnIn
         }
     };
 
+    const isPreviewTrigger = (button) => Boolean(button?.dataset.pdf || button?.dataset.viewer);
+
     const closePdfModal = () => {
         if (!activePdfModal) return;
         activePdfModal.hidden = true;
@@ -87,6 +89,7 @@ export function initPortfolioPreview(closeActiveModal = () => {}, { openHashOnIn
 
     viewDetailsButtons.forEach((button) => {
         button.addEventListener('click', (event) => {
+            if (!isPreviewTrigger(button)) return;
             event.preventDefault();
             event.stopPropagation();
             openPortfolioPreview(button, { trigger: button });
@@ -98,7 +101,7 @@ export function initPortfolioPreview(closeActiveModal = () => {}, { openHashOnIn
             const targetHash = new URL(link.href, window.location.href).hash;
             const previewButton = portfolioItemFromHash(targetHash)?.querySelector('.view-details-button')
                 || link.closest('.portfolio-item')?.querySelector('.view-details-button');
-            if (!previewButton) return;
+            if (!isPreviewTrigger(previewButton)) return;
             event.preventDefault();
             event.stopPropagation();
             openPortfolioPreview(previewButton, { trigger: link });

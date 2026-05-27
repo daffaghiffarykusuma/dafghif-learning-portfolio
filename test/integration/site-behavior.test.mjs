@@ -122,6 +122,28 @@ describe('site browser behavior', () => {
     expect(caseCards.every((card) => card.querySelector('a.view-details-button').textContent === 'Read Case Study')).toBe(true);
   });
 
+  test('case study card links keep native navigation instead of being intercepted as previews', async () => {
+    const html = await readPage('portfolio.html');
+    createDom(html, 'http://127.0.0.1/portfolio.html');
+    globalThis.console = window.console;
+
+    await importFresh('../../js/script.js');
+    fireDOMContentLoaded();
+
+    const caseCard = document.querySelector('#case-learning-organization-strategy-evaluation-system');
+    const caseStudyButton = caseCard.querySelector('a.view-details-button');
+    const caseStudyTitle = caseCard.querySelector('.portfolio-item-title-link');
+
+    const buttonClick = new window.MouseEvent('click', { bubbles: true, cancelable: true });
+    const titleClick = new window.MouseEvent('click', { bubbles: true, cancelable: true });
+
+    expect(caseStudyButton.dispatchEvent(buttonClick)).toBe(true);
+    expect(buttonClick.defaultPrevented).toBe(false);
+    expect(caseStudyTitle.dispatchEvent(titleClick)).toBe(true);
+    expect(titleClick.defaultPrevented).toBe(false);
+    expect(document.getElementById('pdf-modal').hidden).toBe(true);
+  });
+
   test('case study artifact cards open same-origin previews without visible direct artifact links', async () => {
     const html = await readPage('case-administrative-communication.html');
     const window = createDom(html, 'http://127.0.0.1/case-administrative-communication.html');

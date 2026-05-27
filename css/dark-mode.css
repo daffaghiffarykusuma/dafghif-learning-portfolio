@@ -1067,6 +1067,12 @@ footer {
     color: var(--dm-bg-primary) !important;
 }
 
+#portfolio-item-filters {
+    background: linear-gradient(180deg, rgba(28, 52, 58, 0.94), rgba(21, 40, 45, 0.92)) !important;
+    border-color: rgba(110, 231, 216, 0.22) !important;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28) !important;
+}
+
 /* =================================================================
    LAYER 12: MISCELLANEOUS
    ================================================================= */
