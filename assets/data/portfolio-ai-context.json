@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-items.json",
-  "generatedAt": "2026-05-27T04:49:02.672Z",
+  "generatedAt": "2026-05-31T04:15:13.579Z",
   "owner": "Daffa Ghiffary Kusuma",
   "positioning": "Learning Designer and Program Manager focused on competency-based training, learning assets, evaluation systems, mentoring, and learning analytics.",
   "usage": "Use this file as AI-readable context for tailored CVs, cover letters, recruiter summaries, and portfolio item matching when the original portfolio artifacts are unavailable.",
   "evidenceNote": "Portfolio item titles, practice areas, descriptions, tags, source artifact paths, proof points, and outcome evidence are read from structured portfolio sources. Outcome evidence is limited to direct Proof Point impact entries. Role, audience, deliverables, skills, tools, AI hints, and CV bullets may include inferred fields and should be refined when exact Portfolio Item details are available.",
-  "portfolioItemCount": 62,
+  "portfolioItemCount": 64,
   "caseStudyArtifactCount": 19,
   "practiceAreaProfiles": {
     "Training Needs Analysis": {
@@ -3641,6 +3641,111 @@
           "impact": []
         },
         "cvBullet": "Created The Psychology of Money: Understanding How We Think About Wealth as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+      }
+    },
+    {
+      "id": "project-nhi-observation-report",
+      "title": "NHI Observation Report",
+      "practiceArea": "Training Needs Analysis",
+      "tags": [
+        "training-needs-analysis",
+        "observation",
+        "learning-strategy"
+      ],
+      "publicDescription": "An observation-based report that captures field findings and translates them into structured learning or program improvement considerations for NHI stakeholders.",
+      "sourceArtifact": "assets/pdf/portfolio/nhi_laporan_observasi.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from structured portfolio source",
+        "role": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "needs analysis",
+          "gap diagnosis",
+          "learning priorities"
+        ],
+        "skills": [
+          "training needs analysis",
+          "performance consulting",
+          "competency mapping",
+          "learning design",
+          "observation",
+          "learning strategy"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Maps performance gaps into clear training priorities.",
+          "workQuality": [
+            {
+              "claim": "Connects audience needs, performance gaps, and design-ready training priorities.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Diagnosed NHI Observation Report as a training needs analysis portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+      }
+    },
+    {
+      "id": "project-eighteen-talent-hiring-desk-proposal",
+      "title": "Eighteen Talent Hiring Desk Proposal",
+      "practiceArea": "Training Proposal",
+      "tags": [
+        "training-proposal",
+        "assessment",
+        "recruitment",
+        "learning-strategy"
+      ],
+      "publicDescription": "A stakeholder-ready proposal for a hiring desk service, connecting recruitment workflow, assessment support, and implementation planning into one decision document.",
+      "sourceArtifact": "assets/pdf/portfolio/proposal_eighteen_talent_hiring_desk.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from structured portfolio source",
+        "role": "Converted learning needs into a structured proposal with objectives, program logic, delivery plan, and expected outcomes.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "training proposal",
+          "program objectives",
+          "delivery plan"
+        ],
+        "skills": [
+          "proposal development",
+          "instructional design",
+          "curriculum planning",
+          "stakeholder communication",
+          "training proposal",
+          "assessment",
+          "recruitment",
+          "learning strategy"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Made learning outcomes and participant experience easier to measure, compare, and improve."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Turns learning needs into a structured delivery plan.",
+          "workQuality": [
+            {
+              "claim": "Defines objectives, program logic, delivery structure, and stakeholder-ready recommendations.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Developed Eighteen Talent Hiring Desk Proposal as a training proposal portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Made learning outcomes and participant experience easier to measure, compare, and improve."
       }
     }
   ]

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-source.json",
-  "generatedAt": "2026-05-27T04:49:02.672Z",
-  "portfolioItemCount": 62,
+  "generatedAt": "2026-05-31T04:15:13.579Z",
+  "portfolioItemCount": 64,
   "portfolioItems": [
     {
       "id": "case-administrative-communication-learning-program",
@@ -1784,6 +1784,67 @@
         "workQuality": [
           {
             "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+            "sourceBasis": "practice-area default",
+            "confidence": "inferred"
+          }
+        ],
+        "impact": []
+      }
+    },
+    {
+      "id": "project-nhi-observation-report",
+      "title": "NHI Observation Report",
+      "practiceArea": "Training Needs Analysis",
+      "tags": [
+        "training-needs-analysis",
+        "observation",
+        "learning-strategy"
+      ],
+      "description": "An observation-based report that captures field findings and translates them into structured learning or program improvement considerations for NHI stakeholders.",
+      "image": {
+        "src": "assets/images/portfolio/nhi-observation-report.webp",
+        "alt": "NHI Observation Report thumbnail"
+      },
+      "sourceArtifact": "assets/pdf/portfolio/nhi_laporan_observasi.pdf",
+      "sourceType": "pdf",
+      "portfolioItemUrl": "portfolio.html#project-nhi-observation-report",
+      "discussUrl": "contact.html?portfolioItem=NHI Observation Report",
+      "proof": {
+        "visibleProofLine": "Maps performance gaps into clear training priorities.",
+        "workQuality": [
+          {
+            "claim": "Connects audience needs, performance gaps, and design-ready training priorities.",
+            "sourceBasis": "practice-area default",
+            "confidence": "inferred"
+          }
+        ],
+        "impact": []
+      }
+    },
+    {
+      "id": "project-eighteen-talent-hiring-desk-proposal",
+      "title": "Eighteen Talent Hiring Desk Proposal",
+      "practiceArea": "Training Proposal",
+      "tags": [
+        "training-proposal",
+        "assessment",
+        "recruitment",
+        "learning-strategy"
+      ],
+      "description": "A stakeholder-ready proposal for a hiring desk service, connecting recruitment workflow, assessment support, and implementation planning into one decision document.",
+      "image": {
+        "src": "assets/images/portfolio/eighteen-talent-hiring-desk-proposal.webp",
+        "alt": "Eighteen Talent Hiring Desk Proposal thumbnail"
+      },
+      "sourceArtifact": "assets/pdf/portfolio/proposal_eighteen_talent_hiring_desk.pdf",
+      "sourceType": "pdf",
+      "portfolioItemUrl": "portfolio.html#project-eighteen-talent-hiring-desk-proposal",
+      "discussUrl": "contact.html?portfolioItem=Eighteen Talent Hiring Desk Proposal",
+      "proof": {
+        "visibleProofLine": "Turns learning needs into a structured delivery plan.",
+        "workQuality": [
+          {
+            "claim": "Defines objectives, program logic, delivery structure, and stakeholder-ready recommendations.",
             "sourceBasis": "practice-area default",
             "confidence": "inferred"
           }

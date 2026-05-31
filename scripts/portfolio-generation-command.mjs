@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createPortfolioAiContextData, createPortfolioEvidencePipeline } from './portfolio-evidence-pipeline.mjs';
@@ -17,7 +17,13 @@ const readJson = async (rootDir, relPath) =>
 
 const writeText = async (rootDir, relPath, contents) => {
   const outputPath = path.join(rootDir, relPath);
-  await mkdir(path.dirname(outputPath), { recursive: true });
+  const outputDir = path.dirname(outputPath);
+  if (path.resolve(outputDir) !== path.resolve(rootDir)) {
+    const existing = await stat(outputDir).catch(() => null);
+    if (!existing?.isDirectory()) {
+      await mkdir(outputDir, { recursive: true });
+    }
+  }
   await writeFile(outputPath, contents, 'utf8');
 };
 

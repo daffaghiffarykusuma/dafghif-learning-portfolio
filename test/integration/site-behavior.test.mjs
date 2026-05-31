@@ -62,7 +62,7 @@ describe('site browser behavior', () => {
     const portfolioItems = Array.from(document.querySelectorAll('.card.portfolio-item:not(.portfolio-item-placeholder)'));
     const proofLines = Array.from(document.querySelectorAll('.portfolio-item-proof'));
 
-    expect(portfolioItems.length).toBe(62);
+    expect(portfolioItems.length).toBe(64);
     expect(proofLines.length).toBe(portfolioItems.length);
     expect(proofLines[0].textContent).toBe('Aligns objectives, activities, practice, and evidence.');
     expect(proofLines.every((line) => !line.textContent.startsWith('Proof of quality:'))).toBe(true);
