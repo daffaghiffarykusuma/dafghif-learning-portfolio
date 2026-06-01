@@ -9,6 +9,11 @@ import {
 } from '../../scripts/shipped-artifact-inventory.mjs';
 
 describe('Shipped Artifact Inventory', () => {
+  test('keeps legacy inventory exports wired to the Shipped Artifact Policy', () => {
+    expect(isPublicShippedArtifactPath('assets/pdf/portfolio/example.pdf')).toBe(true);
+    expect(isDeniedShippedArtifactPath('assets/raw/example.docx')).toBe(true);
+  });
+
   test('keeps request paths URL-shaped across platforms', () => {
     expect(toRequestPath(path.join('assets', 'pdf', 'portfolio', 'example.pdf'))).toBe('/assets/pdf/portfolio/example.pdf');
   });

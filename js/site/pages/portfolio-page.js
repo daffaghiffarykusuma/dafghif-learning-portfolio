@@ -1,6 +1,6 @@
 import { initPortfolioItemFilters } from '../../portfolio-item-filters.js';
 import { initPortfolioItemModals } from '../portfolio-item-modals.js';
-import { initPortfolioPreview } from '../portfolio-preview.js';
+import { createPortfolioItemPreviewExperience } from '../artifact-preview-experience.js';
 
 export function createPortfolioPageLifecycle() {
     let modalLifecycle = null;
@@ -14,7 +14,7 @@ export function createPortfolioPageLifecycle() {
         }
 
         modalLifecycle = initPortfolioItemModals();
-        previewLifecycle = initPortfolioPreview(modalLifecycle.closeActiveModal, { openHashOnInit: false });
+        previewLifecycle = createPortfolioItemPreviewExperience(modalLifecycle.closeActiveModal);
         initPortfolioItemFilters();
         filtersReady = document.querySelector('#portfolio-item-filters')?.dataset.filtersInitialized === 'true';
         initialized = true;

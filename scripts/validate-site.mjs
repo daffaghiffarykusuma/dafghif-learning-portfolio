@@ -2,7 +2,7 @@ import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { validatePortfolioEvidence } from './portfolio-evidence-validator.mjs';
-import { getShippedArtifactValidationFacts } from './shipped-artifact-inventory.mjs';
+import { createShippedArtifactPolicy } from './shipped-artifact-policy.mjs';
 import { createSourceSiteInventory, idsForSource, toPosixPath } from './site-inventory.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -187,7 +187,7 @@ posts.forEach((post, index) => {
 const portfolioEvidence = await validatePortfolioEvidence({ root });
 failures.push(...portfolioEvidence.failures);
 
-const shippedArtifactFacts = getShippedArtifactValidationFacts({ rootDir: root });
+const shippedArtifactFacts = createShippedArtifactPolicy({ rootDir: root }).validationFacts();
 for (const probe of shippedArtifactFacts.productionProbes) {
   if (!probe.existsInSource) {
     failures.push(`Shipped Artifact Inventory production probe missing from source: ${probe.path}`);

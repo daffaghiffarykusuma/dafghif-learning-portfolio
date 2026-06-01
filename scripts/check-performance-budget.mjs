@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { gzipSync } from 'node:zlib';
-import { getProductionProbeFacts } from './shipped-artifact-inventory.mjs';
+import { createShippedArtifactPolicy } from './shipped-artifact-policy.mjs';
 import { createDistSiteInventory } from './site-inventory.mjs';
 
 const root = process.cwd();
@@ -19,6 +19,7 @@ const limits = {
 };
 
 const { records } = await createDistSiteInventory({ rootDir: root, distDir: dist });
+const shippedArtifactPolicy = createShippedArtifactPolicy({ rootDir: root });
 
 const sum = (items) => items.reduce((total, item) => total + item.size, 0);
 const toKB = (bytes) => Number((bytes / 1024).toFixed(2));
@@ -76,7 +77,7 @@ for (const page of caseStudyHtmlGzip) {
 if (largestImage && largestImage.size > limits.largestImageBytes) {
   failures.push(`largest image ${largestImage.rel} ${(largestImage.size / 1024).toFixed(1)} KB exceeds ${(limits.largestImageBytes / 1024).toFixed(1)} KB`);
 }
-for (const probe of getProductionProbeFacts(root)) {
+for (const probe of shippedArtifactPolicy.productionProbeFacts()) {
   if (!shippedProbeRecords.has(probe.path)) {
     failures.push(`shipping manifest probe missing from dist: ${probe.path}`);
   }

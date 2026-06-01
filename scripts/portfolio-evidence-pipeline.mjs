@@ -2,14 +2,13 @@ import { Window } from 'happy-dom';
 import { createArtifactPreviewContract } from '../js/site/artifact-preview-policy.js';
 import {
   PORTFOLIO_ITEM_SCHEMA_VERSION,
-  createAiContextPortfolioItem,
   createPortfolioCatalogData,
   getPortfolioItemSourceItems,
   normalizePortfolioItem,
   normalizeText,
-  parsePortfolioItemsFromDocument,
-  practiceAreaProfiles
+  parsePortfolioItemsFromDocument
 } from './portfolio-item-catalog.mjs';
+import { createAiContextPortfolioItem, practiceAreaProfiles } from './portfolio-context-inference.mjs';
 import { expandCaseStudyPortfolioSource, getCaseStudyArtifactMetadata, getCaseStudySources } from './case-study-model.mjs';
 
 export const createPortfolioDocument = (html) => {

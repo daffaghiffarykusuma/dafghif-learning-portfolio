@@ -1,13 +1,13 @@
 import { describe, expect, test } from 'bun:test';
 import { Window } from 'happy-dom';
 import {
-  createAiContextPortfolioItem,
   createPortfolioCatalogData,
   getPortfolioItemSourceItems,
   normalizePortfolioItem,
   parsePortfolioItemsFromDocument,
   slugify
 } from '../../scripts/portfolio-item-catalog.mjs';
+import { createAiContextPortfolioItem } from '../../scripts/portfolio-context-inference.mjs';
 
 const createDocument = (html) => {
   const window = new Window();

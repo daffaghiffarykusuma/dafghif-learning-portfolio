@@ -1,8 +1,10 @@
 import { mkdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { createPortfolioAiContextData, createPortfolioEvidencePipeline } from './portfolio-evidence-pipeline.mjs';
-import { renderCaseStudyPages } from './case-study-source.mjs';
+import {
+  createPortfolioEvidenceWorkflow,
+  selectPortfolioEvidenceWorkflowOutputs
+} from './portfolio-evidence-workflow.mjs';
 
 const defaultPaths = Object.freeze({
   portfolioHtml: 'portfolio.html',
@@ -40,44 +42,26 @@ export const runPortfolioEvidenceGeneration = async ({
   const html = await readFile(path.join(rootDir, resolvedPaths.portfolioHtml), 'utf8');
   const portfolioSource = await readJson(rootDir, resolvedPaths.portfolioSource);
   const proofSource = await readJson(rootDir, resolvedPaths.proofPoints);
-  const pipeline = createPortfolioEvidencePipeline({
+  const workflow = createPortfolioEvidenceWorkflow({
     portfolioHtml: html,
     portfolioSource,
     proofSource,
     generatedFrom: resolvedPaths.portfolioSource,
+    catalogGeneratedFrom: resolvedPaths.catalogOutput,
     generatedAt
   });
 
-  const renderedPortfolioItemCount = pipeline.renderPortfolioItems();
-  if (writePortfolioHtml) {
-    await writeText(rootDir, resolvedPaths.portfolioHtml, pipeline.serializeDocument());
+  const outputs = selectPortfolioEvidenceWorkflowOutputs(workflow.outputs, {
+    writePortfolioHtml,
+    writeCatalog,
+    writeAiContext,
+    writeCaseStudies
+  });
+  for (const output of outputs) {
+    await writeText(rootDir, output.outputPath || resolvedPaths[output.pathKey], output.contents);
   }
 
-  if (writeCatalog) {
-    await writeText(rootDir, resolvedPaths.catalogOutput, `${JSON.stringify(pipeline.catalogData, null, 2)}\n`);
-  }
-
-  const caseStudyPages = writeCaseStudies ? renderCaseStudyPages(portfolioSource) : [];
-  for (const preview of caseStudyPages) {
-    await writeText(rootDir, preview.outputPath, preview.html);
-  }
-
-  if (writeAiContext) {
-    const aiContextData = createPortfolioAiContextData({
-      portfolioSource: pipeline.catalogData,
-      caseStudySource: portfolioSource,
-      generatedFrom: resolvedPaths.catalogOutput,
-      generatedAt
-    });
-    await writeText(rootDir, resolvedPaths.aiContextOutput, `${JSON.stringify(aiContextData, null, 2)}\n`);
-  }
-
-  return {
-    renderedPortfolioItemCount,
-    catalogPortfolioItemCount: pipeline.portfolioItems.length,
-    aiContextPortfolioItemCount: pipeline.portfolioItems.length,
-    caseStudyPageCount: caseStudyPages.length
-  };
+  return workflow.summary;
 };
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

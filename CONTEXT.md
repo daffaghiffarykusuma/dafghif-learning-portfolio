@@ -24,6 +24,14 @@ _Avoid_: Asset, attachment, file, material
 A browser-readable representation of an **Artifact** used inside the **Learning Portfolio Site** so visitors can inspect the work without downloading or opening the original source file.
 _Avoid_: Viewer, generated page, preview file, embedded document
 
+**Artifact Preview Experience**:
+The browser module that opens **Artifact Preview** content for **Portfolio Item** and **Case Study** pages, including trigger lookup, modal state, hash behavior, focus return, iframe policy application, and page-specific adapters.
+_Avoid_: PDF modal helper, click handler, preview utility
+
+**Shipped Artifact Policy**:
+The validation and build policy module that defines which **Artifacts**, data files, routed pages, platform files, and root assets are allowed to ship in the production **Learning Portfolio Site**, including deny rules for editable Office sources and production probe requirements.
+_Avoid_: Shipping helper, manifest utility, file list
+
 **Case Study**:
 A narrative page or section that explains a selected **Portfolio Item** in context, including audience, challenge, approach, evidence, and impact. A **Case Study** is deeper than a normal **Portfolio Item** listing and should not be used for every item.
 _Avoid_: Project page, story, article, detailed card
@@ -87,6 +95,14 @@ _Avoid_: Impact, result, metric, achievement
 **Portfolio Evidence Pipeline**:
 The generation module that turns the **Portfolio Item Source** and curated **Proof Point** data into visible **Portfolio Item** listings, structured portfolio metadata, and AI-readable portfolio context. It owns Proof Point application so visible copy, metadata, and validation do not drift.
 _Avoid_: Proof script, metadata helper, rendering utility
+
+**Portfolio Evidence Workflow**:
+The generation module that coordinates the full **Portfolio Evidence Pipeline** run: reading **Portfolio Item Source** inputs, applying **Proof Points**, expanding **Case Study** entries, and producing the complete set of generated **Learning Portfolio Site** outputs before a command adapter writes them to disk.
+_Avoid_: Generation command, build script, output helper
+
+**Portfolio Context Inference**:
+The generation module that turns a normalized **Portfolio Item** and its **Proof Points** into AI-readable context, including inferred audience, tools, scale signals, non-proof AI hints, direct **Outcome Evidence**, and CV bullet text.
+_Avoid_: Catalog helper, keyword utility, AI metadata script
 
 **Portfolio Owner**:
 Daffa Ghiffary Kusuma, the person whose learning, facilitation, coaching, analytics, and artifact-production work is represented on the **Learning Portfolio Site**.
