@@ -201,6 +201,28 @@
           "confidence": "direct"
         }
       ]
+    },
+    "project-score-audit-corrections": {
+      "visibleProofLine": "Summarizes 1,173 Manual Review correction rows across 13 Kelompok files.",
+      "workQuality": [
+        {
+          "claim": "Documents score corrections by source file, sheet, changed field, original value, revised value, rule, evidence note, reason, and confidence.",
+          "sourceBasis": "score_audit_corrections.xlsx sheet headers",
+          "confidence": "direct"
+        },
+        {
+          "claim": "Uses a redacted HTML viewer for public review instead of exposing the raw Awardee-level workbook as a shipped artifact.",
+          "sourceBasis": "assets/portfolio-viewers/score-audit-corrections.html",
+          "confidence": "direct"
+        }
+      ],
+      "impact": [
+        {
+          "claim": "The source workbook records 1,173 correction rows across 13 Kelompok files.",
+          "sourceBasis": "score_audit_corrections.xlsx workbook inspection",
+          "confidence": "direct"
+        }
+      ]
     }
   }
 }

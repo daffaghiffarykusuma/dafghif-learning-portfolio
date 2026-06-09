@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sourceOfTruth": "Portfolio Item source data for the Learning Portfolio Site.",
-  "portfolioItemCount": 62,
+  "portfolioItemCount": 65,
   "caseStudies": [
     {
       "id": "case-administrative-communication-learning-program",
@@ -1638,6 +1638,26 @@
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-eighteen-talent-hiring-desk-proposal",
       "discussUrl": "contact.html?portfolioItem=Eighteen Talent Hiring Desk Proposal"
+    },
+    {
+      "id": "project-score-audit-corrections",
+      "title": "Score Audit Corrections",
+      "practiceArea": "Learning Analytics",
+      "tags": [
+        "learning-analytics",
+        "assessment",
+        "spreadsheet-modeling",
+        "quality-assurance"
+      ],
+      "description": "A redacted audit workbook preview documenting Manual Review corrections for BSI Scholarship Inspirasi Ekstensi Portfolio & Background Score files.",
+      "image": {
+        "src": "assets/images/portfolio/score-audit-corrections.webp",
+        "alt": "Score Audit Corrections workbook thumbnail"
+      },
+      "sourceArtifact": "assets/portfolio-viewers/score-audit-corrections.html",
+      "sourceType": "html-viewer",
+      "portfolioItemUrl": "portfolio.html#project-score-audit-corrections",
+      "discussUrl": "contact.html?portfolioItem=Score Audit Corrections"
     }
   ]
 }

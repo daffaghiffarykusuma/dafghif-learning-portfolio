@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Score Audit Corrections | Portfolio Preview</title>
+<meta name="robots" content="noindex">
+<style>
+:root { color-scheme: light; --ink:#101820; --muted:#5b6770; --line:#d8e2df; --accent:#0f766e; --amber:#b7791f; --soft:#f4faf8; --panel:#ffffff; }
+* { box-sizing:border-box; }
+body { margin:0; font-family:Inter,Segoe UI,Arial,sans-serif; color:var(--ink); background:#fff; line-height:1.5; }
+main { max-width:1180px; margin:0 auto; padding:28px; }
+h1 { font-size:1.55rem; margin:0 0 8px; }
+h2 { font-size:1rem; margin:0 0 12px; color:var(--accent); }
+p { margin:0; }
+.lede { color:var(--muted); max-width:74ch; margin:0 0 22px; }
+.grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:0 0 18px; }
+.stat,.panel { border:1px solid var(--line); border-radius:8px; background:var(--panel); padding:16px; }
+.stat strong { display:block; font-size:1.55rem; color:var(--accent); margin-bottom:2px; }
+.stat span { display:block; font-weight:700; }
+.stat p { color:var(--muted); font-size:.86rem; margin-top:4px; }
+.panels { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin:0 0 18px; }
+ul { list-style:none; padding:0; margin:0; }
+li { display:flex; justify-content:space-between; gap:16px; border-top:1px solid #edf2f0; padding:8px 0; color:var(--muted); }
+li:first-child { border-top:0; padding-top:0; }
+li strong { color:var(--ink); }
+.table-wrap { overflow:auto; border:1px solid var(--line); border-radius:8px; background:#fff; }
+table { border-collapse:collapse; min-width:980px; width:100%; font-size:.84rem; }
+th,td { border:1px solid #e7efed; padding:8px 10px; vertical-align:top; }
+th { background:#eaf5f3; text-align:left; position:sticky; top:0; z-index:1; }
+.note { color:var(--muted); font-size:.9rem; margin:10px 0 0; }
+.badge { display:inline-flex; align-items:center; border:1px solid #e7d7ad; color:#7a4c00; background:#fff7df; border-radius:999px; padding:4px 9px; font-size:.8rem; margin:0 0 14px; }
+@media (max-width:900px) { .grid,.panels { grid-template-columns:1fr 1fr; } main { padding:20px; } }
+@media (max-width:640px) { .grid,.panels { grid-template-columns:1fr; } main { padding:16px; } }
+</style>
+</head>
+<body>
+<main aria-label="Score Audit Corrections portfolio preview">
+  <span class="badge">Redacted public preview</span>
+  <h1>Score Audit Corrections</h1>
+  <p class="lede">Audit workbook for Manual Review of BSI Scholarship Inspirasi Ekstensi Portfolio &amp; Background Score corrections. The public preview summarizes structure and quality-control coverage without exposing Awardee names or private source notes.</p>
+  <section class="grid" aria-label="Workbook summary">
+    <article class="stat"><strong>1,173</strong><span>Correction rows</span><p>Rows below the header in Audit Perubahan Skor.</p></article>
+    <article class="stat"><strong>13</strong><span>Kelompok files</span><p>Group Scoring Workbooks referenced by the audit log.</p></article>
+    <article class="stat"><strong>177</strong><span>Awardees</span><p>Distinct names in the source workbook, anonymized here.</p></article>
+    <article class="stat"><strong>0</strong><span>Formulas</span><p>No calculated cells detected in the audit sheet.</p></article>
+  </section>
+  <section class="panels" aria-label="Audit distribution">
+    <article class="panel"><h2>Sheets Reviewed</h2><ul><li><span>Detail Magang</span><strong>417</strong></li><li><span>Integrasi Kandidat</span><strong>388</strong></li><li><span>Summary</span><strong>174</strong></li><li><span>Detail Lomba</span><strong>121</strong></li><li><span>Detail Organisasi</span><strong>73</strong></li></ul></article>
+    <article class="panel"><h2>Most Frequent Changed Fields</h2><ul><li><span>Detail Magang Total Bobot</span><strong>291</strong></li><li><span>Integrasi Total Bobot Magang</span><strong>141</strong></li><li><span>Integrasi Skor Magang</span><strong>130</strong></li><li><span>Summary Skor Magang</span><strong>130</strong></li><li><span>Total Bobot / Skor Magang</span><strong>74</strong></li><li><span>Durasi Magang (bulan)</span><strong>51</strong></li></ul></article>
+    <article class="panel"><h2>Score Direction</h2><ul><li><span>Numeric revisions reduced</span><strong>588</strong></li><li><span>Numeric revisions increased</span><strong>192</strong></li><li><span>Numeric pairs checked</span><strong>780</strong></li></ul></article>
+  </section>
+  <section class="panel" aria-label="Redacted row sample">
+    <h2>Redacted Sample Rows</h2>
+    <div class="table-wrap"><table><thead><tr><th>Awardee</th><th>Kelompok File</th><th>Sheet</th><th>Changed Field</th><th>Initial</th><th>Revised</th><th>Confidence</th><th>Review Note</th></tr></thead><tbody><tr><td>Awardee 001</td><td>Kelompok_13.xlsx</td><td>Detail Magang</td><td>Detail Magang Total Bobot</td><td>12</td><td>4</td><td>Sedang</td><td>Original workbook used duration x quality weight. Revised to duration-only per Indicator File and workspace context flag on magang scoring authority.</td></tr><tr><td>Awardee 002</td><td>Kelompok_13.xlsx</td><td>Detail Magang</td><td>Detail Magang Total Bobot</td><td>12</td><td>4</td><td>Sedang</td><td>Original workbook used duration x quality weight. Revised to duration-only per Indicator File and workspace context flag on magang scoring authority.</td></tr><tr><td>Awardee 003</td><td>Kelompok_13.xlsx</td><td>Detail Magang</td><td>Detail Magang Total Bobot</td><td>8</td><td>4</td><td>Sedang</td><td>Original workbook used duration x quality weight. Revised to duration-only per Indicator File and workspace context flag on magang scoring authority.</td></tr><tr><td>Awardee 004</td><td>Kelompok_13.xlsx</td><td>Detail Magang</td><td>Detail Magang Total Bobot</td><td>6</td><td>3</td><td>Sedang</td><td>Original workbook used duration x quality weight. Revised to duration-only per Indicator File and workspace context flag on magang scoring authority.</td></tr><tr><td>Awardee 005</td><td>Kelompok_13.xlsx</td><td>Detail Magang</td><td>Detail Magang Total Bobot</td><td>36</td><td>18</td><td>Sedang</td><td>Original workbook used duration x quality weight. Revised to duration-only per Indicator File and workspace context flag on magang scoring authority.</td></tr><tr><td>Awardee 006</td><td>Kelompok_13.xlsx</td><td>Detail Magang</td><td>Detail Magang Total Bobot</td><td>8</td><td>2</td><td>Sedang</td><td>Original workbook used duration x quality weight. Revised to duration-only per Indicator File and workspace context flag on magang scoring authority.</td></tr><tr><td>Awardee 007</td><td>Kelompok_13.xlsx</td><td>Detail Magang</td><td>Detail Magang Total Bobot</td><td>4</td><td>2</td><td>Sedang</td><td>Original workbook used duration x quality weight. Revised to duration-only per Indicator File and workspace context flag on magang scoring authority.</td></tr><tr><td>Awardee 008</td><td>Kelompok_13.xlsx</td><td>Detail Magang</td><td>Detail Magang Total Bobot</td><td>18</td><td>6</td><td>Sedang</td><td>Original workbook used duration x quality weight. Revised to duration-only per Indicator File and workspace context flag on magang scoring authority.</td></tr></tbody></table></div>
+    <p class="note">Names, source evidence, and detailed private notes are withheld from this preview. The source workbook remains the review artifact for expert inspection.</p>
+  </section>
+</main>
+</body>
+</html>

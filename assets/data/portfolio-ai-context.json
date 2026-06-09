@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-items.json",
-  "generatedAt": "2026-05-31T04:15:13.579Z",
+  "generatedAt": "2026-06-09T02:17:07.752Z",
   "owner": "Daffa Ghiffary Kusuma",
   "positioning": "Learning Designer and Program Manager focused on competency-based training, learning assets, evaluation systems, mentoring, and learning analytics.",
   "usage": "Use this file as AI-readable context for tailored CVs, cover letters, recruiter summaries, and portfolio item matching when the original portfolio artifacts are unavailable.",
   "evidenceNote": "Portfolio item titles, practice areas, descriptions, tags, source artifact paths, proof points, and outcome evidence are read from structured portfolio sources. Outcome evidence is limited to direct Proof Point impact entries. Role, audience, deliverables, skills, tools, AI hints, and CV bullets may include inferred fields and should be refined when exact Portfolio Item details are available.",
-  "portfolioItemCount": 64,
+  "portfolioItemCount": 65,
   "caseStudyArtifactCount": 19,
   "practiceAreaProfiles": {
     "Training Needs Analysis": {
@@ -3746,6 +3746,75 @@
           "impact": []
         },
         "cvBullet": "Developed Eighteen Talent Hiring Desk Proposal as a training proposal portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Made learning outcomes and participant experience easier to measure, compare, and improve."
+      }
+    },
+    {
+      "id": "project-score-audit-corrections",
+      "title": "Score Audit Corrections",
+      "practiceArea": "Learning Analytics",
+      "tags": [
+        "learning-analytics",
+        "assessment",
+        "spreadsheet-modeling",
+        "quality-assurance"
+      ],
+      "publicDescription": "A redacted audit workbook preview documenting Manual Review corrections for BSI Scholarship Inspirasi Ekstensi Portfolio & Background Score files.",
+      "sourceArtifact": "assets/portfolio-viewers/score-audit-corrections.html",
+      "aiContext": {
+        "evidenceLevel": "inferred from structured portfolio source",
+        "role": "Converted learning data, response inputs, or budget assumptions into analysis-ready dashboards and decision tools.",
+        "audience": "students and early-career talent",
+        "deliverables": [
+          "analysis dashboard",
+          "calculation model",
+          "decision report"
+        ],
+        "skills": [
+          "learning analytics",
+          "dashboard design",
+          "Kirkpatrick evaluation",
+          "spreadsheet modeling",
+          "assessment",
+          "quality assurance"
+        ],
+        "tools": [
+          "Excel or Google Sheets"
+        ],
+        "scaleSignals": [],
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        },
+        "outcomeEvidence": [
+          {
+            "claim": "The source workbook records 1,173 correction rows across 13 Kelompok files.",
+            "sourceBasis": "score_audit_corrections.xlsx workbook inspection",
+            "confidence": "direct"
+          }
+        ],
+        "proof": {
+          "visibleProofLine": "Summarizes 1,173 Manual Review correction rows across 13 Kelompok files.",
+          "workQuality": [
+            {
+              "claim": "Documents score corrections by source file, sheet, changed field, original value, revised value, rule, evidence note, reason, and confidence.",
+              "sourceBasis": "score_audit_corrections.xlsx sheet headers",
+              "confidence": "direct"
+            },
+            {
+              "claim": "Uses a redacted HTML viewer for public review instead of exposing the raw Awardee-level workbook as a shipped artifact.",
+              "sourceBasis": "assets/portfolio-viewers/score-audit-corrections.html",
+              "confidence": "direct"
+            }
+          ],
+          "impact": [
+            {
+              "claim": "The source workbook records 1,173 correction rows across 13 Kelompok files.",
+              "sourceBasis": "score_audit_corrections.xlsx workbook inspection",
+              "confidence": "direct"
+            }
+          ]
+        },
+        "cvBullet": "Built Score Audit Corrections as a learning analytics portfolio item, creating practical context for students and early-career talent, with supported outcome evidence: The source workbook records 1,173 correction rows across 13 Kelompok files."
       }
     }
   ]
