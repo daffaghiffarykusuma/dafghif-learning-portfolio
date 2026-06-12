@@ -68,19 +68,3 @@ export const createPortfolioEvidenceWorkflow = ({
     }
   };
 };
-
-export const selectPortfolioEvidenceWorkflowOutputs = (
-  outputs,
-  {
-    writePortfolioHtml = true,
-    writeCatalog = true,
-    writeAiContext = true,
-    writeCaseStudies = true
-  } = {}
-) => outputs.filter((output) => {
-  if (output.type === portfolioEvidenceWorkflowOutputTypes.portfolioHtml) return writePortfolioHtml;
-  if (output.type === portfolioEvidenceWorkflowOutputTypes.catalogJson) return writeCatalog;
-  if (output.type === portfolioEvidenceWorkflowOutputTypes.aiContextJson) return writeAiContext;
-  if (output.type === portfolioEvidenceWorkflowOutputTypes.caseStudyHtml) return writeCaseStudies;
-  return false;
-});

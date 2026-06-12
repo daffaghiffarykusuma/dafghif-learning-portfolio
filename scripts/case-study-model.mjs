@@ -1,4 +1,7 @@
 import { normalizePortfolioItem, normalizeText, slugify } from './portfolio-item-catalog.mjs';
+import {
+  createCaseStudyPageIdentity as createPageIdentity
+} from '../js/site/case-study-page-identity.js';
 
 export const featuredCaseStudies = Object.freeze([
   Object.freeze({
@@ -72,8 +75,14 @@ export const getCaseStudyArtifactMetadata = (caseStudy = {}) =>
 export const getCaseStudyPagePath = (caseStudy = {}) =>
   normalizeText(caseStudy.pagePath) || `${normalizeText(caseStudy.id)}.html`;
 
+export const createCaseStudyPageIdentity = (caseStudy = {}) =>
+  createPageIdentity(getCaseStudyPagePath(caseStudy));
+
 export const getCaseStudySources = (portfolioSource = {}) =>
   Array.isArray(portfolioSource.caseStudies) ? portfolioSource.caseStudies : [];
+
+export const getCaseStudyPageIdentities = (portfolioSource = {}) =>
+  getCaseStudySources(portfolioSource).map(createCaseStudyPageIdentity);
 
 export const getFeaturedCaseStudies = () => [...featuredCaseStudies];
 

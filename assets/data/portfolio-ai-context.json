@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-items.json",
-  "generatedAt": "2026-06-12T03:08:44.376Z",
+  "generatedAt": "2026-06-12T07:43:15.010Z",
   "owner": "Daffa Ghiffary Kusuma",
   "positioning": "Learning Designer and Program Manager focused on competency-based training, learning assets, evaluation systems, mentoring, and learning analytics.",
   "usage": "Use this file as AI-readable context for tailored CVs, cover letters, recruiter summaries, and portfolio item matching when the original portfolio artifacts are unavailable.",
@@ -344,12 +344,17 @@
         },
         "outcomeEvidence": [],
         "proof": {
-          "visibleProofLine": "Aligns objectives, activities, practice, and evidence.",
+          "visibleProofLine": "Maps 36 learning hours into sessions, OJT, and competency evidence.",
           "workQuality": [
             {
-              "claim": "Structures learning objectives, session flow, learner activities, practice tasks, and evidence of competency.",
-              "sourceBasis": "practice-area default",
-              "confidence": "inferred"
+              "claim": "Maps 36 learning hours into session structure, activities, OJT practice, and competency evidence.",
+              "sourceBasis": "portfolio-description",
+              "confidence": "direct"
+            },
+            {
+              "claim": "Assesses workplace behavior transfer through observable communication tasks and structured rubrics.",
+              "sourceBasis": "portfolio-description",
+              "confidence": "direct"
             }
           ],
           "impact": []
@@ -529,12 +534,12 @@
         },
         "outcomeEvidence": [],
         "proof": {
-          "visibleProofLine": "Connects capability priorities with actionable learning strategy.",
+          "visibleProofLine": "Synthesizes labor-market signals into training priorities.",
           "workQuality": [
             {
-              "claim": "Frames learning products, business goals, capability priorities, and growth logic into an actionable L&D plan.",
-              "sourceBasis": "practice-area default",
-              "confidence": "inferred"
+              "claim": "Synthesizes labor-market signals into practical training priorities for future-ready workplace skills.",
+              "sourceBasis": "portfolio-description",
+              "confidence": "direct"
             }
           ],
           "impact": []

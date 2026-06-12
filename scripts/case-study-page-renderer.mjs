@@ -1,5 +1,10 @@
 import { normalizeText } from './portfolio-item-catalog.mjs';
-import { createCaseStudyArtifactPreviewModel, getCaseStudyPagePath, getCaseStudySources } from './case-study-model.mjs';
+import {
+  createCaseStudyArtifactPreviewModel,
+  createCaseStudyPageIdentity,
+  getCaseStudyPagePath,
+  getCaseStudySources
+} from './case-study-model.mjs';
 import { createArtifactPreviewContract } from '../js/site/artifact-preview-policy.js';
 import {
   escapeHtml,
@@ -156,7 +161,7 @@ export const renderCaseStudyHtml = (caseStudy = {}) => {
   return renderGeneratedHtmlDocument({
     title: caseStudy.documentTitle || title,
     description: caseStudy.description || caseStudy.summary,
-    currentPage: pagePath,
+    pageIdentity: createCaseStudyPageIdentity(caseStudy),
     main,
     metadataLinks: [portfolioAiContextMetadataLink]
   });

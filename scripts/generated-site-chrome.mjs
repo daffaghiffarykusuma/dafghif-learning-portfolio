@@ -47,6 +47,15 @@ export const renderSiteNavigation = (currentPage = '') => `<header>
         </div>
     </header>`;
 
+const renderPageIdentityAttributes = (pageIdentity = {}) => [
+  ['data-page-kind', pageIdentity.kind],
+  ['data-page-path', pageIdentity.pagePath],
+  ['data-navigation-page', pageIdentity.navigationPage]
+]
+  .filter(([, value]) => value)
+  .map(([attribute, value]) => `${attribute}="${escapeHtml(value)}"`)
+  .join(' ');
+
 export const renderGeneratedSiteFooter = () => `<footer>
     <div class="container">
       <div class="footer-cta">
@@ -84,6 +93,7 @@ export const renderGeneratedHtmlDocument = ({
   title,
   description,
   currentPage = '',
+  pageIdentity = null,
   main,
   footer = renderGeneratedSiteFooter(),
   metadataLinks = []
@@ -96,9 +106,9 @@ export const renderGeneratedHtmlDocument = ({
   <meta name="description" content="${escapeHtml(description)}">
   ${renderStylesheetLinks({ metadataLinks })}
 </head>
-<body>
+<body${pageIdentity ? ` ${renderPageIdentityAttributes(pageIdentity)}` : ''}>
   <a href="#main-content" class="skip-nav">Skip to main content</a>
-  ${renderSiteNavigation(currentPage)}
+  ${renderSiteNavigation(pageIdentity?.navigationPage || currentPage)}
   ${main}
   ${footer}
   <script type="module" src="js/script.js"></script>

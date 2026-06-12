@@ -1,10 +1,8 @@
 import { mkdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import {
-  createPortfolioEvidenceWorkflow,
-  selectPortfolioEvidenceWorkflowOutputs
-} from './portfolio-evidence-workflow.mjs';
+import { createPortfolioEvidenceWorkflow } from './portfolio-evidence-workflow.mjs';
+import { assertValidPortfolioItemSource } from './portfolio-item-source-validator.mjs';
 
 const defaultPaths = Object.freeze({
   portfolioHtml: 'portfolio.html',
@@ -29,19 +27,25 @@ const writeText = async (rootDir, relPath, contents) => {
   await writeFile(outputPath, contents, 'utf8');
 };
 
-export const runPortfolioEvidenceGeneration = async ({
-  rootDir = process.cwd(),
-  paths = defaultPaths,
-  generatedAt = new Date().toISOString(),
-  writePortfolioHtml = true,
-  writeCatalog = true,
-  writeAiContext = true,
-  writeCaseStudies = true
-} = {}) => {
+export const runPortfolioEvidenceWorkflow = async (options = {}) => {
+  const {
+    rootDir = process.cwd(),
+    paths = defaultPaths,
+    generatedAt = new Date().toISOString(),
+    ...unsupportedOptions
+  } = options;
+  const unsupportedOptionNames = Object.keys(unsupportedOptions);
+  if (unsupportedOptionNames.length > 0) {
+    throw new TypeError(
+      `Unsupported Portfolio Evidence Workflow option(s): ${unsupportedOptionNames.join(', ')}. Generation always writes the complete output set.`
+    );
+  }
+
   const resolvedPaths = { ...defaultPaths, ...paths };
   const html = await readFile(path.join(rootDir, resolvedPaths.portfolioHtml), 'utf8');
   const portfolioSource = await readJson(rootDir, resolvedPaths.portfolioSource);
   const proofSource = await readJson(rootDir, resolvedPaths.proofPoints);
+  assertValidPortfolioItemSource({ portfolioSource, proofSource });
   const workflow = createPortfolioEvidenceWorkflow({
     portfolioHtml: html,
     portfolioSource,
@@ -51,13 +55,7 @@ export const runPortfolioEvidenceGeneration = async ({
     generatedAt
   });
 
-  const outputs = selectPortfolioEvidenceWorkflowOutputs(workflow.outputs, {
-    writePortfolioHtml,
-    writeCatalog,
-    writeAiContext,
-    writeCaseStudies
-  });
-  for (const output of outputs) {
+  for (const output of workflow.outputs) {
     await writeText(rootDir, output.outputPath || resolvedPaths[output.pathKey], output.contents);
   }
 
@@ -65,7 +63,7 @@ export const runPortfolioEvidenceGeneration = async ({
 };
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const result = await runPortfolioEvidenceGeneration();
+  const result = await runPortfolioEvidenceWorkflow();
   console.log(`Rendered ${result.renderedPortfolioItemCount} portfolio item cards in ${defaultPaths.portfolioHtml}`);
   console.log(`Generated ${result.catalogPortfolioItemCount} portfolio item records at ${defaultPaths.catalogOutput}`);
   console.log(`Generated ${result.aiContextPortfolioItemCount} portfolio item records at ${defaultPaths.aiContextOutput}`);

@@ -11,8 +11,10 @@ import {
 import {
   createCaseStudyArtifactMetadata,
   createCaseStudyArtifactPreviewModel,
+  createCaseStudyPageIdentity,
   createCaseStudyPortfolioItem,
-  expandCaseStudyPortfolioSource
+  expandCaseStudyPortfolioSource,
+  getCaseStudyPageIdentities
 } from '../../scripts/case-study-model.mjs';
 import {
   renderCaseStudyHtml,
@@ -296,6 +298,14 @@ describe('Portfolio Evidence Pipeline', () => {
       sourceType: 'case-study-page',
       portfolioItemUrl: 'case-sample-learning-program.html'
     });
+    expect(createCaseStudyPageIdentity(caseStudy)).toEqual({
+      kind: 'case-study',
+      pagePath: 'case-sample-learning-program.html',
+      navigationPage: 'case-studies.html'
+    });
+    expect(getCaseStudyPageIdentities({ caseStudies: [caseStudy] })).toEqual([
+      createCaseStudyPageIdentity(caseStudy)
+    ]);
     expect(expandCaseStudyPortfolioSource({
       caseStudies: [caseStudy],
       portfolioItems: [
@@ -350,6 +360,7 @@ describe('Portfolio Evidence Pipeline', () => {
     ]);
 
     expect(html).toContain('<title>Case Studies | Daffa Ghiffary Kusuma</title>');
+    expect(html).toContain('<body data-page-kind="case-study-index" data-page-path="case-studies.html" data-navigation-page="case-studies.html">');
     expect(html).toContain('href="case-sample-learning-program.html"');
     expect(html).toContain('href="case-entrepreneurship.html"');
     expect(html).toContain('Entrepreneurship Program for 5,000+ SMK Students');
@@ -375,6 +386,8 @@ describe('Portfolio Evidence Pipeline', () => {
 
   test('renders Case Study pages with the richer service case-study layout', () => {
     const html = renderCaseStudyHtml({
+      id: 'case-sample-learning-program',
+      pagePath: 'case-sample-learning-program.html',
       documentTitle: 'Sample Case Study',
       title: 'Sample Learning Program',
       summary: 'Shows a grouped learning program case.',
@@ -413,6 +426,8 @@ describe('Portfolio Evidence Pipeline', () => {
     });
 
     expect(html).toContain('<title>Sample Case Study</title>');
+    expect(html).toContain('<body data-page-kind="case-study" data-page-path="case-sample-learning-program.html" data-navigation-page="case-studies.html">');
+    expect(html).toContain('<li class="current"><a href="case-studies.html">Case Studies</a></li>');
     expect(html).toContain('<h1>Sample Learning Program</h1>');
     expect(html).toContain('class="service-hero service-hero-compact generated-case-hero"');
     expect(html).toContain('class="service-impact generated-case-evidence"');

@@ -10,6 +10,15 @@ export const getSharedPageInitializers = () => [
     { name: 'page enhancements', init: initPageEnhancements }
 ];
 
-export function initSharedPage() {
-    getSharedPageInitializers().forEach((initializer) => initializer.init());
+export function initSharedPage({
+    initializers = getSharedPageInitializers(),
+    warn = console.warn
+} = {}) {
+    initializers.forEach((initializer) => {
+        try {
+            initializer.init();
+        } catch (error) {
+            warn(`Optional page initializer failed: ${initializer.name}`, error);
+        }
+    });
 }

@@ -87,8 +87,15 @@ describe('site browser behavior', () => {
 
     const caseHtml = await readPage('case-ybb-mentoring-workbook.html');
     createDom(caseHtml, 'http://127.0.0.1/case-ybb-mentoring-workbook.html');
+    globalThis.console = window.console;
+
+    await importFresh('../../js/script.js');
+    fireDOMContentLoaded();
 
     expect(document.querySelector('main h1').textContent).toBe('Youth Mentoring Workbook and Final Pitch Readiness System');
+    expect(document.body.dataset.pageKind).toBe('case-study');
+    expect(document.body.dataset.navigationPage).toBe('case-studies.html');
+    expect(document.querySelector('header nav a[href="case-studies.html"]').parentElement.classList.contains('current')).toBe(true);
     expect(document.querySelector('.service-hero.generated-case-hero')).toBeTruthy();
     expect(document.querySelector('.service-impact.generated-case-evidence')).toBeTruthy();
     expect(document.querySelector('.service-approach .approach-steps')).toBeTruthy();
@@ -101,6 +108,16 @@ describe('site browser behavior', () => {
     ]);
     expect(document.querySelector('link[rel="alternate"][type="application/json"]')?.getAttribute('href'))
       .toBe('assets/data/portfolio-ai-context.json');
+
+    const featuredCaseHtml = await readPage('case-entrepreneurship.html');
+    createDom(featuredCaseHtml, 'http://127.0.0.1/case-entrepreneurship.html');
+    globalThis.console = window.console;
+
+    await importFresh('../../js/script.js');
+    fireDOMContentLoaded();
+
+    expect(document.body.dataset.pageKind).toBe('case-study');
+    expect(document.querySelector('header nav a[href="case-studies.html"]').parentElement.classList.contains('current')).toBe(true);
   });
 
   test('generated case study hero meta text keeps readable dark-mode contrast', async () => {

@@ -1,5 +1,6 @@
 import { normalizeText } from './portfolio-item-catalog.mjs';
 import { getCaseStudyPagePath, getIndexCaseStudies } from './case-study-model.mjs';
+import { createCaseStudyIndexPageIdentity } from '../js/site/case-study-page-identity.js';
 import {
   escapeHtml,
   renderGeneratedHtmlDocument,
@@ -28,7 +29,7 @@ export const renderCaseStudyCards = (caseStudies = []) =>
 export const renderCaseStudyIndexHtml = (caseStudies = []) => renderGeneratedHtmlDocument({
   title: 'Case Studies | Daffa Ghiffary Kusuma',
   description: 'Selected learning design case studies by Daffa Ghiffary Kusuma, grouped into decision-ready narratives with artifacts, assumptions, and evidence limits.',
-  currentPage: 'case-studies.html',
+  pageIdentity: createCaseStudyIndexPageIdentity(),
   footer: renderSimpleGeneratedSiteFooter(),
   main: `<main id="main-content" role="main" aria-label="Main content">
         <section class="service-hero service-hero-compact">

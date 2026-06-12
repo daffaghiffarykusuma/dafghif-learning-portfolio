@@ -16,6 +16,10 @@ _Avoid_: Project, card, asset, sample
 The structured source data used to render visible **Portfolio Item** listings and generate portfolio metadata. The **Portfolio Item Source** is the source of truth for titles, descriptions, Practice Areas, tags, thumbnails, Artifact Preview links, and discussion links.
 _Avoid_: Scraped HTML, generated catalog, card markup
 
+**Portfolio Item Source Validation**:
+The pre-generation module that verifies the **Portfolio Item Source** schema and declared count, identity and page-path uniqueness, known **Practice Areas**, required **Case Study** and **Artifact** fields, replacement references, and **Proof Point** references before generated files can be written.
+_Avoid_: JSON check, source lint, generator guard
+
 **Artifact**:
 A concrete deliverable or source file that provides evidence for a **Portfolio Item**, such as a PDF, slide deck, workbook, document, dashboard, template, or generated preview. Thumbnails, stylesheets, and other supporting site assets are not **Artifacts**.
 _Avoid_: Asset, attachment, file, material
@@ -39,6 +43,10 @@ _Avoid_: Project page, story, article, detailed card
 **Case Study Model**:
 The generation module that normalizes **Case Study** source data, page paths, featured **Case Study** entries, absorbed **Portfolio Item** IDs, and the **Portfolio Item** representation used by the **Portfolio Evidence Pipeline**.
 _Avoid_: Case helper, case data utility, grouped project logic
+
+**Case Study Page Identity**:
+The shared module interface that identifies a generated **Case Study** page, its routed page path, and the navigation page it belongs to. The **Case Study Model** produces it, **Generated Site Chrome** serializes it, and browser and shipping adapters consume it.
+_Avoid_: Filename list, route flag, page-type helper
 
 **Case Study Index Renderer**:
 The generation module that renders the **Case Study** listing page and cards from **Case Study Model** data.
@@ -97,8 +105,8 @@ The generation module that turns the **Portfolio Item Source** and curated **Pro
 _Avoid_: Proof script, metadata helper, rendering utility
 
 **Portfolio Evidence Workflow**:
-The generation module that coordinates the full **Portfolio Evidence Pipeline** run: reading **Portfolio Item Source** inputs, applying **Proof Points**, expanding **Case Study** entries, and producing the complete set of generated **Learning Portfolio Site** outputs before a command adapter writes them to disk.
-_Avoid_: Generation command, build script, output helper
+The generation module that coordinates one complete **Portfolio Evidence Pipeline** run: reading **Portfolio Item Source** inputs, applying **Proof Points**, expanding **Case Study** entries, and producing the complete set of generated **Learning Portfolio Site** outputs for one command adapter to write together. Partial generation is not a supported workflow.
+_Avoid_: Generation command, build script, output helper, partial generator
 
 **Portfolio Context Inference**:
 The generation module that turns a normalized **Portfolio Item** and its **Proof Points** into AI-readable context, including inferred audience, tools, scale signals, non-proof AI hints, direct **Outcome Evidence**, and CV bullet text.

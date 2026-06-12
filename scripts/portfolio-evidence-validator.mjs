@@ -1,6 +1,7 @@
 import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { expandCaseStudyPortfolioSource } from './case-study-model.mjs';
+import { validatePortfolioItemSource } from './portfolio-item-source-validator.mjs';
 import { isDeniedShippedArtifactPath, isPublicShippedArtifactPath } from './shipped-artifact-inventory.mjs';
 
 export const getPortfolioEvidenceItems = (portfolioData = {}) => {
@@ -137,13 +138,22 @@ export const validatePortfolioEvidenceData = async ({
 
 export const validatePortfolioEvidence = async ({ root = process.cwd() } = {}) => {
   const portfolioSourceData = JSON.parse(await readFile(path.join(root, 'assets/data/portfolio-source.json'), 'utf8'));
+  const proofSource = JSON.parse(await readFile(path.join(root, 'assets/data/portfolio-proof-points.json'), 'utf8'));
   const portfolioCatalog = JSON.parse(await readFile(path.join(root, 'assets/data/portfolio-items.json'), 'utf8'));
   const portfolioAiContext = JSON.parse(await readFile(path.join(root, 'assets/data/portfolio-ai-context.json'), 'utf8'));
 
-  return validatePortfolioEvidenceData({
+  const sourceValidation = validatePortfolioItemSource({
+    portfolioSource: portfolioSourceData,
+    proofSource
+  });
+  const evidenceValidation = await validatePortfolioEvidenceData({
     portfolioSourceData,
     portfolioCatalog,
     portfolioAiContext,
     root
   });
+  return {
+    ...evidenceValidation,
+    failures: [...sourceValidation.failures, ...evidenceValidation.failures]
+  };
 };

@@ -1,5 +1,6 @@
-import { existsSync, readdirSync, statSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import path from 'node:path';
+import { getCaseStudyPageIdentities } from './case-study-model.mjs';
 
 export const shippedArtifactPolicy = Object.freeze({
   shippedDirectoryTrees: Object.freeze([
@@ -10,12 +11,6 @@ export const shippedArtifactPolicy = Object.freeze({
   shippedFiles: Object.freeze([
     'assets/blog.json',
     'cv/Profile.pdf',
-  ]),
-  routablePages: Object.freeze([
-    'case-administrative-communication.html',
-    'case-employee-assessment-bootcamp.html',
-    'case-learning-organization-strategy.html',
-    'case-ybb-mentoring-workbook.html',
   ]),
   rootFiles: Object.freeze({
     extensions: Object.freeze(['.png', '.jpg', '.jpeg', '.webp', '.svg', '.ico', '.pdf']),
@@ -30,24 +25,12 @@ export const shippedArtifactPolicy = Object.freeze({
     'assets/pdf/portfolio/adaptive_communication_1.pdf',
     'assets/pdf/portfolio/employee_assessment_individual_report_redacted.pdf',
     'case-studies.html',
-    'case-employee-assessment-bootcamp.html',
-    'case-ybb-mentoring-workbook.html',
     'cv/Profile.pdf',
     '_headers',
   ]),
   denyRules: Object.freeze({
     editableOfficeExtensions: Object.freeze(['.docx', '.pptx', '.xlsx']),
   }),
-});
-
-export const shippingManifest = Object.freeze({
-  directoryTrees: shippedArtifactPolicy.shippedDirectoryTrees,
-  files: shippedArtifactPolicy.shippedFiles,
-  routablePages: shippedArtifactPolicy.routablePages,
-  rootFiles: shippedArtifactPolicy.rootFiles,
-  platformFiles: shippedArtifactPolicy.platformFiles,
-  productionProbes: shippedArtifactPolicy.productionProbes,
-  denyRules: shippedArtifactPolicy.denyRules,
 });
 
 export function toPosixPath(value) {
@@ -58,10 +41,43 @@ export function toRequestPath(relativePath) {
   return `/${toPosixPath(relativePath)}`;
 }
 
+const readPortfolioSource = (rootDir) => {
+  try {
+    return JSON.parse(readFileSync(path.resolve(rootDir, 'assets/data/portfolio-source.json'), 'utf8'));
+  } catch {
+    return {};
+  }
+};
+
+export const getRoutableCaseStudyPagePaths = ({
+  rootDir = process.cwd(),
+  portfolioSource = readPortfolioSource(rootDir)
+} = {}) => getCaseStudyPageIdentities(portfolioSource).map((identity) => identity.pagePath);
+
+const createShippingManifest = ({ rootDir, policy, portfolioSource }) => {
+  const routablePages = Object.freeze(getRoutableCaseStudyPagePaths({ rootDir, portfolioSource }));
+  const productionProbes = Object.freeze([...new Set([
+    ...policy.productionProbes,
+    ...routablePages
+  ])]);
+
+  return Object.freeze({
+    directoryTrees: policy.shippedDirectoryTrees,
+    files: policy.shippedFiles,
+    routablePages,
+    rootFiles: policy.rootFiles,
+    platformFiles: policy.platformFiles,
+    productionProbes,
+    denyRules: policy.denyRules,
+  });
+};
+
 export function createShippedArtifactPolicy({
   rootDir = process.cwd(),
-  policy = shippedArtifactPolicy
+  policy = shippedArtifactPolicy,
+  portfolioSource = readPortfolioSource(rootDir)
 } = {}) {
+  const manifest = createShippingManifest({ rootDir, policy, portfolioSource });
   const normalize = (relativePath) => toPosixPath(relativePath);
   const isDeniedPath = (relativePath) => {
     const extension = path.extname(relativePath).toLowerCase();
@@ -71,7 +87,7 @@ export function createShippedArtifactPolicy({
     const normalizedPath = normalize(relativePath);
     if (isDeniedPath(normalizedPath)) return false;
     if (policy.shippedFiles.includes(normalizedPath)) return true;
-    if (policy.routablePages.includes(normalizedPath)) return true;
+    if (manifest.routablePages.includes(normalizedPath)) return true;
     if (policy.platformFiles.includes(normalizedPath)) return true;
 
     return policy.shippedDirectoryTrees.some(
@@ -86,7 +102,7 @@ export function createShippedArtifactPolicy({
         return statSync(source).isFile() && extensions.has(path.extname(file).toLowerCase());
       });
   };
-  const productionProbeFacts = () => policy.productionProbes.map((relativePath) => ({
+  const productionProbeFacts = () => manifest.productionProbes.map((relativePath) => ({
     path: relativePath,
     requestPath: toRequestPath(relativePath),
     existsInSource: existsSync(path.resolve(rootDir, relativePath)),
@@ -106,12 +122,12 @@ export function createShippedArtifactPolicy({
     deniedArtifacts: deniedArtifactFacts(distRelativePaths),
     publicRoots: policy.shippedDirectoryTrees,
     publicFiles: policy.shippedFiles,
-    routablePages: policy.routablePages,
+    routablePages: manifest.routablePages,
   });
 
   return {
     policy,
-    shippingManifest,
+    shippingManifest: manifest,
     rootShippedFiles,
     productionAssetProbePaths,
     productionProbeFacts,
@@ -122,6 +138,12 @@ export function createShippedArtifactPolicy({
   };
 }
 
+const defaultShippedArtifactPolicy = createShippedArtifactPolicy({
+  rootDir: process.cwd()
+});
+
+export const shippingManifest = defaultShippedArtifactPolicy.shippingManifest;
+
 export function getRootShippedFiles(rootDir) {
   return createShippedArtifactPolicy({ rootDir }).rootShippedFiles();
 }
@@ -131,11 +153,11 @@ export function getProductionAssetProbePaths(rootDir) {
 }
 
 export function isDeniedShippedArtifactPath(relativePath) {
-  return createShippedArtifactPolicy().isDeniedPath(relativePath);
+  return defaultShippedArtifactPolicy.isDeniedPath(relativePath);
 }
 
 export function isPublicShippedArtifactPath(relativePath) {
-  return createShippedArtifactPolicy().isPublicPath(relativePath);
+  return defaultShippedArtifactPolicy.isPublicPath(relativePath);
 }
 
 export function getDeniedShippedArtifactFacts(relativePaths) {

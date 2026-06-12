@@ -2,11 +2,10 @@ import { afterEach, describe, expect, test } from 'bun:test';
 import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import { runPortfolioEvidenceGeneration } from '../../scripts/portfolio-generation-command.mjs';
+import { runPortfolioEvidenceWorkflow } from '../../scripts/portfolio-generation-command.mjs';
 import {
   createPortfolioEvidenceWorkflow,
-  portfolioEvidenceWorkflowOutputTypes,
-  selectPortfolioEvidenceWorkflowOutputs
+  portfolioEvidenceWorkflowOutputTypes
 } from '../../scripts/portfolio-evidence-workflow.mjs';
 
 let tempRoot = null;
@@ -46,6 +45,8 @@ describe('Portfolio generation command', () => {
             description: 'Combines the generated deck into one case.',
             image: { src: 'assets/images/portfolio/case-sample.webp', alt: 'Case sample thumbnail' },
             summary: 'Shows the deck as a case.',
+            pagePath: 'case-sample-deck.html',
+            outputPath: 'assets/portfolio-viewers/case-sample-deck.html',
             reviewerContext: [],
             caseFlow: [],
             artifacts: []
@@ -83,26 +84,7 @@ describe('Portfolio generation command', () => {
     expect(workflow.outputs.find((output) => output.outputPath === 'case-sample-deck.html').contents).toContain('<h1>Sample Deck Case</h1>');
   });
 
-  test('selects workflow outputs for command adapter write modes', () => {
-    const outputs = [
-      { type: portfolioEvidenceWorkflowOutputTypes.portfolioHtml },
-      { type: portfolioEvidenceWorkflowOutputTypes.catalogJson },
-      { type: portfolioEvidenceWorkflowOutputTypes.caseStudyHtml },
-      { type: portfolioEvidenceWorkflowOutputTypes.aiContextJson }
-    ];
-
-    expect(selectPortfolioEvidenceWorkflowOutputs(outputs, {
-      writePortfolioHtml: false,
-      writeCatalog: true,
-      writeCaseStudies: false,
-      writeAiContext: true
-    })).toEqual([
-      { type: portfolioEvidenceWorkflowOutputTypes.catalogJson },
-      { type: portfolioEvidenceWorkflowOutputTypes.aiContextJson }
-    ]);
-  });
-
-  test('writes all Portfolio Evidence Pipeline outputs from one interface', async () => {
+  test('writes all Portfolio Evidence Workflow outputs from one interface', async () => {
     tempRoot = await mkdtemp(path.join(os.tmpdir(), 'portfolio-generation-'));
     await mkdir(path.join(tempRoot, 'assets', 'data'), { recursive: true });
     await writeFile(path.join(tempRoot, 'portfolio.html'), `<!doctype html><html><body>
@@ -116,6 +98,8 @@ describe('Portfolio generation command', () => {
       }
     }), 'utf8');
     await writeFile(path.join(tempRoot, 'assets', 'data', 'portfolio-source.json'), JSON.stringify({
+      schemaVersion: 1,
+      portfolioItemCount: 1,
       portfolioItems: [
         {
           id: 'sample-deck',
@@ -139,6 +123,8 @@ describe('Portfolio generation command', () => {
           description: 'Combines the generated deck into one case.',
           image: { src: 'assets/images/portfolio/case-sample.webp', alt: 'Case sample thumbnail' },
           summary: 'Shows the deck as a case.',
+          pagePath: 'case-sample-deck.html',
+          outputPath: 'assets/portfolio-viewers/case-sample-deck.html',
           reviewerContext: [],
           caseFlow: [],
           artifacts: []
@@ -146,7 +132,7 @@ describe('Portfolio generation command', () => {
       ]
     }), 'utf8');
 
-    const result = await runPortfolioEvidenceGeneration({
+    const result = await runPortfolioEvidenceWorkflow({
       rootDir: tempRoot,
       generatedAt: '2026-05-27T00:00:00.000Z'
     });
@@ -167,5 +153,53 @@ describe('Portfolio generation command', () => {
     expect(catalog.generatedAt).toBe('2026-05-27T00:00:00.000Z');
     expect(aiContext.generatedFrom).toBe('assets/data/portfolio-items.json');
     expect(caseStudyHtml).toContain('<h1>Sample Deck Case</h1>');
+  });
+
+  test('validates Portfolio Item Source inputs before writing any outputs', async () => {
+    tempRoot = await mkdtemp(path.join(os.tmpdir(), 'portfolio-generation-invalid-'));
+    await mkdir(path.join(tempRoot, 'assets', 'data'), { recursive: true });
+    await writeFile(path.join(tempRoot, 'portfolio.html'), 'unchanged portfolio', 'utf8');
+    await writeFile(path.join(tempRoot, 'assets', 'data', 'portfolio-items.json'), 'unchanged catalog', 'utf8');
+    await writeFile(path.join(tempRoot, 'assets', 'data', 'portfolio-proof-points.json'), JSON.stringify({
+      practiceAreaDefaults: {
+        'Learning Materials': {
+          visibleProofLine: 'Converts concepts into facilitator-ready learning material.'
+        }
+      }
+    }), 'utf8');
+    await writeFile(path.join(tempRoot, 'assets', 'data', 'portfolio-source.json'), JSON.stringify({
+      schemaVersion: 1,
+      portfolioItemCount: 2,
+      portfolioItems: [
+        {
+          id: 'sample-deck',
+          title: 'Sample Deck',
+          practiceArea: 'Learning Materials',
+          tags: ['learning-materials'],
+          description: 'A generated deck.',
+          image: { src: 'assets/images/portfolio/sample.webp', alt: 'Sample thumbnail' },
+          sourceArtifact: 'assets/pdf/portfolio/sample.pdf',
+          sourceType: 'pdf',
+          portfolioItemUrl: 'portfolio.html#sample-deck',
+          discussUrl: 'contact.html?portfolioItem=Sample%20Deck'
+        }
+      ],
+      caseStudies: []
+    }), 'utf8');
+
+    await expect(runPortfolioEvidenceWorkflow({ rootDir: tempRoot }))
+      .rejects.toThrow('portfolioItemCount must equal raw portfolioItems length');
+    expect(await readFile(path.join(tempRoot, 'portfolio.html'), 'utf8')).toBe('unchanged portfolio');
+    expect(await readFile(path.join(tempRoot, 'assets', 'data', 'portfolio-items.json'), 'utf8')).toBe('unchanged catalog');
+  });
+
+  test('rejects legacy partial-write options before reading or writing files', async () => {
+    tempRoot = await mkdtemp(path.join(os.tmpdir(), 'portfolio-generation-options-'));
+    await expect(runPortfolioEvidenceWorkflow({
+      rootDir: tempRoot,
+      writeCatalog: false
+    })).rejects.toThrow(
+      'Unsupported Portfolio Evidence Workflow option(s): writeCatalog. Generation always writes the complete output set.'
+    );
   });
 });

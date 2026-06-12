@@ -1,25 +1,27 @@
 import { hasCaseStudyArtifactPreviews, initCaseStudyPage } from './case-study-page.js';
 import { initContactPage } from './contact-page.js';
 import { initPortfolioPage } from './portfolio-page.js';
-import { createPageLifecycle } from '../page-lifecycle.js';
-import { getSharedPageInitializers } from './shared-page.js';
+import { initSharedPage } from './shared-page.js';
+import { isCaseStudyPageIdentity, readPageIdentity } from '../case-study-page-identity.js';
 
 const pageNameFromPath = (pathname) => pathname.split('/').pop() || 'index.html';
 
 export function initCurrentPage({ pathname = window.location.pathname } = {}) {
+    initSharedPage();
+
     const pageName = pageNameFromPath(pathname);
-    const critical = [];
+    const pageIdentity = readPageIdentity({ pathname });
     if (pageName === 'portfolio.html') {
-        critical.push({ name: 'portfolio page', init: initPortfolioPage });
-    } else if (hasCaseStudyArtifactPreviews()) {
-        critical.push({ name: 'case study page', init: initCaseStudyPage });
-    } else if (pageName === 'contact.html') {
-        critical.push({ name: 'contact page', init: initContactPage });
+        return initPortfolioPage();
     }
 
-    const lifecycle = createPageLifecycle({
-        optional: getSharedPageInitializers(),
-        critical
-    });
-    return lifecycle.init();
+    if (isCaseStudyPageIdentity(pageIdentity) || hasCaseStudyArtifactPreviews()) {
+        return initCaseStudyPage();
+    }
+
+    if (pageName === 'contact.html') {
+        initContactPage();
+    }
+
+    return null;
 }

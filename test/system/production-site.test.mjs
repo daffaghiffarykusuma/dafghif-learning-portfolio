@@ -4,13 +4,16 @@ import { readdir } from 'node:fs/promises';
 import path from 'node:path';
 import {
   getDeniedShippedArtifactFacts,
-  getProductionAssetProbePaths
+  getProductionAssetProbePaths,
+  getRoutableCaseStudyPagePaths
 } from '../../scripts/shipped-artifact-inventory.mjs';
 import { projectRoot } from '../helpers/dom.mjs';
 
 const host = '127.0.0.1';
 const port = 4178;
 const baseUrl = `http://${host}:${port}`;
+const generatedCaseStudyPages = getRoutableCaseStudyPagePaths({ rootDir: projectRoot })
+  .map((pagePath) => `/${pagePath}`);
 let server;
 
 const run = (command, args) => new Promise((resolve) => {
@@ -92,10 +95,7 @@ describe('production site system checks', () => {
       '/index.html',
       '/portfolio.html',
       '/case-studies.html',
-      '/case-employee-assessment-bootcamp.html',
-      '/case-administrative-communication.html',
-      '/case-learning-organization-strategy.html',
-      '/case-ybb-mentoring-workbook.html',
+      ...generatedCaseStudyPages,
       '/blog.html',
       '/contact.html',
       '/case-entrepreneurship.html'
@@ -111,12 +111,7 @@ describe('production site system checks', () => {
   });
 
   test('serves bundled styles on generated Case Study pages', async () => {
-    const pages = [
-      '/case-employee-assessment-bootcamp.html',
-      '/case-administrative-communication.html',
-      '/case-learning-organization-strategy.html',
-      '/case-ybb-mentoring-workbook.html'
-    ];
+    const pages = generatedCaseStudyPages;
 
     for (const page of pages) {
       const { response, body } = await request(page);
@@ -172,10 +167,7 @@ describe('production site system checks', () => {
   test('keeps portfolio preview files reachable in the built site', async () => {
     const pages = [
       '/portfolio.html',
-      '/case-employee-assessment-bootcamp.html',
-      '/case-administrative-communication.html',
-      '/case-learning-organization-strategy.html',
-      '/case-ybb-mentoring-workbook.html'
+      ...generatedCaseStudyPages
     ];
     const bodies = [];
 
@@ -218,12 +210,7 @@ describe('production site system checks', () => {
   });
 
   test('keeps built Case Study Artifact loading contract real and click-triggered', async () => {
-    const pages = [
-      '/case-employee-assessment-bootcamp.html',
-      '/case-administrative-communication.html',
-      '/case-learning-organization-strategy.html',
-      '/case-ybb-mentoring-workbook.html'
-    ];
+    const pages = generatedCaseStudyPages;
 
     for (const page of pages) {
       const { response, body } = await request(page);
@@ -245,12 +232,7 @@ describe('production site system checks', () => {
   });
 
   test('keeps generated case-study artifact UI and AI metadata discoverable in production', async () => {
-    const pages = [
-      '/case-employee-assessment-bootcamp.html',
-      '/case-administrative-communication.html',
-      '/case-learning-organization-strategy.html',
-      '/case-ybb-mentoring-workbook.html'
-    ];
+    const pages = generatedCaseStudyPages;
 
     for (const page of pages) {
       const { response, body } = await request(page);

@@ -3,6 +3,7 @@ export {
   getDeniedShippedArtifactFacts,
   getProductionAssetProbePaths,
   getProductionProbeFacts,
+  getRoutableCaseStudyPagePaths,
   getRootShippedFiles,
   getShippedArtifactValidationFacts,
   isDeniedShippedArtifactPath,

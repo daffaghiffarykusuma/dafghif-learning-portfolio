@@ -1,3 +1,5 @@
+import { readPageIdentity } from './case-study-page-identity.js';
+
 export function initNavigation() {
     const currentYear = document.getElementById('current-year');
     const menuToggle = document.querySelector('.menu-toggle');
@@ -7,15 +9,6 @@ export function initNavigation() {
     if (currentYear) {
         currentYear.textContent = new Date().getFullYear();
     }
-
-    const portfolioPages = new Set(['portfolio.html']);
-    const caseStudyPages = new Set([
-        'case-studies.html',
-        'case-entrepreneurship.html',
-        'case-administrative-communication.html',
-        'case-learning-organization-strategy.html',
-        'case-ybb-mentoring-workbook.html'
-    ]);
 
     if (menuToggle && nav) {
         menuToggle.addEventListener('click', () => {
@@ -34,13 +27,11 @@ export function initNavigation() {
         });
     });
 
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const pageIdentity = readPageIdentity();
     navLinks.forEach((link) => {
         const linkPage = link.getAttribute('href').split('/').pop() || 'index.html';
         const parentItem = link.parentElement;
-        const shouldHighlight = linkPage === currentPage
-            || (portfolioPages.has(currentPage) && linkPage === 'portfolio.html')
-            || (caseStudyPages.has(currentPage) && linkPage === 'case-studies.html');
+        const shouldHighlight = linkPage === pageIdentity.navigationPage;
 
         parentItem?.classList.toggle('current', shouldHighlight);
 

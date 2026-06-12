@@ -2,6 +2,7 @@ import { describe, expect, test } from 'bun:test';
 import path from 'node:path';
 import {
   createShippedArtifactPolicy,
+  getRoutableCaseStudyPagePaths,
   toRequestPath
 } from '../../scripts/shipped-artifact-policy.mjs';
 
@@ -59,6 +60,33 @@ describe('Shipped Artifact Policy', () => {
     expect(facts.publicRoots).toContain('assets/pdf');
     expect(facts.publicFiles).toContain('assets/blog.json');
     expect(facts.routablePages).toContain('case-ybb-mentoring-workbook.html');
+  });
+
+  test('derives routed Case Study pages and probes from the Portfolio Item Source', () => {
+    const portfolioSource = {
+      caseStudies: [
+        { id: 'case-one', pagePath: 'case-one.html' },
+        { id: 'case-two' }
+      ]
+    };
+    const policy = createShippedArtifactPolicy({
+      rootDir: process.cwd(),
+      portfolioSource
+    });
+
+    expect(getRoutableCaseStudyPagePaths({ portfolioSource })).toEqual([
+      'case-one.html',
+      'case-two.html'
+    ]);
+    expect(policy.validationFacts().routablePages).toEqual([
+      'case-one.html',
+      'case-two.html'
+    ]);
+    expect(policy.productionProbeFacts().map((probe) => probe.path)).toEqual(expect.arrayContaining([
+      'case-one.html',
+      'case-two.html'
+    ]));
+    expect(policy.isPublicPath('case-two.html')).toBe(true);
   });
 
   test('keeps production asset probe paths request-shaped and source-filtered', () => {

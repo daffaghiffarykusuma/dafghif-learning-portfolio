@@ -33,12 +33,13 @@ bun run validate
 
 The validator checks deployed HTML pages, generated portfolio viewers, CSS asset URLs, missing local assets, broken fragments, unreviewed external hosts, unsafe inline scripts, `target="_blank"` rel attributes, CSP hardening, blog metadata URL allowlists, and structured portfolio item data.
 
-Portfolio item data is generated from the public portfolio cards:
+Generate the complete portfolio output set from `assets/data/portfolio-source.json` and curated Proof Points:
 
 ```bash
-bun run generate:portfolio-items
-bun run generate:portfolio-ai
+bun run generate:portfolio
 ```
+
+This command validates the source first, then updates `portfolio.html`, generated Case Study pages, `assets/data/portfolio-items.json`, and `assets/data/portfolio-ai-context.json` together.
 
 Check production performance budgets after a build:
 
