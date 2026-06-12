@@ -13,6 +13,7 @@ export const shippedArtifactPolicy = Object.freeze({
   ]),
   routablePages: Object.freeze([
     'case-administrative-communication.html',
+    'case-employee-assessment-bootcamp.html',
     'case-learning-organization-strategy.html',
     'case-ybb-mentoring-workbook.html',
   ]),
@@ -27,7 +28,9 @@ export const shippedArtifactPolicy = Object.freeze({
     'assets/data/portfolio-ai-context.json',
     'assets/data/portfolio-items.json',
     'assets/pdf/portfolio/adaptive_communication_1.pdf',
+    'assets/pdf/portfolio/employee_assessment_individual_report_redacted.pdf',
     'case-studies.html',
+    'case-employee-assessment-bootcamp.html',
     'case-ybb-mentoring-workbook.html',
     'cv/Profile.pdf',
     '_headers',

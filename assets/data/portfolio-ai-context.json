@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-items.json",
-  "generatedAt": "2026-06-09T02:17:07.752Z",
+  "generatedAt": "2026-06-12T03:08:44.376Z",
   "owner": "Daffa Ghiffary Kusuma",
   "positioning": "Learning Designer and Program Manager focused on competency-based training, learning assets, evaluation systems, mentoring, and learning analytics.",
   "usage": "Use this file as AI-readable context for tailored CVs, cover letters, recruiter summaries, and portfolio item matching when the original portfolio artifacts are unavailable.",
   "evidenceNote": "Portfolio item titles, practice areas, descriptions, tags, source artifact paths, proof points, and outcome evidence are read from structured portfolio sources. Outcome evidence is limited to direct Proof Point impact entries. Role, audience, deliverables, skills, tools, AI hints, and CV bullets may include inferred fields and should be refined when exact Portfolio Item details are available.",
-  "portfolioItemCount": 65,
-  "caseStudyArtifactCount": 19,
+  "portfolioItemCount": 67,
+  "caseStudyArtifactCount": 21,
   "practiceAreaProfiles": {
     "Training Needs Analysis": {
       "defaultRole": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
@@ -206,6 +206,100 @@
     }
   },
   "portfolioItems": [
+    {
+      "id": "case-employee-assessment-bootcamp",
+      "title": "Employee Assessment Bootcamp Case Study",
+      "practiceArea": "Assessment & Evaluation",
+      "tags": [
+        "case-study",
+        "assessment",
+        "learning-evaluation",
+        "learning-analytics",
+        "spreadsheet-modeling",
+        "behavioral-observation"
+      ],
+      "publicDescription": "Connects a multi-day behavioral observation workbook with a redacted individual report to show the assessment flow from evidence capture and scoring to participant-facing synthesis.",
+      "sourceArtifact": "case-employee-assessment-bootcamp.html",
+      "aiContext": {
+        "evidenceLevel": "inferred from structured portfolio source",
+        "role": "Designed assessment and evaluation tools to measure learner understanding, behavior, quality, or decision readiness.",
+        "audience": "working professionals",
+        "deliverables": [
+          "assessment tool",
+          "evaluation form",
+          "scoring structure"
+        ],
+        "skills": [
+          "assessment design",
+          "learning evaluation",
+          "rubric design",
+          "measurement",
+          "case study",
+          "assessment",
+          "learning analytics",
+          "spreadsheet modeling",
+          "behavioral observation"
+        ],
+        "tools": [],
+        "scaleSignals": [],
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Made learning outcomes and participant experience easier to measure, compare, and improve."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Connects observation evidence and scoring to a redacted individual report.",
+          "workQuality": [
+            {
+              "claim": "Links competency mapping, activity-specific observation, scoring, calibration, consolidation, and participant-facing reporting.",
+              "sourceBasis": "case-study artifact set",
+              "confidence": "direct"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Designed Employee Assessment Bootcamp Case Study as a assessment & evaluation portfolio item, creating practical context for working professionals, with a non-proof AI application hint: Made learning outcomes and participant experience easier to measure, compare, and improve."
+      },
+      "caseStudyArtifacts": [
+        {
+          "id": "artifact-employee-assessment-observation-workbook",
+          "title": "Employee Assessment Observation Workbook",
+          "practiceArea": "Assessment & Evaluation",
+          "tags": [
+            "assessment",
+            "learning-analytics",
+            "spreadsheet-modeling",
+            "behavioral-observation"
+          ],
+          "publicDescription": "A redacted multi-sheet workbook for competency mapping, activity observation, scoring rubrics, daily recaps, and consolidated results.",
+          "sourceArtifact": "assets/portfolio-viewers/employee-assessment-observation-workbook.html",
+          "sourceType": "html-viewer",
+          "parentCaseStudy": "case-employee-assessment-bootcamp",
+          "image": {
+            "src": "assets/images/portfolio/employee-assessment-observation-workbook.webp",
+            "alt": "Employee Assessment Observation Workbook thumbnail"
+          }
+        },
+        {
+          "id": "artifact-employee-assessment-individual-report",
+          "title": "Employee Assessment Individual Report",
+          "practiceArea": "Assessment & Evaluation",
+          "tags": [
+            "assessment",
+            "learning-evaluation",
+            "reporting"
+          ],
+          "publicDescription": "A redacted participant-facing report that combines dimension scores, executive summaries, strengths, and development priorities.",
+          "sourceArtifact": "assets/pdf/portfolio/employee_assessment_individual_report_redacted.pdf",
+          "sourceType": "pdf",
+          "parentCaseStudy": "case-employee-assessment-bootcamp",
+          "image": {
+            "src": "assets/images/portfolio/employee-assessment-individual-report.webp",
+            "alt": "Employee Assessment Individual Report thumbnail"
+          }
+        }
+      ]
+    },
     {
       "id": "case-administrative-communication-learning-program",
       "title": "Administrative Communication Learning Program Case Study",
@@ -714,6 +808,62 @@
           }
         }
       ]
+    },
+    {
+      "id": "project-self-leadership-career-transition",
+      "title": "Self-Leadership for Career Transition",
+      "practiceArea": "Learning Materials",
+      "tags": [
+        "learning-materials",
+        "presentation-design",
+        "career-development",
+        "self-leadership"
+      ],
+      "publicDescription": "A 52-slide learning deck that helps emerging professionals navigate identity transition, strengthen self-leadership, build emotional resilience, and translate prior experience into career action.",
+      "sourceArtifact": "assets/pdf/portfolio/self_leadership_career_transition.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from structured portfolio source",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "managers and team leaders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials",
+          "career development",
+          "self leadership"
+        ],
+        "tools": [
+          "PowerPoint or Google Slides",
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [
+          "52"
+        ],
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Structures 52 slides around reflection, practical frameworks, quizzes, and action planning.",
+          "workQuality": [
+            {
+              "claim": "Organizes career transition, self-leadership, professional identity, and emotional resilience into a 52-slide facilitated learning sequence.",
+              "sourceBasis": "self_leadership_career_transition.pdf inspection",
+              "confidence": "direct"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Self-Leadership for Career Transition as a learning materials portfolio item, creating practical context for managers and team leaders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
     },
     {
       "id": "project-training-and-coaching-need-analysis-framework",

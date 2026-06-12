@@ -92,6 +92,7 @@ describe('production site system checks', () => {
       '/index.html',
       '/portfolio.html',
       '/case-studies.html',
+      '/case-employee-assessment-bootcamp.html',
       '/case-administrative-communication.html',
       '/case-learning-organization-strategy.html',
       '/case-ybb-mentoring-workbook.html',
@@ -111,6 +112,7 @@ describe('production site system checks', () => {
 
   test('serves bundled styles on generated Case Study pages', async () => {
     const pages = [
+      '/case-employee-assessment-bootcamp.html',
       '/case-administrative-communication.html',
       '/case-learning-organization-strategy.html',
       '/case-ybb-mentoring-workbook.html'
@@ -170,6 +172,7 @@ describe('production site system checks', () => {
   test('keeps portfolio preview files reachable in the built site', async () => {
     const pages = [
       '/portfolio.html',
+      '/case-employee-assessment-bootcamp.html',
       '/case-administrative-communication.html',
       '/case-learning-organization-strategy.html',
       '/case-ybb-mentoring-workbook.html'
@@ -202,7 +205,7 @@ describe('production site system checks', () => {
     const firstImage = body.match(/<img\b[^>]*>/)?.[0] || '';
     const previewIframe = body.match(/<iframe\b[^>]*\bid="pdf-iframe"[^>]*>/)?.[0] || '';
 
-    expect(portfolioItemCount).toBe(65);
+    expect(portfolioItemCount).toBe(67);
     expect(firstImage).toContain('loading="eager"');
     expect(firstImage).toContain('fetchpriority="high"');
     expect(firstImage).toContain('width="660"');
@@ -216,6 +219,7 @@ describe('production site system checks', () => {
 
   test('keeps built Case Study Artifact loading contract real and click-triggered', async () => {
     const pages = [
+      '/case-employee-assessment-bootcamp.html',
       '/case-administrative-communication.html',
       '/case-learning-organization-strategy.html',
       '/case-ybb-mentoring-workbook.html'
@@ -242,6 +246,7 @@ describe('production site system checks', () => {
 
   test('keeps generated case-study artifact UI and AI metadata discoverable in production', async () => {
     const pages = [
+      '/case-employee-assessment-bootcamp.html',
       '/case-administrative-communication.html',
       '/case-learning-organization-strategy.html',
       '/case-ybb-mentoring-workbook.html'
@@ -265,7 +270,7 @@ describe('production site system checks', () => {
     const { response, body } = await request(metadataPath);
     expect(response.status).toBe(200);
     const aiContext = JSON.parse(body);
-    expect(aiContext.portfolioItemCount).toBe(65);
+    expect(aiContext.portfolioItemCount).toBe(67);
     expect(aiContext.caseStudyArtifactCount).toBeGreaterThan(0);
     expect(aiContext.portfolioItems.find((item) => item.id === 'case-administrative-communication-learning-program').caseStudyArtifacts)
       .toHaveLength(7);

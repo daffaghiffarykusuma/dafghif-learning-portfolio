@@ -1,8 +1,102 @@
 {
   "schemaVersion": 1,
   "sourceOfTruth": "Portfolio Item source data for the Learning Portfolio Site.",
-  "portfolioItemCount": 65,
+  "portfolioItemCount": 67,
   "caseStudies": [
+    {
+      "id": "case-employee-assessment-bootcamp",
+      "documentTitle": "Employee Assessment Bootcamp Case Study",
+      "title": "Employee Assessment Bootcamp: Observation to Individual Reporting",
+      "portfolioItemTitle": "Employee Assessment Bootcamp Case Study",
+      "practiceArea": "Assessment & Evaluation",
+      "accentColor": "#5b4b8a",
+      "tags": [
+        "assessment",
+        "learning-evaluation",
+        "learning-analytics",
+        "spreadsheet-modeling",
+        "behavioral-observation"
+      ],
+      "description": "Connects a multi-day behavioral observation workbook with a redacted individual report to show the assessment flow from evidence capture and scoring to participant-facing synthesis.",
+      "summary": "This case study shows an end-to-end employee assessment workflow: competency mapping, activity-specific observation, anchored scoring, evidence calibration, consolidated results, and an anonymized individual report.",
+      "image": {
+        "src": "assets/images/portfolio/employee-assessment-bootcamp-case-study.webp",
+        "alt": "Anonymized employee assessment bootcamp team photo"
+      },
+      "pagePath": "case-employee-assessment-bootcamp.html",
+      "outputPath": "assets/portfolio-viewers/employee-assessment-bootcamp-case-study.html",
+      "portfolioItemUrl": "case-employee-assessment-bootcamp.html",
+      "discussUrl": "contact.html?portfolioItem=Employee Assessment Bootcamp Case Study",
+      "reviewerContext": [
+        {
+          "label": "Use case",
+          "value": "Review behavioral assessment design, observation structure, scoring logic, and participant-facing reporting."
+        },
+        {
+          "label": "Scope",
+          "value": "Competency mapping, multi-day observation, assignments, peer input, calibration, score consolidation, and individual reporting."
+        },
+        {
+          "label": "Evidence limit",
+          "value": "The artifacts demonstrate assessment structure and reporting quality. They do not independently validate the participant scores or program impact."
+        }
+      ],
+      "caseFlow": [
+        {
+          "label": "Map assessment evidence",
+          "value": "Connect behavior dimensions to activities, methods, indicators, and anchored rubrics."
+        },
+        {
+          "label": "Capture observable behavior",
+          "value": "Record concrete actions and statements across discussions, assignments, coaching, simulations, and peer review."
+        },
+        {
+          "label": "Calibrate and consolidate",
+          "value": "Review evidence quality, align scoring, and combine activity results into dimension-level findings."
+        },
+        {
+          "label": "Translate results",
+          "value": "Convert the consolidated evidence into a concise individual report with scores, strengths, and development priorities."
+        }
+      ],
+      "artifacts": [
+        {
+          "title": "Employee Assessment Observation Workbook",
+          "description": "A redacted multi-sheet workbook for competency mapping, activity observation, scoring rubrics, daily recaps, and consolidated results.",
+          "href": "assets/portfolio-viewers/employee-assessment-observation-workbook.html",
+          "id": "artifact-employee-assessment-observation-workbook",
+          "sourceType": "html-viewer",
+          "practiceArea": "Assessment & Evaluation",
+          "tags": [
+            "assessment",
+            "learning-analytics",
+            "spreadsheet-modeling",
+            "behavioral-observation"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/employee-assessment-observation-workbook.webp",
+            "alt": "Employee Assessment Observation Workbook thumbnail"
+          }
+        },
+        {
+          "title": "Employee Assessment Individual Report",
+          "description": "A redacted participant-facing report that combines dimension scores, executive summaries, strengths, and development priorities.",
+          "href": "assets/pdf/portfolio/employee_assessment_individual_report_redacted.pdf",
+          "id": "artifact-employee-assessment-individual-report",
+          "sourceType": "pdf",
+          "practiceArea": "Assessment & Evaluation",
+          "tags": [
+            "assessment",
+            "learning-evaluation",
+            "reporting"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/employee-assessment-individual-report.webp",
+            "alt": "Employee Assessment Individual Report thumbnail"
+          }
+        }
+      ]
+    },
     {
       "id": "case-administrative-communication-learning-program",
       "documentTitle": "Administrative Communication Case Study",
@@ -502,6 +596,26 @@
     }
   ],
   "portfolioItems": [
+    {
+      "id": "project-self-leadership-career-transition",
+      "title": "Self-Leadership for Career Transition",
+      "practiceArea": "Learning Materials",
+      "tags": [
+        "learning-materials",
+        "presentation-design",
+        "career-development",
+        "self-leadership"
+      ],
+      "description": "A 52-slide learning deck that helps emerging professionals navigate identity transition, strengthen self-leadership, build emotional resilience, and translate prior experience into career action.",
+      "image": {
+        "src": "assets/images/portfolio/self-leadership-career-transition.webp",
+        "alt": "Self-Leadership for Career Transition deck thumbnail"
+      },
+      "sourceArtifact": "assets/pdf/portfolio/self_leadership_career_transition.pdf",
+      "sourceType": "pdf",
+      "portfolioItemUrl": "portfolio.html#project-self-leadership-career-transition",
+      "discussUrl": "contact.html?portfolioItem=Self-Leadership for Career Transition"
+    },
     {
       "id": "project-training-and-coaching-need-analysis-framework",
       "title": "Training and Coaching Need Analysis Framework",

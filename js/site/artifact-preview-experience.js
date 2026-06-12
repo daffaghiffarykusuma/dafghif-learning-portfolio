@@ -138,7 +138,7 @@ export function createArtifactPreviewExperience({
         if (event.key === 'Escape') closePdfModal();
     };
 
-    root.addEventListener('click', handlePreviewClick);
+    root.addEventListener('click', handlePreviewClick, true);
     window.addEventListener('hashchange', openPreviewFromHash);
     pdfModal.querySelector('.close-modal')?.addEventListener('click', handleModalCloseClick);
     pdfModal.addEventListener('click', handleModalBackdropClick);
@@ -147,7 +147,7 @@ export function createArtifactPreviewExperience({
 
     const destroy = () => {
         closePdfModal();
-        root.removeEventListener('click', handlePreviewClick);
+        root.removeEventListener('click', handlePreviewClick, true);
         window.removeEventListener('hashchange', openPreviewFromHash);
         pdfModal.querySelector('.close-modal')?.removeEventListener('click', handleModalCloseClick);
         pdfModal.removeEventListener('click', handleModalBackdropClick);

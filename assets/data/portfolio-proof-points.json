@@ -202,6 +202,26 @@
         }
       ]
     },
+    "project-self-leadership-career-transition": {
+      "visibleProofLine": "Structures 52 slides around reflection, practical frameworks, quizzes, and action planning.",
+      "workQuality": [
+        {
+          "claim": "Organizes career transition, self-leadership, professional identity, and emotional resilience into a 52-slide facilitated learning sequence.",
+          "sourceBasis": "self_leadership_career_transition.pdf inspection",
+          "confidence": "direct"
+        }
+      ]
+    },
+    "case-employee-assessment-bootcamp": {
+      "visibleProofLine": "Connects observation evidence and scoring to a redacted individual report.",
+      "workQuality": [
+        {
+          "claim": "Links competency mapping, activity-specific observation, scoring, calibration, consolidation, and participant-facing reporting.",
+          "sourceBasis": "case-study artifact set",
+          "confidence": "direct"
+        }
+      ]
+    },
     "project-score-audit-corrections": {
       "visibleProofLine": "Summarizes 1,173 Manual Review correction rows across 13 Kelompok files.",
       "workQuality": [

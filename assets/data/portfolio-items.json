@@ -1,9 +1,42 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-source.json",
-  "generatedAt": "2026-06-09T02:17:07.752Z",
-  "portfolioItemCount": 65,
+  "generatedAt": "2026-06-12T03:08:44.376Z",
+  "portfolioItemCount": 67,
   "portfolioItems": [
+    {
+      "id": "case-employee-assessment-bootcamp",
+      "title": "Employee Assessment Bootcamp Case Study",
+      "practiceArea": "Assessment & Evaluation",
+      "tags": [
+        "case-study",
+        "assessment",
+        "learning-evaluation",
+        "learning-analytics",
+        "spreadsheet-modeling",
+        "behavioral-observation"
+      ],
+      "description": "Connects a multi-day behavioral observation workbook with a redacted individual report to show the assessment flow from evidence capture and scoring to participant-facing synthesis.",
+      "image": {
+        "src": "assets/images/portfolio/employee-assessment-bootcamp-case-study.webp",
+        "alt": "Anonymized employee assessment bootcamp team photo"
+      },
+      "sourceArtifact": "case-employee-assessment-bootcamp.html",
+      "sourceType": "case-study-page",
+      "portfolioItemUrl": "case-employee-assessment-bootcamp.html",
+      "discussUrl": "contact.html?portfolioItem=Employee Assessment Bootcamp Case Study",
+      "proof": {
+        "visibleProofLine": "Connects observation evidence and scoring to a redacted individual report.",
+        "workQuality": [
+          {
+            "claim": "Links competency mapping, activity-specific observation, scoring, calibration, consolidation, and participant-facing reporting.",
+            "sourceBasis": "case-study artifact set",
+            "confidence": "direct"
+          }
+        ],
+        "impact": []
+      }
+    },
     {
       "id": "case-administrative-communication-learning-program",
       "title": "Administrative Communication Learning Program Case Study",
@@ -101,6 +134,37 @@
             "claim": "Uses mentoring activities, reflection prompts, and action planning tools to support learner follow-through.",
             "sourceBasis": "practice-area default",
             "confidence": "inferred"
+          }
+        ],
+        "impact": []
+      }
+    },
+    {
+      "id": "project-self-leadership-career-transition",
+      "title": "Self-Leadership for Career Transition",
+      "practiceArea": "Learning Materials",
+      "tags": [
+        "learning-materials",
+        "presentation-design",
+        "career-development",
+        "self-leadership"
+      ],
+      "description": "A 52-slide learning deck that helps emerging professionals navigate identity transition, strengthen self-leadership, build emotional resilience, and translate prior experience into career action.",
+      "image": {
+        "src": "assets/images/portfolio/self-leadership-career-transition.webp",
+        "alt": "Self-Leadership for Career Transition deck thumbnail"
+      },
+      "sourceArtifact": "assets/pdf/portfolio/self_leadership_career_transition.pdf",
+      "sourceType": "pdf",
+      "portfolioItemUrl": "portfolio.html#project-self-leadership-career-transition",
+      "discussUrl": "contact.html?portfolioItem=Self-Leadership for Career Transition",
+      "proof": {
+        "visibleProofLine": "Structures 52 slides around reflection, practical frameworks, quizzes, and action planning.",
+        "workQuality": [
+          {
+            "claim": "Organizes career transition, self-leadership, professional identity, and emotional resilience into a 52-slide facilitated learning sequence.",
+            "sourceBasis": "self_leadership_career_transition.pdf inspection",
+            "confidence": "direct"
           }
         ],
         "impact": []

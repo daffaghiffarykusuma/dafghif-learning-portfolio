@@ -26,8 +26,10 @@ describe('site browser behavior', () => {
       .find((button) => button.dataset.pdf);
     expect(safeButton).toBeTruthy();
 
-    safeButton.click();
+    const safeCard = safeButton.closest('.portfolio-item');
+    safeCard.querySelector('.portfolio-item-thumbnail-link').click();
     expect(modal.hidden).toBe(false);
+    expect(window.location.hash).toBe(`#${safeCard.id}`);
     expect(iframe.src.startsWith('http://127.0.0.1/assets/pdf/portfolio/')).toBe(true);
     expect(iframe.src).toContain('#toolbar=0');
     expect(iframe.hasAttribute('sandbox')).toBe(false);
@@ -62,9 +64,10 @@ describe('site browser behavior', () => {
     const portfolioItems = Array.from(document.querySelectorAll('.card.portfolio-item:not(.portfolio-item-placeholder)'));
     const proofLines = Array.from(document.querySelectorAll('.portfolio-item-proof'));
 
-    expect(portfolioItems.length).toBe(65);
+    expect(portfolioItems.length).toBe(67);
     expect(proofLines.length).toBe(portfolioItems.length);
-    expect(proofLines[0].textContent).toBe('Aligns objectives, activities, practice, and evidence.');
+    expect(document.querySelector('#case-employee-assessment-bootcamp .portfolio-item-proof').textContent)
+      .toBe('Connects observation evidence and scoring to a redacted individual report.');
     expect(proofLines.every((line) => !line.textContent.startsWith('Proof of quality:'))).toBe(true);
   });
 
@@ -75,11 +78,12 @@ describe('site browser behavior', () => {
     expect(document.querySelector('header nav a[href="case-studies.html"]').parentElement.classList.contains('current')).toBe(true);
     expect(Array.from(document.querySelectorAll('.case-study-card a'), (link) => link.getAttribute('href'))).toEqual(expect.arrayContaining([
       'case-entrepreneurship.html',
+      'case-employee-assessment-bootcamp.html',
       'case-administrative-communication.html',
       'case-learning-organization-strategy.html',
       'case-ybb-mentoring-workbook.html'
     ]));
-    expect(document.querySelectorAll('.case-study-card').length).toBe(4);
+    expect(document.querySelectorAll('.case-study-card').length).toBe(5);
 
     const caseHtml = await readPage('case-ybb-mentoring-workbook.html');
     createDom(caseHtml, 'http://127.0.0.1/case-ybb-mentoring-workbook.html');
@@ -112,8 +116,9 @@ describe('site browser behavior', () => {
     createDom(html, 'http://127.0.0.1/portfolio.html');
 
     const caseCards = Array.from(document.querySelectorAll('.card.portfolio-item[data-category~="case-study"]'));
-    expect(caseCards.length).toBe(3);
+    expect(caseCards.length).toBe(4);
     expect(caseCards.map((card) => card.querySelector('.portfolio-item-title-link').getAttribute('href'))).toEqual([
+      'case-employee-assessment-bootcamp.html',
       'case-administrative-communication.html',
       'case-learning-organization-strategy.html',
       'case-ybb-mentoring-workbook.html'
@@ -171,6 +176,7 @@ describe('site browser behavior', () => {
     artifactCards[1].querySelector('.portfolio-item-thumbnail-link').click();
     expect(document.getElementById('pdf-modal').hidden).toBe(false);
     expect(document.getElementById('pdf-modal-title').textContent).toBe('Competency-Based Communication Training Proposal');
+    expect(window.location.hash).toBe('');
   });
 
   test('portfolio page ignores malformed hash selectors without aborting initialization', async () => {
