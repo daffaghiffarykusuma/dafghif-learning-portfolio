@@ -10,6 +10,14 @@ afterEach(() => {
 });
 
 describe('site browser behavior', () => {
+  test('top-level pages expose one page heading and keep site identity out of h1', async () => {
+    for (const page of ['index.html', 'portfolio.html', 'case-studies.html', 'contact.html', 'blog.html']) {
+      createDom(await readPage(page), `http://127.0.0.1/${page}`);
+      expect(document.querySelectorAll('main h1').length).toBe(1);
+      expect(document.querySelectorAll('header .logo h1').length).toBe(0);
+    }
+  });
+
   test('portfolio page opens same-origin previews and blocks unsafe preview paths', async () => {
     const html = await readPage('portfolio.html');
     const window = createDom(html, 'http://127.0.0.1/portfolio.html');
@@ -277,5 +285,18 @@ describe('site browser behavior', () => {
       goal: 'Train managers'
     });
     expect(window.location.href.endsWith('/contact.html')).toBe(true);
+  });
+
+  test('homepage connects core practices to filtered evidence and explains the working method', async () => {
+    createDom(await readPage('index.html'), 'http://127.0.0.1/index.html');
+
+    expect(document.querySelector('.hero-actions a[href="portfolio.html?area=all"]')).not.toBeNull();
+    expect(document.querySelector('[data-practice-area="training"] a[href="portfolio.html?area=training-workshop"]')).not.toBeNull();
+    expect(document.querySelector('[data-practice-area="learning-materials"] a[href="portfolio.html?area=learning-materials"]')).not.toBeNull();
+    expect(document.querySelector('[data-practice-area="analytics"] a[href="portfolio.html?area=learning-analytics"]')).not.toBeNull();
+    expect(document.querySelector('#how-i-work h2')?.textContent).toBe('How I Work');
+    expect(document.querySelectorAll('#how-i-work .approach-steps > li')).toHaveLength(5);
+    expect(document.querySelectorAll('#how-i-work .approach-steps a[href^="case-"]')).toHaveLength(5);
+    expect(document.querySelectorAll('[data-featured-testimonial][data-practice-areas]')).toHaveLength(3);
   });
 });

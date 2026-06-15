@@ -19,8 +19,34 @@ export const createPortfolioDocument = (html) => {
   return window.document;
 };
 
-export const getPortfolioSourceItems = (portfolioSource) =>
-  getPortfolioItemSourceItems(expandCaseStudyPortfolioSource(portfolioSource)).map(normalizePortfolioItem);
+export const prioritizeFeaturedPortfolioItems = (portfolioItems, featuredIds = []) => {
+  const itemsById = new Map(portfolioItems.map((item) => [item.id, item]));
+  const featured = featuredIds.map((id) => itemsById.get(id)).filter(Boolean);
+  const featuredIdSet = new Set(featured.map((item) => item.id));
+  return [...featured, ...portfolioItems.filter((item) => !featuredIdSet.has(item.id))];
+};
+
+export const getPortfolioSourceItems = (portfolioSource) => {
+  const items = getPortfolioItemSourceItems(expandCaseStudyPortfolioSource(portfolioSource)).map(normalizePortfolioItem);
+  return prioritizeFeaturedPortfolioItems(items, portfolioSource?.featuredPortfolioItemIds);
+};
+
+const portfolioAreaFilters = new Set([
+  'training-workshop',
+  'instructional-design',
+  'learning-materials',
+  'assessment',
+  'learning-analytics',
+  'training-needs-analysis',
+  'curriculum-development',
+  'training-proposal',
+  'worksheet',
+  'learning-strategy',
+  'presentation-design',
+  'mentoring'
+]);
+
+const getPracticeAreaFilter = (item) => item.tags.find((tag) => portfolioAreaFilters.has(tag)) || '';
 
 export const normalizeProofEntry = (entry = {}) => ({
   claim: normalizeText(entry.claim),
@@ -117,7 +143,8 @@ export const renderPortfolioItemCard = (document, portfolioItem, index = 0) => {
   const practiceLabel = document.createElement('span');
   practiceLabel.className = 'portfolio-item-practice-label';
   const practiceLink = document.createElement('a');
-  practiceLink.href = 'portfolio.html';
+  const practiceAreaFilter = getPracticeAreaFilter(item);
+  practiceLink.href = practiceAreaFilter ? `portfolio.html?area=${practiceAreaFilter}` : 'portfolio.html';
   practiceLink.textContent = item.practiceArea;
   practiceLabel.append(practiceLink);
 
@@ -137,7 +164,7 @@ export const renderPortfolioItemCard = (document, portfolioItem, index = 0) => {
   const detailsButton = document.createElement('button');
   detailsButton.className = 'view-details-button';
   detailsButton.type = 'button';
-  detailsButton.textContent = 'View Details';
+  detailsButton.textContent = item.sourceType === 'pdf' ? 'View PDF Artifact' : 'Open Interactive Preview';
   if (item.sourceType === 'case-study-page') {
     const caseStudyLink = document.createElement('a');
     caseStudyLink.className = 'view-details-button';

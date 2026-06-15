@@ -4,7 +4,14 @@ export function initTestimonials() {
 
     testimonialSliders.forEach((slider) => {
         const track = slider.querySelector('[data-slider-track]');
-        const slides = track ? Array.from(track.children) : [];
+        const allSlides = track ? Array.from(track.children) : [];
+        const featuredSlides = allSlides.filter((slide) => slide.hasAttribute('data-featured-testimonial'));
+        const slides = featuredSlides.length ? featuredSlides : allSlides;
+        if (featuredSlides.length) {
+            allSlides.forEach((slide) => {
+                slide.hidden = !slide.hasAttribute('data-featured-testimonial');
+            });
+        }
         const prevButton = slider.querySelector('[data-slider-prev]');
         const nextButton = slider.querySelector('[data-slider-next]');
         const dotsContainer = slider.querySelector('[data-slider-dots]');

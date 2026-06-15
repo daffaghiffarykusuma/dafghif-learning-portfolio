@@ -32,7 +32,7 @@ export const renderSiteNavigation = (currentPage = '') => `<header>
         <div class="container">
             <div class="header-main">
                 <div class="logo">
-                    <a href="index.html"><h1>Daffa Ghiffary Kusuma</h1></a>
+                    <a href="index.html"><span class="site-title">Daffa Ghiffary Kusuma</span></a>
                 </div>
                 <button type="button" class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
                     <span class="menu-icon"></span>
@@ -81,10 +81,17 @@ export const renderArtifactPreviewModal = () => `<div aria-labelledby="pdf-modal
     <div class="pdf-modal-content" role="document">
       <div class="pdf-modal-header">
         <button type="button" class="close-modal js-close-modal" aria-label="Close artifact preview"></button>
-        <h2 id="pdf-modal-title">Portfolio Item Details</h2>
+        <div>
+          <h2 id="pdf-modal-title">Portfolio Item Details</h2>
+          <p id="pdf-modal-meta">Artifact preview</p>
+        </div>
       </div>
       <div class="pdf-modal-body">
         <iframe frameborder="0" height="500px" id="pdf-iframe" referrerpolicy="same-origin" src="" title="Artifact preview" width="100%"></iframe>
+      </div>
+      <div class="pdf-modal-actions">
+        <a class="secondary-cta" href="#" id="pdf-open-full">Open full screen</a>
+        <a class="cta-button" href="contact.html" id="pdf-discuss">Discuss this Artifact</a>
       </div>
     </div>
   </div>`;

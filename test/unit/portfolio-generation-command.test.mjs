@@ -100,6 +100,7 @@ describe('Portfolio generation command', () => {
     await writeFile(path.join(tempRoot, 'assets', 'data', 'portfolio-source.json'), JSON.stringify({
       schemaVersion: 1,
       portfolioItemCount: 1,
+      featuredPortfolioItemIds: ['case-sample-deck', 'sample-deck'],
       portfolioItems: [
         {
           id: 'sample-deck',

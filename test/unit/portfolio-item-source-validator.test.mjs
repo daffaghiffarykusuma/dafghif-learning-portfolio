@@ -63,6 +63,7 @@ const validProofSource = {
 const createValidSource = () => ({
   schemaVersion: 1,
   portfolioItemCount: 1,
+  featuredPortfolioItemIds: ['case-sample-program', 'sample-deck'],
   portfolioItems: [{ ...validPortfolioItem }],
   caseStudies: [{ ...validCaseStudy }]
 });
@@ -84,6 +85,7 @@ describe('Portfolio Item Source validation', () => {
     const source = createValidSource();
     source.schemaVersion = 2;
     source.portfolioItemCount = 9;
+    source.featuredPortfolioItemIds = ['missing-item', 'missing-item'];
     source.portfolioItems.push({
       ...validPortfolioItem,
       title: '',
@@ -116,6 +118,8 @@ describe('Portfolio Item Source validation', () => {
     expect(result.failures).toContain('assets/data/portfolio-source.json: schemaVersion must be 1; received 2');
     expect(result.failures).toContain('assets/data/portfolio-source.json: portfolioItemCount must equal raw portfolioItems length; declared=9, actual=2');
     expect(result.failures).toContain('assets/data/portfolio-source.json: duplicate Portfolio Item id "sample-deck"');
+    expect(result.failures).toContain('assets/data/portfolio-source.json: duplicate featured Portfolio Item id "missing-item"');
+    expect(result.failures).toContain('assets/data/portfolio-source.json: featured Portfolio Item "missing-item" does not reference a generated Portfolio Item');
     expect(result.failures).toContain('assets/data/portfolio-source.json: Portfolio Item "sample-deck" is missing title');
     expect(result.failures).toContain('assets/data/portfolio-source.json: Portfolio Item "sample-deck" uses unknown Practice Area "Unknown Practice"');
     expect(result.failures).toContain('assets/data/portfolio-source.json: duplicate Case Study pagePath "case-sample-program.html"');

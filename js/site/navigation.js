@@ -11,35 +11,39 @@ export function initNavigation() {
     }
 
     if (menuToggle && nav) {
+        const setNavigationOpen = (isOpen) => {
+            nav.classList.toggle('active', isOpen);
+            menuToggle.setAttribute('aria-expanded', String(isOpen));
+            document.body.classList.toggle('navigation-open', isOpen);
+        };
+
         menuToggle.addEventListener('click', () => {
-            nav.classList.toggle('active');
-            menuToggle.setAttribute('aria-expanded', String(nav.classList.contains('active')));
+            setNavigationOpen(!nav.classList.contains('active'));
+        });
+
+        document.querySelectorAll('.has-dropdown').forEach((item) => {
+            const link = item.querySelector('a');
+            link?.addEventListener('click', (event) => {
+                if (window.innerWidth <= 1024 && nav.classList.contains('active')) {
+                    event.preventDefault();
+                    item.classList.toggle('open');
+                }
+            });
+        });
+
+        const pageIdentity = readPageIdentity();
+        navLinks.forEach((link) => {
+            const linkPage = link.getAttribute('href').split('/').pop() || 'index.html';
+            const parentItem = link.parentElement;
+            const shouldHighlight = linkPage === pageIdentity.navigationPage;
+
+            parentItem?.classList.toggle('current', shouldHighlight);
+
+            link.addEventListener('click', () => {
+                if (nav.classList.contains('active')) {
+                    setNavigationOpen(false);
+                }
+            });
         });
     }
-
-    document.querySelectorAll('.has-dropdown').forEach((item) => {
-        const link = item.querySelector('a');
-        link?.addEventListener('click', (event) => {
-            if (window.innerWidth <= 1024 && nav?.classList.contains('active')) {
-                event.preventDefault();
-                item.classList.toggle('open');
-            }
-        });
-    });
-
-    const pageIdentity = readPageIdentity();
-    navLinks.forEach((link) => {
-        const linkPage = link.getAttribute('href').split('/').pop() || 'index.html';
-        const parentItem = link.parentElement;
-        const shouldHighlight = linkPage === pageIdentity.navigationPage;
-
-        parentItem?.classList.toggle('current', shouldHighlight);
-
-        link.addEventListener('click', () => {
-            if (nav?.classList.contains('active')) {
-                nav.classList.remove('active');
-                menuToggle?.setAttribute('aria-expanded', 'false');
-            }
-        });
-    });
 }

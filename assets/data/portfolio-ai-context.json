@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-items.json",
-  "generatedAt": "2026-06-12T07:43:15.010Z",
+  "generatedAt": "2026-06-15T00:35:47.327Z",
   "owner": "Daffa Ghiffary Kusuma",
   "positioning": "Learning Designer and Program Manager focused on competency-based training, learning assets, evaluation systems, mentoring, and learning analytics.",
   "usage": "Use this file as AI-readable context for tailored CVs, cover letters, recruiter summaries, and portfolio item matching when the original portfolio artifacts are unavailable.",
@@ -922,108 +922,6 @@
       }
     },
     {
-      "id": "project-need-assessment-cross-department-communication",
-      "title": "Need Assessment: Cross-Department Communication",
-      "practiceArea": "Training Needs Analysis",
-      "tags": [
-        "training-needs-analysis",
-        "instructional-design",
-        "curriculum-development"
-      ],
-      "publicDescription": "Defines the real skill gap behind cross-functional friction and converts it into design-ready learning priorities.",
-      "sourceArtifact": "assets/pdf/portfolio/need_assessment_communication_between_departments.pdf",
-      "aiContext": {
-        "evidenceLevel": "inferred from structured portfolio source",
-        "role": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
-        "audience": "learners, teams, or program stakeholders",
-        "deliverables": [
-          "needs analysis",
-          "gap diagnosis",
-          "learning priorities"
-        ],
-        "skills": [
-          "training needs analysis",
-          "performance consulting",
-          "competency mapping",
-          "learning design",
-          "instructional design",
-          "curriculum development"
-        ],
-        "tools": [
-          "PDF learning artifact"
-        ],
-        "scaleSignals": [],
-        "aiHint": {
-          "evidenceLevel": "inferred non-proof drafting hint",
-          "application": "Clarified the real performance gap before investing in training design or delivery."
-        },
-        "outcomeEvidence": [],
-        "proof": {
-          "visibleProofLine": "Maps performance gaps into clear training priorities.",
-          "workQuality": [
-            {
-              "claim": "Connects audience needs, performance gaps, and design-ready training priorities.",
-              "sourceBasis": "practice-area default",
-              "confidence": "inferred"
-            }
-          ],
-          "impact": []
-        },
-        "cvBullet": "Diagnosed Need Assessment: Cross-Department Communication as a training needs analysis portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Clarified the real performance gap before investing in training design or delivery."
-      }
-    },
-    {
-      "id": "project-need-assessment-manager-communication-to-staff",
-      "title": "Need Assessment: Manager Communication to Staff",
-      "practiceArea": "Training Needs Analysis",
-      "tags": [
-        "training-needs-analysis",
-        "instructional-design",
-        "curriculum-development"
-      ],
-      "publicDescription": "Clarifies the managerial communication capabilities needed for feedback, clarity, change, and psychological safety.",
-      "sourceArtifact": "assets/pdf/portfolio/need_assessment_manager_communication_to_staff.pdf",
-      "aiContext": {
-        "evidenceLevel": "inferred from structured portfolio source",
-        "role": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
-        "audience": "managers and team leaders",
-        "deliverables": [
-          "needs analysis",
-          "gap diagnosis",
-          "learning priorities"
-        ],
-        "skills": [
-          "training needs analysis",
-          "performance consulting",
-          "competency mapping",
-          "learning design",
-          "instructional design",
-          "curriculum development"
-        ],
-        "tools": [
-          "PDF learning artifact"
-        ],
-        "scaleSignals": [],
-        "aiHint": {
-          "evidenceLevel": "inferred non-proof drafting hint",
-          "application": "Made learning outcomes and participant experience easier to measure, compare, and improve."
-        },
-        "outcomeEvidence": [],
-        "proof": {
-          "visibleProofLine": "Maps performance gaps into clear training priorities.",
-          "workQuality": [
-            {
-              "claim": "Connects audience needs, performance gaps, and design-ready training priorities.",
-              "sourceBasis": "practice-area default",
-              "confidence": "inferred"
-            }
-          ],
-          "impact": []
-        },
-        "cvBullet": "Diagnosed Need Assessment: Manager Communication to Staff as a training needs analysis portfolio item, creating practical context for managers and team leaders, with a non-proof AI application hint: Made learning outcomes and participant experience easier to measure, compare, and improve."
-      }
-    },
-    {
       "id": "project-recruitment-assessment-blueprint",
       "title": "Recruitment Assessment Blueprint",
       "practiceArea": "Assessment & Evaluation",
@@ -1127,6 +1025,177 @@
           "impact": []
         },
         "cvBullet": "Developed Rancangan Sistem Asesmen Kompetensi Project Management as a training proposal portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Clarified the real performance gap before investing in training design or delivery."
+      }
+    },
+    {
+      "id": "project-score-audit-corrections",
+      "title": "Score Audit Corrections",
+      "practiceArea": "Learning Analytics",
+      "tags": [
+        "learning-analytics",
+        "assessment",
+        "spreadsheet-modeling",
+        "quality-assurance"
+      ],
+      "publicDescription": "A redacted audit workbook preview documenting Manual Review corrections for BSI Scholarship Inspirasi Ekstensi Portfolio & Background Score files.",
+      "sourceArtifact": "assets/portfolio-viewers/score-audit-corrections.html",
+      "aiContext": {
+        "evidenceLevel": "inferred from structured portfolio source",
+        "role": "Converted learning data, response inputs, or budget assumptions into analysis-ready dashboards and decision tools.",
+        "audience": "students and early-career talent",
+        "deliverables": [
+          "analysis dashboard",
+          "calculation model",
+          "decision report"
+        ],
+        "skills": [
+          "learning analytics",
+          "dashboard design",
+          "Kirkpatrick evaluation",
+          "spreadsheet modeling",
+          "assessment",
+          "quality assurance"
+        ],
+        "tools": [
+          "Excel or Google Sheets"
+        ],
+        "scaleSignals": [],
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        },
+        "outcomeEvidence": [
+          {
+            "claim": "The source workbook records 1,173 correction rows across 13 Kelompok files.",
+            "sourceBasis": "score_audit_corrections.xlsx workbook inspection",
+            "confidence": "direct"
+          }
+        ],
+        "proof": {
+          "visibleProofLine": "Summarizes 1,173 Manual Review correction rows across 13 Kelompok files.",
+          "workQuality": [
+            {
+              "claim": "Documents score corrections by source file, sheet, changed field, original value, revised value, rule, evidence note, reason, and confidence.",
+              "sourceBasis": "score_audit_corrections.xlsx sheet headers",
+              "confidence": "direct"
+            },
+            {
+              "claim": "Uses a redacted HTML viewer for public review instead of exposing the raw Awardee-level workbook as a shipped artifact.",
+              "sourceBasis": "assets/portfolio-viewers/score-audit-corrections.html",
+              "confidence": "direct"
+            }
+          ],
+          "impact": [
+            {
+              "claim": "The source workbook records 1,173 correction rows across 13 Kelompok files.",
+              "sourceBasis": "score_audit_corrections.xlsx workbook inspection",
+              "confidence": "direct"
+            }
+          ]
+        },
+        "cvBullet": "Built Score Audit Corrections as a learning analytics portfolio item, creating practical context for students and early-career talent, with supported outcome evidence: The source workbook records 1,173 correction rows across 13 Kelompok files."
+      }
+    },
+    {
+      "id": "project-need-assessment-cross-department-communication",
+      "title": "Need Assessment: Cross-Department Communication",
+      "practiceArea": "Training Needs Analysis",
+      "tags": [
+        "training-needs-analysis",
+        "instructional-design",
+        "curriculum-development"
+      ],
+      "publicDescription": "Defines the real skill gap behind cross-functional friction and converts it into design-ready learning priorities.",
+      "sourceArtifact": "assets/pdf/portfolio/need_assessment_communication_between_departments.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from structured portfolio source",
+        "role": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "needs analysis",
+          "gap diagnosis",
+          "learning priorities"
+        ],
+        "skills": [
+          "training needs analysis",
+          "performance consulting",
+          "competency mapping",
+          "learning design",
+          "instructional design",
+          "curriculum development"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Clarified the real performance gap before investing in training design or delivery."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Maps performance gaps into clear training priorities.",
+          "workQuality": [
+            {
+              "claim": "Connects audience needs, performance gaps, and design-ready training priorities.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Diagnosed Need Assessment: Cross-Department Communication as a training needs analysis portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Clarified the real performance gap before investing in training design or delivery."
+      }
+    },
+    {
+      "id": "project-need-assessment-manager-communication-to-staff",
+      "title": "Need Assessment: Manager Communication to Staff",
+      "practiceArea": "Training Needs Analysis",
+      "tags": [
+        "training-needs-analysis",
+        "instructional-design",
+        "curriculum-development"
+      ],
+      "publicDescription": "Clarifies the managerial communication capabilities needed for feedback, clarity, change, and psychological safety.",
+      "sourceArtifact": "assets/pdf/portfolio/need_assessment_manager_communication_to_staff.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from structured portfolio source",
+        "role": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
+        "audience": "managers and team leaders",
+        "deliverables": [
+          "needs analysis",
+          "gap diagnosis",
+          "learning priorities"
+        ],
+        "skills": [
+          "training needs analysis",
+          "performance consulting",
+          "competency mapping",
+          "learning design",
+          "instructional design",
+          "curriculum development"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [],
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Made learning outcomes and participant experience easier to measure, compare, and improve."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Maps performance gaps into clear training priorities.",
+          "workQuality": [
+            {
+              "claim": "Connects audience needs, performance gaps, and design-ready training priorities.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Diagnosed Need Assessment: Manager Communication to Staff as a training needs analysis portfolio item, creating practical context for managers and team leaders, with a non-proof AI application hint: Made learning outcomes and participant experience easier to measure, compare, and improve."
       }
     },
     {
@@ -3901,75 +3970,6 @@
           "impact": []
         },
         "cvBullet": "Developed Eighteen Talent Hiring Desk Proposal as a training proposal portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Made learning outcomes and participant experience easier to measure, compare, and improve."
-      }
-    },
-    {
-      "id": "project-score-audit-corrections",
-      "title": "Score Audit Corrections",
-      "practiceArea": "Learning Analytics",
-      "tags": [
-        "learning-analytics",
-        "assessment",
-        "spreadsheet-modeling",
-        "quality-assurance"
-      ],
-      "publicDescription": "A redacted audit workbook preview documenting Manual Review corrections for BSI Scholarship Inspirasi Ekstensi Portfolio & Background Score files.",
-      "sourceArtifact": "assets/portfolio-viewers/score-audit-corrections.html",
-      "aiContext": {
-        "evidenceLevel": "inferred from structured portfolio source",
-        "role": "Converted learning data, response inputs, or budget assumptions into analysis-ready dashboards and decision tools.",
-        "audience": "students and early-career talent",
-        "deliverables": [
-          "analysis dashboard",
-          "calculation model",
-          "decision report"
-        ],
-        "skills": [
-          "learning analytics",
-          "dashboard design",
-          "Kirkpatrick evaluation",
-          "spreadsheet modeling",
-          "assessment",
-          "quality assurance"
-        ],
-        "tools": [
-          "Excel or Google Sheets"
-        ],
-        "scaleSignals": [],
-        "aiHint": {
-          "evidenceLevel": "inferred non-proof drafting hint",
-          "application": "Gave learners and facilitators practical tools for reflection, planning, and follow-through."
-        },
-        "outcomeEvidence": [
-          {
-            "claim": "The source workbook records 1,173 correction rows across 13 Kelompok files.",
-            "sourceBasis": "score_audit_corrections.xlsx workbook inspection",
-            "confidence": "direct"
-          }
-        ],
-        "proof": {
-          "visibleProofLine": "Summarizes 1,173 Manual Review correction rows across 13 Kelompok files.",
-          "workQuality": [
-            {
-              "claim": "Documents score corrections by source file, sheet, changed field, original value, revised value, rule, evidence note, reason, and confidence.",
-              "sourceBasis": "score_audit_corrections.xlsx sheet headers",
-              "confidence": "direct"
-            },
-            {
-              "claim": "Uses a redacted HTML viewer for public review instead of exposing the raw Awardee-level workbook as a shipped artifact.",
-              "sourceBasis": "assets/portfolio-viewers/score-audit-corrections.html",
-              "confidence": "direct"
-            }
-          ],
-          "impact": [
-            {
-              "claim": "The source workbook records 1,173 correction rows across 13 Kelompok files.",
-              "sourceBasis": "score_audit_corrections.xlsx workbook inspection",
-              "confidence": "direct"
-            }
-          ]
-        },
-        "cvBullet": "Built Score Audit Corrections as a learning analytics portfolio item, creating practical context for students and early-career talent, with supported outcome evidence: The source workbook records 1,173 correction rows across 13 Kelompok files."
       }
     }
   ]

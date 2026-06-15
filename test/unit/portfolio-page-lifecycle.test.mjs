@@ -3,9 +3,15 @@ import { createDom, importFresh, resetDom } from '../helpers/dom.mjs';
 
 const portfolioFixture = ({ hash = '' } = {}) => {
   createDom(`
-    <div id="portfolio-item-filters">
-      <button class="filter-button active" data-filter="all">All</button>
-      <button class="filter-button" data-filter="learning-materials">Learning materials</button>
+    <div id="portfolio-discovery">
+      <input id="portfolio-search" type="search">
+      <div id="portfolio-item-filters">
+        <button class="filter-button active" data-filter="all">All</button>
+        <button class="filter-button" data-filter="learning-materials">Learning materials</button>
+      </div>
+      <select id="portfolio-more-filter"><option value="">More</option></select>
+      <p id="portfolio-result-summary"></p>
+      <button id="portfolio-show-more">Show more</button>
     </div>
     <section id="portfolio-items">
       <article id="sample-item" class="portfolio-item" data-category="learning-materials">
@@ -43,7 +49,7 @@ describe('portfolio page lifecycle', () => {
       filtersReady: true,
       hasHashPreview: true
     });
-    expect(document.querySelector('#portfolio-item-filters').dataset.filtersInitialized).toBe('true');
+    expect(document.querySelector('#portfolio-discovery').dataset.discoveryInitialized).toBe('true');
     expect(document.getElementById('pdf-modal').hidden).toBe(false);
     expect(document.getElementById('pdf-modal-title').textContent).toBe('Sample Portfolio Item');
     expect(document.getElementById('pdf-iframe').src).toContain('/assets/pdf/portfolio/sample.pdf');

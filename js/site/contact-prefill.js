@@ -1,4 +1,51 @@
 const ENGAGEMENT_INQUIRY_STORAGE_KEY = 'engagementInquiry';
+const CONTACT_EMAIL = 'daffaghifarykusuma@gmail.com';
+const CONTACT_WHATSAPP_NUMBER = '62895329473179';
+
+const normalizePublicContext = (value = '') =>
+    String(value)
+        .replace(/[\u0000-\u001f\u007f]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .slice(0, 160);
+
+export function readEngagementContext({
+    search = window.location.search
+} = {}) {
+    const params = new URLSearchParams(search);
+    const portfolioItem = normalizePublicContext(params.get('portfolioItem'));
+    const engagement = normalizePublicContext(params.get('engagement') || params.get('service'));
+    const label = portfolioItem || engagement;
+    if (!label) return null;
+
+    const contextType = portfolioItem ? 'Portfolio Item' : 'engagement';
+    const message = `Hello Daffa, I am interested in discussing the ${contextType}: ${label}. Please share availability and next steps.`;
+    const emailSubject = `Inquiry about ${label}`;
+
+    return {
+        label,
+        type: contextType,
+        displayText: `Regarding: ${label}`,
+        whatsappUrl: `https://wa.me/${CONTACT_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
+        emailUrl: `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(message)}`
+    };
+}
+
+export function applyEngagementContext(root = document, context = readEngagementContext()) {
+    if (!context) return null;
+
+    const summary = root.getElementById('contact-context');
+    const whatsappLink = root.querySelector('.contact-method-card.whatsapp');
+    const emailLink = root.querySelector('.contact-method-card.email');
+
+    if (summary) {
+        summary.textContent = context.displayText;
+        summary.removeAttribute('hidden');
+    }
+    if (whatsappLink) whatsappLink.href = context.whatsappUrl;
+    if (emailLink) emailLink.href = context.emailUrl;
+    return context;
+}
 
 export function initEngagementInquiryForms() {
     document.querySelectorAll('.engagement-inquiry-form').forEach((form) => {
@@ -33,6 +80,7 @@ export function initEngagementInquiryForms() {
 export function initContactPrefill() {
     const currentParams = new URLSearchParams(window.location.search);
     const engagementFromQuery = currentParams.get('engagement') || currentParams.get('service');
+    applyEngagementContext();
     const contactForm = document.querySelector('.contact-form');
     if (!contactForm) return;
 

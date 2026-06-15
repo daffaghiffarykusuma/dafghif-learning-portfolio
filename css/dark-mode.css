@@ -169,7 +169,7 @@ body > header {
     box-shadow: none !important;
 }
 
-body > header .logo h1 {
+body > header .logo .site-title {
     color: var(--dm-text-primary) !important;
 }
 
@@ -1068,10 +1068,18 @@ footer {
 }
 
 #portfolio-item-filters {
-    background: linear-gradient(180deg, rgba(28, 52, 58, 0.94), rgba(21, 40, 45, 0.92)) !important;
-    border-color: rgba(110, 231, 216, 0.22) !important;
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28) !important;
+    background: transparent !important;
+    box-shadow: none !important;
 }
+
+.portfolio-discovery,
+.portfolio-search-field input,
+.portfolio-discovery-meta select {
+    background: var(--dm-bg-secondary) !important;
+    border-color: var(--dm-border-default) !important;
+    color: var(--dm-text-primary) !important;
+}
+
 
 /* =================================================================
    LAYER 12: MISCELLANEOUS
@@ -1214,6 +1222,10 @@ footer {
 .pdf-modal-header h2,
 #pdf-modal-title {
     color: var(--dm-text-primary) !important;
+}
+
+#pdf-modal-meta {
+    color: var(--dm-text-secondary) !important;
 }
 
 .close-modal,

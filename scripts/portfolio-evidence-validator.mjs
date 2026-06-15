@@ -10,8 +10,16 @@ export const getPortfolioEvidenceItems = (portfolioData = {}) => {
   return [];
 };
 
-export const getExpandedPortfolioEvidenceItems = (portfolioData = {}) =>
-  getPortfolioEvidenceItems(expandCaseStudyPortfolioSource(portfolioData));
+export const getExpandedPortfolioEvidenceItems = (portfolioData = {}) => {
+  const items = getPortfolioEvidenceItems(expandCaseStudyPortfolioSource(portfolioData));
+  const featuredIds = Array.isArray(portfolioData.featuredPortfolioItemIds)
+    ? portfolioData.featuredPortfolioItemIds
+    : [];
+  const itemsById = new Map(items.map((item) => [item.id, item]));
+  const featured = featuredIds.map((id) => itemsById.get(id)).filter(Boolean);
+  const featuredIdSet = new Set(featured.map((item) => item.id));
+  return [...featured, ...items.filter((item) => !featuredIdSet.has(item.id))];
+};
 
 const defaultAssetExists = async (absolutePath) => {
   try {

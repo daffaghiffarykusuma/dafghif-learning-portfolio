@@ -383,7 +383,6 @@
         background-color: var(--color-background);
         
         /* Performance optimizations */
-        contain: layout style;
         font-kerning: normal;
         font-variant-ligatures: contextual;
         font-feature-settings: "kern" 1;
@@ -574,7 +573,7 @@ body > header .container {
     margin: 0 auto; /* Center header container */
 }
 
-body > header .logo h1 { /* Added a logo class for better structure */
+body > header .logo .site-title {
     font-size: 1.5rem;
     margin: 0;
     font-family: 'Playfair Display', serif;
@@ -685,7 +684,7 @@ h2.section-title::after { /* Underline effect for titles */
 /* Showcase Section (Home Page Specific) */
 #showcase {
     background: linear-gradient(135deg, rgba(15, 27, 30, 0.94), rgba(15, 27, 30, 0.82));
-    padding: 140px 0 110px;
+    padding: 110px 0 90px;
     margin-top: -68px;
     color: var(--secondary);
 }
@@ -710,7 +709,7 @@ h2.section-title::after { /* Underline effect for titles */
 
 #showcase h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.8rem, 6vw, 4.2rem);
+    font-size: clamp(2.5rem, 4.5vw, 3.5rem);
     margin: 0;
     font-weight: 700;
     line-height: 1.15;
@@ -1187,18 +1186,60 @@ h2.section-title::after { /* Underline effect for titles */
 
 
 /* --- Portfolio Specific Styles --- */
+.portfolio-discovery {
+    display: grid;
+    gap: 16px;
+    margin-bottom: 32px;
+    padding: 20px;
+    border: 1px solid rgba(15, 27, 30, 0.1);
+    border-radius: 18px;
+    background: var(--card-bg);
+    box-shadow: var(--card-shadow);
+}
+
+.portfolio-search-field {
+    display: grid;
+    gap: 8px;
+}
+
+.portfolio-search-field label,
+.portfolio-discovery-meta label {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.portfolio-search-field input,
+.portfolio-discovery-meta select {
+    width: 100%;
+    min-height: 48px;
+    padding: 10px 14px;
+    border: 1px solid rgba(15, 27, 30, 0.2);
+    border-radius: 10px;
+    background: var(--background);
+    color: var(--text-color);
+    font: inherit;
+}
+
 #portfolio-item-filters {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 12px;
-    background: var(--card-bg);
-    padding: 16px 20px;
-    border-radius: 16px;
-    box-shadow: var(--card-shadow);
-    position: sticky;
-    top: 20px;
-    z-index: 30;
+    padding: 0;
+}
+
+.portfolio-discovery-meta {
+    display: grid;
+    grid-template-columns: minmax(180px, auto) minmax(240px, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+}
+
+#portfolio-result-summary {
+    margin: 0;
+    color: var(--text-light);
+    font-weight: 600;
+    text-align: right;
 }
 
 .filter-button {
@@ -1237,10 +1278,9 @@ h2.section-title::after { /* Underline effect for titles */
         flex-wrap: nowrap;
         justify-content: flex-start;
         overflow-x: auto;
-        padding: 12px;
+        padding: 4px 0 10px;
         gap: 8px;
         border-radius: 12px;
-        position: static;
         scroll-snap-type: x proximity;
         -webkit-overflow-scrolling: touch;
     }
@@ -1250,7 +1290,22 @@ h2.section-title::after { /* Underline effect for titles */
         white-space: nowrap;
         scroll-snap-align: start;
     }
+
+    .portfolio-discovery-meta {
+        grid-template-columns: 1fr;
+    }
+
+    #portfolio-result-summary {
+        text-align: left;
+    }
 }
+
+.portfolio-show-more-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 28px 0 12px;
+}
+
 
 .portfolio-item-practice-label {
     display: inline-block;
@@ -1541,6 +1596,7 @@ h2.section-title::after { /* Underline effect for titles */
 
 .pdf-modal-header {
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
@@ -1557,6 +1613,14 @@ h2.section-title::after { /* Underline effect for titles */
     color: var(--primary);
     font-size: 1.4rem;
     font-weight: 600;
+}
+
+#pdf-modal-meta {
+    max-width: 720px;
+    margin: 6px 0 0;
+    color: var(--text-light);
+    font-size: 0.88rem;
+    line-height: 1.45;
 }
 
 .close-modal {
@@ -1613,6 +1677,13 @@ h2.section-title::after { /* Underline effect for titles */
     border-radius: 8px;
     overflow: hidden;
     box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 16px;
 }
 
 /* Enhanced PDF iframe styles for better security and viewability */
@@ -1684,6 +1755,14 @@ h2.section-title::after { /* Underline effect for titles */
     
     #pdf-iframe {
         height: 500px;
+    }
+
+    .pdf-modal-actions {
+        flex-direction: column;
+    }
+
+    .pdf-modal-actions a {
+        text-align: center;
     }
 }
 
@@ -1825,7 +1904,6 @@ footer a:hover {
 
     body > header {
         padding: var(--space-sm) 0;
-        backdrop-filter: blur(10px);
         background: rgba(15, 27, 30, 0.95);
     }
 
@@ -1843,7 +1921,7 @@ footer a:hover {
     }
 
     /* Enhanced Logo Responsiveness */
-    .logo h1 {
+    .logo .site-title {
         font-size: var(--text-xl);
         line-height: var(--leading-tight);
     }
@@ -1911,6 +1989,10 @@ footer a:hover {
     body > header nav.active {
         display: block;
         animation: slideInMobile 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body.navigation-open {
+        overflow: hidden;
     }
 
     /* Mobile Navigation List */

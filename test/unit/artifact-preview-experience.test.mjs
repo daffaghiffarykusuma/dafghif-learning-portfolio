@@ -15,6 +15,9 @@ const previewFixture = (url = 'http://127.0.0.1/portfolio.html') => {
     <div id="pdf-modal" hidden>
       <button class="close-modal">Close</button>
       <h2 id="pdf-modal-title"></h2>
+      <p id="pdf-modal-meta"></p>
+      <a id="pdf-open-full"></a>
+      <a id="pdf-discuss"></a>
       <iframe id="pdf-iframe"></iframe>
     </div>
   `, url);
@@ -40,6 +43,12 @@ describe('Artifact Preview Experience', () => {
     expect(window.location.hash).toBe('#sample-item');
     expect(document.getElementById('pdf-modal').hidden).toBe(false);
     expect(document.getElementById('pdf-modal-title').textContent).toBe('Sample Artifact');
+    expect(document.getElementById('pdf-modal-meta').textContent)
+      .toBe('PDF Artifact. Preview demonstrates structure and content; outcomes are only claimed where explicitly evidenced.');
+    expect(document.getElementById('pdf-open-full').href).toBe('http://127.0.0.1/assets/pdf/portfolio/sample.pdf');
+    expect(document.getElementById('pdf-open-full').target).toBe('_blank');
+    expect(document.getElementById('pdf-discuss').href)
+      .toContain('contact.html?portfolioItem=Sample+Artifact');
     expect(document.getElementById('pdf-iframe').src).toContain('/assets/pdf/portfolio/sample.pdf#toolbar=0');
   });
 
@@ -54,6 +63,8 @@ describe('Artifact Preview Experience', () => {
 
     expect(window.location.hash).toBe('');
     expect(document.getElementById('pdf-modal').hidden).toBe(false);
+    expect(document.getElementById('pdf-modal-meta').textContent)
+      .toStartWith('Interactive Artifact Preview.');
     expect(document.getElementById('pdf-iframe').src).toBe('http://127.0.0.1/assets/portfolio-viewers/sample.html');
     expect(document.getElementById('pdf-iframe').getAttribute('sandbox')).toBe('allow-same-origin allow-popups allow-popups-to-escape-sandbox');
   });

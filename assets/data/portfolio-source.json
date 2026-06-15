@@ -2,6 +2,17 @@
   "schemaVersion": 1,
   "sourceOfTruth": "Portfolio Item source data for the Learning Portfolio Site.",
   "portfolioItemCount": 67,
+  "featuredPortfolioItemIds": [
+    "case-employee-assessment-bootcamp",
+    "case-administrative-communication-learning-program",
+    "case-learning-organization-strategy-evaluation-system",
+    "case-ybb-mentoring-workbook",
+    "project-self-leadership-career-transition",
+    "project-training-and-coaching-need-analysis-framework",
+    "project-recruitment-assessment-blueprint",
+    "project-rancangan-sistem-asesmen-kompetensi-project-management",
+    "project-score-audit-corrections"
+  ],
   "caseStudies": [
     {
       "id": "case-employee-assessment-bootcamp",

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-source.json",
-  "generatedAt": "2026-06-12T07:43:15.010Z",
+  "generatedAt": "2026-06-15T00:35:47.327Z",
   "portfolioItemCount": 67,
   "portfolioItems": [
     {
@@ -206,66 +206,6 @@
       }
     },
     {
-      "id": "project-need-assessment-cross-department-communication",
-      "title": "Need Assessment: Cross-Department Communication",
-      "practiceArea": "Training Needs Analysis",
-      "tags": [
-        "training-needs-analysis",
-        "instructional-design",
-        "curriculum-development"
-      ],
-      "description": "Defines the real skill gap behind cross-functional friction and converts it into design-ready learning priorities.",
-      "image": {
-        "src": "assets/images/portfolio/need-assessment-communication-between-departments.webp",
-        "alt": "Need Assessment: Cross-Department Communication thumbnail"
-      },
-      "sourceArtifact": "assets/pdf/portfolio/need_assessment_communication_between_departments.pdf",
-      "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-need-assessment-cross-department-communication",
-      "discussUrl": "contact.html?portfolioItem=Need Assessment: Cross-Department Communication",
-      "proof": {
-        "visibleProofLine": "Maps performance gaps into clear training priorities.",
-        "workQuality": [
-          {
-            "claim": "Connects audience needs, performance gaps, and design-ready training priorities.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
-    },
-    {
-      "id": "project-need-assessment-manager-communication-to-staff",
-      "title": "Need Assessment: Manager Communication to Staff",
-      "practiceArea": "Training Needs Analysis",
-      "tags": [
-        "training-needs-analysis",
-        "instructional-design",
-        "curriculum-development"
-      ],
-      "description": "Clarifies the managerial communication capabilities needed for feedback, clarity, change, and psychological safety.",
-      "image": {
-        "src": "assets/images/portfolio/need-assessment-manager-communication-to-staff.webp",
-        "alt": "Need Assessment: Manager Communication to Staff thumbnail"
-      },
-      "sourceArtifact": "assets/pdf/portfolio/need_assessment_manager_communication_to_staff.pdf",
-      "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-need-assessment-manager-communication-to-staff",
-      "discussUrl": "contact.html?portfolioItem=Need Assessment: Manager Communication to Staff",
-      "proof": {
-        "visibleProofLine": "Maps performance gaps into clear training priorities.",
-        "workQuality": [
-          {
-            "claim": "Connects audience needs, performance gaps, and design-ready training priorities.",
-            "sourceBasis": "practice-area default",
-            "confidence": "inferred"
-          }
-        ],
-        "impact": []
-      }
-    },
-    {
       "id": "project-recruitment-assessment-blueprint",
       "title": "Recruitment Assessment Blueprint",
       "practiceArea": "Assessment & Evaluation",
@@ -318,6 +258,108 @@
         "workQuality": [
           {
             "claim": "Defines objectives, program logic, delivery structure, and stakeholder-ready recommendations.",
+            "sourceBasis": "practice-area default",
+            "confidence": "inferred"
+          }
+        ],
+        "impact": []
+      }
+    },
+    {
+      "id": "project-score-audit-corrections",
+      "title": "Score Audit Corrections",
+      "practiceArea": "Learning Analytics",
+      "tags": [
+        "learning-analytics",
+        "assessment",
+        "spreadsheet-modeling",
+        "quality-assurance"
+      ],
+      "description": "A redacted audit workbook preview documenting Manual Review corrections for BSI Scholarship Inspirasi Ekstensi Portfolio & Background Score files.",
+      "image": {
+        "src": "assets/images/portfolio/score-audit-corrections.webp",
+        "alt": "Score Audit Corrections workbook thumbnail"
+      },
+      "sourceArtifact": "assets/portfolio-viewers/score-audit-corrections.html",
+      "sourceType": "html-viewer",
+      "portfolioItemUrl": "portfolio.html#project-score-audit-corrections",
+      "discussUrl": "contact.html?portfolioItem=Score Audit Corrections",
+      "proof": {
+        "visibleProofLine": "Summarizes 1,173 Manual Review correction rows across 13 Kelompok files.",
+        "workQuality": [
+          {
+            "claim": "Documents score corrections by source file, sheet, changed field, original value, revised value, rule, evidence note, reason, and confidence.",
+            "sourceBasis": "score_audit_corrections.xlsx sheet headers",
+            "confidence": "direct"
+          },
+          {
+            "claim": "Uses a redacted HTML viewer for public review instead of exposing the raw Awardee-level workbook as a shipped artifact.",
+            "sourceBasis": "assets/portfolio-viewers/score-audit-corrections.html",
+            "confidence": "direct"
+          }
+        ],
+        "impact": [
+          {
+            "claim": "The source workbook records 1,173 correction rows across 13 Kelompok files.",
+            "sourceBasis": "score_audit_corrections.xlsx workbook inspection",
+            "confidence": "direct"
+          }
+        ]
+      }
+    },
+    {
+      "id": "project-need-assessment-cross-department-communication",
+      "title": "Need Assessment: Cross-Department Communication",
+      "practiceArea": "Training Needs Analysis",
+      "tags": [
+        "training-needs-analysis",
+        "instructional-design",
+        "curriculum-development"
+      ],
+      "description": "Defines the real skill gap behind cross-functional friction and converts it into design-ready learning priorities.",
+      "image": {
+        "src": "assets/images/portfolio/need-assessment-communication-between-departments.webp",
+        "alt": "Need Assessment: Cross-Department Communication thumbnail"
+      },
+      "sourceArtifact": "assets/pdf/portfolio/need_assessment_communication_between_departments.pdf",
+      "sourceType": "pdf",
+      "portfolioItemUrl": "portfolio.html#project-need-assessment-cross-department-communication",
+      "discussUrl": "contact.html?portfolioItem=Need Assessment: Cross-Department Communication",
+      "proof": {
+        "visibleProofLine": "Maps performance gaps into clear training priorities.",
+        "workQuality": [
+          {
+            "claim": "Connects audience needs, performance gaps, and design-ready training priorities.",
+            "sourceBasis": "practice-area default",
+            "confidence": "inferred"
+          }
+        ],
+        "impact": []
+      }
+    },
+    {
+      "id": "project-need-assessment-manager-communication-to-staff",
+      "title": "Need Assessment: Manager Communication to Staff",
+      "practiceArea": "Training Needs Analysis",
+      "tags": [
+        "training-needs-analysis",
+        "instructional-design",
+        "curriculum-development"
+      ],
+      "description": "Clarifies the managerial communication capabilities needed for feedback, clarity, change, and psychological safety.",
+      "image": {
+        "src": "assets/images/portfolio/need-assessment-manager-communication-to-staff.webp",
+        "alt": "Need Assessment: Manager Communication to Staff thumbnail"
+      },
+      "sourceArtifact": "assets/pdf/portfolio/need_assessment_manager_communication_to_staff.pdf",
+      "sourceType": "pdf",
+      "portfolioItemUrl": "portfolio.html#project-need-assessment-manager-communication-to-staff",
+      "discussUrl": "contact.html?portfolioItem=Need Assessment: Manager Communication to Staff",
+      "proof": {
+        "visibleProofLine": "Maps performance gaps into clear training priorities.",
+        "workQuality": [
+          {
+            "claim": "Connects audience needs, performance gaps, and design-ready training priorities.",
             "sourceBasis": "practice-area default",
             "confidence": "inferred"
           }
@@ -1919,48 +1961,6 @@
           }
         ],
         "impact": []
-      }
-    },
-    {
-      "id": "project-score-audit-corrections",
-      "title": "Score Audit Corrections",
-      "practiceArea": "Learning Analytics",
-      "tags": [
-        "learning-analytics",
-        "assessment",
-        "spreadsheet-modeling",
-        "quality-assurance"
-      ],
-      "description": "A redacted audit workbook preview documenting Manual Review corrections for BSI Scholarship Inspirasi Ekstensi Portfolio & Background Score files.",
-      "image": {
-        "src": "assets/images/portfolio/score-audit-corrections.webp",
-        "alt": "Score Audit Corrections workbook thumbnail"
-      },
-      "sourceArtifact": "assets/portfolio-viewers/score-audit-corrections.html",
-      "sourceType": "html-viewer",
-      "portfolioItemUrl": "portfolio.html#project-score-audit-corrections",
-      "discussUrl": "contact.html?portfolioItem=Score Audit Corrections",
-      "proof": {
-        "visibleProofLine": "Summarizes 1,173 Manual Review correction rows across 13 Kelompok files.",
-        "workQuality": [
-          {
-            "claim": "Documents score corrections by source file, sheet, changed field, original value, revised value, rule, evidence note, reason, and confidence.",
-            "sourceBasis": "score_audit_corrections.xlsx sheet headers",
-            "confidence": "direct"
-          },
-          {
-            "claim": "Uses a redacted HTML viewer for public review instead of exposing the raw Awardee-level workbook as a shipped artifact.",
-            "sourceBasis": "assets/portfolio-viewers/score-audit-corrections.html",
-            "confidence": "direct"
-          }
-        ],
-        "impact": [
-          {
-            "claim": "The source workbook records 1,173 correction rows across 13 Kelompok files.",
-            "sourceBasis": "score_audit_corrections.xlsx workbook inspection",
-            "confidence": "direct"
-          }
-        ]
       }
     }
   ]

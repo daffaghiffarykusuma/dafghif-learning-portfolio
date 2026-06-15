@@ -4,6 +4,7 @@ import {
   createPortfolioAiContextData,
   createPortfolioDocument,
   createPortfolioEvidencePipeline,
+  getPortfolioSourceItems,
   renderPortfolioItemCards,
   renderProofLines,
   serializePortfolioDocument
@@ -94,6 +95,23 @@ const portfolioHtml = `
 `;
 
 describe('Portfolio Evidence Pipeline', () => {
+  test('puts explicitly featured Portfolio Items first without dropping the remaining inventory', () => {
+    const items = getPortfolioSourceItems({
+      featuredPortfolioItemIds: ['project-third', 'project-first'],
+      portfolioItems: [
+        { id: 'project-first', title: 'First' },
+        { id: 'project-second', title: 'Second' },
+        { id: 'project-third', title: 'Third' }
+      ]
+    });
+
+    expect(items.map((item) => item.id)).toEqual([
+      'project-third',
+      'project-first',
+      'project-second'
+    ]);
+  });
+
   test('applies default Proof Points and item-level overrides conservatively', () => {
     expect(applyProofPoints([
       { id: 'default-deck', title: 'Default Deck', practiceArea: 'Learning Materials' },
@@ -187,6 +205,12 @@ describe('Portfolio Evidence Pipeline', () => {
       .toBe('Uses roleplay instructions and reflection prompts.');
     expect(document.querySelector('#custom-deck .view-details-button').dataset.pdf)
       .toBe('assets/pdf/portfolio/custom.pdf');
+    expect(document.querySelector('#custom-deck').textContent)
+      .toContain('Uses roleplay instructions and reflection prompts.');
+    expect(document.querySelector('#custom-deck .view-details-button').textContent)
+      .toBe('View PDF Artifact');
+    expect(document.querySelector('#custom-deck .portfolio-item-practice-label a').href)
+      .toContain('portfolio.html?area=learning-materials');
     expect(document.querySelector('#custom-deck').hasAttribute('data-portfolio-item-id')).toBe(false);
     expect(document.querySelector('#custom-deck').hasAttribute('data-portfolio-item-url')).toBe(false);
 
@@ -222,6 +246,8 @@ describe('Portfolio Evidence Pipeline', () => {
     renderPortfolioItemCards(document, portfolioItems);
     expect(document.querySelector('#viewer-workbook .view-details-button').dataset.viewer)
       .toBe('assets/portfolio-viewers/viewer-workbook.html');
+    expect(document.querySelector('#viewer-workbook .view-details-button').textContent)
+      .toBe('Open Interactive Preview');
   });
 
   test('builds catalog and AI context from one pipeline interface', () => {
@@ -431,6 +457,9 @@ describe('Portfolio Evidence Pipeline', () => {
     expect(html).toContain('<h1>Sample Learning Program</h1>');
     expect(html).toContain('class="service-hero service-hero-compact generated-case-hero"');
     expect(html).toContain('class="service-impact generated-case-evidence"');
+    expect(html).toContain('class="service-outcomes generated-case-meaning"');
+    expect(html).toContain('<h2 class="section-title">Why This Matters</h2>');
+    expect(html).toContain('Direct outcomes are not claimed.');
     expect(html).toContain('class="feature-grid"');
     expect(html).toContain('class="approach-steps"');
     expect(html).toContain('class="service-resources generated-case-artifacts"');

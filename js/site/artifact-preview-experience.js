@@ -26,6 +26,9 @@ export function createArtifactPreviewExperience({
 } = {}) {
     const pdfModal = root.getElementById('pdf-modal');
     const pdfModalTitle = root.getElementById('pdf-modal-title');
+    const pdfModalMeta = root.getElementById('pdf-modal-meta');
+    const pdfOpenFull = root.getElementById('pdf-open-full');
+    const pdfDiscuss = root.getElementById('pdf-discuss');
     const pdfIframe = root.getElementById('pdf-iframe');
     const hasPreviewTriggers = Boolean(root.querySelector('.view-details-button'));
     const hasPreviewMarkup = pdfModal || pdfModalTitle || pdfIframe || hasPreviewTriggers;
@@ -68,7 +71,8 @@ export function createArtifactPreviewExperience({
         closeActiveModal();
         closePdfModal();
         lastPreviewTrigger = options.trigger || button;
-        pdfModalTitle.textContent = titleForPreviewTrigger(button);
+        const previewTitle = titleForPreviewTrigger(button);
+        pdfModalTitle.textContent = previewTitle;
 
         const preview = createArtifactPreviewContract({
             sourceArtifact: pdfPath || viewerPath,
@@ -81,6 +85,20 @@ export function createArtifactPreviewExperience({
 
         applyArtifactPreviewFramePolicy(pdfIframe, preview);
         pdfIframe.src = preview.src;
+        const artifactType = preview.type === 'pdf' ? 'PDF Artifact' : 'Interactive Artifact Preview';
+        if (pdfModalMeta) {
+            pdfModalMeta.textContent = `${artifactType}. Preview demonstrates structure and content; outcomes are only claimed where explicitly evidenced.`;
+        }
+        if (pdfOpenFull) {
+            pdfOpenFull.href = preview.url;
+            pdfOpenFull.target = preview.linkPolicy.target;
+            pdfOpenFull.rel = preview.linkPolicy.rel;
+        }
+        if (pdfDiscuss) {
+            const contactUrl = new URL('contact.html', window.location.href);
+            contactUrl.searchParams.set('portfolioItem', previewTitle);
+            pdfDiscuss.href = contactUrl.href;
+        }
 
         const portfolioItemCard = button.closest('.portfolio-item');
         if (updateHashOnOpen && portfolioItemCard?.id && options.updateHash !== false) {

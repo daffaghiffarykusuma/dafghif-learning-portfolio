@@ -80,6 +80,7 @@ export const renderCaseStudyHtml = (caseStudy = {}) => {
   const caseFlow = Array.isArray(caseStudy.caseFlow) ? caseStudy.caseFlow : [];
   const artifacts = Array.isArray(caseStudy.artifacts) ? caseStudy.artifacts : [];
   const primaryContext = reviewerContext.slice(0, 2);
+  const evidenceLimit = reviewerContext.find((item) => normalizeText(item.label).toLowerCase() === 'evidence limit')?.value;
   const ctaHref = normalizeText(caseStudy.discussUrl) || `contact.html?portfolioItem=${encodeURIComponent(caseStudy.portfolioItemTitle || title)}`;
 
   const main = `<main id="main-content" role="main" aria-label="Main content">
@@ -107,6 +108,16 @@ export const renderCaseStudyHtml = (caseStudy = {}) => {
         </div>
         <div class="impact-grid">
           ${renderEvidenceCards(reviewerContext)}
+        </div>
+      </div>
+    </section>
+
+    <section class="service-outcomes generated-case-meaning">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-title">Why This Matters</h2>
+          <p>${escapeHtml(caseStudy.description || caseStudy.summary)}</p>
+          ${evidenceLimit ? `<p class="evidence-boundary"><strong>Evidence boundary:</strong> ${escapeHtml(evidenceLimit)}</p>` : ''}
         </div>
       </div>
     </section>

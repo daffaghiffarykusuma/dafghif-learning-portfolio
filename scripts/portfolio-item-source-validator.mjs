@@ -229,6 +229,20 @@ export const validatePortfolioItemSource = ({
     label: 'generated Portfolio Item id',
     failures
   });
+  if (!Array.isArray(portfolioSource?.featuredPortfolioItemIds)) {
+    failures.push(`${sourceFile}: featuredPortfolioItemIds must be an array`);
+  } else {
+    addDuplicateFailures({
+      values: portfolioSource.featuredPortfolioItemIds,
+      label: 'featured Portfolio Item id',
+      failures
+    });
+    for (const featuredId of portfolioSource.featuredPortfolioItemIds.map(normalizeText).filter(Boolean)) {
+      if (!generatedItemIds.has(featuredId)) {
+        failures.push(`${sourceFile}: featured Portfolio Item "${featuredId}" does not reference a generated Portfolio Item`);
+      }
+    }
+  }
 
   const practiceAreaDefaults = proofSource?.practiceAreaDefaults;
   if (!practiceAreaDefaults || typeof practiceAreaDefaults !== 'object' || Array.isArray(practiceAreaDefaults)) {
