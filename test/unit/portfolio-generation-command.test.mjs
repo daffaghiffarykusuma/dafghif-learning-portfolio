@@ -22,6 +22,9 @@ describe('Portfolio generation command', () => {
     const workflow = createPortfolioEvidenceWorkflow({
       portfolioHtml: `<!doctype html><html><body><div class="portfolio-items-grid"></div></body></html>`,
       portfolioSource: {
+        schemaVersion: 1,
+        portfolioItemCount: 1,
+        featuredPortfolioItemIds: ['case-sample-deck', 'sample-deck'],
         portfolioItems: [
           {
             id: 'sample-deck',

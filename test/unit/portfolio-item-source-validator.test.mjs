@@ -69,15 +69,27 @@ const createValidSource = () => ({
 });
 
 describe('Portfolio Item Source validation', () => {
-  test('accepts the declared raw-item count and reports the expanded generated count', () => {
-    expect(validatePortfolioItemSource({
+  test('returns one normalized, expanded, featured-order Portfolio Item representation', () => {
+    const result = validatePortfolioItemSource({
       portfolioSource: createValidSource(),
       proofSource: validProofSource
-    })).toEqual({
+    });
+
+    expect(result).toMatchObject({
       failures: [],
       rawPortfolioItemCount: 1,
       caseStudyCount: 1,
       generatedPortfolioItemCount: 2
+    });
+    expect(result.portfolioItems.map((item) => item.id)).toEqual([
+      'case-sample-program',
+      'sample-deck'
+    ]);
+    expect(result.portfolioItems[0]).toMatchObject({
+      id: 'case-sample-program',
+      title: 'Sample Program Case Study',
+      sourceType: 'case-study-page',
+      sourceArtifact: 'case-sample-program.html'
     });
   });
 
@@ -149,5 +161,18 @@ describe('Portfolio Item Source validation', () => {
       portfolioSource: source,
       proofSource: validProofSource
     })).toThrow(/Portfolio Item Source validation failed[\s\S]*missing title[\s\S]*missing sourceArtifact/);
+  });
+
+  test('assertion returns the Validated Portfolio Item Source for downstream modules', () => {
+    const result = assertValidPortfolioItemSource({
+      portfolioSource: createValidSource(),
+      proofSource: validProofSource
+    });
+
+    expect(result.failures).toEqual([]);
+    expect(result.portfolioItems.map((item) => item.id)).toEqual([
+      'case-sample-program',
+      'sample-deck'
+    ]);
   });
 });

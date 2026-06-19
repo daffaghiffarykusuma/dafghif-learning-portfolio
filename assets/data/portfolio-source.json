@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sourceOfTruth": "Portfolio Item source data for the Learning Portfolio Site.",
-  "portfolioItemCount": 67,
+  "portfolioItemCount": 69,
   "featuredPortfolioItemIds": [
     "case-employee-assessment-bootcamp",
     "case-administrative-communication-learning-program",
@@ -1763,6 +1763,46 @@
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-eighteen-talent-hiring-desk-proposal",
       "discussUrl": "contact.html?portfolioItem=Eighteen Talent Hiring Desk Proposal"
+    },
+    {
+      "id": "project-career-prep-class-cybersecurity",
+      "title": "Career Prep Class: Cybersecurity Careers",
+      "practiceArea": "Learning Materials",
+      "tags": [
+        "learning-materials",
+        "career-development",
+        "cybersecurity",
+        "facilitation"
+      ],
+      "description": "A 110-slide career preparation class for aspiring cybersecurity professionals, covering role pathways, ATS-friendly CV development, LinkedIn optimization, and evidence-based portfolio building.",
+      "image": {
+        "src": "assets/images/portfolio/career-prep-cybersecurity.webp",
+        "alt": "Career Prep Class: Cybersecurity Careers cover slide"
+      },
+      "sourceArtifact": "assets/pdf/portfolio/career_prep_cybersecurity.pdf",
+      "sourceType": "pdf",
+      "portfolioItemUrl": "portfolio.html#project-career-prep-class-cybersecurity",
+      "discussUrl": "contact.html?portfolioItem=Career Prep Class: Cybersecurity Careers"
+    },
+    {
+      "id": "project-business-presentation-storytelling",
+      "title": "Business Presentation & Storytelling",
+      "practiceArea": "Learning Materials",
+      "tags": [
+        "learning-materials",
+        "presentation-design",
+        "business-communication",
+        "facilitation"
+      ],
+      "description": "A 44-slide facilitator deck that helps professionals prepare persuasive business presentations through audience analysis, compelling openings, storytelling techniques, storyboards, group practice, and structured delivery feedback.",
+      "image": {
+        "src": "assets/images/portfolio/business-presentation-storytelling.webp",
+        "alt": "Business Presentation & Storytelling workshop thumbnail"
+      },
+      "sourceArtifact": "assets/pdf/portfolio/business_presentation_storytelling.pdf",
+      "sourceType": "pdf",
+      "portfolioItemUrl": "portfolio.html#project-business-presentation-storytelling",
+      "discussUrl": "contact.html?portfolioItem=Business Presentation and Storytelling"
     },
     {
       "id": "project-score-audit-corrections",

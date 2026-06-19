@@ -207,6 +207,36 @@
         }
       ]
     },
+    "project-career-prep-class-cybersecurity": {
+      "visibleProofLine": "Structures 110 slides around cybersecurity career paths and evidence-based job preparation.",
+      "workQuality": [
+        {
+          "claim": "Connects SOC, penetration testing, GRC, and cloud security career pathways with practical CV, LinkedIn, and portfolio guidance.",
+          "sourceBasis": "career_prep_cybersecurity.pdf inspection",
+          "confidence": "direct"
+        },
+        {
+          "claim": "Uses reflection prompts, checkpoints, examples, and actionable profile guidance to support facilitated career preparation.",
+          "sourceBasis": "career_prep_cybersecurity.pdf inspection",
+          "confidence": "direct"
+        }
+      ]
+    },
+    "project-business-presentation-storytelling": {
+      "visibleProofLine": "Structures 44 slides from audience analysis and opening hooks through storytelling practice and delivery.",
+      "workQuality": [
+        {
+          "claim": "Guides participants from presentation purpose and audience profiling into storyboarding, slide design, preparation, and practice.",
+          "sourceBasis": "business_presentation_storytelling.pdf inspection",
+          "confidence": "direct"
+        },
+        {
+          "claim": "Uses opening-hook methods, storytelling styles, group assignments, simulation, and feedback to support applied business presentation practice.",
+          "sourceBasis": "business_presentation_storytelling.pdf inspection",
+          "confidence": "direct"
+        }
+      ]
+    },
     "case-employee-assessment-bootcamp": {
       "visibleProofLine": "Connects observation evidence and scoring to a redacted individual report.",
       "workQuality": [

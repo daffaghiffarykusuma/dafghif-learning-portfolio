@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-items.json",
-  "generatedAt": "2026-06-15T00:35:47.327Z",
+  "generatedAt": "2026-06-19T02:08:27.936Z",
   "owner": "Daffa Ghiffary Kusuma",
   "positioning": "Learning Designer and Program Manager focused on competency-based training, learning assets, evaluation systems, mentoring, and learning analytics.",
   "usage": "Use this file as AI-readable context for tailored CVs, cover letters, recruiter summaries, and portfolio item matching when the original portfolio artifacts are unavailable.",
   "evidenceNote": "Portfolio item titles, practice areas, descriptions, tags, source artifact paths, proof points, and outcome evidence are read from structured portfolio sources. Outcome evidence is limited to direct Proof Point impact entries. Role, audience, deliverables, skills, tools, AI hints, and CV bullets may include inferred fields and should be refined when exact Portfolio Item details are available.",
-  "portfolioItemCount": 67,
+  "portfolioItemCount": 69,
   "caseStudyArtifactCount": 21,
   "practiceAreaProfiles": {
     "Training Needs Analysis": {
@@ -3970,6 +3970,128 @@
           "impact": []
         },
         "cvBullet": "Developed Eighteen Talent Hiring Desk Proposal as a training proposal portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Made learning outcomes and participant experience easier to measure, compare, and improve."
+      }
+    },
+    {
+      "id": "project-career-prep-class-cybersecurity",
+      "title": "Career Prep Class: Cybersecurity Careers",
+      "practiceArea": "Learning Materials",
+      "tags": [
+        "learning-materials",
+        "career-development",
+        "cybersecurity",
+        "facilitation"
+      ],
+      "publicDescription": "A 110-slide career preparation class for aspiring cybersecurity professionals, covering role pathways, ATS-friendly CV development, LinkedIn optimization, and evidence-based portfolio building.",
+      "sourceArtifact": "assets/pdf/portfolio/career_prep_cybersecurity.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from structured portfolio source",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials",
+          "career development",
+          "cybersecurity",
+          "facilitation"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [
+          "110"
+        ],
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Structures 110 slides around cybersecurity career paths and evidence-based job preparation.",
+          "workQuality": [
+            {
+              "claim": "Connects SOC, penetration testing, GRC, and cloud security career pathways with practical CV, LinkedIn, and portfolio guidance.",
+              "sourceBasis": "career_prep_cybersecurity.pdf inspection",
+              "confidence": "direct"
+            },
+            {
+              "claim": "Uses reflection prompts, checkpoints, examples, and actionable profile guidance to support facilitated career preparation.",
+              "sourceBasis": "career_prep_cybersecurity.pdf inspection",
+              "confidence": "direct"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Career Prep Class: Cybersecurity Careers as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "project-business-presentation-storytelling",
+      "title": "Business Presentation & Storytelling",
+      "practiceArea": "Learning Materials",
+      "tags": [
+        "learning-materials",
+        "presentation-design",
+        "business-communication",
+        "facilitation"
+      ],
+      "publicDescription": "A 44-slide facilitator deck that helps professionals prepare persuasive business presentations through audience analysis, compelling openings, storytelling techniques, storyboards, group practice, and structured delivery feedback.",
+      "sourceArtifact": "assets/pdf/portfolio/business_presentation_storytelling.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from structured portfolio source",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "entrepreneurs and startup founders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials",
+          "business communication",
+          "facilitation"
+        ],
+        "tools": [
+          "PowerPoint or Google Slides",
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [
+          "44"
+        ],
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Made learning outcomes and participant experience easier to measure, compare, and improve."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Structures 44 slides from audience analysis and opening hooks through storytelling practice and delivery.",
+          "workQuality": [
+            {
+              "claim": "Guides participants from presentation purpose and audience profiling into storyboarding, slide design, preparation, and practice.",
+              "sourceBasis": "business_presentation_storytelling.pdf inspection",
+              "confidence": "direct"
+            },
+            {
+              "claim": "Uses opening-hook methods, storytelling styles, group assignments, simulation, and feedback to support applied business presentation practice.",
+              "sourceBasis": "business_presentation_storytelling.pdf inspection",
+              "confidence": "direct"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Business Presentation & Storytelling as a learning materials portfolio item, creating practical context for entrepreneurs and startup founders, with a non-proof AI application hint: Made learning outcomes and participant experience easier to measure, compare, and improve."
       }
     }
   ]

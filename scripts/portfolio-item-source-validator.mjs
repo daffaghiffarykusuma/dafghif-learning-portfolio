@@ -2,6 +2,7 @@ import { expandCaseStudyPortfolioSource, getCaseStudyPagePath } from './case-stu
 import {
   PORTFOLIO_ITEM_SCHEMA_VERSION,
   getPortfolioItemSourceItems,
+  normalizePortfolioItem,
   normalizeText
 } from './portfolio-item-catalog.mjs';
 import { practiceAreaProfiles } from './portfolio-context-inference.mjs';
@@ -81,6 +82,13 @@ const validateProjectHtmlPath = ({ value, field, label, failures }) => {
   if (normalizeText(value) && !projectHtmlPathPattern.test(normalizeText(value))) {
     failures.push(`${sourceFile}: ${label} ${field} must be a project-relative .html path`);
   }
+};
+
+const prioritizeFeaturedPortfolioItems = (portfolioItems, featuredIds = []) => {
+  const itemsById = new Map(portfolioItems.map((item) => [item.id, item]));
+  const featured = featuredIds.map((id) => itemsById.get(normalizeText(id))).filter(Boolean);
+  const featuredIdSet = new Set(featured.map((item) => item.id));
+  return [...featured, ...portfolioItems.filter((item) => !featuredIdSet.has(item.id))];
 };
 
 export const validatePortfolioItemSource = ({
@@ -223,6 +231,12 @@ export const validatePortfolioItemSource = ({
     caseStudies
   });
   const generatedItems = getPortfolioItemSourceItems(expandedSource);
+  const validatedPortfolioItems = prioritizeFeaturedPortfolioItems(
+    generatedItems.map(normalizePortfolioItem),
+    Array.isArray(portfolioSource?.featuredPortfolioItemIds)
+      ? portfolioSource.featuredPortfolioItemIds
+      : []
+  );
   const generatedItemIds = new Set(generatedItems.map((item) => normalizeText(item?.id)).filter(Boolean));
   addDuplicateFailures({
     values: generatedItems.map((item) => item?.id),
@@ -273,7 +287,8 @@ export const validatePortfolioItemSource = ({
     failures,
     rawPortfolioItemCount: portfolioItems.length,
     caseStudyCount: caseStudies.length,
-    generatedPortfolioItemCount: generatedItems.length
+    generatedPortfolioItemCount: generatedItems.length,
+    portfolioItems: validatedPortfolioItems
   };
 };
 

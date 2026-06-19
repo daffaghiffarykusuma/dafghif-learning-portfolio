@@ -72,7 +72,7 @@ describe('site browser behavior', () => {
     const portfolioItems = Array.from(document.querySelectorAll('.card.portfolio-item:not(.portfolio-item-placeholder)'));
     const proofLines = Array.from(document.querySelectorAll('.portfolio-item-proof'));
 
-    expect(portfolioItems.length).toBe(67);
+    expect(portfolioItems.length).toBe(69);
     expect(proofLines.length).toBe(portfolioItems.length);
     expect(document.querySelector('#case-employee-assessment-bootcamp .portfolio-item-proof').textContent)
       .toBe('Connects observation evidence and scoring to a redacted individual report.');

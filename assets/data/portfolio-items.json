@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-source.json",
-  "generatedAt": "2026-06-15T00:35:47.327Z",
-  "portfolioItemCount": 67,
+  "generatedAt": "2026-06-19T02:08:27.936Z",
+  "portfolioItemCount": 69,
   "portfolioItems": [
     {
       "id": "case-employee-assessment-bootcamp",
@@ -1958,6 +1958,78 @@
             "claim": "Defines objectives, program logic, delivery structure, and stakeholder-ready recommendations.",
             "sourceBasis": "practice-area default",
             "confidence": "inferred"
+          }
+        ],
+        "impact": []
+      }
+    },
+    {
+      "id": "project-career-prep-class-cybersecurity",
+      "title": "Career Prep Class: Cybersecurity Careers",
+      "practiceArea": "Learning Materials",
+      "tags": [
+        "learning-materials",
+        "career-development",
+        "cybersecurity",
+        "facilitation"
+      ],
+      "description": "A 110-slide career preparation class for aspiring cybersecurity professionals, covering role pathways, ATS-friendly CV development, LinkedIn optimization, and evidence-based portfolio building.",
+      "image": {
+        "src": "assets/images/portfolio/career-prep-cybersecurity.webp",
+        "alt": "Career Prep Class: Cybersecurity Careers cover slide"
+      },
+      "sourceArtifact": "assets/pdf/portfolio/career_prep_cybersecurity.pdf",
+      "sourceType": "pdf",
+      "portfolioItemUrl": "portfolio.html#project-career-prep-class-cybersecurity",
+      "discussUrl": "contact.html?portfolioItem=Career Prep Class: Cybersecurity Careers",
+      "proof": {
+        "visibleProofLine": "Structures 110 slides around cybersecurity career paths and evidence-based job preparation.",
+        "workQuality": [
+          {
+            "claim": "Connects SOC, penetration testing, GRC, and cloud security career pathways with practical CV, LinkedIn, and portfolio guidance.",
+            "sourceBasis": "career_prep_cybersecurity.pdf inspection",
+            "confidence": "direct"
+          },
+          {
+            "claim": "Uses reflection prompts, checkpoints, examples, and actionable profile guidance to support facilitated career preparation.",
+            "sourceBasis": "career_prep_cybersecurity.pdf inspection",
+            "confidence": "direct"
+          }
+        ],
+        "impact": []
+      }
+    },
+    {
+      "id": "project-business-presentation-storytelling",
+      "title": "Business Presentation & Storytelling",
+      "practiceArea": "Learning Materials",
+      "tags": [
+        "learning-materials",
+        "presentation-design",
+        "business-communication",
+        "facilitation"
+      ],
+      "description": "A 44-slide facilitator deck that helps professionals prepare persuasive business presentations through audience analysis, compelling openings, storytelling techniques, storyboards, group practice, and structured delivery feedback.",
+      "image": {
+        "src": "assets/images/portfolio/business-presentation-storytelling.webp",
+        "alt": "Business Presentation & Storytelling workshop thumbnail"
+      },
+      "sourceArtifact": "assets/pdf/portfolio/business_presentation_storytelling.pdf",
+      "sourceType": "pdf",
+      "portfolioItemUrl": "portfolio.html#project-business-presentation-storytelling",
+      "discussUrl": "contact.html?portfolioItem=Business Presentation and Storytelling",
+      "proof": {
+        "visibleProofLine": "Structures 44 slides from audience analysis and opening hooks through storytelling practice and delivery.",
+        "workQuality": [
+          {
+            "claim": "Guides participants from presentation purpose and audience profiling into storyboarding, slide design, preparation, and practice.",
+            "sourceBasis": "business_presentation_storytelling.pdf inspection",
+            "confidence": "direct"
+          },
+          {
+            "claim": "Uses opening-hook methods, storytelling styles, group assignments, simulation, and feedback to support applied business presentation practice.",
+            "sourceBasis": "business_presentation_storytelling.pdf inspection",
+            "confidence": "direct"
           }
         ],
         "impact": []

@@ -20,6 +20,10 @@ _Avoid_: Scraped HTML, generated catalog, card markup
 The pre-generation module that verifies the **Portfolio Item Source** schema and declared count, identity and page-path uniqueness, known **Practice Areas**, required **Case Study** and **Artifact** fields, replacement references, and **Proof Point** references before generated files can be written.
 _Avoid_: JSON check, source lint, generator guard
 
+**Validated Portfolio Item Source**:
+The canonical **Portfolio Item** representation produced by **Portfolio Item Source Validation** after **Case Study** expansion, normalization, and featured ordering. Generation and evidence checks consume this representation instead of rebuilding source rules independently.
+_Avoid_: Expanded source, ordered items, normalized catalog input
+
 **Artifact**:
 A concrete deliverable or source file that provides evidence for a **Portfolio Item**, such as a PDF, slide deck, workbook, document, dashboard, template, or generated preview. Thumbnails, stylesheets, and other supporting site assets are not **Artifacts**.
 _Avoid_: Asset, attachment, file, material
@@ -41,7 +45,7 @@ A narrative page or section that explains a selected **Portfolio Item** in conte
 _Avoid_: Project page, story, article, detailed card
 
 **Case Study Model**:
-The generation module that normalizes **Case Study** source data, page paths, featured **Case Study** entries, absorbed **Portfolio Item** IDs, and the **Portfolio Item** representation used by the **Portfolio Evidence Pipeline**.
+The generation module that normalizes **Case Study** source data, page paths, featured **Case Study** entries, absorbed **Portfolio Item** IDs, and the **Portfolio Item** representation used by the **Portfolio Evidence Workflow**.
 _Avoid_: Case helper, case data utility, grouped project logic
 
 **Case Study Page Identity**:
@@ -59,6 +63,10 @@ _Avoid_: HTML helper, detail page builder, template function
 **Generated Site Chrome**:
 The generation module that renders shared navigation, stylesheet links, footer markup, and HTML escaping used by generated pages.
 _Avoid_: Header helper, layout utility, shared HTML bits
+
+**Learning Portfolio Site Validation**:
+The pre-publication module that verifies source pages, styles, links, fragments, external hosts, browser security policy, Publication data, Portfolio Evidence, and Shipped Artifact probes, then returns structured failures and validation counts. Command-line execution is an adapter to this module.
+_Avoid_: Validation script, lint command, static checks
 
 **Reviewer**:
 A recruiter, hiring manager, potential client, collaborator, or evaluator who visits the **Learning Portfolio Site** to judge credibility, capability, and fit from visible evidence.
@@ -100,13 +108,9 @@ _Avoid_: Dashboard, spreadsheet, analytics file, report
 A **Proof Point** that describes what changed, what was produced, or what was achieved through a **Learning Program**, **Artifact**, or **Engagement Type**.
 _Avoid_: Impact, result, metric, achievement
 
-**Portfolio Evidence Pipeline**:
-The generation module that turns the **Portfolio Item Source** and curated **Proof Point** data into visible **Portfolio Item** listings, structured portfolio metadata, and AI-readable portfolio context. It owns Proof Point application so visible copy, metadata, and validation do not drift.
-_Avoid_: Proof script, metadata helper, rendering utility
-
 **Portfolio Evidence Workflow**:
-The generation module that coordinates one complete **Portfolio Evidence Pipeline** run: reading **Portfolio Item Source** inputs, applying **Proof Points**, expanding **Case Study** entries, and producing the complete set of generated **Learning Portfolio Site** outputs for one command adapter to write together. Partial generation is not a supported workflow.
-_Avoid_: Generation command, build script, output helper, partial generator
+The generation module that validates **Portfolio Item Source** inputs, applies **Proof Points**, renders visible **Portfolio Item** listings, builds structured portfolio metadata and AI-readable context, expands **Case Study** pages, and returns one complete output set for a command adapter to write together. Partial generation is not a supported workflow.
+_Avoid_: Portfolio Evidence Pipeline, generation command, build script, output helper, partial generator
 
 **Portfolio Context Inference**:
 The generation module that turns a normalized **Portfolio Item** and its **Proof Points** into AI-readable context, including inferred audience, tools, scale signals, non-proof AI hints, direct **Outcome Evidence**, and CV bullet text.

@@ -2,17 +2,14 @@ import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 import { spawn } from 'node:child_process';
 import { readdir } from 'node:fs/promises';
 import path from 'node:path';
-import {
-  getDeniedShippedArtifactFacts,
-  getProductionAssetProbePaths,
-  getRoutableCaseStudyPagePaths
-} from '../../scripts/shipped-artifact-inventory.mjs';
+import { createShippedArtifactPolicy } from '../../scripts/shipped-artifact-policy.mjs';
 import { projectRoot } from '../helpers/dom.mjs';
 
 const host = '127.0.0.1';
 const port = 4178;
 const baseUrl = `http://${host}:${port}`;
-const generatedCaseStudyPages = getRoutableCaseStudyPagePaths({ rootDir: projectRoot })
+const shippedArtifacts = createShippedArtifactPolicy({ rootDir: projectRoot });
+const generatedCaseStudyPages = shippedArtifacts.shippingManifest.routablePages
   .map((pagePath) => `/${pagePath}`);
 let server;
 
@@ -123,7 +120,7 @@ describe('production site system checks', () => {
   });
 
   test('serves core production assets referenced by pages', async () => {
-    const assets = getProductionAssetProbePaths(projectRoot);
+    const assets = shippedArtifacts.productionAssetProbePaths();
     expect(assets.length).toBeGreaterThan(0);
 
     for (const asset of assets) {
@@ -137,7 +134,7 @@ describe('production site system checks', () => {
     const distFiles = await walkFiles(path.join(projectRoot, 'dist'));
     const distRelativePaths = distFiles
       .map((filePath) => path.relative(path.join(projectRoot, 'dist'), filePath).split(path.sep).join('/'));
-    const editableOfficeFiles = getDeniedShippedArtifactFacts(distRelativePaths);
+    const editableOfficeFiles = shippedArtifacts.deniedArtifactFacts(distRelativePaths);
 
     expect(editableOfficeFiles).toEqual([]);
   });
@@ -197,7 +194,7 @@ describe('production site system checks', () => {
     const firstImage = body.match(/<img\b[^>]*>/)?.[0] || '';
     const previewIframe = body.match(/<iframe\b[^>]*\bid="pdf-iframe"[^>]*>/)?.[0] || '';
 
-    expect(portfolioItemCount).toBe(67);
+    expect(portfolioItemCount).toBe(69);
     expect(firstImage).toContain('loading="eager"');
     expect(firstImage).toContain('fetchpriority="high"');
     expect(firstImage).toContain('width="660"');
@@ -252,7 +249,7 @@ describe('production site system checks', () => {
     const { response, body } = await request(metadataPath);
     expect(response.status).toBe(200);
     const aiContext = JSON.parse(body);
-    expect(aiContext.portfolioItemCount).toBe(67);
+    expect(aiContext.portfolioItemCount).toBe(69);
     expect(aiContext.caseStudyArtifactCount).toBeGreaterThan(0);
     expect(aiContext.portfolioItems.find((item) => item.id === 'case-administrative-communication-learning-program').caseStudyArtifacts)
       .toHaveLength(7);

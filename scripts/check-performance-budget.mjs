@@ -79,7 +79,7 @@ if (largestImage && largestImage.size > limits.largestImageBytes) {
 }
 for (const probe of shippedArtifactPolicy.productionProbeFacts()) {
   if (!shippedProbeRecords.has(probe.path)) {
-    failures.push(`shipping manifest probe missing from dist: ${probe.path}`);
+    failures.push(`Shipped Artifact Policy probe missing from dist: ${probe.path}`);
   }
 }
 for (const page of previewIframeSources) {

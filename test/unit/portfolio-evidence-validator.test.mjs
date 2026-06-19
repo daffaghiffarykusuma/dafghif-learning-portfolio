@@ -129,7 +129,7 @@ describe('Portfolio Evidence validator', () => {
     ]);
   });
 
-  test('keeps sourceArtifact validation tied to the shipped Artifact Inventory', async () => {
+  test('keeps sourceArtifact validation tied to the Shipped Artifact Policy', async () => {
     const result = await validatePortfolioEvidenceData({
       portfolioSourceData: { portfolioItems: [validSourceItem] },
       portfolioCatalog: {

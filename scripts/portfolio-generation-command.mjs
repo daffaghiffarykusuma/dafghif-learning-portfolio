@@ -2,7 +2,6 @@ import { mkdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createPortfolioEvidenceWorkflow } from './portfolio-evidence-workflow.mjs';
-import { assertValidPortfolioItemSource } from './portfolio-item-source-validator.mjs';
 
 const defaultPaths = Object.freeze({
   portfolioHtml: 'portfolio.html',
@@ -45,7 +44,6 @@ export const runPortfolioEvidenceWorkflow = async (options = {}) => {
   const html = await readFile(path.join(rootDir, resolvedPaths.portfolioHtml), 'utf8');
   const portfolioSource = await readJson(rootDir, resolvedPaths.portfolioSource);
   const proofSource = await readJson(rootDir, resolvedPaths.proofPoints);
-  assertValidPortfolioItemSource({ portfolioSource, proofSource });
   const workflow = createPortfolioEvidenceWorkflow({
     portfolioHtml: html,
     portfolioSource,

@@ -96,4 +96,24 @@ describe('Shipped Artifact Policy', () => {
     expect(requestPaths.length).toBeGreaterThan(0);
     expect(requestPaths.every((requestPath) => requestPath.startsWith('/'))).toBe(true);
   });
+
+  test('keeps root-specific manifests independent across policy instances', () => {
+    const first = createShippedArtifactPolicy({
+      rootDir: process.cwd(),
+      portfolioSource: {
+        caseStudies: [{ id: 'case-one', pagePath: 'case-one.html' }]
+      }
+    });
+    const second = createShippedArtifactPolicy({
+      rootDir: process.cwd(),
+      portfolioSource: {
+        caseStudies: [{ id: 'case-two', pagePath: 'case-two.html' }]
+      }
+    });
+
+    expect(first.shippingManifest.routablePages).toEqual(['case-one.html']);
+    expect(second.shippingManifest.routablePages).toEqual(['case-two.html']);
+    expect(first.isPublicPath('case-two.html')).toBe(false);
+    expect(second.isPublicPath('case-one.html')).toBe(false);
+  });
 });

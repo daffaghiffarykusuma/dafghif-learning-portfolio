@@ -1,8 +1,10 @@
 import { copyFileSync, cpSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
 import { basename, extname, resolve } from 'node:path';
-import { getRootShippedFiles, shippingManifest } from './scripts/shipping-manifest.mjs';
+import { createShippedArtifactPolicy } from './scripts/shipped-artifact-policy.mjs';
 
 const root = process.cwd();
+const shippedArtifacts = createShippedArtifactPolicy({ rootDir: root });
+const { shippingManifest } = shippedArtifacts;
 
 const htmlInputs = Object.fromEntries(
   readdirSync(root)
@@ -33,7 +35,7 @@ function copyStaticFiles() {
         }
       }
 
-      for (const file of getRootShippedFiles(root)) {
+      for (const file of shippedArtifacts.rootShippedFiles()) {
         copyFileSync(resolve(root, file), resolve(outDir, file));
       }
 

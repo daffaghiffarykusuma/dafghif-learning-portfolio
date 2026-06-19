@@ -137,37 +137,3 @@ export function createShippedArtifactPolicy({
     isPublicPath,
   };
 }
-
-const defaultShippedArtifactPolicy = createShippedArtifactPolicy({
-  rootDir: process.cwd()
-});
-
-export const shippingManifest = defaultShippedArtifactPolicy.shippingManifest;
-
-export function getRootShippedFiles(rootDir) {
-  return createShippedArtifactPolicy({ rootDir }).rootShippedFiles();
-}
-
-export function getProductionAssetProbePaths(rootDir) {
-  return createShippedArtifactPolicy({ rootDir }).productionAssetProbePaths();
-}
-
-export function isDeniedShippedArtifactPath(relativePath) {
-  return defaultShippedArtifactPolicy.isDeniedPath(relativePath);
-}
-
-export function isPublicShippedArtifactPath(relativePath) {
-  return defaultShippedArtifactPolicy.isPublicPath(relativePath);
-}
-
-export function getDeniedShippedArtifactFacts(relativePaths) {
-  return createShippedArtifactPolicy().deniedArtifactFacts(relativePaths);
-}
-
-export function getProductionProbeFacts(rootDir) {
-  return createShippedArtifactPolicy({ rootDir }).productionProbeFacts();
-}
-
-export function getShippedArtifactValidationFacts({ rootDir, distRelativePaths = [] }) {
-  return createShippedArtifactPolicy({ rootDir }).validationFacts({ distRelativePaths });
-}
