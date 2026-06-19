@@ -28,6 +28,14 @@ _Avoid_: Expanded source, ordered items, normalized catalog input
 A concrete deliverable or source file that provides evidence for a **Portfolio Item**, such as a PDF, slide deck, workbook, document, dashboard, template, or generated preview. Thumbnails, stylesheets, and other supporting site assets are not **Artifacts**.
 _Avoid_: Asset, attachment, file, material
 
+**Product Thumbnail**:
+A designed 16:9 cover image that identifies a **Portfolio Item** or included **Artifact** with readable title text and a visual motif related to the work. It is a supporting site asset, not an **Artifact**, and should not be a generic textless illustration or mockup.
+_Avoid_: Generic thumbnail, cover image, project image
+
+**Evidence Photograph**:
+An authentic photograph from the represented work, such as a workshop, facilitation session, event, participant activity, or group photo. An **Evidence Photograph** may be used instead of a **Product Thumbnail** and is not required to contain overlaid title text.
+_Avoid_: Generated photoshoot, stock photo, photo-style thumbnail
+
 **Artifact Preview**:
 A browser-readable representation of an **Artifact** used inside the **Learning Portfolio Site** so visitors can inspect the work without downloading or opening the original source file.
 _Avoid_: Viewer, generated page, preview file, embedded document
@@ -129,6 +137,10 @@ Domain expert: Only if it represents a distinct work sample. If it only supports
 Dev: It was used before the training to identify participant needs.
 
 Domain expert: Then call it a **Diagnostic Artifact**, not an **Evaluation Artifact**.
+
+Dev: Can its listing use a generic illustration with no words?
+
+Domain expert: No. Use a title-bearing **Product Thumbnail**, unless an authentic **Evidence Photograph** from the work is available.
 
 Dev: Can we say it proves impact?
 

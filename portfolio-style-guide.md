@@ -90,11 +90,25 @@ stateDiagram-v2
 
 ## Image Treatment
 
-- **Project Thumbnails**:
+- **Product Thumbnails**:
   - Aspect ratio: 16:9
+  - Format: WebP
+  - Include the Portfolio Item or Artifact title as readable, high-contrast text
+  - Use a concise category or artifact-type label when it improves recognition
+  - Pair the text with a work-relevant visual motif, document interface, diagram, or product mockup
+  - Prefer the established dark navy/deep-teal background, subtle dotted grid, bold white type, and controlled mint/coral/yellow accent bands
+  - Do not use generic generated art, decorative mockups, or abstract illustrations without identifying text
+  - Do not place invented scores, percentages, names, findings, outcomes, or other evidence-like values inside illustrative interfaces
+  - Preserve safe margins so the title and key visual remain legible in responsive crops
   - Border radius: 8px
   - Shadow: 0 4px 6px rgba(0,0,0,0.1)
   - Hover effect: scale(1.02) with shadow elevation
+
+- **Evidence Photograph Exception**:
+  - Authentic workshop, facilitation, event, participant-activity, photoshoot, or group photography may remain unaltered
+  - Do not replace an authentic Evidence Photograph merely because it has no overlaid text
+  - Do not classify generated, staged, or stock-photo-style imagery as an Evidence Photograph
+  - Use accurate alt text that identifies the activity or context without making unsupported claims
 
 - **Modal Images**:
   - Max-height: 60vh
