@@ -299,4 +299,14 @@ describe('site browser behavior', () => {
     expect(document.querySelectorAll('#how-i-work .approach-steps a[href^="case-"]')).toHaveLength(5);
     expect(document.querySelectorAll('[data-featured-testimonial][data-practice-areas]')).toHaveLength(3);
   });
+
+  test('homepage keeps its below-fold mobile hero image out of the critical request path', async () => {
+    createDom(await readPage('index.html'), 'http://127.0.0.1/index.html');
+    const heroImage = document.querySelector('#showcase .hero-visual img');
+    const heroPreload = document.querySelector('link[rel="preload"][as="image"][href="dafghif_cover.png"]');
+
+    expect(heroImage?.getAttribute('loading')).toBe('lazy');
+    expect(heroImage?.getAttribute('fetchpriority')).toBe('low');
+    expect(heroPreload?.getAttribute('media')).toBe('(min-width: 768px)');
+  });
 });

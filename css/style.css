@@ -689,6 +689,16 @@ h2.section-title::after { /* Underline effect for titles */
     color: var(--secondary);
 }
 
+/*
+ * Keep the homepage hero's first paint independent from the substantial
+ * below-the-fold portfolio content. Off-screen sections remain in the DOM and
+ * render before they approach the viewport.
+ */
+#showcase ~ section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 800px;
+}
+
 #showcase .container {
     padding: 0 20px;
 }
