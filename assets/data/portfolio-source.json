@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sourceOfTruth": "Portfolio Item source data for the Learning Portfolio Site.",
-  "portfolioItemCount": 69,
+  "portfolioItemCount": 70,
   "featuredPortfolioItemIds": [
     "case-employee-assessment-bootcamp",
     "case-administrative-communication-learning-program",
@@ -1803,6 +1803,26 @@
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-business-presentation-storytelling",
       "discussUrl": "contact.html?portfolioItem=Business Presentation and Storytelling"
+    },
+    {
+      "id": "project-creative-thinking-workshop",
+      "title": "Creative Thinking Workshop",
+      "practiceArea": "Learning Materials",
+      "tags": [
+        "learning-materials",
+        "creative-thinking",
+        "problem-solving",
+        "facilitation"
+      ],
+      "description": "A 58-slide facilitator deck that combines creative-thinking concepts with hands-on practice, including observation, association, questioning, SCAMPER, problem framing, Crazy 8, brainwriting, mash-ups, and idea selection.",
+      "image": {
+        "src": "assets/images/portfolio/creative-thinking-workshop.webp",
+        "alt": "Creative Thinking Workshop facilitator deck thumbnail"
+      },
+      "sourceArtifact": "assets/pdf/portfolio/deck_creative_thinking.pdf",
+      "sourceType": "pdf",
+      "portfolioItemUrl": "portfolio.html#project-creative-thinking-workshop",
+      "discussUrl": "contact.html?portfolioItem=Creative Thinking Workshop"
     },
     {
       "id": "project-score-audit-corrections",

@@ -38,7 +38,7 @@ describe('Learning Portfolio Site Validation', () => {
       htmlFiles: 27,
       cssFiles: 10,
       blogPosts: 34,
-      portfolioItems: 69,
+      portfolioItems: 70,
       shippedArtifactProbes: 12
     });
     expect(formatLearningPortfolioSiteValidationSummary(result))

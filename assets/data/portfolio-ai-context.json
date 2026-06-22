@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-items.json",
-  "generatedAt": "2026-06-19T02:08:27.936Z",
+  "generatedAt": "2026-06-22T19:59:52.016Z",
   "owner": "Daffa Ghiffary Kusuma",
   "positioning": "Learning Designer and Program Manager focused on competency-based training, learning assets, evaluation systems, mentoring, and learning analytics.",
   "usage": "Use this file as AI-readable context for tailored CVs, cover letters, recruiter summaries, and portfolio item matching when the original portfolio artifacts are unavailable.",
   "evidenceNote": "Portfolio item titles, practice areas, descriptions, tags, source artifact paths, proof points, and outcome evidence are read from structured portfolio sources. Outcome evidence is limited to direct Proof Point impact entries. Role, audience, deliverables, skills, tools, AI hints, and CV bullets may include inferred fields and should be refined when exact Portfolio Item details are available.",
-  "portfolioItemCount": 69,
+  "portfolioItemCount": 70,
   "caseStudyArtifactCount": 21,
   "practiceAreaProfiles": {
     "Training Needs Analysis": {
@@ -4092,6 +4092,64 @@
           "impact": []
         },
         "cvBullet": "Created Business Presentation & Storytelling as a learning materials portfolio item, creating practical context for entrepreneurs and startup founders, with a non-proof AI application hint: Made learning outcomes and participant experience easier to measure, compare, and improve."
+      }
+    },
+    {
+      "id": "project-creative-thinking-workshop",
+      "title": "Creative Thinking Workshop",
+      "practiceArea": "Learning Materials",
+      "tags": [
+        "learning-materials",
+        "creative-thinking",
+        "problem-solving",
+        "facilitation"
+      ],
+      "publicDescription": "A 58-slide facilitator deck that combines creative-thinking concepts with hands-on practice, including observation, association, questioning, SCAMPER, problem framing, Crazy 8, brainwriting, mash-ups, and idea selection.",
+      "sourceArtifact": "assets/pdf/portfolio/deck_creative_thinking.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from structured portfolio source",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials",
+          "creative thinking",
+          "problem solving",
+          "facilitation"
+        ],
+        "tools": [
+          "PowerPoint or Google Slides",
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [
+          "58",
+          "8"
+        ],
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Creative Thinking Workshop as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
       }
     }
   ]

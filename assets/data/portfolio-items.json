@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-source.json",
-  "generatedAt": "2026-06-19T02:08:27.936Z",
-  "portfolioItemCount": 69,
+  "generatedAt": "2026-06-22T19:59:52.016Z",
+  "portfolioItemCount": 70,
   "portfolioItems": [
     {
       "id": "case-employee-assessment-bootcamp",
@@ -2030,6 +2030,37 @@
             "claim": "Uses opening-hook methods, storytelling styles, group assignments, simulation, and feedback to support applied business presentation practice.",
             "sourceBasis": "business_presentation_storytelling.pdf inspection",
             "confidence": "direct"
+          }
+        ],
+        "impact": []
+      }
+    },
+    {
+      "id": "project-creative-thinking-workshop",
+      "title": "Creative Thinking Workshop",
+      "practiceArea": "Learning Materials",
+      "tags": [
+        "learning-materials",
+        "creative-thinking",
+        "problem-solving",
+        "facilitation"
+      ],
+      "description": "A 58-slide facilitator deck that combines creative-thinking concepts with hands-on practice, including observation, association, questioning, SCAMPER, problem framing, Crazy 8, brainwriting, mash-ups, and idea selection.",
+      "image": {
+        "src": "assets/images/portfolio/creative-thinking-workshop.webp",
+        "alt": "Creative Thinking Workshop facilitator deck thumbnail"
+      },
+      "sourceArtifact": "assets/pdf/portfolio/deck_creative_thinking.pdf",
+      "sourceType": "pdf",
+      "portfolioItemUrl": "portfolio.html#project-creative-thinking-workshop",
+      "discussUrl": "contact.html?portfolioItem=Creative Thinking Workshop",
+      "proof": {
+        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+        "workQuality": [
+          {
+            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+            "sourceBasis": "practice-area default",
+            "confidence": "inferred"
           }
         ],
         "impact": []
