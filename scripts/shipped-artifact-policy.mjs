@@ -1,6 +1,6 @@
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import path from 'node:path';
-import { getCaseStudyPageIdentities } from './case-study-model.mjs';
+import { createCaseStudyPublication } from './case-study-publication.mjs';
 
 export const shippedArtifactPolicy = Object.freeze({
   shippedDirectoryTrees: Object.freeze([
@@ -63,7 +63,9 @@ const readPortfolioSource = (rootDir) => {
 export const getRoutableCaseStudyPagePaths = ({
   rootDir = process.cwd(),
   portfolioSource = readPortfolioSource(rootDir)
-} = {}) => getCaseStudyPageIdentities(portfolioSource).map((identity) => identity.pagePath);
+} = {}) => createCaseStudyPublication(portfolioSource)
+  .pageIdentities
+  .map((identity) => identity.pagePath);
 
 const createShippingManifest = ({ rootDir, policy, portfolioSource }) => {
   const routablePages = Object.freeze(getRoutableCaseStudyPagePaths({ rootDir, portfolioSource }));

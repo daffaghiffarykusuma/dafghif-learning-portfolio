@@ -7,9 +7,7 @@ import {
   normalizeText
 } from './portfolio-item-catalog.mjs';
 import { createAiContextPortfolioItem, practiceAreaProfiles } from './portfolio-context-inference.mjs';
-import { getCaseStudyArtifactMetadata, getCaseStudySources } from './case-study-model.mjs';
-import { renderCaseStudyIndexHtml } from './case-study-index-renderer.mjs';
-import { renderCaseStudyPreviews } from './case-study-page-renderer.mjs';
+import { createCaseStudyPublication } from './case-study-publication.mjs';
 import { assertValidPortfolioItemSource } from './portfolio-item-source-validator.mjs';
 
 export const portfolioEvidenceWorkflowOutputTypes = Object.freeze({
@@ -35,14 +33,6 @@ const portfolioAreaFilters = new Set([
 ]);
 
 const jsonOutput = (data) => `${JSON.stringify(data, null, 2)}\n`;
-
-const renderCaseStudyPages = (portfolioSource) => [
-  {
-    outputPath: 'case-studies.html',
-    html: renderCaseStudyIndexHtml(getCaseStudySources(portfolioSource))
-  },
-  ...renderCaseStudyPreviews(portfolioSource)
-];
 
 const createPortfolioDocument = (html) => {
   const window = new Window();
@@ -199,22 +189,16 @@ const renderPortfolioItemCards = (document, portfolioItems) => {
 
 const createPortfolioAiContextData = ({
   portfolioItems,
-  caseStudySource,
+  artifactMetadataByCaseStudyId,
   generatedFrom,
   generatedAt
 }) => {
   const aiContextItems = portfolioItems.map(createAiContextPortfolioItem);
-  const caseStudyArtifactsByParent = new Map(
-    getCaseStudySources(caseStudySource).map((caseStudy) => [
-      normalizeText(caseStudy.id),
-      getCaseStudyArtifactMetadata(caseStudy)
-    ])
-  );
   const portfolioItemsWithCaseArtifacts = aiContextItems.map((item) => {
-    const caseStudyArtifacts = caseStudyArtifactsByParent.get(item.id) || [];
+    const caseStudyArtifacts = artifactMetadataByCaseStudyId.get(item.id) || [];
     return caseStudyArtifacts.length ? { ...item, caseStudyArtifacts } : item;
   });
-  const caseStudyArtifactCount = [...caseStudyArtifactsByParent.values()]
+  const caseStudyArtifactCount = [...artifactMetadataByCaseStudyId.values()]
     .reduce((count, artifacts) => count + artifacts.length, 0);
 
   return {
@@ -255,10 +239,11 @@ export const createPortfolioEvidenceWorkflow = ({
     generatedAt,
     portfolioItems
   });
-  const caseStudyPages = renderCaseStudyPages(portfolioSource);
+  const caseStudyPublication = createCaseStudyPublication(portfolioSource);
+  const caseStudyPages = caseStudyPublication.pages;
   const aiContextData = createPortfolioAiContextData({
     portfolioItems,
-    caseStudySource: portfolioSource,
+    artifactMetadataByCaseStudyId: caseStudyPublication.artifactMetadataByCaseStudyId,
     generatedFrom: catalogGeneratedFrom,
     generatedAt
   });

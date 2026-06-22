@@ -25,6 +25,7 @@ describe('site browser behavior', () => {
     window.console.warn = (...args) => warnings.push(args.join(' '));
     globalThis.console = window.console;
 
+    expect(document.querySelector('.modal')).toBeNull();
     await importFresh('../../js/script.js');
     fireDOMContentLoaded();
 

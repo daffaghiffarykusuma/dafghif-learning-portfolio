@@ -18,7 +18,6 @@ const titleForPreviewTrigger = (button) => {
 };
 
 export function createArtifactPreviewExperience({
-    closeActiveModal = () => {},
     openHashOnInit = true,
     updateHashOnOpen = true,
     root = document,
@@ -68,7 +67,6 @@ export function createArtifactPreviewExperience({
             return false;
         }
 
-        closeActiveModal();
         closePdfModal();
         lastPreviewTrigger = options.trigger || button;
         const previewTitle = titleForPreviewTrigger(button);
@@ -175,9 +173,8 @@ export function createArtifactPreviewExperience({
     return { closePdfModal, openPreviewFromHash, destroy };
 }
 
-export const createPortfolioItemPreviewExperience = (closeActiveModal = () => {}) =>
+export const createPortfolioItemPreviewExperience = () =>
     createArtifactPreviewExperience({
-        closeActiveModal,
         openHashOnInit: false,
         updateHashOnOpen: true
     });

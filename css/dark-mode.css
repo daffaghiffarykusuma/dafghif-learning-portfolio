@@ -1252,23 +1252,9 @@ footer {
     background: var(--dm-text-primary) !important;
 }
 
-/* Modal styling */
-.modal,
+/* Artifact preview modal */
 .pdf-modal {
     background: rgba(18, 18, 18, 0.95) !important;
-}
-
-.modal-content {
-    background: var(--dm-bg-secondary) !important;
-    border: 1px solid var(--dm-border-default) !important;
-}
-
-.modal-close {
-    color: var(--dm-text-secondary) !important;
-}
-
-.modal-close:hover {
-    color: var(--dm-text-primary) !important;
 }
 
 /* Blog specific */

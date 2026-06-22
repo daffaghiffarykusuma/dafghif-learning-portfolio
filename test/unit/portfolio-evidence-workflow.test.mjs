@@ -4,18 +4,8 @@ import {
   portfolioEvidenceWorkflowOutputTypes
 } from '../../scripts/portfolio-evidence-workflow.mjs';
 import {
-  createCaseStudyArtifactMetadata,
-  createCaseStudyArtifactPreviewModel,
-  createCaseStudyPageIdentity,
-  createCaseStudyPortfolioItem,
-  expandCaseStudyPortfolioSource,
-  getCaseStudyPageIdentities
-} from '../../scripts/case-study-model.mjs';
-import {
-  renderCaseStudyHtml,
-  renderCaseStudyPreviews
-} from '../../scripts/case-study-page-renderer.mjs';
-import { renderCaseStudyIndexHtml } from '../../scripts/case-study-index-renderer.mjs';
+  createCaseStudyPublication
+} from '../../scripts/case-study-publication.mjs';
 import { renderGeneratedHtmlDocument } from '../../scripts/generated-site-chrome.mjs';
 
 const proofSource = {
@@ -224,8 +214,8 @@ describe('Portfolio Evidence Workflow', () => {
   });
 });
 
-describe('Case Study generation modules', () => {
-  test('derives Case Study Portfolio Items and page identity from one model interface', () => {
+describe('Case Study Publication', () => {
+  test('returns expanded Portfolio Items and page identities through one interface', () => {
     const caseStudy = {
       id: 'case-sample-learning-program',
       title: 'Sample Learning Program',
@@ -235,33 +225,31 @@ describe('Case Study generation modules', () => {
       description: 'Combines diagnosis and design artifacts into one case.',
       image: { src: 'assets/images/portfolio/sample.webp', alt: 'Sample thumbnail' }
     };
-
-    expect(createCaseStudyPortfolioItem(caseStudy)).toMatchObject({
-      id: 'case-sample-learning-program',
-      sourceArtifact: 'case-sample-learning-program.html',
-      sourceType: 'case-study-page'
-    });
-    expect(createCaseStudyPageIdentity(caseStudy)).toEqual({
-      kind: 'case-study',
-      pagePath: 'case-sample-learning-program.html',
-      navigationPage: 'case-studies.html'
-    });
-    expect(getCaseStudyPageIdentities({ caseStudies: [caseStudy] })).toEqual([
-      createCaseStudyPageIdentity(caseStudy)
-    ]);
-    expect(expandCaseStudyPortfolioSource({
+    const publication = createCaseStudyPublication({
       caseStudies: [caseStudy],
       portfolioItems: [
         { id: caseStudy.id, title: 'Manual duplicate' },
         { id: 'project-other', title: 'Other Portfolio Item' }
       ]
-    }).portfolioItems.map((item) => item.id)).toEqual([
+    });
+
+    expect(publication.portfolioItems[0]).toMatchObject({
+      id: 'case-sample-learning-program',
+      sourceArtifact: 'case-sample-learning-program.html',
+      sourceType: 'case-study-page'
+    });
+    expect(publication.pageIdentities).toEqual([{
+      kind: 'case-study',
+      pagePath: 'case-sample-learning-program.html',
+      navigationPage: 'case-studies.html'
+    }]);
+    expect(publication.portfolioItems.map((item) => item.id)).toEqual([
       caseStudy.id,
       'project-other'
     ]);
   });
 
-  test('normalizes Case Study Artifact preview and metadata contracts', () => {
+  test('keeps Artifact preview markup and metadata behind the publication interface', () => {
     const artifact = {
       title: 'Needs Analysis',
       description: 'Defines the learning gap.',
@@ -270,23 +258,29 @@ describe('Case Study generation modules', () => {
       tags: ['training-needs-analysis'],
       image: { src: 'assets/images/portfolio/needs.webp' }
     };
+    const publication = createCaseStudyPublication({
+      caseStudies: [{
+        id: 'case-sample-learning-program',
+        title: 'Sample Learning Program',
+        artifacts: [artifact]
+      }]
+    });
+    const detailPage = publication.pages.find(
+      (page) => page.outputPath === 'case-sample-learning-program.html'
+    );
 
-    expect(createCaseStudyArtifactPreviewModel(artifact)).toMatchObject({
+    expect(detailPage.html).toContain('id="artifact-needs-analysis"');
+    expect(detailPage.html).toContain('data-pdf="assets/pdf/portfolio/needs.pdf"');
+    expect(publication.artifactMetadataByCaseStudyId
+      .get('case-sample-learning-program')[0]).toMatchObject({
       id: 'artifact-needs-analysis',
       sourceType: 'pdf',
-      previewDataset: { pdf: 'assets/pdf/portfolio/needs.pdf' }
-    });
-    expect(createCaseStudyArtifactMetadata(
-      { id: 'case-sample-learning-program' },
-      artifact
-    )).toMatchObject({
-      id: 'artifact-needs-analysis',
       parentCaseStudy: 'case-sample-learning-program',
       sourceArtifact: 'assets/pdf/portfolio/needs.pdf'
     });
   });
 
-  test('renders Case Study index, page, document chrome, and page outputs', () => {
+  test('returns Case Study index and detail page outputs', () => {
     const caseStudy = {
       id: 'case-sample-learning-program',
       title: 'Sample Learning Program',
@@ -301,10 +295,14 @@ describe('Case Study generation modules', () => {
       caseFlow: [{ label: 'Diagnose', value: 'Review the learning gap.' }],
       artifacts: []
     };
+    const publication = createCaseStudyPublication({ caseStudies: [caseStudy] });
+    const indexPage = publication.pages.find((page) => page.outputPath === 'case-studies.html');
+    const detailPage = publication.pages.find(
+      (page) => page.outputPath === 'case-sample-learning-program.html'
+    );
 
-    expect(renderCaseStudyIndexHtml([caseStudy]))
-      .toContain('case-sample-learning-program.html');
-    expect(renderCaseStudyHtml(caseStudy)).toContain(
+    expect(indexPage.html).toContain('case-sample-learning-program.html');
+    expect(detailPage.html).toContain(
       '<strong>Evidence boundary:</strong> Direct outcomes are not claimed.'
     );
     expect(renderGeneratedHtmlDocument({
@@ -312,11 +310,6 @@ describe('Case Study generation modules', () => {
       description: 'Sample description',
       main: '<main id="main-content"></main>'
     })).toContain('<script type="module" src="js/script.js"></script>');
-    expect(renderCaseStudyPreviews({ caseStudies: [caseStudy] })).toEqual([
-      expect.objectContaining({
-        outputPath: 'case-sample-learning-program.html',
-        html: expect.stringContaining('<h1>Sample Learning Program</h1>')
-      })
-    ]);
+    expect(detailPage.html).toContain('<h1>Sample Learning Program</h1>');
   });
 });

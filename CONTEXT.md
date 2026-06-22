@@ -52,21 +52,13 @@ _Avoid_: Shipping helper, manifest utility, file list
 A narrative page or section that explains a selected **Portfolio Item** in context, including audience, challenge, approach, evidence, and impact. A **Case Study** is deeper than a normal **Portfolio Item** listing and should not be used for every item.
 _Avoid_: Project page, story, article, detailed card
 
-**Case Study Model**:
-The generation module that normalizes **Case Study** source data, page paths, featured **Case Study** entries, absorbed **Portfolio Item** IDs, and the **Portfolio Item** representation used by the **Portfolio Evidence Workflow**.
-_Avoid_: Case helper, case data utility, grouped project logic
+**Case Study Publication**:
+The generation module that turns **Case Study** source data into expanded **Portfolio Items**, routed page identities, generated index and detail pages, and nested **Artifact** metadata through one interface. **Portfolio Item Source Validation**, the **Portfolio Evidence Workflow**, and the **Shipped Artifact Policy** consume these publication facts instead of rebuilding Case Study rules.
+_Avoid_: Case Study Model, Case Study renderer, case helper, grouped project logic
 
 **Case Study Page Identity**:
-The shared module interface that identifies a generated **Case Study** page, its routed page path, and the navigation page it belongs to. The **Case Study Model** produces it, **Generated Site Chrome** serializes it, and browser and shipping adapters consume it.
+The shared module interface that identifies a generated **Case Study** page, its routed page path, and the navigation page it belongs to. **Case Study Publication** produces it, **Generated Site Chrome** serializes it, and browser and shipping adapters consume it.
 _Avoid_: Filename list, route flag, page-type helper
-
-**Case Study Index Renderer**:
-The generation module that renders the **Case Study** listing page and cards from **Case Study Model** data.
-_Avoid_: Index helper, page builder, case card utility
-
-**Case Study Page Renderer**:
-The generation module that renders a standalone **Case Study** page from **Case Study Model** data, including reviewer context, evidence limits, case flow, included **Artifacts**, and engagement CTA.
-_Avoid_: HTML helper, detail page builder, template function
 
 **Generated Site Chrome**:
 The generation module that renders shared navigation, stylesheet links, footer markup, and HTML escaping used by generated pages.

@@ -29,17 +29,13 @@ afterEach(() => {
 });
 
 describe('Artifact Preview Experience', () => {
-  test('opens Portfolio Item previews with hash updates and legacy modal cleanup', async () => {
+  test('opens Portfolio Item previews with hash updates', async () => {
     previewFixture();
-    let legacyModalClosed = 0;
     const { createPortfolioItemPreviewExperience } = await importFresh('../../js/site/artifact-preview-experience.js');
 
-    createPortfolioItemPreviewExperience(() => {
-      legacyModalClosed += 1;
-    });
+    createPortfolioItemPreviewExperience();
     document.querySelector('.portfolio-item-thumbnail-link').click();
 
-    expect(legacyModalClosed).toBe(1);
     expect(window.location.hash).toBe('#sample-item');
     expect(document.getElementById('pdf-modal').hidden).toBe(false);
     expect(document.getElementById('pdf-modal-title').textContent).toBe('Sample Artifact');

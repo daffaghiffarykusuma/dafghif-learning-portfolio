@@ -1,4 +1,4 @@
-import { expandCaseStudyPortfolioSource, getCaseStudyPagePath } from './case-study-model.mjs';
+import { createCaseStudyPublication } from './case-study-publication.mjs';
 import {
   PORTFOLIO_ITEM_SCHEMA_VERSION,
   normalizePortfolioItem,
@@ -103,6 +103,11 @@ export const validatePortfolioItemSource = ({
   const caseStudies = Array.isArray(portfolioSource?.caseStudies)
     ? portfolioSource.caseStudies
     : [];
+  const caseStudyPublication = createCaseStudyPublication({
+    ...(portfolioSource || {}),
+    portfolioItems,
+    caseStudies
+  });
 
   if (portfolioSource?.schemaVersion !== PORTFOLIO_ITEM_SCHEMA_VERSION) {
     failures.push(
@@ -148,7 +153,7 @@ export const validatePortfolioItemSource = ({
     failures
   });
   addDuplicateFailures({
-    values: caseStudies.map(getCaseStudyPagePath),
+    values: caseStudyPublication.pageIdentities.map((identity) => identity.pagePath),
     label: 'Case Study pagePath',
     failures
   });
@@ -224,14 +229,7 @@ export const validatePortfolioItemSource = ({
     });
   });
 
-  const expandedSource = expandCaseStudyPortfolioSource({
-    ...(portfolioSource || {}),
-    portfolioItems,
-    caseStudies
-  });
-  const generatedItems = Array.isArray(expandedSource.portfolioItems)
-    ? expandedSource.portfolioItems
-    : [];
+  const generatedItems = caseStudyPublication.portfolioItems;
   const validatedPortfolioItems = prioritizeFeaturedPortfolioItems(
     generatedItems.map(normalizePortfolioItem),
     Array.isArray(portfolioSource?.featuredPortfolioItemIds)
