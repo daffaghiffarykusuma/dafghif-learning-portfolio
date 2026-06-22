@@ -35,58 +35,39 @@ afterEach(() => {
   resetDom();
 });
 
-describe('portfolio page lifecycle', () => {
-  test('initializes filters and opens direct hash previews through one lifecycle', async () => {
+describe('portfolio page', () => {
+  test('initializes filters and opens direct hash previews', async () => {
     portfolioFixture({ hash: '#sample-item' });
-    const { createPortfolioPageLifecycle } = await importFresh('../../js/site/pages/portfolio-page.js');
+    const { initPortfolioPage } = await importFresh('../../js/site/pages/portfolio-page.js');
 
-    const lifecycle = createPortfolioPageLifecycle();
     expect(document.getElementById('pdf-iframe').getAttribute('src')).toBeNull();
-    const state = lifecycle.init();
+    const preview = initPortfolioPage();
 
-    expect(state).toEqual({
-      initialized: true,
-      filtersReady: true,
-      hasHashPreview: true
-    });
     expect(document.querySelector('#portfolio-discovery').dataset.discoveryInitialized).toBe('true');
     expect(document.getElementById('pdf-modal').hidden).toBe(false);
     expect(document.getElementById('pdf-modal-title').textContent).toBe('Sample Portfolio Item');
     expect(document.getElementById('pdf-iframe').src).toContain('/assets/pdf/portfolio/sample.pdf');
-  });
-
-  test('closes portfolio modals and unregisters hash lifecycle cleanup', async () => {
-    portfolioFixture();
-    const { createPortfolioPageLifecycle } = await importFresh('../../js/site/pages/portfolio-page.js');
-
-    const lifecycle = createPortfolioPageLifecycle();
-    lifecycle.init();
-    expect(document.getElementById('pdf-iframe').getAttribute('src')).toBeNull();
-    document.querySelector('.view-details-button').click();
-
-    expect(document.getElementById('pdf-modal').hidden).toBe(false);
-
-    lifecycle.destroy();
-    expect(document.getElementById('pdf-modal').hidden).toBe(true);
-    expect(document.getElementById('pdf-iframe').getAttribute('src')).toBe('');
-    expect(lifecycle.getState()).toEqual({
-      initialized: false,
-      filtersReady: false,
-      hasHashPreview: true
-    });
+    preview.destroy();
   });
 });
 
-describe('case study page preview lifecycle', () => {
+describe('case study page routing', () => {
   test('detects case study preview capability from markup instead of route name', async () => {
-    createDom('<article class="case-artifact-card"><button class="view-details-button">View Details</button></article>', 'http://127.0.0.1/case-studies.html');
-    const { hasCaseStudyArtifactPreviews } = await importFresh('../../js/site/pages/case-study-page.js');
+    createDom(`
+      <article class="case-artifact-card"><button class="view-details-button">View Details</button></article>
+      <div id="pdf-modal" hidden>
+        <button class="close-modal">Close</button>
+        <h2 id="pdf-modal-title"></h2>
+        <iframe id="pdf-iframe"></iframe>
+      </div>
+    `, 'http://127.0.0.1/case-studies.html');
+    const { initCurrentPage } = await importFresh('../../js/site/pages/page-router.js');
 
-    expect(hasCaseStudyArtifactPreviews()).toBe(true);
+    expect(initCurrentPage()).toBeTruthy();
 
     resetDom();
     createDom('<main><h1>Case Studies</h1></main>', 'http://127.0.0.1/case-studies.html');
-    expect(hasCaseStudyArtifactPreviews()).toBe(false);
+    expect(initCurrentPage()).toBeNull();
   });
 
   test('opens artifact previews without changing the page hash', async () => {
@@ -107,9 +88,9 @@ describe('case study page preview lifecycle', () => {
       </div>
     `, 'http://127.0.0.1/case-sample.html');
     globalThis.console = window.console;
-    const { initCaseStudyPage } = await importFresh('../../js/site/pages/case-study-page.js');
+    const { initCurrentPage } = await importFresh('../../js/site/pages/page-router.js');
 
-    initCaseStudyPage();
+    initCurrentPage();
     document.querySelector('.portfolio-item-thumbnail-link').click();
 
     expect(window.location.hash).toBe('');
@@ -134,9 +115,9 @@ describe('case study page preview lifecycle', () => {
       </div>
     `, 'http://127.0.0.1/case-sample.html#artifact-sample');
     globalThis.console = window.console;
-    const { initCaseStudyPage } = await importFresh('../../js/site/pages/case-study-page.js');
+    const { initCurrentPage } = await importFresh('../../js/site/pages/page-router.js');
 
-    initCaseStudyPage();
+    initCurrentPage();
 
     expect(window.location.hash).toBe('#artifact-sample');
     expect(document.getElementById('pdf-modal').hidden).toBe(false);

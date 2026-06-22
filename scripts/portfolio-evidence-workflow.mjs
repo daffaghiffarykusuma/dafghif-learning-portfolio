@@ -8,7 +8,8 @@ import {
 } from './portfolio-item-catalog.mjs';
 import { createAiContextPortfolioItem, practiceAreaProfiles } from './portfolio-context-inference.mjs';
 import { getCaseStudyArtifactMetadata, getCaseStudySources } from './case-study-model.mjs';
-import { renderCaseStudyPages } from './case-study-source.mjs';
+import { renderCaseStudyIndexHtml } from './case-study-index-renderer.mjs';
+import { renderCaseStudyPreviews } from './case-study-page-renderer.mjs';
 import { assertValidPortfolioItemSource } from './portfolio-item-source-validator.mjs';
 
 export const portfolioEvidenceWorkflowOutputTypes = Object.freeze({
@@ -34,6 +35,14 @@ const portfolioAreaFilters = new Set([
 ]);
 
 const jsonOutput = (data) => `${JSON.stringify(data, null, 2)}\n`;
+
+const renderCaseStudyPages = (portfolioSource) => [
+  {
+    outputPath: 'case-studies.html',
+    html: renderCaseStudyIndexHtml(getCaseStudySources(portfolioSource))
+  },
+  ...renderCaseStudyPreviews(portfolioSource)
+];
 
 const createPortfolioDocument = (html) => {
   const window = new Window();

@@ -1,75 +1,19 @@
 import { describe, expect, test } from 'bun:test';
-import { Window } from 'happy-dom';
 import {
   createPortfolioCatalogData,
-  getPortfolioItemSourceItems,
   normalizePortfolioItem,
-  parsePortfolioItemsFromDocument,
   slugify
 } from '../../scripts/portfolio-item-catalog.mjs';
 import { createAiContextPortfolioItem } from '../../scripts/portfolio-context-inference.mjs';
 
-const createDocument = (html) => {
-  const window = new Window();
-  window.SyntaxError = window.SyntaxError || SyntaxError;
-  window.document.write(html);
-  window.document.close();
-  return window.document;
-};
-
 describe('Portfolio Item catalog', () => {
-  test('parses Portfolio Items from portfolio card markup', () => {
-    const document = createDocument(`
-      <article id="portfolio-item-a" class="card portfolio-item" data-category="learning-materials presentation-design">
-        <div class="card-image">
-          <img src="assets/images/portfolio/example.webp" alt="Example thumbnail">
-        </div>
-        <div class="card-content">
-          <span class="portfolio-item-practice-label"> Learning Materials </span>
-          <h3> Example Training Deck </h3>
-          <p>
-            Turns a complex topic into a practical learner-ready deck.
-          </p>
-        </div>
-        <div class="card-actions">
-          <button class="view-details-button" data-pdf="assets/pdf/portfolio/example.pdf">View</button>
-          <a href="contact.html?portfolioItem=Example%20Training%20Deck">Discuss</a>
-        </div>
-      </article>
-      <article class="card portfolio-item portfolio-item-placeholder"></article>
-    `);
-
-    expect(parsePortfolioItemsFromDocument(document)).toEqual([
-      {
-        id: 'portfolio-item-a',
-        title: 'Example Training Deck',
-        practiceArea: 'Learning Materials',
-        tags: ['learning-materials', 'presentation-design'],
-        description: 'Turns a complex topic into a practical learner-ready deck.',
-        image: {
-          src: 'assets/images/portfolio/example.webp',
-          alt: 'Example thumbnail'
-        },
-        sourceArtifact: 'assets/pdf/portfolio/example.pdf',
-        sourceType: 'pdf',
-        portfolioItemUrl: 'portfolio.html#portfolio-item-a',
-        discussUrl: 'contact.html?portfolioItem=Example%20Training%20Deck',
-        proof: {
-          visibleProofLine: '',
-          workQuality: [],
-          impact: []
-        }
-      }
-    ]);
-  });
-
-  test('normalizes legacy source fields into the current Portfolio Item shape', () => {
+  test('normalizes Portfolio Item source fields', () => {
     expect(normalizePortfolioItem({
       title: ' Recruitment Assessment Blueprint ',
-      category: ' Assessment & Evaluation ',
-      publicDescription: '  Scores candidates with clear rubric evidence. ',
-      source: 'assets/spreadsheets/portfolio/recruitment_assessment_blueprint.xlsx',
-      projectUrl: 'portfolio.html#assessment-blueprint',
+      practiceArea: ' Assessment & Evaluation ',
+      description: '  Scores candidates with clear rubric evidence. ',
+      sourceArtifact: 'assets/spreadsheets/portfolio/recruitment_assessment_blueprint.xlsx',
+      portfolioItemUrl: 'portfolio.html#assessment-blueprint',
       tags: [' assessment-evaluation ', '', 'learning-analytics']
     })).toEqual({
       id: 'recruitment-assessment-blueprint',
@@ -107,15 +51,6 @@ describe('Portfolio Item catalog', () => {
       portfolioItemCount: 1,
       portfolioItems
     });
-  });
-
-  test('maps current and legacy catalog containers to Portfolio Item sources', () => {
-    const currentItems = [{ title: 'Current item' }];
-    const legacyItems = [{ title: 'Legacy item' }];
-
-    expect(getPortfolioItemSourceItems({ portfolioItems: currentItems })).toBe(currentItems);
-    expect(getPortfolioItemSourceItems({ projects: legacyItems })).toBe(legacyItems);
-    expect(getPortfolioItemSourceItems({})).toEqual([]);
   });
 
   test('derives AI context from the normalized Portfolio Item interface', () => {

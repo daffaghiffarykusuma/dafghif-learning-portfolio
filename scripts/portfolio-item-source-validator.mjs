@@ -1,7 +1,6 @@
 import { expandCaseStudyPortfolioSource, getCaseStudyPagePath } from './case-study-model.mjs';
 import {
   PORTFOLIO_ITEM_SCHEMA_VERSION,
-  getPortfolioItemSourceItems,
   normalizePortfolioItem,
   normalizeText
 } from './portfolio-item-catalog.mjs';
@@ -230,7 +229,9 @@ export const validatePortfolioItemSource = ({
     portfolioItems,
     caseStudies
   });
-  const generatedItems = getPortfolioItemSourceItems(expandedSource);
+  const generatedItems = Array.isArray(expandedSource.portfolioItems)
+    ? expandedSource.portfolioItems
+    : [];
   const validatedPortfolioItems = prioritizeFeaturedPortfolioItems(
     generatedItems.map(normalizePortfolioItem),
     Array.isArray(portfolioSource?.featuredPortfolioItemIds)

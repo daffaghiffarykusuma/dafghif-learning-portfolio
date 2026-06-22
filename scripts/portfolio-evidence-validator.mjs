@@ -3,11 +3,8 @@ import path from 'node:path';
 import { validatePortfolioItemSource } from './portfolio-item-source-validator.mjs';
 import { createShippedArtifactPolicy } from './shipped-artifact-policy.mjs';
 
-export const getPortfolioEvidenceItems = (portfolioData = {}) => {
-  if (Array.isArray(portfolioData.portfolioItems)) return portfolioData.portfolioItems;
-  if (Array.isArray(portfolioData.projects)) return portfolioData.projects;
-  return [];
-};
+const getPortfolioEvidenceItems = (portfolioData = {}) =>
+  Array.isArray(portfolioData.portfolioItems) ? portfolioData.portfolioItems : [];
 
 const defaultAssetExists = async (absolutePath) => {
   try {

@@ -2,69 +2,10 @@ import { initPortfolioDiscovery } from '../../portfolio-discovery.js';
 import { initPortfolioItemModals } from '../portfolio-item-modals.js';
 import { createPortfolioItemPreviewExperience } from '../artifact-preview-experience.js';
 
-export function createPortfolioPageLifecycle() {
-    let modalLifecycle = null;
-    let previewLifecycle = null;
-    let filtersReady = false;
-    let initialized = false;
-
-    const init = () => {
-        if (initialized) {
-            return getState();
-        }
-
-        modalLifecycle = initPortfolioItemModals();
-        previewLifecycle = createPortfolioItemPreviewExperience(modalLifecycle.closeActiveModal);
-        initPortfolioDiscovery();
-        filtersReady = document.querySelector('#portfolio-discovery')?.dataset.discoveryInitialized === 'true';
-        initialized = true;
-        openFromHash();
-
-        return getState();
-    };
-
-    const openFromHash = () => previewLifecycle?.openPreviewFromHash() || false;
-
-    const closeModals = () => {
-        modalLifecycle?.closeActiveModal();
-        previewLifecycle?.closePdfModal();
-    };
-
-    const destroy = () => {
-        closeModals();
-        previewLifecycle?.destroy();
-        modalLifecycle = null;
-        previewLifecycle = null;
-        initialized = false;
-        filtersReady = false;
-    };
-
-    const portfolioItemFromHash = () => {
-        if (!window.location.hash || window.location.hash === '#') return null;
-        try {
-            return document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
-        } catch {
-            return null;
-        }
-    };
-
-    const getState = () => ({
-        initialized,
-        filtersReady,
-        hasHashPreview: Boolean(portfolioItemFromHash()?.querySelector('.view-details-button'))
-    });
-
-    return {
-        init,
-        openFromHash,
-        closeModals,
-        destroy,
-        getState
-    };
-}
-
 export function initPortfolioPage() {
-    const lifecycle = createPortfolioPageLifecycle();
-    lifecycle.init();
-    return lifecycle;
+    const modals = initPortfolioItemModals();
+    const preview = createPortfolioItemPreviewExperience(modals.closeActiveModal);
+    initPortfolioDiscovery();
+    preview.openPreviewFromHash();
+    return preview;
 }

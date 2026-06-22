@@ -1,9 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 import path from 'node:path';
-import {
-  getPortfolioEvidenceItems,
-  validatePortfolioEvidenceData
-} from '../../scripts/portfolio-evidence-validator.mjs';
+import { validatePortfolioEvidenceData } from '../../scripts/portfolio-evidence-validator.mjs';
 
 const root = path.resolve('C:/portfolio-site');
 const validSourceItem = {
@@ -41,12 +38,6 @@ const exists = async (absolutePath) => [
 ].includes(absolutePath);
 
 describe('Portfolio Evidence validator', () => {
-  test('reads Portfolio Item arrays from current and legacy data shapes', () => {
-    expect(getPortfolioEvidenceItems({ portfolioItems: [validSourceItem] })).toEqual([validSourceItem]);
-    expect(getPortfolioEvidenceItems({ projects: [validSourceItem] })).toEqual([validSourceItem]);
-    expect(getPortfolioEvidenceItems({})).toEqual([]);
-  });
-
   test('accepts aligned source/catalog data with direct impact proof', async () => {
     const result = await validatePortfolioEvidenceData({
       portfolioSourceData: { portfolioItems: [validSourceItem] },
