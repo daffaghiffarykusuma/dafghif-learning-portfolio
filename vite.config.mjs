@@ -1,5 +1,5 @@
 import { copyFileSync, cpSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
-import { basename, extname, resolve } from 'node:path';
+import { basename, extname, relative, resolve } from 'node:path';
 import { createShippedArtifactPolicy } from './scripts/shipped-artifact-policy.mjs';
 
 const root = process.cwd();
@@ -22,7 +22,11 @@ function copyStaticFiles() {
       for (const directory of shippingManifest.directoryTrees) {
         const source = resolve(root, directory);
         if (existsSync(source)) {
-          cpSync(source, resolve(outDir, directory), { recursive: true, force: true });
+          cpSync(source, resolve(outDir, directory), {
+            recursive: true,
+            force: true,
+            filter: (sourcePath) => !shippedArtifacts.isExcludedPath(relative(root, sourcePath)),
+          });
         }
       }
 

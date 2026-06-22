@@ -15,6 +15,8 @@ describe('Shipped Artifact Policy', () => {
     const policy = createShippedArtifactPolicy();
 
     expect(policy.isPublicPath('assets/pdf/portfolio/example.pdf')).toBe(true);
+    expect(policy.isPublicPath('assets/pdf/portfolio/7_habits.pdf')).toBe(false);
+    expect(policy.isExcludedPath('assets/pdf/portfolio/7_habits.pdf')).toBe(true);
     expect(policy.isPublicPath('assets/portfolio-viewers/example.html')).toBe(true);
     expect(policy.isPublicPath('assets/data/portfolio-items.json')).toBe(true);
     expect(policy.isPublicPath('assets/spreadsheets/portfolio/example.xlsx')).toBe(false);

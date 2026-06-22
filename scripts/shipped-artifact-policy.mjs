@@ -18,6 +18,17 @@ export const shippedArtifactPolicy = Object.freeze({
   platformFiles: Object.freeze([
     '_headers',
   ]),
+  excludedFiles: Object.freeze([
+    'assets/pdf/portfolio/7_habits.pdf',
+    'assets/pdf/portfolio/[SUT] Jualan Mulainya Darimana.pdf',
+    'assets/pdf/portfolio/adaptability.pdf',
+    'assets/pdf/portfolio/[KJ] Pitch Deck Creation.pdf',
+    'assets/pdf/portfolio/[KJ] Customer Relationship.pdf',
+    'assets/pdf/portfolio/[CA] Presentation Skill.pdf',
+    'assets/pdf/portfolio/[ToT] Salesmanship.pdf',
+    'assets/pdf/portfolio/[ToT] Evaluasi Segmen Pasar & Strategi Penjualan.pdf',
+    'assets/pdf/portfolio/PPT Webinar Facing Loneliness.pdf',
+  ]),
   productionProbes: Object.freeze([
     'assets/blog.json',
     'assets/data/portfolio-ai-context.json',
@@ -67,6 +78,7 @@ const createShippingManifest = ({ rootDir, policy, portfolioSource }) => {
     routablePages,
     rootFiles: policy.rootFiles,
     platformFiles: policy.platformFiles,
+    excludedFiles: policy.excludedFiles,
     productionProbes,
     denyRules: policy.denyRules,
   });
@@ -83,9 +95,11 @@ export function createShippedArtifactPolicy({
     const extension = path.extname(relativePath).toLowerCase();
     return policy.denyRules.editableOfficeExtensions.includes(extension);
   };
+  const isExcludedPath = (relativePath) =>
+    policy.excludedFiles.includes(normalize(relativePath));
   const isPublicPath = (relativePath) => {
     const normalizedPath = normalize(relativePath);
-    if (isDeniedPath(normalizedPath)) return false;
+    if (isDeniedPath(normalizedPath) || isExcludedPath(normalizedPath)) return false;
     if (policy.shippedFiles.includes(normalizedPath)) return true;
     if (manifest.routablePages.includes(normalizedPath)) return true;
     if (policy.platformFiles.includes(normalizedPath)) return true;
@@ -134,6 +148,7 @@ export function createShippedArtifactPolicy({
     deniedArtifactFacts,
     validationFacts,
     isDeniedPath,
+    isExcludedPath,
     isPublicPath,
   };
 }
