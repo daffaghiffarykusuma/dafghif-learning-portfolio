@@ -1,5 +1,6 @@
 import { readdir, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
+import { gzipSync } from 'node:zlib';
 
 const DEFAULT_IGNORED_DIRS = new Set(['.git', '.vscode', 'dist', 'node_modules']);
 
@@ -69,15 +70,47 @@ export const createSourceSiteInventory = async ({ rootDir = process.cwd(), ignor
 
 export const createDistSiteInventory = async ({ rootDir = process.cwd(), distDir = path.join(rootDir, 'dist') } = {}) => {
   const files = await walkFiles(distDir, { ignoredDirs: new Set() });
+  const contents = new Map();
   const records = await Promise.all(files.sort().map(async (file) => {
     const size = (await stat(file)).size;
+    const ext = path.extname(file).toLowerCase();
+    const rel = toPosixPath(path.relative(distDir, file));
+    if (['.html', '.js', '.css'].includes(ext)) {
+      contents.set(rel, await readFile(file));
+    }
     return {
       file,
-      rel: toPosixPath(path.relative(distDir, file)),
+      rel,
       size,
-      ext: path.extname(file).toLowerCase()
+      ext
     };
   }));
 
-  return { rootDir, distDir, records };
+  const gzipBytesForExtensions = (extensions) => gzipSync(Buffer.concat(
+    records
+      .filter((record) => extensions.includes(record.ext))
+      .map((record) => contents.get(record.rel))
+  )).length;
+  const gzipBytesForPath = (rel) => {
+    const content = contents.get(rel);
+    return content ? gzipSync(content).length : 0;
+  };
+  const previewIframeSources = records
+    .filter((record) => record.ext === '.html')
+    .map((record) => ({
+      path: record.rel,
+      sources: [...contents.get(record.rel).toString('utf8').matchAll(
+        /<iframe\b[^>]*\bid="pdf-iframe"[^>]*\bsrc="([^"]*)"/g
+      )].map((match) => match[1])
+    }))
+    .filter((page) => page.sources.length);
+
+  return {
+    rootDir,
+    distDir,
+    records,
+    gzipBytesForExtensions,
+    gzipBytesForPath,
+    previewIframeSources
+  };
 };

@@ -68,6 +68,10 @@ _Avoid_: Header helper, layout utility, shared HTML bits
 The pre-publication module that verifies source pages, styles, links, fragments, external hosts, browser security policy, Publication data, Portfolio Evidence, and Shipped Artifact probes, then returns structured failures and validation counts. Command-line execution is an adapter to this module.
 _Avoid_: Validation script, lint command, static checks
 
+**Production Site Inventory Facts**:
+The post-build module facts for shipped paths, sizes, extensions, compressed HTML/JavaScript/CSS size, and initial **Artifact Preview** iframe sources. Performance-budget checks consume these facts without repeating production file reads or HTML parsing.
+_Avoid_: Dist walker, build file list, budget file helper
+
 **Reviewer**:
 A recruiter, hiring manager, potential client, collaborator, or evaluator who visits the **Learning Portfolio Site** to judge credibility, capability, and fit from visible evidence.
 _Avoid_: Visitor, user, audience, customer
@@ -80,6 +84,10 @@ _Avoid_: Service, category, skill, offering
 A way a **Reviewer** may ask Daffa to apply a **Practice Area**, such as a training engagement, learning-materials engagement, coaching engagement, or analytics/dashboard engagement. The **Learning Portfolio Site** supports both job-application review and freelance-client review.
 _Avoid_: Product, package, service card, offer
 
+**Engagement Inquiry Journey**:
+The browser module that carries a **Reviewer** from an **Engagement Type** or **Portfolio Item** inquiry into contact context, including query interpretation, form capture, temporary storage, redirect, restoration, channel links, and contact-form aliases through one interface.
+_Avoid_: Contact prefill helper, form redirect script, inquiry utility
+
 **Proof Point**:
 A concrete evidence element used to support credibility on the **Learning Portfolio Site**, such as a metric, credential, testimonial, artifact, publication, client context, or documented outcome. A claim is not a **Proof Point** unless the site can show or cite evidence for it.
 _Avoid_: Claim, highlight, stat, badge
@@ -87,6 +95,10 @@ _Avoid_: Claim, highlight, stat, badge
 **Publication**:
 A written external or on-site article linked from the **Learning Portfolio Site** to demonstrate thinking, communication, or subject-matter perspective. A **Publication** may support a **Practice Area**, but it is not automatically an **Artifact** unless it is also presented as a deliverable.
 _Avoid_: Blog post, article, writing sample, content
+
+**Publication Source Facts**:
+The module that normalizes structured **Publication** data and owns trusted Medium URL and publication-image host rules. Browser rendering and **Learning Portfolio Site Validation** consume the same facts through separate adapters.
+_Avoid_: Blog URL helper, Medium allowlist, post sanitizer
 
 **Learning Program**:
 A structured learning experience designed for a defined audience and outcome, such as a training class, workshop series, bootcamp, coaching journey, or blended learning initiative.

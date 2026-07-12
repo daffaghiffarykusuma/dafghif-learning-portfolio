@@ -1,5 +1,6 @@
 import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
+import { createPublicationSourceFacts } from '../js/site/publication-source-facts.js';
 import { validatePortfolioEvidence } from './portfolio-evidence-validator.mjs';
 import { createShippedArtifactPolicy } from './shipped-artifact-policy.mjs';
 import {
@@ -203,40 +204,10 @@ export const validateLearningPortfolioSite = async ({
   const blogJson = JSON.parse(
     await dependencies.readText(path.join(rootDir, 'assets/blog.json'))
   );
-  const posts = Array.isArray(blogJson) ? blogJson : blogJson.posts || [];
-  posts.forEach((post, index) => {
-    for (const key of ['url', 'image']) {
-      if (!post[key]) continue;
-      const value = post[key].trim();
-      try {
-        const url = new URL(value);
-        if (url.protocol !== 'https:') {
-          failures.push(`assets/blog.json: post ${index + 1} ${key} is not HTTPS`);
-        }
-        if (key === 'url') {
-          const host = url.hostname.toLowerCase();
-          if (host !== 'medium.com' && !host.endsWith('.medium.com')) {
-            failures.push(
-              `assets/blog.json: post ${index + 1} URL is not a Medium host`
-            );
-          }
-        }
-        if (
-          key === 'image'
-          && !['cdn-images-1.medium.com', 'miro.medium.com']
-            .includes(url.hostname.toLowerCase())
-        ) {
-          failures.push(
-            `assets/blog.json: post ${index + 1} image host is not allowlisted`
-          );
-        }
-      } catch {
-        failures.push(
-          `assets/blog.json: post ${index + 1} ${key} is not a valid URL`
-        );
-      }
-    }
+  const publicationSource = createPublicationSourceFacts(blogJson, {
+    sourceName: 'assets/blog.json'
   });
+  failures.push(...publicationSource.failures);
 
   const portfolioEvidence = await dependencies.validatePortfolioEvidence({
     root: rootDir
@@ -259,7 +230,7 @@ export const validateLearningPortfolioSite = async ({
     counts: {
       htmlFiles: sourceInventory.htmlPages.length,
       cssFiles: sourceInventory.cssFiles.length,
-      blogPosts: posts.length,
+      blogPosts: publicationSource.publications.length,
       portfolioItems: portfolioEvidence.portfolioItemCount,
       shippedArtifactProbes: shippedArtifactFacts.productionProbes.length
     }

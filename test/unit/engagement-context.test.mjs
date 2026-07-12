@@ -6,17 +6,18 @@ afterEach(() => {
 });
 
 describe('Engagement Context', () => {
-  test('keeps a public Portfolio Item in visible and prepared contact context', async () => {
-    createDom('', 'http://127.0.0.1/contact.html?portfolioItem=Score%20Audit%20Corrections');
+  test('keeps public Portfolio Item context behind the Engagement Inquiry interface', async () => {
+    createDom(`
+      <p id="contact-context" hidden></p>
+      <a class="contact-method-card whatsapp"></a>
+      <a class="contact-method-card email"></a>
+    `, 'http://127.0.0.1/contact.html?portfolioItem=Score%20Audit%20Corrections');
+    const { initEngagementInquiryJourney } = await importFresh('../../js/site/engagement-inquiry-journey.js');
 
-    const { readEngagementContext } = await importFresh('../../js/site/contact-prefill.js');
-    const context = readEngagementContext();
+    initEngagementInquiryJourney();
 
-    expect(context.label).toBe('Score Audit Corrections');
-    expect(context.displayText).toBe('Regarding: Score Audit Corrections');
-    expect(context.whatsappUrl).toContain('wa.me/62895329473179');
-    expect(decodeURIComponent(context.whatsappUrl)).toContain('Score Audit Corrections');
-    expect(context.emailUrl).toContain('mailto:daffaghifarykusuma@gmail.com');
-    expect(decodeURIComponent(context.emailUrl)).toContain('Score Audit Corrections');
+    expect(document.getElementById('contact-context').textContent).toBe('Regarding: Score Audit Corrections');
+    expect(decodeURIComponent(document.querySelector('.whatsapp').href)).toContain('Score Audit Corrections');
+    expect(decodeURIComponent(document.querySelector('.email').href)).toContain('Score Audit Corrections');
   });
 });

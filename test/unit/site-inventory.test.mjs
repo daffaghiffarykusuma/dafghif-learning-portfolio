@@ -47,5 +47,8 @@ describe('Site Inventory', () => {
       ext: '.js',
       size: 17
     });
+    expect(distInventory.gzipBytesForExtensions(['.js'])).toBeGreaterThan(0);
+    expect(distInventory.gzipBytesForPath('index.html')).toBeGreaterThan(0);
+    expect(distInventory.previewIframeSources).toEqual([]);
   });
 });

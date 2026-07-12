@@ -1,29 +1,9 @@
 import blogData from '../assets/blog.json';
+import { createPublicationSourceFacts } from './site/publication-source-facts.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('blog-cards');
     if (!container) return;
-
-    const allowedBlogUrl = (value) => {
-        try {
-            const url = new URL(value, window.location.href);
-            const host = url.hostname.toLowerCase();
-            const isMediumHost = host === 'medium.com' || host.endsWith('.medium.com');
-            return url.protocol === 'https:' && isMediumHost ? url.href : '#';
-        } catch {
-            return '#';
-        }
-    };
-
-    const allowedImageUrl = (value) => {
-        try {
-            const url = new URL(value, window.location.href);
-            const allowedHosts = new Set(['cdn-images-1.medium.com', 'miro.medium.com']);
-            return url.protocol === 'https:' && allowedHosts.has(url.hostname.toLowerCase()) ? url.href : '';
-        } catch {
-            return '';
-        }
-    };
 
     const appendMediumLink = (parent, href, text, className) => {
         const link = document.createElement('a');
@@ -35,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         parent.appendChild(link);
     };
 
-    const posts = Array.isArray(blogData) ? blogData : (blogData.posts || []);
+    const { publications: posts } = createPublicationSourceFacts(blogData);
     container.replaceChildren();
     if (!posts.length) {
         const emptyMessage = document.createElement('p');
@@ -46,10 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const fragment = document.createDocumentFragment();
     posts.forEach((post, index) => {
-        const title = post.title || 'Untitled Post';
-        const url = allowedBlogUrl(post.url || '#');
-        const desc = post.description || '';
-        const img = allowedImageUrl(post.image || '');
+        const { title, url, image: img, description: desc } = post;
 
         const article = document.createElement('article');
         article.className = 'blog-card';

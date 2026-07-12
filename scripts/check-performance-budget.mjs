@@ -1,6 +1,4 @@
-import { readFile } from 'node:fs/promises';
 import path from 'node:path';
-import { gzipSync } from 'node:zlib';
 import { createShippedArtifactPolicy } from './shipped-artifact-policy.mjs';
 import { createDistSiteInventory } from './site-inventory.mjs';
 
@@ -18,42 +16,33 @@ const limits = {
   caseStudyHtmlGzipBytes: 5 * 1024,
 };
 
-const { records } = await createDistSiteInventory({ rootDir: root, distDir: dist });
+const {
+  records,
+  gzipBytesForExtensions,
+  gzipBytesForPath,
+  previewIframeSources
+} = await createDistSiteInventory({ rootDir: root, distDir: dist });
 const shippedArtifactPolicy = createShippedArtifactPolicy({ rootDir: root });
 
 const sum = (items) => items.reduce((total, item) => total + item.size, 0);
 const toKB = (bytes) => Number((bytes / 1024).toFixed(2));
-const readDistText = async (rel) => readFile(path.join(dist, rel), 'utf8');
-const gzipBytesForRecords = async (items) => gzipSync(Buffer.concat(await Promise.all(
-  items.map((item) => readFile(item.file))
-))).length;
-const gzipBytesForRel = async (rel) => gzipSync(await readFile(path.join(dist, rel))).length;
 
 const totalDistBytes = sum(records);
-const jsGzipBytes = await gzipBytesForRecords(records.filter((item) => item.ext === '.js'));
-const cssGzipBytes = await gzipBytesForRecords(records.filter((item) => item.ext === '.css'));
+const jsGzipBytes = gzipBytesForExtensions(['.js']);
+const cssGzipBytes = gzipBytesForExtensions(['.css']);
 const imageRecords = records.filter((item) => ['.png', '.jpg', '.jpeg', '.webp', '.svg'].includes(item.ext));
 const largestImage = imageRecords.sort((a, b) => b.size - a.size)[0];
 const shippedProbeRecords = new Set(records.map((item) => item.rel));
 const htmlRecords = records.filter((item) => item.ext === '.html');
 const portfolioHtmlGzipBytes = shippedProbeRecords.has('portfolio.html')
-  ? await gzipBytesForRel('portfolio.html')
+  ? gzipBytesForPath('portfolio.html')
   : 0;
-const caseStudyHtmlGzip = await Promise.all(
-  htmlRecords
-    .filter((item) => item.rel.startsWith('case-') && item.rel !== 'case-studies.html')
-    .map(async (item) => ({
-      path: item.rel,
-      gzipBytes: await gzipBytesForRel(item.rel),
-    }))
-);
-const previewIframeSources = (await Promise.all(
-  htmlRecords.map(async (item) => ({
+const caseStudyHtmlGzip = htmlRecords
+  .filter((item) => item.rel.startsWith('case-') && item.rel !== 'case-studies.html')
+  .map((item) => ({
     path: item.rel,
-    matches: [...(await readDistText(item.rel)).matchAll(/<iframe\b[^>]*\bid="pdf-iframe"[^>]*\bsrc="([^"]*)"/g)]
-      .map((match) => match[1]),
-  }))
-)).filter((item) => item.matches.length);
+    gzipBytes: gzipBytesForPath(item.rel),
+  }));
 
 if (totalDistBytes > limits.totalDistBytes) {
   failures.push(`dist total ${(totalDistBytes / 1024 / 1024).toFixed(2)} MB exceeds ${(limits.totalDistBytes / 1024 / 1024).toFixed(2)} MB`);
@@ -83,7 +72,7 @@ for (const probe of shippedArtifactPolicy.productionProbeFacts()) {
   }
 }
 for (const page of previewIframeSources) {
-  for (const src of page.matches) {
+  for (const src of page.sources) {
     if (src) {
       failures.push(`${page.path} loads preview iframe before click: ${src}`);
     }
@@ -107,7 +96,7 @@ const metrics = {
   })),
   previewIframeInitialLoad: previewIframeSources.map((page) => ({
     path: page.path,
-    sources: page.matches,
+    sources: page.sources,
   })),
   largestImage: largestImage ? {
     path: largestImage.rel,
