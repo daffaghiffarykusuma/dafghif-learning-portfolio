@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sourceOfTruth": "Portfolio Item source data for the Learning Portfolio Site.",
-  "portfolioItemCount": 70,
+  "portfolioItemCount": 71,
   "featuredPortfolioItemIds": [
     "case-employee-assessment-bootcamp",
     "case-administrative-communication-learning-program",
@@ -604,9 +604,122 @@
           }
         }
       ]
+    },
+    {
+      "id": "case-applied-leadership-development-program",
+      "documentTitle": "Applied Leadership Development Case Study",
+      "title": "Applied Leadership Development Program",
+      "portfolioItemTitle": "Applied Leadership Development Program Case Study",
+      "practiceArea": "Custom Training & Workshops",
+      "accentColor": "#b45309",
+      "tags": [
+        "leadership-development",
+        "learning-materials",
+        "training-proposal",
+        "experiential-learning",
+        "facilitation"
+      ],
+      "description": "Combines a tailored training proposal and an 84-slide facilitator deck into one applied leadership development case focused on adaptive leadership, communication, collaboration, problem solving, and simulation.",
+      "summary": "This case study connects leadership-program framing with facilitator-ready learning material: leadership mindset, adaptive styles, effective communication, collaborative problem solving, and realistic practice.",
+      "image": {
+        "src": "assets/images/portfolio/applied-leadership-development-program.webp",
+        "alt": "Applied leadership development program case study thumbnail"
+      },
+      "pagePath": "case-applied-leadership-development.html",
+      "outputPath": "assets/portfolio-viewers/applied-leadership-development-case-study.html",
+      "portfolioItemUrl": "case-applied-leadership-development.html",
+      "discussUrl": "contact.html?portfolioItem=Applied Leadership Development Program Case Study",
+      "reviewerContext": [
+        {
+          "label": "Use case",
+          "value": "Review end-to-end leadership workshop design from stakeholder-facing proposal through facilitator-ready delivery material."
+        },
+        {
+          "label": "Scope",
+          "value": "Leadership mindset, adaptive leadership styles, active listening, empathy, collaboration, problem solving, experiential activities, and leadership simulation."
+        },
+        {
+          "label": "Evidence limit",
+          "value": "The artifacts show program framing and learning-material quality. They do not independently prove delivery or participant outcome impact."
+        }
+      ],
+      "caseFlow": [
+        {
+          "label": "Frame the leadership need",
+          "value": "Translate workplace decision, communication, and coordination challenges into a focused leadership-development program."
+        },
+        {
+          "label": "Build adaptive leadership judgment",
+          "value": "Help leaders distinguish management from leadership and select leadership styles for different team and operating conditions."
+        },
+        {
+          "label": "Strengthen communication and collaboration",
+          "value": "Use active listening, empathy, questioning, and shared problem solving to improve how teams align and act."
+        },
+        {
+          "label": "Practice through experience",
+          "value": "Apply the concepts through reflection, group exercises, roleplay, and realistic leadership simulations."
+        }
+      ],
+      "artifacts": [
+        {
+          "title": "Applied Leadership Development Proposal",
+          "description": "Frames the workplace need, learning topics, experiential approach, delivery format, and tangible participant outputs.",
+          "href": "assets/pdf/portfolio/applied_leadership_development_proposal.pdf",
+          "id": "artifact-applied-leadership-development-proposal",
+          "sourceType": "pdf",
+          "practiceArea": "Training Proposal",
+          "tags": [
+            "training-proposal",
+            "leadership-development",
+            "experiential-learning"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/applied-leadership-development-program.webp",
+            "alt": "Applied leadership development proposal thumbnail"
+          }
+        },
+        {
+          "title": "Essential Leadership Skills Facilitator Deck",
+          "description": "An 84-slide learning deck spanning leadership mindset, adaptive styles, communication, collaboration, problem solving, and simulation.",
+          "href": "assets/pdf/portfolio/essential_leadership_skills_facilitator_deck.pdf",
+          "id": "artifact-essential-leadership-skills-facilitator-deck",
+          "sourceType": "pdf",
+          "practiceArea": "Learning Materials",
+          "tags": [
+            "learning-materials",
+            "leadership-development",
+            "facilitation"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/applied-leadership-development-program.webp",
+            "alt": "Essential leadership skills facilitator deck thumbnail"
+          }
+        }
+      ]
     }
   ],
   "portfolioItems": [
+    {
+      "id": "project-leading-with-clarity-proposal",
+      "title": "Leading with Clarity Workshop Proposal",
+      "practiceArea": "Training Proposal",
+      "tags": [
+        "training-proposal",
+        "leadership-development",
+        "experiential-learning",
+        "assessment"
+      ],
+      "description": "A 12-page half-day leadership workshop proposal that helps managers diagnose ambiguity, translate direction into action, communicate clear guidance, and assess clarity before and after practice.",
+      "image": {
+        "src": "assets/images/portfolio/leading-with-clarity-proposal.webp",
+        "alt": "Leading with Clarity workshop proposal thumbnail"
+      },
+      "sourceArtifact": "assets/pdf/portfolio/proposal_leading_with_clarity.pdf",
+      "sourceType": "pdf",
+      "portfolioItemUrl": "portfolio.html#project-leading-with-clarity-proposal",
+      "discussUrl": "contact.html?portfolioItem=Leading with Clarity Workshop Proposal"
+    },
     {
       "id": "project-self-leadership-career-transition",
       "title": "Self-Leadership for Career Transition",

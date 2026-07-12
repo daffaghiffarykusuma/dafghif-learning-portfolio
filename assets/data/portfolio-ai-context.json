@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-items.json",
-  "generatedAt": "2026-06-22T19:59:52.016Z",
+  "generatedAt": "2026-07-12T19:41:41.962Z",
   "owner": "Daffa Ghiffary Kusuma",
   "positioning": "Learning Designer and Program Manager focused on competency-based training, learning assets, evaluation systems, mentoring, and learning analytics.",
   "usage": "Use this file as AI-readable context for tailored CVs, cover letters, recruiter summaries, and portfolio item matching when the original portfolio artifacts are unavailable.",
   "evidenceNote": "Portfolio item titles, practice areas, descriptions, tags, source artifact paths, proof points, and outcome evidence are read from structured portfolio sources. Outcome evidence is limited to direct Proof Point impact entries. Role, audience, deliverables, skills, tools, AI hints, and CV bullets may include inferred fields and should be refined when exact Portfolio Item details are available.",
-  "portfolioItemCount": 70,
-  "caseStudyArtifactCount": 21,
+  "portfolioItemCount": 72,
+  "caseStudyArtifactCount": 23,
   "practiceAreaProfiles": {
     "Training Needs Analysis": {
       "defaultRole": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
@@ -1094,6 +1094,159 @@
           ]
         },
         "cvBullet": "Built Score Audit Corrections as a learning analytics portfolio item, creating practical context for students and early-career talent, with supported outcome evidence: The source workbook records 1,173 correction rows across 13 Kelompok files."
+      }
+    },
+    {
+      "id": "case-applied-leadership-development-program",
+      "title": "Applied Leadership Development Program Case Study",
+      "practiceArea": "Custom Training & Workshops",
+      "tags": [
+        "case-study",
+        "leadership-development",
+        "learning-materials",
+        "training-proposal",
+        "experiential-learning",
+        "facilitation"
+      ],
+      "publicDescription": "Combines a tailored training proposal and an 84-slide facilitator deck into one applied leadership development case focused on adaptive leadership, communication, collaboration, problem solving, and simulation.",
+      "sourceArtifact": "case-applied-leadership-development.html",
+      "aiContext": {
+        "evidenceLevel": "inferred from structured portfolio source",
+        "role": "Designed and delivered applied training or workshop experiences using practical activities, facilitation, and implementation support.",
+        "audience": "managers and team leaders",
+        "deliverables": [
+          "workshop design",
+          "facilitation plan",
+          "participant activities"
+        ],
+        "skills": [
+          "training facilitation",
+          "workshop design",
+          "experiential learning",
+          "program delivery",
+          "case study",
+          "leadership development",
+          "learning materials",
+          "training proposal",
+          "facilitation"
+        ],
+        "tools": [
+          "PowerPoint or Google Slides"
+        ],
+        "scaleSignals": [
+          "84"
+        ],
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Builds applied workshop flow around practice tasks.",
+          "workQuality": [
+            {
+              "claim": "Combines facilitation structure, participant activities, and practical implementation support.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Delivered Applied Leadership Development Program Case Study as a custom training & workshops portfolio item, creating practical context for managers and team leaders, with a non-proof AI application hint: Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
+      },
+      "caseStudyArtifacts": [
+        {
+          "id": "artifact-applied-leadership-development-proposal",
+          "title": "Applied Leadership Development Proposal",
+          "practiceArea": "Training Proposal",
+          "tags": [
+            "training-proposal",
+            "leadership-development",
+            "experiential-learning"
+          ],
+          "publicDescription": "Frames the workplace need, learning topics, experiential approach, delivery format, and tangible participant outputs.",
+          "sourceArtifact": "assets/pdf/portfolio/applied_leadership_development_proposal.pdf",
+          "sourceType": "pdf",
+          "parentCaseStudy": "case-applied-leadership-development-program",
+          "image": {
+            "src": "assets/images/portfolio/applied-leadership-development-program.webp",
+            "alt": "Applied leadership development proposal thumbnail"
+          }
+        },
+        {
+          "id": "artifact-essential-leadership-skills-facilitator-deck",
+          "title": "Essential Leadership Skills Facilitator Deck",
+          "practiceArea": "Learning Materials",
+          "tags": [
+            "learning-materials",
+            "leadership-development",
+            "facilitation"
+          ],
+          "publicDescription": "An 84-slide learning deck spanning leadership mindset, adaptive styles, communication, collaboration, problem solving, and simulation.",
+          "sourceArtifact": "assets/pdf/portfolio/essential_leadership_skills_facilitator_deck.pdf",
+          "sourceType": "pdf",
+          "parentCaseStudy": "case-applied-leadership-development-program",
+          "image": {
+            "src": "assets/images/portfolio/applied-leadership-development-program.webp",
+            "alt": "Essential leadership skills facilitator deck thumbnail"
+          }
+        }
+      ]
+    },
+    {
+      "id": "project-leading-with-clarity-proposal",
+      "title": "Leading with Clarity Workshop Proposal",
+      "practiceArea": "Training Proposal",
+      "tags": [
+        "training-proposal",
+        "leadership-development",
+        "experiential-learning",
+        "assessment"
+      ],
+      "publicDescription": "A 12-page half-day leadership workshop proposal that helps managers diagnose ambiguity, translate direction into action, communicate clear guidance, and assess clarity before and after practice.",
+      "sourceArtifact": "assets/pdf/portfolio/proposal_leading_with_clarity.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from structured portfolio source",
+        "role": "Converted learning needs into a structured proposal with objectives, program logic, delivery plan, and expected outcomes.",
+        "audience": "managers and team leaders",
+        "deliverables": [
+          "training proposal",
+          "program objectives",
+          "delivery plan"
+        ],
+        "skills": [
+          "proposal development",
+          "instructional design",
+          "curriculum planning",
+          "stakeholder communication",
+          "training proposal",
+          "leadership development",
+          "experiential learning",
+          "assessment"
+        ],
+        "tools": [
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [
+          "12"
+        ],
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Turns learning needs into a structured delivery plan.",
+          "workQuality": [
+            {
+              "claim": "Defines objectives, program logic, delivery structure, and stakeholder-ready recommendations.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Developed Leading with Clarity Workshop Proposal as a training proposal portfolio item, creating practical context for managers and team leaders, with a non-proof AI application hint: Turned learning ideas into a clearer plan for stakeholder alignment, delivery, and business decision-making."
       }
     },
     {

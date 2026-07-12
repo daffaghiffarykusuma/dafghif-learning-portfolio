@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-source.json",
-  "generatedAt": "2026-06-22T19:59:52.016Z",
-  "portfolioItemCount": 70,
+  "generatedAt": "2026-07-12T19:41:41.962Z",
+  "portfolioItemCount": 72,
   "portfolioItems": [
     {
       "id": "case-employee-assessment-bootcamp",
@@ -305,6 +305,70 @@
             "confidence": "direct"
           }
         ]
+      }
+    },
+    {
+      "id": "case-applied-leadership-development-program",
+      "title": "Applied Leadership Development Program Case Study",
+      "practiceArea": "Custom Training & Workshops",
+      "tags": [
+        "case-study",
+        "leadership-development",
+        "learning-materials",
+        "training-proposal",
+        "experiential-learning",
+        "facilitation"
+      ],
+      "description": "Combines a tailored training proposal and an 84-slide facilitator deck into one applied leadership development case focused on adaptive leadership, communication, collaboration, problem solving, and simulation.",
+      "image": {
+        "src": "assets/images/portfolio/applied-leadership-development-program.webp",
+        "alt": "Applied leadership development program case study thumbnail"
+      },
+      "sourceArtifact": "case-applied-leadership-development.html",
+      "sourceType": "case-study-page",
+      "portfolioItemUrl": "case-applied-leadership-development.html",
+      "discussUrl": "contact.html?portfolioItem=Applied Leadership Development Program Case Study",
+      "proof": {
+        "visibleProofLine": "Builds applied workshop flow around practice tasks.",
+        "workQuality": [
+          {
+            "claim": "Combines facilitation structure, participant activities, and practical implementation support.",
+            "sourceBasis": "practice-area default",
+            "confidence": "inferred"
+          }
+        ],
+        "impact": []
+      }
+    },
+    {
+      "id": "project-leading-with-clarity-proposal",
+      "title": "Leading with Clarity Workshop Proposal",
+      "practiceArea": "Training Proposal",
+      "tags": [
+        "training-proposal",
+        "leadership-development",
+        "experiential-learning",
+        "assessment"
+      ],
+      "description": "A 12-page half-day leadership workshop proposal that helps managers diagnose ambiguity, translate direction into action, communicate clear guidance, and assess clarity before and after practice.",
+      "image": {
+        "src": "assets/images/portfolio/leading-with-clarity-proposal.webp",
+        "alt": "Leading with Clarity workshop proposal thumbnail"
+      },
+      "sourceArtifact": "assets/pdf/portfolio/proposal_leading_with_clarity.pdf",
+      "sourceType": "pdf",
+      "portfolioItemUrl": "portfolio.html#project-leading-with-clarity-proposal",
+      "discussUrl": "contact.html?portfolioItem=Leading with Clarity Workshop Proposal",
+      "proof": {
+        "visibleProofLine": "Turns learning needs into a structured delivery plan.",
+        "workQuality": [
+          {
+            "claim": "Defines objectives, program logic, delivery structure, and stakeholder-ready recommendations.",
+            "sourceBasis": "practice-area default",
+            "confidence": "inferred"
+          }
+        ],
+        "impact": []
       }
     },
     {

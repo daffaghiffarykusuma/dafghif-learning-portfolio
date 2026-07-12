@@ -194,7 +194,7 @@ describe('production site system checks', () => {
     const firstImage = body.match(/<img\b[^>]*>/)?.[0] || '';
     const previewIframe = body.match(/<iframe\b[^>]*\bid="pdf-iframe"[^>]*>/)?.[0] || '';
 
-    expect(portfolioItemCount).toBe(70);
+    expect(portfolioItemCount).toBe(72);
     expect(firstImage).toContain('loading="eager"');
     expect(firstImage).toContain('fetchpriority="high"');
     expect(firstImage).toContain('width="660"');
@@ -249,7 +249,7 @@ describe('production site system checks', () => {
     const { response, body } = await request(metadataPath);
     expect(response.status).toBe(200);
     const aiContext = JSON.parse(body);
-    expect(aiContext.portfolioItemCount).toBe(70);
+    expect(aiContext.portfolioItemCount).toBe(72);
     expect(aiContext.caseStudyArtifactCount).toBeGreaterThan(0);
     expect(aiContext.portfolioItems.find((item) => item.id === 'case-administrative-communication-learning-program').caseStudyArtifacts)
       .toHaveLength(7);
