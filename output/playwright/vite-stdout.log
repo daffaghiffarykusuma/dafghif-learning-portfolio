@@ -1,0 +1,13 @@
+
+  [32m[1mVITE[22m v8.1.4[39m  [2mready in [0m[1m1123[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://127.0.0.1:[1m4173[22m/[39m
+[2m6:37:52 PM[22m [36m[1m[vite][22m[39m [32mscripts/case-study-publication.mjs changed, restarting server...[39m
+[2m6:37:53 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m Re-optimizing dependencies because vite config has changed
+[2m6:37:53 PM[22m [36m[1m[vite][22m[39m server restarted.
+[2m6:38:05 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mportfolio.html[22m
+[2m6:38:05 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mcase-studies.html[22m
+[2m6:38:05 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mcase-employee-assessment-bootcamp.html[22m
+[2m6:38:05 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mcase-administrative-communication.html[22m
+[2m6:38:05 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mcase-learning-organization-strategy.html[22m
+[2m6:38:05 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mpage reload [39m[2mcase-ybb-mentoring-workbook.html[22m

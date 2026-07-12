@@ -36,9 +36,17 @@
         display: block;
     }
 
+    body.navigation-open .mobile-sticky-cta {
+        display: none;
+    }
+
     /* Add padding to main content to avoid overlap */
     main {
         padding-bottom: 80px;
+    }
+
+    .home-page main {
+        padding-bottom: 0;
     }
 }
 

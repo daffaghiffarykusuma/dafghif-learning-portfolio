@@ -146,14 +146,6 @@ const renderContextCards = (items = []) =>
                     </article>`)
     .join('\n                    ');
 
-const renderEvidenceCards = (items = []) =>
-  items
-    .map((item) => `<div class="impact-card">
-                        <span class="impact-value">${escapeHtml(item.label)}</span>
-                        <span class="impact-label">${escapeHtml(item.value)}</span>
-                    </div>`)
-    .join('\n                    ');
-
 const renderApproachSteps = (items = []) =>
   items
     .map((item) => `<li>
@@ -204,7 +196,6 @@ const renderCaseStudyHtml = (caseStudy = {}) => {
   const caseFlow = Array.isArray(caseStudy.caseFlow) ? caseStudy.caseFlow : [];
   const artifacts = Array.isArray(caseStudy.artifacts) ? caseStudy.artifacts : [];
   const primaryContext = reviewerContext.slice(0, 2);
-  const evidenceLimit = reviewerContext.find((item) => normalizeText(item.label).toLowerCase() === 'evidence limit')?.value;
   const ctaHref = normalizeText(caseStudy.discussUrl) || `contact.html?portfolioItem=${encodeURIComponent(caseStudy.portfolioItemTitle || title)}`;
   const main = `<main id="main-content" role="main" aria-label="Main content">
     <section class="service-hero service-hero-compact generated-case-hero">
@@ -219,28 +210,6 @@ const renderCaseStudyHtml = (caseStudy = {}) => {
               <li>${escapeHtml(item.value)}</li>
             </ul>
           </div>`).join('\n          ')}
-        </div>
-      </div>
-    </section>
-
-    <section class="service-impact generated-case-evidence">
-      <div class="container">
-        <div class="section-heading">
-          <h2 class="section-title">Evidence and Review Limits</h2>
-          <p>These notes separate artifact-visible evidence from assumptions, so reviewers can judge the case without overreading the claims.</p>
-        </div>
-        <div class="impact-grid">
-          ${renderEvidenceCards(reviewerContext)}
-        </div>
-      </div>
-    </section>
-
-    <section class="service-outcomes generated-case-meaning">
-      <div class="container">
-        <div class="section-heading">
-          <h2 class="section-title">Why This Matters</h2>
-          <p>${escapeHtml(caseStudy.description || caseStudy.summary)}</p>
-          ${evidenceLimit ? `<p class="evidence-boundary"><strong>Evidence boundary:</strong> ${escapeHtml(evidenceLimit)}</p>` : ''}
         </div>
       </div>
     </section>

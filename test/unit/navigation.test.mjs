@@ -29,6 +29,14 @@ describe('site navigation', () => {
     expect(nav.classList.contains('active')).toBe(true);
     expect(document.body.classList.contains('navigation-open')).toBe(true);
 
+    document.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'Escape' }));
+    expect(toggle.getAttribute('aria-expanded')).toBe('false');
+    expect(nav.classList.contains('active')).toBe(false);
+    expect(document.body.classList.contains('navigation-open')).toBe(false);
+    expect(document.activeElement).toBe(toggle);
+
+    toggle.click();
+
     nav.querySelector('a').click();
     expect(toggle.getAttribute('aria-expanded')).toBe('false');
     expect(nav.classList.contains('active')).toBe(false);

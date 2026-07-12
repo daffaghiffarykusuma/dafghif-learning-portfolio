@@ -73,6 +73,7 @@ describe('Portfolio Discovery', () => {
           <option value="assessment">Assessment</option>
         </select>
         <p id="portfolio-result-summary" aria-live="polite"></p>
+        <button id="portfolio-clear-filters" hidden>Clear search and filters</button>
         <button id="portfolio-show-more">Show more</button>
       </div>
       <section id="portfolio-items">
@@ -98,5 +99,36 @@ describe('Portfolio Discovery', () => {
     document.getElementById('portfolio-show-more').click();
     expect(document.getElementById('portfolio-result-summary').textContent).toBe('Showing all 12 matching Portfolio Items');
     expect(Array.from(document.querySelectorAll('.portfolio-item')).filter((item) => !item.hidden).length).toBe(12);
+  });
+
+  test('offers a focused reset when no Portfolio Items match', async () => {
+    createDom(`
+      <div id="portfolio-discovery">
+        <input id="portfolio-search">
+        <button class="filter-button" data-filter="all">All</button>
+        <p id="portfolio-result-summary" aria-live="polite"></p>
+        <button id="portfolio-clear-filters" hidden>Clear search and filters</button>
+        <button id="portfolio-show-more">Show more</button>
+      </div>
+      <section id="portfolio-items">
+        <article class="portfolio-item" data-category="mentoring" data-search-text="Mentoring workbook"></article>
+      </section>
+    `, 'http://127.0.0.1/portfolio.html?q=unavailable');
+
+    const { initPortfolioDiscovery } = await importFresh('../../js/portfolio-discovery.js');
+    initPortfolioDiscovery();
+
+    const searchInput = document.getElementById('portfolio-search');
+    const clearButton = document.getElementById('portfolio-clear-filters');
+    expect(document.getElementById('portfolio-result-summary').textContent).toBe(
+      'No matching Portfolio Items. Try another search or clear the filters.'
+    );
+    expect(clearButton.hidden).toBe(false);
+
+    clearButton.click();
+    expect(searchInput.value).toBe('');
+    expect(document.activeElement).toBe(searchInput);
+    expect(window.location.search).toBe('');
+    expect(document.querySelector('.portfolio-item').hidden).toBe(false);
   });
 });

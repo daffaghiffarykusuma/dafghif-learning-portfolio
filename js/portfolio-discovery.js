@@ -80,10 +80,11 @@ export const initPortfolioDiscovery = ({
     const filterButtons = Array.from(root.querySelectorAll('#portfolio-discovery .filter-button'));
     const moreFilter = root.getElementById('portfolio-more-filter');
     const resultSummary = root.getElementById('portfolio-result-summary');
+    const clearFiltersButton = root.getElementById('portfolio-clear-filters');
     const showMoreButton = root.getElementById('portfolio-show-more');
     const items = Array.from(root.querySelectorAll('#portfolio-items .portfolio-item'));
 
-    if (!container || !searchInput || !filterButtons.length || !resultSummary || !showMoreButton || !items.length) {
+    if (!container || !searchInput || !filterButtons.length || !resultSummary || !clearFiltersButton || !showMoreButton || !items.length) {
         return null;
     }
     if (container.dataset.discoveryInitialized === 'true') return null;
@@ -113,9 +114,12 @@ export const initPortfolioDiscovery = ({
         });
 
         const allVisible = matchingItems.length <= visibleLimit;
-        resultSummary.textContent = allVisible
-            ? `Showing all ${matchingItems.length} matching Portfolio Items`
-            : `Showing ${visibleLimit} of ${matchingItems.length} matching Portfolio Items`;
+        resultSummary.textContent = matchingItems.length === 0
+            ? 'No matching Portfolio Items. Try another search or clear the filters.'
+            : allVisible
+                ? `Showing all ${matchingItems.length} matching Portfolio Items`
+                : `Showing ${visibleLimit} of ${matchingItems.length} matching Portfolio Items`;
+        clearFiltersButton.hidden = matchingItems.length > 0;
         showMoreButton.hidden = allVisible;
         if (!allVisible) {
             showMoreButton.textContent = `Show ${Math.min(DEFAULT_VISIBLE_COUNT, matchingItems.length - visibleLimit)} more`;
@@ -156,6 +160,11 @@ export const initPortfolioDiscovery = ({
             visibleCount: state.visibleCount + DEFAULT_VISIBLE_COUNT
         };
         render({ updateUrl: true });
+    });
+    clearFiltersButton.addEventListener('click', () => {
+        state = createDefaultPortfolioDiscoveryState();
+        render({ updateUrl: true });
+        searchInput.focus();
     });
 
     render();

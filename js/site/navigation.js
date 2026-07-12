@@ -21,6 +21,13 @@ export function initNavigation() {
             setNavigationOpen(!nav.classList.contains('active'));
         });
 
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && nav.classList.contains('active')) {
+                setNavigationOpen(false);
+                menuToggle.focus();
+            }
+        });
+
         document.querySelectorAll('.has-dropdown').forEach((item) => {
             const link = item.querySelector('a');
             link?.addEventListener('click', (event) => {

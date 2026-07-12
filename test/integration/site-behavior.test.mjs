@@ -106,7 +106,8 @@ describe('site browser behavior', () => {
     expect(document.body.dataset.navigationPage).toBe('case-studies.html');
     expect(document.querySelector('header nav a[href="case-studies.html"]').parentElement.classList.contains('current')).toBe(true);
     expect(document.querySelector('.service-hero.generated-case-hero')).toBeTruthy();
-    expect(document.querySelector('.service-impact.generated-case-evidence')).toBeTruthy();
+    expect(document.querySelector('.generated-case-evidence, .generated-case-meaning')).toBeNull();
+    expect(document.querySelector('.service-outcomes.generated-case-context')).toBeTruthy();
     expect(document.querySelector('.service-approach .approach-steps')).toBeTruthy();
     expect(document.querySelector('.service-resources.generated-case-artifacts')).toBeTruthy();
     expect(Array.from(document.querySelectorAll('.artifact-list h3'), (heading) => heading.textContent)).toEqual([
