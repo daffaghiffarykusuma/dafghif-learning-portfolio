@@ -3231,7 +3231,7 @@ body.dark-mode .social-links li a:hover {
     align-self: flex-start;
     border: 0;
     background: transparent;
-    color: var(--accent);
+    color: #2b9f91;
     cursor: pointer;
     font: inherit;
     font-weight: 600;

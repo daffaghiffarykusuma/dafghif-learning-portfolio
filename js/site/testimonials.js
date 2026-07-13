@@ -27,7 +27,10 @@ export function initTestimonials() {
         const dots = [];
 
         const updateAria = () => {
-            slides.forEach((slide, index) => slide.setAttribute('aria-hidden', String(index !== currentIndex)));
+            slides.forEach((slide, index) => {
+                slide.setAttribute('aria-hidden', String(index !== currentIndex));
+                slide.toggleAttribute('inert', index !== currentIndex);
+            });
             dots.forEach((dot, index) => dot.setAttribute('aria-current', String(index === currentIndex)));
         };
 

@@ -8,9 +8,9 @@ test('testimonial slider prioritizes explicitly featured stories', async () => {
     <div data-testimonial-slider data-autoplay="false">
       <button data-slider-prev></button>
       <div data-slider-track>
-        <article data-featured-testimonial>Featured one</article>
+        <article data-featured-testimonial>Featured one <button>More</button></article>
         <article>Archive only</article>
-        <article data-featured-testimonial>Featured two</article>
+        <article data-featured-testimonial>Featured two <button>More</button></article>
       </div>
       <button data-slider-next></button>
       <div data-slider-dots></div>
@@ -23,4 +23,8 @@ test('testimonial slider prioritizes explicitly featured stories', async () => {
   expect(document.querySelectorAll('[data-slider-track] > article:not([hidden])')).toHaveLength(2);
   expect(document.querySelector('[data-slider-track] > article:not([data-featured-testimonial])').hidden).toBe(true);
   expect(document.querySelectorAll('[data-slider-dots] button')).toHaveLength(2);
+  expect(document.querySelectorAll('[data-featured-testimonial][inert]')).toHaveLength(1);
+
+  document.querySelector('[data-slider-next]').click();
+  expect(document.querySelector('[data-featured-testimonial]').hasAttribute('inert')).toBe(true);
 });
