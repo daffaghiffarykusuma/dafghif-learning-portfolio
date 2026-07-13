@@ -16,6 +16,7 @@ describe('blog card rendering', () => {
     expect(cards.length).toBeGreaterThan(0);
 
     const firstCard = cards[0];
+    expect(firstCard.querySelector('.blog-card-body > h2.blog-card-title')).toBeTruthy();
     const links = firstCard.querySelectorAll('a');
     expect(links.length).toBe(2);
     for (const link of links) {

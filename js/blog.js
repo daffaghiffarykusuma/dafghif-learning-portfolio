@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const body = document.createElement('div');
         body.className = 'blog-card-body';
-        const heading = document.createElement('h3');
+        const heading = document.createElement('h2');
         heading.className = 'blog-card-title';
         appendMediumLink(heading, url, title);
         body.appendChild(heading);
