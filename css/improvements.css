@@ -1712,7 +1712,7 @@
     gap: var(--space-2);
     font-size: var(--font-size-base);
     font-weight: 600;
-    color: var(--color-accent);
+    color: #6ee7d8;
     padding: var(--space-3) var(--space-5);
     background: rgba(42, 157, 143, 0.1);
     border-radius: var(--radius-full);
@@ -1725,7 +1725,7 @@
 }
 
 .contact-method-card.linkedin .contact-method-cta {
-    color: #0A66C2;
+    color: #70b7ff;
     background: rgba(10, 102, 194, 0.1);
 }
 
