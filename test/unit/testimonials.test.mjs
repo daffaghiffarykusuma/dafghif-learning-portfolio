@@ -3,7 +3,7 @@ import { createDom, importFresh, resetDom } from '../helpers/dom.mjs';
 
 afterEach(() => resetDom());
 
-test('testimonial slider prioritizes explicitly featured stories', async () => {
+test('testimonial slider prioritizes featured stories and inerts inactive slides', async () => {
   createDom(`
     <div data-testimonial-slider data-autoplay="false">
       <button data-slider-prev></button>
@@ -27,4 +27,5 @@ test('testimonial slider prioritizes explicitly featured stories', async () => {
 
   document.querySelector('[data-slider-next]').click();
   expect(document.querySelector('[data-featured-testimonial]').hasAttribute('inert')).toBe(true);
+  expect(document.querySelectorAll('[data-featured-testimonial][inert]')).toHaveLength(1);
 });
