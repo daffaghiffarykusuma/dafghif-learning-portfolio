@@ -74,6 +74,7 @@ describe('site browser behavior', () => {
     const proofLines = Array.from(document.querySelectorAll('.portfolio-item-proof'));
 
     expect(portfolioItems.length).toBe(72);
+    expect(portfolioItems.every((item) => item.querySelector('.card-content > h2'))).toBe(true);
     expect(proofLines.length).toBe(portfolioItems.length);
     expect(document.querySelector('#case-employee-assessment-bootcamp .portfolio-item-proof').textContent)
       .toBe('Connects observation evidence and scoring to a redacted individual report.');

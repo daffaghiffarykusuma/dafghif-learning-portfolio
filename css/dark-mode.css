@@ -37,7 +37,7 @@
     --dm-border-strong: rgba(203, 213, 225, 0.28);
 
     /* Accent colors (minimal, functional) */
-    --dm-accent: #2A9D8F;
+    --dm-accent: #2B9F91;
     --dm-accent-hover: #E76F51;
     --dm-accent-muted: rgba(42, 157, 143, 0.16);
     --dm-accent-subtle: rgba(42, 157, 143, 0.08);
@@ -1155,6 +1155,7 @@ footer {
 }
 
 .card-content h4,
+.card-content h2,
 .card-content h3 {
     color: var(--dm-text-primary) !important;
 }

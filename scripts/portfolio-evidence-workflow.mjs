@@ -106,7 +106,7 @@ const renderPortfolioItemCard = (document, portfolioItem, index = 0) => {
 
   const content = document.createElement('div');
   content.className = 'card-content';
-  const title = document.createElement('h3');
+  const title = document.createElement('h2');
   const titleLink = document.createElement('a');
   titleLink.className = 'portfolio-item-title-link';
   titleLink.href = item.portfolioItemUrl;
