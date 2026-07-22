@@ -4,7 +4,7 @@ import { projectRoot } from '../helpers/dom.mjs';
 import {
   formatLearningPortfolioSiteValidationSummary,
   validateLearningPortfolioSite
-} from '../../scripts/learning-portfolio-site-validation.mjs';
+} from '../../scripts/learning-portfolio-site-validation.ts';
 
 const run = async (command, args) => {
   const child = Bun.spawn([command, ...args], {
@@ -123,7 +123,7 @@ describe('Learning Portfolio Site Validation', () => {
   });
 
   test('keeps the Bun command as a thin passing adapter', async () => {
-    const result = await run('bun', ['scripts/validate-site.mjs']);
+    const result = await run('bun', ['scripts/validate-site.ts']);
 
     expect(result.code).toBe(0);
     expect(result.stderr).toBe('');

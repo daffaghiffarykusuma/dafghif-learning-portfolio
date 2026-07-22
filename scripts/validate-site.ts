@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url';
 import {
   formatLearningPortfolioSiteValidationSummary,
   validateLearningPortfolioSite
-} from './learning-portfolio-site-validation.mjs';
+} from './learning-portfolio-site-validation.ts';
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const result = await validateLearningPortfolioSite({ rootDir });

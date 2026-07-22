@@ -8,15 +8,15 @@
     "build": "bun run typecheck && vite build",
     "preview": "vite preview --host 127.0.0.1",
     "serve": "vite preview --host 127.0.0.1",
-    "generate:portfolio": "bun scripts/portfolio-generation-command.mjs",
-    "lint": "bun scripts/validate-site.mjs",
-    "budget": "bun scripts/check-performance-budget.mjs",
+    "generate:portfolio": "bun scripts/portfolio-generation-command.ts",
+    "lint": "bun scripts/validate-site.ts",
+    "budget": "bun scripts/check-performance-budget.ts",
     "test": "bun test",
     "test:unit": "bun test test/unit",
     "test:integration": "bun test test/integration",
     "test:system": "bun test test/system",
     "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.scripts.json --noEmit",
-    "validate": "bun scripts/validate-site.mjs"
+    "validate": "bun scripts/validate-site.ts"
   },
   "devDependencies": {
     "@types/bun": "1.3.14",

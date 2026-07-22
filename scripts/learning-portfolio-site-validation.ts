@@ -1,12 +1,44 @@
 import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { createPublicationSourceFacts } from '../src/site/publication-source-facts.ts';
-import { validatePortfolioEvidence } from './portfolio-evidence-validator.mjs';
+import { validatePortfolioEvidence } from './portfolio-evidence-validator.ts';
 import { createShippedArtifactPolicy } from './shipped-artifact-policy.ts';
 import {
   createSourceSiteInventory,
   idsForSource
 } from './site-inventory.ts';
+import type { SourceSiteInventory } from './site-inventory.ts';
+import type { PortfolioEvidenceValidationResult } from './portfolio-evidence-validator.ts';
+import type { CreatedShippedArtifactPolicy } from './shipped-artifact-policy.ts';
+
+export type LearningPortfolioSiteValidationCounts = {
+  htmlFiles: number;
+  cssFiles: number;
+  blogPosts: number;
+  portfolioItems: number;
+  shippedArtifactProbes: number;
+};
+
+export type LearningPortfolioSiteValidationResult = {
+  failures: string[];
+  counts: LearningPortfolioSiteValidationCounts;
+};
+
+type LearningPortfolioSiteValidationAdapters = {
+  createSourceSiteInventory: (options: { rootDir: string }) => Promise<SourceSiteInventory>;
+  readText: (filePath: string) => Promise<string>;
+  pathExists: (filePath: string) => Promise<boolean>;
+  validatePortfolioEvidence: (options: { root: string }) => Promise<PortfolioEvidenceValidationResult>;
+  createShippedArtifactPolicy: (
+    options: { rootDir: string }
+  ) => Pick<CreatedShippedArtifactPolicy, 'validationFacts'>;
+};
+
+type ValidateLearningPortfolioSiteOptions = {
+  rootDir?: string;
+  allowedExternalHosts?: ReadonlySet<string>;
+  adapters?: Partial<LearningPortfolioSiteValidationAdapters>;
+};
 
 const defaultAllowedExternalHosts = new Set([
   'fonts.googleapis.com',
@@ -18,10 +50,10 @@ const defaultAllowedExternalHosts = new Set([
   'wa.link'
 ]);
 
-const defaultAdapters = Object.freeze({
+const defaultAdapters: LearningPortfolioSiteValidationAdapters = Object.freeze({
   createSourceSiteInventory,
-  readText: (filePath) => readFile(filePath, 'utf8'),
-  pathExists: async (filePath) => {
+  readText: (filePath: string) => readFile(filePath, 'utf8'),
+  pathExists: async (filePath: string) => {
     try {
       await stat(filePath);
       return true;
@@ -33,10 +65,10 @@ const defaultAdapters = Object.freeze({
   createShippedArtifactPolicy
 });
 
-const isExternal = (value) =>
+const isExternal = (value: string) =>
   /^[a-z][a-z\d+.-]*:/i.test(value) || value.startsWith('//');
 
-const splitUrl = (value) => {
+const splitUrl = (value: string) => {
   const [withoutFragment, fragment = ''] = value.split('#');
   const [pathname] = withoutFragment.split('?');
   return { pathname, fragment };
@@ -46,10 +78,10 @@ export const validateLearningPortfolioSite = async ({
   rootDir = process.cwd(),
   allowedExternalHosts = defaultAllowedExternalHosts,
   adapters = {}
-} = {}) => {
+}: ValidateLearningPortfolioSiteOptions = {}): Promise<LearningPortfolioSiteValidationResult> => {
   const dependencies = { ...defaultAdapters, ...adapters };
-  const failures = [];
-  const decodeUrlPart = (file, attr, value) => {
+  const failures: string[] = [];
+  const decodeUrlPart = (file: string, attr: string, value: string): string | null => {
     try {
       return decodeURIComponent(value);
     } catch {
@@ -57,12 +89,12 @@ export const validateLearningPortfolioSite = async ({
       return null;
     }
   };
-  const isInsideRoot = (targetPath) => {
+  const isInsideRoot = (targetPath: string) => {
     const relativePath = path.relative(rootDir, targetPath);
     return relativePath === ''
       || (!relativePath.startsWith('..') && !path.isAbsolute(relativePath));
   };
-  const validateExternal = (file, attr, value) => {
+  const validateExternal = (file: string, attr: string, value: string) => {
     const url = value.startsWith('//') ? new URL(`https:${value}`) : new URL(value);
     if (url.protocol !== 'https:' && url.protocol !== 'mailto:' && url.protocol !== 'tel:') {
       failures.push(`${file}: ${attr} uses non-HTTPS URL: ${value}`);
@@ -81,6 +113,13 @@ export const validateLearningPortfolioSite = async ({
     rawValue,
     source,
     pageIds
+  }: {
+    file: string;
+    filePath: string;
+    attr: string;
+    rawValue: string;
+    source: string;
+    pageIds: Set<string>;
   }) => {
     const value = rawValue.trim();
     if (
@@ -100,7 +139,7 @@ export const validateLearningPortfolioSite = async ({
     const decodedPathname = pathname
       ? decodeUrlPart(file, attr, pathname)
       : '';
-    if (pathname && decodedPathname === null) return;
+    if (decodedPathname === null) return;
     const targetPath = pathname
       ? path.resolve(path.dirname(filePath), decodedPathname)
       : filePath;
@@ -201,7 +240,7 @@ export const validateLearningPortfolioSite = async ({
     failures.push('_headers: CSP should declare connect-src for fetch destinations');
   }
 
-  const blogJson = JSON.parse(
+  const blogJson: unknown = JSON.parse(
     await dependencies.readText(path.join(rootDir, 'assets/blog.json'))
   );
   const publicationSource = createPublicationSourceFacts(blogJson, {
@@ -237,5 +276,7 @@ export const validateLearningPortfolioSite = async ({
   };
 };
 
-export const formatLearningPortfolioSiteValidationSummary = ({ counts }) =>
+export const formatLearningPortfolioSiteValidationSummary = ({
+  counts
+}: Pick<LearningPortfolioSiteValidationResult, 'counts'>) =>
   `Validated ${counts.htmlFiles} HTML files, ${counts.cssFiles} CSS files, ${counts.blogPosts} blog posts, ${counts.portfolioItems} portfolio items, ${counts.shippedArtifactProbes} shipped Artifact probes, local assets, fragments, external host allowlists, target=_blank rels, and CSP policies.`;

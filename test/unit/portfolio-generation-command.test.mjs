@@ -2,10 +2,10 @@ import { afterEach, describe, expect, test } from 'bun:test';
 import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import { runPortfolioEvidenceWorkflow } from '../../scripts/portfolio-generation-command.mjs';
+import { runPortfolioEvidenceWorkflow } from '../../scripts/portfolio-generation-command.ts';
 import {
   createPortfolioEvidenceWorkflow
-} from '../../scripts/portfolio-evidence-workflow.mjs';
+} from '../../scripts/portfolio-evidence-workflow.ts';
 
 let tempRoot = null;
 

@@ -21,7 +21,7 @@ type SourceCssFile = {
   source: string;
   urls: string[];
 };
-type SourceSiteInventory = {
+export type SourceSiteInventory = {
   rootDir: string;
   htmlPages: SourceHtmlPage[];
   cssFiles: SourceCssFile[];

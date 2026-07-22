@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 import path from 'node:path';
-import { validatePortfolioEvidenceData } from '../../scripts/portfolio-evidence-validator.mjs';
+import { validatePortfolioEvidenceData } from '../../scripts/portfolio-evidence-validator.ts';
 
 const root = path.resolve('C:/portfolio-site');
 const validSourceItem = {

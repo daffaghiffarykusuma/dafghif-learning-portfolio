@@ -4,7 +4,7 @@ import { createDistSiteInventory } from './site-inventory.ts';
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');
-const failures = [];
+const failures: string[] = [];
 
 const limits = {
   totalDistBytes: 112 * 1024 * 1024,
@@ -24,8 +24,9 @@ const {
 } = await createDistSiteInventory({ rootDir: root, distDir: dist });
 const shippedArtifactPolicy = createShippedArtifactPolicy({ rootDir: root });
 
-const sum = (items) => items.reduce((total, item) => total + item.size, 0);
-const toKB = (bytes) => Number((bytes / 1024).toFixed(2));
+const sum = (items: readonly { size: number }[]) =>
+  items.reduce((total, item) => total + item.size, 0);
+const toKB = (bytes: number) => Number((bytes / 1024).toFixed(2));
 
 const totalDistBytes = sum(records);
 const jsGzipBytes = gzipBytesForExtensions(['.js']);

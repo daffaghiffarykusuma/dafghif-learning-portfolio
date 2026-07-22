@@ -9,6 +9,61 @@ import {
 import { createAiContextPortfolioItem, practiceAreaProfiles } from './portfolio-context-inference.ts';
 import { createCaseStudyPublication } from './case-study-publication.ts';
 import { assertValidPortfolioItemSource } from './portfolio-item-source-validator.ts';
+import type { CaseStudyArtifactMetadata } from './case-study-publication.ts';
+import type { PortfolioItem } from './portfolio-item-catalog.ts';
+
+export type ProofPoint = {
+  claim: string;
+  sourceBasis: string;
+  confidence: string;
+};
+
+export type PortfolioItemProof = {
+  visibleProofLine: string;
+  workQuality: ProofPoint[];
+  impact: ProofPoint[];
+};
+
+export type AppliedProofPortfolioItem = Omit<PortfolioItem, 'proof'> & {
+  proof: PortfolioItemProof;
+};
+
+type WorkflowPathKey = 'portfolioHtml' | 'catalogOutput' | 'aiContextOutput';
+type PortfolioEvidenceOutputType =
+  | 'portfolio-html'
+  | 'catalog-json'
+  | 'case-study-html'
+  | 'ai-context-json';
+
+export type PortfolioEvidenceOutput =
+  | { type: PortfolioEvidenceOutputType; pathKey: WorkflowPathKey; contents: string }
+  | { type: PortfolioEvidenceOutputType; outputPath: string; contents: string };
+
+export type PortfolioEvidenceWorkflowSummary = {
+  renderedPortfolioItemCount: number;
+  catalogPortfolioItemCount: number;
+  aiContextPortfolioItemCount: number;
+  caseStudyPageCount: number;
+};
+
+export type PortfolioEvidenceWorkflowResult = {
+  outputs: PortfolioEvidenceOutput[];
+  summary: PortfolioEvidenceWorkflowSummary;
+};
+
+export type PortfolioEvidenceWorkflowInput = {
+  portfolioHtml: string;
+  portfolioSource: unknown;
+  proofSource: unknown;
+  generatedFrom: string;
+  catalogGeneratedFrom?: string;
+  generatedAt?: string;
+};
+
+const asRecord = (value: unknown): Record<string, unknown> =>
+  value !== null && typeof value === 'object' && !Array.isArray(value)
+    ? value as Record<string, unknown>
+    : {};
 
 const portfolioAreaFilters = new Set([
   'training-workshop',
@@ -25,9 +80,9 @@ const portfolioAreaFilters = new Set([
   'mentoring'
 ]);
 
-const jsonOutput = (data) => `${JSON.stringify(data, null, 2)}\n`;
+const jsonOutput = (data: unknown) => `${JSON.stringify(data, null, 2)}\n`;
 
-const createPortfolioDocument = (html) => {
+const createPortfolioDocument = (html: string) => {
   const window = new Window();
   window.SyntaxError = window.SyntaxError || SyntaxError;
   window.document.write(html);
@@ -35,30 +90,43 @@ const createPortfolioDocument = (html) => {
   return window.document;
 };
 
-const getPracticeAreaFilter = (item) =>
+const getPracticeAreaFilter = (item: PortfolioItem) =>
   item.tags.find((tag) => portfolioAreaFilters.has(tag)) || '';
 
-const normalizeProofEntry = (entry = {}) => ({
+const normalizeProofEntry = (value: unknown): ProofPoint => {
+  const entry = asRecord(value);
+  return {
   claim: normalizeText(entry.claim),
   sourceBasis: normalizeText(entry.sourceBasis),
   confidence: normalizeText(entry.confidence)
-});
+  };
+};
 
-const normalizeProof = (proof = {}) => ({
-  visibleProofLine: normalizeText(proof.visibleProofLine),
-  workQuality: Array.isArray(proof.workQuality)
-    ? proof.workQuality.map(normalizeProofEntry).filter((entry) => entry.claim)
+const normalizeProof = (value: unknown): PortfolioItemProof => {
+  const proof = asRecord(value);
+  return {
+    visibleProofLine: normalizeText(proof.visibleProofLine),
+    workQuality: Array.isArray(proof.workQuality)
+      ? proof.workQuality.map(normalizeProofEntry).filter((entry) => entry.claim)
     : [],
-  impact: Array.isArray(proof.impact)
-    ? proof.impact.map(normalizeProofEntry).filter((entry) => entry.claim)
+    impact: Array.isArray(proof.impact)
+      ? proof.impact.map(normalizeProofEntry).filter((entry) => entry.claim)
     : []
-});
+  };
+};
 
-const applyProofPoints = (portfolioItems, proofSource = {}) =>
+const applyProofPoints = (
+  portfolioItems: PortfolioItem[],
+  proofSourceValue: unknown
+): AppliedProofPortfolioItem[] => {
+  const proofSource = asRecord(proofSourceValue);
+  const practiceAreaDefaults = asRecord(proofSource.practiceAreaDefaults);
+  const itemOverrides = asRecord(proofSource.itemOverrides);
+  return (
   portfolioItems.map((portfolioItem) => {
     const item = normalizePortfolioItem(portfolioItem);
-    const defaultProof = normalizeProof(proofSource.practiceAreaDefaults?.[item.practiceArea]);
-    const overrideProof = normalizeProof(proofSource.itemOverrides?.[item.id]);
+    const defaultProof = normalizeProof(practiceAreaDefaults[item.practiceArea]);
+    const overrideProof = normalizeProof(itemOverrides[item.id]);
 
     return {
       ...item,
@@ -70,10 +138,16 @@ const applyProofPoints = (portfolioItems, proofSource = {}) =>
         impact: overrideProof.impact
       }
     };
-  });
+  }));
+};
 
-const renderPortfolioItemCard = (document, portfolioItem, index = 0) => {
+const renderPortfolioItemCard = (
+  document: ReturnType<typeof createPortfolioDocument>,
+  portfolioItem: PortfolioItem,
+  index = 0
+) => {
   const item = normalizePortfolioItem(portfolioItem);
+  const proofData = normalizeProof(item.proof);
   const card = document.createElement('div');
   card.className = 'card portfolio-item';
   card.id = item.id;
@@ -121,7 +195,7 @@ const renderPortfolioItemCard = (document, portfolioItem, index = 0) => {
 
   const proof = document.createElement('p');
   proof.className = 'portfolio-item-proof';
-  proof.textContent = item.proof.visibleProofLine;
+  proof.textContent = proofData.visibleProofLine;
 
   const actions = document.createElement('div');
   actions.className = 'card-actions';
@@ -157,7 +231,10 @@ const renderPortfolioItemCard = (document, portfolioItem, index = 0) => {
   return card;
 };
 
-const renderPortfolioItemCards = (document, portfolioItems) => {
+const renderPortfolioItemCards = (
+  document: ReturnType<typeof createPortfolioDocument>,
+  portfolioItems: PortfolioItem[]
+): number => {
   const grid = document.querySelector('.portfolio-items-grid');
   if (!grid) return 0;
 
@@ -185,6 +262,11 @@ const createPortfolioAiContextData = ({
   artifactMetadataByCaseStudyId,
   generatedFrom,
   generatedAt
+}: {
+  portfolioItems: AppliedProofPortfolioItem[];
+  artifactMetadataByCaseStudyId: Map<string, CaseStudyArtifactMetadata[]>;
+  generatedFrom: string;
+  generatedAt: string;
 }) => {
   const aiContextItems = portfolioItems.map(createAiContextPortfolioItem);
   const portfolioItemsWithCaseArtifacts = aiContextItems.map((item) => {
@@ -219,7 +301,7 @@ export const createPortfolioEvidenceWorkflow = ({
   generatedFrom,
   catalogGeneratedFrom = 'assets/data/portfolio-items.json',
   generatedAt = new Date().toISOString()
-}) => {
+}: PortfolioEvidenceWorkflowInput): PortfolioEvidenceWorkflowResult => {
   const validatedSource = assertValidPortfolioItemSource({
     portfolioSource,
     proofSource
@@ -241,7 +323,7 @@ export const createPortfolioEvidenceWorkflow = ({
     generatedAt
   });
 
-  const outputs = [
+  const outputs: PortfolioEvidenceOutput[] = [
     {
       type: 'portfolio-html',
       pathKey: 'portfolioHtml',
@@ -252,7 +334,7 @@ export const createPortfolioEvidenceWorkflow = ({
       pathKey: 'catalogOutput',
       contents: jsonOutput(catalogData)
     },
-    ...caseStudyPages.map((page) => ({
+    ...caseStudyPages.map((page): PortfolioEvidenceOutput => ({
       type: 'case-study-html',
       outputPath: page.outputPath,
       contents: page.html

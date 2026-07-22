@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 import {
   createPortfolioEvidenceWorkflow
-} from '../../scripts/portfolio-evidence-workflow.mjs';
+} from '../../scripts/portfolio-evidence-workflow.ts';
 import {
   createCaseStudyPublication
 } from '../../scripts/case-study-publication.ts';
