@@ -5,7 +5,7 @@ import {
 import {
   createCaseStudyPublication
 } from '../../scripts/case-study-publication.mjs';
-import { renderGeneratedHtmlDocument } from '../../scripts/generated-site-chrome.mjs';
+import { renderGeneratedHtmlDocument } from '../../scripts/generated-site-chrome.ts';
 
 const proofSource = {
   practiceAreaDefaults: {
@@ -309,6 +309,7 @@ describe('Case Study Publication', () => {
       description: 'Sample description',
       main: '<main id="main-content"></main>'
     })).toContain('<script type="module" src="src/script.js"></script>');
+    expect(() => renderGeneratedHtmlDocument()).not.toThrow();
     expect(detailPage.html).toContain('<h1>Sample Learning Program</h1>');
   });
 });

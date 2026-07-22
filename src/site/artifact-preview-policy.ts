@@ -1,11 +1,46 @@
 const PDF_VIEWER_FRAGMENT = 'toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-width&statusbar=0&messages=0&pagemode=none';
+type ArtifactPreviewType = 'pdf' | 'viewer';
+type ArtifactPreviewDatasetKey = 'pdfPath' | 'viewerPath';
+type ArtifactPreviewBaseLocation = string | URL | Location | null | undefined;
+
+type ArtifactPreviewPolicy = Readonly<{
+    datasetKey: ArtifactPreviewDatasetKey;
+    prefix: string;
+    extension: string;
+    frameAttributes: Readonly<Record<string, string>>;
+    urlFragment: string;
+}>;
+
+export type ArtifactPreview = {
+    type: ArtifactPreviewType;
+    url: string;
+    src: string;
+    frameAttributes: Record<string, string>;
+    linkPolicy: {
+        target: string;
+        rel: string;
+        opensOutsidePreviewFrame: boolean;
+    };
+    navigationPolicy: {
+        allowedOrigin: string;
+        allowedPathPrefix: string;
+        allowedExtension: string;
+        previewFrameNavigation: string;
+        artifactLinks: string;
+    };
+};
+
+export type ArtifactPreviewContract = ArtifactPreview & {
+    triggerAttributes: Partial<Record<'data-pdf' | 'data-viewer', string>>;
+};
+
 const OUTSIDE_PREVIEW_LINK_POLICY = Object.freeze({
     target: '_blank',
     rel: 'noopener noreferrer',
     opensOutsidePreviewFrame: true
 });
 
-export const ARTIFACT_PREVIEW_TYPES = Object.freeze({
+export const ARTIFACT_PREVIEW_TYPES: Readonly<Record<ArtifactPreviewType, ArtifactPreviewPolicy>> = Object.freeze({
     pdf: Object.freeze({
         datasetKey: 'pdfPath',
         prefix: 'assets/pdf/portfolio/',
@@ -24,18 +59,24 @@ export const ARTIFACT_PREVIEW_TYPES = Object.freeze({
     })
 });
 
-const ARTIFACT_PREVIEW_ORDER = Object.freeze(['pdf', 'viewer']);
+const ARTIFACT_PREVIEW_ORDER: readonly ArtifactPreviewType[] = Object.freeze(['pdf', 'viewer']);
 
 const defaultBaseLocation = () => globalThis.window?.location || 'http://127.0.0.1/';
-const toBaseUrl = (baseLocation) => new URL(baseLocation?.href || baseLocation || defaultBaseLocation());
+const toBaseUrl = (baseLocation: ArtifactPreviewBaseLocation) => {
+    const resolvedLocation = baseLocation || defaultBaseLocation();
+    return new URL(typeof resolvedLocation === 'string' ? resolvedLocation : resolvedLocation.href);
+};
 
-export const artifactPreviewTypeForSource = (sourceType = '') => {
+export const artifactPreviewTypeForSource = (sourceType: unknown = ''): ArtifactPreviewType | '' => {
     if (sourceType === 'pdf') return 'pdf';
     if (sourceType === 'html-viewer' || sourceType === 'viewer') return 'viewer';
     return '';
 };
 
-export const createArtifactPreviewContract = ({ sourceArtifact = '', sourceType = '' } = {}, baseLocation = defaultBaseLocation()) => {
+export const createArtifactPreviewContract = ({
+    sourceArtifact = '',
+    sourceType = ''
+}: { sourceArtifact?: string; sourceType?: string } = {}, baseLocation: ArtifactPreviewBaseLocation = defaultBaseLocation()): ArtifactPreviewContract | null => {
     const previewType = artifactPreviewTypeForSource(sourceType);
     if (!previewType) return null;
 
@@ -55,7 +96,8 @@ export const createArtifactPreviewContract = ({ sourceArtifact = '', sourceType 
     } : null;
 };
 
-export const safeArtifactPreviewPath = (candidatePath, previewType, baseLocation = defaultBaseLocation()) => {
+export const safeArtifactPreviewPath = (candidatePath: string | null | undefined, previewType: string, baseLocation: ArtifactPreviewBaseLocation = defaultBaseLocation()) => {
+    if (previewType !== 'pdf' && previewType !== 'viewer') return '';
     const policy = ARTIFACT_PREVIEW_TYPES[previewType];
     if (!policy || !candidatePath || /[\u0000-\u001f]/.test(candidatePath)) return '';
     if (/%(?:2e|2f|5c)/i.test(candidatePath)) return '';
@@ -78,7 +120,7 @@ export const safeArtifactPreviewPath = (candidatePath, previewType, baseLocation
     }
 };
 
-export const resolveArtifactPreview = (candidatePaths, baseLocation = defaultBaseLocation()) => {
+export const resolveArtifactPreview = (candidatePaths: Partial<Record<ArtifactPreviewDatasetKey, string>> = {}, baseLocation: ArtifactPreviewBaseLocation = defaultBaseLocation()): ArtifactPreview | null => {
     for (const previewType of ARTIFACT_PREVIEW_ORDER) {
         const policy = ARTIFACT_PREVIEW_TYPES[previewType];
         const baseUrl = toBaseUrl(baseLocation);
@@ -104,7 +146,7 @@ export const resolveArtifactPreview = (candidatePaths, baseLocation = defaultBas
     return null;
 };
 
-export const applyArtifactPreviewFramePolicy = (iframe, preview) => {
+export const applyArtifactPreviewFramePolicy = (iframe: HTMLIFrameElement, preview: Pick<ArtifactPreview, 'frameAttributes'> | null | undefined) => {
     iframe.removeAttribute('sandbox');
 
     const frameAttributes = preview?.frameAttributes || {};

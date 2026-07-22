@@ -1,4 +1,4 @@
-import { readPageIdentity } from './case-study-page-identity.js';
+import { readPageIdentity } from './case-study-page-identity.ts';
 
 export function initNavigation() {
     const currentYear = document.getElementById('current-year');

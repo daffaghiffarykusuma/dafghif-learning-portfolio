@@ -1,4 +1,23 @@
-export const escapeHtml = (value = '') =>
+import type { PageIdentity } from '../src/site/case-study-page-identity.ts';
+
+type MetadataLink = {
+  href: string;
+  rel: string;
+  title: string;
+  type: string;
+};
+
+type GeneratedHtmlDocumentOptions = {
+  title?: string;
+  description?: string;
+  main?: string;
+  currentPage?: string;
+  pageIdentity?: PageIdentity | null;
+  footer?: string;
+  metadataLinks?: readonly MetadataLink[];
+};
+
+export const escapeHtml = (value: unknown = '') =>
   String(value)
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
@@ -21,10 +40,10 @@ export const portfolioAiContextMetadataLink = Object.freeze({
   type: 'application/json'
 });
 
-export const renderMetadataLink = ({ href = '', rel = '', title = '', type = '' } = {}) =>
+export const renderMetadataLink = ({ href = '', rel = '', title = '', type = '' }: Partial<MetadataLink> = {}) =>
   `<link href="${escapeHtml(href)}" rel="${escapeHtml(rel)}" title="${escapeHtml(title)}" type="${escapeHtml(type)}">`;
 
-export const renderStylesheetLinks = ({ metadataLinks = [] } = {}) => `${metadataLinks.map(renderMetadataLink).join('\n  ')}${metadataLinks.length ? '\n  ' : ''}<link rel="stylesheet" href="css/style.css">
+export const renderStylesheetLinks = ({ metadataLinks = [] }: { metadataLinks?: readonly MetadataLink[] } = {}) => `${metadataLinks.map(renderMetadataLink).join('\n  ')}${metadataLinks.length ? '\n  ' : ''}<link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/improvements.css">
   <link rel="stylesheet" href="css/dark-mode.css">`;
 
@@ -47,7 +66,7 @@ export const renderSiteNavigation = (currentPage = '') => `<header>
         </div>
     </header>`;
 
-const renderPageIdentityAttributes = (pageIdentity = {}) => [
+const renderPageIdentityAttributes = (pageIdentity: Partial<PageIdentity> = {}) => [
   ['data-page-kind', pageIdentity.kind],
   ['data-page-path', pageIdentity.pagePath],
   ['data-navigation-page', pageIdentity.navigationPage]
@@ -104,7 +123,7 @@ export const renderGeneratedHtmlDocument = ({
   main,
   footer = renderGeneratedSiteFooter(),
   metadataLinks = []
-} = {}) => `<!DOCTYPE html>
+}: GeneratedHtmlDocumentOptions = {}) => `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">

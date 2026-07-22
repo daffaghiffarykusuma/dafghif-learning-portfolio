@@ -3,7 +3,7 @@ import {
   PORTFOLIO_ITEM_SCHEMA_VERSION,
   normalizePortfolioItem,
   normalizeText
-} from './portfolio-item-catalog.mjs';
+} from './portfolio-item-catalog.ts';
 import { practiceAreaProfiles } from './portfolio-context-inference.mjs';
 
 const sourceFile = 'assets/data/portfolio-source.json';

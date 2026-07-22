@@ -1,5 +1,5 @@
 import blogData from '../assets/blog.json';
-import { createPublicationSourceFacts } from './site/publication-source-facts.js';
+import { createPublicationSourceFacts } from './site/publication-source-facts.ts';
 
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('blog-cards');

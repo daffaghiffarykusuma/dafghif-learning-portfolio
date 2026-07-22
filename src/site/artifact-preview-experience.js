@@ -1,4 +1,4 @@
-import { applyArtifactPreviewFramePolicy, createArtifactPreviewContract } from './artifact-preview-policy.js';
+import { applyArtifactPreviewFramePolicy, createArtifactPreviewContract } from './artifact-preview-policy.ts';
 
 const previewItemFromHash = (hash, root = document) => {
     if (!hash || hash === '#') return null;

@@ -3,7 +3,7 @@ import {
   createPortfolioCatalogData,
   normalizePortfolioItem,
   slugify
-} from '../../scripts/portfolio-item-catalog.mjs';
+} from '../../scripts/portfolio-item-catalog.ts';
 import { createAiContextPortfolioItem } from '../../scripts/portfolio-context-inference.mjs';
 
 describe('Portfolio Item catalog', () => {
@@ -51,6 +51,12 @@ describe('Portfolio Item catalog', () => {
       portfolioItemCount: 1,
       portfolioItems
     });
+  });
+
+  test('preserves an explicitly supplied proof value', () => {
+    const proof = {};
+
+    expect(normalizePortfolioItem({ title: 'A Deck', proof }).proof).toBe(proof);
   });
 
   test('derives AI context from the normalized Portfolio Item interface', () => {

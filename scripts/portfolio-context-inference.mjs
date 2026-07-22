@@ -1,4 +1,4 @@
-import { normalizePortfolioItem, normalizeText } from './portfolio-item-catalog.mjs';
+import { normalizePortfolioItem, normalizeText } from './portfolio-item-catalog.ts';
 
 export const practiceAreaProfiles = {
   'Training Needs Analysis': {

@@ -1,6 +1,6 @@
 import path from 'node:path';
 import { createShippedArtifactPolicy } from './shipped-artifact-policy.ts';
-import { createDistSiteInventory } from './site-inventory.mjs';
+import { createDistSiteInventory } from './site-inventory.ts';
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');

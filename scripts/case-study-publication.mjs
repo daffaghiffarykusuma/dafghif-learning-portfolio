@@ -1,16 +1,16 @@
-import { createArtifactPreviewContract } from '../src/site/artifact-preview-policy.js';
+import { createArtifactPreviewContract } from '../src/site/artifact-preview-policy.ts';
 import {
   createCaseStudyIndexPageIdentity,
   createCaseStudyPageIdentity
-} from '../src/site/case-study-page-identity.js';
+} from '../src/site/case-study-page-identity.ts';
 import {
   escapeHtml,
   portfolioAiContextMetadataLink,
   renderArtifactPreviewModal,
   renderGeneratedHtmlDocument,
   renderSimpleGeneratedSiteFooter
-} from './generated-site-chrome.mjs';
-import { normalizePortfolioItem, normalizeText, slugify } from './portfolio-item-catalog.mjs';
+} from './generated-site-chrome.ts';
+import { normalizePortfolioItem, normalizeText, slugify } from './portfolio-item-catalog.ts';
 
 const featuredCaseStudies = Object.freeze([
   Object.freeze({
