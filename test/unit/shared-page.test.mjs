@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test';
-import { initSharedPage } from '../../js/site/pages/shared-page.js';
+import { initSharedPage } from '../../src/site/pages/shared-page.js';
 
 describe('Shared Page', () => {
   test('isolates optional enhancement failures and continues remaining setup', () => {

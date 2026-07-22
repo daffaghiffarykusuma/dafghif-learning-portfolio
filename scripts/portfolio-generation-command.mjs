@@ -16,7 +16,11 @@ const readJson = async (rootDir, relPath) =>
 
 const writeText = async (rootDir, relPath, contents) => {
   const outputPath = path.join(rootDir, relPath);
-  await mkdir(path.dirname(outputPath), { recursive: true });
+  try {
+    await mkdir(path.dirname(outputPath), { recursive: true });
+  } catch (error) {
+    if (error?.code !== 'EEXIST') throw error;
+  }
   await writeFile(outputPath, contents, 'utf8');
 };
 

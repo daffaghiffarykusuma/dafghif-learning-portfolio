@@ -16,7 +16,7 @@ test('testimonial slider prioritizes featured stories and inerts inactive slides
       <div data-slider-dots></div>
     </div>
   `);
-  const { initTestimonials } = await importFresh('../../js/site/testimonials.js');
+  const { initTestimonials } = await importFresh('../../src/site/testimonials.js');
 
   initTestimonials();
 

@@ -4,7 +4,7 @@ import {
   createShippedArtifactPolicy,
   getRoutableCaseStudyPagePaths,
   toRequestPath
-} from '../../scripts/shipped-artifact-policy.mjs';
+} from '../../scripts/shipped-artifact-policy.ts';
 
 describe('Shipped Artifact Policy', () => {
   test('keeps request paths URL-shaped across platforms', () => {

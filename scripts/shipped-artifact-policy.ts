@@ -2,6 +2,27 @@ import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { createCaseStudyPublication } from './case-study-publication.mjs';
 
+type ShippedArtifactPolicy = Readonly<{
+  shippedDirectoryTrees: readonly string[];
+  shippedFiles: readonly string[];
+  rootFiles: Readonly<{ extensions: readonly string[] }>;
+  platformFiles: readonly string[];
+  excludedFiles: readonly string[];
+  productionProbes: readonly string[];
+  denyRules: Readonly<{ editableOfficeExtensions: readonly string[] }>;
+}>;
+
+type PortfolioSource = Record<string, unknown>;
+
+type PortfolioSourceOptions = {
+  rootDir?: string;
+  portfolioSource?: PortfolioSource;
+};
+
+type CreatePolicyOptions = PortfolioSourceOptions & {
+  policy?: ShippedArtifactPolicy;
+};
+
 export const shippedArtifactPolicy = Object.freeze({
   shippedDirectoryTrees: Object.freeze([
     'assets/data',
@@ -44,17 +65,22 @@ export const shippedArtifactPolicy = Object.freeze({
   }),
 });
 
-export function toPosixPath(value) {
+export function toPosixPath(value: string) {
   return value.split(path.sep).join('/');
 }
 
-export function toRequestPath(relativePath) {
+export function toRequestPath(relativePath: string) {
   return `/${toPosixPath(relativePath)}`;
 }
 
-const readPortfolioSource = (rootDir) => {
+const readPortfolioSource = (rootDir: string): PortfolioSource => {
   try {
-    return JSON.parse(readFileSync(path.resolve(rootDir, 'assets/data/portfolio-source.json'), 'utf8'));
+    const source: unknown = JSON.parse(
+      readFileSync(path.resolve(rootDir, 'assets/data/portfolio-source.json'), 'utf8'),
+    );
+    return source !== null && typeof source === 'object' && !Array.isArray(source)
+      ? source as PortfolioSource
+      : {};
   } catch {
     return {};
   }
@@ -63,11 +89,15 @@ const readPortfolioSource = (rootDir) => {
 export const getRoutableCaseStudyPagePaths = ({
   rootDir = process.cwd(),
   portfolioSource = readPortfolioSource(rootDir)
-} = {}) => createCaseStudyPublication(portfolioSource)
+}: PortfolioSourceOptions = {}): string[] => createCaseStudyPublication(portfolioSource)
   .pageIdentities
-  .map((identity) => identity.pagePath);
+  .map((identity: { pagePath: string }) => identity.pagePath);
 
-const createShippingManifest = ({ rootDir, policy, portfolioSource }) => {
+const createShippingManifest = ({
+  rootDir,
+  policy,
+  portfolioSource,
+}: Required<CreatePolicyOptions>) => {
   const routablePages = Object.freeze(getRoutableCaseStudyPagePaths({ rootDir, portfolioSource }));
   const productionProbes = Object.freeze([...new Set([
     ...policy.productionProbes,
@@ -90,16 +120,16 @@ export function createShippedArtifactPolicy({
   rootDir = process.cwd(),
   policy = shippedArtifactPolicy,
   portfolioSource = readPortfolioSource(rootDir)
-} = {}) {
+}: CreatePolicyOptions = {}) {
   const manifest = createShippingManifest({ rootDir, policy, portfolioSource });
-  const normalize = (relativePath) => toPosixPath(relativePath);
-  const isDeniedPath = (relativePath) => {
+  const normalize = (relativePath: string) => toPosixPath(relativePath);
+  const isDeniedPath = (relativePath: string) => {
     const extension = path.extname(relativePath).toLowerCase();
     return policy.denyRules.editableOfficeExtensions.includes(extension);
   };
-  const isExcludedPath = (relativePath) =>
+  const isExcludedPath = (relativePath: string) =>
     policy.excludedFiles.includes(normalize(relativePath));
-  const isPublicPath = (relativePath) => {
+  const isPublicPath = (relativePath: string) => {
     const normalizedPath = normalize(relativePath);
     if (isDeniedPath(normalizedPath) || isExcludedPath(normalizedPath)) return false;
     if (policy.shippedFiles.includes(normalizedPath)) return true;
@@ -126,14 +156,16 @@ export function createShippedArtifactPolicy({
   const productionAssetProbePaths = () => productionProbeFacts()
     .filter((probe) => probe.existsInSource)
     .map((probe) => probe.requestPath);
-  const deniedArtifactFacts = (relativePaths = []) => relativePaths
+  const deniedArtifactFacts = (relativePaths: readonly string[] = []) => relativePaths
     .map(normalize)
     .filter(isDeniedPath)
     .map((relativePath) => ({
       path: relativePath,
       rule: 'editable Office source files must not ship',
     }));
-  const validationFacts = ({ distRelativePaths = [] } = {}) => ({
+  const validationFacts = ({
+    distRelativePaths = [],
+  }: { distRelativePaths?: readonly string[] } = {}) => ({
     productionProbes: productionProbeFacts(),
     deniedArtifacts: deniedArtifactFacts(distRelativePaths),
     publicRoots: policy.shippedDirectoryTrees,

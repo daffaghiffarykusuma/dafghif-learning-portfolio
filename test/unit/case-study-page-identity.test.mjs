@@ -5,7 +5,7 @@ import {
   createCaseStudyPageIdentity,
   isCaseStudyPageIdentity,
   readPageIdentity
-} from '../../js/site/case-study-page-identity.js';
+} from '../../src/site/case-study-page-identity.js';
 import { createDom, resetDom } from '../helpers/dom.mjs';
 
 afterEach(() => {

@@ -9,7 +9,7 @@ describe('blog card rendering', () => {
   test('renders Medium posts with safe outbound links and images', async () => {
     createDom('<main><section id="blog-cards"></section></main>', 'http://127.0.0.1/blog.html');
 
-    await importFresh('../../js/blog.js');
+    await importFresh('../../src/blog.js');
     fireDOMContentLoaded();
 
     const cards = document.querySelectorAll('.blog-card');
@@ -35,7 +35,7 @@ describe('blog card rendering', () => {
   test('does nothing when the blog container is missing', async () => {
     createDom('<main></main>', 'http://127.0.0.1/blog.html');
 
-    await expect(importFresh('../../js/blog.js')).resolves.toBeDefined();
+    await expect(importFresh('../../src/blog.js')).resolves.toBeDefined();
     expect(() => fireDOMContentLoaded()).not.toThrow();
   });
 });

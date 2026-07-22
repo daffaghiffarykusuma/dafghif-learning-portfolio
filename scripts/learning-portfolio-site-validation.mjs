@@ -1,8 +1,8 @@
 import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
-import { createPublicationSourceFacts } from '../js/site/publication-source-facts.js';
+import { createPublicationSourceFacts } from '../src/site/publication-source-facts.js';
 import { validatePortfolioEvidence } from './portfolio-evidence-validator.mjs';
-import { createShippedArtifactPolicy } from './shipped-artifact-policy.mjs';
+import { createShippedArtifactPolicy } from './shipped-artifact-policy.ts';
 import {
   createSourceSiteInventory,
   idsForSource

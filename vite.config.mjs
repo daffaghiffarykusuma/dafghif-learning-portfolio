@@ -1,6 +1,6 @@
 import { copyFileSync, cpSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
 import { basename, extname, relative, resolve } from 'node:path';
-import { createShippedArtifactPolicy } from './scripts/shipped-artifact-policy.mjs';
+import { createShippedArtifactPolicy } from './scripts/shipped-artifact-policy.ts';
 
 const root = process.cwd();
 const shippedArtifacts = createShippedArtifactPolicy({ rootDir: root });

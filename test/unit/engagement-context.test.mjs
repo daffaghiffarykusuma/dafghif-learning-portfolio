@@ -12,7 +12,7 @@ describe('Engagement Context', () => {
       <a class="contact-method-card whatsapp"></a>
       <a class="contact-method-card email"></a>
     `, 'http://127.0.0.1/contact.html?portfolioItem=Score%20Audit%20Corrections');
-    const { initEngagementInquiryJourney } = await importFresh('../../js/site/engagement-inquiry-journey.js');
+    const { initEngagementInquiryJourney } = await importFresh('../../src/site/engagement-inquiry-journey.js');
 
     initEngagementInquiryJourney();
 

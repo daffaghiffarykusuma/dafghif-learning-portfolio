@@ -308,7 +308,7 @@ describe('Case Study Publication', () => {
       title: 'Sample',
       description: 'Sample description',
       main: '<main id="main-content"></main>'
-    })).toContain('<script type="module" src="js/script.js"></script>');
+    })).toContain('<script type="module" src="src/script.js"></script>');
     expect(detailPage.html).toContain('<h1>Sample Learning Program</h1>');
   });
 });

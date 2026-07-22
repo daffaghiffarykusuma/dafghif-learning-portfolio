@@ -26,7 +26,7 @@ describe('site browser behavior', () => {
     globalThis.console = window.console;
 
     expect(document.querySelector('.modal')).toBeNull();
-    await importFresh('../../js/script.js');
+    await importFresh('../../src/script.js');
     fireDOMContentLoaded();
 
     const modal = document.getElementById('pdf-modal');
@@ -100,7 +100,7 @@ describe('site browser behavior', () => {
     createDom(caseHtml, 'http://127.0.0.1/case-ybb-mentoring-workbook.html');
     globalThis.console = window.console;
 
-    await importFresh('../../js/script.js');
+    await importFresh('../../src/script.js');
     fireDOMContentLoaded();
 
     expect(document.querySelector('main h1').textContent).toBe('Youth Mentoring Workbook and Final Pitch Readiness System');
@@ -125,7 +125,7 @@ describe('site browser behavior', () => {
     createDom(featuredCaseHtml, 'http://127.0.0.1/case-entrepreneurship.html');
     globalThis.console = window.console;
 
-    await importFresh('../../js/script.js');
+    await importFresh('../../src/script.js');
     fireDOMContentLoaded();
 
     expect(document.body.dataset.pageKind).toBe('case-study');
@@ -162,7 +162,7 @@ describe('site browser behavior', () => {
     createDom(html, 'http://127.0.0.1/portfolio.html');
     globalThis.console = window.console;
 
-    await importFresh('../../js/script.js');
+    await importFresh('../../src/script.js');
     fireDOMContentLoaded();
 
     const caseCard = document.querySelector('#case-learning-organization-strategy-evaluation-system');
@@ -184,7 +184,7 @@ describe('site browser behavior', () => {
     const window = createDom(html, 'http://127.0.0.1/case-administrative-communication.html');
     globalThis.console = window.console;
 
-    await importFresh('../../js/script.js');
+    await importFresh('../../src/script.js');
     fireDOMContentLoaded();
 
     const artifactCards = Array.from(document.querySelectorAll('.case-artifact-card'));
@@ -214,7 +214,7 @@ describe('site browser behavior', () => {
     createDom(html, 'http://127.0.0.1/portfolio.html#project-%5Bbroken');
     globalThis.console = window.console;
 
-    await importFresh('../../js/script.js');
+    await importFresh('../../src/script.js');
     expect(() => fireDOMContentLoaded()).not.toThrow();
 
     const modal = document.getElementById('pdf-modal');
@@ -252,7 +252,7 @@ describe('site browser behavior', () => {
       goal: 'Create a facilitator-ready learning deck.'
     }));
 
-    await importFresh('../../js/script.js');
+    await importFresh('../../src/script.js');
     fireDOMContentLoaded();
 
     expect(document.querySelector('#name').value).toBe('Daffa');
@@ -275,7 +275,7 @@ describe('site browser behavior', () => {
       </form>
     `, 'http://127.0.0.1/index.html');
 
-    await importFresh('../../js/script.js');
+    await importFresh('../../src/script.js');
     fireDOMContentLoaded();
 
     document.querySelector('form').dispatchEvent(new window.Event('submit', { bubbles: true, cancelable: true }));

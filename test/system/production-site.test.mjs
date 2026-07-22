@@ -1,6 +1,6 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 import path from 'node:path';
-import { createShippedArtifactPolicy } from '../../scripts/shipped-artifact-policy.mjs';
+import { createShippedArtifactPolicy } from '../../scripts/shipped-artifact-policy.ts';
 import { projectRoot } from '../helpers/dom.mjs';
 
 const host = '127.0.0.1';

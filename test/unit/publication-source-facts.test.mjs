@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test';
-import { createPublicationSourceFacts } from '../../js/site/publication-source-facts.js';
+import { createPublicationSourceFacts } from '../../src/site/publication-source-facts.js';
 
 describe('Publication Source Facts', () => {
   test('returns sanitized Publications and shared trust failures through one interface', () => {

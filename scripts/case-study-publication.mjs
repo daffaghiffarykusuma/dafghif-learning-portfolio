@@ -1,8 +1,8 @@
-import { createArtifactPreviewContract } from '../js/site/artifact-preview-policy.js';
+import { createArtifactPreviewContract } from '../src/site/artifact-preview-policy.js';
 import {
   createCaseStudyIndexPageIdentity,
   createCaseStudyPageIdentity
-} from '../js/site/case-study-page-identity.js';
+} from '../src/site/case-study-page-identity.js';
 import {
   escapeHtml,
   portfolioAiContextMetadataLink,

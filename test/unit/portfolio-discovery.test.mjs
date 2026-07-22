@@ -7,7 +7,7 @@ afterEach(() => {
 
 describe('Portfolio Discovery', () => {
   test('treats absent query parameters as empty state instead of literal null text', async () => {
-    const { parsePortfolioDiscoveryState } = await importFresh('../../js/portfolio-discovery.js');
+    const { parsePortfolioDiscoveryState } = await importFresh('../../src/portfolio-discovery.js');
     expect(parsePortfolioDiscoveryState({ search: '?area=learning-analytics' })).toEqual({
       query: '',
       area: 'learning-analytics',
@@ -22,7 +22,7 @@ describe('Portfolio Discovery', () => {
     const {
       parsePortfolioDiscoveryState,
       serializePortfolioDiscoveryState
-    } = await importFresh('../../js/portfolio-discovery.js');
+    } = await importFresh('../../src/portfolio-discovery.js');
 
     const state = parsePortfolioDiscoveryState(window.location);
     expect(state).toEqual({
@@ -45,7 +45,7 @@ describe('Portfolio Discovery', () => {
       </article>
     `);
 
-    const { matchesPortfolioItem } = await importFresh('../../js/portfolio-discovery.js');
+    const { matchesPortfolioItem } = await importFresh('../../src/portfolio-discovery.js');
     const item = document.querySelector('.portfolio-item');
 
     expect(matchesPortfolioItem(item, {
@@ -87,7 +87,7 @@ describe('Portfolio Discovery', () => {
       </section>
     `, 'http://127.0.0.1/portfolio.html?q=assessment&area=learning-analytics&tag=assessment');
 
-    const { initPortfolioDiscovery } = await importFresh('../../js/portfolio-discovery.js');
+    const { initPortfolioDiscovery } = await importFresh('../../src/portfolio-discovery.js');
     initPortfolioDiscovery();
 
     expect(document.getElementById('portfolio-search').value).toBe('assessment');
@@ -115,7 +115,7 @@ describe('Portfolio Discovery', () => {
       </section>
     `, 'http://127.0.0.1/portfolio.html?q=unavailable');
 
-    const { initPortfolioDiscovery } = await importFresh('../../js/portfolio-discovery.js');
+    const { initPortfolioDiscovery } = await importFresh('../../src/portfolio-discovery.js');
     initPortfolioDiscovery();
 
     const searchInput = document.getElementById('portfolio-search');

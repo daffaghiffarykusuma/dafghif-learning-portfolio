@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { createShippedArtifactPolicy } from './shipped-artifact-policy.mjs';
+import { createShippedArtifactPolicy } from './shipped-artifact-policy.ts';
 import { createDistSiteInventory } from './site-inventory.mjs';
 
 const root = process.cwd();

@@ -1,5 +1,5 @@
 import { Window } from 'happy-dom';
-import { createArtifactPreviewContract } from '../js/site/artifact-preview-policy.js';
+import { createArtifactPreviewContract } from '../src/site/artifact-preview-policy.js';
 import {
   PORTFOLIO_ITEM_SCHEMA_VERSION,
   createPortfolioCatalogData,

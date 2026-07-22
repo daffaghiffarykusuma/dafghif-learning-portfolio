@@ -118,7 +118,7 @@ export const renderGeneratedHtmlDocument = ({
   ${renderSiteNavigation(pageIdentity?.navigationPage || currentPage)}
   ${main}
   ${footer}
-  <script type="module" src="js/script.js"></script>
+  <script type="module" src="src/script.js"></script>
 </body>
 </html>
 `;

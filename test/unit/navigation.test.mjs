@@ -18,7 +18,7 @@ describe('site navigation', () => {
       </header>
     `, 'http://127.0.0.1/index.html');
 
-    const { initNavigation } = await importFresh('../../js/site/navigation.js');
+    const { initNavigation } = await importFresh('../../src/site/navigation.js');
     initNavigation();
 
     const toggle = document.querySelector('.menu-toggle');

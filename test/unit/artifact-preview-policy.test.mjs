@@ -3,7 +3,7 @@ import {
   createArtifactPreviewContract,
   resolveArtifactPreview,
   safeArtifactPreviewPath
-} from '../../js/site/artifact-preview-policy.js';
+} from '../../src/site/artifact-preview-policy.js';
 
 const baseUrl = 'http://127.0.0.1/portfolio.html';
 const outsidePreviewLinkPolicy = {
