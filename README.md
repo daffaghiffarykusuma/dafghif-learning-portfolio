@@ -4,14 +4,28 @@ Static portfolio site for Daffa Ghiffary Kusuma.
 
 ## Development
 
-Open the HTML files directly for quick content checks, or serve the folder locally:
+Browser code lives in `src/` and repository automation lives in `scripts/`; both are TypeScript. Bun runs repository commands and Vite serves and builds the browser code. Tests under `test/**/*.mjs` and `vite.config.mjs` intentionally remain JavaScript.
+
+Install dependencies and start the Vite development server:
 
 ```bash
 bun install
 bun run dev
 ```
 
-The default local URL is `http://127.0.0.1:5173/`. Use Bun `1.3.13` or newer.
+The default local URL is `http://127.0.0.1:5173/`. Directly opening source HTML files is unsupported. Use Bun `1.3.14` or newer.
+
+Type-check both TypeScript programs without emitting files:
+
+```bash
+bun run typecheck
+```
+
+Run the Bun test suite:
+
+```bash
+bun test
+```
 
 Build the production site with Vite:
 
@@ -47,7 +61,7 @@ Check production performance budgets after a build:
 bun run budget
 ```
 
-`bun run test` and `bun run lint` currently run the same static validation suite so CI and contributors have conventional commands.
+`bun run lint` is an alias for the static site validation command.
 
 ## Security Notes
 
