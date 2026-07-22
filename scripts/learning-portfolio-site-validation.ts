@@ -231,9 +231,9 @@ export const validateLearningPortfolioSite = async ({
   });
   failures.push(...portfolioEvidence.failures);
 
-  const shippedArtifactFacts = createShippedArtifactPolicy({ rootDir })
-    .validationFacts();
-  for (const probe of shippedArtifactFacts.productionProbes) {
+  const productionProbeFacts = createShippedArtifactPolicy({ rootDir })
+    .productionProbeFacts();
+  for (const probe of productionProbeFacts) {
     if (!probe.existsInSource) {
       failures.push(
         `Shipped Artifact Policy production probe missing from source: ${probe.path}`
@@ -248,7 +248,7 @@ export const validateLearningPortfolioSite = async ({
       cssFiles: sourceInventory.cssFiles.length,
       blogPosts: publicationSource.publications.length,
       portfolioItems: portfolioEvidence.portfolioItemCount,
-      shippedArtifactProbes: shippedArtifactFacts.productionProbes.length
+      shippedArtifactProbes: productionProbeFacts.length
     }
   };
 };

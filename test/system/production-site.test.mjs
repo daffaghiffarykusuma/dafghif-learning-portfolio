@@ -99,10 +99,12 @@ describe('production site system checks', () => {
   });
 
   test('serves core production assets referenced by pages', async () => {
-    const assets = shippedArtifacts.productionAssetProbePaths();
-    expect(assets.length).toBeGreaterThan(0);
+    const probeRequestPaths = shippedArtifacts.productionProbeFacts()
+      .filter((probe) => probe.existsInSource)
+      .map((probe) => probe.requestPath);
+    expect(probeRequestPaths.length).toBeGreaterThan(0);
 
-    for (const asset of assets) {
+    for (const asset of probeRequestPaths) {
       const { response, body } = await request(asset);
       expect(response.status, asset).toBe(200);
       expect(body.length, asset).toBeGreaterThan(0);
@@ -117,7 +119,7 @@ describe('production site system checks', () => {
     }));
     const distRelativePaths = distFiles
       .map((filePath) => path.relative(path.join(projectRoot, 'dist'), filePath).split(path.sep).join('/'));
-    const editableOfficeFiles = shippedArtifacts.deniedArtifactFacts(distRelativePaths);
+    const editableOfficeFiles = distRelativePaths.filter(shippedArtifacts.isDeniedPath);
 
     expect(editableOfficeFiles).toEqual([]);
   });
