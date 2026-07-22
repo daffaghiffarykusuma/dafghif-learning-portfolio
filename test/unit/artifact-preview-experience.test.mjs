@@ -31,7 +31,7 @@ afterEach(() => {
 describe('Artifact Preview Experience', () => {
   test('opens Portfolio Item previews with hash updates', async () => {
     previewFixture();
-    const { createPortfolioItemPreviewExperience } = await importFresh('../../src/site/artifact-preview-experience.js');
+    const { createPortfolioItemPreviewExperience } = await importFresh('../../src/site/artifact-preview-experience.ts');
 
     createPortfolioItemPreviewExperience();
     document.querySelector('.portfolio-item-thumbnail-link').click();
@@ -52,7 +52,7 @@ describe('Artifact Preview Experience', () => {
     previewFixture('http://127.0.0.1/case-sample.html');
     document.querySelector('.view-details-button').dataset.viewer = 'assets/portfolio-viewers/sample.html';
     document.querySelector('.view-details-button').removeAttribute('data-pdf');
-    const { createCaseStudyArtifactPreviewExperience } = await importFresh('../../src/site/artifact-preview-experience.js');
+    const { createCaseStudyArtifactPreviewExperience } = await importFresh('../../src/site/artifact-preview-experience.ts');
 
     createCaseStudyArtifactPreviewExperience();
     document.querySelector('.view-details-button').click();
@@ -67,7 +67,7 @@ describe('Artifact Preview Experience', () => {
 
   test('destroy removes preview click, hash, close, backdrop, and escape listeners', async () => {
     previewFixture();
-    const { createArtifactPreviewExperience } = await importFresh('../../src/site/artifact-preview-experience.js');
+    const { createArtifactPreviewExperience } = await importFresh('../../src/site/artifact-preview-experience.ts');
 
     const experience = createArtifactPreviewExperience();
     experience.destroy();

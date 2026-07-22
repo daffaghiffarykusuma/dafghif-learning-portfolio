@@ -9,7 +9,7 @@ const engagementAliases = new Map([
     ['speaking', 'speaking']
 ]);
 
-const engagementNames = {
+const engagementNames: Record<string, string> = {
     training: 'a custom training programme',
     'custom-training': 'a custom training programme',
     'learning-materials': 'a learning-materials engagement',
@@ -19,7 +19,15 @@ const engagementNames = {
     speaking: 'an event speaking engagement'
 };
 
-const normalizePublicContext = (value = '') => String(value)
+type StoredInquiry = {
+    engagementType: string;
+    name: string;
+    email: string;
+    organisation: string;
+    goal: string;
+};
+
+const normalizePublicContext = (value: unknown = '') => String(value)
     .replace(/[\u0000-\u001f\u007f]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim()
@@ -35,8 +43,8 @@ const applyPublicContext = () => {
     const type = portfolioItem ? 'Portfolio Item' : 'engagement';
     const message = `Hello Daffa, I am interested in discussing the ${type}: ${label}. Please share availability and next steps.`;
     const summary = document.getElementById('contact-context');
-    const whatsappLink = document.querySelector('.contact-method-card.whatsapp');
-    const emailLink = document.querySelector('.contact-method-card.email');
+    const whatsappLink = document.querySelector<HTMLAnchorElement>('.contact-method-card.whatsapp');
+    const emailLink = document.querySelector<HTMLAnchorElement>('.contact-method-card.email');
     if (summary) {
         summary.textContent = `Regarding: ${label}`;
         summary.removeAttribute('hidden');
@@ -46,7 +54,7 @@ const applyPublicContext = () => {
 };
 
 const initInquiryForms = () => {
-    document.querySelectorAll('.engagement-inquiry-form').forEach((form) => {
+    document.querySelectorAll<HTMLFormElement>('.engagement-inquiry-form').forEach((form) => {
         if (form.dataset.inquiryInitialized === 'true') return;
         form.dataset.inquiryInitialized = 'true';
         form.addEventListener('submit', (event) => {
@@ -72,22 +80,22 @@ const initInquiryForms = () => {
 
 const initContactForm = () => {
     applyPublicContext();
-    const contactForm = document.querySelector('.contact-form');
+    const contactForm = document.querySelector<HTMLFormElement>('.contact-form');
     if (!contactForm) return;
 
     const params = new URLSearchParams(window.location.search);
     const engagementFromQuery = params.get('engagement') || params.get('service');
-    const nameField = contactForm.querySelector('#name');
-    const emailField = contactForm.querySelector('#email');
-    const organisationField = contactForm.querySelector('input[name="organisation"], #company');
-    const messageField = contactForm.querySelector('#message');
-    const engagementField = contactForm.querySelector('#service-interest');
+    const nameField = contactForm.querySelector<HTMLInputElement>('#name');
+    const emailField = contactForm.querySelector<HTMLInputElement>('#email');
+    const organisationField = contactForm.querySelector<HTMLInputElement>('input[name="organisation"], #company');
+    const messageField = contactForm.querySelector<HTMLTextAreaElement>('#message');
+    const engagementField = contactForm.querySelector<HTMLSelectElement>('#service-interest');
     const banner = document.getElementById('contact-prefill-message');
-    const setEngagement = (value) => {
+    const setEngagement = (value: string | null | undefined) => {
         if (!engagementField || !value) return;
         engagementField.value = engagementAliases.get(value.toLowerCase()) || value.toLowerCase();
     };
-    const applyStoredInquiry = (data) => {
+    const applyStoredInquiry = (data: StoredInquiry) => {
         if (nameField && data.name) nameField.value = data.name;
         if (emailField && data.email) emailField.value = data.email;
         if (organisationField && data.organisation) organisationField.value = data.organisation;
@@ -101,10 +109,24 @@ const initContactForm = () => {
         }
     };
 
-    let storedInquiry = null;
+    let storedInquiry: StoredInquiry | null = null;
     try {
         const raw = sessionStorage.getItem(ENGAGEMENT_INQUIRY_STORAGE_KEY);
-        storedInquiry = raw ? JSON.parse(raw) : null;
+        const parsed: unknown = raw ? JSON.parse(raw) : null;
+        if (parsed) {
+            const value = (key: keyof StoredInquiry) => {
+                if (typeof parsed !== 'object' || Array.isArray(parsed)) return '';
+                const field = Reflect.get(parsed, key);
+                return typeof field === 'string' ? field : '';
+            };
+            storedInquiry = {
+                engagementType: value('engagementType'),
+                name: value('name'),
+                email: value('email'),
+                organisation: value('organisation'),
+                goal: value('goal')
+            };
+        }
     } catch (error) {
         console.warn('Unable to parse stored inquiry context', error);
     }

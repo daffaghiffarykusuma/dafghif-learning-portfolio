@@ -1,10 +1,12 @@
 export function initTestimonials() {
-    const testimonialSliders = document.querySelectorAll('[data-testimonial-slider]');
+    const testimonialSliders = document.querySelectorAll<HTMLElement>('[data-testimonial-slider]');
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     testimonialSliders.forEach((slider) => {
-        const track = slider.querySelector('[data-slider-track]');
-        const allSlides = track ? Array.from(track.children) : [];
+        const track = slider.querySelector<HTMLElement>('[data-slider-track]');
+        const allSlides = track
+            ? Array.from(track.children).filter((slide): slide is HTMLElement => 'hidden' in slide)
+            : [];
         const featuredSlides = allSlides.filter((slide) => slide.hasAttribute('data-featured-testimonial'));
         const slides = featuredSlides.length ? featuredSlides : allSlides;
         if (featuredSlides.length) {
@@ -12,19 +14,20 @@ export function initTestimonials() {
                 slide.hidden = !slide.hasAttribute('data-featured-testimonial');
             });
         }
-        const prevButton = slider.querySelector('[data-slider-prev]');
-        const nextButton = slider.querySelector('[data-slider-next]');
-        const dotsContainer = slider.querySelector('[data-slider-dots]');
+        const prevButton = slider.querySelector<HTMLButtonElement>('[data-slider-prev]');
+        const nextButton = slider.querySelector<HTMLButtonElement>('[data-slider-next]');
+        const dotsContainer = slider.querySelector<HTMLElement>('[data-slider-dots]');
         if (!track || slides.length === 0) {
             slider.classList.add('is-disabled');
             return;
         }
+        const sliderTrack = track;
 
         let currentIndex = 0;
-        let autoplayTimer = null;
+        let autoplayTimer: number | null = null;
         const autoplayEnabled = slider.dataset.autoplay === 'true' && !prefersReducedMotion;
         const interval = parseInt(slider.dataset.interval || '6500', 10);
-        const dots = [];
+        const dots: HTMLButtonElement[] = [];
 
         const updateAria = () => {
             slides.forEach((slide, index) => {
@@ -53,9 +56,9 @@ export function initTestimonials() {
             startAutoplay();
         };
 
-        function goTo(targetIndex, fromAutoplay = false) {
+        function goTo(targetIndex: number, fromAutoplay = false) {
             currentIndex = (targetIndex + slides.length) % slides.length;
-            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            sliderTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
             updateAria();
             if (!fromAutoplay) restartAutoplay();
         }
@@ -81,8 +84,8 @@ export function initTestimonials() {
         startAutoplay();
     });
 
-    const testimonialToggle = document.querySelector('[data-toggle-testimonials]');
-    const testimonialArchive = document.querySelector('[data-testimonial-archive]');
+    const testimonialToggle = document.querySelector<HTMLButtonElement>('[data-toggle-testimonials]');
+    const testimonialArchive = document.querySelector<HTMLElement>('[data-testimonial-archive]');
     if (testimonialToggle && testimonialArchive) {
         testimonialToggle.addEventListener('click', () => {
             const isHidden = testimonialArchive.hasAttribute('hidden');
@@ -97,7 +100,7 @@ export function initTestimonials() {
         });
     }
 
-    document.querySelectorAll('[data-quote-toggle]').forEach((button) => {
+    document.querySelectorAll<HTMLButtonElement>('[data-quote-toggle]').forEach((button) => {
         const quote = button.previousElementSibling;
         if (!quote?.matches('[data-collapsible-quote]')) return;
         button.addEventListener('click', () => {

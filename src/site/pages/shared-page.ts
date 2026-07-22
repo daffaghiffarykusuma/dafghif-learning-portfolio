@@ -1,7 +1,7 @@
-import { initEngagementInquiryJourney } from '../engagement-inquiry-journey.js';
-import { initNavigation } from '../navigation.js';
-import { initPageEnhancements } from '../page-enhancements.js';
-import { initTestimonials } from '../testimonials.js';
+import { initEngagementInquiryJourney } from '../engagement-inquiry-journey.ts';
+import { initNavigation } from '../navigation.ts';
+import { initPageEnhancements } from '../page-enhancements.ts';
+import { initTestimonials } from '../testimonials.ts';
 
 const sharedPageInitializers = [
     { name: 'navigation', init: initNavigation },
@@ -10,10 +10,12 @@ const sharedPageInitializers = [
     { name: 'page enhancements', init: initPageEnhancements }
 ];
 
+type SharedPageInitializer = { name: string; init: () => void };
+
 export function initSharedPage({
     initializers = sharedPageInitializers,
     warn = console.warn
-} = {}) {
+}: { initializers?: SharedPageInitializer[]; warn?: (...data: unknown[]) => void } = {}) {
     initializers.forEach((initializer) => {
         try {
             initializer.init();

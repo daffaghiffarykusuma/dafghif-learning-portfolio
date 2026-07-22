@@ -1,6 +1,17 @@
 import { applyArtifactPreviewFramePolicy, createArtifactPreviewContract } from './artifact-preview-policy.ts';
 
-const previewItemFromHash = (hash, root = document) => {
+type PreviewOptions = { trigger?: HTMLElement; updateHash?: boolean };
+type PreviewExperienceOptions = {
+    openHashOnInit?: boolean;
+    updateHashOnOpen?: boolean;
+    root?: Document;
+    warn?: (...data: unknown[]) => void;
+};
+
+const isElement = (value: EventTarget | null): value is Element =>
+    value !== null && 'closest' in value && typeof value.closest === 'function';
+
+const previewItemFromHash = (hash: string, root: Document = document) => {
     if (!hash || hash === '#') return null;
     try {
         return root.getElementById(decodeURIComponent(hash.slice(1)));
@@ -9,9 +20,10 @@ const previewItemFromHash = (hash, root = document) => {
     }
 };
 
-const isPreviewTrigger = (button) => Boolean(button?.dataset.pdf || button?.dataset.viewer);
+const isPreviewTrigger = (button: HTMLElement | null): button is HTMLElement =>
+    Boolean(button?.dataset.pdf || button?.dataset.viewer);
 
-const titleForPreviewTrigger = (button) => {
+const titleForPreviewTrigger = (button: HTMLElement) => {
     const portfolioItemCard = button.closest('.portfolio-item');
     const cardContent = button.closest('.card-content') || portfolioItemCard?.querySelector('.card-content');
     return cardContent?.querySelector('h3, h4')?.textContent || 'Portfolio Item Details';
@@ -22,20 +34,20 @@ export function createArtifactPreviewExperience({
     updateHashOnOpen = true,
     root = document,
     warn = console.warn
-} = {}) {
-    const pdfModal = root.getElementById('pdf-modal');
-    const pdfModalTitle = root.getElementById('pdf-modal-title');
-    const pdfModalMeta = root.getElementById('pdf-modal-meta');
-    const pdfOpenFull = root.getElementById('pdf-open-full');
-    const pdfDiscuss = root.getElementById('pdf-discuss');
-    const pdfIframe = root.getElementById('pdf-iframe');
+}: PreviewExperienceOptions = {}) {
+    const pdfModal = root.querySelector<HTMLElement>('#pdf-modal');
+    const pdfModalTitle = root.querySelector<HTMLElement>('#pdf-modal-title');
+    const pdfModalMeta = root.querySelector<HTMLElement>('#pdf-modal-meta');
+    const pdfOpenFull = root.querySelector<HTMLAnchorElement>('#pdf-open-full');
+    const pdfDiscuss = root.querySelector<HTMLAnchorElement>('#pdf-discuss');
+    const pdfIframe = root.querySelector<HTMLIFrameElement>('#pdf-iframe');
     const hasPreviewTriggers = Boolean(root.querySelector('.view-details-button'));
     const hasPreviewMarkup = pdfModal || pdfModalTitle || pdfIframe || hasPreviewTriggers;
-    let activePdfModal = null;
-    let lastPreviewTrigger = null;
+    let activePdfModal: HTMLElement | null = null;
+    let lastPreviewTrigger: HTMLElement | null = null;
 
     const closePdfModal = () => {
-        if (!activePdfModal) return;
+        if (!activePdfModal || !pdfIframe) return;
         activePdfModal.hidden = true;
         activePdfModal.style.display = '';
         pdfIframe.src = '';
@@ -59,7 +71,7 @@ export function createArtifactPreviewExperience({
         };
     }
 
-    const openPreview = (button, options = {}) => {
+    const openPreview = (button: HTMLElement, options: PreviewOptions = {}) => {
         const pdfPath = button.dataset.pdf;
         const viewerPath = button.dataset.viewer;
         if (!pdfPath && !viewerPath) {
@@ -106,7 +118,7 @@ export function createArtifactPreviewExperience({
         pdfModal.hidden = false;
         pdfModal.style.display = 'block';
         activePdfModal = pdfModal;
-        pdfModal.querySelector('.close-modal')?.focus();
+        pdfModal.querySelector<HTMLElement>('.close-modal')?.focus();
 
         setTimeout(() => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -116,14 +128,14 @@ export function createArtifactPreviewExperience({
     };
 
     const openPreviewFromHash = () => {
-        const previewButton = previewItemFromHash(window.location.hash, root)?.querySelector('.view-details-button');
+        const previewButton = previewItemFromHash(window.location.hash, root)?.querySelector<HTMLElement>('.view-details-button') || null;
         if (!isPreviewTrigger(previewButton)) return false;
         return openPreview(previewButton, { trigger: previewButton, updateHash: false });
     };
 
-    const handlePreviewClick = (event) => {
-        const eventTarget = event.target?.closest ? event.target : null;
-        const button = eventTarget?.closest('.view-details-button');
+    const handlePreviewClick = (event: MouseEvent) => {
+        const eventTarget = isElement(event.target) ? event.target : null;
+        const button = eventTarget?.closest<HTMLElement>('.view-details-button') || null;
         if (button && isPreviewTrigger(button)) {
             event.preventDefault();
             event.stopPropagation();
@@ -131,32 +143,33 @@ export function createArtifactPreviewExperience({
             return;
         }
 
-        const link = eventTarget?.closest('.portfolio-item-title-link, .portfolio-item-thumbnail-link');
+        const link = eventTarget?.closest<HTMLAnchorElement>('.portfolio-item-title-link, .portfolio-item-thumbnail-link');
         if (!link) return;
         const targetHash = new URL(link.href, window.location.href).hash;
-        const previewButton = previewItemFromHash(targetHash, root)?.querySelector('.view-details-button')
-            || link.closest('.portfolio-item')?.querySelector('.view-details-button');
+        const previewButton = previewItemFromHash(targetHash, root)?.querySelector<HTMLElement>('.view-details-button')
+            || link.closest('.portfolio-item')?.querySelector<HTMLElement>('.view-details-button')
+            || null;
         if (!isPreviewTrigger(previewButton)) return;
         event.preventDefault();
         event.stopPropagation();
         openPreview(previewButton, { trigger: link });
     };
 
-    const handleModalCloseClick = (event) => {
+    const handleModalCloseClick = (event: Event) => {
         event.preventDefault();
         event.stopPropagation();
         closePdfModal();
     };
-    const handleModalBackdropClick = (event) => {
+    const handleModalBackdropClick = (event: MouseEvent) => {
         if (event.target === pdfModal) closePdfModal();
     };
-    const handleEscape = (event) => {
+    const handleEscape = (event: KeyboardEvent) => {
         if (event.key === 'Escape') closePdfModal();
     };
 
     root.addEventListener('click', handlePreviewClick, true);
     window.addEventListener('hashchange', openPreviewFromHash);
-    pdfModal.querySelector('.close-modal')?.addEventListener('click', handleModalCloseClick);
+    pdfModal.querySelector<HTMLElement>('.close-modal')?.addEventListener('click', handleModalCloseClick);
     pdfModal.addEventListener('click', handleModalBackdropClick);
     root.addEventListener('keydown', handleEscape);
     if (openHashOnInit) openPreviewFromHash();
@@ -165,7 +178,7 @@ export function createArtifactPreviewExperience({
         closePdfModal();
         root.removeEventListener('click', handlePreviewClick, true);
         window.removeEventListener('hashchange', openPreviewFromHash);
-        pdfModal.querySelector('.close-modal')?.removeEventListener('click', handleModalCloseClick);
+        pdfModal.querySelector<HTMLElement>('.close-modal')?.removeEventListener('click', handleModalCloseClick);
         pdfModal.removeEventListener('click', handleModalBackdropClick);
         root.removeEventListener('keydown', handleEscape);
     };

@@ -1,20 +1,30 @@
 const DEFAULT_VISIBLE_COUNT = 9;
 const MAX_TEXT_LENGTH = 120;
 
-const normalizeText = (value = '') =>
+type PortfolioDiscoveryState = {
+    query: string;
+    area: string;
+    tag: string;
+    visibleCount: number;
+};
+
+type LocationLike = Pick<Location, 'search' | 'pathname' | 'hash'>;
+type HistoryLike = Pick<History, 'replaceState'>;
+
+const normalizeText = (value: unknown = '') =>
     String(value ?? '')
         .replace(/[\u0000-\u001f\u007f]/g, ' ')
         .replace(/\s+/g, ' ')
         .trim()
         .slice(0, MAX_TEXT_LENGTH);
 
-const normalizeToken = (value = '') =>
+const normalizeToken = (value: unknown = '') =>
     normalizeText(value)
         .toLowerCase()
         .replace(/[^a-z0-9-]/g, '');
 
-const normalizeVisibleCount = (value) => {
-    const parsed = Number.parseInt(value, 10);
+const normalizeVisibleCount = (value: unknown) => {
+    const parsed = Number.parseInt(String(value ?? ''), 10);
     return Number.isFinite(parsed) && parsed >= DEFAULT_VISIBLE_COUNT
         ? parsed
         : DEFAULT_VISIBLE_COUNT;
@@ -27,7 +37,7 @@ export const createDefaultPortfolioDiscoveryState = () => ({
     visibleCount: DEFAULT_VISIBLE_COUNT
 });
 
-export const parsePortfolioDiscoveryState = (locationLike = window.location) => {
+export const parsePortfolioDiscoveryState = (locationLike: LocationLike = window.location): PortfolioDiscoveryState => {
     const params = new URLSearchParams(locationLike.search || '');
     return {
         query: normalizeText(params.get('q')),
@@ -37,7 +47,7 @@ export const parsePortfolioDiscoveryState = (locationLike = window.location) => 
     };
 };
 
-export const serializePortfolioDiscoveryState = (state = createDefaultPortfolioDiscoveryState()) => {
+export const serializePortfolioDiscoveryState = (state: PortfolioDiscoveryState = createDefaultPortfolioDiscoveryState()) => {
     const params = new URLSearchParams();
     const query = normalizeText(state.query);
     const area = normalizeToken(state.area);
@@ -52,7 +62,7 @@ export const serializePortfolioDiscoveryState = (state = createDefaultPortfolioD
     return queryString ? `?${queryString}` : '';
 };
 
-export const matchesPortfolioItem = (item, state = createDefaultPortfolioDiscoveryState()) => {
+export const matchesPortfolioItem = (item: HTMLElement | null, state: PortfolioDiscoveryState = createDefaultPortfolioDiscoveryState()) => {
     if (!item || item.classList.contains('portfolio-item-placeholder')) return false;
     const categories = new Set(
         String(item.dataset.category || '')
@@ -74,15 +84,15 @@ export const initPortfolioDiscovery = ({
     root = document,
     locationLike = window.location,
     historyLike = window.history
-} = {}) => {
-    const container = root.getElementById('portfolio-discovery');
-    const searchInput = root.getElementById('portfolio-search');
-    const filterButtons = Array.from(root.querySelectorAll('#portfolio-discovery .filter-button'));
-    const moreFilter = root.getElementById('portfolio-more-filter');
-    const resultSummary = root.getElementById('portfolio-result-summary');
-    const clearFiltersButton = root.getElementById('portfolio-clear-filters');
-    const showMoreButton = root.getElementById('portfolio-show-more');
-    const items = Array.from(root.querySelectorAll('#portfolio-items .portfolio-item'));
+}: { root?: Document; locationLike?: LocationLike; historyLike?: HistoryLike } = {}) => {
+    const container = root.querySelector<HTMLElement>('#portfolio-discovery');
+    const searchInput = root.querySelector<HTMLInputElement>('#portfolio-search');
+    const filterButtons = Array.from(root.querySelectorAll<HTMLButtonElement>('#portfolio-discovery .filter-button'));
+    const moreFilter = root.querySelector<HTMLSelectElement>('#portfolio-more-filter');
+    const resultSummary = root.querySelector<HTMLElement>('#portfolio-result-summary');
+    const clearFiltersButton = root.querySelector<HTMLButtonElement>('#portfolio-clear-filters');
+    const showMoreButton = root.querySelector<HTMLButtonElement>('#portfolio-show-more');
+    const items = Array.from(root.querySelectorAll<HTMLElement>('#portfolio-items .portfolio-item'));
 
     if (!container || !searchInput || !filterButtons.length || !resultSummary || !clearFiltersButton || !showMoreButton || !items.length) {
         return null;
@@ -97,7 +107,7 @@ export const initPortfolioDiscovery = ({
         historyLike.replaceState(null, '', `${locationLike.pathname}${query}${locationLike.hash || ''}`);
     };
 
-    const render = ({ updateUrl = false } = {}) => {
+    const render = ({ updateUrl = false }: { updateUrl?: boolean } = {}) => {
         searchInput.value = state.query;
         if (moreFilter) moreFilter.value = state.tag;
         filterButtons.forEach((button) => {

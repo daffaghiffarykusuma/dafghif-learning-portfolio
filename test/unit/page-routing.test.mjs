@@ -38,7 +38,7 @@ afterEach(() => {
 describe('portfolio page', () => {
   test('initializes filters and opens direct hash previews', async () => {
     portfolioFixture({ hash: '#sample-item' });
-    const { initCurrentPage } = await importFresh('../../src/site/pages/page-router.js');
+    const { initCurrentPage } = await importFresh('../../src/site/pages/page-router.ts');
 
     expect(document.getElementById('pdf-iframe').getAttribute('src')).toBeNull();
     const preview = initCurrentPage();
@@ -61,7 +61,7 @@ describe('case study page routing', () => {
         <iframe id="pdf-iframe"></iframe>
       </div>
     `, 'http://127.0.0.1/case-studies.html');
-    const { initCurrentPage } = await importFresh('../../src/site/pages/page-router.js');
+    const { initCurrentPage } = await importFresh('../../src/site/pages/page-router.ts');
 
     expect(initCurrentPage()).toBeTruthy();
 
@@ -88,7 +88,7 @@ describe('case study page routing', () => {
       </div>
     `, 'http://127.0.0.1/case-sample.html');
     globalThis.console = window.console;
-    const { initCurrentPage } = await importFresh('../../src/site/pages/page-router.js');
+    const { initCurrentPage } = await importFresh('../../src/site/pages/page-router.ts');
 
     initCurrentPage();
     document.querySelector('.portfolio-item-thumbnail-link').click();
@@ -115,7 +115,7 @@ describe('case study page routing', () => {
       </div>
     `, 'http://127.0.0.1/case-sample.html#artifact-sample');
     globalThis.console = window.console;
-    const { initCurrentPage } = await importFresh('../../src/site/pages/page-router.js');
+    const { initCurrentPage } = await importFresh('../../src/site/pages/page-router.ts');
 
     initCurrentPage();
 

@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('blog-cards');
     if (!container) return;
 
-    const appendMediumLink = (parent, href, text, className) => {
+    const appendMediumLink = (parent: HTMLElement, href: string, text: string, className = '') => {
         const link = document.createElement('a');
         link.href = href;
         link.textContent = text;

@@ -1,14 +1,14 @@
-import { initPortfolioDiscovery } from '../../portfolio-discovery.js';
-import { initSharedPage } from './shared-page.js';
+import { initPortfolioDiscovery } from '../../portfolio-discovery.ts';
+import { initSharedPage } from './shared-page.ts';
 import {
     createCaseStudyArtifactPreviewExperience,
     createPortfolioItemPreviewExperience
-} from '../artifact-preview-experience.js';
+} from '../artifact-preview-experience.ts';
 import { isCaseStudyPageIdentity, readPageIdentity } from '../case-study-page-identity.ts';
 
-const pageNameFromPath = (pathname) => pathname.split('/').pop() || 'index.html';
+const pageNameFromPath = (pathname: string) => pathname.split('/').pop() || 'index.html';
 
-export function initCurrentPage({ pathname = window.location.pathname } = {}) {
+export function initCurrentPage({ pathname = window.location.pathname }: { pathname?: string } = {}) {
     initSharedPage();
 
     const pageName = pageNameFromPath(pathname);
