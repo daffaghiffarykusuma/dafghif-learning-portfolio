@@ -7,9 +7,6 @@ import {
   createSourceSiteInventory,
   idsForSource
 } from './site-inventory.ts';
-import type { SourceSiteInventory } from './site-inventory.ts';
-import type { PortfolioEvidenceValidationResult } from './portfolio-evidence-validator.ts';
-import type { CreatedShippedArtifactPolicy } from './shipped-artifact-policy.ts';
 
 export type LearningPortfolioSiteValidationCounts = {
   htmlFiles: number;
@@ -24,20 +21,9 @@ export type LearningPortfolioSiteValidationResult = {
   counts: LearningPortfolioSiteValidationCounts;
 };
 
-type LearningPortfolioSiteValidationAdapters = {
-  createSourceSiteInventory: (options: { rootDir: string }) => Promise<SourceSiteInventory>;
-  readText: (filePath: string) => Promise<string>;
-  pathExists: (filePath: string) => Promise<boolean>;
-  validatePortfolioEvidence: (options: { root: string }) => Promise<PortfolioEvidenceValidationResult>;
-  createShippedArtifactPolicy: (
-    options: { rootDir: string }
-  ) => Pick<CreatedShippedArtifactPolicy, 'validationFacts'>;
-};
-
 type ValidateLearningPortfolioSiteOptions = {
   rootDir?: string;
   allowedExternalHosts?: ReadonlySet<string>;
-  adapters?: Partial<LearningPortfolioSiteValidationAdapters>;
 };
 
 const defaultAllowedExternalHosts = new Set([
@@ -50,20 +36,14 @@ const defaultAllowedExternalHosts = new Set([
   'wa.link'
 ]);
 
-const defaultAdapters: LearningPortfolioSiteValidationAdapters = Object.freeze({
-  createSourceSiteInventory,
-  readText: (filePath: string) => readFile(filePath, 'utf8'),
-  pathExists: async (filePath: string) => {
-    try {
-      await stat(filePath);
-      return true;
-    } catch {
-      return false;
-    }
-  },
-  validatePortfolioEvidence,
-  createShippedArtifactPolicy
-});
+const pathExists = async (filePath: string) => {
+  try {
+    await stat(filePath);
+    return true;
+  } catch {
+    return false;
+  }
+};
 
 const isExternal = (value: string) =>
   /^[a-z][a-z\d+.-]*:/i.test(value) || value.startsWith('//');
@@ -76,10 +56,8 @@ const splitUrl = (value: string) => {
 
 export const validateLearningPortfolioSite = async ({
   rootDir = process.cwd(),
-  allowedExternalHosts = defaultAllowedExternalHosts,
-  adapters = {}
+  allowedExternalHosts = defaultAllowedExternalHosts
 }: ValidateLearningPortfolioSiteOptions = {}): Promise<LearningPortfolioSiteValidationResult> => {
-  const dependencies = { ...defaultAdapters, ...adapters };
   const failures: string[] = [];
   const decodeUrlPart = (file: string, attr: string, value: string): string | null => {
     try {
@@ -148,7 +126,7 @@ export const validateLearningPortfolioSite = async ({
       failures.push(`${file}: local ${attr} escapes the project root: ${value}`);
       return;
     }
-    if (pathname && !(await dependencies.pathExists(targetPath))) {
+    if (pathname && !(await pathExists(targetPath))) {
       failures.push(`${file}: missing local ${attr} target: ${value}`);
       return;
     }
@@ -158,7 +136,7 @@ export const validateLearningPortfolioSite = async ({
     if (decodedFragment === null) return;
     const targetSource = targetPath === filePath
       ? source
-      : await dependencies.readText(targetPath).catch(() => '');
+      : await readFile(targetPath, 'utf8').catch(() => '');
     const targetIds = targetPath === filePath
       ? pageIds
       : new Set(idsForSource(targetSource));
@@ -167,7 +145,7 @@ export const validateLearningPortfolioSite = async ({
     }
   };
 
-  const sourceInventory = await dependencies.createSourceSiteInventory({
+  const sourceInventory = await createSourceSiteInventory({
     rootDir
   });
   for (const page of sourceInventory.htmlPages) {
@@ -222,13 +200,13 @@ export const validateLearningPortfolioSite = async ({
         );
         continue;
       }
-      if (!(await dependencies.pathExists(targetPath))) {
+      if (!(await pathExists(targetPath))) {
         failures.push(`${cssFile.relPath}: missing CSS asset target: ${value}`);
       }
     }
   }
 
-  const headers = await dependencies.readText(path.join(rootDir, '_headers'));
+  const headers = await readFile(path.join(rootDir, '_headers'), 'utf8');
   const csp = headers.match(/Content-Security-Policy:\s*(.+)/i)?.[1] || '';
   if (/\bscript-src\b[^;\n]*'unsafe-inline'/.test(csp)) {
     failures.push('_headers: script-src still allows unsafe-inline');
@@ -241,20 +219,19 @@ export const validateLearningPortfolioSite = async ({
   }
 
   const blogJson: unknown = JSON.parse(
-    await dependencies.readText(path.join(rootDir, 'assets/blog.json'))
+    await readFile(path.join(rootDir, 'assets/blog.json'), 'utf8')
   );
   const publicationSource = createPublicationSourceFacts(blogJson, {
     sourceName: 'assets/blog.json'
   });
   failures.push(...publicationSource.failures);
 
-  const portfolioEvidence = await dependencies.validatePortfolioEvidence({
+  const portfolioEvidence = await validatePortfolioEvidence({
     root: rootDir
   });
   failures.push(...portfolioEvidence.failures);
 
-  const shippedArtifactFacts = dependencies
-    .createShippedArtifactPolicy({ rootDir })
+  const shippedArtifactFacts = createShippedArtifactPolicy({ rootDir })
     .validationFacts();
   for (const probe of shippedArtifactFacts.productionProbes) {
     if (!probe.existsInSource) {

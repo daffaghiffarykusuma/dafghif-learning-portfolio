@@ -1,4 +1,6 @@
 import { describe, expect, test } from 'bun:test';
+import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises';
+import os from 'node:os';
 import path from 'node:path';
 import { projectRoot } from '../helpers/dom.mjs';
 import {
@@ -38,88 +40,73 @@ describe('Learning Portfolio Site Validation', () => {
       .toContain('Validated 28 HTML files');
   });
 
-  test('keeps validation failures and counts behind the module interface', async () => {
-    const indexPath = path.join(projectRoot, 'index.html');
-    const result = await validateLearningPortfolioSite({
-      rootDir: projectRoot,
-      adapters: {
-        createSourceSiteInventory: async () => ({
-          htmlPages: [
-            {
-              filePath: indexPath,
-              relPath: 'index.html',
-              source: '<main id="main"></main>',
-              ids: ['main'],
-              urlAttributes: [
-                { attr: 'href', value: 'missing.html' },
-                { attr: 'href', value: 'https://unreviewed.example/work' },
-                { attr: 'href', value: '#missing-fragment' }
-              ],
-              blankTargetTags: ['<a href="https://medium.com" target="_blank">Read</a>'],
-              hasInlineScript: true,
-              hasInlineEventHandler: true
-            }
-          ],
-          cssFiles: [
-            {
-              filePath: path.join(projectRoot, 'css/style.css'),
-              relPath: 'css/style.css',
-              urls: ['../assets/missing.webp']
-            }
-          ]
-        }),
-        pathExists: async () => false,
-        readText: async (filePath) => {
-          if (filePath.endsWith('_headers')) {
-            return "Content-Security-Policy: script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'";
-          }
-          if (filePath.endsWith('assets\\blog.json') || filePath.endsWith('assets/blog.json')) {
-            return JSON.stringify([
-              {
-                url: 'http://example.com/post',
-                image: 'https://example.com/image.webp'
-              }
-            ]);
-          }
-          return '';
-        },
-        validatePortfolioEvidence: async () => ({
-          failures: ['Portfolio Evidence failed'],
-          portfolioItemCount: 2
-        }),
-        createShippedArtifactPolicy: () => ({
-          validationFacts: () => ({
-            productionProbes: [
-              { path: 'required.pdf', existsInSource: false }
-            ]
-          })
-        })
-      }
-    });
+  test('validates a temporary Learning Portfolio Site through the public interface', async () => {
+    const rootDir = await mkdtemp(path.join(os.tmpdir(), 'learning-portfolio-validation-'));
+    try {
+      await Promise.all([
+        mkdir(path.join(rootDir, 'assets/data'), { recursive: true }),
+        mkdir(path.join(rootDir, 'css'), { recursive: true })
+      ]);
+      await Promise.all([
+        writeFile(path.join(rootDir, 'index.html'), `
+          <main id="main" onclick="return false">
+            <a href="missing.html">Missing</a>
+            <a href="https://unreviewed.example/work">External</a>
+            <a href="#missing-fragment">Fragment</a>
+            <a href="https://medium.com" target="_blank">Read</a>
+          </main>
+          <script>window.inline = true;</script>
+        `),
+        writeFile(path.join(rootDir, 'css/style.css'), 'body { background: url(../assets/missing.webp); }'),
+        writeFile(path.join(rootDir, '_headers'), "Content-Security-Policy: script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'"),
+        writeFile(path.join(rootDir, 'assets/blog.json'), JSON.stringify([{
+          url: 'http://example.com/post',
+          image: 'https://example.com/image.webp'
+        }])),
+        writeFile(path.join(rootDir, 'assets/data/portfolio-source.json'), JSON.stringify({
+          schemaVersion: 1,
+          portfolioItemCount: 0,
+          featuredPortfolioItemIds: [],
+          portfolioItems: [],
+          caseStudies: []
+        })),
+        writeFile(path.join(rootDir, 'assets/data/portfolio-proof-points.json'), JSON.stringify({
+          practiceAreaDefaults: {},
+          itemOverrides: {}
+        })),
+        writeFile(path.join(rootDir, 'assets/data/portfolio-items.json'), JSON.stringify({ portfolioItems: [] })),
+        writeFile(path.join(rootDir, 'assets/data/portfolio-ai-context.json'), JSON.stringify({ portfolioItems: [] }))
+      ]);
 
-    expect(result.counts).toEqual({
-      htmlFiles: 1,
-      cssFiles: 1,
-      blogPosts: 1,
-      portfolioItems: 2,
-      shippedArtifactProbes: 1
-    });
-    expect(result.failures).toEqual(expect.arrayContaining([
-      'index.html: contains inline script; use an external JS file so CSP can block inline execution',
-      'index.html: contains inline event handler; use external JavaScript instead',
-      'index.html: missing local href target: missing.html',
-      'index.html: href uses unreviewed external host: unreviewed.example',
-      'index.html: broken fragment in href: #missing-fragment',
-      'css/style.css: missing CSS asset target: ../assets/missing.webp',
-      '_headers: script-src still allows unsafe-inline',
-      '_headers: top-level style-src still allows unsafe-inline',
-      '_headers: CSP should declare connect-src for fetch destinations',
-      'assets/blog.json: post 1 url is not HTTPS',
-      'assets/blog.json: post 1 URL is not a Medium host',
-      'assets/blog.json: post 1 image host is not allowlisted',
-      'Portfolio Evidence failed',
-      'Shipped Artifact Policy production probe missing from source: required.pdf'
-    ]));
+      const result = await validateLearningPortfolioSite({ rootDir });
+
+      expect(result.counts).toEqual({
+        htmlFiles: 1,
+        cssFiles: 1,
+        blogPosts: 1,
+        portfolioItems: 0,
+        shippedArtifactProbes: 8
+      });
+      expect(result.failures).toEqual(expect.arrayContaining([
+        'index.html: contains inline script; use an external JS file so CSP can block inline execution',
+        'index.html: contains inline event handler; use external JavaScript instead',
+        'index.html: missing local href target: missing.html',
+        'index.html: href uses unreviewed external host: unreviewed.example',
+        'index.html: broken fragment in href: #missing-fragment',
+        'css/style.css: missing CSS asset target: ../assets/missing.webp',
+        '_headers: script-src still allows unsafe-inline',
+        '_headers: top-level style-src still allows unsafe-inline',
+        '_headers: CSP should declare connect-src for fetch destinations',
+        'assets/blog.json: post 1 url is not HTTPS',
+        'assets/blog.json: post 1 URL is not a Medium host',
+        'assets/blog.json: post 1 image host is not allowlisted',
+        'assets/data/portfolio-source.json: expected at least one Portfolio Item source record',
+        'assets/data/portfolio-items.json: expected at least one portfolio item',
+        'Shipped Artifact Policy production probe missing from source: cv/Profile.pdf'
+      ]));
+    } finally {
+      await rm(rootDir, { recursive: true, force: true });
+    }
   });
 
   test('keeps the Bun command as a thin passing adapter', async () => {
