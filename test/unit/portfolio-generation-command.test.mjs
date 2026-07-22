@@ -4,8 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { runPortfolioEvidenceWorkflow } from '../../scripts/portfolio-generation-command.mjs';
 import {
-  createPortfolioEvidenceWorkflow,
-  portfolioEvidenceWorkflowOutputTypes
+  createPortfolioEvidenceWorkflow
 } from '../../scripts/portfolio-evidence-workflow.mjs';
 
 let tempRoot = null;
@@ -75,11 +74,11 @@ describe('Portfolio generation command', () => {
       caseStudyPageCount: 2
     });
     expect(workflow.outputs.map((output) => output.type)).toEqual([
-      portfolioEvidenceWorkflowOutputTypes.portfolioHtml,
-      portfolioEvidenceWorkflowOutputTypes.catalogJson,
-      portfolioEvidenceWorkflowOutputTypes.caseStudyHtml,
-      portfolioEvidenceWorkflowOutputTypes.caseStudyHtml,
-      portfolioEvidenceWorkflowOutputTypes.aiContextJson
+      'portfolio-html',
+      'catalog-json',
+      'case-study-html',
+      'case-study-html',
+      'ai-context-json'
     ]);
     expect(workflow.outputs.find((output) => output.pathKey === 'portfolioHtml').contents).toContain('Sample Deck');
     expect(workflow.outputs.find((output) => output.pathKey === 'catalogOutput').contents).toContain('"generatedFrom": "assets/data/portfolio-source.json"');

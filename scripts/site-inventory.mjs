@@ -1,4 +1,4 @@
-import { readdir, readFile, stat } from 'node:fs/promises';
+import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { gzipSync } from 'node:zlib';
 
@@ -6,22 +6,9 @@ const DEFAULT_IGNORED_DIRS = new Set(['.git', '.vscode', 'dist', 'node_modules']
 
 export const toPosixPath = (value) => value.split(path.sep).join('/');
 
-export const walkFiles = async (dir, { ignoredDirs = DEFAULT_IGNORED_DIRS, extensions = null } = {}, results = []) => {
-  const entries = await readdir(dir, { withFileTypes: true });
-  for (const entry of entries) {
-    const target = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      if (!ignoredDirs.has(entry.name)) {
-        await walkFiles(target, { ignoredDirs, extensions }, results);
-      }
-      continue;
-    }
-    if (!extensions || extensions.has(path.extname(entry.name).toLowerCase())) {
-      results.push(target);
-    }
-  }
-  return results;
-};
+const globFiles = (dir, pattern) => Array.fromAsync(
+  new Bun.Glob(pattern).scan({ cwd: dir, absolute: true, onlyFiles: true })
+);
 
 export const idsForSource = (source) =>
   Array.from(source.matchAll(/\bid=["']([^"']+)["']/gi), (match) => match[1]);
@@ -38,8 +25,9 @@ export const cssUrlsForSource = (source) =>
 
 export const createSourceSiteInventory = async ({ rootDir = process.cwd(), ignoredDirs = DEFAULT_IGNORED_DIRS } = {}) => {
   const rel = (absolutePath) => toPosixPath(path.relative(rootDir, absolutePath));
-  const htmlPaths = (await walkFiles(rootDir, { ignoredDirs, extensions: new Set(['.html']) })).sort();
-  const cssPaths = (await walkFiles(rootDir, { ignoredDirs, extensions: new Set(['.css']) })).sort();
+  const isIgnored = (absolutePath) => rel(absolutePath).split('/').some((part) => ignoredDirs.has(part));
+  const htmlPaths = (await globFiles(rootDir, '**/*.html')).filter((file) => !isIgnored(file)).sort();
+  const cssPaths = (await globFiles(rootDir, '**/*.css')).filter((file) => !isIgnored(file)).sort();
 
   const htmlPages = await Promise.all(htmlPaths.map(async (filePath) => {
     const source = await readFile(filePath, 'utf8');
@@ -69,7 +57,7 @@ export const createSourceSiteInventory = async ({ rootDir = process.cwd(), ignor
 };
 
 export const createDistSiteInventory = async ({ rootDir = process.cwd(), distDir = path.join(rootDir, 'dist') } = {}) => {
-  const files = await walkFiles(distDir, { ignoredDirs: new Set() });
+  const files = await globFiles(distDir, '**/*');
   const contents = new Map();
   const records = await Promise.all(files.sort().map(async (file) => {
     const size = (await stat(file)).size;

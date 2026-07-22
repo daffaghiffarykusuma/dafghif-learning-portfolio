@@ -230,24 +230,9 @@ body > header nav.active ul li.current a {
 }
 
 /* Dropdown Menu */
-.dropdown-menu {
-    background: var(--dm-bg-secondary) !important;
-    border: 1px solid var(--dm-border-default) !important;
-    box-shadow: var(--dm-shadow-lg) !important;
-}
 
-.dropdown-menu::before {
-    border-bottom-color: var(--dm-bg-secondary) !important;
-}
 
-.dropdown-menu li a {
-    color: var(--dm-text-secondary) !important;
-}
 
-.dropdown-menu li a:hover {
-    background: var(--dm-bg-tertiary) !important;
-    color: var(--dm-text-primary) !important;
-}
 
 .dropdown-menu li.active a {
     color: var(--dm-accent) !important;
@@ -260,17 +245,8 @@ body > header nav.active ul li.current a {
         background: var(--dm-bg-secondary) !important;
     }
 
-    .dropdown-menu {
-        background: var(--dm-bg-tertiary) !important;
-    }
 
-    .dropdown-menu li a {
-        color: var(--dm-text-secondary) !important;
-    }
 
-    .dropdown-menu li a:hover {
-        background: var(--dm-bg-elevated) !important;
-    }
 }
 
 /* =================================================================
@@ -342,21 +318,11 @@ body > header nav.active ul li.current a {
 }
 
 /* Service Overview Hero */
-.service-overview-hero,
-.portfolio-hero,
-.blog-hero,
-.about-hero,
-.contact-hero,
 .contact-hero-new {
     background: var(--dm-bg-primary) !important;
     border-bottom: 1px solid var(--dm-border-subtle) !important;
 }
 
-.hero-split .hero-copy h1,
-.service-overview-hero h1,
-.portfolio-hero .section-title,
-.blog-hero .section-title,
-.about-hero .section-title,
 .contact-hero-title {
     color: var(--dm-text-primary) !important;
     background: none !important;
@@ -438,7 +404,6 @@ body > header nav.active ul li.current a {
 
 /* Secondary CTA Button */
 .cta-button.cta-secondary,
-.btn-secondary,
 .cta-secondary {
     background: transparent !important;
     color: var(--dm-accent) !important;
@@ -447,7 +412,6 @@ body > header nav.active ul li.current a {
 }
 
 .cta-button.cta-secondary:hover,
-.btn-secondary:hover,
 .cta-secondary:hover {
     background: var(--dm-accent) !important;
     color: var(--dm-bg-primary) !important;
@@ -498,13 +462,11 @@ body > header nav.active ul li.current a {
 
 /* Service Cards */
 .practice-area-card,
-.service-card,
 .spotlight-card,
 .testimonial-card,
 .certification-card,
 .why-card,
 .skill-category,
-.contact-card,
 .blog-card,
 .expect-step {
     background: var(--dm-bg-secondary) !important;
@@ -513,12 +475,10 @@ body > header nav.active ul li.current a {
 }
 
 .practice-area-card:hover,
-.service-card:hover,
 .spotlight-card:hover,
 .testimonial-card:hover,
 .certification-card:hover,
 .why-card:hover,
-.contact-card:hover,
 .blog-card:hover {
     border-color: var(--dm-border-default) !important;
     box-shadow: var(--dm-shadow-md) !important;
@@ -527,7 +487,6 @@ body > header nav.active ul li.current a {
 
 /* Card titles */
 .practice-area-card h3,
-.service-card h3,
 .spotlight-card h3,
 .why-card h3,
 .skill-category h3,
@@ -539,10 +498,8 @@ body > header nav.active ul li.current a {
 
 /* Card descriptions */
 .practice-area-card p,
-.service-card p,
 .spotlight-card p,
 .why-card p,
-.service-preview-desc,
 .blog-card-desc {
     color: var(--dm-text-secondary) !important;
 }
@@ -581,27 +538,11 @@ body > header nav.active ul li.current a {
 }
 
 /* Spotlight cards */
-.spotlight-eyebrow {
-    color: var(--dm-accent) !important;
-}
 
-.spotlight-price {
-    color: var(--dm-text-secondary) !important;
-}
 
-.spotlight-price strong {
-    color: var(--dm-text-primary) !important;
-}
 
-.spotlight-list li {
-    color: var(--dm-text-secondary) !important;
-}
 
 /* Pricing cards */
-.pricing-card {
-    background: var(--dm-bg-secondary) !important;
-    border: 1px solid var(--dm-border-subtle) !important;
-}
 
 .pricing-card.featured {
     border-color: var(--dm-accent) !important;
@@ -679,8 +620,7 @@ h2.section-title::after {
     background: var(--dm-accent) !important;
 }
 
-.section-heading p,
-.section-subtitle {
+.section-heading p {
     color: var(--dm-text-secondary) !important;
 }
 
@@ -750,9 +690,6 @@ h2.section-title::after {
 }
 
 /* Impact section */
-.service-overview-impact {
-    background: var(--dm-bg-secondary) !important;
-}
 
 .impact-card {
     background: var(--dm-bg-tertiary) !important;
@@ -768,9 +705,6 @@ h2.section-title::after {
 }
 
 /* Process section */
-.service-overview-process {
-    background: var(--dm-bg-primary) !important;
-}
 
 .approach-steps li {
     background: var(--dm-bg-secondary) !important;
@@ -791,14 +725,8 @@ h2.section-title::after {
 }
 
 /* Services collage */
-.services-collage {
-    background: var(--dm-bg-primary) !important;
-}
 
 /* Services spotlight */
-.services-spotlight {
-    background: var(--dm-bg-secondary) !important;
-}
 
 /* About page sections */
 .about-why {
@@ -821,18 +749,6 @@ h2.section-title::after {
     color: var(--dm-text-secondary) !important;
 }
 
-.about-cta-section {
-    background: var(--dm-accent) !important;
-}
-
-.about-cta-section .cta-button {
-    background: var(--dm-bg-primary) !important;
-    color: var(--dm-text-primary) !important;
-}
-
-.about-cta-section .cta-button:hover {
-    background: var(--dm-bg-secondary) !important;
-}
 
 /* Skills section */
 .skills-section {
@@ -854,9 +770,6 @@ h2.section-title::after {
 }
 
 /* Certifications section */
-.certifications-section {
-    background: var(--dm-bg-primary) !important;
-}
 
 .certification-image {
     background: var(--dm-bg-tertiary) !important;
@@ -867,39 +780,13 @@ h2.section-title::after {
 }
 
 /* About intro */
-.about-lead {
-    color: var(--dm-text-secondary) !important;
-}
 
-.about-service-item {
-    background: var(--dm-bg-secondary) !important;
-    border-left-color: var(--dm-accent) !important;
-}
 
-.about-service-item:hover {
-    background: var(--dm-bg-tertiary) !important;
-}
 
-.about-service-item h3 {
-    color: var(--dm-text-primary) !important;
-}
 
-.about-service-item p {
-    color: var(--dm-text-secondary) !important;
-}
 
-.about-service-item li {
-    color: var(--dm-text-secondary) !important;
-}
 
-.about-service-item li::before {
-    color: var(--dm-accent) !important;
-}
 
-.about-image::after {
-    background: var(--dm-accent-muted) !important;
-    opacity: 0.3 !important;
-}
 
 /* Why cards */
 .why-icon {
@@ -934,14 +821,7 @@ h2.section-title::after {
 }
 
 /* Contact form */
-.contact-form-wrapper {
-    background: var(--dm-bg-secondary) !important;
-    border-color: var(--dm-border-subtle) !important;
-}
 
-.contact-form-wrapper h2 {
-    color: var(--dm-text-primary) !important;
-}
 
 .contact-form label {
     color: var(--dm-text-secondary) !important;
@@ -967,17 +847,8 @@ h2.section-title::after {
     color: var(--dm-text-muted) !important;
 }
 
-.contact-sidebar {
-    background: var(--dm-bg-secondary) !important;
-}
 
-.contact-sidebar h3 {
-    color: var(--dm-text-primary) !important;
-}
 
-.contact-sidebar p {
-    color: var(--dm-text-secondary) !important;
-}
 
 /* =================================================================
    LAYER 8: FOOTER
@@ -1024,26 +895,10 @@ footer {
    LAYER 10: BREADCRUMBS
    ================================================================= */
 
-.breadcrumb-nav {
-    background: var(--dm-bg-secondary) !important;
-    border-bottom: 1px solid var(--dm-border-subtle) !important;
-}
 
-.breadcrumb a {
-    color: var(--dm-text-secondary) !important;
-}
 
-.breadcrumb a:hover {
-    color: var(--dm-accent) !important;
-}
 
-.breadcrumb li:not(:last-child)::after {
-    color: var(--dm-text-muted) !important;
-}
 
-.breadcrumb li[aria-current="page"] {
-    color: var(--dm-text-primary) !important;
-}
 
 /* =================================================================
    LAYER 11: FORMS & FILTERS
@@ -1124,14 +979,8 @@ footer {
 }
 
 /* Source tags */
-.source-tag {
-    color: var(--dm-text-muted) !important;
-    background: var(--dm-bg-tertiary) !important;
-}
 
 /* Portfolio cards */
-.portfolio-card,
-.portfolio-item-card,
 .card,
 .card.portfolio-item,
 .card.publication {
@@ -1140,8 +989,6 @@ footer {
     box-shadow: none !important;
 }
 
-.portfolio-card:hover,
-.portfolio-item-card:hover,
 .card:hover,
 .card.portfolio-item:hover {
     border-color: var(--dm-border-default) !important;
@@ -1269,35 +1116,13 @@ footer {
 }
 
 /* Trust signals */
-.trust-signal {
-    background: var(--dm-bg-tertiary) !important;
-    color: var(--dm-text-secondary) !important;
-}
 
-.trust-signal::before {
-    color: var(--dm-accent) !important;
-}
 
 /* Conversion indicators */
-.conversion-indicator {
-    background: var(--dm-accent-subtle) !important;
-    border-color: var(--dm-accent-muted) !important;
-    color: var(--dm-accent) !important;
-}
 
 /* Social proof */
-.social-proof-badge {
-    background: var(--dm-bg-secondary) !important;
-    border-color: var(--dm-border-subtle) !important;
-}
 
-.social-proof-text {
-    color: var(--dm-text-secondary) !important;
-}
 
-.social-proof-author {
-    color: var(--dm-text-primary) !important;
-}
 
 /* Slider dots */
 .slider-dots button {

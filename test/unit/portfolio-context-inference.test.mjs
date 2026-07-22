@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 import {
-  createPortfolioContextInference,
+  createAiContextPortfolioItem,
   getDirectOutcomeEvidence,
   inferApplicationHint,
   inferAudience,
@@ -10,8 +10,7 @@ import {
 
 describe('Portfolio Context Inference', () => {
   test('builds AI-readable context from one inference interface', () => {
-    const inference = createPortfolioContextInference();
-    const item = inference.createAiContextPortfolioItem({
+    const item = createAiContextPortfolioItem({
       title: 'MSME Pitch Deck Template',
       practiceArea: 'Presentation Design',
       description: 'A pitch presentation workbook for 120 MSME entrepreneurs.',
@@ -48,8 +47,7 @@ describe('Portfolio Context Inference', () => {
   });
 
   test('keeps direct Outcome Evidence separate from inferred hints', () => {
-    const inference = createPortfolioContextInference();
-    const item = inference.createAiContextPortfolioItem({
+    const item = createAiContextPortfolioItem({
       title: 'Entrepreneurship Program for 5000+ SMK Students',
       practiceArea: 'Custom Training & Workshops',
       description: 'A bootcamp program for vocational students.',

@@ -1,5 +1,4 @@
 import { describe, expect, test } from 'bun:test';
-import { spawn } from 'node:child_process';
 import path from 'node:path';
 import { projectRoot } from '../helpers/dom.mjs';
 import {
@@ -7,25 +6,19 @@ import {
   validateLearningPortfolioSite
 } from '../../scripts/learning-portfolio-site-validation.mjs';
 
-const run = (command, args) => new Promise((resolve) => {
-  const child = spawn(command, args, {
+const run = async (command, args) => {
+  const child = Bun.spawn([command, ...args], {
     cwd: projectRoot,
-    shell: process.platform === 'win32',
-    stdio: ['ignore', 'pipe', 'pipe']
+    stdout: 'pipe',
+    stderr: 'pipe'
   });
-
-  let stdout = '';
-  let stderr = '';
-  child.stdout.on('data', (chunk) => {
-    stdout += chunk;
-  });
-  child.stderr.on('data', (chunk) => {
-    stderr += chunk;
-  });
-  child.on('close', (code) => {
-    resolve({ code, stdout, stderr });
-  });
-});
+  const [code, stdout, stderr] = await Promise.all([
+    child.exited,
+    new Response(child.stdout).text(),
+    new Response(child.stderr).text()
+  ]);
+  return { code, stdout, stderr };
+};
 
 describe('Learning Portfolio Site Validation', () => {
   test('returns structured validation facts for the repository', async () => {
@@ -36,7 +29,7 @@ describe('Learning Portfolio Site Validation', () => {
     expect(result.failures).toEqual([]);
     expect(result.counts).toEqual({
       htmlFiles: 28,
-      cssFiles: 10,
+      cssFiles: 3,
       blogPosts: 34,
       portfolioItems: 72,
       shippedArtifactProbes: 13

@@ -1,7 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 import {
-  createPortfolioEvidenceWorkflow,
-  portfolioEvidenceWorkflowOutputTypes
+  createPortfolioEvidenceWorkflow
 } from '../../scripts/portfolio-evidence-workflow.mjs';
 import {
   createCaseStudyPublication
@@ -112,15 +111,15 @@ describe('Portfolio Evidence Workflow', () => {
     });
     const html = outputFor(
       workflow,
-      portfolioEvidenceWorkflowOutputTypes.portfolioHtml
+      'portfolio-html'
     ).contents;
     const catalog = jsonOutputFor(
       workflow,
-      portfolioEvidenceWorkflowOutputTypes.catalogJson
+      'catalog-json'
     );
     const aiContext = jsonOutputFor(
       workflow,
-      portfolioEvidenceWorkflowOutputTypes.aiContextJson
+      'ai-context-json'
     );
 
     expect(workflow.summary).toEqual({
@@ -197,7 +196,7 @@ describe('Portfolio Evidence Workflow', () => {
     });
     const aiContext = jsonOutputFor(
       workflow,
-      portfolioEvidenceWorkflowOutputTypes.aiContextJson
+      'ai-context-json'
     );
 
     expect(workflow.summary.caseStudyPageCount).toBe(2);

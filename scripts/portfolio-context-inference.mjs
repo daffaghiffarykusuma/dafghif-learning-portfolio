@@ -149,53 +149,39 @@ export const makeCvBullet = (portfolioItem, profile, outcomeEvidence, applicatio
   return `${profile.cvVerb} ${portfolioItem.title} as a ${portfolioItem.practiceArea.toLowerCase()} portfolio item, creating practical context for ${portfolioItem.audience}, ${evidenceClause}`;
 };
 
-export const createPortfolioContextInference = ({ profiles = practiceAreaProfiles } = {}) => {
-  const profileFor = (portfolioItem) => profiles[portfolioItem.practiceArea] || profiles['Learning Materials'];
-  const createAiContextPortfolioItem = (sourceItem) => {
-    const item = normalizePortfolioItem(sourceItem);
-    const profile = profileFor(item);
-    const audience = inferAudience(item);
-    const tools = inferTools(item);
-    const scaleSignals = inferScale(item);
-    const outcomeEvidence = getDirectOutcomeEvidence(item);
-    const applicationHint = inferApplicationHint(item);
-    const baseItem = { title: item.title, practiceArea: item.practiceArea, audience };
-    return {
-      id: item.id,
-      title: item.title,
-      practiceArea: item.practiceArea,
-      tags: item.tags,
-      publicDescription: item.description,
-      sourceArtifact: item.sourceArtifact,
-      aiContext: {
-        evidenceLevel: 'inferred from structured portfolio source',
-        role: profile.defaultRole,
-        audience,
-        deliverables: profile.defaultDeliverables,
-        skills: [...new Set([...profile.defaultSkills, ...item.tags.map((tag) => tag.replace(/-/g, ' '))])],
-        tools,
-        scaleSignals,
-        aiHint: {
-          evidenceLevel: 'inferred non-proof drafting hint',
-          application: applicationHint
-        },
-        outcomeEvidence,
-        proof: item.proof,
-        cvBullet: makeCvBullet(baseItem, profile, outcomeEvidence, applicationHint)
-      }
-    };
-  };
+export const createAiContextPortfolioItem = (sourceItem) => {
+  const item = normalizePortfolioItem(sourceItem);
+  const profile = practiceAreaProfiles[item.practiceArea] || practiceAreaProfiles['Learning Materials'];
+  const audience = inferAudience(item);
+  const outcomeEvidence = getDirectOutcomeEvidence(item);
+  const applicationHint = inferApplicationHint(item);
   return {
-    profiles,
-    profileFor,
-    createAiContextPortfolioItem,
-    inferTools,
-    inferAudience,
-    inferScale,
-    inferApplicationHint,
-    getDirectOutcomeEvidence
+    id: item.id,
+    title: item.title,
+    practiceArea: item.practiceArea,
+    tags: item.tags,
+    publicDescription: item.description,
+    sourceArtifact: item.sourceArtifact,
+    aiContext: {
+      evidenceLevel: 'inferred from structured portfolio source',
+      role: profile.defaultRole,
+      audience,
+      deliverables: profile.defaultDeliverables,
+      skills: [...new Set([...profile.defaultSkills, ...item.tags.map((tag) => tag.replace(/-/g, ' '))])],
+      tools: inferTools(item),
+      scaleSignals: inferScale(item),
+      aiHint: {
+        evidenceLevel: 'inferred non-proof drafting hint',
+        application: applicationHint
+      },
+      outcomeEvidence,
+      proof: item.proof,
+      cvBullet: makeCvBullet(
+        { title: item.title, practiceArea: item.practiceArea, audience },
+        profile,
+        outcomeEvidence,
+        applicationHint
+      )
+    }
   };
 };
-
-export const createAiContextPortfolioItem = (sourceItem) =>
-  createPortfolioContextInference().createAiContextPortfolioItem(sourceItem);

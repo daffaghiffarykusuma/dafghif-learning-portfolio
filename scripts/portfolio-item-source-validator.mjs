@@ -291,18 +291,10 @@ export const validatePortfolioItemSource = ({
   };
 };
 
-export class PortfolioItemSourceValidationError extends Error {
-  constructor(failures) {
-    super(`Portfolio Item Source validation failed:\n- ${failures.join('\n- ')}`);
-    this.name = 'PortfolioItemSourceValidationError';
-    this.failures = failures;
-  }
-}
-
 export const assertValidPortfolioItemSource = (options = {}) => {
   const result = validatePortfolioItemSource(options);
   if (result.failures.length > 0) {
-    throw new PortfolioItemSourceValidationError(result.failures);
+    throw new Error(`Portfolio Item Source validation failed:\n- ${result.failures.join('\n- ')}`);
   }
   return result;
 };

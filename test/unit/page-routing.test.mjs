@@ -38,10 +38,10 @@ afterEach(() => {
 describe('portfolio page', () => {
   test('initializes filters and opens direct hash previews', async () => {
     portfolioFixture({ hash: '#sample-item' });
-    const { initPortfolioPage } = await importFresh('../../js/site/pages/portfolio-page.js');
+    const { initCurrentPage } = await importFresh('../../js/site/pages/page-router.js');
 
     expect(document.getElementById('pdf-iframe').getAttribute('src')).toBeNull();
-    const preview = initPortfolioPage();
+    const preview = initCurrentPage();
 
     expect(document.querySelector('#portfolio-discovery').dataset.discoveryInitialized).toBe('true');
     expect(document.getElementById('pdf-modal').hidden).toBe(false);

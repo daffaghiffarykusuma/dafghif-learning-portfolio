@@ -1,6 +1,4 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
-import { spawn } from 'node:child_process';
-import { readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { createShippedArtifactPolicy } from '../../scripts/shipped-artifact-policy.mjs';
 import { projectRoot } from '../helpers/dom.mjs';
@@ -13,25 +11,19 @@ const generatedCaseStudyPages = shippedArtifacts.shippingManifest.routablePages
   .map((pagePath) => `/${pagePath}`);
 let server;
 
-const run = (command, args) => new Promise((resolve) => {
-  const child = spawn(command, args, {
+const run = async (command, args) => {
+  const child = Bun.spawn([command, ...args], {
     cwd: projectRoot,
-    shell: process.platform === 'win32',
-    stdio: ['ignore', 'pipe', 'pipe']
+    stdout: 'pipe',
+    stderr: 'pipe'
   });
-
-  let stdout = '';
-  let stderr = '';
-  child.stdout.on('data', (chunk) => {
-    stdout += chunk;
-  });
-  child.stderr.on('data', (chunk) => {
-    stderr += chunk;
-  });
-  child.on('close', (code) => {
-    resolve({ code, stdout, stderr });
-  });
-});
+  const [code, stdout, stderr] = await Promise.all([
+    child.exited,
+    new Response(child.stdout).text(),
+    new Response(child.stderr).text()
+  ]);
+  return { code, stdout, stderr };
+};
 
 const waitForServer = async () => {
   const deadline = Date.now() + 15_000;
@@ -56,27 +48,14 @@ const request = async (path) => {
   return { response, body };
 };
 
-const walkFiles = async (dir, results = []) => {
-  const entries = await readdir(dir, { withFileTypes: true });
-  for (const entry of entries) {
-    const entryPath = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      await walkFiles(entryPath, results);
-    } else {
-      results.push(entryPath);
-    }
-  }
-  return results;
-};
-
 beforeAll(async () => {
   const build = await run('bun', ['run', 'build']);
   expect(build.code, build.stderr || build.stdout).toBe(0);
 
-  server = spawn('bun', ['x', 'vite', 'preview', '--host', host, '--port', String(port), '--strictPort'], {
+  server = Bun.spawn(['bun', 'x', 'vite', 'preview', '--host', host, '--port', String(port), '--strictPort'], {
     cwd: projectRoot,
-    shell: process.platform === 'win32',
-    stdio: ['ignore', 'pipe', 'pipe']
+    stdout: 'ignore',
+    stderr: 'ignore'
   });
 
   await waitForServer();
@@ -131,7 +110,11 @@ describe('production site system checks', () => {
   });
 
   test('does not ship editable Office source files in the production build', async () => {
-    const distFiles = await walkFiles(path.join(projectRoot, 'dist'));
+    const distFiles = await Array.fromAsync(new Bun.Glob('**/*').scan({
+      cwd: path.join(projectRoot, 'dist'),
+      absolute: true,
+      onlyFiles: true
+    }));
     const distRelativePaths = distFiles
       .map((filePath) => path.relative(path.join(projectRoot, 'dist'), filePath).split(path.sep).join('/'));
     const editableOfficeFiles = shippedArtifacts.deniedArtifactFacts(distRelativePaths);

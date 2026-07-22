@@ -30,7 +30,6 @@
     font-size: var(--font-size-base);
 }
 
-/* Show mobile sticky CTA only on mobile */
 @media (max-width: 1024px) {
     .mobile-sticky-cta {
         display: block;
@@ -40,7 +39,6 @@
         display: none;
     }
 
-    /* Add padding to main content to avoid overlap */
     main {
         padding-bottom: 80px;
     }
@@ -59,53 +57,6 @@
         transform: translateY(0);
         opacity: 1;
     }
-}
-
-/* =================================================================
-   BREADCRUMB NAVIGATION - Improved User Orientation
-   ================================================================= */
-.breadcrumb-nav {
-    background: var(--color-neutral-50);
-    border-bottom: 1px solid var(--color-neutral-200);
-    padding: var(--space-4) 0;
-}
-
-.breadcrumb {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-    margin: 0;
-    padding: 0;
-    font-size: var(--font-size-sm);
-}
-
-.breadcrumb li {
-    display: flex;
-    align-items: center;
-}
-
-.breadcrumb li:not(:last-child)::after {
-    content: '›';
-    margin-left: var(--space-2);
-    color: var(--color-neutral-400);
-    font-size: var(--font-size-lg);
-}
-
-.breadcrumb a {
-    color: var(--color-neutral-600);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.breadcrumb a:hover {
-    color: var(--color-accent);
-}
-
-.breadcrumb li[aria-current="page"] {
-    color: var(--color-neutral-900);
-    font-weight: 500;
 }
 
 /* =================================================================
@@ -207,45 +158,6 @@
     color: var(--color-neutral-600);
     margin-top: var(--space-3);
     max-width: 80ch;
-}
-
-/* =================================================================
-   PORTFOLIO & BLOG HERO SECTIONS
-   ================================================================= */
-.portfolio-hero,
-.blog-hero {
-    padding: var(--space-12) 0 var(--space-8) 0;
-    background: linear-gradient(135deg, var(--color-neutral-50) 0%, white 100%);
-    border-bottom: 1px solid var(--color-neutral-200);
-}
-
-.portfolio-hero .section-heading,
-.blog-hero .section-heading {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.portfolio-hero .section-title,
-.blog-hero .section-title {
-    font-size: var(--font-size-5xl);
-    margin-bottom: var(--space-4);
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-@media (max-width: 768px) {
-    .portfolio-hero .section-title,
-    .blog-hero .section-title {
-        font-size: var(--font-size-4xl);
-    }
-
-    .portfolio-hero,
-    .blog-hero {
-        padding: var(--space-8) 0 var(--space-6) 0;
-    }
 }
 
 /* =================================================================
@@ -502,7 +414,6 @@
     opacity: 1;
 }
 
-.btn-secondary,
 .cta-secondary {
     display: inline-flex;
     align-items: center;
@@ -521,7 +432,6 @@
     transition: all 0.3s ease;
 }
 
-.btn-secondary:hover,
 .cta-secondary:hover {
     background: var(--color-accent);
     color: white;
@@ -557,8 +467,7 @@
 /* =================================================================
    IMPROVED CARD SYSTEM - Better Visual Hierarchy
    ================================================================= */
-.practice-area-card,
-.service-card {
+.practice-area-card {
     position: relative;
     background: white;
     border-radius: var(--radius-2xl);
@@ -567,8 +476,7 @@
     transition: all 0.3s ease;
 }
 
-.practice-area-card:hover,
-.service-card:hover {
+.practice-area-card:hover {
     border-color: var(--practice-area-accent, var(--color-accent-light));
     box-shadow: 0 12px 40px var(--practice-area-hover-shadow, rgba(42, 157, 143, 0.15));
     transform: translateY(-8px);
@@ -1090,132 +998,6 @@
     text-decoration: underline;
 }
 
-/* =================================================================
-   ABOUT PAGE STYLES
-   ================================================================= */
-.about-hero {
-    padding: var(--space-12) 0 var(--space-8) 0;
-    background: linear-gradient(135deg, var(--color-neutral-50) 0%, white 100%);
-    border-bottom: 1px solid var(--color-neutral-200);
-}
-
-.about-hero .section-title {
-    font-size: var(--font-size-5xl);
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-@media (max-width: 768px) {
-    .about-hero {
-        padding: var(--space-8) 0 var(--space-6) 0;
-    }
-
-    .about-hero .section-title {
-        font-size: var(--font-size-4xl);
-    }
-}
-
-/* About Intro Grid */
-.about-intro-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-10);
-    align-items: center;
-}
-
-@media (min-width: 1024px) {
-    .about-intro-grid {
-        grid-template-columns: 1.2fr 0.8fr;
-    }
-}
-
-.about-lead {
-    font-size: var(--font-size-xl);
-    line-height: var(--line-height-relaxed);
-    color: var(--color-neutral-700);
-    margin-bottom: var(--space-8);
-}
-
-.about-practice-areas-preview {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-6);
-}
-
-.about-service-item {
-    padding: var(--space-6);
-    background: var(--color-neutral-50);
-    border-radius: var(--radius-xl);
-    border-left: 4px solid var(--color-accent);
-    transition: all 0.3s ease;
-}
-
-.about-service-item:hover {
-    background: white;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-    transform: translateX(4px);
-}
-
-.about-service-item h3 {
-    font-size: var(--font-size-lg);
-    color: var(--color-primary);
-    margin-bottom: var(--space-2);
-}
-
-.about-service-item p {
-    font-size: var(--font-size-sm);
-    color: var(--color-neutral-600);
-    margin-bottom: var(--space-3);
-}
-
-.about-service-item ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.about-service-item li {
-    font-size: var(--font-size-sm);
-    color: var(--color-neutral-700);
-    padding: var(--space-2) 0;
-    padding-left: var(--space-5);
-    position: relative;
-}
-
-.about-service-item li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--color-accent);
-    font-weight: 600;
-}
-
-/* About Image */
-.about-image {
-    position: relative;
-}
-
-.about-image img {
-    width: 100%;
-    border-radius: var(--radius-2xl);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-}
-
-.about-image::after {
-    content: '';
-    position: absolute;
-    top: var(--space-4);
-    right: calc(-1 * var(--space-4));
-    bottom: calc(-1 * var(--space-4));
-    left: var(--space-4);
-    background: linear-gradient(135deg, var(--color-accent-light) 0%, var(--color-accent) 100%);
-    border-radius: var(--radius-2xl);
-    z-index: -1;
-    opacity: 0.2;
-}
-
 /* Why Work With Me Section */
 .about-why {
     padding: var(--space-16) 0;
@@ -1315,53 +1097,6 @@
     line-height: var(--line-height-relaxed);
 }
 
-/* CTA Section */
-.about-cta-section {
-    padding: var(--space-16) 0;
-    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
-}
-
-.about-cta-box {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-    color: white;
-}
-
-.about-cta-box h3 {
-    font-size: var(--font-size-3xl);
-    margin-bottom: var(--space-6);
-}
-
-.cta-thoughts {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 var(--space-6) 0;
-}
-
-.cta-thoughts li {
-    font-size: var(--font-size-lg);
-    font-style: italic;
-    opacity: 0.9;
-    padding: var(--space-2) 0;
-}
-
-.cta-answer {
-    font-size: var(--font-size-2xl);
-    font-weight: 700;
-    margin-bottom: var(--space-6);
-}
-
-.about-cta-section .cta-button {
-    background: white !important;
-    color: var(--color-accent) !important;
-}
-
-.about-cta-section .cta-button:hover {
-    background: var(--color-neutral-100) !important;
-    transform: translateY(-2px);
-}
-
 /* Skills Section */
 .skills-section {
     padding: var(--space-16) 0;
@@ -1416,11 +1151,6 @@
 .skill-tags li:hover {
     background: var(--color-accent-lighter);
     color: var(--color-accent-dark);
-}
-
-/* Certifications Section */
-.certifications-section {
-    padding: var(--space-16) 0;
 }
 
 .certifications-grid {
@@ -1827,7 +1557,6 @@
 @media print {
     .mobile-sticky-cta,
     .menu-toggle,
-    .breadcrumb-nav,
     header nav,
     footer {
         display: none;
@@ -1847,8 +1576,7 @@
         page-break-after: avoid;
     }
 
-    .practice-area-card,
-    .service-card {
+    .practice-area-card {
         page-break-inside: avoid;
     }
 }

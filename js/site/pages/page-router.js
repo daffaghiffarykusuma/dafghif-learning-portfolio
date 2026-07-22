@@ -1,6 +1,9 @@
-import { initPortfolioPage } from './portfolio-page.js';
+import { initPortfolioDiscovery } from '../../portfolio-discovery.js';
 import { initSharedPage } from './shared-page.js';
-import { createCaseStudyArtifactPreviewExperience } from '../artifact-preview-experience.js';
+import {
+    createCaseStudyArtifactPreviewExperience,
+    createPortfolioItemPreviewExperience
+} from '../artifact-preview-experience.js';
 import { isCaseStudyPageIdentity, readPageIdentity } from '../case-study-page-identity.js';
 
 const pageNameFromPath = (pathname) => pathname.split('/').pop() || 'index.html';
@@ -11,7 +14,10 @@ export function initCurrentPage({ pathname = window.location.pathname } = {}) {
     const pageName = pageNameFromPath(pathname);
     const pageIdentity = readPageIdentity({ pathname });
     if (pageName === 'portfolio.html') {
-        return initPortfolioPage();
+        const preview = createPortfolioItemPreviewExperience();
+        initPortfolioDiscovery();
+        preview.openPreviewFromHash();
+        return preview;
     }
 
     if (

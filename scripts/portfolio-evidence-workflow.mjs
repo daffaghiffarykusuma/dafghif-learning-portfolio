@@ -10,13 +10,6 @@ import { createAiContextPortfolioItem, practiceAreaProfiles } from './portfolio-
 import { createCaseStudyPublication } from './case-study-publication.mjs';
 import { assertValidPortfolioItemSource } from './portfolio-item-source-validator.mjs';
 
-export const portfolioEvidenceWorkflowOutputTypes = Object.freeze({
-  portfolioHtml: 'portfolio-html',
-  catalogJson: 'catalog-json',
-  aiContextJson: 'ai-context-json',
-  caseStudyHtml: 'case-study-html'
-});
-
 const portfolioAreaFilters = new Set([
   'training-workshop',
   'instructional-design',
@@ -250,22 +243,22 @@ export const createPortfolioEvidenceWorkflow = ({
 
   const outputs = [
     {
-      type: portfolioEvidenceWorkflowOutputTypes.portfolioHtml,
+      type: 'portfolio-html',
       pathKey: 'portfolioHtml',
       contents: `<!DOCTYPE html>\n${document.documentElement.outerHTML}\n`
     },
     {
-      type: portfolioEvidenceWorkflowOutputTypes.catalogJson,
+      type: 'catalog-json',
       pathKey: 'catalogOutput',
       contents: jsonOutput(catalogData)
     },
     ...caseStudyPages.map((page) => ({
-      type: portfolioEvidenceWorkflowOutputTypes.caseStudyHtml,
+      type: 'case-study-html',
       outputPath: page.outputPath,
       contents: page.html
     })),
     {
-      type: portfolioEvidenceWorkflowOutputTypes.aiContextJson,
+      type: 'ai-context-json',
       pathKey: 'aiContextOutput',
       contents: jsonOutput(aiContextData)
     }
