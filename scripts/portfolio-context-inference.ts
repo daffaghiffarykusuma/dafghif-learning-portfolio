@@ -1,5 +1,5 @@
-import { normalizePortfolioItem, normalizeText } from './portfolio-item-catalog.ts';
-import type { PortfolioItem } from './portfolio-item-catalog.ts';
+import { normalizeText } from './portfolio-item-catalog.ts';
+import type { PortfolioItem, ProofPoint } from './portfolio-item-catalog.ts';
 
 type PracticeAreaProfile = {
   defaultRole: string;
@@ -12,11 +12,7 @@ type PortfolioContextInput = Pick<PortfolioItem,
   'title' | 'practiceArea' | 'description' | 'sourceArtifact' | 'proof'
 >;
 
-export type DirectOutcomeEvidence = {
-  claim: string;
-  sourceBasis: string;
-  confidence: string;
-};
+export type DirectOutcomeEvidence = ProofPoint;
 
 export type AiContextPortfolioItem = {
   id: string;
@@ -35,7 +31,7 @@ export type AiContextPortfolioItem = {
     scaleSignals: string[];
     aiHint: { evidenceLevel: string; application: string };
     outcomeEvidence: DirectOutcomeEvidence[];
-    proof: unknown;
+    proof: PortfolioItem['proof'];
     cvBullet: string;
   };
 };
@@ -173,18 +169,8 @@ export const inferApplicationHint = (portfolioItem: PortfolioContextInput) => {
 };
 
 export const getDirectOutcomeEvidence = (portfolioItem: PortfolioContextInput): DirectOutcomeEvidence[] => {
-  const impact = portfolioItem.proof && typeof portfolioItem.proof === 'object'
-    ? Reflect.get(portfolioItem.proof, 'impact')
-    : [];
-  return (Array.isArray(impact) ? impact : [])
-    .filter((entry) => entry && typeof entry === 'object'
-      && normalizeText(Reflect.get(entry, 'claim'))
-      && normalizeText(Reflect.get(entry, 'confidence')) === 'direct')
-    .map((entry) => ({
-      claim: normalizeText(Reflect.get(entry, 'claim')),
-      sourceBasis: normalizeText(Reflect.get(entry, 'sourceBasis')),
-      confidence: normalizeText(Reflect.get(entry, 'confidence'))
-    }));
+  return portfolioItem.proof.impact
+    .filter((entry) => entry.claim && entry.confidence === 'direct');
 };
 
 export const makeCvBullet = (
@@ -200,8 +186,7 @@ export const makeCvBullet = (
   return `${profile.cvVerb} ${portfolioItem.title} as a ${portfolioItem.practiceArea.toLowerCase()} portfolio item, creating practical context for ${portfolioItem.audience}, ${evidenceClause}`;
 };
 
-export const createAiContextPortfolioItem = (sourceItem: unknown): AiContextPortfolioItem => {
-  const item = normalizePortfolioItem(sourceItem);
+export const createAiContextPortfolioItem = (item: PortfolioItem): AiContextPortfolioItem => {
   const profile = practiceAreaProfiles[item.practiceArea] || practiceAreaProfiles['Learning Materials'];
   const audience = inferAudience(item);
   const outcomeEvidence = getDirectOutcomeEvidence(item);

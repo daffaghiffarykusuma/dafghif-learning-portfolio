@@ -7,10 +7,11 @@ import {
   inferScale,
   inferTools
 } from '../../scripts/portfolio-context-inference.ts';
+import { normalizePortfolioItem } from '../../scripts/portfolio-item-catalog.ts';
 
 describe('Portfolio Context Inference', () => {
   test('builds AI-readable context from one inference interface', () => {
-    const item = createAiContextPortfolioItem({
+    const item = createAiContextPortfolioItem(normalizePortfolioItem({
       title: 'MSME Pitch Deck Template',
       practiceArea: 'Presentation Design',
       description: 'A pitch presentation workbook for 120 MSME entrepreneurs.',
@@ -20,7 +21,7 @@ describe('Portfolio Context Inference', () => {
         visibleProofLine: 'Organizes complex ideas into a clear slide narrative.',
         workQuality: [{ claim: 'Shapes complex ideas into a presentation-ready flow.' }]
       }
-    });
+    }));
 
     expect(item).toMatchObject({
       id: 'msme-pitch-deck-template',
@@ -47,7 +48,7 @@ describe('Portfolio Context Inference', () => {
   });
 
   test('keeps direct Outcome Evidence separate from inferred hints', () => {
-    const item = createAiContextPortfolioItem({
+    const item = createAiContextPortfolioItem(normalizePortfolioItem({
       title: 'Entrepreneurship Program for 5000+ SMK Students',
       practiceArea: 'Custom Training & Workshops',
       description: 'A bootcamp program for vocational students.',
@@ -67,7 +68,7 @@ describe('Portfolio Context Inference', () => {
           }
         ]
       }
-    });
+    }));
 
     expect(item.aiContext.outcomeEvidence).toEqual([
       {

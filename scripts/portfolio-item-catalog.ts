@@ -1,5 +1,17 @@
 export const PORTFOLIO_ITEM_SCHEMA_VERSION = 1;
 
+export type ProofPoint = {
+  claim: string;
+  sourceBasis: string;
+  confidence: string;
+};
+
+export type PortfolioItemProof = {
+  visibleProofLine: string;
+  workQuality: ProofPoint[];
+  impact: ProofPoint[];
+};
+
 export type PortfolioItem = {
   id: string;
   title: string;
@@ -11,7 +23,7 @@ export type PortfolioItem = {
   sourceType: string;
   portfolioItemUrl: string;
   discussUrl: string;
-  proof: unknown;
+  proof: PortfolioItemProof;
 };
 
 type PortfolioCatalogData = {
@@ -28,6 +40,28 @@ const asRecord = (value: unknown): Record<string, unknown> =>
     : {};
 
 export const normalizeText = (value: unknown = '') => String(value).replace(/\s+/g, ' ').trim();
+
+const normalizeProofPoint = (value: unknown): ProofPoint => {
+  const entry = asRecord(value);
+  return {
+    claim: normalizeText(entry.claim),
+    sourceBasis: normalizeText(entry.sourceBasis),
+    confidence: normalizeText(entry.confidence)
+  };
+};
+
+export const normalizePortfolioItemProof = (value: unknown): PortfolioItemProof => {
+  const proof = asRecord(value);
+  return {
+    visibleProofLine: normalizeText(proof.visibleProofLine),
+    workQuality: Array.isArray(proof.workQuality)
+      ? proof.workQuality.map(normalizeProofPoint).filter((entry) => entry.claim)
+      : [],
+    impact: Array.isArray(proof.impact)
+      ? proof.impact.map(normalizeProofPoint).filter((entry) => entry.claim)
+      : []
+  };
+};
 
 export const slugify = (value: unknown) =>
   normalizeText(value)
@@ -56,11 +90,7 @@ export const normalizePortfolioItem = (sourceItem: unknown): PortfolioItem => {
     sourceType: normalizeText(source.sourceType),
     portfolioItemUrl: normalizeText(source.portfolioItemUrl),
     discussUrl: normalizeText(source.discussUrl),
-    proof: source.proof || {
-      visibleProofLine: '',
-      workQuality: [],
-      impact: []
-    }
+    proof: normalizePortfolioItemProof(source.proof)
   };
 };
 

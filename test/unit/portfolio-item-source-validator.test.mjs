@@ -89,8 +89,13 @@ describe('Portfolio Item Source validation', () => {
       id: 'case-sample-program',
       title: 'Sample Program Case Study',
       sourceType: 'case-study-page',
-      sourceArtifact: 'case-sample-program.html'
+      sourceArtifact: 'case-sample-program.html',
+      proof: {
+        visibleProofLine: 'Connects objectives, activities, and evidence.'
+      }
     });
+    expect(result.portfolioItems[1].proof.visibleProofLine)
+      .toBe('Uses a structured learning sequence.');
   });
 
   test('rejects structural drift, duplicate identities, invalid Practice Areas, and orphan Proof Points', () => {
@@ -176,5 +181,22 @@ describe('Portfolio Item Source validation', () => {
       'case-sample-program',
       'sample-deck'
     ]);
+  });
+
+  test('carries Case Study Publication facts through the validated interface', () => {
+    const result = assertValidPortfolioItemSource({
+      portfolioSource: createValidSource(),
+      proofSource: validProofSource
+    });
+
+    expect(result.caseStudyPublication.pages.map((page) => page.outputPath)).toEqual([
+      'case-studies.html',
+      'case-sample-program.html'
+    ]);
+    expect(result.caseStudyPublication.artifactMetadataByCaseStudyId
+      .get('case-sample-program')[0]).toMatchObject({
+        id: 'artifact-sample-plan',
+        sourceArtifact: 'assets/pdf/portfolio/sample-plan.pdf'
+      });
   });
 });

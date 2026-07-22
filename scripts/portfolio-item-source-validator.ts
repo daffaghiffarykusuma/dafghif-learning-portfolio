@@ -1,7 +1,11 @@
-import { createCaseStudyPublication } from './case-study-publication.ts';
+import {
+  createCaseStudyPublication,
+  type CaseStudyPublication
+} from './case-study-publication.ts';
 import {
   PORTFOLIO_ITEM_SCHEMA_VERSION,
   normalizePortfolioItem,
+  normalizePortfolioItemProof,
   normalizeText
 } from './portfolio-item-catalog.ts';
 import { practiceAreaProfiles } from './portfolio-context-inference.ts';
@@ -34,6 +38,10 @@ export type ValidatedPortfolioItemSource = {
   caseStudyCount: number;
   generatedPortfolioItemCount: number;
   portfolioItems: PortfolioItem[];
+  caseStudyPublication: Pick<
+    CaseStudyPublication,
+    'pages' | 'artifactMetadataByCaseStudyId'
+  >;
 };
 
 type ValidationFailures = { failures: string[] };
@@ -167,6 +175,28 @@ const prioritizeFeaturedPortfolioItems = (
     .filter((item): item is PortfolioItem => Boolean(item));
   const featuredIdSet = new Set(featured.map((item) => item.id));
   return [...featured, ...portfolioItems.filter((item) => !featuredIdSet.has(item.id))];
+};
+
+const applyProofPoints = (
+  portfolioItems: PortfolioItem[],
+  proofSource: ProofPointSourceInput
+): PortfolioItem[] => {
+  const practiceAreaDefaults = asRecord(proofSource.practiceAreaDefaults);
+  const itemOverrides = asRecord(proofSource.itemOverrides);
+  return portfolioItems.map((portfolioItem) => {
+    const defaultProof = normalizePortfolioItemProof(practiceAreaDefaults[portfolioItem.practiceArea]);
+    const overrideProof = normalizePortfolioItemProof(itemOverrides[portfolioItem.id]);
+    return {
+      ...portfolioItem,
+      proof: {
+        visibleProofLine: overrideProof.visibleProofLine || defaultProof.visibleProofLine,
+        workQuality: overrideProof.workQuality.length
+          ? overrideProof.workQuality
+          : defaultProof.workQuality,
+        impact: overrideProof.impact
+      }
+    };
+  });
 };
 
 export const validatePortfolioItemSource = ({
@@ -370,7 +400,11 @@ export const validatePortfolioItemSource = ({
     rawPortfolioItemCount: portfolioItems.length,
     caseStudyCount: caseStudies.length,
     generatedPortfolioItemCount: generatedItems.length,
-    portfolioItems: validatedPortfolioItems
+    portfolioItems: applyProofPoints(validatedPortfolioItems, proof),
+    caseStudyPublication: {
+      pages: caseStudyPublication.pages,
+      artifactMetadataByCaseStudyId: caseStudyPublication.artifactMetadataByCaseStudyId
+    }
   };
 };
 

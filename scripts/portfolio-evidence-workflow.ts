@@ -2,31 +2,12 @@ import { Window } from 'happy-dom';
 import { createArtifactPreviewContract } from '../src/site/artifact-preview-policy.ts';
 import {
   PORTFOLIO_ITEM_SCHEMA_VERSION,
-  createPortfolioCatalogData,
-  normalizePortfolioItem,
-  normalizeText
+  createPortfolioCatalogData
 } from './portfolio-item-catalog.ts';
 import { createAiContextPortfolioItem, practiceAreaProfiles } from './portfolio-context-inference.ts';
-import { createCaseStudyPublication } from './case-study-publication.ts';
 import { assertValidPortfolioItemSource } from './portfolio-item-source-validator.ts';
 import type { CaseStudyArtifactMetadata } from './case-study-publication.ts';
 import type { PortfolioItem } from './portfolio-item-catalog.ts';
-
-export type ProofPoint = {
-  claim: string;
-  sourceBasis: string;
-  confidence: string;
-};
-
-export type PortfolioItemProof = {
-  visibleProofLine: string;
-  workQuality: ProofPoint[];
-  impact: ProofPoint[];
-};
-
-export type AppliedProofPortfolioItem = Omit<PortfolioItem, 'proof'> & {
-  proof: PortfolioItemProof;
-};
 
 type WorkflowPathKey = 'portfolioHtml' | 'catalogOutput' | 'aiContextOutput';
 type PortfolioEvidenceOutputType =
@@ -60,11 +41,6 @@ export type PortfolioEvidenceWorkflowInput = {
   generatedAt?: string;
 };
 
-const asRecord = (value: unknown): Record<string, unknown> =>
-  value !== null && typeof value === 'object' && !Array.isArray(value)
-    ? value as Record<string, unknown>
-    : {};
-
 const portfolioAreaFilters = new Set([
   'training-workshop',
   'instructional-design',
@@ -93,61 +69,12 @@ const createPortfolioDocument = (html: string) => {
 const getPracticeAreaFilter = (item: PortfolioItem) =>
   item.tags.find((tag) => portfolioAreaFilters.has(tag)) || '';
 
-const normalizeProofEntry = (value: unknown): ProofPoint => {
-  const entry = asRecord(value);
-  return {
-  claim: normalizeText(entry.claim),
-  sourceBasis: normalizeText(entry.sourceBasis),
-  confidence: normalizeText(entry.confidence)
-  };
-};
-
-const normalizeProof = (value: unknown): PortfolioItemProof => {
-  const proof = asRecord(value);
-  return {
-    visibleProofLine: normalizeText(proof.visibleProofLine),
-    workQuality: Array.isArray(proof.workQuality)
-      ? proof.workQuality.map(normalizeProofEntry).filter((entry) => entry.claim)
-    : [],
-    impact: Array.isArray(proof.impact)
-      ? proof.impact.map(normalizeProofEntry).filter((entry) => entry.claim)
-    : []
-  };
-};
-
-const applyProofPoints = (
-  portfolioItems: PortfolioItem[],
-  proofSourceValue: unknown
-): AppliedProofPortfolioItem[] => {
-  const proofSource = asRecord(proofSourceValue);
-  const practiceAreaDefaults = asRecord(proofSource.practiceAreaDefaults);
-  const itemOverrides = asRecord(proofSource.itemOverrides);
-  return (
-  portfolioItems.map((portfolioItem) => {
-    const item = normalizePortfolioItem(portfolioItem);
-    const defaultProof = normalizeProof(practiceAreaDefaults[item.practiceArea]);
-    const overrideProof = normalizeProof(itemOverrides[item.id]);
-
-    return {
-      ...item,
-      proof: {
-        visibleProofLine: overrideProof.visibleProofLine || defaultProof.visibleProofLine,
-        workQuality: overrideProof.workQuality.length
-          ? overrideProof.workQuality
-          : defaultProof.workQuality,
-        impact: overrideProof.impact
-      }
-    };
-  }));
-};
-
 const renderPortfolioItemCard = (
   document: ReturnType<typeof createPortfolioDocument>,
   portfolioItem: PortfolioItem,
   index = 0
 ) => {
-  const item = normalizePortfolioItem(portfolioItem);
-  const proofData = normalizeProof(item.proof);
+  const item = portfolioItem;
   const card = document.createElement('div');
   card.className = 'card portfolio-item';
   card.id = item.id;
@@ -195,7 +122,7 @@ const renderPortfolioItemCard = (
 
   const proof = document.createElement('p');
   proof.className = 'portfolio-item-proof';
-  proof.textContent = proofData.visibleProofLine;
+  proof.textContent = item.proof.visibleProofLine;
 
   const actions = document.createElement('div');
   actions.className = 'card-actions';
@@ -263,7 +190,7 @@ const createPortfolioAiContextData = ({
   generatedFrom,
   generatedAt
 }: {
-  portfolioItems: AppliedProofPortfolioItem[];
+  portfolioItems: PortfolioItem[];
   artifactMetadataByCaseStudyId: Map<string, CaseStudyArtifactMetadata[]>;
   generatedFrom: string;
   generatedAt: string;
@@ -306,7 +233,7 @@ export const createPortfolioEvidenceWorkflow = ({
     portfolioSource,
     proofSource
   });
-  const portfolioItems = applyProofPoints(validatedSource.portfolioItems, proofSource);
+  const portfolioItems = validatedSource.portfolioItems;
   const document = createPortfolioDocument(portfolioHtml);
   const renderedPortfolioItemCount = renderPortfolioItemCards(document, portfolioItems);
   const catalogData = createPortfolioCatalogData({
@@ -314,7 +241,7 @@ export const createPortfolioEvidenceWorkflow = ({
     generatedAt,
     portfolioItems
   });
-  const caseStudyPublication = createCaseStudyPublication(portfolioSource);
+  const caseStudyPublication = validatedSource.caseStudyPublication;
   const caseStudyPages = caseStudyPublication.pages;
   const aiContextData = createPortfolioAiContextData({
     portfolioItems,

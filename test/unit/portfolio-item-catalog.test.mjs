@@ -53,14 +53,22 @@ describe('Portfolio Item catalog', () => {
     });
   });
 
-  test('preserves an explicitly supplied proof value', () => {
-    const proof = {};
-
-    expect(normalizePortfolioItem({ title: 'A Deck', proof }).proof).toBe(proof);
+  test('normalizes an explicitly supplied Proof Point value', () => {
+    expect(normalizePortfolioItem({
+      title: 'A Deck',
+      proof: {
+        visibleProofLine: '  Evidence line. ',
+        workQuality: [{ claim: '  Structured work. ', confidence: 'direct' }, {}]
+      }
+    }).proof).toEqual({
+      visibleProofLine: 'Evidence line.',
+      workQuality: [{ claim: 'Structured work.', sourceBasis: '', confidence: 'direct' }],
+      impact: []
+    });
   });
 
   test('derives AI context from the normalized Portfolio Item interface', () => {
-    const item = createAiContextPortfolioItem({
+    const item = createAiContextPortfolioItem(normalizePortfolioItem({
       title: 'MSME Pitch Deck Template',
       practiceArea: 'Presentation Design',
       description: 'A pitch presentation workbook for 120 MSME entrepreneurs.',
@@ -70,7 +78,7 @@ describe('Portfolio Item catalog', () => {
         visibleProofLine: 'Organizes complex ideas into a clear slide narrative.',
         workQuality: [{ claim: 'Shapes complex ideas into a presentation-ready flow.' }]
       }
-    });
+    }));
 
     expect(item).toMatchObject({
       id: 'msme-pitch-deck-template',
@@ -97,7 +105,7 @@ describe('Portfolio Item catalog', () => {
   });
 
   test('uses only direct Proof Point impact entries as Outcome Evidence', () => {
-    const item = createAiContextPortfolioItem({
+    const item = createAiContextPortfolioItem(normalizePortfolioItem({
       title: 'Entrepreneurship Program for 5000+ SMK Students',
       practiceArea: 'Custom Training & Workshops',
       description: 'A bootcamp program for vocational students.',
@@ -117,7 +125,7 @@ describe('Portfolio Item catalog', () => {
           }
         ]
       }
-    });
+    }));
 
     expect(item.aiContext.outcomeEvidence).toEqual([
       {

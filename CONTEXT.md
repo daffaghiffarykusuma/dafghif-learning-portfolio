@@ -17,11 +17,11 @@ The structured source data used to render visible **Portfolio Item** listings an
 _Avoid_: Scraped HTML, generated catalog, card markup
 
 **Portfolio Item Source Validation**:
-The pre-generation module that verifies the **Portfolio Item Source** schema and declared count, identity and page-path uniqueness, known **Practice Areas**, required **Case Study** and **Artifact** fields, replacement references, and **Proof Point** references before generated files can be written.
+The pre-generation module that verifies the **Portfolio Item Source** schema and declared count, identity and page-path uniqueness, known **Practice Areas**, required **Case Study** and **Artifact** fields, replacement references, and **Proof Point** references, then applies normalized **Proof Points** before generated files can be written.
 _Avoid_: JSON check, source lint, generator guard
 
 **Validated Portfolio Item Source**:
-The canonical **Portfolio Item** representation produced by **Portfolio Item Source Validation** after **Case Study** expansion, normalization, and featured ordering. Generation and evidence checks consume this representation instead of rebuilding source rules independently.
+The canonical **Portfolio Item** representation produced by **Portfolio Item Source Validation** after **Case Study** expansion, normalization, featured ordering, and **Proof Point** application, together with the **Case Study Publication** facts computed during validation. The **Portfolio Evidence Workflow** and evidence checks consume these facts without repeating **Case Study Publication**, **Portfolio Item**, or **Proof Point** normalization.
 _Avoid_: Expanded source, ordered items, normalized catalog input
 
 **Artifact**:
@@ -121,7 +121,7 @@ A **Proof Point** that describes what changed, what was produced, or what was ac
 _Avoid_: Impact, result, metric, achievement
 
 **Portfolio Evidence Workflow**:
-The generation module that validates **Portfolio Item Source** inputs, applies **Proof Points**, renders visible **Portfolio Item** listings, builds structured portfolio metadata and AI-readable context, expands **Case Study** pages, and returns one complete output set for a command adapter to write together. Partial generation is not a supported workflow.
+The generation module that consumes the **Validated Portfolio Item Source**, renders visible **Portfolio Item** listings, builds structured portfolio metadata and AI-readable context, includes generated **Case Study** pages, and returns one complete output set for a command adapter to write together. Partial generation is not a supported workflow.
 _Avoid_: Portfolio Evidence Pipeline, generation command, build script, output helper, partial generator
 
 **Portfolio Context Inference**:
