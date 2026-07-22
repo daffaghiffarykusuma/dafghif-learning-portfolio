@@ -6,7 +6,7 @@ import {
   inferAudience,
   inferScale,
   inferTools
-} from '../../scripts/portfolio-context-inference.mjs';
+} from '../../scripts/portfolio-context-inference.ts';
 
 describe('Portfolio Context Inference', () => {
   test('builds AI-readable context from one inference interface', () => {

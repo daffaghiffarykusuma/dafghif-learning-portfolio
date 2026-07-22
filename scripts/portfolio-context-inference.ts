@@ -1,6 +1,46 @@
 import { normalizePortfolioItem, normalizeText } from './portfolio-item-catalog.ts';
+import type { PortfolioItem } from './portfolio-item-catalog.ts';
 
-export const practiceAreaProfiles = {
+type PracticeAreaProfile = {
+  defaultRole: string;
+  defaultDeliverables: string[];
+  defaultSkills: string[];
+  cvVerb: string;
+};
+
+type PortfolioContextInput = Pick<PortfolioItem,
+  'title' | 'practiceArea' | 'description' | 'sourceArtifact' | 'proof'
+>;
+
+export type DirectOutcomeEvidence = {
+  claim: string;
+  sourceBasis: string;
+  confidence: string;
+};
+
+export type AiContextPortfolioItem = {
+  id: string;
+  title: string;
+  practiceArea: string;
+  tags: string[];
+  publicDescription: string;
+  sourceArtifact: string;
+  aiContext: {
+    evidenceLevel: string;
+    role: string;
+    audience: string;
+    deliverables: string[];
+    skills: string[];
+    tools: string[];
+    scaleSignals: string[];
+    aiHint: { evidenceLevel: string; application: string };
+    outcomeEvidence: DirectOutcomeEvidence[];
+    proof: unknown;
+    cvBullet: string;
+  };
+};
+
+export const practiceAreaProfiles: Record<string, PracticeAreaProfile> = {
   'Training Needs Analysis': {
     defaultRole:
       'Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.',
@@ -94,10 +134,10 @@ export const practiceAreaProfiles = {
   }
 };
 
-export const inferTools = (portfolioItem) => {
+export const inferTools = (portfolioItem: PortfolioContextInput): string[] => {
   const source = (portfolioItem.sourceArtifact || '').toLowerCase();
   const text = `${portfolioItem.title} ${portfolioItem.description} ${portfolioItem.practiceArea}`.toLowerCase();
-  const tools = new Set();
+  const tools = new Set<string>();
   if (source.endsWith('.xlsx') || source.includes('portfolio-viewers') || text.includes('dashboard') || text.includes('calculator')) tools.add('Excel or Google Sheets');
   if (source.endsWith('.pptx') || text.includes('deck') || text.includes('presentation') || text.includes('pitch')) tools.add('PowerPoint or Google Slides');
   if (source.endsWith('.pdf')) tools.add('PDF learning artifact');
@@ -105,7 +145,7 @@ export const inferTools = (portfolioItem) => {
   return [...tools];
 };
 
-export const inferAudience = (portfolioItem) => {
+export const inferAudience = (portfolioItem: PortfolioContextInput) => {
   const text = `${portfolioItem.title} ${portfolioItem.description}`.toLowerCase();
   if (text.includes('smk')) return 'vocational students';
   if (text.includes('msme') || text.includes('umkm')) return 'MSME owners and entrepreneurs';
@@ -118,10 +158,10 @@ export const inferAudience = (portfolioItem) => {
   return 'learners, teams, or program stakeholders';
 };
 
-export const inferScale = (portfolioItem) =>
+export const inferScale = (portfolioItem: PortfolioContextInput) =>
   [...`${portfolioItem.title} ${portfolioItem.description}`.matchAll(/\b\d{1,3}(?:,\d{3})?\+?\b/g)].map((match) => match[0]);
 
-export const inferApplicationHint = (portfolioItem) => {
+export const inferApplicationHint = (portfolioItem: PortfolioContextInput) => {
   const text = `${portfolioItem.title} ${portfolioItem.description}`.toLowerCase();
   if (text.includes('needs') || text.includes('gap')) return 'Clarified the real performance gap before investing in training design or delivery.';
   if (text.includes('dashboard') || text.includes('learning data')) return 'Improved visibility into learning data so decisions, remediation, and program improvements could be made faster.';
@@ -132,16 +172,27 @@ export const inferApplicationHint = (portfolioItem) => {
   return 'Converted a learning topic into a usable artifact that supports understanding, practice, and application.';
 };
 
-export const getDirectOutcomeEvidence = (portfolioItem) =>
-  (Array.isArray(portfolioItem.proof?.impact) ? portfolioItem.proof.impact : [])
-    .filter((entry) => normalizeText(entry.claim) && normalizeText(entry.confidence) === 'direct')
+export const getDirectOutcomeEvidence = (portfolioItem: PortfolioContextInput): DirectOutcomeEvidence[] => {
+  const impact = portfolioItem.proof && typeof portfolioItem.proof === 'object'
+    ? Reflect.get(portfolioItem.proof, 'impact')
+    : [];
+  return (Array.isArray(impact) ? impact : [])
+    .filter((entry) => entry && typeof entry === 'object'
+      && normalizeText(Reflect.get(entry, 'claim'))
+      && normalizeText(Reflect.get(entry, 'confidence')) === 'direct')
     .map((entry) => ({
-      claim: normalizeText(entry.claim),
-      sourceBasis: normalizeText(entry.sourceBasis),
-      confidence: normalizeText(entry.confidence)
+      claim: normalizeText(Reflect.get(entry, 'claim')),
+      sourceBasis: normalizeText(Reflect.get(entry, 'sourceBasis')),
+      confidence: normalizeText(Reflect.get(entry, 'confidence'))
     }));
+};
 
-export const makeCvBullet = (portfolioItem, profile, outcomeEvidence, applicationHint) => {
+export const makeCvBullet = (
+  portfolioItem: Pick<PortfolioItem, 'title' | 'practiceArea'> & { audience: string },
+  profile: PracticeAreaProfile,
+  outcomeEvidence: DirectOutcomeEvidence[],
+  applicationHint: string
+) => {
   const supportedOutcome = outcomeEvidence[0]?.claim;
   const evidenceClause = supportedOutcome
     ? `with supported outcome evidence: ${supportedOutcome}`
@@ -149,7 +200,7 @@ export const makeCvBullet = (portfolioItem, profile, outcomeEvidence, applicatio
   return `${profile.cvVerb} ${portfolioItem.title} as a ${portfolioItem.practiceArea.toLowerCase()} portfolio item, creating practical context for ${portfolioItem.audience}, ${evidenceClause}`;
 };
 
-export const createAiContextPortfolioItem = (sourceItem) => {
+export const createAiContextPortfolioItem = (sourceItem: unknown): AiContextPortfolioItem => {
   const item = normalizePortfolioItem(sourceItem);
   const profile = practiceAreaProfiles[item.practiceArea] || practiceAreaProfiles['Learning Materials'];
   const audience = inferAudience(item);

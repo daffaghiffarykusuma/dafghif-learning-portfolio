@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 import {
   assertValidPortfolioItemSource,
   validatePortfolioItemSource
-} from '../../scripts/portfolio-item-source-validator.mjs';
+} from '../../scripts/portfolio-item-source-validator.ts';
 
 const validPortfolioItem = {
   id: 'sample-deck',
@@ -112,7 +112,8 @@ describe('Portfolio Item Source validation', () => {
       absorbedPortfolioItemIds: ['missing-item'],
       artifacts: [
         validCaseStudy.artifacts[0],
-        { ...validCaseStudy.artifacts[0], title: '' }
+        { ...validCaseStudy.artifacts[0], title: '' },
+        null
       ]
     });
 
@@ -139,6 +140,7 @@ describe('Portfolio Item Source validation', () => {
     expect(result.failures).toContain('assets/data/portfolio-source.json: Case Study "case-second-program" absorbs missing Portfolio Item "missing-item"');
     expect(result.failures).toContain('assets/data/portfolio-source.json: duplicate Case Study "case-second-program" Artifact id "artifact-sample-plan"');
     expect(result.failures).toContain('assets/data/portfolio-source.json: Case Study "case-second-program" Artifact "artifact-sample-plan" is missing title');
+    expect(result.failures).toContain('assets/data/portfolio-source.json: Case Study "case-second-program" Artifact "record 3" is missing id');
     expect(result.failures).toContain('assets/data/portfolio-proof-points.json: itemOverride "missing-item" does not reference a generated Portfolio Item');
   });
 

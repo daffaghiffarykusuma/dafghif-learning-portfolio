@@ -11,8 +11,87 @@ import {
   renderSimpleGeneratedSiteFooter
 } from './generated-site-chrome.ts';
 import { normalizePortfolioItem, normalizeText, slugify } from './portfolio-item-catalog.ts';
+import type { PortfolioItem } from './portfolio-item-catalog.ts';
+import type { CaseStudyPageIdentity } from '../src/site/case-study-page-identity.ts';
 
-const featuredCaseStudies = Object.freeze([
+type Image = { src: string; alt: string };
+type LabeledValue = { label: string; value: string };
+
+export type CaseStudyArtifact = {
+  id: string;
+  title: string;
+  description: string;
+  href: string;
+  sourceType: string;
+  practiceArea: string;
+  tags: string[];
+  image: Image;
+  linkLabel: string;
+};
+
+export type CaseStudy = {
+  id: string;
+  documentTitle: string;
+  title: string;
+  portfolioItemTitle: string;
+  practiceArea: string;
+  eyebrow: string;
+  tags: string[];
+  description: string;
+  summary: string;
+  image: Image;
+  pagePath: string;
+  outputPath: string;
+  portfolioItemUrl: string;
+  discussUrl: string;
+  reviewerContext: LabeledValue[];
+  caseFlow: LabeledValue[];
+  artifacts: CaseStudyArtifact[];
+  absorbedPortfolioItemIds: string[];
+};
+
+export type CaseStudyArtifactMetadata = {
+  id: string;
+  title: string;
+  practiceArea: string;
+  tags: string[];
+  publicDescription: string;
+  sourceArtifact: string;
+  sourceType: string;
+  parentCaseStudy: string;
+  image: Image;
+};
+
+export type GeneratedCaseStudyPage = { outputPath: string; html: string };
+
+export type CaseStudyPublication = {
+  portfolioItems: PortfolioItem[];
+  pageIdentities: Readonly<CaseStudyPageIdentity>[];
+  pages: GeneratedCaseStudyPage[];
+  artifactMetadataByCaseStudyId: Map<string, CaseStudyArtifactMetadata[]>;
+};
+
+type CaseStudyCard = Pick<CaseStudy,
+  'id' | 'portfolioItemTitle' | 'practiceArea' | 'description' | 'pagePath' | 'image'
+> & Partial<Pick<CaseStudy, 'title' | 'summary'>>;
+
+const asRecord = (value: unknown): Record<string, unknown> =>
+  value !== null && typeof value === 'object' && !Array.isArray(value)
+    ? value as Record<string, unknown>
+    : {};
+
+const normalizeStringArray = (value: unknown): string[] =>
+  Array.isArray(value) ? value.map(normalizeText).filter(Boolean) : [];
+
+const normalizeLabeledValues = (value: unknown): LabeledValue[] =>
+  Array.isArray(value)
+    ? value.map(asRecord).map((item) => ({
+      label: normalizeText(item.label),
+      value: normalizeText(item.value)
+    }))
+    : [];
+
+const featuredCaseStudies: readonly CaseStudyCard[] = Object.freeze([
   Object.freeze({
     id: 'case-entrepreneurship-program',
     portfolioItemTitle: 'Entrepreneurship Program for 5,000+ SMK Students',
@@ -26,10 +105,12 @@ const featuredCaseStudies = Object.freeze([
   })
 ]);
 
-const pagePathFor = (caseStudy = {}) =>
+const pagePathFor = (caseStudy: Pick<CaseStudy, 'pagePath' | 'id'>) =>
   normalizeText(caseStudy.pagePath) || `${normalizeText(caseStudy.id)}.html`;
 
-const normalizeArtifact = (artifact = {}) => {
+const normalizeArtifact = (value: unknown): CaseStudyArtifact => {
+  const artifact = asRecord(value);
+  const image = asRecord(artifact.image);
   const title = normalizeText(artifact.title);
   const href = normalizeText(artifact.href);
   return {
@@ -39,18 +120,42 @@ const normalizeArtifact = (artifact = {}) => {
     href,
     sourceType: normalizeText(artifact.sourceType) || (href.endsWith('.pdf') ? 'pdf' : 'html-viewer'),
     practiceArea: normalizeText(artifact.practiceArea),
-    tags: Array.isArray(artifact.tags) ? artifact.tags.map(normalizeText).filter(Boolean) : [],
+    tags: normalizeStringArray(artifact.tags),
     image: {
-      src: normalizeText(artifact.image?.src),
-      alt: normalizeText(artifact.image?.alt) || title
+      src: normalizeText(image.src),
+      alt: normalizeText(image.alt) || title
     },
     linkLabel: normalizeText(artifact.linkLabel) || 'Open Artifact'
   };
 };
 
-const artifactMetadataFor = (caseStudy = {}) =>
-  (Array.isArray(caseStudy.artifacts) ? caseStudy.artifacts : [])
-    .map(normalizeArtifact)
+const normalizeCaseStudy = (value: unknown): CaseStudy => {
+  const caseStudy = asRecord(value);
+  const image = asRecord(caseStudy.image);
+  return {
+    id: normalizeText(caseStudy.id),
+    documentTitle: normalizeText(caseStudy.documentTitle),
+    title: normalizeText(caseStudy.title),
+    portfolioItemTitle: normalizeText(caseStudy.portfolioItemTitle),
+    practiceArea: normalizeText(caseStudy.practiceArea),
+    eyebrow: normalizeText(caseStudy.eyebrow),
+    tags: normalizeStringArray(caseStudy.tags),
+    description: normalizeText(caseStudy.description),
+    summary: normalizeText(caseStudy.summary),
+    image: { src: normalizeText(image.src), alt: normalizeText(image.alt) },
+    pagePath: normalizeText(caseStudy.pagePath),
+    outputPath: normalizeText(caseStudy.outputPath),
+    portfolioItemUrl: normalizeText(caseStudy.portfolioItemUrl),
+    discussUrl: normalizeText(caseStudy.discussUrl),
+    reviewerContext: normalizeLabeledValues(caseStudy.reviewerContext),
+    caseFlow: normalizeLabeledValues(caseStudy.caseFlow),
+    artifacts: Array.isArray(caseStudy.artifacts) ? caseStudy.artifacts.map(normalizeArtifact) : [],
+    absorbedPortfolioItemIds: normalizeStringArray(caseStudy.absorbedPortfolioItemIds)
+  };
+};
+
+const artifactMetadataFor = (caseStudy: CaseStudy): CaseStudyArtifactMetadata[] =>
+  caseStudy.artifacts
     .filter((artifact) => artifact.id && artifact.title && artifact.href)
     .map((artifact) => ({
       id: artifact.id,
@@ -64,7 +169,7 @@ const artifactMetadataFor = (caseStudy = {}) =>
       image: artifact.image
     }));
 
-const portfolioItemFor = (caseStudy = {}) =>
+const portfolioItemFor = (caseStudy: CaseStudy): PortfolioItem =>
   normalizePortfolioItem({
     id: caseStudy.id,
     title: caseStudy.portfolioItemTitle || `${caseStudy.title} Case Study`,
@@ -78,15 +183,20 @@ const portfolioItemFor = (caseStudy = {}) =>
     discussUrl: caseStudy.discussUrl || `contact.html?portfolioItem=${encodeURIComponent(caseStudy.portfolioItemTitle || caseStudy.title)}`
   });
 
-const expandPortfolioItems = (portfolioSource, caseStudies) => {
+const expandPortfolioItems = (
+  portfolioSource: Record<string, unknown>,
+  caseStudies: CaseStudy[]
+): PortfolioItem[] => {
   const caseStudyItems = caseStudies.map(portfolioItemFor);
   const caseStudyIds = new Set(caseStudyItems.map((item) => item.id));
   const absorbedItemIds = new Set(
     caseStudies
-      .flatMap((caseStudy) => Array.isArray(caseStudy.absorbedPortfolioItemIds) ? caseStudy.absorbedPortfolioItemIds : [])
+      .flatMap((caseStudy) => caseStudy.absorbedPortfolioItemIds)
       .map(normalizeText)
   );
-  const sourceItems = Array.isArray(portfolioSource.portfolioItems) ? portfolioSource.portfolioItems : [];
+  const sourceItems = Array.isArray(portfolioSource.portfolioItems)
+    ? portfolioSource.portfolioItems.map(normalizePortfolioItem)
+    : [];
   return [
     ...caseStudyItems,
     ...sourceItems.filter((item) => {
@@ -96,7 +206,7 @@ const expandPortfolioItems = (portfolioSource, caseStudies) => {
   ];
 };
 
-const renderCaseStudyCards = (caseStudies) =>
+const renderCaseStudyCards = (caseStudies: CaseStudy[]) =>
   [...featuredCaseStudies, ...caseStudies]
     .map((caseStudy) => {
       const pagePath = pagePathFor(caseStudy);
@@ -115,7 +225,7 @@ const renderCaseStudyCards = (caseStudies) =>
     })
     .join('\n                ');
 
-const renderIndexHtml = (caseStudies) => renderGeneratedHtmlDocument({
+const renderIndexHtml = (caseStudies: CaseStudy[]) => renderGeneratedHtmlDocument({
   title: 'Case Studies | Daffa Ghiffary Kusuma',
   description: 'Selected learning design case studies by Daffa Ghiffary Kusuma, grouped into decision-ready narratives with artifacts, assumptions, and evidence limits.',
   pageIdentity: createCaseStudyIndexPageIdentity(),
@@ -138,7 +248,7 @@ const renderIndexHtml = (caseStudies) => renderGeneratedHtmlDocument({
     </main>`
 });
 
-const renderContextCards = (items = []) =>
+const renderContextCards = (items: LabeledValue[] = []) =>
   items
     .map((item) => `<article class="feature-card">
                         <h3>${escapeHtml(item.label)}</h3>
@@ -146,7 +256,7 @@ const renderContextCards = (items = []) =>
                     </article>`)
     .join('\n                    ');
 
-const renderApproachSteps = (items = []) =>
+const renderApproachSteps = (items: LabeledValue[] = []) =>
   items
     .map((item) => `<li>
                             <h3>${escapeHtml(item.label)}</h3>
@@ -154,7 +264,7 @@ const renderApproachSteps = (items = []) =>
                         </li>`)
     .join('\n                        ');
 
-const renderPreviewAttributes = (artifact) => {
+const renderPreviewAttributes = (artifact: CaseStudyArtifact) => {
   const previewContract = createArtifactPreviewContract({
     sourceArtifact: artifact.href,
     sourceType: artifact.sourceType
@@ -164,9 +274,8 @@ const renderPreviewAttributes = (artifact) => {
     .join(' ');
 };
 
-const renderArtifactItems = (artifacts = []) =>
+const renderArtifactItems = (artifacts: CaseStudyArtifact[] = []) =>
   artifacts
-    .map(normalizeArtifact)
     .map((item, index) => {
       const previewData = renderPreviewAttributes(item);
       const imageLoading = index === 0
@@ -190,7 +299,7 @@ const renderArtifactItems = (artifacts = []) =>
     })
     .join('\n        ');
 
-const renderCaseStudyHtml = (caseStudy = {}) => {
+const renderCaseStudyHtml = (caseStudy: CaseStudy) => {
   const title = normalizeText(caseStudy.title);
   const reviewerContext = Array.isArray(caseStudy.reviewerContext) ? caseStudy.reviewerContext : [];
   const caseFlow = Array.isArray(caseStudy.caseFlow) ? caseStudy.caseFlow : [];
@@ -270,8 +379,11 @@ const renderCaseStudyHtml = (caseStudy = {}) => {
   });
 };
 
-export const createCaseStudyPublication = (portfolioSource = {}) => {
-  const caseStudies = Array.isArray(portfolioSource.caseStudies) ? portfolioSource.caseStudies : [];
+export const createCaseStudyPublication = (value: unknown = {}): CaseStudyPublication => {
+  const portfolioSource = asRecord(value);
+  const caseStudies = Array.isArray(portfolioSource.caseStudies)
+    ? portfolioSource.caseStudies.map(normalizeCaseStudy)
+    : [];
   return {
     portfolioItems: expandPortfolioItems(portfolioSource, caseStudies),
     pageIdentities: caseStudies.map((caseStudy) => createCaseStudyPageIdentity(pagePathFor(caseStudy))),

@@ -1,8 +1,9 @@
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import path from 'node:path';
-import { createCaseStudyPublication } from './case-study-publication.mjs';
+import { createCaseStudyPublication } from './case-study-publication.ts';
+import type { PortfolioItemSourceInput } from './portfolio-item-source-validator.ts';
 
-type ShippedArtifactPolicy = Readonly<{
+export type ShippedArtifactPolicy = Readonly<{
   shippedDirectoryTrees: readonly string[];
   shippedFiles: readonly string[];
   rootFiles: Readonly<{ extensions: readonly string[] }>;
@@ -12,18 +13,46 @@ type ShippedArtifactPolicy = Readonly<{
   denyRules: Readonly<{ editableOfficeExtensions: readonly string[] }>;
 }>;
 
-type PortfolioSource = Record<string, unknown>;
+export type ShippingManifest = Readonly<{
+  directoryTrees: readonly string[];
+  files: readonly string[];
+  routablePages: readonly string[];
+  rootFiles: Readonly<{ extensions: readonly string[] }>;
+  platformFiles: readonly string[];
+  excludedFiles: readonly string[];
+  productionProbes: readonly string[];
+  denyRules: Readonly<{ editableOfficeExtensions: readonly string[] }>;
+}>;
+
+export type ProductionProbeFact = {
+  path: string;
+  requestPath: string;
+  existsInSource: boolean;
+};
+
+export type DeniedArtifactFact = {
+  path: string;
+  rule: 'editable Office source files must not ship';
+};
+
+export type ShippedArtifactValidationFacts = {
+  productionProbes: ProductionProbeFact[];
+  deniedArtifacts: DeniedArtifactFact[];
+  publicRoots: readonly string[];
+  publicFiles: readonly string[];
+  routablePages: readonly string[];
+};
 
 type PortfolioSourceOptions = {
   rootDir?: string;
-  portfolioSource?: PortfolioSource;
+  portfolioSource?: PortfolioItemSourceInput;
 };
 
 type CreatePolicyOptions = PortfolioSourceOptions & {
   policy?: ShippedArtifactPolicy;
 };
 
-export const shippedArtifactPolicy = Object.freeze({
+export const shippedArtifactPolicy: ShippedArtifactPolicy = Object.freeze({
   shippedDirectoryTrees: Object.freeze([
     'assets/data',
     'assets/pdf',
@@ -73,13 +102,13 @@ export function toRequestPath(relativePath: string) {
   return `/${toPosixPath(relativePath)}`;
 }
 
-const readPortfolioSource = (rootDir: string): PortfolioSource => {
+const readPortfolioSource = (rootDir: string): PortfolioItemSourceInput => {
   try {
     const source: unknown = JSON.parse(
       readFileSync(path.resolve(rootDir, 'assets/data/portfolio-source.json'), 'utf8'),
     );
     return source !== null && typeof source === 'object' && !Array.isArray(source)
-      ? source as PortfolioSource
+      ? source as PortfolioItemSourceInput
       : {};
   } catch {
     return {};
@@ -97,7 +126,7 @@ const createShippingManifest = ({
   rootDir,
   policy,
   portfolioSource,
-}: Required<CreatePolicyOptions>) => {
+}: Required<CreatePolicyOptions>): ShippingManifest => {
   const routablePages = Object.freeze(getRoutableCaseStudyPagePaths({ rootDir, portfolioSource }));
   const productionProbes = Object.freeze([...new Set([
     ...policy.productionProbes,
@@ -116,11 +145,24 @@ const createShippingManifest = ({
   });
 };
 
+export type CreatedShippedArtifactPolicy = {
+  policy: ShippedArtifactPolicy;
+  shippingManifest: ShippingManifest;
+  rootShippedFiles: () => string[];
+  productionAssetProbePaths: () => string[];
+  productionProbeFacts: () => ProductionProbeFact[];
+  deniedArtifactFacts: (relativePaths?: readonly string[]) => DeniedArtifactFact[];
+  validationFacts: (options?: { distRelativePaths?: readonly string[] }) => ShippedArtifactValidationFacts;
+  isDeniedPath: (relativePath: string) => boolean;
+  isExcludedPath: (relativePath: string) => boolean;
+  isPublicPath: (relativePath: string) => boolean;
+};
+
 export function createShippedArtifactPolicy({
   rootDir = process.cwd(),
   policy = shippedArtifactPolicy,
   portfolioSource = readPortfolioSource(rootDir)
-}: CreatePolicyOptions = {}) {
+}: CreatePolicyOptions = {}): CreatedShippedArtifactPolicy {
   const manifest = createShippingManifest({ rootDir, policy, portfolioSource });
   const normalize = (relativePath: string) => toPosixPath(relativePath);
   const isDeniedPath = (relativePath: string) => {
@@ -148,7 +190,7 @@ export function createShippedArtifactPolicy({
         return statSync(source).isFile() && extensions.has(path.extname(file).toLowerCase());
       });
   };
-  const productionProbeFacts = () => manifest.productionProbes.map((relativePath) => ({
+  const productionProbeFacts = (): ProductionProbeFact[] => manifest.productionProbes.map((relativePath) => ({
     path: relativePath,
     requestPath: toRequestPath(relativePath),
     existsInSource: existsSync(path.resolve(rootDir, relativePath)),
@@ -156,7 +198,7 @@ export function createShippedArtifactPolicy({
   const productionAssetProbePaths = () => productionProbeFacts()
     .filter((probe) => probe.existsInSource)
     .map((probe) => probe.requestPath);
-  const deniedArtifactFacts = (relativePaths: readonly string[] = []) => relativePaths
+  const deniedArtifactFacts = (relativePaths: readonly string[] = []): DeniedArtifactFact[] => relativePaths
     .map(normalize)
     .filter(isDeniedPath)
     .map((relativePath) => ({
@@ -165,7 +207,7 @@ export function createShippedArtifactPolicy({
     }));
   const validationFacts = ({
     distRelativePaths = [],
-  }: { distRelativePaths?: readonly string[] } = {}) => ({
+  }: { distRelativePaths?: readonly string[] } = {}): ShippedArtifactValidationFacts => ({
     productionProbes: productionProbeFacts(),
     deniedArtifacts: deniedArtifactFacts(distRelativePaths),
     publicRoots: policy.shippedDirectoryTrees,

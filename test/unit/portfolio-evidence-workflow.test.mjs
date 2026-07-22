@@ -4,7 +4,7 @@ import {
 } from '../../scripts/portfolio-evidence-workflow.mjs';
 import {
   createCaseStudyPublication
-} from '../../scripts/case-study-publication.mjs';
+} from '../../scripts/case-study-publication.ts';
 import { renderGeneratedHtmlDocument } from '../../scripts/generated-site-chrome.ts';
 
 const proofSource = {

@@ -1,10 +1,47 @@
-import { createCaseStudyPublication } from './case-study-publication.mjs';
+import { createCaseStudyPublication } from './case-study-publication.ts';
 import {
   PORTFOLIO_ITEM_SCHEMA_VERSION,
   normalizePortfolioItem,
   normalizeText
 } from './portfolio-item-catalog.ts';
-import { practiceAreaProfiles } from './portfolio-context-inference.mjs';
+import { practiceAreaProfiles } from './portfolio-context-inference.ts';
+import type { PortfolioItem } from './portfolio-item-catalog.ts';
+
+export type PortfolioItemSourceInput = {
+  schemaVersion?: unknown;
+  portfolioItemCount?: unknown;
+  featuredPortfolioItemIds?: unknown;
+  portfolioItems?: unknown;
+  caseStudies?: unknown;
+  [key: string]: unknown;
+};
+
+export type ProofPointSourceInput = {
+  practiceAreaDefaults?: unknown;
+  itemOverrides?: unknown;
+  [key: string]: unknown;
+};
+
+export type ValidatePortfolioItemSourceOptions = {
+  portfolioSource?: unknown;
+  proofSource?: unknown;
+  profiles?: Record<string, unknown>;
+};
+
+export type ValidatedPortfolioItemSource = {
+  failures: string[];
+  rawPortfolioItemCount: number;
+  caseStudyCount: number;
+  generatedPortfolioItemCount: number;
+  portfolioItems: PortfolioItem[];
+};
+
+type ValidationFailures = { failures: string[] };
+
+const asRecord = (value: unknown): Record<string, unknown> =>
+  value !== null && typeof value === 'object' && !Array.isArray(value)
+    ? value as Record<string, unknown>
+    : {};
 
 const sourceFile = 'assets/data/portfolio-source.json';
 const proofFile = 'assets/data/portfolio-proof-points.json';
@@ -39,15 +76,28 @@ const requiredArtifactFields = [
 const rootHtmlPathPattern = /^[^/\\]+\.html$/i;
 const projectHtmlPathPattern = /^(?![A-Za-z]:)(?![/\\])(?!.*(?:^|[/\\])\.\.(?:[/\\]|$)).+\.html$/i;
 
-const addDuplicateFailures = ({ values, label, failures }) => {
-  const seen = new Set();
+const addDuplicateFailures = ({
+  values,
+  label,
+  failures
+}: ValidationFailures & { values: unknown[]; label: string }) => {
+  const seen = new Set<string>();
   for (const value of values.map(normalizeText).filter(Boolean)) {
     if (seen.has(value)) failures.push(`${sourceFile}: duplicate ${label} "${value}"`);
     seen.add(value);
   }
 };
 
-const validateRequiredFields = ({ record, fields, label, failures }) => {
+const validateRequiredFields = ({
+  record,
+  fields,
+  label,
+  failures
+}: ValidationFailures & {
+  record: Record<string, unknown>;
+  fields: readonly string[];
+  label: string;
+}) => {
   for (const field of fields) {
     if (!normalizeText(record?.[field])) {
       failures.push(`${sourceFile}: ${label} is missing ${field}`);
@@ -55,37 +105,66 @@ const validateRequiredFields = ({ record, fields, label, failures }) => {
   }
 };
 
-const validateImage = ({ record, label, failures }) => {
-  if (!normalizeText(record?.image?.src)) {
+const validateImage = ({
+  record,
+  label,
+  failures
+}: ValidationFailures & { record: Record<string, unknown>; label: string }) => {
+  const image = asRecord(record.image);
+  if (!normalizeText(image.src)) {
     failures.push(`${sourceFile}: ${label} is missing image.src`);
   }
-  if (!normalizeText(record?.image?.alt)) {
+  if (!normalizeText(image.alt)) {
     failures.push(`${sourceFile}: ${label} is missing image.alt`);
   }
 };
 
-const validatePracticeArea = ({ practiceArea, label, knownPracticeAreas, failures }) => {
+const validatePracticeArea = ({
+  practiceArea,
+  label,
+  knownPracticeAreas,
+  failures
+}: ValidationFailures & {
+  practiceArea: unknown;
+  label: string;
+  knownPracticeAreas: Set<string>;
+}) => {
   const normalizedPracticeArea = normalizeText(practiceArea);
   if (normalizedPracticeArea && !knownPracticeAreas.has(normalizedPracticeArea)) {
     failures.push(`${sourceFile}: ${label} uses unknown Practice Area "${normalizedPracticeArea}"`);
   }
 };
 
-const validateRootHtmlPath = ({ value, field, label, failures }) => {
+const validateRootHtmlPath = ({
+  value,
+  field,
+  label,
+  failures
+}: ValidationFailures & { value: unknown; field: string; label: string }) => {
   if (normalizeText(value) && !rootHtmlPathPattern.test(normalizeText(value))) {
     failures.push(`${sourceFile}: ${label} ${field} must be a root-level .html path`);
   }
 };
 
-const validateProjectHtmlPath = ({ value, field, label, failures }) => {
+const validateProjectHtmlPath = ({
+  value,
+  field,
+  label,
+  failures
+}: ValidationFailures & { value: unknown; field: string; label: string }) => {
   if (normalizeText(value) && !projectHtmlPathPattern.test(normalizeText(value))) {
     failures.push(`${sourceFile}: ${label} ${field} must be a project-relative .html path`);
   }
 };
 
-const prioritizeFeaturedPortfolioItems = (portfolioItems, featuredIds = []) => {
+const prioritizeFeaturedPortfolioItems = (
+  portfolioItems: PortfolioItem[],
+  featuredIds: unknown[] = []
+): PortfolioItem[] => {
   const itemsById = new Map(portfolioItems.map((item) => [item.id, item]));
-  const featured = featuredIds.map((id) => itemsById.get(normalizeText(id))).filter(Boolean);
+  const featured = featuredIds
+    .map((id) => itemsById.get(normalizeText(id)))
+    .filter((item): item is PortfolioItem => Boolean(item));
   const featuredIdSet = new Set(featured.map((item) => item.id));
   return [...featured, ...portfolioItems.filter((item) => !featuredIdSet.has(item.id))];
 };
@@ -94,35 +173,37 @@ export const validatePortfolioItemSource = ({
   portfolioSource,
   proofSource = {},
   profiles = practiceAreaProfiles
-} = {}) => {
-  const failures = [];
+}: ValidatePortfolioItemSourceOptions = {}): ValidatedPortfolioItemSource => {
+  const source = asRecord(portfolioSource) as PortfolioItemSourceInput;
+  const proof = asRecord(proofSource) as ProofPointSourceInput;
+  const failures: string[] = [];
   const knownPracticeAreas = new Set(Object.keys(profiles));
-  const portfolioItems = Array.isArray(portfolioSource?.portfolioItems)
-    ? portfolioSource.portfolioItems
+  const portfolioItems = Array.isArray(source.portfolioItems)
+    ? source.portfolioItems.map(asRecord)
     : [];
-  const caseStudies = Array.isArray(portfolioSource?.caseStudies)
-    ? portfolioSource.caseStudies
+  const caseStudies = Array.isArray(source.caseStudies)
+    ? source.caseStudies.map(asRecord)
     : [];
   const caseStudyPublication = createCaseStudyPublication({
-    ...(portfolioSource || {}),
+    ...source,
     portfolioItems,
     caseStudies
   });
 
-  if (portfolioSource?.schemaVersion !== PORTFOLIO_ITEM_SCHEMA_VERSION) {
+  if (source.schemaVersion !== PORTFOLIO_ITEM_SCHEMA_VERSION) {
     failures.push(
-      `${sourceFile}: schemaVersion must be ${PORTFOLIO_ITEM_SCHEMA_VERSION}; received ${portfolioSource?.schemaVersion ?? 'missing'}`
+      `${sourceFile}: schemaVersion must be ${PORTFOLIO_ITEM_SCHEMA_VERSION}; received ${source.schemaVersion ?? 'missing'}`
     );
   }
-  if (!Array.isArray(portfolioSource?.portfolioItems)) {
+  if (!Array.isArray(source.portfolioItems)) {
     failures.push(`${sourceFile}: portfolioItems must be an array`);
   }
-  if (!Array.isArray(portfolioSource?.caseStudies)) {
+  if (!Array.isArray(source.caseStudies)) {
     failures.push(`${sourceFile}: caseStudies must be an array`);
   }
-  if (portfolioSource?.portfolioItemCount !== portfolioItems.length) {
+  if (source.portfolioItemCount !== portfolioItems.length) {
     failures.push(
-      `${sourceFile}: portfolioItemCount must equal raw portfolioItems length; declared=${portfolioSource?.portfolioItemCount ?? 'missing'}, actual=${portfolioItems.length}`
+      `${sourceFile}: portfolioItemCount must equal raw portfolioItems length; declared=${source.portfolioItemCount ?? 'missing'}, actual=${portfolioItems.length}`
     );
   }
 
@@ -164,7 +245,7 @@ export const validatePortfolioItemSource = ({
   });
 
   const rawPortfolioItemIds = new Set(portfolioItems.map((item) => normalizeText(item?.id)).filter(Boolean));
-  const absorbedOwners = new Map();
+  const absorbedOwners = new Map<string, string>();
   caseStudies.forEach((caseStudy, index) => {
     const id = normalizeText(caseStudy?.id) || `record ${index + 1}`;
     const label = `Case Study "${id}"`;
@@ -201,7 +282,9 @@ export const validatePortfolioItemSource = ({
       }
     }
 
-    const artifacts = Array.isArray(caseStudy?.artifacts) ? caseStudy.artifacts : [];
+    const artifacts = Array.isArray(caseStudy.artifacts)
+      ? caseStudy.artifacts.map(asRecord)
+      : [];
     addDuplicateFailures({
       values: artifacts.map((artifact) => artifact?.id),
       label: `${label} Artifact id`,
@@ -232,8 +315,8 @@ export const validatePortfolioItemSource = ({
   const generatedItems = caseStudyPublication.portfolioItems;
   const validatedPortfolioItems = prioritizeFeaturedPortfolioItems(
     generatedItems.map(normalizePortfolioItem),
-    Array.isArray(portfolioSource?.featuredPortfolioItemIds)
-      ? portfolioSource.featuredPortfolioItemIds
+    Array.isArray(source.featuredPortfolioItemIds)
+      ? source.featuredPortfolioItemIds
       : []
   );
   const generatedItemIds = new Set(generatedItems.map((item) => normalizeText(item?.id)).filter(Boolean));
@@ -242,22 +325,22 @@ export const validatePortfolioItemSource = ({
     label: 'generated Portfolio Item id',
     failures
   });
-  if (!Array.isArray(portfolioSource?.featuredPortfolioItemIds)) {
+  if (!Array.isArray(source.featuredPortfolioItemIds)) {
     failures.push(`${sourceFile}: featuredPortfolioItemIds must be an array`);
   } else {
     addDuplicateFailures({
-      values: portfolioSource.featuredPortfolioItemIds,
+      values: source.featuredPortfolioItemIds,
       label: 'featured Portfolio Item id',
       failures
     });
-    for (const featuredId of portfolioSource.featuredPortfolioItemIds.map(normalizeText).filter(Boolean)) {
+    for (const featuredId of source.featuredPortfolioItemIds.map(normalizeText).filter(Boolean)) {
       if (!generatedItemIds.has(featuredId)) {
         failures.push(`${sourceFile}: featured Portfolio Item "${featuredId}" does not reference a generated Portfolio Item`);
       }
     }
   }
 
-  const practiceAreaDefaults = proofSource?.practiceAreaDefaults;
+  const practiceAreaDefaults = proof.practiceAreaDefaults;
   if (!practiceAreaDefaults || typeof practiceAreaDefaults !== 'object' || Array.isArray(practiceAreaDefaults)) {
     failures.push(`${proofFile}: practiceAreaDefaults must be an object`);
   } else {
@@ -271,7 +354,7 @@ export const validatePortfolioItemSource = ({
     }
   }
 
-  const itemOverrides = proofSource?.itemOverrides || {};
+  const itemOverrides = proof.itemOverrides || {};
   if (typeof itemOverrides !== 'object' || Array.isArray(itemOverrides)) {
     failures.push(`${proofFile}: itemOverrides must be an object`);
   } else {
@@ -291,7 +374,9 @@ export const validatePortfolioItemSource = ({
   };
 };
 
-export const assertValidPortfolioItemSource = (options = {}) => {
+export const assertValidPortfolioItemSource = (
+  options: ValidatePortfolioItemSourceOptions = {}
+): ValidatedPortfolioItemSource => {
   const result = validatePortfolioItemSource(options);
   if (result.failures.length > 0) {
     throw new Error(`Portfolio Item Source validation failed:\n- ${result.failures.join('\n- ')}`);

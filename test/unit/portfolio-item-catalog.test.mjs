@@ -4,7 +4,7 @@ import {
   normalizePortfolioItem,
   slugify
 } from '../../scripts/portfolio-item-catalog.ts';
-import { createAiContextPortfolioItem } from '../../scripts/portfolio-context-inference.mjs';
+import { createAiContextPortfolioItem } from '../../scripts/portfolio-context-inference.ts';
 
 describe('Portfolio Item catalog', () => {
   test('normalizes Portfolio Item source fields', () => {

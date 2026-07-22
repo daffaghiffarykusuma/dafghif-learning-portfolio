@@ -6,9 +6,9 @@ import {
   normalizePortfolioItem,
   normalizeText
 } from './portfolio-item-catalog.ts';
-import { createAiContextPortfolioItem, practiceAreaProfiles } from './portfolio-context-inference.mjs';
-import { createCaseStudyPublication } from './case-study-publication.mjs';
-import { assertValidPortfolioItemSource } from './portfolio-item-source-validator.mjs';
+import { createAiContextPortfolioItem, practiceAreaProfiles } from './portfolio-context-inference.ts';
+import { createCaseStudyPublication } from './case-study-publication.ts';
+import { assertValidPortfolioItemSource } from './portfolio-item-source-validator.ts';
 
 const portfolioAreaFilters = new Set([
   'training-workshop',

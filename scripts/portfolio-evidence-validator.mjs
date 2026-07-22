@@ -1,6 +1,6 @@
 import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
-import { validatePortfolioItemSource } from './portfolio-item-source-validator.mjs';
+import { validatePortfolioItemSource } from './portfolio-item-source-validator.ts';
 import { createShippedArtifactPolicy } from './shipped-artifact-policy.ts';
 
 const getPortfolioEvidenceItems = (portfolioData = {}) =>
