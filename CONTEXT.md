@@ -68,6 +68,10 @@ _Avoid_: Header helper, layout utility, shared HTML bits
 The pre-publication module that verifies source pages, styles, links, fragments, external hosts, browser security policy, Publication data, Portfolio Evidence, and Shipped Artifact probes, then returns structured failures and validation counts. Command-line execution is an adapter to this module.
 _Avoid_: Validation script, lint command, static checks
 
+**Portfolio Evidence Validation**:
+The pre-publication module that verifies the generated Portfolio Item catalog and AI-readable context stay aligned with the Validated Portfolio Item Source, referenced Artifacts exist and follow the Shipped Artifact Policy, Proof Points remain complete, and Outcome Evidence remains direct. It returns structured failures and counts through one Learning Portfolio Site interface.
+_Avoid_: Catalog comparison, evidence lint, data consistency helper
+
 **Production Site Inventory Facts**:
 The post-build module facts for shipped paths, sizes, extensions, compressed HTML/JavaScript/CSS size, and initial **Artifact Preview** iframe sources. Performance-budget checks consume these facts without repeating production file reads or HTML parsing.
 _Avoid_: Dist walker, build file list, budget file helper

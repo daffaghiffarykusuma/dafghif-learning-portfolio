@@ -1,16 +1,31 @@
-import { describe, expect, test } from 'bun:test';
+import { afterEach, describe, expect, test } from 'bun:test';
+import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises';
+import os from 'node:os';
 import path from 'node:path';
-import { validatePortfolioEvidenceData } from '../../scripts/portfolio-evidence-validator.ts';
+import { validatePortfolioEvidence } from '../../scripts/portfolio-evidence-validator.ts';
 
-const root = path.resolve('C:/portfolio-site');
+let tempRoot = null;
+
+afterEach(async () => {
+  if (tempRoot) {
+    await rm(tempRoot, { recursive: true, force: true });
+    tempRoot = null;
+  }
+});
+
 const validSourceItem = {
   id: 'custom-deck',
   title: 'Custom Deck',
   practiceArea: 'Learning Materials',
+  tags: ['learning-materials'],
   description: 'Uses roleplay prompts.',
   image: { src: 'assets/images/portfolio/custom.webp', alt: 'Custom deck thumbnail' },
-  sourceArtifact: 'assets/pdf/portfolio/custom.pdf'
+  sourceArtifact: 'assets/pdf/portfolio/custom.pdf',
+  sourceType: 'pdf',
+  portfolioItemUrl: 'portfolio.html#custom-deck',
+  discussUrl: 'contact.html?portfolioItem=Custom%20Deck'
 };
+
 const validCatalogItem = {
   ...validSourceItem,
   proof: {
@@ -32,32 +47,61 @@ const validCatalogItem = {
   }
 };
 
-const exists = async (absolutePath) => [
-  path.resolve(root, 'assets/images/portfolio/custom.webp'),
-  path.resolve(root, 'assets/pdf/portfolio/custom.pdf')
-].includes(absolutePath);
+const validAiContextItem = {
+  id: validCatalogItem.id,
+  aiContext: {
+    aiHint: { evidenceLevel: 'inferred non-proof drafting hint' },
+    outcomeEvidence: validCatalogItem.proof.impact
+  }
+};
 
-describe('Portfolio Evidence validator', () => {
+const createPortfolioSource = (portfolioItems) => ({
+  schemaVersion: 1,
+  portfolioItemCount: portfolioItems.length,
+  featuredPortfolioItemIds: [],
+  portfolioItems,
+  caseStudies: []
+});
+
+const writePortfolioEvidenceSite = async ({
+  sourceItems = [validSourceItem],
+  catalogItems = [validCatalogItem],
+  aiContextItems = [validAiContextItem],
+  existingAssets = [validSourceItem.image.src, validSourceItem.sourceArtifact]
+} = {}) => {
+  tempRoot = await mkdtemp(path.join(os.tmpdir(), 'portfolio-evidence-validation-'));
+  await mkdir(path.join(tempRoot, 'assets', 'data'), { recursive: true });
+  await Promise.all([
+    writeFile(
+      path.join(tempRoot, 'assets', 'data', 'portfolio-source.json'),
+      JSON.stringify(createPortfolioSource(sourceItems))
+    ),
+    writeFile(
+      path.join(tempRoot, 'assets', 'data', 'portfolio-proof-points.json'),
+      JSON.stringify({ practiceAreaDefaults: {}, itemOverrides: {} })
+    ),
+    writeFile(
+      path.join(tempRoot, 'assets', 'data', 'portfolio-items.json'),
+      JSON.stringify({ portfolioItems: catalogItems })
+    ),
+    writeFile(
+      path.join(tempRoot, 'assets', 'data', 'portfolio-ai-context.json'),
+      JSON.stringify({ portfolioItems: aiContextItems })
+    )
+  ]);
+  for (const assetPath of existingAssets) {
+    const absolutePath = path.join(tempRoot, assetPath);
+    await mkdir(path.dirname(absolutePath), { recursive: true });
+    await writeFile(absolutePath, 'fixture');
+  }
+  return tempRoot;
+};
+
+describe('Portfolio Evidence Validation', () => {
   test('accepts aligned source/catalog data with direct impact proof', async () => {
-    const result = await validatePortfolioEvidenceData({
-      portfolioSourceData: { portfolioItems: [validSourceItem] },
-      portfolioCatalog: { portfolioItems: [validCatalogItem] },
-      portfolioAiContext: {
-        portfolioItems: [
-          {
-            id: validCatalogItem.id,
-            aiContext: {
-              aiHint: { evidenceLevel: 'inferred non-proof drafting hint' },
-              outcomeEvidence: validCatalogItem.proof.impact
-            }
-          }
-        ]
-      },
-      root,
-      assetExists: exists
-    });
+    const root = await writePortfolioEvidenceSite();
 
-    expect(result).toEqual({
+    expect(await validatePortfolioEvidence({ root })).toEqual({
       failures: [],
       portfolioItemCount: 1,
       portfolioSourceItemCount: 1
@@ -65,34 +109,34 @@ describe('Portfolio Evidence validator', () => {
   });
 
   test('keeps source/catalog drift and Proof Point coverage failures local to the module', async () => {
-    const result = await validatePortfolioEvidenceData({
-      portfolioSourceData: { portfolioItems: [validSourceItem, { ...validSourceItem, id: 'second-item' }] },
-      portfolioCatalog: {
-        portfolioItems: [
-          {
-            id: 'other-item',
-            title: 'Other Item',
-            practiceArea: 'Learning Materials',
-            description: 'Missing evidence fields.',
-            sourceArtifact: 'assets/pdf/portfolio/missing.pdf',
-            image: { src: '../outside.webp' },
-            proof: {
-              impact: [
-                {
-                  claim: 'Unsupported broad result.',
-                  confidence: 'inferred'
-                },
-                {
-                  confidence: 'direct'
-                }
-              ]
-            }
+    const secondSourceItem = {
+      ...validSourceItem,
+      id: 'second-item',
+      title: 'Second Item',
+      portfolioItemUrl: 'portfolio.html#second-item'
+    };
+    const root = await writePortfolioEvidenceSite({
+      sourceItems: [validSourceItem, secondSourceItem],
+      catalogItems: [
+        {
+          id: 'other-item',
+          title: 'Other Item',
+          practiceArea: 'Learning Materials',
+          description: 'Missing evidence fields.',
+          sourceArtifact: 'assets/pdf/portfolio/missing.pdf',
+          image: { src: '../outside.webp' },
+          proof: {
+            impact: [
+              { claim: 'Unsupported broad result.', confidence: 'inferred' },
+              { confidence: 'direct' }
+            ]
           }
-        ]
-      },
-      root,
-      assetExists: async () => false
+        }
+      ],
+      existingAssets: []
     });
+
+    const result = await validatePortfolioEvidence({ root });
 
     expect(result.failures).toEqual([
       'Portfolio Item source/catalog count mismatch: source=2, catalog=1',
@@ -107,12 +151,14 @@ describe('Portfolio Evidence validator', () => {
   });
 
   test('reports empty source and catalog inputs with existing validation wording', async () => {
-    const result = await validatePortfolioEvidenceData({
-      portfolioSourceData: {},
-      portfolioCatalog: {},
-      root,
-      assetExists: async () => true
+    const root = await writePortfolioEvidenceSite({
+      sourceItems: [],
+      catalogItems: [],
+      aiContextItems: [],
+      existingAssets: []
     });
+
+    const result = await validatePortfolioEvidence({ root });
 
     expect(result.failures).toEqual([
       'assets/data/portfolio-source.json: expected at least one Portfolio Item source record',
@@ -121,49 +167,44 @@ describe('Portfolio Evidence validator', () => {
   });
 
   test('keeps sourceArtifact validation tied to the Shipped Artifact Policy', async () => {
-    const result = await validatePortfolioEvidenceData({
-      portfolioSourceData: { portfolioItems: [validSourceItem] },
-      portfolioCatalog: {
-        portfolioItems: [
-          {
-            ...validCatalogItem,
-            sourceArtifact: 'assets/spreadsheets/portfolio/source-workbook.xlsx'
-          }
-        ]
-      },
-      root,
-      assetExists: async () => true
+    const sourceArtifact = 'assets/spreadsheets/portfolio/source-workbook.xlsx';
+    const deniedSourceItem = {
+      ...validSourceItem,
+      sourceArtifact,
+      sourceType: 'xlsx'
+    };
+    const root = await writePortfolioEvidenceSite({
+      sourceItems: [deniedSourceItem],
+      catalogItems: [{ ...validCatalogItem, sourceArtifact, sourceType: 'xlsx' }],
+      existingAssets: [validSourceItem.image.src, sourceArtifact]
     });
 
-    expect(result.failures).toContain('assets/data/portfolio-items.json: portfolio item 1 references a denied shipped Artifact source type: assets/spreadsheets/portfolio/source-workbook.xlsx');
+    const result = await validatePortfolioEvidence({ root });
+
+    expect(result.failures).toContain(
+      'assets/data/portfolio-items.json: portfolio item 1 references a denied shipped Artifact source type: assets/spreadsheets/portfolio/source-workbook.xlsx'
+    );
   });
 
   test('keeps AI-context Outcome Evidence directness local to the module', async () => {
-    const result = await validatePortfolioEvidenceData({
-      portfolioSourceData: { portfolioItems: [validSourceItem] },
-      portfolioCatalog: { portfolioItems: [validCatalogItem] },
-      portfolioAiContext: {
-        portfolioItems: [
-          {
-            id: validCatalogItem.id,
-            aiContext: {
-              aiHint: { evidenceLevel: 'inferred outcome' },
-              outcomeEvidence: [
-                { claim: 'Direct result.', confidence: 'direct' },
-                { claim: 'Inferred result.', confidence: 'inferred' },
-                { confidence: 'direct' }
-              ]
-            }
-          },
-          {
-            id: 'extra-context-item',
-            aiContext: {}
+    const root = await writePortfolioEvidenceSite({
+      aiContextItems: [
+        {
+          id: validCatalogItem.id,
+          aiContext: {
+            aiHint: { evidenceLevel: 'inferred outcome' },
+            outcomeEvidence: [
+              { claim: 'Direct result.', confidence: 'direct' },
+              { claim: 'Inferred result.', confidence: 'inferred' },
+              { confidence: 'direct' }
+            ]
           }
-        ]
-      },
-      root,
-      assetExists: exists
+        },
+        { id: 'extra-context-item', aiContext: {} }
+      ]
     });
+
+    const result = await validatePortfolioEvidence({ root });
 
     expect(result.failures).toContain('Portfolio Item catalog/AI context count mismatch: catalog=1, aiContext=2');
     expect(result.failures).toContain('assets/data/portfolio-ai-context.json: portfolio item 1 Outcome Evidence 2 must be a direct Proof Point impact entry');

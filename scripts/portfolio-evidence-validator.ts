@@ -2,7 +2,6 @@ import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { validatePortfolioItemSource } from './portfolio-item-source-validator.ts';
 import { createShippedArtifactPolicy } from './shipped-artifact-policy.ts';
-import type { CreatedShippedArtifactPolicy } from './shipped-artifact-policy.ts';
 
 type PortfolioEvidenceRecord = Record<string, unknown>;
 
@@ -14,12 +13,10 @@ export type PortfolioEvidenceValidationResult = {
 
 type ValidatePortfolioEvidenceDataOptions = {
   portfolioSourceData: unknown;
-  portfolioSourceItems?: unknown;
+  portfolioSourceItems: unknown;
   portfolioCatalog: unknown;
-  portfolioAiContext?: unknown;
-  root?: string;
-  assetExists?: (absolutePath: string) => Promise<boolean>;
-  shippedArtifacts?: Pick<CreatedShippedArtifactPolicy, 'isDeniedPath' | 'isPublicPath'>;
+  portfolioAiContext: unknown;
+  root: string;
 };
 
 const asRecord = (value: unknown): PortfolioEvidenceRecord =>
@@ -34,7 +31,7 @@ const getPortfolioEvidenceItems = (portfolioData: unknown): PortfolioEvidenceRec
     : [];
 };
 
-const defaultAssetExists = async (absolutePath: string) => {
+const assetExists = async (absolutePath: string) => {
   try {
     await stat(absolutePath);
     return true;
@@ -48,19 +45,18 @@ const createRootGuard = (root: string) => (targetPath: string) => {
   return relativePath === '' || (!relativePath.startsWith('..') && !path.isAbsolute(relativePath));
 };
 
-export const validatePortfolioEvidenceData = async ({
+const validatePortfolioEvidenceData = async ({
   portfolioSourceData,
   portfolioSourceItems,
   portfolioCatalog,
   portfolioAiContext,
-  root = process.cwd(),
-  assetExists = defaultAssetExists,
-  shippedArtifacts = createShippedArtifactPolicy({
-    rootDir: root,
-    portfolioSource: asRecord(portfolioSourceData)
-  })
+  root
 }: ValidatePortfolioEvidenceDataOptions): Promise<PortfolioEvidenceValidationResult> => {
   const failures: string[] = [];
+  const shippedArtifacts = createShippedArtifactPolicy({
+    rootDir: root,
+    portfolioSource: asRecord(portfolioSourceData)
+  });
   const isInsideRoot = createRootGuard(root);
   const decodeUrlPart = (file: string, attr: string, value: string): string | null => {
     try {
