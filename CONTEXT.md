@@ -20,6 +20,10 @@ _Avoid_: Scraped HTML, generated catalog, card markup
 The pre-generation module that verifies the **Portfolio Item Source** schema and declared count, identity and page-path uniqueness, known **Practice Areas**, required **Case Study** and **Artifact** fields, replacement references, and **Proof Point** references, then applies normalized **Proof Points** before generated files can be written.
 _Avoid_: JSON check, source lint, generator guard
 
+**Portfolio Item Discovery**:
+The Reviewer-facing capability for searching and filtering Portfolio Items by query, Practice Area, and tag, revealing results in batches, and preserving discovery state in the page URL.
+_Avoid_: Portfolio filters, card search, project finder
+
 **Validated Portfolio Item Source**:
 The canonical **Portfolio Item** representation produced by **Portfolio Item Source Validation** after **Case Study** expansion, normalization, featured ordering, and **Proof Point** application, together with the **Case Study Publication** facts computed during validation. The **Portfolio Evidence Workflow** and evidence checks consume these facts without repeating **Case Study Publication**, **Portfolio Item**, or **Proof Point** normalization.
 _Avoid_: Expanded source, ordered items, normalized catalog input

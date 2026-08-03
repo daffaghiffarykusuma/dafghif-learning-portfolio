@@ -11,6 +11,7 @@ const portfolioFixture = ({ hash = '' } = {}) => {
       </div>
       <select id="portfolio-more-filter"><option value="">More</option></select>
       <p id="portfolio-result-summary"></p>
+      <button id="portfolio-clear-filters" hidden>Clear search and filters</button>
       <button id="portfolio-show-more">Show more</button>
     </div>
     <section id="portfolio-items">
