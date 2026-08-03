@@ -61,12 +61,8 @@ The generation module that turns **Case Study** source data into expanded **Port
 _Avoid_: Case Study Model, Case Study renderer, case helper, grouped project logic
 
 **Case Study Page Identity**:
-The shared module interface that identifies a generated **Case Study** page, its routed page path, and the navigation page it belongs to. **Case Study Publication** produces it, **Generated Site Chrome** serializes it, and browser and shipping adapters consume it.
+The shared module interface that identifies a generated **Case Study** page, its routed page path, and the navigation page it belongs to. **Case Study Publication** produces and serializes it, and browser and shipping adapters consume it.
 _Avoid_: Filename list, route flag, page-type helper
-
-**Generated Site Chrome**:
-The generation module that renders shared navigation, stylesheet links, footer markup, and HTML escaping used by generated pages.
-_Avoid_: Header helper, layout utility, shared HTML bits
 
 **Learning Portfolio Site Validation**:
 The pre-publication module that verifies source pages, styles, links, fragments, external hosts, browser security policy, Publication data, Portfolio Evidence, and Shipped Artifact probes, then returns structured failures and validation counts. Command-line execution is an adapter to this module.

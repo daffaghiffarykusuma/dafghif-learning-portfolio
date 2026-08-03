@@ -5,7 +5,6 @@ import {
 import {
   createCaseStudyPublication
 } from '../../scripts/case-study-publication.ts';
-import { renderGeneratedHtmlDocument } from '../../scripts/generated-site-chrome.ts';
 
 const proofSource = {
   practiceAreaDefaults: {
@@ -282,10 +281,11 @@ describe('Case Study Publication', () => {
   test('returns Case Study index and detail page outputs', () => {
     const caseStudy = {
       id: 'case-sample-learning-program',
+      documentTitle: 'Sample <Learning> & Program',
       title: 'Sample Learning Program',
       portfolioItemTitle: 'Sample Learning Program Case Study',
       practiceArea: 'Instructional Design',
-      description: 'Combines diagnosis and design artifacts into one case.',
+      description: 'Combines diagnosis & design artifacts into one case.',
       summary: 'Shows a grouped learning program case.',
       image: { src: 'assets/images/portfolio/sample.webp', alt: 'Sample thumbnail' },
       reviewerContext: [
@@ -301,15 +301,19 @@ describe('Case Study Publication', () => {
     );
 
     expect(indexPage.html).toContain('case-sample-learning-program.html');
+    expect(indexPage.html).toContain('<li class="current"><a href="case-studies.html">Case Studies</a></li>');
+    expect(indexPage.html).toContain('All rights reserved.');
     expect(detailPage.html).toContain(
-      '<strong>Evidence boundary:</strong> Direct outcomes are not claimed.'
+      '<strong>Evidence limit:</strong> Direct outcomes are not claimed.'
     );
-    expect(renderGeneratedHtmlDocument({
-      title: 'Sample',
-      description: 'Sample description',
-      main: '<main id="main-content"></main>'
-    })).toContain('<script type="module" src="src/script.ts"></script>');
-    expect(() => renderGeneratedHtmlDocument()).not.toThrow();
+    expect(detailPage.html).toStartWith('<!DOCTYPE html>');
+    expect(detailPage.html).toContain('<title>Sample &lt;Learning&gt; &amp; Program</title>');
+    expect(detailPage.html).toContain('<meta name="description" content="Combines diagnosis &amp; design artifacts into one case.">');
+    expect(detailPage.html).toContain('<link href="assets/data/portfolio-ai-context.json" rel="alternate" title="Portfolio AI Context" type="application/json">');
+    expect(detailPage.html).toContain('<link rel="stylesheet" href="css/style.css">');
+    expect(detailPage.html).toContain('data-page-kind="case-study" data-page-path="case-sample-learning-program.html" data-navigation-page="case-studies.html"');
+    expect(detailPage.html).toContain('Ready to collaborate?');
+    expect(detailPage.html).toContain('<script type="module" src="src/script.ts"></script>');
     expect(detailPage.html).toContain('<h1>Sample Learning Program</h1>');
   });
 });
