@@ -29,7 +29,6 @@ export type ProofPointSourceInput = {
 export type ValidatePortfolioItemSourceOptions = {
   portfolioSource?: unknown;
   proofSource?: unknown;
-  profiles?: Record<string, unknown>;
 };
 
 export type ValidatedPortfolioItemSource = {
@@ -201,13 +200,12 @@ const applyProofPoints = (
 
 export const validatePortfolioItemSource = ({
   portfolioSource,
-  proofSource = {},
-  profiles = practiceAreaProfiles
+  proofSource = {}
 }: ValidatePortfolioItemSourceOptions = {}): ValidatedPortfolioItemSource => {
   const source = asRecord(portfolioSource) as PortfolioItemSourceInput;
   const proof = asRecord(proofSource) as ProofPointSourceInput;
   const failures: string[] = [];
-  const knownPracticeAreas = new Set(Object.keys(profiles));
+  const knownPracticeAreas = new Set(Object.keys(practiceAreaProfiles));
   const portfolioItems = Array.isArray(source.portfolioItems)
     ? source.portfolioItems.map(asRecord)
     : [];

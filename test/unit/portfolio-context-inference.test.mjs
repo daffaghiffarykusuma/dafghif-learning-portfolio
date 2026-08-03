@@ -1,11 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 import {
-  createAiContextPortfolioItem,
-  getDirectOutcomeEvidence,
-  inferApplicationHint,
-  inferAudience,
-  inferScale,
-  inferTools
+  createAiContextPortfolioItem
 } from '../../scripts/portfolio-context-inference.ts';
 import { normalizePortfolioItem } from '../../scripts/portfolio-item-catalog.ts';
 
@@ -81,8 +76,8 @@ describe('Portfolio Context Inference', () => {
     expect(item.aiContext.cvBullet).toContain('with supported outcome evidence: The portfolio description identifies a 5000+ SMK student audience.');
   });
 
-  test('exposes individual inference rules for focused regression coverage', () => {
-    const portfolioItem = {
+  test('keeps inference rules behind the complete AI-readable context interface', () => {
+    const item = createAiContextPortfolioItem(normalizePortfolioItem({
       title: 'AI Dashboard for 35 Managers',
       practiceArea: 'Learning Analytics',
       description: 'A sentiment dashboard and calculator for supervisors.',
@@ -93,14 +88,40 @@ describe('Portfolio Context Inference', () => {
           { claim: 'Likely improved decisions.', sourceBasis: 'guess', confidence: 'inferred' }
         ]
       }
-    };
+    }));
 
-    expect(inferTools(portfolioItem)).toEqual(['Excel or Google Sheets', 'AI-enabled analysis concepts']);
-    expect(inferAudience(portfolioItem)).toBe('managers and team leaders');
-    expect(inferScale(portfolioItem)).toEqual(['35']);
-    expect(inferApplicationHint(portfolioItem)).toBe('Improved visibility into learning data so decisions, remediation, and program improvements could be made faster.');
-    expect(getDirectOutcomeEvidence(portfolioItem)).toEqual([
-      { claim: 'Supported a 35 manager review.', sourceBasis: 'portfolio-title', confidence: 'direct' }
-    ]);
+    expect(item).toEqual({
+      id: 'ai-dashboard-for-35-managers',
+      title: 'AI Dashboard for 35 Managers',
+      practiceArea: 'Learning Analytics',
+      tags: [],
+      publicDescription: 'A sentiment dashboard and calculator for supervisors.',
+      sourceArtifact: 'assets/portfolio-viewers/dashboard.html',
+      aiContext: {
+        evidenceLevel: 'inferred from structured portfolio source',
+        role: 'Converted learning data, response inputs, or budget assumptions into analysis-ready dashboards and decision tools.',
+        audience: 'managers and team leaders',
+        deliverables: ['analysis dashboard', 'calculation model', 'decision report'],
+        skills: ['learning analytics', 'dashboard design', 'Kirkpatrick evaluation', 'spreadsheet modeling'],
+        tools: ['Excel or Google Sheets', 'AI-enabled analysis concepts'],
+        scaleSignals: ['35'],
+        aiHint: {
+          evidenceLevel: 'inferred non-proof drafting hint',
+          application: 'Improved visibility into learning data so decisions, remediation, and program improvements could be made faster.'
+        },
+        outcomeEvidence: [
+          { claim: 'Supported a 35 manager review.', sourceBasis: 'portfolio-title', confidence: 'direct' }
+        ],
+        proof: {
+          visibleProofLine: '',
+          workQuality: [],
+          impact: [
+            { claim: 'Supported a 35 manager review.', sourceBasis: 'portfolio-title', confidence: 'direct' },
+            { claim: 'Likely improved decisions.', sourceBasis: 'guess', confidence: 'inferred' }
+          ]
+        },
+        cvBullet: 'Built AI Dashboard for 35 Managers as a learning analytics portfolio item, creating practical context for managers and team leaders, with supported outcome evidence: Supported a 35 manager review.'
+      }
+    });
   });
 });

@@ -12,9 +12,9 @@ type PortfolioContextInput = Pick<PortfolioItem,
   'title' | 'practiceArea' | 'description' | 'sourceArtifact' | 'proof'
 >;
 
-export type DirectOutcomeEvidence = ProofPoint;
+type DirectOutcomeEvidence = ProofPoint;
 
-export type AiContextPortfolioItem = {
+type AiContextPortfolioItem = {
   id: string;
   title: string;
   practiceArea: string;
@@ -130,7 +130,7 @@ export const practiceAreaProfiles: Record<string, PracticeAreaProfile> = {
   }
 };
 
-export const inferTools = (portfolioItem: PortfolioContextInput): string[] => {
+const inferTools = (portfolioItem: PortfolioContextInput): string[] => {
   const source = (portfolioItem.sourceArtifact || '').toLowerCase();
   const text = `${portfolioItem.title} ${portfolioItem.description} ${portfolioItem.practiceArea}`.toLowerCase();
   const tools = new Set<string>();
@@ -141,7 +141,7 @@ export const inferTools = (portfolioItem: PortfolioContextInput): string[] => {
   return [...tools];
 };
 
-export const inferAudience = (portfolioItem: PortfolioContextInput) => {
+const inferAudience = (portfolioItem: PortfolioContextInput) => {
   const text = `${portfolioItem.title} ${portfolioItem.description}`.toLowerCase();
   if (text.includes('smk')) return 'vocational students';
   if (text.includes('msme') || text.includes('umkm')) return 'MSME owners and entrepreneurs';
@@ -154,10 +154,10 @@ export const inferAudience = (portfolioItem: PortfolioContextInput) => {
   return 'learners, teams, or program stakeholders';
 };
 
-export const inferScale = (portfolioItem: PortfolioContextInput) =>
+const inferScale = (portfolioItem: PortfolioContextInput) =>
   [...`${portfolioItem.title} ${portfolioItem.description}`.matchAll(/\b\d{1,3}(?:,\d{3})?\+?\b/g)].map((match) => match[0]);
 
-export const inferApplicationHint = (portfolioItem: PortfolioContextInput) => {
+const inferApplicationHint = (portfolioItem: PortfolioContextInput) => {
   const text = `${portfolioItem.title} ${portfolioItem.description}`.toLowerCase();
   if (text.includes('needs') || text.includes('gap')) return 'Clarified the real performance gap before investing in training design or delivery.';
   if (text.includes('dashboard') || text.includes('learning data')) return 'Improved visibility into learning data so decisions, remediation, and program improvements could be made faster.';
@@ -168,12 +168,12 @@ export const inferApplicationHint = (portfolioItem: PortfolioContextInput) => {
   return 'Converted a learning topic into a usable artifact that supports understanding, practice, and application.';
 };
 
-export const getDirectOutcomeEvidence = (portfolioItem: PortfolioContextInput): DirectOutcomeEvidence[] => {
+const getDirectOutcomeEvidence = (portfolioItem: PortfolioContextInput): DirectOutcomeEvidence[] => {
   return portfolioItem.proof.impact
     .filter((entry) => entry.claim && entry.confidence === 'direct');
 };
 
-export const makeCvBullet = (
+const makeCvBullet = (
   portfolioItem: Pick<PortfolioItem, 'title' | 'practiceArea'> & { audience: string },
   profile: PracticeAreaProfile,
   outcomeEvidence: DirectOutcomeEvidence[],
