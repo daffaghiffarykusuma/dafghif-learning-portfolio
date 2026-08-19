@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-source.json",
-  "generatedAt": "2026-07-12T19:41:41.962Z",
-  "portfolioItemCount": 72,
+  "generatedAt": "2026-08-19T04:16:45.716Z",
+  "portfolioItemCount": 75,
   "portfolioItems": [
     {
       "id": "case-employee-assessment-bootcamp",
@@ -333,6 +333,39 @@
         "workQuality": [
           {
             "claim": "Combines facilitation structure, participant activities, and practical implementation support.",
+            "sourceBasis": "practice-area default",
+            "confidence": "inferred"
+          }
+        ],
+        "impact": []
+      }
+    },
+    {
+      "id": "case-career-readiness-toolkit",
+      "title": "Career Readiness Toolkit Case Study",
+      "practiceArea": "Mentoring & Coaching",
+      "tags": [
+        "case-study",
+        "career-development",
+        "learning-materials",
+        "mentoring",
+        "worksheet",
+        "presentation-design"
+      ],
+      "description": "Combines an ATS-friendly CV template, LinkedIn checklist, interview preparation sheet, and digital marketing portfolio template into one practical job-seeker support case.",
+      "image": {
+        "src": "assets/images/portfolio/career-readiness-toolkit-case-study.webp",
+        "alt": "Career Readiness Toolkit Case Study thumbnail"
+      },
+      "sourceArtifact": "case-career-readiness-toolkit.html",
+      "sourceType": "case-study-page",
+      "portfolioItemUrl": "case-career-readiness-toolkit.html",
+      "discussUrl": "contact.html?portfolioItem=Career Readiness Toolkit Case Study",
+      "proof": {
+        "visibleProofLine": "Structures reflection, planning, and follow-through.",
+        "workQuality": [
+          {
+            "claim": "Uses mentoring activities, reflection prompts, and action planning tools to support learner follow-through.",
             "sourceBasis": "practice-area default",
             "confidence": "inferred"
           }
@@ -2123,6 +2156,69 @@
         "workQuality": [
           {
             "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+            "sourceBasis": "practice-area default",
+            "confidence": "inferred"
+          }
+        ],
+        "impact": []
+      }
+    },
+    {
+      "id": "project-resume-linkedin-portfolio-exploration",
+      "title": "Resume, LinkedIn & Portfolio Exploration",
+      "practiceArea": "Learning Materials",
+      "tags": [
+        "learning-materials",
+        "career-development",
+        "presentation-design",
+        "facilitation"
+      ],
+      "description": "An 88-slide career-readiness learning deck that explains recruiter fit, self-mapping, job-post analysis, resume evidence, LinkedIn positioning, and portfolio planning through guided exercises.",
+      "image": {
+        "src": "assets/images/portfolio/resume-linkedin-portfolio-exploration.webp",
+        "alt": "Resume, LinkedIn and Portfolio Exploration learning deck thumbnail"
+      },
+      "sourceArtifact": "assets/pdf/portfolio/resume_linkedin_portfolio_exploration.pdf",
+      "sourceType": "pdf",
+      "portfolioItemUrl": "portfolio.html#project-resume-linkedin-portfolio-exploration",
+      "discussUrl": "contact.html?portfolioItem=Resume, LinkedIn and Portfolio Exploration",
+      "proof": {
+        "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+        "workQuality": [
+          {
+            "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+            "sourceBasis": "practice-area default",
+            "confidence": "inferred"
+          }
+        ],
+        "impact": []
+      }
+    },
+    {
+      "id": "project-theory-of-change-mentoring-tracker",
+      "title": "Theory of Change Mentoring Tracker",
+      "practiceArea": "Learning Analytics",
+      "tags": [
+        "learning-analytics",
+        "spreadsheet-modeling",
+        "mentoring",
+        "theory-of-change",
+        "monitoring-evaluation"
+      ],
+      "description": "A seven-sheet monitoring workbook for 12 programs, linking a Theory of Change chain to 71 indicators, formula-driven status tracking, evidence fields, data-quality flags, scorecards, and an audit source register.",
+      "image": {
+        "src": "assets/images/portfolio/theory-of-change-mentoring-tracker.webp",
+        "alt": "Theory of Change Mentoring Tracker dashboard thumbnail"
+      },
+      "sourceArtifact": "assets/portfolio-viewers/theory-of-change-mentoring-tracker.html",
+      "sourceType": "html-viewer",
+      "portfolioItemUrl": "portfolio.html#project-theory-of-change-mentoring-tracker",
+      "discussUrl": "contact.html?portfolioItem=Theory of Change Mentoring Tracker",
+      "proof": {
+        "visibleProofLine": "Turns learning data into decision-ready analysis.",
+        "workQuality": [
+          {
+            "claim": "Structures learning data, response inputs, or calculations into analysis-ready dashboards and decision tools.",
             "sourceBasis": "practice-area default",
             "confidence": "inferred"
           }

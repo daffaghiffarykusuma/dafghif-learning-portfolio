@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-items.json",
-  "generatedAt": "2026-07-12T19:41:41.962Z",
+  "generatedAt": "2026-08-19T04:16:45.716Z",
   "owner": "Daffa Ghiffary Kusuma",
   "positioning": "Learning Designer and Program Manager focused on competency-based training, learning assets, evaluation systems, mentoring, and learning analytics.",
   "usage": "Use this file as AI-readable context for tailored CVs, cover letters, recruiter summaries, and portfolio item matching when the original portfolio artifacts are unavailable.",
   "evidenceNote": "Portfolio item titles, practice areas, descriptions, tags, source artifact paths, proof points, and outcome evidence are read from structured portfolio sources. Outcome evidence is limited to direct Proof Point impact entries. Role, audience, deliverables, skills, tools, AI hints, and CV bullets may include inferred fields and should be refined when exact Portfolio Item details are available.",
-  "portfolioItemCount": 72,
-  "caseStudyArtifactCount": 23,
+  "portfolioItemCount": 75,
+  "caseStudyArtifactCount": 27,
   "practiceAreaProfiles": {
     "Training Needs Analysis": {
       "defaultRole": "Diagnosed learning and performance gaps, translated findings into training priorities, and prepared design-ready recommendations.",
@@ -1189,6 +1189,136 @@
           "image": {
             "src": "assets/images/portfolio/applied-leadership-development-program.webp",
             "alt": "Essential leadership skills facilitator deck thumbnail"
+          }
+        }
+      ]
+    },
+    {
+      "id": "case-career-readiness-toolkit",
+      "title": "Career Readiness Toolkit Case Study",
+      "practiceArea": "Mentoring & Coaching",
+      "tags": [
+        "case-study",
+        "career-development",
+        "learning-materials",
+        "mentoring",
+        "worksheet",
+        "presentation-design"
+      ],
+      "publicDescription": "Combines an ATS-friendly CV template, LinkedIn checklist, interview preparation sheet, and digital marketing portfolio template into one practical job-seeker support case.",
+      "sourceArtifact": "case-career-readiness-toolkit.html",
+      "aiContext": {
+        "evidenceLevel": "inferred from structured portfolio source",
+        "role": "Structured mentoring activities, reflection prompts, and action planning tools to help learners move from insight to execution.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "mentoring workbook",
+          "reflection prompts",
+          "action plan"
+        ],
+        "skills": [
+          "mentoring design",
+          "coaching tools",
+          "workbook design",
+          "learner reflection",
+          "case study",
+          "career development",
+          "learning materials",
+          "mentoring",
+          "worksheet",
+          "presentation design"
+        ],
+        "tools": [],
+        "scaleSignals": [],
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Structures reflection, planning, and follow-through.",
+          "workQuality": [
+            {
+              "claim": "Uses mentoring activities, reflection prompts, and action planning tools to support learner follow-through.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Structured Career Readiness Toolkit Case Study as a mentoring & coaching portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+      },
+      "caseStudyArtifacts": [
+        {
+          "id": "artifact-career-readiness-ats-cv-template",
+          "title": "ATS CV Template for Job Seekers",
+          "practiceArea": "Learning Materials",
+          "tags": [
+            "career-development",
+            "learning-materials",
+            "worksheet"
+          ],
+          "publicDescription": "A three-page ATS-friendly CV template with writing guidance, a fictional completed example, privacy reminders, and a final application check.",
+          "sourceArtifact": "assets/pdf/portfolio/career_readiness_ats_cv_template.pdf",
+          "sourceType": "pdf",
+          "parentCaseStudy": "case-career-readiness-toolkit",
+          "image": {
+            "src": "assets/images/portfolio/career-readiness-toolkit-case-study.webp",
+            "alt": "ATS CV Template for Job Seekers thumbnail"
+          }
+        },
+        {
+          "id": "artifact-career-readiness-linkedin-checklist",
+          "title": "Job Seeker LinkedIn Checklist",
+          "practiceArea": "Mentoring & Coaching",
+          "tags": [
+            "career-development",
+            "mentoring",
+            "worksheet"
+          ],
+          "publicDescription": "A six-page checklist for role positioning, profile evidence, recruiter readability, networking habits, privacy, and profile review.",
+          "sourceArtifact": "assets/pdf/portfolio/career_readiness_linkedin_checklist.pdf",
+          "sourceType": "pdf",
+          "parentCaseStudy": "case-career-readiness-toolkit",
+          "image": {
+            "src": "assets/images/portfolio/career-readiness-toolkit-case-study.webp",
+            "alt": "Job Seeker LinkedIn Checklist thumbnail"
+          }
+        },
+        {
+          "id": "artifact-career-readiness-interview-cheat-sheet",
+          "title": "Job Seeker Interview Cheat Sheet",
+          "practiceArea": "Mentoring & Coaching",
+          "tags": [
+            "career-development",
+            "mentoring",
+            "worksheet"
+          ],
+          "publicDescription": "A six-page preparation and practice sheet covering introductions, STAR stories, common questions, interview logistics, grooming, follow-up, and recruitment safety.",
+          "sourceArtifact": "assets/pdf/portfolio/career_readiness_interview_cheat_sheet.pdf",
+          "sourceType": "pdf",
+          "parentCaseStudy": "case-career-readiness-toolkit",
+          "image": {
+            "src": "assets/images/portfolio/career-readiness-toolkit-case-study.webp",
+            "alt": "Job Seeker Interview Cheat Sheet thumbnail"
+          }
+        },
+        {
+          "id": "artifact-career-readiness-digital-marketing-portfolio-template",
+          "title": "Digital Marketing Portfolio Template",
+          "practiceArea": "Presentation Design",
+          "tags": [
+            "career-development",
+            "presentation-design",
+            "learning-materials"
+          ],
+          "publicDescription": "An 18-page portfolio template for presenting education, certifications, work experience, skills, and selected digital marketing work.",
+          "sourceArtifact": "assets/pdf/portfolio/career_readiness_digital_marketing_portfolio_template.pdf",
+          "sourceType": "pdf",
+          "parentCaseStudy": "case-career-readiness-toolkit",
+          "image": {
+            "src": "assets/images/portfolio/career-readiness-toolkit-case-study.webp",
+            "alt": "Digital Marketing Portfolio Template thumbnail"
           }
         }
       ]
@@ -4303,6 +4433,119 @@
           "impact": []
         },
         "cvBullet": "Created Creative Thinking Workshop as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Supported applied learning through structured activities, facilitation, and practical implementation tasks."
+      }
+    },
+    {
+      "id": "project-resume-linkedin-portfolio-exploration",
+      "title": "Resume, LinkedIn & Portfolio Exploration",
+      "practiceArea": "Learning Materials",
+      "tags": [
+        "learning-materials",
+        "career-development",
+        "presentation-design",
+        "facilitation"
+      ],
+      "publicDescription": "An 88-slide career-readiness learning deck that explains recruiter fit, self-mapping, job-post analysis, resume evidence, LinkedIn positioning, and portfolio planning through guided exercises.",
+      "sourceArtifact": "assets/pdf/portfolio/resume_linkedin_portfolio_exploration.pdf",
+      "aiContext": {
+        "evidenceLevel": "inferred from structured portfolio source",
+        "role": "Created facilitator-ready learning materials that convert concepts into structured explanations, activities, and learner prompts.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "training deck",
+          "facilitator material",
+          "learner activities"
+        ],
+        "skills": [
+          "learning material development",
+          "presentation design",
+          "facilitation design",
+          "adult learning",
+          "learning materials",
+          "career development",
+          "facilitation"
+        ],
+        "tools": [
+          "PowerPoint or Google Slides",
+          "PDF learning artifact"
+        ],
+        "scaleSignals": [
+          "88"
+        ],
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Converts concepts into facilitator-ready learning material.",
+          "workQuality": [
+            {
+              "claim": "Turns learning content into structured explanations, activities, examples, and learner prompts.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Created Resume, LinkedIn & Portfolio Exploration as a learning materials portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Converted a learning topic into a usable artifact that supports understanding, practice, and application."
+      }
+    },
+    {
+      "id": "project-theory-of-change-mentoring-tracker",
+      "title": "Theory of Change Mentoring Tracker",
+      "practiceArea": "Learning Analytics",
+      "tags": [
+        "learning-analytics",
+        "spreadsheet-modeling",
+        "mentoring",
+        "theory-of-change",
+        "monitoring-evaluation"
+      ],
+      "publicDescription": "A seven-sheet monitoring workbook for 12 programs, linking a Theory of Change chain to 71 indicators, formula-driven status tracking, evidence fields, data-quality flags, scorecards, and an audit source register.",
+      "sourceArtifact": "assets/portfolio-viewers/theory-of-change-mentoring-tracker.html",
+      "aiContext": {
+        "evidenceLevel": "inferred from structured portfolio source",
+        "role": "Converted learning data, response inputs, or budget assumptions into analysis-ready dashboards and decision tools.",
+        "audience": "learners, teams, or program stakeholders",
+        "deliverables": [
+          "analysis dashboard",
+          "calculation model",
+          "decision report"
+        ],
+        "skills": [
+          "learning analytics",
+          "dashboard design",
+          "Kirkpatrick evaluation",
+          "spreadsheet modeling",
+          "mentoring",
+          "theory of change",
+          "monitoring evaluation"
+        ],
+        "tools": [
+          "Excel or Google Sheets"
+        ],
+        "scaleSignals": [
+          "12",
+          "71"
+        ],
+        "aiHint": {
+          "evidenceLevel": "inferred non-proof drafting hint",
+          "application": "Gave learners and facilitators practical tools for reflection, planning, and follow-through."
+        },
+        "outcomeEvidence": [],
+        "proof": {
+          "visibleProofLine": "Turns learning data into decision-ready analysis.",
+          "workQuality": [
+            {
+              "claim": "Structures learning data, response inputs, or calculations into analysis-ready dashboards and decision tools.",
+              "sourceBasis": "practice-area default",
+              "confidence": "inferred"
+            }
+          ],
+          "impact": []
+        },
+        "cvBullet": "Built Theory of Change Mentoring Tracker as a learning analytics portfolio item, creating practical context for learners, teams, or program stakeholders, with a non-proof AI application hint: Gave learners and facilitators practical tools for reflection, planning, and follow-through."
       }
     }
   ]

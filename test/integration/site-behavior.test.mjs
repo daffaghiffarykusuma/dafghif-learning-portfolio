@@ -73,7 +73,7 @@ describe('site browser behavior', () => {
     const portfolioItems = Array.from(document.querySelectorAll('.card.portfolio-item:not(.portfolio-item-placeholder)'));
     const proofLines = Array.from(document.querySelectorAll('.portfolio-item-proof'));
 
-    expect(portfolioItems.length).toBe(72);
+    expect(portfolioItems.length).toBe(75);
     expect(portfolioItems.every((item) => item.querySelector('.card-content > h2'))).toBe(true);
     expect(proofLines.length).toBe(portfolioItems.length);
     expect(document.querySelector('#case-employee-assessment-bootcamp .portfolio-item-proof').textContent)
@@ -92,9 +92,10 @@ describe('site browser behavior', () => {
       'case-administrative-communication.html',
       'case-learning-organization-strategy.html',
       'case-ybb-mentoring-workbook.html',
-      'case-applied-leadership-development.html'
+      'case-applied-leadership-development.html',
+      'case-career-readiness-toolkit.html'
     ]));
-    expect(document.querySelectorAll('.case-study-card').length).toBe(6);
+    expect(document.querySelectorAll('.case-study-card').length).toBe(7);
 
     const caseHtml = await readPage('case-ybb-mentoring-workbook.html');
     createDom(caseHtml, 'http://127.0.0.1/case-ybb-mentoring-workbook.html');
@@ -145,13 +146,14 @@ describe('site browser behavior', () => {
     createDom(html, 'http://127.0.0.1/portfolio.html');
 
     const caseCards = Array.from(document.querySelectorAll('.card.portfolio-item[data-category~="case-study"]'));
-    expect(caseCards.length).toBe(5);
+    expect(caseCards.length).toBe(6);
     expect(caseCards.map((card) => card.querySelector('.portfolio-item-title-link').getAttribute('href'))).toEqual([
       'case-employee-assessment-bootcamp.html',
       'case-administrative-communication.html',
       'case-learning-organization-strategy.html',
       'case-ybb-mentoring-workbook.html',
-      'case-applied-leadership-development.html'
+      'case-applied-leadership-development.html',
+      'case-career-readiness-toolkit.html'
     ]);
     expect(caseCards.every((card) => !card.querySelector('button.view-details-button'))).toBe(true);
     expect(caseCards.every((card) => card.querySelector('a.view-details-button').textContent === 'Read Case Study')).toBe(true);

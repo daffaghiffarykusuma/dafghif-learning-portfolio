@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sourceOfTruth": "Portfolio Item source data for the Learning Portfolio Site.",
-  "portfolioItemCount": 71,
+  "portfolioItemCount": 73,
   "featuredPortfolioItemIds": [
     "case-employee-assessment-bootcamp",
     "case-administrative-communication-learning-program",
@@ -694,6 +694,133 @@
           "image": {
             "src": "assets/images/portfolio/applied-leadership-development-program.webp",
             "alt": "Essential leadership skills facilitator deck thumbnail"
+          }
+        }
+      ]
+    },
+    {
+      "id": "case-career-readiness-toolkit",
+      "documentTitle": "Career Readiness Toolkit Case Study",
+      "title": "Career Readiness Toolkit for Job Seekers",
+      "portfolioItemTitle": "Career Readiness Toolkit Case Study",
+      "practiceArea": "Mentoring & Coaching",
+      "accentColor": "#2a9d8f",
+      "tags": [
+        "career-development",
+        "learning-materials",
+        "mentoring",
+        "worksheet",
+        "presentation-design"
+      ],
+      "description": "Combines an ATS-friendly CV template, LinkedIn checklist, interview preparation sheet, and digital marketing portfolio template into one practical job-seeker support case.",
+      "summary": "This case study groups four career-readiness artifacts that help early-career job seekers present truthful evidence across a CV, LinkedIn profile, interview, and digital portfolio.",
+      "image": {
+        "src": "assets/images/portfolio/career-readiness-toolkit-case-study.webp",
+        "alt": "Career Readiness Toolkit Case Study thumbnail"
+      },
+      "pagePath": "case-career-readiness-toolkit.html",
+      "outputPath": "assets/portfolio-viewers/career-readiness-toolkit-case-study.html",
+      "portfolioItemUrl": "case-career-readiness-toolkit.html",
+      "discussUrl": "contact.html?portfolioItem=Career Readiness Toolkit Case Study",
+      "reviewerContext": [
+        {
+          "label": "Use case",
+          "value": "Review a coordinated set of career learning materials for early-career job seekers preparing applications, profiles, interviews, and portfolios."
+        },
+        {
+          "label": "Scope",
+          "value": "ATS-friendly CV structure, evidence-based LinkedIn profile development, interview preparation, and a digital marketing portfolio template."
+        },
+        {
+          "label": "Evidence limit",
+          "value": "The artifacts demonstrate learning-material structure, practical guidance, safety prompts, and reusable templates. They do not prove hiring outcomes or guarantee ATS selection."
+        }
+      ],
+      "caseFlow": [
+        {
+          "label": "Clarify career direction",
+          "value": "Start with the target role, relevant job-post language, and truthful evidence from education, projects, internships, or other experience."
+        },
+        {
+          "label": "Build application evidence",
+          "value": "Turn relevant work into concise CV bullets and a complete LinkedIn profile that recruiters can understand quickly."
+        },
+        {
+          "label": "Prepare for selection",
+          "value": "Use structured interview practice, STAR examples, employer research, practical questions, and recruitment-safety checks."
+        },
+        {
+          "label": "Package work visibly",
+          "value": "Organize education, experience, skills, certifications, and selected work into a reusable digital portfolio structure."
+        }
+      ],
+      "artifacts": [
+        {
+          "title": "ATS CV Template for Job Seekers",
+          "description": "A three-page ATS-friendly CV template with writing guidance, a fictional completed example, privacy reminders, and a final application check.",
+          "href": "assets/pdf/portfolio/career_readiness_ats_cv_template.pdf",
+          "id": "artifact-career-readiness-ats-cv-template",
+          "sourceType": "pdf",
+          "practiceArea": "Learning Materials",
+          "tags": [
+            "career-development",
+            "learning-materials",
+            "worksheet"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/career-readiness-toolkit-case-study.webp",
+            "alt": "ATS CV Template for Job Seekers thumbnail"
+          }
+        },
+        {
+          "title": "Job Seeker LinkedIn Checklist",
+          "description": "A six-page checklist for role positioning, profile evidence, recruiter readability, networking habits, privacy, and profile review.",
+          "href": "assets/pdf/portfolio/career_readiness_linkedin_checklist.pdf",
+          "id": "artifact-career-readiness-linkedin-checklist",
+          "sourceType": "pdf",
+          "practiceArea": "Mentoring & Coaching",
+          "tags": [
+            "career-development",
+            "mentoring",
+            "worksheet"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/career-readiness-toolkit-case-study.webp",
+            "alt": "Job Seeker LinkedIn Checklist thumbnail"
+          }
+        },
+        {
+          "title": "Job Seeker Interview Cheat Sheet",
+          "description": "A six-page preparation and practice sheet covering introductions, STAR stories, common questions, interview logistics, grooming, follow-up, and recruitment safety.",
+          "href": "assets/pdf/portfolio/career_readiness_interview_cheat_sheet.pdf",
+          "id": "artifact-career-readiness-interview-cheat-sheet",
+          "sourceType": "pdf",
+          "practiceArea": "Mentoring & Coaching",
+          "tags": [
+            "career-development",
+            "mentoring",
+            "worksheet"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/career-readiness-toolkit-case-study.webp",
+            "alt": "Job Seeker Interview Cheat Sheet thumbnail"
+          }
+        },
+        {
+          "title": "Digital Marketing Portfolio Template",
+          "description": "An 18-page portfolio template for presenting education, certifications, work experience, skills, and selected digital marketing work.",
+          "href": "assets/pdf/portfolio/career_readiness_digital_marketing_portfolio_template.pdf",
+          "id": "artifact-career-readiness-digital-marketing-portfolio-template",
+          "sourceType": "pdf",
+          "practiceArea": "Presentation Design",
+          "tags": [
+            "career-development",
+            "presentation-design",
+            "learning-materials"
+          ],
+          "image": {
+            "src": "assets/images/portfolio/career-readiness-toolkit-case-study.webp",
+            "alt": "Digital Marketing Portfolio Template thumbnail"
           }
         }
       ]
@@ -1956,6 +2083,47 @@
       "sourceType": "html-viewer",
       "portfolioItemUrl": "portfolio.html#project-score-audit-corrections",
       "discussUrl": "contact.html?portfolioItem=Score Audit Corrections"
+    },
+    {
+      "id": "project-resume-linkedin-portfolio-exploration",
+      "title": "Resume, LinkedIn & Portfolio Exploration",
+      "practiceArea": "Learning Materials",
+      "tags": [
+        "learning-materials",
+        "career-development",
+        "presentation-design",
+        "facilitation"
+      ],
+      "description": "An 88-slide career-readiness learning deck that explains recruiter fit, self-mapping, job-post analysis, resume evidence, LinkedIn positioning, and portfolio planning through guided exercises.",
+      "image": {
+        "src": "assets/images/portfolio/resume-linkedin-portfolio-exploration.webp",
+        "alt": "Resume, LinkedIn and Portfolio Exploration learning deck thumbnail"
+      },
+      "sourceArtifact": "assets/pdf/portfolio/resume_linkedin_portfolio_exploration.pdf",
+      "sourceType": "pdf",
+      "portfolioItemUrl": "portfolio.html#project-resume-linkedin-portfolio-exploration",
+      "discussUrl": "contact.html?portfolioItem=Resume, LinkedIn and Portfolio Exploration"
+    },
+    {
+      "id": "project-theory-of-change-mentoring-tracker",
+      "title": "Theory of Change Mentoring Tracker",
+      "practiceArea": "Learning Analytics",
+      "tags": [
+        "learning-analytics",
+        "spreadsheet-modeling",
+        "mentoring",
+        "theory-of-change",
+        "monitoring-evaluation"
+      ],
+      "description": "A seven-sheet monitoring workbook for 12 programs, linking a Theory of Change chain to 71 indicators, formula-driven status tracking, evidence fields, data-quality flags, scorecards, and an audit source register.",
+      "image": {
+        "src": "assets/images/portfolio/theory-of-change-mentoring-tracker.webp",
+        "alt": "Theory of Change Mentoring Tracker dashboard thumbnail"
+      },
+      "sourceArtifact": "assets/portfolio-viewers/theory-of-change-mentoring-tracker.html",
+      "sourceType": "html-viewer",
+      "portfolioItemUrl": "portfolio.html#project-theory-of-change-mentoring-tracker",
+      "discussUrl": "contact.html?portfolioItem=Theory of Change Mentoring Tracker"
     }
   ]
 }

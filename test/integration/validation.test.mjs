@@ -30,14 +30,14 @@ describe('Learning Portfolio Site Validation', () => {
 
     expect(result.failures).toEqual([]);
     expect(result.counts).toEqual({
-      htmlFiles: 28,
+      htmlFiles: 30,
       cssFiles: 3,
       blogPosts: 34,
-      portfolioItems: 72,
-      shippedArtifactProbes: 13
+      portfolioItems: 75,
+      shippedArtifactProbes: 14
     });
     expect(formatLearningPortfolioSiteValidationSummary(result))
-      .toContain('Validated 28 HTML files');
+      .toContain('Validated 30 HTML files');
   });
 
   test('validates a temporary Learning Portfolio Site through the public interface', async () => {
