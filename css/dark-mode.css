@@ -229,17 +229,7 @@ body > header nav.active ul li.current a {
     color: var(--dm-bg-primary) !important;
 }
 
-/* Dropdown Menu */
-
-
-
-
-.dropdown-menu li.active a {
-    color: var(--dm-accent) !important;
-    background: var(--dm-accent-subtle) !important;
-}
-
-/* Mobile dropdown */
+/* Mobile navigation */
 @media (max-width: 1024px) {
     body > header nav {
         background: var(--dm-bg-secondary) !important;
@@ -655,18 +645,6 @@ h2.section-title::after {
     color: var(--dm-text-secondary) !important;
 }
 
-.slider-control {
-    background: var(--dm-bg-tertiary) !important;
-    color: var(--dm-text-primary) !important;
-    border: 1px solid var(--dm-border-default) !important;
-}
-
-.slider-control:hover {
-    background: var(--dm-accent) !important;
-    color: var(--dm-bg-primary) !important;
-    border-color: var(--dm-accent) !important;
-}
-
 /* Brands section */
 #brands {
     background: var(--dm-bg-secondary) !important;
@@ -819,36 +797,6 @@ h2.section-title::after {
 .contact-hero-subtitle {
     color: var(--dm-text-secondary) !important;
 }
-
-/* Contact form */
-
-
-.contact-form label {
-    color: var(--dm-text-secondary) !important;
-}
-
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
-    background: var(--dm-bg-tertiary) !important;
-    border-color: var(--dm-border-default) !important;
-    color: var(--dm-text-primary) !important;
-}
-
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
-    border-color: var(--dm-accent) !important;
-    box-shadow: 0 0 0 3px var(--dm-accent-subtle) !important;
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-    color: var(--dm-text-muted) !important;
-}
-
-
-
 
 /* =================================================================
    LAYER 8: FOOTER
@@ -1101,7 +1049,7 @@ footer {
 }
 
 /* Artifact preview modal */
-.pdf-modal {
+.pdf-modal::backdrop {
     background: rgba(18, 18, 18, 0.95) !important;
 }
 
@@ -1123,15 +1071,6 @@ footer {
 /* Social proof */
 
 
-
-/* Slider dots */
-.slider-dots button {
-    background: var(--dm-bg-tertiary) !important;
-}
-
-.slider-dots button.active {
-    background: var(--dm-accent) !important;
-}
 
 /* =================================================================
    LAYER 13: PRINT STYLES OVERRIDE

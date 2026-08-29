@@ -61,8 +61,6 @@ Check production performance budgets after a build:
 bun run budget
 ```
 
-`bun run lint` is an alias for the static site validation command.
-
 ## Security Notes
 
 Deployment headers live in `_headers`. Top-level pages use external JavaScript so the site can run with `script-src 'self'`. Generated portfolio viewers have a narrower no-script CSP in `_headers` because they are generated static previews from document/spreadsheet content.

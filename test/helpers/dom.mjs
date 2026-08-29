@@ -10,8 +10,6 @@ const nativeGlobals = new Map([
   ['navigator', globalThis.navigator],
   ['location', globalThis.location],
   ['history', globalThis.history],
-  ['sessionStorage', globalThis.sessionStorage],
-  ['FormData', globalThis.FormData],
   ['URL', globalThis.URL],
   ['IntersectionObserver', globalThis.IntersectionObserver],
   ['setTimeout', globalThis.setTimeout],
@@ -59,8 +57,6 @@ export const createDom = (html, url = 'http://127.0.0.1/index.html') => {
   globalThis.navigator = window.navigator;
   globalThis.location = window.location;
   globalThis.history = window.history;
-  globalThis.sessionStorage = window.sessionStorage;
-  globalThis.FormData = window.FormData;
   globalThis.URL = window.URL;
   globalThis.IntersectionObserver = window.IntersectionObserver;
   globalThis.setTimeout = window.setTimeout;

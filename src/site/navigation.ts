@@ -28,16 +28,6 @@ export function initNavigation() {
             }
         });
 
-        document.querySelectorAll<HTMLElement>('.has-dropdown').forEach((item) => {
-            const link = item.querySelector<HTMLAnchorElement>('a');
-            link?.addEventListener('click', (event) => {
-                if (window.innerWidth <= 1024 && nav.classList.contains('active')) {
-                    event.preventDefault();
-                    item.classList.toggle('open');
-                }
-            });
-        });
-
         const pageIdentity = readPageIdentity();
         navLinks.forEach((link) => {
             const linkPage = (link.getAttribute('href') || '').split('/').pop() || 'index.html';

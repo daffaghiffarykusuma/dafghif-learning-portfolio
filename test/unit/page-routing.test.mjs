@@ -23,11 +23,11 @@ const portfolioFixture = ({ hash = '' } = {}) => {
         </div>
       </article>
     </section>
-    <div id="pdf-modal" hidden>
+    <dialog id="pdf-modal">
       <button class="close-modal">Close</button>
       <h2 id="pdf-modal-title"></h2>
       <iframe id="pdf-iframe"></iframe>
-    </div>
+    </dialog>
   `, `http://127.0.0.1/portfolio.html${hash}`);
   globalThis.console = window.console;
 };
@@ -45,7 +45,7 @@ describe('portfolio page', () => {
     const preview = initCurrentPage();
 
     expect(document.querySelector('#portfolio-discovery').dataset.discoveryInitialized).toBe('true');
-    expect(document.getElementById('pdf-modal').hidden).toBe(false);
+    expect(document.getElementById('pdf-modal').open).toBe(true);
     expect(document.getElementById('pdf-modal-title').textContent).toBe('Sample Portfolio Item');
     expect(document.getElementById('pdf-iframe').src).toContain('/assets/pdf/portfolio/sample.pdf');
     preview.destroy();
@@ -56,11 +56,11 @@ describe('case study page routing', () => {
   test('detects case study preview capability from markup instead of route name', async () => {
     createDom(`
       <article class="case-artifact-card"><button class="view-details-button">View Details</button></article>
-      <div id="pdf-modal" hidden>
+      <dialog id="pdf-modal">
         <button class="close-modal">Close</button>
         <h2 id="pdf-modal-title"></h2>
         <iframe id="pdf-iframe"></iframe>
-      </div>
+      </dialog>
     `, 'http://127.0.0.1/case-studies.html');
     const { initCurrentPage } = await importFresh('../../src/site/pages/page-router.ts');
 
@@ -82,11 +82,11 @@ describe('case study page routing', () => {
           <button class="view-details-button" data-viewer="assets/portfolio-viewers/sample.html">View Details</button>
         </div>
       </article>
-      <div id="pdf-modal" hidden>
+      <dialog id="pdf-modal">
         <button class="close-modal">Close</button>
         <h2 id="pdf-modal-title"></h2>
         <iframe id="pdf-iframe"></iframe>
-      </div>
+      </dialog>
     `, 'http://127.0.0.1/case-sample.html');
     globalThis.console = window.console;
     const { initCurrentPage } = await importFresh('../../src/site/pages/page-router.ts');
@@ -95,7 +95,7 @@ describe('case study page routing', () => {
     document.querySelector('.portfolio-item-thumbnail-link').click();
 
     expect(window.location.hash).toBe('');
-    expect(document.getElementById('pdf-modal').hidden).toBe(false);
+    expect(document.getElementById('pdf-modal').open).toBe(true);
     expect(document.getElementById('pdf-modal-title').textContent).toBe('Sample Case Artifact');
     expect(document.getElementById('pdf-iframe').src).toBe('http://127.0.0.1/assets/portfolio-viewers/sample.html');
     expect(document.getElementById('pdf-iframe').getAttribute('sandbox')).toBe('allow-same-origin allow-popups allow-popups-to-escape-sandbox');
@@ -109,11 +109,11 @@ describe('case study page routing', () => {
           <button class="view-details-button" data-pdf="assets/pdf/portfolio/sample.pdf">View Details</button>
         </div>
       </article>
-      <div id="pdf-modal" hidden>
+      <dialog id="pdf-modal">
         <button class="close-modal">Close</button>
         <h2 id="pdf-modal-title"></h2>
         <iframe id="pdf-iframe"></iframe>
-      </div>
+      </dialog>
     `, 'http://127.0.0.1/case-sample.html#artifact-sample');
     globalThis.console = window.console;
     const { initCurrentPage } = await importFresh('../../src/site/pages/page-router.ts');
@@ -121,7 +121,7 @@ describe('case study page routing', () => {
     initCurrentPage();
 
     expect(window.location.hash).toBe('#artifact-sample');
-    expect(document.getElementById('pdf-modal').hidden).toBe(false);
+    expect(document.getElementById('pdf-modal').open).toBe(true);
     expect(document.getElementById('pdf-modal-title').textContent).toBe('Sample Case Artifact');
     expect(document.getElementById('pdf-iframe').src).toContain('/assets/pdf/portfolio/sample.pdf#toolbar=0');
   });

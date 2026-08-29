@@ -89,7 +89,7 @@ A way a **Reviewer** may ask Daffa to apply a **Practice Area**, such as a train
 _Avoid_: Product, package, service card, offer
 
 **Engagement Inquiry Journey**:
-The browser module that carries a **Reviewer** from an **Engagement Type** or **Portfolio Item** inquiry into contact context, including query interpretation, form capture, temporary storage, redirect, restoration, channel links, and contact-form aliases through one interface.
+The browser module that carries a **Reviewer** from an **Engagement Type** or **Portfolio Item** inquiry into contact context, including query interpretation, contact-context presentation, and safe channel-link updates through one interface.
 _Avoid_: Contact prefill helper, form redirect script, inquiry utility
 
 **Proof Point**:

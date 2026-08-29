@@ -102,7 +102,7 @@ const renderSimpleGeneratedSiteFooter = () => `<footer>
         </div>
     </footer>`;
 
-const renderArtifactPreviewModal = () => `<div aria-labelledby="pdf-modal-title" aria-modal="true" class="pdf-modal" hidden id="pdf-modal" role="dialog">
+const renderArtifactPreviewModal = () => `<dialog aria-labelledby="pdf-modal-title" class="pdf-modal" id="pdf-modal">
     <div class="pdf-modal-content" role="document">
       <div class="pdf-modal-header">
         <button type="button" class="close-modal js-close-modal" aria-label="Close artifact preview"></button>
@@ -119,7 +119,7 @@ const renderArtifactPreviewModal = () => `<div aria-labelledby="pdf-modal-title"
         <a class="cta-button" href="contact.html" id="pdf-discuss">Discuss this Artifact</a>
       </div>
     </div>
-  </div>`;
+  </dialog>`;
 
 const renderGeneratedHtmlDocument = ({
   title,

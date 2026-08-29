@@ -208,7 +208,7 @@
 </section>
 </main>
 <!-- PDF Viewer Modal -->
-<div aria-labelledby="pdf-modal-title" aria-modal="true" class="pdf-modal" hidden="" id="pdf-modal" role="dialog">
+<dialog aria-labelledby="pdf-modal-title" class="pdf-modal" id="pdf-modal">
 <div class="pdf-modal-content" role="document">
 <div class="pdf-modal-header">
 <button aria-label="Close artifact preview" class="close-modal js-close-modal" type="button"></button>
@@ -224,8 +224,7 @@
 <a class="secondary-cta" href="#" id="pdf-open-full">Open full screen</a>
 <a class="cta-button" href="contact.html" id="pdf-discuss">Discuss this Artifact</a>
 </div>
-</div>
-</div>
+</div></dialog>
 <!-- End PDF Viewer Modal -->
 <footer>
 <div class="container">
@@ -242,6 +241,7 @@
 </div>
 </footer>
 <script src="src/script.ts" type="module"></script>
+
 
 
 

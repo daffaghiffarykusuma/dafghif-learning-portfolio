@@ -35,7 +35,7 @@ export function createArtifactPreviewExperience({
     root = document,
     warn = console.warn
 }: PreviewExperienceOptions = {}) {
-    const pdfModal = root.querySelector<HTMLElement>('#pdf-modal');
+    const pdfModal = root.querySelector<HTMLDialogElement>('#pdf-modal');
     const pdfModalTitle = root.querySelector<HTMLElement>('#pdf-modal-title');
     const pdfModalMeta = root.querySelector<HTMLElement>('#pdf-modal-meta');
     const pdfOpenFull = root.querySelector<HTMLAnchorElement>('#pdf-open-full');
@@ -43,18 +43,25 @@ export function createArtifactPreviewExperience({
     const pdfIframe = root.querySelector<HTMLIFrameElement>('#pdf-iframe');
     const hasPreviewTriggers = Boolean(root.querySelector('.view-details-button'));
     const hasPreviewMarkup = pdfModal || pdfModalTitle || pdfIframe || hasPreviewTriggers;
-    let activePdfModal: HTMLElement | null = null;
     let lastPreviewTrigger: HTMLElement | null = null;
 
-    const closePdfModal = () => {
-        if (!activePdfModal || !pdfIframe) return;
-        activePdfModal.hidden = true;
-        activePdfModal.style.display = '';
-        pdfIframe.src = '';
-        pdfIframe.removeAttribute('sandbox');
-        activePdfModal = null;
+    const clearPreview = () => {
+        pdfIframe?.removeAttribute('sandbox');
+        if (pdfIframe) pdfIframe.src = '';
+    };
+
+    const restorePreviewFocus = () => {
         lastPreviewTrigger?.focus();
         lastPreviewTrigger = null;
+    };
+
+    const closePdfModal = () => {
+        if (pdfModal?.open) {
+            pdfModal.close();
+        } else if (lastPreviewTrigger) {
+            clearPreview();
+            restorePreviewFocus();
+        }
     };
 
     if (!(pdfModal && pdfModalTitle && pdfIframe && hasPreviewTriggers)) {
@@ -115,15 +122,8 @@ export function createArtifactPreviewExperience({
             history.pushState(null, '', `#${portfolioItemCard.id}`);
         }
 
-        pdfModal.hidden = false;
-        pdfModal.style.display = 'block';
-        activePdfModal = pdfModal;
+        pdfModal.showModal();
         pdfModal.querySelector<HTMLElement>('.close-modal')?.focus();
-
-        setTimeout(() => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            setTimeout(() => pdfModal.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
-        }, 50);
         return true;
     };
 
@@ -163,15 +163,16 @@ export function createArtifactPreviewExperience({
     const handleModalBackdropClick = (event: MouseEvent) => {
         if (event.target === pdfModal) closePdfModal();
     };
-    const handleEscape = (event: KeyboardEvent) => {
-        if (event.key === 'Escape') closePdfModal();
+    const handleModalClose = () => {
+        clearPreview();
+        restorePreviewFocus();
     };
 
     root.addEventListener('click', handlePreviewClick, true);
     window.addEventListener('hashchange', openPreviewFromHash);
     pdfModal.querySelector<HTMLElement>('.close-modal')?.addEventListener('click', handleModalCloseClick);
     pdfModal.addEventListener('click', handleModalBackdropClick);
-    root.addEventListener('keydown', handleEscape);
+    pdfModal.addEventListener('close', handleModalClose);
     if (openHashOnInit) openPreviewFromHash();
 
     const destroy = () => {
@@ -180,7 +181,7 @@ export function createArtifactPreviewExperience({
         window.removeEventListener('hashchange', openPreviewFromHash);
         pdfModal.querySelector<HTMLElement>('.close-modal')?.removeEventListener('click', handleModalCloseClick);
         pdfModal.removeEventListener('click', handleModalBackdropClick);
-        root.removeEventListener('keydown', handleEscape);
+        pdfModal.removeEventListener('close', handleModalClose);
     };
 
     return { closePdfModal, openPreviewFromHash, destroy };

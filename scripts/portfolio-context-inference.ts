@@ -1,4 +1,3 @@
-import { normalizeText } from './portfolio-item-catalog.ts';
 import type { PortfolioItem, ProofPoint } from './portfolio-item-catalog.ts';
 
 type PracticeAreaProfile = {

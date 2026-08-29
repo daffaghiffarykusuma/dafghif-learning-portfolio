@@ -12,14 +12,14 @@ const previewFixture = (url = 'http://127.0.0.1/portfolio.html') => {
         <button class="view-details-button" data-pdf="assets/pdf/portfolio/sample.pdf">View</button>
       </div>
     </article>
-    <div id="pdf-modal" hidden>
+    <dialog id="pdf-modal">
       <button class="close-modal">Close</button>
       <h2 id="pdf-modal-title"></h2>
       <p id="pdf-modal-meta"></p>
       <a id="pdf-open-full"></a>
       <a id="pdf-discuss"></a>
       <iframe id="pdf-iframe"></iframe>
-    </div>
+    </dialog>
   `, url);
   globalThis.console = window.console;
 };
@@ -37,7 +37,7 @@ describe('Artifact Preview Experience', () => {
     document.querySelector('.portfolio-item-thumbnail-link').click();
 
     expect(window.location.hash).toBe('#sample-item');
-    expect(document.getElementById('pdf-modal').hidden).toBe(false);
+    expect(document.getElementById('pdf-modal').open).toBe(true);
     expect(document.getElementById('pdf-modal-title').textContent).toBe('Sample Artifact');
     expect(document.getElementById('pdf-modal-meta').textContent)
       .toBe('PDF Artifact. Preview demonstrates structure and content; outcomes are only claimed where explicitly evidenced.');
@@ -58,14 +58,14 @@ describe('Artifact Preview Experience', () => {
     document.querySelector('.view-details-button').click();
 
     expect(window.location.hash).toBe('');
-    expect(document.getElementById('pdf-modal').hidden).toBe(false);
+    expect(document.getElementById('pdf-modal').open).toBe(true);
     expect(document.getElementById('pdf-modal-meta').textContent)
       .toStartWith('Interactive Artifact Preview.');
     expect(document.getElementById('pdf-iframe').src).toBe('http://127.0.0.1/assets/portfolio-viewers/sample.html');
     expect(document.getElementById('pdf-iframe').getAttribute('sandbox')).toBe('allow-same-origin allow-popups allow-popups-to-escape-sandbox');
   });
 
-  test('destroy removes preview click, hash, close, backdrop, and escape listeners', async () => {
+  test('destroy removes preview click, hash, close, and backdrop listeners', async () => {
     previewFixture();
     const { createArtifactPreviewExperience } = await importFresh('../../src/site/artifact-preview-experience.ts');
 
@@ -75,9 +75,7 @@ describe('Artifact Preview Experience', () => {
     window.dispatchEvent(new window.HashChangeEvent('hashchange'));
     document.querySelector('.close-modal').click();
     document.getElementById('pdf-modal').dispatchEvent(new window.MouseEvent('click', { bubbles: true }));
-    document.dispatchEvent(new window.KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
-
-    expect(document.getElementById('pdf-modal').hidden).toBe(true);
+    expect(document.getElementById('pdf-modal').open).toBe(false);
     expect(document.getElementById('pdf-iframe').getAttribute('src')).toBeNull();
   });
 });

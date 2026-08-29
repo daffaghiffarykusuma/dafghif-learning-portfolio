@@ -1,5 +1,7 @@
 import { initPortfolioDiscovery } from '../../portfolio-discovery.ts';
-import { initSharedPage } from './shared-page.ts';
+import { initEngagementInquiryJourney } from '../engagement-inquiry-journey.ts';
+import { initNavigation } from '../navigation.ts';
+import { initPageEnhancements } from '../page-enhancements.ts';
 import {
     createCaseStudyArtifactPreviewExperience,
     createPortfolioItemPreviewExperience
@@ -9,7 +11,17 @@ import { isCaseStudyPageIdentity, readPageIdentity } from '../case-study-page-id
 const pageNameFromPath = (pathname: string) => pathname.split('/').pop() || 'index.html';
 
 export function initCurrentPage({ pathname = window.location.pathname }: { pathname?: string } = {}) {
-    initSharedPage();
+    [
+        { name: 'navigation', init: initNavigation },
+        { name: 'engagement inquiry journey', init: initEngagementInquiryJourney },
+        { name: 'page enhancements', init: initPageEnhancements }
+    ].forEach(({ name, init }) => {
+        try {
+            init();
+        } catch (error) {
+            console.warn(`Optional page initializer failed: ${name}`, error);
+        }
+    });
 
     const pageName = pageNameFromPath(pathname);
     const pageIdentity = readPageIdentity({ pathname });

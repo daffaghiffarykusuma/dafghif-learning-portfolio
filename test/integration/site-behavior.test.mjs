@@ -37,14 +37,14 @@ describe('site browser behavior', () => {
 
     const safeCard = safeButton.closest('.portfolio-item');
     safeCard.querySelector('.portfolio-item-thumbnail-link').click();
-    expect(modal.hidden).toBe(false);
+    expect(modal.open).toBe(true);
     expect(window.location.hash).toBe(`#${safeCard.id}`);
     expect(iframe.src.startsWith('http://127.0.0.1/assets/pdf/portfolio/')).toBe(true);
     expect(iframe.src).toContain('#toolbar=0');
     expect(iframe.hasAttribute('sandbox')).toBe(false);
 
     modal.querySelector('.close-modal').click();
-    expect(modal.hidden).toBe(true);
+    expect(modal.open).toBe(false);
     expect(iframe.getAttribute('src')).toBe('');
 
     const safeViewerButton = Array.from(document.querySelectorAll('.view-details-button'))
@@ -52,7 +52,7 @@ describe('site browser behavior', () => {
     expect(safeViewerButton).toBeTruthy();
 
     safeViewerButton.click();
-    expect(modal.hidden).toBe(false);
+    expect(modal.open).toBe(true);
     expect(iframe.src.startsWith('http://127.0.0.1/assets/portfolio-viewers/')).toBe(true);
     expect(iframe.src).not.toContain('#toolbar=0');
     expect(iframe.getAttribute('sandbox')).toBe('allow-same-origin allow-popups allow-popups-to-escape-sandbox');
@@ -62,7 +62,7 @@ describe('site browser behavior', () => {
     safeButton.dataset.pdf = 'https://example.com/file.pdf';
     safeButton.removeAttribute('data-viewer');
     safeButton.click();
-    expect(modal.hidden).toBe(true);
+    expect(modal.open).toBe(false);
     expect(warnings.some((message) => message.includes('Blocked unsafe portfolio preview path'))).toBe(true);
   });
 
@@ -178,7 +178,7 @@ describe('site browser behavior', () => {
     expect(buttonClick.defaultPrevented).toBe(false);
     expect(caseStudyTitle.dispatchEvent(titleClick)).toBe(true);
     expect(titleClick.defaultPrevented).toBe(false);
-    expect(document.getElementById('pdf-modal').hidden).toBe(true);
+    expect(document.getElementById('pdf-modal').open).toBe(false);
   });
 
   test('case study artifact cards open same-origin previews without visible direct artifact links', async () => {
@@ -200,13 +200,13 @@ describe('site browser behavior', () => {
     expect(firstButton.dataset.pdf).toBe('assets/pdf/portfolio/bnsp4_training_need_analysis.pdf');
     firstButton.click();
 
-    expect(document.getElementById('pdf-modal').hidden).toBe(false);
+    expect(document.getElementById('pdf-modal').open).toBe(true);
     expect(document.getElementById('pdf-modal-title').textContent).toBe('Administrative Communication Training Needs Analysis');
     expect(document.getElementById('pdf-iframe').src).toContain('/assets/pdf/portfolio/bnsp4_training_need_analysis.pdf#toolbar=0');
 
     document.querySelector('.close-modal').click();
     artifactCards[1].querySelector('.portfolio-item-thumbnail-link').click();
-    expect(document.getElementById('pdf-modal').hidden).toBe(false);
+    expect(document.getElementById('pdf-modal').open).toBe(true);
     expect(document.getElementById('pdf-modal-title').textContent).toBe('Competency-Based Communication Training Proposal');
     expect(window.location.hash).toBe('');
   });
@@ -223,75 +223,9 @@ describe('site browser behavior', () => {
     const safeButton = Array.from(document.querySelectorAll('.view-details-button'))
       .find((button) => button.dataset.pdf);
 
-    expect(modal.hidden).toBe(true);
+    expect(modal.open).toBe(false);
     safeButton.click();
-    expect(modal.hidden).toBe(false);
-  });
-
-  test('contact page pre-fills inquiry context and clears stored data', async () => {
-    const html = await readPage('contact.html');
-    createDom(html, 'http://127.0.0.1/contact.html?engagement=mentoring');
-    document.body.insertAdjacentHTML('beforeend', `
-      <form class="contact-form">
-        <input id="name" name="name">
-        <input id="email" name="email">
-        <input id="company" name="organisation">
-        <textarea id="message" name="message"></textarea>
-        <select id="service-interest" name="service">
-          <option value="training">Training</option>
-          <option value="learning-materials">Learning materials</option>
-          <option value="mentoring">Mentoring</option>
-          <option value="speaking">Speaking</option>
-        </select>
-      </form>
-      <p id="contact-prefill-message" hidden></p>
-    `);
-    sessionStorage.setItem('engagementInquiry', JSON.stringify({
-      engagementType: 'learning-powerpoint',
-      name: 'Daffa',
-      email: 'daffa@example.com',
-      organisation: 'Learning Lab',
-      goal: 'Create a facilitator-ready learning deck.'
-    }));
-
-    await importFresh('../../src/script.ts');
-    fireDOMContentLoaded();
-
-    expect(document.querySelector('#name').value).toBe('Daffa');
-    expect(document.querySelector('#email').value).toBe('daffa@example.com');
-    expect(document.querySelector('#message').value).toBe('Create a facilitator-ready learning deck.');
-    expect(document.querySelector('#service-interest').value).toBe('learning-materials');
-    expect(document.getElementById('contact-prefill-message').hasAttribute('hidden')).toBe(false);
-    expect(sessionStorage.getItem('engagementInquiry')).toBeNull();
-  });
-
-  test('engagement inquiry forms save payloads before redirecting to contact page', async () => {
-    const window = createDom(`
-      <form class="engagement-inquiry-form" data-engagement-type="custom-training" action="contact.html">
-        <input name="name" value="Client">
-        <input name="email" value="client@example.com">
-        <input name="organisation" value="Company">
-        <input name="timeline" value="Q2">
-        <textarea name="goal">Train managers</textarea>
-        <button type="submit">Submit</button>
-      </form>
-    `, 'http://127.0.0.1/index.html');
-
-    await importFresh('../../src/script.ts');
-    fireDOMContentLoaded();
-
-    document.querySelector('form').dispatchEvent(new window.Event('submit', { bubbles: true, cancelable: true }));
-    const payload = JSON.parse(sessionStorage.getItem('engagementInquiry'));
-
-    expect(payload).toEqual({
-      engagementType: 'custom-training',
-      name: 'Client',
-      email: 'client@example.com',
-      organisation: 'Company',
-      timeline: 'Q2',
-      goal: 'Train managers'
-    });
-    expect(window.location.href.endsWith('/contact.html')).toBe(true);
+    expect(modal.open).toBe(true);
   });
 
   test('homepage connects core practices to filtered evidence and explains the working method', async () => {
@@ -304,7 +238,7 @@ describe('site browser behavior', () => {
     expect(document.querySelector('#how-i-work h2')?.textContent).toBe('How I Work');
     expect(document.querySelectorAll('#how-i-work .approach-steps > li')).toHaveLength(5);
     expect(document.querySelectorAll('#how-i-work .approach-steps a[href^="case-"]')).toHaveLength(5);
-    expect(document.querySelectorAll('[data-featured-testimonial][data-practice-areas]')).toHaveLength(3);
+    expect(document.querySelectorAll('#testimonials .testimonial-card')).toHaveLength(12);
   });
 
   test('homepage keeps its below-fold mobile hero image out of the critical request path', async () => {
