@@ -220,7 +220,7 @@ describe('production site system checks', () => {
       const { response, body } = await request(page);
       expect(response.status, page).toBe(200);
       expect(body, page).toContain('case-artifact-card');
-      expect(body, page).toContain('View Details');
+      expect(body, page).toContain('Preview work sample');
       expect(body, page).toContain('rel="alternate"');
       const metadataHref = body.match(/<link href="([^"]+\.json)" rel="alternate" title="Portfolio AI Context" type="application\/json">/)?.[1];
       expect(metadataHref, page).toBeTruthy();

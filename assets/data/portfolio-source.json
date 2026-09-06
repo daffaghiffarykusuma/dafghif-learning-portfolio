@@ -29,7 +29,7 @@
         "behavioral-observation"
       ],
       "description": "Connects a multi-day behavioral observation workbook with a redacted individual report to show the assessment flow from evidence capture and scoring to participant-facing synthesis.",
-      "summary": "This case study shows an end-to-end employee assessment workflow: competency mapping, activity-specific observation, anchored scoring, evidence calibration, consolidated results, and an anonymized individual report.",
+      "summary": "A behavioral assessment workflow connecting competency mapping, observation, scoring, and individual reporting. Explore the redacted workbook and participant report.",
       "image": {
         "src": "assets/images/portfolio/employee-assessment-bootcamp-case-study.webp",
         "alt": "Anonymized employee assessment bootcamp team photo"
@@ -124,7 +124,7 @@
         "learning-evaluation"
       ],
       "description": "Combines needs analysis, proposal, lesson plan, facilitator material, and evaluation tools into one competency-based workplace communication learning case.",
-      "summary": "This case study consolidates the administrative communication portfolio items into one end-to-end learning design case: diagnosis, proposal, lesson plan, facilitator material, and evaluation tools.",
+      "summary": "A 36-hour workplace communication program, from training needs analysis to facilitator materials and assessment tools.",
       "image": {
         "src": "assets/images/portfolio/bnsp4-training-need-analysis.webp",
         "alt": "Administrative Communication Learning Program Case Study thumbnail"
@@ -298,7 +298,7 @@
         "worksheet"
       ],
       "description": "Combines macro needs analysis, competency architecture, business and marketing plans, budget modeling, and evaluation dashboards into one strategic L&D case.",
-      "summary": "This case study consolidates a learning organization portfolio set into one strategic L&D case: macro needs analysis, competency mapping, syllabus design, business planning, marketing planning, budget modeling, and evaluation dashboards.",
+      "summary": "A learning strategy that connects market needs, competency planning, business decisions, and evaluation. Explore the planning documents and measurement tools.",
       "image": {
         "src": "assets/images/portfolio/bnsp6-kebutuhan-pelatihan-makro.webp",
         "alt": "Learning Organization Strategy and Evaluation System Case Study thumbnail"
@@ -494,7 +494,7 @@
         "project-pitch-deck-template-week-4"
       ],
       "description": "Combines three mentoring workbooks and a final pitch deck template into one staged youth project mentoring case.",
-      "summary": "This case study consolidates a four-week mentoring sequence: idea exploration, concept development, presentation readiness, and final pitch deck structure.",
+      "summary": "A four-week mentoring sequence that helps student teams develop an idea into a feasible concept and a final pitch.",
       "image": {
         "src": "assets/images/portfolio/ybb-mentoring-workbook-week-1.webp",
         "alt": "Youth mentoring workbook and pitch readiness case study thumbnail"
@@ -620,7 +620,7 @@
         "facilitation"
       ],
       "description": "Combines a tailored training proposal and an 84-slide facilitator deck into one applied leadership development case focused on adaptive leadership, communication, collaboration, problem solving, and simulation.",
-      "summary": "This case study connects leadership-program framing with facilitator-ready learning material: leadership mindset, adaptive styles, effective communication, collaborative problem solving, and realistic practice.",
+      "summary": "A leadership workshop covering adaptive styles, communication, and collaborative problem solving, supported by a program proposal and facilitator deck.",
       "image": {
         "src": "assets/images/portfolio/applied-leadership-development-program.webp",
         "alt": "Applied leadership development program case study thumbnail"
@@ -713,7 +713,7 @@
         "presentation-design"
       ],
       "description": "Combines an ATS-friendly CV template, LinkedIn checklist, interview preparation sheet, and digital marketing portfolio template into one practical job-seeker support case.",
-      "summary": "This case study groups four career-readiness artifacts that help early-career job seekers present truthful evidence across a CV, LinkedIn profile, interview, and digital portfolio.",
+      "summary": "Practical tools to help early-career job seekers present their experience in a CV, LinkedIn profile, interview, and digital portfolio.",
       "image": {
         "src": "assets/images/portfolio/career-readiness-toolkit-case-study.webp",
         "alt": "Career Readiness Toolkit Case Study thumbnail"

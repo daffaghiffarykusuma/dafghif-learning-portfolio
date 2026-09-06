@@ -368,7 +368,7 @@ const renderIndexHtml = (caseStudies: CaseStudy[]) => renderGeneratedHtmlDocumen
             <div class="container">
                 <p class="service-eyebrow">Case Studies</p>
                 <h1>Selected Learning Design Cases</h1>
-                <p class="lead">Grouped portfolio evidence shown as reviewable case studies, so each story can explain the audience, decision context, artifacts, and limits without loading every preview inside the portfolio grid.</p>
+                <p class="lead">Explore learning programs, assessment tools, and practical materials. Open a case to see the work and how it was designed.</p>
             </div>
         </section>
         <section class="case-study-index">
@@ -380,14 +380,6 @@ const renderIndexHtml = (caseStudies: CaseStudy[]) => renderGeneratedHtmlDocumen
         </section>
     </main>`
 });
-
-const renderContextCards = (items: LabeledValue[] = []) =>
-  items
-    .map((item) => `<article class="feature-card">
-                        <h3>${escapeHtml(item.label)}</h3>
-                        <p><strong>${escapeHtml(item.label)}:</strong> ${escapeHtml(item.value)}</p>
-                    </article>`)
-    .join('\n                    ');
 
 const renderApproachSteps = (items: LabeledValue[] = []) =>
   items
@@ -422,10 +414,9 @@ const renderArtifactItems = (artifacts: CaseStudyArtifact[] = []) =>
             </div>
             <div class="card-content">
               <h3><a class="portfolio-item-title-link" href="#${escapeHtml(item.id)}">${escapeHtml(item.title)}</a></h3>
-              ${item.practiceArea ? `<span class="portfolio-item-practice-label">${escapeHtml(item.practiceArea)}</span>` : ''}
               <p>${escapeHtml(item.description)}</p>
               <div class="card-actions">
-                <button class="view-details-button" type="button" ${previewData}>View Details</button>
+                <button class="view-details-button" type="button" ${previewData}>Preview work sample</button>
               </div>
             </div>
           </article>`;
@@ -437,68 +428,52 @@ const renderCaseStudyHtml = (caseStudy: CaseStudy) => {
   const reviewerContext = Array.isArray(caseStudy.reviewerContext) ? caseStudy.reviewerContext : [];
   const caseFlow = Array.isArray(caseStudy.caseFlow) ? caseStudy.caseFlow : [];
   const artifacts = Array.isArray(caseStudy.artifacts) ? caseStudy.artifacts : [];
-  const primaryContext = reviewerContext.slice(0, 2);
+  const evidenceNotes = reviewerContext.filter((item) => /limit/i.test(item.label));
+  const scope = reviewerContext.filter((item) => !/limit|use case/i.test(item.label));
   const ctaHref = normalizeText(caseStudy.discussUrl) || `contact.html?portfolioItem=${encodeURIComponent(caseStudy.portfolioItemTitle || title)}`;
-  const main = `<main id="main-content" role="main" aria-label="Main content">
-    <section class="service-hero service-hero-compact generated-case-hero">
+  const main = `<main id="main-content" class="case-reading-page" role="main" aria-label="Main content">
+    <section class="service-hero generated-case-hero" id="overview">
       <div class="container">
-        <p class="service-eyebrow">${escapeHtml(caseStudy.eyebrow || 'Case Study')}</p>
+        <a class="case-back" href="case-studies.html">&larr; All case studies</a>
+        <p class="service-eyebrow">${escapeHtml(caseStudy.practiceArea || 'Case Study')}</p>
         <h1>${escapeHtml(title)}</h1>
         <p class="lead">${escapeHtml(caseStudy.summary)}</p>
-        <div class="service-hero-meta">
-          ${primaryContext.map((item) => `<div>
-            <h2>${escapeHtml(item.label)}</h2>
-            <ul>
-              <li>${escapeHtml(item.value)}</li>
-            </ul>
-          </div>`).join('\n          ')}
-        </div>
+        <nav class="case-jump-links" aria-label="On this page">
+          <a href="#work-samples">View ${artifacts.length} work samples &darr;</a>
+          ${caseFlow.length ? '<a href="#approach">How it was designed</a>' : ''}
+        </nav>
       </div>
     </section>
 
-    <section class="service-outcomes generated-case-context">
+    <section class="generated-case-artifacts" id="work-samples">
       <div class="container">
-        <div class="section-heading">
-          <h2 class="section-title">Reviewer Context</h2>
-          <p>What this case is meant to demonstrate, where the evidence is strong, and where claims stay bounded.</p>
+        <div class="case-section-heading">
+          <h2>Explore the work</h2>
+          <p>Open any sample to inspect it without leaving this page.</p>
         </div>
-        <div class="feature-grid">
-          ${renderContextCards(reviewerContext)}
-        </div>
-      </div>
-    </section>
-
-    <section class="service-approach generated-case-flow">
-      <div class="container">
-        <div class="section-heading">
-          <h2 class="section-title">Case Flow</h2>
-          <p>The work sequence behind the grouped artifacts.</p>
-        </div>
-        <ol class="approach-steps">
-          ${renderApproachSteps(caseFlow)}
-        </ol>
-      </div>
-    </section>
-
-    <section class="service-resources generated-case-artifacts">
-      <div class="container">
-        <div class="section-heading">
-          <h2 class="section-title">Included Artifacts</h2>
-          <p>Source materials reviewers can inspect directly.</p>
-        </div>
+        ${evidenceNotes.map((item) => `<p class="case-evidence-note"><strong>${escapeHtml(item.label)}:</strong> ${escapeHtml(item.value)}</p>`).join('')}
         <div class="resource-grid artifact-list">
           ${renderArtifactItems(artifacts)}
         </div>
       </div>
     </section>
 
+    ${caseFlow.length || scope.length ? `<section class="generated-case-flow" id="approach">
+      <div class="container">
+        <details class="case-approach-details">
+          <summary>How it was designed <span>Scope and approach</span></summary>
+          ${scope.map((item) => `<p class="case-scope"><strong>${escapeHtml(item.label)}:</strong> ${escapeHtml(item.value)}</p>`).join('')}
+          <ol class="case-steps">${renderApproachSteps(caseFlow)}</ol>
+        </details>
+      </div>
+    </section>` : ''}
+
     ${renderArtifactPreviewModal()}
 
-    <section class="service-cta generated-case-cta">
-      <div class="container text-center">
-        <h2 class="section-title">Discuss a Similar Case</h2>
-        <p>${escapeHtml(caseStudy.description || caseStudy.summary)}</p>
-        <a href="${escapeHtml(ctaHref)}" class="cta-button">Discuss a Similar Case</a>
+    <section class="generated-case-cta">
+      <div class="container case-next-step">
+        <div><h2>Have a similar challenge?</h2><p>Tell me what your learners or team need.</p></div>
+        <a href="${escapeHtml(ctaHref)}" class="cta-button">Discuss this work</a>
       </div>
     </section>
   </main>`;
@@ -508,7 +483,8 @@ const renderCaseStudyHtml = (caseStudy: CaseStudy) => {
     description: caseStudy.description || caseStudy.summary,
     pageIdentity: createCaseStudyPageIdentity(pagePathFor(caseStudy)),
     main,
-    metadataLinks: [portfolioAiContextMetadataLink]
+    metadataLinks: [portfolioAiContextMetadataLink],
+    footer: renderSimpleGeneratedSiteFooter()
   });
 };
 

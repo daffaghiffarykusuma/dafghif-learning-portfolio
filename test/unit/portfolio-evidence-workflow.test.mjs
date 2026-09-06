@@ -312,7 +312,11 @@ describe('Case Study Publication', () => {
     expect(detailPage.html).toContain('<link href="assets/data/portfolio-ai-context.json" rel="alternate" title="Portfolio AI Context" type="application/json">');
     expect(detailPage.html).toContain('<link rel="stylesheet" href="css/style.css">');
     expect(detailPage.html).toContain('data-page-kind="case-study" data-page-path="case-sample-learning-program.html" data-navigation-page="case-studies.html"');
-    expect(detailPage.html).toContain('Ready to collaborate?');
+    expect(detailPage.html).toContain('Have a similar challenge?');
+    expect(detailPage.html).not.toContain('Reviewer Context');
+    expect(detailPage.html.match(/Direct outcomes are not claimed\./g)).toHaveLength(1);
+    expect(detailPage.html.indexOf('id="work-samples"')).toBeLessThan(detailPage.html.indexOf('id="approach"'));
+    expect(detailPage.html).toContain('<details class="case-approach-details">');
     expect(detailPage.html).toContain('<script type="module" src="src/script.ts"></script>');
     expect(detailPage.html).toContain('<h1>Sample Learning Program</h1>');
   });

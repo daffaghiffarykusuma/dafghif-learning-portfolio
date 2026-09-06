@@ -1,7 +1,7 @@
 const CONTACT_EMAIL = 'daffaghifarykusuma@gmail.com';
 const CONTACT_WHATSAPP_NUMBER = '62895329473179';
 
-const normalizePublicContext = (value: unknown = '') => String(value)
+const normalizePublicContext = (value: unknown = '') => String(value ?? '')
     .replace(/[\u0000-\u001f\u007f]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim()

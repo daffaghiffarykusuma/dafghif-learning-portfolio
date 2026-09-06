@@ -2331,15 +2331,15 @@ body.dark-mode footer a {
 .footer-cta .cta-button,
 .footer-cta .cta-button:hover,
 .footer-cta .cta-button:focus-visible {
-    color: #0f1b1e !important;
-    background: #6ee7d8 !important;
-    border-color: #6ee7d8 !important;
+    color: var(--color-text-inverse);
+    background: var(--color-accent);
+    border-color: var(--color-accent);
 }
 
 .footer-cta .cta-button:hover,
 .footer-cta .cta-button:focus-visible {
-    background: #ee6c4d !important;
-    border-color: #ee6c4d !important;
+    background: var(--color-accent-dark);
+    border-color: var(--color-accent-dark);
 }
 
 .footer-meta {
@@ -2475,7 +2475,7 @@ body.dark-mode footer a {
 
 /* --- Testimonials --- */
 #testimonials {
-    background: #f5f7fb;
+    background: var(--color-surface);
     padding: 110px 0;
 }
 
@@ -2611,7 +2611,7 @@ body.dark-mode footer a {
 }
 
 .service-impact {
-    background: #f7f9fc;
+    background: var(--color-surface);
 }
 
 .impact-grid {

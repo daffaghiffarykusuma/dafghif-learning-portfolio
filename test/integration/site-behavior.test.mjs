@@ -110,9 +110,12 @@ describe('site browser behavior', () => {
     expect(document.querySelector('header nav a[href="case-studies.html"]').parentElement.classList.contains('current')).toBe(true);
     expect(document.querySelector('.service-hero.generated-case-hero')).toBeTruthy();
     expect(document.querySelector('.generated-case-evidence, .generated-case-meaning')).toBeNull();
-    expect(document.querySelector('.service-outcomes.generated-case-context')).toBeTruthy();
-    expect(document.querySelector('.service-approach .approach-steps')).toBeTruthy();
-    expect(document.querySelector('.service-resources.generated-case-artifacts')).toBeTruthy();
+    expect(document.querySelector('.generated-case-context')).toBeNull();
+    expect(document.querySelector('.case-approach-details .case-steps')).toBeTruthy();
+    expect(document.querySelector('.case-approach-details').open).toBe(false);
+    expect(document.querySelector('#work-samples.generated-case-artifacts')).toBeTruthy();
+    expect(document.querySelectorAll('.case-evidence-note')).toHaveLength(1);
+    expect(document.querySelector('footer .footer-cta')).toBeNull();
     expect(Array.from(document.querySelectorAll('.artifact-list h3'), (heading) => heading.textContent)).toEqual([
       'Mentoring Workbook: Week 1 Idea Exploration',
       'Mentoring Workbook: Week 2 Concept Development',
@@ -133,12 +136,12 @@ describe('site browser behavior', () => {
     expect(document.querySelector('header nav a[href="case-studies.html"]').parentElement.classList.contains('current')).toBe(true);
   });
 
-  test('generated case study hero meta text keeps readable dark-mode contrast', async () => {
+  test('generated case study hero meta text uses the editorial theme', async () => {
     const darkModeCss = await readPage('css/dark-mode.css');
 
     expect(darkModeCss).toContain('.generated-case-hero .service-hero-meta');
     expect(darkModeCss).toContain('.generated-case-hero .service-hero-meta li');
-    expect(darkModeCss).toContain('color: var(--dm-text-secondary) !important');
+    expect(darkModeCss).toContain('color: var(--muted)');
   });
 
   test('portfolio links Case Study cards to first-class pages instead of opening the preview frame', async () => {
