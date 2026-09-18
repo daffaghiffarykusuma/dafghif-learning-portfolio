@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-source.json",
-  "generatedAt": "2026-09-06T12:26:19.705Z",
-  "portfolioItemCount": 75,
+  "generatedAt": "2026-09-18T10:01:41.504Z",
+  "portfolioItemCount": 76,
   "portfolioItems": [
     {
       "id": "case-employee-assessment-bootcamp",
@@ -2221,6 +2221,44 @@
             "claim": "Structures learning data, response inputs, or calculations into analysis-ready dashboards and decision tools.",
             "sourceBasis": "practice-area default",
             "confidence": "inferred"
+          }
+        ],
+        "impact": []
+      }
+    },
+    {
+      "id": "project-manager-coaching-report",
+      "title": "Manager Coaching Report",
+      "practiceArea": "Mentoring & Coaching",
+      "tags": [
+        "mentoring",
+        "coaching",
+        "leadership-communication",
+        "assessment",
+        "reporting",
+        "action-planning"
+      ],
+      "description": "A 13-page leadership communication coaching report covering baseline self and subordinate assessments, two session summaries, role-play feedback, and a SMART action plan. The report credits Irvandias Sanjaya as coach and describes individual learning rather than formal performance or organizational change.",
+      "image": {
+        "src": "assets/images/portfolio/manager-coaching-report.webp",
+        "alt": "Manager Coaching Report cover with conversation bubbles and an action checklist"
+      },
+      "sourceArtifact": "assets/pdf/portfolio/coaching-report.pdf",
+      "sourceType": "pdf",
+      "portfolioItemUrl": "portfolio.html#project-manager-coaching-report",
+      "discussUrl": "contact.html?portfolioItem=Manager Coaching Report",
+      "proof": {
+        "visibleProofLine": "Connects baseline assessment, session observations, and a SMART follow-up plan.",
+        "workQuality": [
+          {
+            "claim": "Documents baseline self and subordinate assessments, development priorities, and summaries of two leadership communication coaching sessions.",
+            "sourceBasis": "coaching-report.pdf, pages 2-8",
+            "confidence": "direct"
+          },
+          {
+            "claim": "Includes role-play assessment and a SMART action plan, while explicitly limiting interpretation to individual learning experiences.",
+            "sourceBasis": "coaching-report.pdf, pages 2 and 9-10",
+            "confidence": "direct"
           }
         ],
         "impact": []

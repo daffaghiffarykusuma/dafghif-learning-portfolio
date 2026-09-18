@@ -7,11 +7,11 @@ const dist = path.join(root, 'dist');
 const failures: string[] = [];
 
 const limits = {
-  totalDistBytes: 115 * 1024 * 1024,
+  totalDistBytes: 116 * 1024 * 1024,
   jsGzipBytes: 24 * 1024,
   cssGzipBytes: 28 * 1024,
   largestImageBytes: 1024 * 1024,
-  portfolioHtmlGzipBaselineBytes: 16.2 * 1024,
+  portfolioHtmlGzipBaselineBytes: 16.5 * 1024,
   portfolioHtmlGzipStretchBytes: 14.22 * 1024,
   caseStudyHtmlGzipBytes: 5 * 1024,
 };

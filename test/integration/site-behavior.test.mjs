@@ -73,7 +73,7 @@ describe('site browser behavior', () => {
     const portfolioItems = Array.from(document.querySelectorAll('.card.portfolio-item:not(.portfolio-item-placeholder)'));
     const proofLines = Array.from(document.querySelectorAll('.portfolio-item-proof'));
 
-    expect(portfolioItems.length).toBe(75);
+    expect(portfolioItems.length).toBe(76);
     expect(portfolioItems.every((item) => item.querySelector('.card-content > h2'))).toBe(true);
     expect(proofLines.length).toBe(portfolioItems.length);
     expect(document.querySelector('#case-employee-assessment-bootcamp .portfolio-item-proof').textContent)

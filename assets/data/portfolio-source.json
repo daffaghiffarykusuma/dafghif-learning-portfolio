@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sourceOfTruth": "Portfolio Item source data for the Learning Portfolio Site.",
-  "portfolioItemCount": 73,
+  "portfolioItemCount": 74,
   "featuredPortfolioItemIds": [
     "case-employee-assessment-bootcamp",
     "case-administrative-communication-learning-program",
@@ -2124,6 +2124,28 @@
       "sourceType": "html-viewer",
       "portfolioItemUrl": "portfolio.html#project-theory-of-change-mentoring-tracker",
       "discussUrl": "contact.html?portfolioItem=Theory of Change Mentoring Tracker"
+    },
+    {
+      "id": "project-manager-coaching-report",
+      "title": "Manager Coaching Report",
+      "practiceArea": "Mentoring & Coaching",
+      "tags": [
+        "mentoring",
+        "coaching",
+        "leadership-communication",
+        "assessment",
+        "reporting",
+        "action-planning"
+      ],
+      "description": "A 13-page leadership communication coaching report covering baseline self and subordinate assessments, two session summaries, role-play feedback, and a SMART action plan. The report credits Irvandias Sanjaya as coach and describes individual learning rather than formal performance or organizational change.",
+      "image": {
+        "src": "assets/images/portfolio/manager-coaching-report.webp",
+        "alt": "Manager Coaching Report cover with conversation bubbles and an action checklist"
+      },
+      "sourceArtifact": "assets/pdf/portfolio/coaching-report.pdf",
+      "sourceType": "pdf",
+      "portfolioItemUrl": "portfolio.html#project-manager-coaching-report",
+      "discussUrl": "contact.html?portfolioItem=Manager Coaching Report"
     }
   ]
 }

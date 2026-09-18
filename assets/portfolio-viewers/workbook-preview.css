@@ -1,0 +1,41 @@
+:root{color-scheme:light;--ink:#20372d;--muted:#5c6d64;--line:#d6e2db;--accent:#107c41;--soft:#f1f6f3}
+*{box-sizing:border-box}
+html{scroll-padding-top:64px}
+body{margin:0;background:#eef3ef;color:var(--ink);font:14px/1.5 "Segoe UI",Arial,sans-serif}
+.workbook-bar{display:flex;align-items:center;gap:12px;padding:14px 24px;background:#185c37;color:white;font-weight:600;letter-spacing:.02em}
+.workbook-icon{display:grid;place-items:center;width:30px;height:32px;border:1px solid #ffffff70;border-radius:4px;background:#107c41;font-size:20px}
+.read-only{margin-left:auto;border:1px solid #ffffff60;border-radius:20px;padding:3px 12px;font-size:12px;font-weight:400;white-space:nowrap}
+.sheet-tabs{position:sticky;top:0;z-index:5;display:flex;gap:4px;overflow-x:auto;padding:0 16px;background:#fff;border-bottom:1px solid #c5d5ca;box-shadow:0 2px 5px #163f2010}
+.sheet-tabs a{flex-shrink:0;padding:13px 16px;color:#42614e;text-decoration:none;border-bottom:3px solid transparent;font-size:13px;font-weight:600}
+.sheet-tabs a:hover{background:#edf6ef;border-color:#107c41}
+a:focus-visible,.table-wrap:focus-visible{outline:3px solid #107c41;outline-offset:-3px}
+main{max-width:1440px;margin:auto;padding:28px 24px 36px}
+h1{font-size:clamp(22px,3vw,30px);line-height:1.2;letter-spacing:-.025em;margin:0 0 18px;font-weight:650}
+h2{font-size:16px;margin:0 0 12px;color:#185c37;font-weight:650}
+p{margin:0 0 12px}
+.lede,.intro{max-width:88ch;color:var(--muted);margin-bottom:24px}
+.badge{display:inline-block;padding:4px 10px;margin-bottom:12px;background:#e0efe4;border:1px solid #bed8c5;border-radius:4px;color:#185c37;font-size:12px;font-weight:600}
+.stats,.grid,.panels,.flow,.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-bottom:20px}
+.stat,.panel,.card{padding:20px;background:white;border:1px solid var(--line);border-radius:6px;box-shadow:0 2px 3px #153b2210}
+.stat{border-top:3px solid #107c41}
+.stat strong{display:block;color:#107c41;font-size:30px;line-height:1.2;margin-bottom:8px;font-variant-numeric:tabular-nums}
+.stat span{display:block;font-weight:650;margin-bottom:6px}
+.stat p,.note,.sheet-meta{color:var(--muted);font-size:12px}
+.sheet-meta{margin:0 0 14px}
+.panel,.sheet{margin-bottom:20px}
+.sheet{padding:20px;background:#fff;border:1px solid var(--line);border-radius:6px;box-shadow:0 2px 4px #153b2210}
+section:target{outline:2px solid #107c41;outline-offset:3px}
+.flow article{background:#edf6ef;border-left:3px solid #107c41;padding:14px}
+.flow strong{display:block;margin-bottom:6px}
+ul{margin:0;padding-left:20px}li{margin:6px 0}
+.table-wrap{overflow:auto;max-height:65vh;border:1px solid #bfcec4;background:#fff;isolation:isolate;scrollbar-color:#a7beb0 #f0f5f1}
+table{border-collapse:separate;border-spacing:0;min-width:100%;font-size:12px;color:#263c30}
+th,td{min-width:130px;max-width:360px;padding:9px 12px;border-right:1px solid #dde6df;border-bottom:1px solid #dde6df;vertical-align:top;text-align:left;white-space:pre-line;overflow-wrap:break-word}
+td{background:#fff}tr:nth-child(even) td{background:#f8fbf9}tr:hover td{background:#edf6ef}
+th{background:#e5f0e8;font-weight:600}
+.column-letters th{position:sticky;top:0;z-index:3;background:#e9eeeb;text-align:center;color:#52675a;font-weight:400;padding:5px 12px;border-bottom:1px solid #b8cdbf}
+.row-number{position:sticky;left:0;z-index:2;min-width:40px;width:40px;padding:9px 8px;text-align:center;background:#edf2ee;color:#63786a;font-weight:400;font-variant-numeric:tabular-nums}
+.column-letters th:first-child{left:0;z-index:4;min-width:40px}
+.sheet-banner td,.sheet-banner th:not(.row-number){background:#e5f0e8;color:#185c37;font-weight:600;padding:13px 12px}
+.note{margin-top:14px}.workbook-status{padding:10px 24px;border-top:1px solid #c5d5ca;background:#e4eee7;color:#46634f;font-size:11px}
+@media(max-width:600px){main{padding:20px 12px}.workbook-bar{padding:12px}.sheet-tabs{padding:0 4px}.sheet-tabs a{padding:12px}.sheet,.panel,.stat{padding:14px}.stats,.grid,.panels,.cards,.flow{grid-template-columns:1fr}.table-wrap{max-height:60vh}th,td{min-width:120px}.read-only{font-size:11px}.workbook-status{padding:10px 12px}}

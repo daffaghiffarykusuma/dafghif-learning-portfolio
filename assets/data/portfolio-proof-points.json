@@ -268,6 +268,21 @@
           "confidence": "direct"
         }
       ]
+    },
+    "project-manager-coaching-report": {
+      "visibleProofLine": "Connects baseline assessment, session observations, and a SMART follow-up plan.",
+      "workQuality": [
+        {
+          "claim": "Documents baseline self and subordinate assessments, development priorities, and summaries of two leadership communication coaching sessions.",
+          "sourceBasis": "coaching-report.pdf, pages 2-8",
+          "confidence": "direct"
+        },
+        {
+          "claim": "Includes role-play assessment and a SMART action plan, while explicitly limiting interpretation to individual learning experiences.",
+          "sourceBasis": "coaching-report.pdf, pages 2 and 9-10",
+          "confidence": "direct"
+        }
+      ]
     }
   }
 }
