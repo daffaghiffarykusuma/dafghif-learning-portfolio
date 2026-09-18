@@ -2,7 +2,7 @@ import { afterEach, describe, expect, test } from 'bun:test';
 import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import { validatePortfolioEvidence } from '../../scripts/portfolio-evidence-validator.ts';
+import { validatePortfolioEvidence } from '../../scripts/validation/portfolio-evidence-validator.ts';
 
 let tempRoot = null;
 

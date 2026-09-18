@@ -1,6 +1,6 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
 import path from 'node:path';
-import { createShippedArtifactPolicy } from '../../scripts/shipped-artifact-policy.ts';
+import { createShippedArtifactPolicy } from '../../scripts/site/shipped-artifact-policy.ts';
 import { projectRoot } from '../helpers/dom.mjs';
 
 const host = '127.0.0.1';
@@ -66,6 +66,19 @@ afterAll(() => {
 });
 
 describe('production site system checks', () => {
+  test('streams the largest PDF preview with a small linearized first-page section', async () => {
+    const response = await fetch(`${baseUrl}/assets/pdf/portfolio/bnsp4_materi_pelatihan.pdf`, {
+      headers: { Range: 'bytes=0-1023' }
+    });
+    expect(response.status).toBe(206);
+    expect(response.headers.get('content-range')).toMatch(/^bytes 0-1023\/\d+$/);
+    const header = await response.text();
+    expect(header).toMatch(/\/Linearized\s+1\b/);
+    const firstPageEnd = Number(header.match(/\/E\s+(\d+)/)?.[1]);
+    expect(firstPageEnd).toBeGreaterThan(0);
+    expect(firstPageEnd).toBeLessThan(256 * 1024);
+  });
+
   test('serves every top-level HTML page from the production preview', async () => {
     const pages = [
       '/index.html',
@@ -94,7 +107,7 @@ describe('production site system checks', () => {
       expect(response.status, page).toBe(200);
       expect(body, page).toContain('rel="stylesheet"');
       expect(body, page).toContain('/assets/');
-      expect(body, page).not.toContain('href="css/style.css"');
+      expect(body, page).not.toContain('href="src/styles/style.css"');
     }
   });
 

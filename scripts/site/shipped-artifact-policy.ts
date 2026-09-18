@@ -1,7 +1,7 @@
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import path from 'node:path';
-import { createCaseStudyPublication } from './case-study-publication.ts';
-import type { PortfolioItemSourceInput } from './portfolio-item-source-validator.ts';
+import { createCaseStudyPublication } from '../portfolio/case-study-publication.ts';
+import type { PortfolioItemSourceInput } from '../portfolio/portfolio-item-source-validator.ts';
 
 type ShippedArtifactPolicy = Readonly<{
   shippedDirectoryTrees: readonly string[];
@@ -43,6 +43,7 @@ const shippedArtifactPolicy: ShippedArtifactPolicy = Object.freeze({
   ]),
   shippedFiles: Object.freeze([
     'assets/blog.json',
+    'assets/images/portfolio/course_2.webp',
     'cv/Profile.pdf',
   ]),
   rootFiles: Object.freeze({

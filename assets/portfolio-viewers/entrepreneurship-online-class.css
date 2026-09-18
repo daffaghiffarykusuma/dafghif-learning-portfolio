@@ -1,0 +1,10 @@
+body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;color:#0f1b1e;background:#fff;line-height:1.55}
+main{max-width:820px;margin:0 auto;padding:clamp(16px,4vw,28px)}
+h1{font-size:1.45rem;margin:0 0 14px}
+figure{margin:0 0 20px}
+img{display:block;width:100%;height:auto;border-radius:8px}
+figcaption{margin-top:8px;font-size:.875rem;color:#46575b}
+.course-link{display:inline-block;padding:10px 16px;border-radius:6px;background:#0f766e;color:#fff;font-weight:700;text-underline-offset:3px}
+.course-link:focus-visible{outline:3px solid #0f1b1e;outline-offset:3px}
+.preview{border:1px solid #d7e0df;border-radius:8px;background:#f5faf9;padding:18px}
+.label{display:inline-block;border-radius:999px;background:#0f766e;color:#fff;padding:6px 12px;font-size:.82rem;font-weight:700;margin-bottom:12px}

@@ -1,8 +1,8 @@
 import { describe, expect, test } from 'bun:test';
 import {
   createAiContextPortfolioItem
-} from '../../scripts/portfolio-context-inference.ts';
-import { normalizePortfolioItem } from '../../scripts/portfolio-item-catalog.ts';
+} from '../../scripts/portfolio/portfolio-context-inference.ts';
+import { normalizePortfolioItem } from '../../scripts/portfolio/portfolio-item-catalog.ts';
 
 describe('Portfolio Context Inference', () => {
   test('builds AI-readable context from one inference interface', () => {

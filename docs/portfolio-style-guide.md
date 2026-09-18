@@ -1,6 +1,6 @@
 # Portfolio style guide
 
-The Learning Portfolio Site uses a dark editorial theme. Shared presentation lives in `css/dark-mode.css`; the existing filename is retained because both authored and generated pages already load it last.
+The Learning Portfolio Site uses a dark editorial theme. Shared presentation lives in `src/styles/dark-mode.css`; the existing filename is retained because both authored and generated pages already load it last.
 
 ## Typography
 

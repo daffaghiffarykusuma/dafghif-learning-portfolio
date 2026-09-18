@@ -1,11 +1,11 @@
-import { createArtifactPreviewContract } from '../src/site/artifact-preview-policy.ts';
+import { createArtifactPreviewContract } from '../../src/site/artifact-preview-policy.ts';
 import {
   createCaseStudyIndexPageIdentity,
   createCaseStudyPageIdentity
-} from '../src/site/case-study-page-identity.ts';
+} from '../../src/site/case-study-page-identity.ts';
 import { normalizePortfolioItem, normalizeText, slugify } from './portfolio-item-catalog.ts';
 import type { PortfolioItem } from './portfolio-item-catalog.ts';
-import type { CaseStudyPageIdentity, PageIdentity } from '../src/site/case-study-page-identity.ts';
+import type { CaseStudyPageIdentity, PageIdentity } from '../../src/site/case-study-page-identity.ts';
 
 type MetadataLink = {
   href: string;
@@ -49,9 +49,9 @@ const portfolioAiContextMetadataLink = Object.freeze({
 const renderMetadataLink = ({ href, rel, title, type }: MetadataLink) =>
   `<link href="${escapeHtml(href)}" rel="${escapeHtml(rel)}" title="${escapeHtml(title)}" type="${escapeHtml(type)}">`;
 
-const renderStylesheetLinks = (metadataLinks: readonly MetadataLink[]) => `${metadataLinks.map(renderMetadataLink).join('\n  ')}${metadataLinks.length ? '\n  ' : ''}<link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/improvements.css">
-  <link rel="stylesheet" href="css/dark-mode.css">`;
+const renderStylesheetLinks = (metadataLinks: readonly MetadataLink[]) => `${metadataLinks.map(renderMetadataLink).join('\n  ')}${metadataLinks.length ? '\n  ' : ''}<link rel="stylesheet" href="src/styles/style.css">
+  <link rel="stylesheet" href="src/styles/improvements.css">
+  <link rel="stylesheet" href="src/styles/dark-mode.css">`;
 
 const renderSiteNavigation = (currentPage: string) => `<header>
         <div class="container">

@@ -1,6 +1,6 @@
 import path from 'node:path';
-import { createShippedArtifactPolicy } from './shipped-artifact-policy.ts';
-import { createDistSiteInventory } from './site-inventory.ts';
+import { createShippedArtifactPolicy } from './site/shipped-artifact-policy.ts';
+import { createDistSiteInventory } from './site/site-inventory.ts';
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');
@@ -14,6 +14,7 @@ const limits = {
   portfolioHtmlGzipBaselineBytes: 16.5 * 1024,
   portfolioHtmlGzipStretchBytes: 14.22 * 1024,
   caseStudyHtmlGzipBytes: 5 * 1024,
+  pdfFirstPageBytes: 256 * 1024,
 };
 
 const {
@@ -35,6 +36,8 @@ const imageRecords = records.filter((item) => ['.png', '.jpg', '.jpeg', '.webp',
 const largestImage = imageRecords.sort((a, b) => b.size - a.size)[0];
 const shippedProbeRecords = new Set(records.map((item) => item.rel));
 const htmlRecords = records.filter((item) => item.ext === '.html');
+const largePreviewPdfs = records.filter((item) =>
+  item.rel.startsWith('assets/pdf/portfolio/') && item.ext === '.pdf' && item.size >= 1_000_000);
 const portfolioHtmlGzipBytes = shippedProbeRecords.has('portfolio.html')
   ? gzipBytesForPath('portfolio.html')
   : 0;
@@ -67,6 +70,11 @@ for (const page of caseStudyHtmlGzip) {
 if (largestImage && largestImage.size > limits.largestImageBytes) {
   failures.push(`largest image ${largestImage.rel} ${(largestImage.size / 1024).toFixed(1)} KB exceeds ${(limits.largestImageBytes / 1024).toFixed(1)} KB`);
 }
+for (const pdf of largePreviewPdfs) {
+  if (!pdf.pdfFirstPageEnd || pdf.pdfFirstPageEnd > limits.pdfFirstPageBytes) {
+    failures.push(`${pdf.rel} needs a linearized first-page section under ${toKB(limits.pdfFirstPageBytes)} KB`);
+  }
+}
 for (const probe of shippedArtifactPolicy.productionProbeFacts()) {
   if (!shippedProbeRecords.has(probe.path)) {
     failures.push(`Shipped Artifact Policy probe missing from dist: ${probe.path}`);
@@ -84,6 +92,11 @@ const metrics = {
   totalDistMB: Number((totalDistBytes / 1024 / 1024).toFixed(2)),
   jsGzipKB: toKB(jsGzipBytes),
   cssGzipKB: toKB(cssGzipBytes),
+  largePreviewPdfs: {
+    count: largePreviewPdfs.length,
+    largestFirstPageKB: toKB(Math.max(0, ...largePreviewPdfs.map((pdf) => pdf.pdfFirstPageEnd || 0))),
+    firstPageLimitKB: toKB(limits.pdfFirstPageBytes),
+  },
   portfolioHtml: {
     gzipKB: toKB(portfolioHtmlGzipBytes),
     baselineGuardKB: toKB(limits.portfolioHtmlGzipBaselineBytes),

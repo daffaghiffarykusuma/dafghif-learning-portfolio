@@ -31,6 +31,7 @@ type DistSiteRecord = {
   rel: string;
   size: number;
   ext: string;
+  pdfFirstPageEnd?: number;
 };
 type PreviewIframeSources = { path: string; sources: string[] };
 export type ProductionSiteInventoryFacts = {
@@ -110,11 +111,19 @@ export const createDistSiteInventory = async ({
     if (['.html', '.js', '.css'].includes(ext)) {
       contents.set(rel, await readFile(file));
     }
+    // Inspect the header without loading large documents into memory.
+    const pdfHeader = ext === '.pdf' && rel.startsWith('assets/pdf/portfolio/')
+      ? await Bun.file(file).slice(0, 1024).text()
+      : '';
+    const pdfFirstPageEnd = /\/Linearized\s+1\b/.test(pdfHeader)
+      ? Number(pdfHeader.match(/\/E\s+(\d+)/)?.[1]) || 0
+      : 0;
     return {
       file,
       rel,
       size,
-      ext
+      ext,
+      ...(ext === '.pdf' ? { pdfFirstPageEnd } : {})
     };
   }));
 

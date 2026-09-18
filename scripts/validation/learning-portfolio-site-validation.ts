@@ -1,12 +1,12 @@
 import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
-import { createPublicationSourceFacts } from '../src/site/publication-source-facts.ts';
+import { createPublicationSourceFacts } from '../../src/site/publication-source-facts.ts';
 import { validatePortfolioEvidence } from './portfolio-evidence-validator.ts';
-import { createShippedArtifactPolicy } from './shipped-artifact-policy.ts';
+import { createShippedArtifactPolicy } from '../site/shipped-artifact-policy.ts';
 import {
   createSourceSiteInventory,
   idsForSource
-} from './site-inventory.ts';
+} from '../site/site-inventory.ts';
 
 export type LearningPortfolioSiteValidationCounts = {
   htmlFiles: number;
@@ -33,6 +33,7 @@ const defaultAllowedExternalHosts = new Set([
   'miro.medium.com',
   'medium.com',
   'www.linkedin.com',
+  'rumahsiapkerja.com',
   'wa.link'
 ]);
 

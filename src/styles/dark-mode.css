@@ -148,7 +148,7 @@ section { background: var(--paper); }
 .card-actions { border-color: var(--line); }
 #portfolio-items .view-details-button, .view-details-button { border: 1px solid #718b63 !important; color: var(--ink) !important; background: transparent; border-radius: 999px; }
 #portfolio-items .view-details-button:hover, .view-details-button:hover, #portfolio-items .card-actions .cta-button:hover { background: var(--accent) !important; color: var(--paper) !important; border-color: var(--ink) !important; }
-#blog-cards { min-height: 0; gap: 32px; }
+#blog-cards { min-height: 100vh; gap: 32px; }
 .blog-card { border: 1px solid var(--line); background: var(--color-surface); border-radius: 10px; box-shadow: none; }
 .blog-card-title, .blog-card-title a { font: 30px/1.2 Georgia, serif; color: var(--ink); }
 .blog-card-desc { color: var(--muted); }

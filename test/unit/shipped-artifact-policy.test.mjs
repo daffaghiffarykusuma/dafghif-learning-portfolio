@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test';
-import { createShippedArtifactPolicy } from '../../scripts/shipped-artifact-policy.ts';
+import { createShippedArtifactPolicy } from '../../scripts/site/shipped-artifact-policy.ts';
 
 describe('Shipped Artifact Policy', () => {
   test('exposes one representation per policy decision', () => {

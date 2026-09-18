@@ -5,7 +5,7 @@ import path from 'node:path';
 import { runPortfolioEvidenceWorkflow } from '../../scripts/portfolio-generation-command.ts';
 import {
   createPortfolioEvidenceWorkflow
-} from '../../scripts/portfolio-evidence-workflow.ts';
+} from '../../scripts/portfolio/portfolio-evidence-workflow.ts';
 
 let tempRoot = null;
 

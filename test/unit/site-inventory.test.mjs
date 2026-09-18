@@ -5,7 +5,7 @@ import path from 'node:path';
 import {
   createDistSiteInventory,
   createSourceSiteInventory
-} from '../../scripts/site-inventory.ts';
+} from '../../scripts/site/site-inventory.ts';
 
 let tempRoot = null;
 

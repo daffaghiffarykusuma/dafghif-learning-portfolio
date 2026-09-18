@@ -1,7 +1,7 @@
 import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
-import { validatePortfolioItemSource } from './portfolio-item-source-validator.ts';
-import { createShippedArtifactPolicy } from './shipped-artifact-policy.ts';
+import { validatePortfolioItemSource } from '../portfolio/portfolio-item-source-validator.ts';
+import { createShippedArtifactPolicy } from '../site/shipped-artifact-policy.ts';
 
 type PortfolioEvidenceRecord = Record<string, unknown>;
 

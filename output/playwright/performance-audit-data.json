@@ -1,0 +1,2913 @@
+{
+  "conditions": {
+    "origin": "http://127.0.0.1:4173",
+    "desktop": [
+      1440,
+      900
+    ],
+    "mobile": [
+      390,
+      844
+    ],
+    "cpuSlowdown": 4,
+    "latencyMs": 150,
+    "downloadBytesPerSecond": 200000,
+    "cacheDisabled": true,
+    "settleAfterLoadMs": 1800
+  },
+  "before": [
+    {
+      "mode": "desktop",
+      "route": "index.html",
+      "lcp": 2004,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": [
+        {
+          "name": "/assets/dafghif_cover-Cfy58qjZ.png",
+          "bytes": 254095,
+          "duration": 1571.5999999977648
+        },
+        {
+          "name": "/assets/script-BhSbW1oV.js",
+          "bytes": 4854,
+          "duration": 234.10000000149012
+        },
+        {
+          "name": "/assets/script-DRJQlZ5M.css",
+          "bytes": 17089,
+          "duration": 371.30000000074506
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 378.6000000014901
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "portfolio.html",
+      "lcp": 3052,
+      "cls": 0,
+      "longTasks": 1174,
+      "resources": [
+        {
+          "name": "/assets/bnsp4-training-need-analysis-Cx_fqKM6.webp",
+          "bytes": 31634,
+          "duration": 609.0999999977648
+        },
+        {
+          "name": "/assets/script-BhSbW1oV.js",
+          "bytes": 4854,
+          "duration": 266.19999999925494
+        },
+        {
+          "name": "/assets/script-DRJQlZ5M.css",
+          "bytes": 17089,
+          "duration": 449.5
+        },
+        {
+          "name": "/assets/employee-assessment-bootcamp-case-study-Cgqt6DBk.webp",
+          "bytes": 124042,
+          "duration": 1065.5
+        },
+        {
+          "name": "/assets/bnsp6-kebutuhan-pelatihan-makro-D3eXHDLF.webp",
+          "bytes": 35002,
+          "duration": 1199.6000000014901
+        },
+        {
+          "name": "/assets/ybb-mentoring-workbook-week-1-CoYRNCtZ.webp",
+          "bytes": 36314,
+          "duration": 1240.199999999255
+        },
+        {
+          "name": "/assets/self-leadership-career-transition-D8kI7JHj.webp",
+          "bytes": 67930,
+          "duration": 1568.5
+        },
+        {
+          "name": "/assets/need-analysis-framework-training-coaching-ywjfjoWf.webp",
+          "bytes": 34240,
+          "duration": 1173.699999999255
+        },
+        {
+          "name": "/assets/recruitment-assessment-blueprint-CR3xTzQe.webp",
+          "bytes": 34190,
+          "duration": 1183.300000000745
+        },
+        {
+          "name": "/assets/proposal-rancangan-sistem-asesmen-kompetensi-project-management-CdHLa37E.webp",
+          "bytes": 38472,
+          "duration": 1261
+        },
+        {
+          "name": "/assets/score-audit-corrections-CFSVjK2u.webp",
+          "bytes": 64158,
+          "duration": 1955.8999999985099
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 1635.199999999255
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "case-studies.html",
+      "lcp": 2232,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": [
+        {
+          "name": "/assets/script-BhSbW1oV.js",
+          "bytes": 4854,
+          "duration": 201.69999999925494
+        },
+        {
+          "name": "/assets/script-DRJQlZ5M.css",
+          "bytes": 17089,
+          "duration": 277.69999999925494
+        },
+        {
+          "name": "/assets/smk-Cn3ShQh2.webp",
+          "bytes": 37008,
+          "duration": 1212.9000000022352
+        },
+        {
+          "name": "/assets/employee-assessment-bootcamp-case-study-Cgqt6DBk.webp",
+          "bytes": 124042,
+          "duration": 1825.9000000022352
+        },
+        {
+          "name": "/assets/bnsp4-training-need-analysis-Cx_fqKM6.webp",
+          "bytes": 31634,
+          "duration": 1103.0999999977648
+        },
+        {
+          "name": "/assets/bnsp6-kebutuhan-pelatihan-makro-D3eXHDLF.webp",
+          "bytes": 35002,
+          "duration": 1185.5999999977648
+        },
+        {
+          "name": "/assets/ybb-mentoring-workbook-week-1-CoYRNCtZ.webp",
+          "bytes": 36314,
+          "duration": 1219.199999999255
+        },
+        {
+          "name": "/assets/applied-leadership-development-program-DBmTiU92.webp",
+          "bytes": 15074,
+          "duration": 661.1999999992549
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 1507
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "blog.html",
+      "lcp": 1844,
+      "cls": 0.3977777777777778,
+      "longTasks": 233,
+      "resources": [
+        {
+          "name": "/assets/blog-mxxcmD5P.js",
+          "bytes": 7251,
+          "duration": 235.5
+        },
+        {
+          "name": "/assets/script-BhSbW1oV.js",
+          "bytes": 4854,
+          "duration": 237.30000000074506
+        },
+        {
+          "name": "/assets/script-DRJQlZ5M.css",
+          "bytes": 17089,
+          "duration": 292.9000000022352
+        },
+        {
+          "name": "/max/933/1*ep4o14IdBpy-rINbCdLQoA.png",
+          "bytes": 0,
+          "duration": 852.3999999985099
+        },
+        {
+          "name": "/max/1024/1*E5c_PPbHHRuSq5WP19S35A.png",
+          "bytes": 0,
+          "duration": 16129.60000000149
+        },
+        {
+          "name": "/v2/resize:fill:160:106/1*0O4IlMwlwjLj941gi7hwag.png",
+          "bytes": 0,
+          "duration": 1002.8000000007451
+        },
+        {
+          "name": "/max/1024/1*aFPU_AdQWke3V533dMi8EA.png",
+          "bytes": 0,
+          "duration": 16081.10000000149
+        },
+        {
+          "name": "/max/1024/1*nyNxbN7hMc_97Ngz3YGEUg.png",
+          "bytes": 0,
+          "duration": 15218.5
+        },
+        {
+          "name": "/max/1024/1*mzfn-0FmXHFP21PzkM6DiQ.png",
+          "bytes": 0,
+          "duration": 15485.60000000149
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 393.9000000022352
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "contact.html",
+      "lcp": 988,
+      "cls": 0.0008393044972779493,
+      "longTasks": 303,
+      "resources": [
+        {
+          "name": "/css2",
+          "bytes": 1192,
+          "duration": 402.79999999701977
+        },
+        {
+          "name": "/assets/script-BhSbW1oV.js",
+          "bytes": 4854,
+          "duration": 224.5
+        },
+        {
+          "name": "/assets/script-DRJQlZ5M.css",
+          "bytes": 17089,
+          "duration": 284.5
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 377.80000000074506
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "case-administrative-communication.html",
+      "lcp": 968,
+      "cls": 0,
+      "longTasks": 39,
+      "resources": [
+        {
+          "name": "/assets/script-BhSbW1oV.js",
+          "bytes": 4854,
+          "duration": 233.10000000149012
+        },
+        {
+          "name": "/assets/script-DRJQlZ5M.css",
+          "bytes": 17089,
+          "duration": 357.80000000074506
+        },
+        {
+          "name": "/assets/bnsp4-training-need-analysis-Cx_fqKM6.webp",
+          "bytes": 31634,
+          "duration": 450.19999999925494
+        },
+        {
+          "name": "/assets/bnsp4-program-proposal-CfCHDmVh.webp",
+          "bytes": 30412,
+          "duration": 1046.6000000014901
+        },
+        {
+          "name": "/assets/bnsp4-lesson-plan-_EAbMs-z.webp",
+          "bytes": 32490,
+          "duration": 1091.8999999985099
+        },
+        {
+          "name": "/assets/bnsp4-materi-pelatihan-BsnT4fqi.webp",
+          "bytes": 32576,
+          "duration": 1104.800000000745
+        },
+        {
+          "name": "/assets/bnsp4-form-soal-post-test-B0vlJFZe.webp",
+          "bytes": 33720,
+          "duration": 1133.5
+        },
+        {
+          "name": "/assets/bnsp4-form-feedback-BniyM1ME.webp",
+          "bytes": 31544,
+          "duration": 1115.5
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 1133.0999999977648
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "case-applied-leadership-development.html",
+      "lcp": 704,
+      "cls": 0,
+      "longTasks": 17,
+      "resources": [
+        {
+          "name": "/assets/script-BhSbW1oV.js",
+          "bytes": 4854,
+          "duration": 229.69999999925494
+        },
+        {
+          "name": "/assets/script-DRJQlZ5M.css",
+          "bytes": 17089,
+          "duration": 353.0999999977648
+        },
+        {
+          "name": "/assets/applied-leadership-development-program-DBmTiU92.webp",
+          "bytes": 15074,
+          "duration": 351.29999999701977
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 383.80000000074506
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "case-career-readiness-toolkit.html",
+      "lcp": 836,
+      "cls": 0,
+      "longTasks": 12,
+      "resources": [
+        {
+          "name": "/assets/script-BhSbW1oV.js",
+          "bytes": 4854,
+          "duration": 242.39999999850988
+        },
+        {
+          "name": "/assets/script-DRJQlZ5M.css",
+          "bytes": 17089,
+          "duration": 364.9000000022352
+        },
+        {
+          "name": "/assets/career-readiness-toolkit-case-study-fFcj5IUd.webp",
+          "bytes": 54390,
+          "duration": 552.5
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 397.6000000014901
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "case-employee-assessment-bootcamp.html",
+      "lcp": 704,
+      "cls": 0,
+      "longTasks": 6,
+      "resources": [
+        {
+          "name": "/assets/script-BhSbW1oV.js",
+          "bytes": 4854,
+          "duration": 238.19999999925494
+        },
+        {
+          "name": "/assets/script-DRJQlZ5M.css",
+          "bytes": 17089,
+          "duration": 365.29999999701977
+        },
+        {
+          "name": "/assets/employee-assessment-observation-workbook-Bo2FGVtI.webp",
+          "bytes": 75574,
+          "duration": 730.1999999992549
+        },
+        {
+          "name": "/assets/employee-assessment-individual-report-B4_1hwfH.webp",
+          "bytes": 66030,
+          "duration": 561.2999999970198
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 379.69999999925494
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "case-entrepreneurship.html",
+      "lcp": 840,
+      "cls": 0.001397305419252079,
+      "longTasks": 535,
+      "resources": [
+        {
+          "name": "/css2",
+          "bytes": 1118,
+          "duration": 195.20000000298023
+        },
+        {
+          "name": "/assets/script-BhSbW1oV.js",
+          "bytes": 4854,
+          "duration": 251.5
+        },
+        {
+          "name": "/assets/script-DRJQlZ5M.css",
+          "bytes": 17089,
+          "duration": 375.8999999985099
+        },
+        {
+          "name": "/assets/story_achmad-jcHKWbx4.jpg",
+          "bytes": 57446,
+          "duration": 576.1000000014901
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 383.6000000014901
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "case-learning-organization-strategy.html",
+      "lcp": 744,
+      "cls": 0,
+      "longTasks": 14,
+      "resources": [
+        {
+          "name": "/assets/script-BhSbW1oV.js",
+          "bytes": 4854,
+          "duration": 244.10000000149012
+        },
+        {
+          "name": "/assets/script-DRJQlZ5M.css",
+          "bytes": 17089,
+          "duration": 367.8999999985099
+        },
+        {
+          "name": "/assets/bnsp6-kebutuhan-pelatihan-makro-D3eXHDLF.webp",
+          "bytes": 35002,
+          "duration": 460.1000000014901
+        },
+        {
+          "name": "/assets/bnsp6-matriks-kompetensi-yZy5j0wV.webp",
+          "bytes": 34316,
+          "duration": 1129.8999999985099
+        },
+        {
+          "name": "/assets/bnsp6-silabus-pelatihan-DRwFthni.webp",
+          "bytes": 37082,
+          "duration": 1176.2000000029802
+        },
+        {
+          "name": "/assets/bnsp6-business-plan-cVC_pKpq.webp",
+          "bytes": 32534,
+          "duration": 1099.5
+        },
+        {
+          "name": "/assets/bnsp6-marketing-plan-Cb3mZSkF.webp",
+          "bytes": 32564,
+          "duration": 1111
+        },
+        {
+          "name": "/assets/bnsp6-rab-roti-pelatihan-Bx_3kq0-.webp",
+          "bytes": 33184,
+          "duration": 1137.7999999970198
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 1125
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "case-ybb-mentoring-workbook.html",
+      "lcp": 724,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": [
+        {
+          "name": "/assets/script-BhSbW1oV.js",
+          "bytes": 4854,
+          "duration": 244.69999999925494
+        },
+        {
+          "name": "/assets/script-DRJQlZ5M.css",
+          "bytes": 17089,
+          "duration": 352.3999999985099
+        },
+        {
+          "name": "/assets/ybb-mentoring-workbook-week-1-CoYRNCtZ.webp",
+          "bytes": 36314,
+          "duration": 463.80000000074506
+        },
+        {
+          "name": "/assets/ybb-mentoring-workbook-week-2-DgV-5vXP.webp",
+          "bytes": 34858,
+          "duration": 824.8000000007451
+        },
+        {
+          "name": "/assets/ybb-mentoring-workbook-week-3-XwFH44gi.webp",
+          "bytes": 36864,
+          "duration": 851.3000000007451
+        },
+        {
+          "name": "/assets/ybb-pitch-deck-template-week-4-C11Zwc8j.webp",
+          "bytes": 31820,
+          "duration": 790.1000000014901
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 863.1999999992549
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "index.html",
+      "lcp": 856,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": [
+        {
+          "name": "/assets/script-BhSbW1oV.js",
+          "bytes": 4854,
+          "duration": 210.10000000149012
+        },
+        {
+          "name": "/assets/script-DRJQlZ5M.css",
+          "bytes": 17089,
+          "duration": 275.8999999985099
+        },
+        {
+          "name": "/assets/dafghif_cover-Cfy58qjZ.png",
+          "bytes": 254095,
+          "duration": 1675.7000000029802
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 588
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "portfolio.html",
+      "lcp": 1124,
+      "cls": 0.0026956740092114414,
+      "longTasks": 196,
+      "resources": [
+        {
+          "name": "/assets/bnsp4-training-need-analysis-Cx_fqKM6.webp",
+          "bytes": 31634,
+          "duration": 605.8999999985099
+        },
+        {
+          "name": "/assets/script-BhSbW1oV.js",
+          "bytes": 4854,
+          "duration": 268.8999999985099
+        },
+        {
+          "name": "/assets/script-DRJQlZ5M.css",
+          "bytes": 17089,
+          "duration": 448.6000000014901
+        },
+        {
+          "name": "/assets/employee-assessment-bootcamp-case-study-Cgqt6DBk.webp",
+          "bytes": 124042,
+          "duration": 1068.300000000745
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 382.9000000022352
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "case-studies.html",
+      "lcp": 1484,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": [
+        {
+          "name": "/assets/script-BhSbW1oV.js",
+          "bytes": 4854,
+          "duration": 219.80000000074506
+        },
+        {
+          "name": "/assets/script-DRJQlZ5M.css",
+          "bytes": 17089,
+          "duration": 278.19999999925494
+        },
+        {
+          "name": "/assets/smk-Cn3ShQh2.webp",
+          "bytes": 37008,
+          "duration": 858.8000000007451
+        },
+        {
+          "name": "/assets/employee-assessment-bootcamp-case-study-Cgqt6DBk.webp",
+          "bytes": 124042,
+          "duration": 1363.300000000745
+        },
+        {
+          "name": "/assets/bnsp4-training-need-analysis-Cx_fqKM6.webp",
+          "bytes": 31634,
+          "duration": 807.9000000022352
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 930.1999999992549
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "blog.html",
+      "lcp": 1376,
+      "cls": 0.5082938388625592,
+      "longTasks": 63,
+      "resources": [
+        {
+          "name": "/assets/blog-mxxcmD5P.js",
+          "bytes": 7251,
+          "duration": 248.5
+        },
+        {
+          "name": "/assets/script-BhSbW1oV.js",
+          "bytes": 4854,
+          "duration": 245.69999999925494
+        },
+        {
+          "name": "/assets/script-DRJQlZ5M.css",
+          "bytes": 17089,
+          "duration": 309.79999999701977
+        },
+        {
+          "name": "/max/933/1*ep4o14IdBpy-rINbCdLQoA.png",
+          "bytes": 0,
+          "duration": 628.5
+        },
+        {
+          "name": "/max/1024/1*E5c_PPbHHRuSq5WP19S35A.png",
+          "bytes": 0,
+          "duration": 4649.199999999255
+        },
+        {
+          "name": "/v2/resize:fill:160:106/1*0O4IlMwlwjLj941gi7hwag.png",
+          "bytes": 0,
+          "duration": 588.6000000014901
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 390.5
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "contact.html",
+      "lcp": 768,
+      "cls": 0.03162913281362036,
+      "longTasks": 505,
+      "resources": [
+        {
+          "name": "/css2",
+          "bytes": 1192,
+          "duration": 175.5
+        },
+        {
+          "name": "/assets/script-BhSbW1oV.js",
+          "bytes": 4854,
+          "duration": 217.20000000298023
+        },
+        {
+          "name": "/assets/script-DRJQlZ5M.css",
+          "bytes": 17089,
+          "duration": 277.1000000014901
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 390.80000000074506
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "case-administrative-communication.html",
+      "lcp": 808,
+      "cls": 0,
+      "longTasks": 38,
+      "resources": [
+        {
+          "name": "/assets/script-BhSbW1oV.js",
+          "bytes": 4854,
+          "duration": 241.19999999925494
+        },
+        {
+          "name": "/assets/script-DRJQlZ5M.css",
+          "bytes": 17089,
+          "duration": 361.3999999985099
+        },
+        {
+          "name": "/assets/bnsp4-training-need-analysis-Cx_fqKM6.webp",
+          "bytes": 31634,
+          "duration": 436.8999999985099
+        },
+        {
+          "name": "/assets/bnsp4-program-proposal-CfCHDmVh.webp",
+          "bytes": 30412,
+          "duration": 583.8999999985099
+        },
+        {
+          "name": "/assets/bnsp4-lesson-plan-_EAbMs-z.webp",
+          "bytes": 32490,
+          "duration": 597.8000000007451
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 619
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "case-applied-leadership-development.html",
+      "lcp": 776,
+      "cls": 0,
+      "longTasks": 72,
+      "resources": [
+        {
+          "name": "/assets/script-BhSbW1oV.js",
+          "bytes": 4854,
+          "duration": 262.5999999977648
+        },
+        {
+          "name": "/assets/script-DRJQlZ5M.css",
+          "bytes": 17089,
+          "duration": 369.69999999925494
+        },
+        {
+          "name": "/assets/applied-leadership-development-program-DBmTiU92.webp",
+          "bytes": 15074,
+          "duration": 348.5
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 379.9000000022352
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "case-career-readiness-toolkit.html",
+      "lcp": 3256,
+      "cls": 0,
+      "longTasks": 872,
+      "resources": [
+        {
+          "name": "/assets/script-BhSbW1oV.js",
+          "bytes": 4854,
+          "duration": 204
+        },
+        {
+          "name": "/assets/script-DRJQlZ5M.css",
+          "bytes": 17089,
+          "duration": 327.8999999985099
+        },
+        {
+          "name": "/assets/career-readiness-toolkit-case-study-fFcj5IUd.webp",
+          "bytes": 54390,
+          "duration": 512.5
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 404
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "case-employee-assessment-bootcamp.html",
+      "lcp": 5428,
+      "cls": 0,
+      "longTasks": 785,
+      "resources": [
+        {
+          "name": "/assets/script-BhSbW1oV.js",
+          "bytes": 4854,
+          "duration": 251.80000000074506
+        },
+        {
+          "name": "/assets/script-DRJQlZ5M.css",
+          "bytes": 17089,
+          "duration": 376.0999999977648
+        },
+        {
+          "name": "/assets/employee-assessment-observation-workbook-Bo2FGVtI.webp",
+          "bytes": 75574,
+          "duration": 718.3000000007451
+        },
+        {
+          "name": "/assets/employee-assessment-individual-report-B4_1hwfH.webp",
+          "bytes": 66030,
+          "duration": 538.3000000007451
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 403.20000000298023
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "case-entrepreneurship.html",
+      "lcp": 6056,
+      "cls": 0.01467602065958214,
+      "longTasks": 487,
+      "resources": [
+        {
+          "name": "/css2",
+          "bytes": 1118,
+          "duration": 212.90000000223517
+        },
+        {
+          "name": "/assets/script-BhSbW1oV.js",
+          "bytes": 4854,
+          "duration": 263.3999999985099
+        },
+        {
+          "name": "/assets/script-DRJQlZ5M.css",
+          "bytes": 17089,
+          "duration": 640.1999999992549
+        },
+        {
+          "name": "/assets/story_achmad-jcHKWbx4.jpg",
+          "bytes": 57446,
+          "duration": 644.1999999992549
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 454.1000000014901
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "case-learning-organization-strategy.html",
+      "lcp": 5768,
+      "cls": 0,
+      "longTasks": 6118,
+      "resources": [
+        {
+          "name": "/assets/script-BhSbW1oV.js",
+          "bytes": 4854,
+          "duration": 249.60000000149012
+        },
+        {
+          "name": "/assets/script-DRJQlZ5M.css",
+          "bytes": 17089,
+          "duration": 374.3999999985099
+        },
+        {
+          "name": "/assets/bnsp6-kebutuhan-pelatihan-makro-D3eXHDLF.webp",
+          "bytes": 35002,
+          "duration": 465.3999999985099
+        },
+        {
+          "name": "/assets/bnsp6-matriks-kompetensi-yZy5j0wV.webp",
+          "bytes": 34316,
+          "duration": 512.3999999985099
+        },
+        {
+          "name": "/assets/bnsp6-silabus-pelatihan-DRwFthni.webp",
+          "bytes": 37082,
+          "duration": 492.9000000022352
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 413.29999999701977
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "case-ybb-mentoring-workbook.html",
+      "lcp": 5336,
+      "cls": 0,
+      "longTasks": 24,
+      "resources": [
+        {
+          "name": "/assets/script-BhSbW1oV.js",
+          "bytes": 4854,
+          "duration": 245.69999999925494
+        },
+        {
+          "name": "/assets/script-DRJQlZ5M.css",
+          "bytes": 17089,
+          "duration": 363
+        },
+        {
+          "name": "/assets/ybb-mentoring-workbook-week-1-CoYRNCtZ.webp",
+          "bytes": 36314,
+          "duration": 455.8999999985099
+        },
+        {
+          "name": "/assets/ybb-mentoring-workbook-week-2-DgV-5vXP.webp",
+          "bytes": 34858,
+          "duration": 609.2999999970198
+        },
+        {
+          "name": "/assets/ybb-mentoring-workbook-week-3-XwFH44gi.webp",
+          "bytes": 36864,
+          "duration": 652.3999999985099
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 606
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    }
+  ],
+  "after": [
+    {
+      "mode": "desktop",
+      "route": "index.html",
+      "lcp": 2612,
+      "cls": 0,
+      "longTasks": 17,
+      "resources": [
+        {
+          "name": "/assets/dafghif_cover-t4WGYsKV.webp",
+          "bytes": 144778,
+          "duration": 1013.3999999985099
+        },
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 229.80000000074506
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 364.6000000014901
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 399.30000000074506
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "portfolio.html",
+      "lcp": 2896,
+      "cls": 0,
+      "longTasks": 908,
+      "resources": [
+        {
+          "name": "/assets/bnsp4-training-need-analysis-Cx_fqKM6.webp",
+          "bytes": 31634,
+          "duration": 619
+        },
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 287.69999999925494
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 455.80000000074506
+        },
+        {
+          "name": "/assets/employee-assessment-bootcamp-case-study-Cgqt6DBk.webp",
+          "bytes": 124042,
+          "duration": 1097.199999999255
+        },
+        {
+          "name": "/assets/bnsp6-kebutuhan-pelatihan-makro-D3eXHDLF.webp",
+          "bytes": 35002,
+          "duration": 1205.6000000014901
+        },
+        {
+          "name": "/assets/ybb-mentoring-workbook-week-1-CoYRNCtZ.webp",
+          "bytes": 36314,
+          "duration": 1234.699999999255
+        },
+        {
+          "name": "/assets/self-leadership-career-transition-D8kI7JHj.webp",
+          "bytes": 67930,
+          "duration": 1539
+        },
+        {
+          "name": "/assets/need-analysis-framework-training-coaching-ywjfjoWf.webp",
+          "bytes": 34240,
+          "duration": 1188.800000000745
+        },
+        {
+          "name": "/assets/recruitment-assessment-blueprint-CR3xTzQe.webp",
+          "bytes": 34190,
+          "duration": 1188.8999999985099
+        },
+        {
+          "name": "/assets/proposal-rancangan-sistem-asesmen-kompetensi-project-management-CdHLa37E.webp",
+          "bytes": 38472,
+          "duration": 1256.7000000029802
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 1702.699999999255
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "case-studies.html",
+      "lcp": 2084,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 229.5
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 290
+        },
+        {
+          "name": "/assets/smk-Cn3ShQh2.webp",
+          "bytes": 37008,
+          "duration": 1201.6000000014901
+        },
+        {
+          "name": "/assets/employee-assessment-bootcamp-case-study-Cgqt6DBk.webp",
+          "bytes": 124042,
+          "duration": 1834.3999999985099
+        },
+        {
+          "name": "/assets/bnsp4-training-need-analysis-Cx_fqKM6.webp",
+          "bytes": 31634,
+          "duration": 1093.300000000745
+        },
+        {
+          "name": "/assets/bnsp6-kebutuhan-pelatihan-makro-D3eXHDLF.webp",
+          "bytes": 35002,
+          "duration": 1169.699999999255
+        },
+        {
+          "name": "/assets/ybb-mentoring-workbook-week-1-CoYRNCtZ.webp",
+          "bytes": 36314,
+          "duration": 1200.5
+        },
+        {
+          "name": "/assets/applied-leadership-development-program-DBmTiU92.webp",
+          "bytes": 15074,
+          "duration": 647.0999999977648
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 1486.699999999255
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "blog.html",
+      "lcp": 1604,
+      "cls": 0,
+      "longTasks": 251,
+      "resources": [
+        {
+          "name": "/assets/blog-DO-CLR0I.js",
+          "bytes": 7251,
+          "duration": 234.5
+        },
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 243.19999999925494
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 303.19999999925494
+        },
+        {
+          "name": "/max/933/1*ep4o14IdBpy-rINbCdLQoA.png",
+          "bytes": 0,
+          "duration": 796.8000000007451
+        },
+        {
+          "name": "/max/1024/1*E5c_PPbHHRuSq5WP19S35A.png",
+          "bytes": 0,
+          "duration": 16109.89999999851
+        },
+        {
+          "name": "/v2/resize:fill:160:106/1*0O4IlMwlwjLj941gi7hwag.png",
+          "bytes": 0,
+          "duration": 933.5999999977648
+        },
+        {
+          "name": "/max/1024/1*aFPU_AdQWke3V533dMi8EA.png",
+          "bytes": 0,
+          "duration": 16065.300000000745
+        },
+        {
+          "name": "/max/1024/1*nyNxbN7hMc_97Ngz3YGEUg.png",
+          "bytes": 0,
+          "duration": 15189.89999999851
+        },
+        {
+          "name": "/max/1024/1*mzfn-0FmXHFP21PzkM6DiQ.png",
+          "bytes": 0,
+          "duration": 15479.5
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 404.69999999925494
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "contact.html",
+      "lcp": 900,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 223.30000000074506
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 282.0999999977648
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 386.6000000014901
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "case-administrative-communication.html",
+      "lcp": 1004,
+      "cls": 0,
+      "longTasks": 88,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 233.59999999776483
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 352.8999999985099
+        },
+        {
+          "name": "/assets/bnsp4-training-need-analysis-Cx_fqKM6.webp",
+          "bytes": 31634,
+          "duration": 441.5
+        },
+        {
+          "name": "/assets/bnsp4-program-proposal-CfCHDmVh.webp",
+          "bytes": 30412,
+          "duration": 1042.5
+        },
+        {
+          "name": "/assets/bnsp4-lesson-plan-_EAbMs-z.webp",
+          "bytes": 32490,
+          "duration": 1097.699999999255
+        },
+        {
+          "name": "/assets/bnsp4-materi-pelatihan-BsnT4fqi.webp",
+          "bytes": 32576,
+          "duration": 1096
+        },
+        {
+          "name": "/assets/bnsp4-form-soal-post-test-B0vlJFZe.webp",
+          "bytes": 33720,
+          "duration": 1123.699999999255
+        },
+        {
+          "name": "/assets/bnsp4-form-feedback-BniyM1ME.webp",
+          "bytes": 31544,
+          "duration": 1104.5999999977648
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 1109.8999999985099
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "case-applied-leadership-development.html",
+      "lcp": 792,
+      "cls": 0,
+      "longTasks": 36,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 242.90000000223517
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 354.3999999985099
+        },
+        {
+          "name": "/assets/applied-leadership-development-program-DBmTiU92.webp",
+          "bytes": 15074,
+          "duration": 334.19999999925494
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 394.5
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "case-career-readiness-toolkit.html",
+      "lcp": 820,
+      "cls": 0,
+      "longTasks": 53,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 251.60000000149012
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 374.80000000074506
+        },
+        {
+          "name": "/assets/career-readiness-toolkit-case-study-fFcj5IUd.webp",
+          "bytes": 54390,
+          "duration": 570
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 393.19999999925494
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "case-employee-assessment-bootcamp.html",
+      "lcp": 788,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 217.30000000074506
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 359.9000000022352
+        },
+        {
+          "name": "/assets/employee-assessment-observation-workbook-Bo2FGVtI.webp",
+          "bytes": 75574,
+          "duration": 673.8000000007451
+        },
+        {
+          "name": "/assets/employee-assessment-individual-report-B4_1hwfH.webp",
+          "bytes": 66030,
+          "duration": 520.6000000014901
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 381.5
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "case-entrepreneurship.html",
+      "lcp": 820,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 245.10000000149012
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 379.19999999925494
+        },
+        {
+          "name": "/assets/story_achmad-jcHKWbx4.jpg",
+          "bytes": 57446,
+          "duration": 584.6999999992549
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 395
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "case-learning-organization-strategy.html",
+      "lcp": 716,
+      "cls": 0,
+      "longTasks": 17,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 247.19999999925494
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 381.79999999701977
+        },
+        {
+          "name": "/assets/bnsp6-kebutuhan-pelatihan-makro-D3eXHDLF.webp",
+          "bytes": 35002,
+          "duration": 458.69999999925494
+        },
+        {
+          "name": "/assets/bnsp6-matriks-kompetensi-yZy5j0wV.webp",
+          "bytes": 34316,
+          "duration": 1141.800000000745
+        },
+        {
+          "name": "/assets/bnsp6-silabus-pelatihan-DRwFthni.webp",
+          "bytes": 37082,
+          "duration": 1195.800000000745
+        },
+        {
+          "name": "/assets/bnsp6-business-plan-cVC_pKpq.webp",
+          "bytes": 32534,
+          "duration": 1107.199999999255
+        },
+        {
+          "name": "/assets/bnsp6-marketing-plan-Cb3mZSkF.webp",
+          "bytes": 32564,
+          "duration": 1128.800000000745
+        },
+        {
+          "name": "/assets/bnsp6-rab-roti-pelatihan-Bx_3kq0-.webp",
+          "bytes": 33184,
+          "duration": 1158.800000000745
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 1170.800000000745
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "case-ybb-mentoring-workbook.html",
+      "lcp": 752,
+      "cls": 0,
+      "longTasks": 4,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 243.10000000149012
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 383.80000000074506
+        },
+        {
+          "name": "/assets/ybb-mentoring-workbook-week-1-CoYRNCtZ.webp",
+          "bytes": 36314,
+          "duration": 475.30000000074506
+        },
+        {
+          "name": "/assets/ybb-mentoring-workbook-week-2-DgV-5vXP.webp",
+          "bytes": 34858,
+          "duration": 814.3000000007451
+        },
+        {
+          "name": "/assets/ybb-mentoring-workbook-week-3-XwFH44gi.webp",
+          "bytes": 36864,
+          "duration": 835.3000000007451
+        },
+        {
+          "name": "/assets/ybb-pitch-deck-template-week-4-C11Zwc8j.webp",
+          "bytes": 31820,
+          "duration": 772
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 795.2999999970198
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "index.html",
+      "lcp": 720,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 221.90000000223517
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 277.5
+        },
+        {
+          "name": "/assets/dafghif_cover-t4WGYsKV.webp",
+          "bytes": 144778,
+          "duration": 1118.2999999970198
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 611.5
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "portfolio.html",
+      "lcp": 1180,
+      "cls": 0.0026956740092114414,
+      "longTasks": 167,
+      "resources": [
+        {
+          "name": "/assets/bnsp4-training-need-analysis-Cx_fqKM6.webp",
+          "bytes": 31634,
+          "duration": 568.4000000022352
+        },
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 276.19999999925494
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 452.1000000014901
+        },
+        {
+          "name": "/assets/employee-assessment-bootcamp-case-study-Cgqt6DBk.webp",
+          "bytes": 124042,
+          "duration": 1054.6000000014901
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 386.6000000014901
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "case-studies.html",
+      "lcp": 1484,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 224
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 286.19999999925494
+        },
+        {
+          "name": "/assets/smk-Cn3ShQh2.webp",
+          "bytes": 37008,
+          "duration": 848.3000000007451
+        },
+        {
+          "name": "/assets/employee-assessment-bootcamp-case-study-Cgqt6DBk.webp",
+          "bytes": 124042,
+          "duration": 1359.800000000745
+        },
+        {
+          "name": "/assets/bnsp4-training-need-analysis-Cx_fqKM6.webp",
+          "bytes": 31634,
+          "duration": 798.8999999985099
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 920.6999999992549
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "blog.html",
+      "lcp": 1288,
+      "cls": 0,
+      "longTasks": 18,
+      "resources": [
+        {
+          "name": "/assets/blog-DO-CLR0I.js",
+          "bytes": 7251,
+          "duration": 257.0999999977648
+        },
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 238.5
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 309.69999999925494
+        },
+        {
+          "name": "/max/933/1*ep4o14IdBpy-rINbCdLQoA.png",
+          "bytes": 0,
+          "duration": 651.1999999992549
+        },
+        {
+          "name": "/max/1024/1*E5c_PPbHHRuSq5WP19S35A.png",
+          "bytes": 0,
+          "duration": 4656.900000002235
+        },
+        {
+          "name": "/v2/resize:fill:160:106/1*0O4IlMwlwjLj941gi7hwag.png",
+          "bytes": 0,
+          "duration": 522.8000000007451
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 393.70000000298023
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "contact.html",
+      "lcp": 692,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 219.59999999776483
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 294.69999999925494
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 392.5
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "case-administrative-communication.html",
+      "lcp": 788,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 245.40000000223517
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 384.3999999985099
+        },
+        {
+          "name": "/assets/bnsp4-training-need-analysis-Cx_fqKM6.webp",
+          "bytes": 31634,
+          "duration": 447.9000000022352
+        },
+        {
+          "name": "/assets/bnsp4-program-proposal-CfCHDmVh.webp",
+          "bytes": 30412,
+          "duration": 577.4000000022352
+        },
+        {
+          "name": "/assets/bnsp4-lesson-plan-_EAbMs-z.webp",
+          "bytes": 32490,
+          "duration": 607.6999999992549
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 644.1000000014901
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "case-applied-leadership-development.html",
+      "lcp": 768,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 240.5
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 364.5999999977648
+        },
+        {
+          "name": "/assets/applied-leadership-development-program-DBmTiU92.webp",
+          "bytes": 15074,
+          "duration": 347
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 391.69999999925494
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "case-career-readiness-toolkit.html",
+      "lcp": 724,
+      "cls": 0,
+      "longTasks": 18,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 234.19999999925494
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 363.19999999925494
+        },
+        {
+          "name": "/assets/career-readiness-toolkit-case-study-fFcj5IUd.webp",
+          "bytes": 54390,
+          "duration": 560.1999999992549
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 384.3999999985099
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "case-employee-assessment-bootcamp.html",
+      "lcp": 732,
+      "cls": 0,
+      "longTasks": 3,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 243.69999999925494
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 378.3999999985099
+        },
+        {
+          "name": "/assets/employee-assessment-observation-workbook-Bo2FGVtI.webp",
+          "bytes": 75574,
+          "duration": 694.4000000022352
+        },
+        {
+          "name": "/assets/employee-assessment-individual-report-B4_1hwfH.webp",
+          "bytes": 66030,
+          "duration": 521.6000000014901
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 384.1000000014901
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "case-entrepreneurship.html",
+      "lcp": 748,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 204.30000000074506
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 365.20000000298023
+        },
+        {
+          "name": "/assets/story_achmad-jcHKWbx4.jpg",
+          "bytes": 57446,
+          "duration": 563.5999999977648
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 395.80000000074506
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "case-learning-organization-strategy.html",
+      "lcp": 752,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 251.19999999925494
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 370
+        },
+        {
+          "name": "/assets/bnsp6-kebutuhan-pelatihan-makro-D3eXHDLF.webp",
+          "bytes": 35002,
+          "duration": 461.8999999985099
+        },
+        {
+          "name": "/assets/bnsp6-matriks-kompetensi-yZy5j0wV.webp",
+          "bytes": 34316,
+          "duration": 625.2000000029802
+        },
+        {
+          "name": "/assets/bnsp6-silabus-pelatihan-DRwFthni.webp",
+          "bytes": 37082,
+          "duration": 670.5
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 697.6000000014901
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "case-ybb-mentoring-workbook.html",
+      "lcp": 752,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 244.69999999925494
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 369.30000000074506
+        },
+        {
+          "name": "/assets/ybb-mentoring-workbook-week-1-CoYRNCtZ.webp",
+          "bytes": 36314,
+          "duration": 468.4000000022352
+        },
+        {
+          "name": "/assets/ybb-mentoring-workbook-week-2-DgV-5vXP.webp",
+          "bytes": 34858,
+          "duration": 670.8000000007451
+        },
+        {
+          "name": "/assets/ybb-mentoring-workbook-week-3-XwFH44gi.webp",
+          "bytes": 36864,
+          "duration": 701.7999999970198
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 710.6999999992549
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    }
+  ],
+  "finalRepeatedHomeAndPortfolio": [
+    {
+      "mode": "desktop",
+      "route": "index.html",
+      "lcp": 2416,
+      "cls": 0,
+      "longTasks": 10,
+      "resources": [
+        {
+          "name": "/assets/dafghif_cover-t4WGYsKV.webp",
+          "bytes": 144778,
+          "duration": 1016.6000000014901
+        },
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 238.19999999925494
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 366.8999999985099
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 397.30000000074506
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "portfolio.html",
+      "lcp": 2804,
+      "cls": 0,
+      "longTasks": 830,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 242.80000000074506
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 360.9000000022352
+        },
+        {
+          "name": "/assets/employee-assessment-bootcamp-case-study-Cgqt6DBk.webp",
+          "bytes": 124042,
+          "duration": 914.8000000007451
+        },
+        {
+          "name": "/assets/bnsp4-training-need-analysis-Cx_fqKM6.webp",
+          "bytes": 31634,
+          "duration": 1053.199999999255
+        },
+        {
+          "name": "/assets/bnsp6-kebutuhan-pelatihan-makro-D3eXHDLF.webp",
+          "bytes": 35002,
+          "duration": 1168.8999999985099
+        },
+        {
+          "name": "/assets/ybb-mentoring-workbook-week-1-CoYRNCtZ.webp",
+          "bytes": 36314,
+          "duration": 1212.800000000745
+        },
+        {
+          "name": "/assets/self-leadership-career-transition-D8kI7JHj.webp",
+          "bytes": 67930,
+          "duration": 1734.5
+        },
+        {
+          "name": "/assets/need-analysis-framework-training-coaching-ywjfjoWf.webp",
+          "bytes": 34240,
+          "duration": 1164.0999999977648
+        },
+        {
+          "name": "/assets/recruitment-assessment-blueprint-CR3xTzQe.webp",
+          "bytes": 34190,
+          "duration": 1173.699999999255
+        },
+        {
+          "name": "/assets/proposal-rancangan-sistem-asesmen-kompetensi-project-management-CdHLa37E.webp",
+          "bytes": 38472,
+          "duration": 1972.5
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 1527.4000000022352
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "index.html",
+      "lcp": 1368,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": [
+        {
+          "name": "/assets/dafghif_cover-t4WGYsKV.webp",
+          "bytes": 144778,
+          "duration": 1026.1000000014901
+        },
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 240.19999999925494
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 375.6000000014901
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 386.5
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "portfolio.html",
+      "lcp": 1500,
+      "cls": 0,
+      "longTasks": 262,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 232.59999999776483
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 375.6000000014901
+        },
+        {
+          "name": "/assets/employee-assessment-bootcamp-case-study-Cgqt6DBk.webp",
+          "bytes": 124042,
+          "duration": 899.1999999992549
+        },
+        {
+          "name": "/assets/bnsp4-training-need-analysis-Cx_fqKM6.webp",
+          "bytes": 31634,
+          "duration": 1061.199999999255
+        },
+        {
+          "name": "/assets/bnsp6-kebutuhan-pelatihan-makro-D3eXHDLF.webp",
+          "bytes": 35002,
+          "duration": 1180.9000000022352
+        },
+        {
+          "name": "/assets/ybb-mentoring-workbook-week-1-CoYRNCtZ.webp",
+          "bytes": 36314,
+          "duration": 1201.1000000014901
+        },
+        {
+          "name": "/assets/self-leadership-career-transition-D8kI7JHj.webp",
+          "bytes": 67930,
+          "duration": 1721.699999999255
+        },
+        {
+          "name": "/assets/need-analysis-framework-training-coaching-ywjfjoWf.webp",
+          "bytes": 34240,
+          "duration": 1175.699999999255
+        },
+        {
+          "name": "/assets/recruitment-assessment-blueprint-CR3xTzQe.webp",
+          "bytes": 34190,
+          "duration": 1174.800000000745
+        },
+        {
+          "name": "/assets/proposal-rancangan-sistem-asesmen-kompetensi-project-management-CdHLa37E.webp",
+          "bytes": 38472,
+          "duration": 1970.1000000014901
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 1613.8999999985099
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "index.html",
+      "lcp": 1368,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": [
+        {
+          "name": "/assets/dafghif_cover-t4WGYsKV.webp",
+          "bytes": 144778,
+          "duration": 1028.3999999985099
+        },
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 247.90000000223517
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 386.8999999985099
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 406.1000000014901
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "desktop",
+      "route": "portfolio.html",
+      "lcp": 1376,
+      "cls": 0,
+      "longTasks": 309,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 236
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 355.30000000074506
+        },
+        {
+          "name": "/assets/employee-assessment-bootcamp-case-study-Cgqt6DBk.webp",
+          "bytes": 124042,
+          "duration": 906.6000000014901
+        },
+        {
+          "name": "/assets/bnsp4-training-need-analysis-Cx_fqKM6.webp",
+          "bytes": 31634,
+          "duration": 1102.800000000745
+        },
+        {
+          "name": "/assets/bnsp6-kebutuhan-pelatihan-makro-D3eXHDLF.webp",
+          "bytes": 35002,
+          "duration": 1187.699999999255
+        },
+        {
+          "name": "/assets/ybb-mentoring-workbook-week-1-CoYRNCtZ.webp",
+          "bytes": 36314,
+          "duration": 1217.5999999977648
+        },
+        {
+          "name": "/assets/self-leadership-career-transition-D8kI7JHj.webp",
+          "bytes": 67930,
+          "duration": 1664.300000000745
+        },
+        {
+          "name": "/assets/need-analysis-framework-training-coaching-ywjfjoWf.webp",
+          "bytes": 34240,
+          "duration": 1169.2999999970198
+        },
+        {
+          "name": "/assets/recruitment-assessment-blueprint-CR3xTzQe.webp",
+          "bytes": 34190,
+          "duration": 1169.6000000014901
+        },
+        {
+          "name": "/assets/proposal-rancangan-sistem-asesmen-kompetensi-project-management-CdHLa37E.webp",
+          "bytes": 38472,
+          "duration": 1983
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 1770.5
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "index.html",
+      "lcp": 784,
+      "cls": 0,
+      "longTasks": 8,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 225.19999999925494
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 285.6000000014901
+        },
+        {
+          "name": "/assets/dafghif_cover-t4WGYsKV.webp",
+          "bytes": 144778,
+          "duration": 1141.699999999255
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 598.8999999985099
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "portfolio.html",
+      "lcp": 1568,
+      "cls": 0.0026956740092114414,
+      "longTasks": 320,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 216.59999999776483
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 355.30000000074506
+        },
+        {
+          "name": "/assets/employee-assessment-bootcamp-case-study-Cgqt6DBk.webp",
+          "bytes": 124042,
+          "duration": 895.8000000007451
+        },
+        {
+          "name": "/assets/bnsp4-training-need-analysis-Cx_fqKM6.webp",
+          "bytes": 31634,
+          "duration": 370.30000000074506
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 429.6000000014901
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "index.html",
+      "lcp": 912,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 233.19999999925494
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 303.19999999925494
+        },
+        {
+          "name": "/assets/dafghif_cover-t4WGYsKV.webp",
+          "bytes": 144778,
+          "duration": 1133.8999999985099
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 598.6000000014901
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "portfolio.html",
+      "lcp": 1356,
+      "cls": 0.0026956740092114414,
+      "longTasks": 271,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 245.69999999925494
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 386.8999999985099
+        },
+        {
+          "name": "/assets/employee-assessment-bootcamp-case-study-Cgqt6DBk.webp",
+          "bytes": 124042,
+          "duration": 935.3000000007451
+        },
+        {
+          "name": "/assets/bnsp4-training-need-analysis-Cx_fqKM6.webp",
+          "bytes": 31634,
+          "duration": 325.19999999925494
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 392.6000000014901
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "index.html",
+      "lcp": 692,
+      "cls": 0,
+      "longTasks": 0,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 213.5
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 275.30000000074506
+        },
+        {
+          "name": "/assets/dafghif_cover-t4WGYsKV.webp",
+          "bytes": 144778,
+          "duration": 1120
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 606.3999999985099
+        }
+      ],
+      "overflow": false
+    },
+    {
+      "mode": "mobile",
+      "route": "portfolio.html",
+      "lcp": 1824,
+      "cls": 0.0026956740092114414,
+      "longTasks": 422,
+      "resources": [
+        {
+          "name": "/assets/script-eLk0WBs7.js",
+          "bytes": 4854,
+          "duration": 246.90000000223517
+        },
+        {
+          "name": "/assets/script-DRt6i8Dl.css",
+          "bytes": 17094,
+          "duration": 390.0999999977648
+        },
+        {
+          "name": "/assets/employee-assessment-bootcamp-case-study-Cgqt6DBk.webp",
+          "bytes": 124042,
+          "duration": 941.3999999985099
+        },
+        {
+          "name": "/assets/bnsp4-training-need-analysis-Cx_fqKM6.webp",
+          "bytes": 31634,
+          "duration": 329.4000000022352
+        },
+        {
+          "name": "/assets/favicon-BfoC0EMe.ico",
+          "bytes": 44056,
+          "duration": 392.69999999925494
+        }
+      ],
+      "iframe": "",
+      "overflow": false
+    }
+  ],
+  "htmlPreviews": [
+    {
+      "route": "assets/portfolio-viewers/bnsp4-administrative-communication-case-study.html",
+      "status": 200,
+      "ms": 73,
+      "nodes": 63,
+      "overflow": false,
+      "scripts": 0
+    },
+    {
+      "route": "assets/portfolio-viewers/bnsp6-evaluation-level1-reaction.html",
+      "status": 200,
+      "ms": 64,
+      "nodes": 1333,
+      "overflow": false,
+      "scripts": 0
+    },
+    {
+      "route": "assets/portfolio-viewers/bnsp6-evaluation-level2-learning.html",
+      "status": 200,
+      "ms": 76,
+      "nodes": 1415,
+      "overflow": false,
+      "scripts": 0
+    },
+    {
+      "route": "assets/portfolio-viewers/bnsp6-learning-organization-case-study.html",
+      "status": 200,
+      "ms": 72,
+      "nodes": 69,
+      "overflow": false,
+      "scripts": 0
+    },
+    {
+      "route": "assets/portfolio-viewers/bnsp6-rab-roti-pelatihan.html",
+      "status": 200,
+      "ms": 52,
+      "nodes": 496,
+      "overflow": false,
+      "scripts": 0
+    },
+    {
+      "route": "assets/portfolio-viewers/employee-assessment-observation-workbook.html",
+      "status": 200,
+      "ms": 60,
+      "nodes": 110,
+      "overflow": false,
+      "scripts": 0
+    },
+    {
+      "route": "assets/portfolio-viewers/entrepreneurship-online-class.html",
+      "status": 200,
+      "ms": 63,
+      "nodes": 19,
+      "overflow": false,
+      "scripts": 0
+    },
+    {
+      "route": "assets/portfolio-viewers/miles-unfair-advantage-mentoring-workbook.html",
+      "status": 200,
+      "ms": 74,
+      "nodes": 1276,
+      "overflow": false,
+      "scripts": 0
+    },
+    {
+      "route": "assets/portfolio-viewers/need-analysis-framework-training-coaching.html",
+      "status": 200,
+      "ms": 76,
+      "nodes": 2199,
+      "overflow": false,
+      "scripts": 0
+    },
+    {
+      "route": "assets/portfolio-viewers/performance-appraisal-system.html",
+      "status": 200,
+      "ms": 70,
+      "nodes": 14,
+      "overflow": false,
+      "scripts": 0
+    },
+    {
+      "route": "assets/portfolio-viewers/recruitment-assessment-blueprint.html",
+      "status": 200,
+      "ms": 74,
+      "nodes": 1183,
+      "overflow": false,
+      "scripts": 0
+    },
+    {
+      "route": "assets/portfolio-viewers/score-audit-corrections.html",
+      "status": 200,
+      "ms": 57,
+      "nodes": 196,
+      "overflow": false,
+      "scripts": 0
+    },
+    {
+      "route": "assets/portfolio-viewers/smk-entrepreneurship-program.html",
+      "status": 200,
+      "ms": 66,
+      "nodes": 14,
+      "overflow": false,
+      "scripts": 0
+    },
+    {
+      "route": "assets/portfolio-viewers/theory-of-change-mentoring-tracker.html",
+      "status": 200,
+      "ms": 43,
+      "nodes": 89,
+      "overflow": false,
+      "scripts": 0
+    },
+    {
+      "route": "assets/portfolio-viewers/ybb-mentoring-workbook-week-1.html",
+      "status": 200,
+      "ms": 43,
+      "nodes": 670,
+      "overflow": false,
+      "scripts": 0
+    },
+    {
+      "route": "assets/portfolio-viewers/ybb-mentoring-workbook-week-2.html",
+      "status": 200,
+      "ms": 75,
+      "nodes": 1398,
+      "overflow": false,
+      "scripts": 0
+    },
+    {
+      "route": "assets/portfolio-viewers/ybb-mentoring-workbook-week-3.html",
+      "status": 200,
+      "ms": 79,
+      "nodes": 994,
+      "overflow": false,
+      "scripts": 0
+    },
+    {
+      "route": "assets/portfolio-viewers/ybb-pitch-deck-template-week-4.html",
+      "status": 200,
+      "ms": 53,
+      "nodes": 516,
+      "overflow": false,
+      "scripts": 0
+    }
+  ],
+  "interactions": {
+    "search": "Showing all 1 matching Portfolio Items",
+    "htmlPreviewReadyMs": 1696,
+    "closed": true,
+    "showMore": "Showing 18 of 76 matching Portfolio Items",
+    "filter": "Showing all 6 matching Portfolio Items",
+    "mobileMenu": "true",
+    "hero": {
+      "complete": true,
+      "width": 1200,
+      "src": "http://127.0.0.1:4173/assets/dafghif_cover-t4WGYsKV.webp"
+    },
+    "logoLoaded": true,
+    "errors": []
+  },
+  "pdfValidation": [
+    {
+      "path": "assets\\pdf\\portfolio\\20260522_komunikasi_sehat_antar_crew.pdf",
+      "before": 3864732,
+      "after": 3870806,
+      "pages": 66
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\adaptive_communication_1.pdf",
+      "before": 2489318,
+      "after": 2465383,
+      "pages": 94
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\adaptive_communication_2.pdf",
+      "before": 2173048,
+      "after": 2150678,
+      "pages": 79
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\adaptive_communication_3.pdf",
+      "before": 2264590,
+      "after": 2242277,
+      "pages": 89
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\adaptive_communication_4.pdf",
+      "before": 2919211,
+      "after": 2892653,
+      "pages": 133
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\adaptive_communication_5.pdf",
+      "before": 2431022,
+      "after": 2408157,
+      "pages": 96
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\bnsp4_materi_pelatihan.pdf",
+      "before": 15912333,
+      "after": 15928320,
+      "pages": 131
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\business_presentation_storytelling.pdf",
+      "before": 4929759,
+      "after": 4924805,
+      "pages": 44
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\career_prep_cybersecurity.pdf",
+      "before": 3334198,
+      "after": 3347541,
+      "pages": 110
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\crafting_deck.pdf",
+      "before": 2493372,
+      "after": 2474828,
+      "pages": 152
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\crew_fatigue_onboard.pdf",
+      "before": 2802124,
+      "after": 2788780,
+      "pages": 153
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\critical_thinking.pdf",
+      "before": 2046729,
+      "after": 2031317,
+      "pages": 102
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\deck_creative_thinking.pdf",
+      "before": 3112793,
+      "after": 3116036,
+      "pages": 58
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\deck_leadership_kohinoor.pdf",
+      "before": 1700088,
+      "after": 1692041,
+      "pages": 84
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\essential_leadership_skills_facilitator_deck.pdf",
+      "before": 1700088,
+      "after": 1692041,
+      "pages": 84
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\gig_economy_hustle.pdf",
+      "before": 2341728,
+      "after": 2328231,
+      "pages": 130
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\gig_economy_resilience.pdf",
+      "before": 1166571,
+      "after": 1158337,
+      "pages": 96
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\instagram_umkm.pdf",
+      "before": 2583951,
+      "after": 2563370,
+      "pages": 120
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\komunikasi_maritim.pdf",
+      "before": 1884157,
+      "after": 1871142,
+      "pages": 121
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\layoff_storm.pdf",
+      "before": 2164060,
+      "after": 2154293,
+      "pages": 105
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\managing_pressure.pdf",
+      "before": 1282760,
+      "after": 1275150,
+      "pages": 63
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\mental_health_supervisor.pdf",
+      "before": 1516639,
+      "after": 1505154,
+      "pages": 99
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\personal_branding.pdf",
+      "before": 2082181,
+      "after": 2069852,
+      "pages": 81
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\psychology_of_money.pdf",
+      "before": 2711859,
+      "after": 2680125,
+      "pages": 158
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\public_speaking_confidence_boost.pdf",
+      "before": 2072910,
+      "after": 2056846,
+      "pages": 148
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\resume_linkedin_portfolio_exploration.pdf",
+      "before": 3569454,
+      "after": 3565732,
+      "pages": 88
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\scholarship_powerpoint.pdf",
+      "before": 1039596,
+      "after": 1030689,
+      "pages": 40
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\service_excellence.pdf",
+      "before": 1096758,
+      "after": 1088993,
+      "pages": 61
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\side_hustle.pdf",
+      "before": 2613003,
+      "after": 2594118,
+      "pages": 138
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\startup_development_class.pdf",
+      "before": 2373461,
+      "after": 2355186,
+      "pages": 305
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\stress_management.pdf",
+      "before": 1095323,
+      "after": 1086099,
+      "pages": 88
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\teamwork.pdf",
+      "before": 1698870,
+      "after": 1687930,
+      "pages": 109
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\time_management.pdf",
+      "before": 2267698,
+      "after": 2247786,
+      "pages": 122
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\toc.pdf",
+      "before": 1649599,
+      "after": 1634958,
+      "pages": 76
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\top_employability_skills.pdf",
+      "before": 2399632,
+      "after": 2379880,
+      "pages": 181
+    },
+    {
+      "path": "assets\\pdf\\portfolio\\win_friends.pdf",
+      "before": 1091941,
+      "after": 1082365,
+      "pages": 72
+    }
+  ],
+  "budget": {
+    "totalDistMB": 114.7,
+    "jsGzipKB": 11.14,
+    "cssGzipKB": 17.81,
+    "largePreviewPdfs": {
+      "count": 36,
+      "largestFirstPageKB": 198.59,
+      "firstPageLimitKB": 256
+    },
+    "portfolioHtml": {
+      "gzipKB": 16.38,
+      "baselineGuardKB": 16.5,
+      "stretchTargetKB": 14.22,
+      "stretchTargetMet": false
+    },
+    "caseStudyHtml": [
+      {
+        "path": "case-administrative-communication.html",
+        "gzipKB": 3.01,
+        "limitKB": 5
+      },
+      {
+        "path": "case-applied-leadership-development.html",
+        "gzipKB": 2.6,
+        "limitKB": 5
+      },
+      {
+        "path": "case-career-readiness-toolkit.html",
+        "gzipKB": 2.88,
+        "limitKB": 5
+      },
+      {
+        "path": "case-employee-assessment-bootcamp.html",
+        "gzipKB": 2.59,
+        "limitKB": 5
+      },
+      {
+        "path": "case-entrepreneurship.html",
+        "gzipKB": 2.63,
+        "limitKB": 5
+      },
+      {
+        "path": "case-learning-organization-strategy.html",
+        "gzipKB": 3.23,
+        "limitKB": 5
+      },
+      {
+        "path": "case-ybb-mentoring-workbook.html",
+        "gzipKB": 2.68,
+        "limitKB": 5
+      }
+    ],
+    "previewIframeInitialLoad": [
+      {
+        "path": "case-administrative-communication.html",
+        "sources": [
+          ""
+        ]
+      },
+      {
+        "path": "case-applied-leadership-development.html",
+        "sources": [
+          ""
+        ]
+      },
+      {
+        "path": "case-career-readiness-toolkit.html",
+        "sources": [
+          ""
+        ]
+      },
+      {
+        "path": "case-employee-assessment-bootcamp.html",
+        "sources": [
+          ""
+        ]
+      },
+      {
+        "path": "case-learning-organization-strategy.html",
+        "sources": [
+          ""
+        ]
+      },
+      {
+        "path": "case-ybb-mentoring-workbook.html",
+        "sources": [
+          ""
+        ]
+      },
+      {
+        "path": "portfolio.html",
+        "sources": [
+          ""
+        ]
+      }
+    ],
+    "largestImage": {
+      "path": "dafghif_cover.png",
+      "KB": 247.8
+    }
+  }
+}

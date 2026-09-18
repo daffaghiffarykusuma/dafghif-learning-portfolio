@@ -137,7 +137,7 @@ describe('site browser behavior', () => {
   });
 
   test('generated case study hero meta text uses the editorial theme', async () => {
-    const darkModeCss = await readPage('css/dark-mode.css');
+    const darkModeCss = await readPage('src/styles/dark-mode.css');
 
     expect(darkModeCss).toContain('.generated-case-hero .service-hero-meta');
     expect(darkModeCss).toContain('.generated-case-hero .service-hero-meta li');
@@ -247,7 +247,7 @@ describe('site browser behavior', () => {
   test('homepage keeps its below-fold mobile hero image out of the critical request path', async () => {
     createDom(await readPage('index.html'), 'http://127.0.0.1/index.html');
     const heroImage = document.querySelector('#showcase .hero-visual img');
-    const heroPreload = document.querySelector('link[rel="preload"][as="image"][href="dafghif_cover.png"]');
+    const heroPreload = document.querySelector('link[rel="preload"][as="image"][href="dafghif_cover.webp"]');
 
     expect(heroImage?.getAttribute('loading')).toBe('lazy');
     expect(heroImage?.getAttribute('fetchpriority')).toBe('low');

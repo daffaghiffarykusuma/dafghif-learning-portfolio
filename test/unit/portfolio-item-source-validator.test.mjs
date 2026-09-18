@@ -2,7 +2,7 @@ import { describe, expect, test } from 'bun:test';
 import {
   assertValidPortfolioItemSource,
   validatePortfolioItemSource
-} from '../../scripts/portfolio-item-source-validator.ts';
+} from '../../scripts/portfolio/portfolio-item-source-validator.ts';
 
 const validPortfolioItem = {
   id: 'sample-deck',

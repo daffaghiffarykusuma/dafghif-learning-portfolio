@@ -1,8 +1,8 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { createPortfolioEvidenceWorkflow } from './portfolio-evidence-workflow.ts';
-import type { PortfolioEvidenceWorkflowSummary } from './portfolio-evidence-workflow.ts';
+import { createPortfolioEvidenceWorkflow } from './portfolio/portfolio-evidence-workflow.ts';
+import type { PortfolioEvidenceWorkflowSummary } from './portfolio/portfolio-evidence-workflow.ts';
 
 type PortfolioEvidencePaths = {
   portfolioHtml: string;

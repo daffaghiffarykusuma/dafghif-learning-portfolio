@@ -2083,7 +2083,7 @@ body.dark-mode section:nth-of-type(even) {
 }
 
 body.dark-mode #showcase {
-     background: linear-gradient(rgba(15, 27, 30, 0.95), rgba(15, 27, 30, 0.85)), url('../dafghif_cover.png') no-repeat center center/cover; /* Darker overlay */
+     background: linear-gradient(rgba(15, 27, 30, 0.95), rgba(15, 27, 30, 0.85)), url('../../dafghif_cover.webp') no-repeat center center/cover; /* Darker overlay */
      color: var(--primary);
 }
 

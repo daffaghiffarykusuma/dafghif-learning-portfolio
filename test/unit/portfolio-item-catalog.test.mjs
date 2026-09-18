@@ -3,7 +3,7 @@ import {
   createPortfolioCatalogData,
   normalizePortfolioItem,
   slugify
-} from '../../scripts/portfolio-item-catalog.ts';
+} from '../../scripts/portfolio/portfolio-item-catalog.ts';
 
 describe('Portfolio Item catalog', () => {
   test('normalizes Portfolio Item source fields', () => {

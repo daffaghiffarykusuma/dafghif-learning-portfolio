@@ -1,0 +1,244 @@
+- generic [active] [ref=f2e1]:
+  - link "Skip to main content" [ref=f2e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - link "Skip to portfolio items" [ref=f2e3] [cursor=pointer]:
+    - /url: "#portfolio-items"
+  - banner [ref=f2e4]:
+    - generic [ref=f2e5]:
+      - link "d. Daffa Ghiffary Kusuma" [ref=f2e8] [cursor=pointer]:
+        - /url: index.html
+        - text: d.
+        - generic [ref=f2e9]: Daffa Ghiffary Kusuma
+      - navigation [ref=f2e10]:
+        - list [ref=f2e11]:
+          - listitem [ref=f2e12]:
+            - link "Home" [ref=f2e13] [cursor=pointer]:
+              - /url: index.html
+          - listitem [ref=f2e14]:
+            - link "Portfolio" [ref=f2e15] [cursor=pointer]:
+              - /url: portfolio.html
+          - listitem [ref=f2e16]:
+            - link "Case Studies" [ref=f2e17] [cursor=pointer]:
+              - /url: case-studies.html
+          - listitem [ref=f2e18]:
+            - link "Blog" [ref=f2e19] [cursor=pointer]:
+              - /url: blog.html
+          - listitem [ref=f2e20]:
+            - link "Contact" [ref=f2e21] [cursor=pointer]:
+              - /url: contact.html
+        - link "Work With Me" [ref=f2e22] [cursor=pointer]:
+          - /url: contact.html
+  - main "Main content" [ref=f2e23]:
+    - generic [ref=f2e25]:
+      - heading "Featured Portfolio Items" [level=1] [ref=f2e26]
+      - generic [ref=f2e27]:
+        - generic [ref=f2e28]:
+          - generic [ref=f2e29]: Search portfolio evidence
+          - searchbox "Search portfolio evidence" [ref=f2e30]
+        - generic "Primary portfolio filters" [ref=f2e31]:
+          - button "All" [pressed] [ref=f2e32] [cursor=pointer]
+          - button "Training & Workshops" [ref=f2e33] [cursor=pointer]
+          - button "Instructional Design" [ref=f2e34] [cursor=pointer]
+          - button "Learning Materials" [ref=f2e35] [cursor=pointer]
+          - button "Assessment & Evaluation" [ref=f2e36] [cursor=pointer]
+          - button "Learning Analytics" [ref=f2e37] [cursor=pointer]
+        - generic [ref=f2e38]:
+          - generic [ref=f2e39]: More practice areas
+          - combobox "More practice areas" [ref=f2e40]:
+            - option "Choose a practice area" [selected]
+            - option "Training Needs Analysis"
+            - option "Curriculum Development"
+            - option "Training Proposals"
+            - option "Worksheets"
+            - option "Learning Strategy"
+            - option "Presentation Design"
+            - option "Mentoring & Coaching"
+          - paragraph [ref=f2e41]: Showing 9 of 76 matching Portfolio Items
+      - generic [ref=f2e42]:
+        - generic [ref=f2e43]:
+          - link [ref=f2e45] [cursor=pointer]:
+            - /url: case-employee-assessment-bootcamp.html
+            - img "Anonymized employee assessment bootcamp team photo" [ref=f2e46]
+          - generic [ref=f2e47]:
+            - heading [level=2] [ref=f2e48]:
+              - link "Employee Assessment Bootcamp Case Study" [ref=f2e49] [cursor=pointer]:
+                - /url: case-employee-assessment-bootcamp.html
+            - link "Assessment & Evaluation" [ref=f2e51] [cursor=pointer]:
+              - /url: portfolio.html?area=assessment
+            - paragraph [ref=f2e52]: Connects a multi-day behavioral observation workbook with a redacted individual report to show the assessment flow from evidence capture and scoring to participant-facing synthesis.
+            - paragraph [ref=f2e53]: Connects observation evidence and scoring to a redacted individual report.
+            - generic [ref=f2e54]:
+              - link "Discuss Similar Engagement" [ref=f2e55] [cursor=pointer]:
+                - /url: contact.html?portfolioItem=Employee Assessment Bootcamp Case Study
+              - link "Read Case Study" [ref=f2e56] [cursor=pointer]:
+                - /url: case-employee-assessment-bootcamp.html
+        - generic [ref=f2e57]:
+          - link [ref=f2e59] [cursor=pointer]:
+            - /url: case-administrative-communication.html
+            - img "Administrative Communication Learning Program Case Study thumbnail" [ref=f2e60]
+          - generic [ref=f2e61]:
+            - heading [level=2] [ref=f2e62]:
+              - link "Administrative Communication Learning Program Case Study" [ref=f2e63] [cursor=pointer]:
+                - /url: case-administrative-communication.html
+            - link "Instructional Design" [ref=f2e65] [cursor=pointer]:
+              - /url: portfolio.html?area=training-needs-analysis
+            - paragraph [ref=f2e66]: Combines needs analysis, proposal, lesson plan, facilitator material, and evaluation tools into one competency-based workplace communication learning case.
+            - paragraph [ref=f2e67]: Maps 36 learning hours into sessions, OJT, and competency evidence.
+            - generic [ref=f2e68]:
+              - link "Discuss Similar Engagement" [ref=f2e69] [cursor=pointer]:
+                - /url: contact.html?portfolioItem=Administrative Communication Learning Program Case Study
+              - link "Read Case Study" [ref=f2e70] [cursor=pointer]:
+                - /url: case-administrative-communication.html
+        - generic [ref=f2e71]:
+          - link [ref=f2e73] [cursor=pointer]:
+            - /url: case-learning-organization-strategy.html
+            - img "Learning Organization Strategy and Evaluation System Case Study thumbnail" [ref=f2e74]
+          - generic [ref=f2e75]:
+            - heading [level=2] [ref=f2e76]:
+              - link "Learning Organization Strategy and Evaluation System Case Study" [ref=f2e77] [cursor=pointer]:
+                - /url: case-learning-organization-strategy.html
+            - link "L&D Strategy" [ref=f2e79] [cursor=pointer]:
+              - /url: portfolio.html?area=training-needs-analysis
+            - paragraph [ref=f2e80]: Combines macro needs analysis, competency architecture, business and marketing plans, budget modeling, and evaluation dashboards into one strategic L&D case.
+            - paragraph [ref=f2e81]: Synthesizes labor-market signals into training priorities.
+            - generic [ref=f2e82]:
+              - link "Discuss Similar Engagement" [ref=f2e83] [cursor=pointer]:
+                - /url: contact.html?portfolioItem=Learning Organization Strategy and Evaluation System Case Study
+              - link "Read Case Study" [ref=f2e84] [cursor=pointer]:
+                - /url: case-learning-organization-strategy.html
+        - generic [ref=f2e85]:
+          - link [ref=f2e87] [cursor=pointer]:
+            - /url: case-ybb-mentoring-workbook.html
+            - img "Youth mentoring workbook and pitch readiness case study thumbnail" [ref=f2e88]
+          - generic [ref=f2e89]:
+            - heading [level=2] [ref=f2e90]:
+              - link "Youth Mentoring Workbook and Pitch Readiness Case Study" [ref=f2e91] [cursor=pointer]:
+                - /url: case-ybb-mentoring-workbook.html
+            - link "Mentoring & Coaching" [ref=f2e93] [cursor=pointer]:
+              - /url: portfolio.html?area=worksheet
+            - paragraph [ref=f2e94]: Combines three mentoring workbooks and a final pitch deck template into one staged youth project mentoring case.
+            - paragraph [ref=f2e95]: Structures reflection, planning, and follow-through.
+            - generic [ref=f2e96]:
+              - link "Discuss Similar Engagement" [ref=f2e97] [cursor=pointer]:
+                - /url: contact.html?portfolioItem=Youth Mentoring Workbook and Pitch Readiness Case Study
+              - link "Read Case Study" [ref=f2e98] [cursor=pointer]:
+                - /url: case-ybb-mentoring-workbook.html
+        - generic [ref=f2e99]:
+          - link [ref=f2e101] [cursor=pointer]:
+            - /url: portfolio.html#project-self-leadership-career-transition
+            - img "Self-Leadership for Career Transition deck thumbnail" [ref=f2e102]
+          - generic [ref=f2e103]:
+            - heading [level=2] [ref=f2e104]:
+              - link "Self-Leadership for Career Transition" [ref=f2e105] [cursor=pointer]:
+                - /url: portfolio.html#project-self-leadership-career-transition
+            - link "Learning Materials" [ref=f2e107] [cursor=pointer]:
+              - /url: portfolio.html?area=learning-materials
+            - paragraph [ref=f2e108]: A 52-slide learning deck that helps emerging professionals navigate identity transition, strengthen self-leadership, build emotional resilience, and translate prior experience into career action.
+            - paragraph [ref=f2e109]: Structures 52 slides around reflection, practical frameworks, quizzes, and action planning.
+            - generic [ref=f2e110]:
+              - link "Discuss Similar Engagement" [ref=f2e111] [cursor=pointer]:
+                - /url: contact.html?portfolioItem=Self-Leadership for Career Transition
+              - button "View PDF Artifact" [ref=f2e112] [cursor=pointer]
+        - generic [ref=f2e113]:
+          - link [ref=f2e115] [cursor=pointer]:
+            - /url: portfolio.html#project-training-and-coaching-need-analysis-framework
+            - img "Training and Coaching Need Analysis Framework thumbnail" [ref=f2e116]
+          - generic [ref=f2e117]:
+            - heading [level=2] [ref=f2e118]:
+              - link "Training and Coaching Need Analysis Framework" [ref=f2e119] [cursor=pointer]:
+                - /url: portfolio.html#project-training-and-coaching-need-analysis-framework
+            - link "Training Needs Analysis" [ref=f2e121] [cursor=pointer]:
+              - /url: portfolio.html?area=training-needs-analysis
+            - paragraph [ref=f2e122]: A consultant-ready discovery workbook for diagnosing business needs before recommending training or coaching.
+            - paragraph [ref=f2e123]: Maps performance gaps into clear training priorities.
+            - generic [ref=f2e124]:
+              - link "Discuss Similar Engagement" [ref=f2e125] [cursor=pointer]:
+                - /url: contact.html?portfolioItem=Training and Coaching Need Analysis Framework
+              - button "Open Interactive Preview" [ref=f2e126] [cursor=pointer]
+        - generic [ref=f2e127]:
+          - link [ref=f2e129] [cursor=pointer]:
+            - /url: portfolio.html#project-recruitment-assessment-blueprint
+            - img "Recruitment Assessment Blueprint thumbnail" [ref=f2e130]
+          - generic [ref=f2e131]:
+            - heading [level=2] [ref=f2e132]:
+              - link "Recruitment Assessment Blueprint" [ref=f2e133] [cursor=pointer]:
+                - /url: portfolio.html#project-recruitment-assessment-blueprint
+            - link "Assessment & Evaluation" [ref=f2e135] [cursor=pointer]:
+              - /url: portfolio.html?area=assessment
+            - paragraph [ref=f2e136]: A structured assessment bank covering DISC, accuracy, math, cognitive tasks, and scoring norms for hiring decisions.
+            - paragraph [ref=f2e137]: Links measurement tools to learning outcomes.
+            - generic [ref=f2e138]:
+              - link "Discuss Similar Engagement" [ref=f2e139] [cursor=pointer]:
+                - /url: contact.html?portfolioItem=Recruitment Assessment Blueprint
+              - button "Open Interactive Preview" [ref=f2e140] [cursor=pointer]
+        - generic [ref=f2e141]:
+          - link [ref=f2e143] [cursor=pointer]:
+            - /url: portfolio.html#project-rancangan-sistem-asesmen-kompetensi-project-management
+            - img "Rancangan Sistem Asesmen Kompetensi Project Management proposal thumbnail" [ref=f2e144]
+          - generic [ref=f2e145]:
+            - heading [level=2] [ref=f2e146]:
+              - link "Rancangan Sistem Asesmen Kompetensi Project Management" [ref=f2e147] [cursor=pointer]:
+                - /url: portfolio.html#project-rancangan-sistem-asesmen-kompetensi-project-management
+            - link "Training Proposal" [ref=f2e149] [cursor=pointer]:
+              - /url: portfolio.html?area=training-proposal
+            - paragraph [ref=f2e150]: Proposal for a Project Management competency assessment system using a 5-level competency dictionary, role-level mapping, multi-source evidence, calibration panels, and gap-based action planning.
+            - paragraph [ref=f2e151]: Turns learning needs into a structured delivery plan.
+            - generic [ref=f2e152]:
+              - link "Discuss Similar Engagement" [ref=f2e153] [cursor=pointer]:
+                - /url: contact.html?portfolioItem=Project Management Competency Assessment
+              - button "View PDF Artifact" [ref=f2e154] [cursor=pointer]
+        - generic [ref=f2e155]:
+          - link [ref=f2e157] [cursor=pointer]:
+            - /url: portfolio.html#project-score-audit-corrections
+            - img "Score Audit Corrections workbook thumbnail" [ref=f2e158]
+          - generic [ref=f2e159]:
+            - heading [level=2] [ref=f2e160]:
+              - link "Score Audit Corrections" [ref=f2e161] [cursor=pointer]:
+                - /url: portfolio.html#project-score-audit-corrections
+            - link "Learning Analytics" [ref=f2e163] [cursor=pointer]:
+              - /url: portfolio.html?area=learning-analytics
+            - paragraph [ref=f2e164]: A redacted audit workbook preview documenting Manual Review corrections for BSI Scholarship Inspirasi Ekstensi Portfolio & Background Score files.
+            - paragraph [ref=f2e165]: Summarizes 1,173 Manual Review correction rows across 13 Kelompok files.
+            - generic [ref=f2e166]:
+              - link "Discuss Similar Engagement" [ref=f2e167] [cursor=pointer]:
+                - /url: contact.html?portfolioItem=Score Audit Corrections
+              - button "Open Interactive Preview" [ref=f2e168] [cursor=pointer]
+      - button "Show 9 more" [ref=f2e170]
+    - generic [ref=f2e172]:
+      - heading "Publications" [level=2] [ref=f2e173]
+      - generic [ref=f2e174]:
+        - generic [ref=f2e175]:
+          - link [ref=f2e177] [cursor=pointer]:
+            - /url: assets/pdf/publication/publication_pdf_dagrow_mindset_unlocking_your_talent_potential.pdf
+            - 'img "DaGrow Mindset: Unlocking Your Talent Potential Book Cover" [ref=f2e178]'
+          - generic [ref=f2e179]:
+            - heading [level=3] [ref=f2e180]:
+              - emphasis [ref=f2e181]: "DaGrow Mindset: Unlocking Your Talent Potential"
+            - paragraph [ref=f2e182]: "By Daffa Ghiffary Kusuma Publisher: Relation Ship Community (2024)"
+            - paragraph [ref=f2e183]:
+              - text: A practical playbook helping readers discover, develop, and maximize their unique talents through the
+              - strong [ref=f2e184]: Discover, Assess, Grow, Reflect
+              - text: framework. Combining real-life stories, science-backed insights, and hands-on activities, it offers actionable steps to break mental barriers, build skills, and create lasting impact. Written in a casual, conversational tone, it's ideal for students, professionals, or anyone seeking personal growth.
+          - link "Read Now" [ref=f2e186] [cursor=pointer]:
+            - /url: assets/pdf/publication/publication_pdf_dagrow_mindset_unlocking_your_talent_potential.pdf
+        - generic [ref=f2e187]:
+          - generic [ref=f2e188]: Publication Thumbnail 2
+          - generic [ref=f2e189]:
+            - heading "Publication Title 2" [level=3] [ref=f2e190]
+            - paragraph [ref=f2e191]: "[Brief description or abstract placeholder]"
+            - generic [ref=f2e192]: Coming Soon
+        - generic [ref=f2e194]:
+          - generic [ref=f2e195]: Publication Thumbnail 3
+          - generic [ref=f2e196]:
+            - heading "Publication Title 3" [level=3] [ref=f2e197]
+            - paragraph [ref=f2e198]: "[Brief description or abstract placeholder]"
+            - generic [ref=f2e199]: Coming Soon
+  - contentinfo [ref=f2e201]:
+    - generic [ref=f2e202]:
+      - generic [ref=f2e203]:
+        - generic [ref=f2e204]:
+          - heading "Want similar results? Let's talk." [level=2] [ref=f2e205]
+          - paragraph [ref=f2e206]: Share your challenge and I'll respond with concrete recommendations within two business days.
+        - link "Start Your Engagement" [ref=f2e207] [cursor=pointer]:
+          - /url: contact.html
+      - paragraph [ref=f2e209]: © 2026 Daffa Ghiffary Kusuma. All Rights Reserved.
