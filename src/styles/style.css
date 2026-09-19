@@ -2421,7 +2421,7 @@ body.dark-mode footer a {
     list-style: disc;
     padding-left: 18px;
     margin: 0;
-    color: rgba(20, 27, 43, 0.8);
+    color: var(--color-text-secondary);
 }
 
 .practice-area-highlights li { margin-bottom: 8px; }
