@@ -19,6 +19,15 @@ describe('artifact preview policy', () => {
       sourceType: 'pdf'
     }, baseUrl)).toMatchObject({
       type: 'pdf',
+      url: 'http://127.0.0.1/assets/pdf/portfolio/sample.pdf',
+      linkPolicy: outsidePreviewLinkPolicy,
+      navigationPolicy: {
+        allowedOrigin: 'http://127.0.0.1',
+        allowedPathPrefix: 'assets/pdf/portfolio/',
+        allowedExtension: '.pdf',
+        previewFrameNavigation: 'validated-artifact-src-only',
+        artifactLinks: 'open-outside-preview-frame'
+      },
       triggerAttributes: {
         'data-pdf': 'assets/pdf/portfolio/sample.pdf'
       },
@@ -31,49 +40,7 @@ describe('artifact preview policy', () => {
       sourceType: 'html-viewer'
     }, baseUrl)).toMatchObject({
       type: 'viewer',
-      triggerAttributes: {
-        'data-viewer': 'assets/portfolio-viewers/sample.html'
-      },
-      frameAttributes: {
-        sandbox: 'allow-same-origin allow-popups allow-popups-to-escape-sandbox'
-      },
-      src: 'http://127.0.0.1/assets/portfolio-viewers/sample.html'
-    });
-  });
-
-  test('allows same-origin portfolio PDFs and returns frame and navigation expectations', () => {
-    const preview = resolveArtifactPreview({
-      pdfPath: 'assets/pdf/portfolio/sample.pdf'
-    }, baseUrl);
-
-    expect(preview).toEqual({
-      type: 'pdf',
-      url: 'http://127.0.0.1/assets/pdf/portfolio/sample.pdf',
-      src: 'http://127.0.0.1/assets/pdf/portfolio/sample.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH&zoom=page-width&statusbar=0&messages=0&pagemode=none',
-      frameAttributes: {},
-      linkPolicy: outsidePreviewLinkPolicy,
-      navigationPolicy: {
-        allowedOrigin: 'http://127.0.0.1',
-        allowedPathPrefix: 'assets/pdf/portfolio/',
-        allowedExtension: '.pdf',
-        previewFrameNavigation: 'validated-artifact-src-only',
-        artifactLinks: 'open-outside-preview-frame'
-      }
-    });
-  });
-
-  test('allows same-origin HTML artifact viewers with frame and link expectations', () => {
-    const preview = resolveArtifactPreview({
-      viewerPath: 'assets/portfolio-viewers/sample.html'
-    }, baseUrl);
-
-    expect(preview).toEqual({
-      type: 'viewer',
       url: 'http://127.0.0.1/assets/portfolio-viewers/sample.html',
-      src: 'http://127.0.0.1/assets/portfolio-viewers/sample.html',
-      frameAttributes: {
-        sandbox: 'allow-same-origin allow-popups allow-popups-to-escape-sandbox'
-      },
       linkPolicy: outsidePreviewLinkPolicy,
       navigationPolicy: {
         allowedOrigin: 'http://127.0.0.1',
@@ -81,7 +48,14 @@ describe('artifact preview policy', () => {
         allowedExtension: '.html',
         previewFrameNavigation: 'validated-artifact-src-only',
         artifactLinks: 'open-outside-preview-frame'
-      }
+      },
+      triggerAttributes: {
+        'data-viewer': 'assets/portfolio-viewers/sample.html'
+      },
+      frameAttributes: {
+        sandbox: 'allow-same-origin allow-popups allow-popups-to-escape-sandbox'
+      },
+      src: 'http://127.0.0.1/assets/portfolio-viewers/sample.html'
     });
   });
 

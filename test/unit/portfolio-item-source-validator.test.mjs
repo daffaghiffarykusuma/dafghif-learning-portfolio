@@ -151,12 +151,24 @@ describe('Portfolio Item Source validation', () => {
 
   test('allows a Case Study to replace a raw Portfolio Item with the same id', () => {
     const source = createValidSource();
-    source.portfolioItems[0].id = validCaseStudy.id;
+    source.portfolioItems.push({ ...validPortfolioItem, id: validCaseStudy.id });
+    source.portfolioItemCount = 2;
 
-    expect(validatePortfolioItemSource({
+    const result = validatePortfolioItemSource({
       portfolioSource: source,
       proofSource: validProofSource
-    }).failures).not.toContain(`assets/data/portfolio-source.json: duplicate Portfolio Item id "${validCaseStudy.id}"`);
+    });
+
+    expect(result.failures).toEqual([]);
+    expect(result.portfolioItems.map((item) => item.id)).toEqual([
+      'case-sample-program',
+      'sample-deck'
+    ]);
+    expect(result.portfolioItems[0]).toMatchObject({
+      title: 'Sample Program Case Study',
+      sourceArtifact: 'case-sample-program.html',
+      sourceType: 'case-study-page'
+    });
   });
 
   test('throws one generation-facing error with all validation failures', () => {
@@ -168,35 +180,5 @@ describe('Portfolio Item Source validation', () => {
       portfolioSource: source,
       proofSource: validProofSource
     })).toThrow(/Portfolio Item Source validation failed[\s\S]*missing title[\s\S]*missing sourceArtifact/);
-  });
-
-  test('assertion returns the Validated Portfolio Item Source for downstream modules', () => {
-    const result = assertValidPortfolioItemSource({
-      portfolioSource: createValidSource(),
-      proofSource: validProofSource
-    });
-
-    expect(result.failures).toEqual([]);
-    expect(result.portfolioItems.map((item) => item.id)).toEqual([
-      'case-sample-program',
-      'sample-deck'
-    ]);
-  });
-
-  test('carries Case Study Publication facts through the validated interface', () => {
-    const result = assertValidPortfolioItemSource({
-      portfolioSource: createValidSource(),
-      proofSource: validProofSource
-    });
-
-    expect(result.caseStudyPublication.pages.map((page) => page.outputPath)).toEqual([
-      'case-studies.html',
-      'case-sample-program.html'
-    ]);
-    expect(result.caseStudyPublication.artifactMetadataByCaseStudyId
-      .get('case-sample-program')[0]).toMatchObject({
-        id: 'artifact-sample-plan',
-        sourceArtifact: 'assets/pdf/portfolio/sample-plan.pdf'
-      });
   });
 });

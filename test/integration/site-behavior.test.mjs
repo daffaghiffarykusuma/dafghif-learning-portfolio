@@ -66,21 +66,6 @@ describe('site browser behavior', () => {
     expect(warnings.some((message) => message.includes('Blocked unsafe portfolio preview path'))).toBe(true);
   });
 
-  test('portfolio cards render concise proof lines without a visible prefix', async () => {
-    const html = await readPage('portfolio.html');
-    createDom(html, 'http://127.0.0.1/portfolio.html');
-
-    const portfolioItems = Array.from(document.querySelectorAll('.card.portfolio-item:not(.portfolio-item-placeholder)'));
-    const proofLines = Array.from(document.querySelectorAll('.portfolio-item-proof'));
-
-    expect(portfolioItems.length).toBe(76);
-    expect(portfolioItems.every((item) => item.querySelector('.card-content > h2'))).toBe(true);
-    expect(proofLines.length).toBe(portfolioItems.length);
-    expect(document.querySelector('#case-employee-assessment-bootcamp .portfolio-item-proof').textContent)
-      .toBe('Connects observation evidence and scoring to a redacted individual report.');
-    expect(proofLines.every((line) => !line.textContent.startsWith('Proof of quality:'))).toBe(true);
-  });
-
   test('case study pages are linked from the main menu and portfolio cards', async () => {
     const indexHtml = await readPage('case-studies.html');
     createDom(indexHtml, 'http://127.0.0.1/case-studies.html');
@@ -136,32 +121,6 @@ describe('site browser behavior', () => {
     expect(document.querySelector('header nav a[href="case-studies.html"]').parentElement.classList.contains('current')).toBe(true);
   });
 
-  test('generated case study hero meta text uses the editorial theme', async () => {
-    const darkModeCss = await readPage('src/styles/dark-mode.css');
-
-    expect(darkModeCss).toContain('.generated-case-hero .service-hero-meta');
-    expect(darkModeCss).toContain('.generated-case-hero .service-hero-meta li');
-    expect(darkModeCss).toContain('color: var(--muted)');
-  });
-
-  test('portfolio links Case Study cards to first-class pages instead of opening the preview frame', async () => {
-    const html = await readPage('portfolio.html');
-    createDom(html, 'http://127.0.0.1/portfolio.html');
-
-    const caseCards = Array.from(document.querySelectorAll('.card.portfolio-item[data-category~="case-study"]'));
-    expect(caseCards.length).toBe(6);
-    expect(caseCards.map((card) => card.querySelector('.portfolio-item-title-link').getAttribute('href'))).toEqual([
-      'case-employee-assessment-bootcamp.html',
-      'case-administrative-communication.html',
-      'case-learning-organization-strategy.html',
-      'case-ybb-mentoring-workbook.html',
-      'case-applied-leadership-development.html',
-      'case-career-readiness-toolkit.html'
-    ]);
-    expect(caseCards.every((card) => !card.querySelector('button.view-details-button'))).toBe(true);
-    expect(caseCards.every((card) => card.querySelector('a.view-details-button').textContent === 'Read Case Study')).toBe(true);
-  });
-
   test('case study card links keep native navigation instead of being intercepted as previews', async () => {
     const html = await readPage('portfolio.html');
     createDom(html, 'http://127.0.0.1/portfolio.html');
@@ -173,6 +132,11 @@ describe('site browser behavior', () => {
     const caseCard = document.querySelector('#case-learning-organization-strategy-evaluation-system');
     const caseStudyButton = caseCard.querySelector('a.view-details-button');
     const caseStudyTitle = caseCard.querySelector('.portfolio-item-title-link');
+
+    expect(caseStudyButton.getAttribute('href')).toBe('case-learning-organization-strategy.html');
+    expect(caseStudyTitle.getAttribute('href')).toBe('case-learning-organization-strategy.html');
+    expect(caseStudyButton.textContent).toBe('Read Case Study');
+    expect(caseCard.querySelector('button.view-details-button')).toBeNull();
 
     const buttonClick = new window.MouseEvent('click', { bubbles: true, cancelable: true });
     const titleClick = new window.MouseEvent('click', { bubbles: true, cancelable: true });

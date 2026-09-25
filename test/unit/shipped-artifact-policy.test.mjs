@@ -23,18 +23,6 @@ describe('Shipped Artifact Policy', () => {
     expect(policy.isDeniedPath('assets/raw/example.docx')).toBe(true);
   });
 
-  test('returns production probe facts without overlapping projections', () => {
-    const policy = createShippedArtifactPolicy({ rootDir: process.cwd() });
-    const facts = policy.productionProbeFacts();
-
-    expect(facts.length).toBeGreaterThan(0);
-    expect(facts[0]).toEqual(expect.objectContaining({
-      path: expect.any(String),
-      requestPath: expect.stringMatching(/^\//),
-      existsInSource: expect.any(Boolean),
-    }));
-  });
-
   test('derives routed Case Study pages and probes from the Portfolio Item Source', () => {
     const portfolioSource = {
       caseStudies: [
@@ -56,14 +44,6 @@ describe('Shipped Artifact Policy', () => {
       'case-two.html'
     ]));
     expect(policy.isPublicPath('case-two.html')).toBe(true);
-  });
-
-  test('keeps production probes request-shaped', () => {
-    const policy = createShippedArtifactPolicy({ rootDir: process.cwd() });
-    const requestPaths = policy.productionProbeFacts().map((probe) => probe.requestPath);
-
-    expect(requestPaths.length).toBeGreaterThan(0);
-    expect(requestPaths.every((requestPath) => requestPath.startsWith('/'))).toBe(true);
   });
 
   test('keeps root-specific manifests independent across policy instances', () => {

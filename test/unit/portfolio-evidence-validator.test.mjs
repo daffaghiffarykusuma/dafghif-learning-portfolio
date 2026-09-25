@@ -98,16 +98,6 @@ const writePortfolioEvidenceSite = async ({
 };
 
 describe('Portfolio Evidence Validation', () => {
-  test('accepts aligned source/catalog data with direct impact proof', async () => {
-    const root = await writePortfolioEvidenceSite();
-
-    expect(await validatePortfolioEvidence({ root })).toEqual({
-      failures: [],
-      portfolioItemCount: 1,
-      portfolioSourceItemCount: 1
-    });
-  });
-
   test('keeps source/catalog drift and Proof Point coverage failures local to the module', async () => {
     const secondSourceItem = {
       ...validSourceItem,

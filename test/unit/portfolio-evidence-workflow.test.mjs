@@ -1,4 +1,5 @@
 import { describe, expect, test } from 'bun:test';
+import { Window } from 'happy-dom';
 import {
   createPortfolioEvidenceWorkflow
 } from '../../scripts/portfolio/portfolio-evidence-workflow.ts';
@@ -105,7 +106,7 @@ describe('Portfolio Evidence Workflow', () => {
       portfolioSource: workflowSource,
       proofSource,
       generatedFrom: 'assets/data/portfolio-source.json',
-      catalogGeneratedFrom: 'assets/data/portfolio-items.json',
+      catalogGeneratedFrom: 'assets/data/custom-catalog.json',
       generatedAt: '2026-05-26T00:00:00.000Z'
     });
     const html = outputFor(
@@ -127,6 +128,24 @@ describe('Portfolio Evidence Workflow', () => {
       aiContextPortfolioItemCount: 2,
       caseStudyPageCount: 1
     });
+    expect(catalog).toMatchObject({
+      schemaVersion: 1,
+      generatedFrom: 'assets/data/portfolio-source.json',
+      generatedAt: '2026-05-26T00:00:00.000Z',
+      portfolioItemCount: 2
+    });
+    expect(aiContext.generatedFrom).toBe('assets/data/custom-catalog.json');
+    const document = new Window().document;
+    document.write(html);
+    const cards = Array.from(document.querySelectorAll('.card.portfolio-item:not(.portfolio-item-placeholder)'));
+    expect(cards).toHaveLength(2);
+    for (const card of cards) {
+      expect(card.querySelector('.card-content > h2')).toBeTruthy();
+      expect(card.querySelectorAll('.portfolio-item-proof')).toHaveLength(1);
+      expect(card.querySelector('.portfolio-item-proof').textContent).not.toStartWith('Proof of quality:');
+    }
+    expect(document.querySelector('#custom-deck .portfolio-item-proof').textContent)
+      .toBe('Uses roleplay instructions and reflection prompts.');
     expect(html).toStartWith('<!DOCTYPE html>');
     expect(html.indexOf('id="custom-deck"')).toBeLessThan(
       html.indexOf('id="default-deck"')
@@ -213,71 +232,6 @@ describe('Portfolio Evidence Workflow', () => {
 });
 
 describe('Case Study Publication', () => {
-  test('returns expanded Portfolio Items and page identities through one interface', () => {
-    const caseStudy = {
-      id: 'case-sample-learning-program',
-      title: 'Sample Learning Program',
-      portfolioItemTitle: 'Sample Learning Program Case Study',
-      practiceArea: 'Instructional Design',
-      tags: ['instructional-design'],
-      description: 'Combines diagnosis and design artifacts into one case.',
-      image: { src: 'assets/images/portfolio/sample.webp', alt: 'Sample thumbnail' }
-    };
-    const publication = createCaseStudyPublication({
-      caseStudies: [caseStudy],
-      portfolioItems: [
-        { id: caseStudy.id, title: 'Manual duplicate' },
-        { id: 'project-other', title: 'Other Portfolio Item' }
-      ]
-    });
-
-    expect(publication.portfolioItems[0]).toMatchObject({
-      id: 'case-sample-learning-program',
-      sourceArtifact: 'case-sample-learning-program.html',
-      sourceType: 'case-study-page'
-    });
-    expect(publication.pageIdentities).toEqual([{
-      kind: 'case-study',
-      pagePath: 'case-sample-learning-program.html',
-      navigationPage: 'case-studies.html'
-    }]);
-    expect(publication.portfolioItems.map((item) => item.id)).toEqual([
-      caseStudy.id,
-      'project-other'
-    ]);
-  });
-
-  test('keeps Artifact preview markup and metadata behind the publication interface', () => {
-    const artifact = {
-      title: 'Needs Analysis',
-      description: 'Defines the learning gap.',
-      href: 'assets/pdf/portfolio/needs.pdf',
-      practiceArea: 'Training Needs Analysis',
-      tags: ['training-needs-analysis'],
-      image: { src: 'assets/images/portfolio/needs.webp' }
-    };
-    const publication = createCaseStudyPublication({
-      caseStudies: [{
-        id: 'case-sample-learning-program',
-        title: 'Sample Learning Program',
-        artifacts: [artifact]
-      }]
-    });
-    const detailPage = publication.pages.find(
-      (page) => page.outputPath === 'case-sample-learning-program.html'
-    );
-
-    expect(detailPage.html).toContain('id="artifact-needs-analysis"');
-    expect(detailPage.html).toContain('data-pdf="assets/pdf/portfolio/needs.pdf"');
-    expect(publication.artifactMetadataByCaseStudyId
-      .get('case-sample-learning-program')[0]).toMatchObject({
-      id: 'artifact-needs-analysis',
-      sourceType: 'pdf',
-      parentCaseStudy: 'case-sample-learning-program',
-      sourceArtifact: 'assets/pdf/portfolio/needs.pdf'
-    });
-  });
-
   test('returns Case Study index and detail page outputs', () => {
     const caseStudy = {
       id: 'case-sample-learning-program',
@@ -292,7 +246,14 @@ describe('Case Study Publication', () => {
         { label: 'Evidence limit', value: 'Direct outcomes are not claimed.' }
       ],
       caseFlow: [{ label: 'Diagnose', value: 'Review the learning gap.' }],
-      artifacts: []
+      artifacts: [{
+        title: 'Needs Analysis',
+        description: 'Defines the learning gap.',
+        href: 'assets/pdf/portfolio/needs.pdf',
+        practiceArea: 'Training Needs Analysis',
+        tags: ['training-needs-analysis'],
+        image: { src: 'assets/images/portfolio/needs.webp' }
+      }]
     };
     const publication = createCaseStudyPublication({ caseStudies: [caseStudy] });
     const indexPage = publication.pages.find((page) => page.outputPath === 'case-studies.html');
@@ -300,6 +261,15 @@ describe('Case Study Publication', () => {
       (page) => page.outputPath === 'case-sample-learning-program.html'
     );
 
+    expect(detailPage.html).toContain('id="artifact-needs-analysis"');
+    expect(detailPage.html).toContain('data-pdf="assets/pdf/portfolio/needs.pdf"');
+    expect(publication.artifactMetadataByCaseStudyId
+      .get('case-sample-learning-program')[0]).toMatchObject({
+        id: 'artifact-needs-analysis',
+        sourceType: 'pdf',
+        parentCaseStudy: 'case-sample-learning-program',
+        sourceArtifact: 'assets/pdf/portfolio/needs.pdf'
+      });
     expect(indexPage.html).toContain('case-sample-learning-program.html');
     expect(indexPage.html).toContain('<li class="current"><a href="case-studies.html">Case Studies</a></li>');
     expect(indexPage.html).toContain('All rights reserved.');

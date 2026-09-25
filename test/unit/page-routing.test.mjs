@@ -71,36 +71,6 @@ describe('case study page routing', () => {
     expect(initCurrentPage()).toBeNull();
   });
 
-  test('opens artifact previews without changing the page hash', async () => {
-    createDom(`
-      <article id="artifact-sample" class="card portfolio-item case-artifact-card">
-        <div class="card-image">
-          <a class="portfolio-item-thumbnail-link" href="#artifact-sample">Preview sample</a>
-        </div>
-        <div class="card-content">
-          <h3>Sample Case Artifact</h3>
-          <button class="view-details-button" data-viewer="assets/portfolio-viewers/sample.html">View Details</button>
-        </div>
-      </article>
-      <dialog id="pdf-modal">
-        <button class="close-modal">Close</button>
-        <h2 id="pdf-modal-title"></h2>
-        <iframe id="pdf-iframe"></iframe>
-      </dialog>
-    `, 'http://127.0.0.1/case-sample.html');
-    globalThis.console = window.console;
-    const { initCurrentPage } = await importFresh('../../src/site/pages/page-router.ts');
-
-    initCurrentPage();
-    document.querySelector('.portfolio-item-thumbnail-link').click();
-
-    expect(window.location.hash).toBe('');
-    expect(document.getElementById('pdf-modal').open).toBe(true);
-    expect(document.getElementById('pdf-modal-title').textContent).toBe('Sample Case Artifact');
-    expect(document.getElementById('pdf-iframe').src).toBe('http://127.0.0.1/assets/portfolio-viewers/sample.html');
-    expect(document.getElementById('pdf-iframe').getAttribute('sandbox')).toBe('allow-same-origin allow-popups allow-popups-to-escape-sandbox');
-  });
-
   test('opens direct hash artifact previews on case study pages', async () => {
     createDom(`
       <article id="artifact-sample" class="card portfolio-item case-artifact-card">

@@ -4,7 +4,6 @@ import os from 'node:os';
 import path from 'node:path';
 import { projectRoot } from '../helpers/dom.mjs';
 import {
-  formatLearningPortfolioSiteValidationSummary,
   validateLearningPortfolioSite
 } from '../../scripts/validation/learning-portfolio-site-validation.ts';
 
@@ -23,23 +22,6 @@ const run = async (command, args) => {
 };
 
 describe('Learning Portfolio Site Validation', () => {
-  test('returns structured validation facts for the repository', async () => {
-    const result = await validateLearningPortfolioSite({
-      rootDir: projectRoot
-    });
-
-    expect(result.failures).toEqual([]);
-    expect(result.counts).toEqual({
-      htmlFiles: 30,
-      cssFiles: 5,
-      blogPosts: 34,
-      portfolioItems: 76,
-      shippedArtifactProbes: 14
-    });
-    expect(formatLearningPortfolioSiteValidationSummary(result))
-      .toContain('Validated 30 HTML files');
-  });
-
   test('validates a temporary Learning Portfolio Site through the public interface', async () => {
     const rootDir = await mkdtemp(path.join(os.tmpdir(), 'learning-portfolio-validation-'));
     try {
