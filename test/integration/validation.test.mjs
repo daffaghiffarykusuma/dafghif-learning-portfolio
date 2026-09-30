@@ -32,6 +32,7 @@ describe('Learning Portfolio Site Validation', () => {
       await Promise.all([
         writeFile(path.join(rootDir, 'index.html'), `
           <main id="main" onclick="return false">
+            <h3>Publication Title 2</h3>
             <a href="missing.html">Missing</a>
             <a href="https://unreviewed.example/work">External</a>
             <a href="#missing-fragment">Fragment</a>
@@ -70,6 +71,7 @@ describe('Learning Portfolio Site Validation', () => {
         shippedArtifactProbes: 8
       });
       expect(result.failures).toEqual(expect.arrayContaining([
+        'index.html: contains unfinished publication placeholder copy',
         'index.html: contains inline script; use an external JS file so CSP can block inline execution',
         'index.html: contains inline event handler; use external JavaScript instead',
         'index.html: missing local href target: missing.html',

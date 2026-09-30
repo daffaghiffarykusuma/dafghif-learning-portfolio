@@ -151,6 +151,9 @@ export const validateLearningPortfolioSite = async ({
   });
   for (const page of sourceInventory.htmlPages) {
     const pageIds = new Set(page.ids);
+    if (!page.relPath.includes('/') && /Publication (?:Title|Thumbnail) \d+|\[Brief description or abstract placeholder\]/i.test(page.source.replace(/<!--[\s\S]*?-->/g, ''))) {
+      failures.push(`${page.relPath}: contains unfinished publication placeholder copy`);
+    }
     if (page.hasInlineScript) {
       failures.push(
         `${page.relPath}: contains inline script; use an external JS file so CSP can block inline execution`

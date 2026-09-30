@@ -83,6 +83,7 @@ const workflowSource = {
       practiceArea: 'Learning Materials',
       tags: ['learning-materials'],
       description: 'Uses roleplay prompts.',
+      audience: 'Facilitators',
       image: { src: 'assets/images/portfolio/custom.webp', alt: 'Custom' },
       sourceArtifact: 'assets/portfolio-viewers/custom-deck.html',
       sourceType: 'html-viewer',
@@ -141,11 +142,14 @@ describe('Portfolio Evidence Workflow', () => {
     expect(cards).toHaveLength(2);
     for (const card of cards) {
       expect(card.querySelector('.card-content > h2')).toBeTruthy();
-      expect(card.querySelectorAll('.portfolio-item-proof')).toHaveLength(1);
-      expect(card.querySelector('.portfolio-item-proof').textContent).not.toStartWith('Proof of quality:');
+      expect(card.querySelector('.card-actions').firstElementChild.classList.contains('view-details-button')).toBe(true);
+      expect(card.dataset.format).toBeTruthy();
     }
     expect(document.querySelector('#custom-deck .portfolio-item-proof').textContent)
       .toBe('Uses roleplay instructions and reflection prompts.');
+    expect(document.querySelector('#default-deck .portfolio-item-proof')).toBeNull();
+    expect(document.querySelector('#custom-deck .portfolio-item-title-link').textContent).toBe('Custom Deck');
+    expect(document.querySelector('#custom-deck .portfolio-item-meta').textContent).toBe('HTML preview · Facilitators');
     expect(html).toStartWith('<!DOCTYPE html>');
     expect(html.indexOf('id="custom-deck"')).toBeLessThan(
       html.indexOf('id="default-deck"')

@@ -79,6 +79,7 @@ const renderPortfolioItemCard = (
   card.className = 'card portfolio-item';
   card.id = item.id;
   card.dataset.category = item.tags.join(' ');
+  card.dataset.format = item.sourceType;
 
   const imageWrapper = document.createElement('div');
   imageWrapper.className = 'card-image';
@@ -119,6 +120,10 @@ const renderPortfolioItemCard = (
 
   const description = document.createElement('p');
   description.textContent = item.description;
+  const metadata = document.createElement('p');
+  metadata.className = 'portfolio-item-meta';
+  const format = item.sourceType === 'pdf' ? 'PDF' : item.sourceType === 'case-study-page' ? 'Case study' : 'HTML preview';
+  metadata.textContent = [format, item.audience].filter(Boolean).join(' · ');
 
   const proof = document.createElement('p');
   proof.className = 'portfolio-item-proof';
@@ -127,18 +132,18 @@ const renderPortfolioItemCard = (
   const actions = document.createElement('div');
   actions.className = 'card-actions';
   const discussLink = document.createElement('a');
-  discussLink.className = 'cta-button';
+  discussLink.className = 'portfolio-discuss-link';
   discussLink.href = item.discussUrl;
-  discussLink.textContent = 'Discuss Similar Engagement';
+  discussLink.textContent = 'Discuss this work';
   if (item.sourceType === 'case-study-page') {
     const caseStudyLink = document.createElement('a');
-    caseStudyLink.className = 'view-details-button';
+    caseStudyLink.className = 'view-details-button portfolio-review-action';
     caseStudyLink.href = item.sourceArtifact;
     caseStudyLink.textContent = 'Read Case Study';
-    actions.append(discussLink, caseStudyLink);
+    actions.append(caseStudyLink, discussLink);
   } else {
     const detailsButton = document.createElement('button');
-    detailsButton.className = 'view-details-button';
+    detailsButton.className = 'view-details-button portfolio-review-action';
     detailsButton.type = 'button';
     detailsButton.textContent = item.sourceType === 'pdf'
       ? 'View PDF Artifact'
@@ -150,10 +155,14 @@ const renderPortfolioItemCard = (
     for (const [attribute, value] of Object.entries(previewContract?.triggerAttributes || {})) {
       detailsButton.setAttribute(attribute, value);
     }
-    actions.append(discussLink, detailsButton);
+    actions.append(detailsButton, discussLink);
   }
 
-  content.append(title, practiceLabel, description, proof, actions);
+  content.append(title, practiceLabel, metadata, description);
+  if ([...item.proof.workQuality, ...item.proof.impact].some((entry) => entry.confidence === 'direct')) {
+    content.append(proof);
+  }
+  content.append(actions);
   card.append(imageWrapper, content);
   return card;
 };

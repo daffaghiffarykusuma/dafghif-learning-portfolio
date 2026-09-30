@@ -40,7 +40,7 @@ describe('Artifact Preview Experience', () => {
     expect(document.getElementById('pdf-modal').open).toBe(true);
     expect(document.getElementById('pdf-modal-title').textContent).toBe('Sample Artifact');
     expect(document.getElementById('pdf-modal-meta').textContent)
-      .toBe('PDF Artifact. Preview demonstrates structure and content; outcomes are only claimed where explicitly evidenced.');
+      .toBe('PDF Artifact. Outcomes require explicit evidence.');
     expect(document.getElementById('pdf-open-full').href).toBe('http://127.0.0.1/assets/pdf/portfolio/sample.pdf');
     expect(document.getElementById('pdf-open-full').target).toBe('_blank');
     expect(document.getElementById('pdf-discuss').href)

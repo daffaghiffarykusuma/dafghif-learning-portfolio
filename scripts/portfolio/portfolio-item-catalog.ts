@@ -18,6 +18,7 @@ export type PortfolioItem = {
   practiceArea: string;
   tags: string[];
   description: string;
+  audience?: string;
   image: { src: string; alt: string };
   sourceArtifact: string;
   sourceType: string;
@@ -82,6 +83,7 @@ export const normalizePortfolioItem = (sourceItem: unknown): PortfolioItem => {
     practiceArea,
     tags: Array.isArray(source.tags) ? source.tags.map(normalizeText).filter(Boolean) : [],
     description: normalizeText(source.description),
+    ...(normalizeText(source.audience) ? { audience: normalizeText(source.audience) } : {}),
     image: {
       src: normalizeText(image.src),
       alt: normalizeText(image.alt) || title

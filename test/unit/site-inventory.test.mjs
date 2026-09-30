@@ -22,6 +22,8 @@ describe('Site Inventory', () => {
     await mkdir(path.join(tempRoot, 'css'), { recursive: true });
     await mkdir(path.join(tempRoot, 'dist', 'assets'), { recursive: true });
     await mkdir(path.join(tempRoot, 'node_modules'), { recursive: true });
+    await mkdir(path.join(tempRoot, 'output'), { recursive: true });
+    await writeFile(path.join(tempRoot, 'output', 'review.html'), '<h3>Publication Title 2</h3><script>reviewOnly()</script>', 'utf8');
     await writeFile(path.join(tempRoot, 'index.html'), '<main id="main"><a href="portfolio.html#work">Work</a><img src="assets/example.webp"></main>', 'utf8');
     await writeFile(path.join(tempRoot, 'portfolio.html'), '<section id="work"><iframe id="pdf-iframe" src=""></iframe></section>', 'utf8');
     await writeFile(path.join(tempRoot, 'css', 'style.css'), '.hero{background:url("../assets/example.webp")}', 'utf8');

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-source.json",
-  "generatedAt": "2026-09-18T10:01:41.504Z",
+  "generatedAt": "2026-09-30T13:29:26.673Z",
   "portfolioItemCount": 76,
   "portfolioItems": [
     {
@@ -155,6 +155,7 @@
         "self-leadership"
       ],
       "description": "A 52-slide learning deck that helps emerging professionals navigate identity transition, strengthen self-leadership, build emotional resilience, and translate prior experience into career action.",
+      "audience": "Emerging professionals",
       "image": {
         "src": "assets/images/portfolio/self-leadership-career-transition.webp",
         "alt": "Self-Leadership for Career Transition deck thumbnail"
@@ -185,6 +186,7 @@
         "instructional-design"
       ],
       "description": "A consultant-ready discovery workbook for diagnosing business needs before recommending training or coaching.",
+      "audience": "Consultants",
       "image": {
         "src": "assets/images/portfolio/need-analysis-framework-training-coaching.webp",
         "alt": "Training and Coaching Need Analysis Framework thumbnail"
@@ -2107,6 +2109,7 @@
         "facilitation"
       ],
       "description": "A 44-slide facilitator deck that helps professionals prepare persuasive business presentations through audience analysis, compelling openings, storytelling techniques, storyboards, group practice, and structured delivery feedback.",
+      "audience": "Professionals",
       "image": {
         "src": "assets/images/portfolio/business-presentation-storytelling.webp",
         "alt": "Business Presentation & Storytelling workshop thumbnail"

@@ -324,3 +324,84 @@ body.contact-page { background: var(--paper); padding: var(--header-height) 0 0;
 .case-reading-page .generated-case-hero .lead { margin: 0; }
 .case-reading-page .impact-label { color: var(--muted); }
 .case-reading-page .impact-value { color: var(--ink); }
+
+/* Reviewer routes and compact discovery. */
+.recruiter-route { font-size: 14px; color: var(--muted); margin: 18px 0; }
+.recruiter-route a { text-underline-offset: 4px; }
+#showcase .hero-actions .cta-secondary { background: transparent !important; color: var(--ink) !important; }
+.selected-work-section { padding: 52px 0; border-block: 1px solid var(--line); scroll-margin-top: 100px; }
+.selected-work-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.selected-work-card .card-content { display: flex; flex-direction: column; gap: 12px; }
+.selected-work-card h3 { margin: 0; }
+.selected-work-card h3 a { color: var(--ink); }
+.selected-work-card p { margin: 0; font-size: 14px; }
+.selected-work-link { margin-top: auto; display: inline-flex; align-items: center; min-height: 44px; text-underline-offset: 5px; }
+.portfolio-filter-details summary { cursor: pointer; color: var(--ink); min-height: 44px; line-height: 1.5; padding: 10px 0; box-sizing: border-box; }
+#portfolio-active-filters { color: var(--muted); font-size: 13px; margin-left: 12px; }
+.portfolio-filter-details #portfolio-item-filters { margin: 12px 0 20px; gap: 8px; }
+.portfolio-filter-details .filter-button { min-height: 44px; }
+.portfolio-discovery-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+.portfolio-discovery-meta > div { display: grid; gap: 8px; min-width: 0; }
+.portfolio-discovery-status { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
+#portfolio-result-summary { text-align: left; color: var(--muted); font-size: 14px; }
+#portfolio-clear-filters { min-height: 44px; padding: 8px 16px; font-size: 13px; }
+#portfolio-items .card-content h2 { font: 600 20px/1.4 Inter, 'Segoe UI', sans-serif; letter-spacing: -.025em; }
+#portfolio-items .portfolio-item-meta, .selected-work-card .portfolio-item-meta { flex-grow: 0; font-size: 12px; line-height: 1.5; color: var(--muted); margin: 10px 0; }
+#portfolio-items .card-actions { display: flex; flex-direction: column; align-items: stretch; gap: 8px; }
+#portfolio-items .view-details-button.portfolio-review-action { background: var(--accent) !important; color: var(--paper) !important; border-color: var(--accent) !important; min-height: 48px; padding: 12px 20px; }
+#portfolio-items .portfolio-review-action:hover { background: var(--accent-hover) !important; }
+.portfolio-discuss-link { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; font-size: 14px; text-underline-offset: 5px; }
+.publications-grid { display: grid; max-width: 720px; }
+
+/* Channels should be visible before the contact process explanation. */
+.contact-page :is(.contact-hero-new, .contact-methods-section, .contact-message-section) > .container { padding: 0; }
+.contact-page .contact-hero-new { padding: 36px 0 28px; }
+.contact-page .contact-hero-content { max-width: 760px; }
+.contact-page .contact-hero-title { margin: 12px 0; font-size: clamp(38px, 4vw, 54px); }
+.contact-page .contact-hero-subtitle { margin: 0; font-size: 16px; line-height: 1.6; }
+.contact-page .contact-context { margin: 16px 0 0; overflow-wrap: anywhere; }
+.contact-page .contact-methods-section { padding: 28px 0; }
+.contact-page .contact-method-card { padding: 24px; }
+.contact-page .contact-method-content h2 { font-size: 24px; }
+.contact-page .contact-method-icon { margin-bottom: 16px; }
+.contact-message-section { padding: 0 0 32px; }
+.contact-message-outline { max-width: 1000px; margin: auto; padding: 16px 20px; background: var(--color-surface); border: 1px solid var(--line); border-radius: 10px; }
+.contact-message-outline summary { min-height: 44px; display: list-item; padding-block: 8px; box-sizing: border-box; cursor: pointer; }
+.contact-message-outline p { color: var(--muted); margin: 12px 0; }
+.contact-message-outline li { margin-block: 8px; }
+
+/* Allocate the viewport between header, reader, and persistent actions. */
+.pdf-modal { padding: 24px; overflow: hidden; }
+.pdf-modal-content { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; width: 100%; max-width: 1120px; height: calc(100vh - 48px); height: calc(100dvh - 48px); max-height: none; margin: 0 auto; padding: 0; }
+.pdf-modal-header { margin: 0; padding: 16px 20px; border-bottom: 1px solid var(--line); gap: 16px; align-items: flex-start; max-height: 34dvh; overflow: auto; }
+.pdf-modal-header > div { min-width: 0; }
+.pdf-modal-header h2 { font-size: 22px; line-height: 1.3; overflow-wrap: anywhere; }
+#pdf-modal-meta { font-size: 13px; line-height: 1.4; }
+.pdf-modal .close-modal { width: 44px; height: 44px; flex-basis: 44px; }
+.pdf-modal-body { min-height: 0; height: 100%; border-radius: 0; }
+#pdf-iframe { display: block; height: 100%; }
+.pdf-modal-actions { margin: 0; padding: 12px 20px; border-top: 1px solid var(--line); background: var(--color-surface); flex-direction: row; flex-wrap: nowrap; }
+.pdf-modal-actions > a { width: auto; min-height: 44px; padding: 10px 18px; }
+
+@media (max-width: 767px) {
+    .selected-work-grid { grid-template-columns: 1fr; }
+    #portfolio-items { padding-top: 24px; }
+    #portfolio-items > .container > .section-title { font-size: 34px; margin-bottom: 16px; }
+    .portfolio-discovery { margin: 16px 0 24px; padding: 16px; gap: 8px; }
+    .portfolio-search-field { gap: 6px; }
+    .portfolio-discovery-meta { grid-template-columns: 1fr; }
+    #portfolio-active-filters { display: block; margin: 2px 0 0; }
+    #portfolio-active-filters:empty { display: none; }
+    .mobile-sticky-cta { padding: 8px 16px max(8px, env(safe-area-inset-bottom)); }
+    .mobile-sticky-cta .btn-primary { padding: 10px 16px; min-height: 44px; }
+    .contact-page .contact-hero-new { padding: 24px 0; }
+    .contact-page .contact-methods-section { padding: 20px 0; }
+    .contact-page .contact-method-card { padding: 20px; }
+    .pdf-modal { padding: 0; }
+    .pdf-modal-content { height: 100vh; height: 100dvh; width: 100%; margin: 0; border: 0; border-radius: 0; }
+    .pdf-modal-header { padding: 12px; border-radius: 0; gap: 8px; }
+    .pdf-modal-header h2 { font-size: 18px; }
+    #pdf-modal-meta { font-size: 12px; }
+    .pdf-modal-actions { padding: 10px 12px max(10px, env(safe-area-inset-bottom)); gap: 8px; }
+    .pdf-modal-actions > a { flex: 1; padding: 8px; font-size: 13px; }
+}

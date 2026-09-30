@@ -865,7 +865,8 @@
       "sourceArtifact": "assets/pdf/portfolio/self_leadership_career_transition.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-self-leadership-career-transition",
-      "discussUrl": "contact.html?portfolioItem=Self-Leadership for Career Transition"
+      "discussUrl": "contact.html?portfolioItem=Self-Leadership for Career Transition",
+      "audience": "Emerging professionals"
     },
     {
       "id": "project-training-and-coaching-need-analysis-framework",
@@ -884,7 +885,8 @@
       "sourceArtifact": "assets/portfolio-viewers/need-analysis-framework-training-coaching.html",
       "sourceType": "html-viewer",
       "portfolioItemUrl": "portfolio.html#project-training-and-coaching-need-analysis-framework",
-      "discussUrl": "contact.html?portfolioItem=Training and Coaching Need Analysis Framework"
+      "discussUrl": "contact.html?portfolioItem=Training and Coaching Need Analysis Framework",
+      "audience": "Consultants"
     },
     {
       "id": "project-need-assessment-cross-department-communication",
@@ -2042,7 +2044,8 @@
       "sourceArtifact": "assets/pdf/portfolio/business_presentation_storytelling.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-business-presentation-storytelling",
-      "discussUrl": "contact.html?portfolioItem=Business Presentation and Storytelling"
+      "discussUrl": "contact.html?portfolioItem=Business Presentation and Storytelling",
+      "audience": "Professionals"
     },
     {
       "id": "project-creative-thinking-workshop",

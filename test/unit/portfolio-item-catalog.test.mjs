@@ -9,6 +9,7 @@ describe('Portfolio Item catalog', () => {
       title: ' Recruitment & Assessment Blueprint ',
       practiceArea: ' Assessment & Evaluation ',
       description: '  Scores candidates with clear rubric evidence. ',
+      audience: '  Hiring teams ',
       sourceArtifact: 'assets/spreadsheets/portfolio/recruitment_assessment_blueprint.xlsx',
       portfolioItemUrl: 'portfolio.html#assessment-blueprint',
       tags: [' assessment-evaluation ', '', 'learning-analytics']
@@ -18,6 +19,7 @@ describe('Portfolio Item catalog', () => {
       practiceArea: 'Assessment & Evaluation',
       tags: ['assessment-evaluation', 'learning-analytics'],
       description: 'Scores candidates with clear rubric evidence.',
+      audience: 'Hiring teams',
       image: {
         src: '',
         alt: 'Recruitment & Assessment Blueprint'

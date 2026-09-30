@@ -40,6 +40,12 @@ Use restrained hover movement and border changes. Honor reduced-motion preferenc
 
 Generated Portfolio Items and Case Studies retain their source-managed markup. Apply shared presentation through the theme, so regeneration preserves the design. Preview documents keep their own artifact presentation.
 
+Home provides the published CV and three selected case studies for an initial review. Portfolio cards lead with evidence review, then offer a contextual inquiry. Show artifact format and an audience label only when the source supports it. Keep inferred proof hints in the catalog; visible card proof requires direct evidence.
+
+Search remains visible on phones, with secondary filters in a native disclosure. Show selected filter labels when collapsed and offer reset for every active search or filter. Preserve format, practice area, search, and progressive results in the URL.
+
+Artifact previews use the complete phone viewport, a compact title, a scrollable reading area, and persistent full-screen and inquiry actions. Use the same artifact name in the heading, iframe title, and inquiry. Contact channels precede the optional message outline.
+
 ## Case study reading flow
 
 Case studies lead with a short overview and a direct route to the work samples or reported outcomes. Generated pages show evidence limits once beside the samples; scope and method live in a native, keyboard-accessible disclosure. Keep one contextual contact section and a simple footer. Preserve every artifact ID, preview trigger, source link, and source-managed record when editing the layout. The entrepreneurship page is authored separately and follows the same reading pattern with outcomes and deliverables before optional methodology and participant feedback.

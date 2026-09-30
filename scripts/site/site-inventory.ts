@@ -2,7 +2,7 @@ import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { gzipSync } from 'node:zlib';
 
-const DEFAULT_IGNORED_DIRS = new Set(['.git', '.vscode', 'dist', 'node_modules']);
+const DEFAULT_IGNORED_DIRS = new Set(['.git', '.vscode', 'dist', 'node_modules', 'output', 'tmp']);
 
 type SourceUrlAttribute = { attr: string; value: string };
 type SourceHtmlPage = {

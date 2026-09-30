@@ -419,7 +419,7 @@ const renderArtifactItems = (artifacts: CaseStudyArtifact[] = []) =>
               <h3><a class="portfolio-item-title-link" href="#${escapeHtml(item.id)}">${escapeHtml(item.title)}</a></h3>
               <p>${escapeHtml(item.description)}</p>
               <div class="card-actions">
-                <button class="view-details-button" type="button" ${previewData}>Preview work sample</button>
+                <button class="view-details-button" type="button" data-artifact-title="${escapeHtml(item.title)}" ${previewData}>Preview work sample</button>
               </div>
             </div>
           </article>`;

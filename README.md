@@ -78,6 +78,8 @@ bun run generate:portfolio
 
 This command validates the source first, then updates `portfolio.html`, generated Case Study pages, `assets/data/portfolio-items.json`, and `assets/data/portfolio-ai-context.json` together.
 
+Portfolio source records may include an optional `audience` label when supported by the artifact. Artifact format is derived from `sourceType`; both appear in generated cards. Portfolio discovery combines search, practice area, and format filters. Validation rejects unfinished publication placeholders and excludes local review files in `output/` and `tmp/`.
+
 Check production performance budgets after a build:
 
 ```bash

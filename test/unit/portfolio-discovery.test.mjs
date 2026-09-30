@@ -5,10 +5,10 @@ afterEach(() => {
   resetDom();
 });
 
-const portfolioItem = ({ id, categories, searchText }) => `
+const portfolioItem = ({ id, categories, searchText, sourceType = 'pdf' }) => `
   <article id="${id}" class="portfolio-item"
     data-category="${categories}"
-    data-search-text="${searchText}">
+    data-search-text="${searchText}" data-format="${sourceType}">
   </article>
 `;
 
@@ -21,6 +21,12 @@ const discoveryMarkup = (items) => `
       <option value="">All types</option>
       <option value="assessment">Assessment</option>
       <option value="quality-assurance">Quality assurance</option>
+    </select>
+    <select id="portfolio-format-filter">
+      <option value="">All formats</option>
+      <option value="pdf">PDF</option>
+      <option value="html-viewer">HTML preview</option>
+      <option value="case-study-page">Case study</option>
     </select>
     <p id="portfolio-result-summary" aria-live="polite"></p>
     <button id="portfolio-clear-filters" hidden>Clear search and filters</button>
@@ -36,6 +42,29 @@ const initializeDiscovery = async (items, url = 'http://127.0.0.1/portfolio.html
 };
 
 describe('Portfolio Item Discovery', () => {
+  test('combines format with other filters, preserves it in the URL, and resets successful searches', async () => {
+    await initializeDiscovery([
+      portfolioItem({ id: 'pdf-report', categories: 'learning-analytics', searchText: 'Evaluation report', sourceType: 'pdf' }),
+      portfolioItem({ id: 'html-report', categories: 'learning-analytics', searchText: 'Evaluation report', sourceType: 'html-viewer' })
+    ], 'http://127.0.0.1/portfolio.html?q=report&area=learning-analytics&format=html-viewer');
+    expect(document.getElementById('pdf-report').hidden).toBe(true);
+    expect(document.getElementById('html-report').hidden).toBe(false);
+    const format = document.getElementById('portfolio-format-filter');
+    expect(format.value).toBe('html-viewer');
+    format.value = 'pdf';
+    format.dispatchEvent(new window.Event('change'));
+    expect(new URLSearchParams(window.location.search).get('format')).toBe('pdf');
+    expect(document.getElementById('pdf-report').hidden).toBe(false);
+    expect(document.getElementById('html-report').hidden).toBe(true);
+    const clear = document.getElementById('portfolio-clear-filters');
+    expect(clear.hidden).toBe(false);
+    clear.click();
+    expect(format.value).toBe('');
+    expect(window.location.search).toBe('');
+    expect(document.getElementById('html-report').hidden).toBe(false);
+    expect(clear.hidden).toBe(true);
+  });
+
   test('treats absent query parameters as empty Reviewer state', async () => {
     await initializeDiscovery([
       portfolioItem({
@@ -75,7 +104,7 @@ describe('Portfolio Item Discovery', () => {
       portfolioItem({
         id: 'score-audit',
         categories: 'learning-analytics assessment quality-assurance',
-        searchText: 'Score Audit Corrections redacted manual review'
+        searchText: 'Score Audit Corrections covering scoring corrections, validation methods, assessment workflows, reconciliation, review evidence, and redacted manual review'
       }),
       portfolioItem({
         id: 'assessment-dashboard',

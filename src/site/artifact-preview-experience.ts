@@ -26,7 +26,7 @@ const isPreviewTrigger = (button: HTMLElement | null): button is HTMLElement =>
 const titleForPreviewTrigger = (button: HTMLElement) => {
     const portfolioItemCard = button.closest('.portfolio-item');
     const cardContent = button.closest('.card-content') || portfolioItemCard?.querySelector('.card-content');
-    return cardContent?.querySelector('h3, h4')?.textContent || 'Portfolio Item Details';
+    return (button.dataset.artifactTitle || cardContent?.querySelector('.portfolio-item-title-link')?.textContent || cardContent?.querySelector('h2, h3, h4')?.textContent)?.trim() || 'Artifact preview';
 };
 
 export function createArtifactPreviewExperience({
@@ -90,6 +90,7 @@ export function createArtifactPreviewExperience({
         lastPreviewTrigger = options.trigger || button;
         const previewTitle = titleForPreviewTrigger(button);
         pdfModalTitle.textContent = previewTitle;
+        pdfIframe.title = `${previewTitle} preview`;
 
         const preview = createArtifactPreviewContract({
             sourceArtifact: pdfPath || viewerPath,
@@ -104,7 +105,7 @@ export function createArtifactPreviewExperience({
         pdfIframe.src = preview.src;
         const artifactType = preview.type === 'pdf' ? 'PDF Artifact' : 'Interactive Artifact Preview';
         if (pdfModalMeta) {
-            pdfModalMeta.textContent = `${artifactType}. Preview demonstrates structure and content; outcomes are only claimed where explicitly evidenced.`;
+            pdfModalMeta.textContent = `${artifactType}. Outcomes require explicit evidence.`;
         }
         if (pdfOpenFull) {
             pdfOpenFull.href = preview.url;

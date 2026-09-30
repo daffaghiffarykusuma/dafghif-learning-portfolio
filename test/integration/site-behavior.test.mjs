@@ -42,6 +42,10 @@ describe('site browser behavior', () => {
     expect(iframe.src.startsWith('http://127.0.0.1/assets/pdf/portfolio/')).toBe(true);
     expect(iframe.src).toContain('#toolbar=0');
     expect(iframe.hasAttribute('sandbox')).toBe(false);
+    const expectedTitle = safeCard.querySelector('h2').textContent;
+    expect(document.getElementById('pdf-modal-title').textContent).toBe(expectedTitle);
+    expect(iframe.title).toBe(`${expectedTitle} preview`);
+    expect(new URL(document.getElementById('pdf-discuss').href).searchParams.get('portfolioItem')).toBe(expectedTitle);
 
     modal.querySelector('.close-modal').click();
     expect(modal.open).toBe(false);

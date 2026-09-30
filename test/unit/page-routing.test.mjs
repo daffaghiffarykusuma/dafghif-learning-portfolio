@@ -17,8 +17,7 @@ const portfolioFixture = ({ hash = '' } = {}) => {
     <section id="portfolio-items">
       <article id="sample-item" class="portfolio-item" data-category="learning-materials">
         <div class="card-content">
-          <h3>Sample Portfolio Item</h3>
-          <a class="portfolio-item-title-link" href="portfolio.html#sample-item">Sample</a>
+          <h2><a class="portfolio-item-title-link" href="portfolio.html#sample-item">Sample Portfolio Item</a></h2>
           <button class="view-details-button" data-pdf="assets/pdf/portfolio/sample.pdf">View</button>
         </div>
       </article>
