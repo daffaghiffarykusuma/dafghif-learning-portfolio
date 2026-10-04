@@ -25,7 +25,7 @@ Browser TypeScript and styles live in `src/`. Repository automation lives in `sc
 
 HTML entry pages stay at the repository root so their public URLs remain stable. Edit `index.html`, `blog.html`, and `contact.html` directly. Portfolio listings and Case Study pages come from `assets/data/portfolio-source.json` and `assets/data/portfolio-proof-points.json`; use `bun run generate:portfolio` after changing them. `cv/Profile.pdf` is the published CV, while editable documents and `unpublished portfolio/` are working material.
 
-For site terminology, see [CONTEXT.md](CONTEXT.md). Run the commands below from the repository root.
+For site terminology, see [GLOSSARY.md](GLOSSARY.md). Run the commands below from the repository root.
 
 ## Commands
 
