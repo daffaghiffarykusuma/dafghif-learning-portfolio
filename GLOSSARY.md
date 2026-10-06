@@ -21,7 +21,7 @@ The pre-generation module that verifies the **Portfolio Item Source** schema and
 _Avoid_: JSON check, source lint, generator guard
 
 **Portfolio Item Discovery**:
-The Reviewer-facing capability for searching and filtering Portfolio Items by query, Practice Area, and tag, revealing results in batches, and preserving discovery state in the page URL.
+The Reviewer-facing capability for searching and filtering Portfolio Items by query, Practice Area, and additional topic, revealing results in batches, and preserving discovery state in the page URL. It owns Practice Area identities, labels, links, and filter choices across generation and browser behavior. A Portfolio Item's declared Practice Area determines its label and link; an area includes both items declared in that area and items carrying its related tag. Additional topics narrow those results independently.
 _Avoid_: Portfolio filters, card search, project finder
 
 **Validated Portfolio Item Source**:
@@ -69,7 +69,7 @@ The pre-publication module that verifies source pages, styles, links, fragments,
 _Avoid_: Validation script, lint command, static checks
 
 **Portfolio Evidence Validation**:
-The pre-publication module that verifies the generated Portfolio Item catalog and AI-readable context stay aligned with the Validated Portfolio Item Source, referenced Artifacts exist and follow the Shipped Artifact Policy, Proof Points remain complete, and Outcome Evidence remains direct. It returns structured failures and counts through one Learning Portfolio Site interface.
+The pre-publication module that verifies generated Portfolio Item identities, ordering, factual descriptions, Proof Points, and nested Case Study Artifact facts match the Validated Portfolio Item Source. Outcome Evidence must preserve the corresponding Portfolio Item's direct impact Proof Points, including their source attribution. Referenced Artifacts must exist and follow the Shipped Artifact Policy. Inferred drafting fields are not treated as source facts. It returns structured failures and counts through one Learning Portfolio Site interface.
 _Avoid_: Catalog comparison, evidence lint, data consistency helper
 
 **Production Site Inventory Facts**:

@@ -3,6 +3,48 @@ const MAX_TEXT_LENGTH = 120;
 const FORMATS = new Set(['pdf', 'html-viewer', 'case-study-page']);
 const normalizeFormat = (value: unknown) => FORMATS.has(String(value)) ? String(value) : '';
 
+// Generation and browser controls share these identities. Tags add related work;
+// they never choose the declared Practice Area's label or destination.
+const practiceAreas = [
+    ['training-workshop', 'Custom Training & Workshops'],
+    ['instructional-design', 'Instructional Design'],
+    ['learning-materials', 'Learning Materials'],
+    ['assessment', 'Assessment & Evaluation'],
+    ['learning-analytics', 'Learning Analytics'],
+    ['training-needs-analysis', 'Training Needs Analysis'],
+    ['curriculum-development', 'Curriculum Development'],
+    ['training-proposal', 'Training Proposal'],
+    ['learning-strategy', 'L&D Strategy'],
+    ['presentation-design', 'Presentation Design'],
+    ['mentoring', 'Mentoring & Coaching'],
+    ['mentoring-speaking', 'Mentoring & Speaking'],
+    ['legacy-project', 'Review: Legacy Project']
+].map(([value, label]) => ({ value, label }));
+
+export const portfolioDiscoveryFilters = {
+    areas: [{ value: 'all', label: 'All practice areas' }, ...practiceAreas],
+    primaryAreas: [{ value: 'all', label: 'All' }, ...practiceAreas.slice(0, 5)],
+    topics: [
+        ...practiceAreas.slice(5, 8),
+        { value: 'worksheet', label: 'Worksheets' },
+        ...practiceAreas.slice(8, 11)
+    ]
+};
+
+export const createPortfolioItemDiscoveryFacts = (item: { practiceArea: string; tags: string[] }) => {
+    const area = practiceAreas.find(({ label }) => label === item.practiceArea);
+    if (!area) throw new Error(`Unknown Portfolio Item Discovery Practice Area: ${item.practiceArea}`);
+    return {
+        practiceAreaLabel: area.label,
+        practiceAreaHref: `portfolio.html?area=${area.value}`,
+        categories: [...new Set([...item.tags, area.value])].join(' ')
+    };
+};
+
+const labelForFilter = (value: string) =>
+    [...portfolioDiscoveryFilters.areas, ...portfolioDiscoveryFilters.topics]
+        .find((filter) => filter.value === value)?.label || value.replace(/-/g, ' ');
+
 type PortfolioDiscoveryState = {
     query: string;
     area: string;
@@ -85,6 +127,7 @@ export const initPortfolioDiscovery = () => {
     const searchInput = document.querySelector<HTMLInputElement>('#portfolio-search');
     const filterButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('#portfolio-discovery .filter-button'));
     const moreFilter = document.querySelector<HTMLSelectElement>('#portfolio-more-filter');
+    const areaFilter = document.querySelector<HTMLSelectElement>('#portfolio-area-filter');
     const formatFilter = document.querySelector<HTMLSelectElement>('#portfolio-format-filter');
     const filterDetails = document.querySelector<HTMLDetailsElement>('.portfolio-filter-details');
     const activeFilters = document.querySelector<HTMLElement>('#portfolio-active-filters');
@@ -114,7 +157,17 @@ export const initPortfolioDiscovery = () => {
 
     const render = ({ updateUrl = false }: { updateUrl?: boolean } = {}) => {
         searchInput.value = state.query;
-        if (moreFilter) moreFilter.value = state.tag;
+        // Keep older or externally linked topic values visible, including area=worksheet.
+        for (const [select, value] of [[areaFilter, state.area], [moreFilter, state.tag]] as const) {
+            if (!select) continue;
+            if (value && !Array.from(select.options).some((option) => option.value === value)) {
+                const option = document.createElement('option');
+                option.value = value;
+                option.textContent = labelForFilter(value);
+                select.append(option);
+            }
+            select.value = value;
+        }
         if (formatFilter) formatFilter.value = state.format;
         filterButtons.forEach((button) => {
             const selected = button.dataset.filter === state.area;
@@ -122,10 +175,9 @@ export const initPortfolioDiscovery = () => {
             button.setAttribute('aria-pressed', String(selected));
         });
         if (activeFilters) {
-            const areaLabel = filterButtons.find((button) => button.dataset.filter === state.area)?.textContent?.trim();
             activeFilters.textContent = [
-                state.area !== 'all' ? areaLabel : '',
-                state.tag ? moreFilter?.selectedOptions[0]?.textContent : '',
+                state.area !== 'all' ? labelForFilter(state.area) : '',
+                state.tag ? `Topic: ${labelForFilter(state.tag)}` : '',
                 state.format ? formatFilter?.selectedOptions[0]?.textContent : ''
             ].filter(Boolean).join(' · ');
         }
@@ -183,6 +235,10 @@ export const initPortfolioDiscovery = () => {
             tag: normalizeToken(moreFilter.value),
             visibleCount: DEFAULT_VISIBLE_COUNT
         };
+        render({ updateUrl: true });
+    });
+    areaFilter?.addEventListener('change', () => {
+        state = { ...state, area: normalizeToken(areaFilter.value) || 'all', visibleCount: DEFAULT_VISIBLE_COUNT };
         render({ updateUrl: true });
     });
     formatFilter?.addEventListener('change', () => {

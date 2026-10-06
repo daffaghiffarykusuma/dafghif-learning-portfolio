@@ -340,7 +340,7 @@ body.contact-page { background: var(--paper); padding: var(--header-height) 0 0;
 #portfolio-active-filters { color: var(--muted); font-size: 13px; margin-left: 12px; }
 .portfolio-filter-details #portfolio-item-filters { margin: 12px 0 20px; gap: 8px; }
 .portfolio-filter-details .filter-button { min-height: 44px; }
-.portfolio-discovery-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+.portfolio-discovery-meta { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; }
 .portfolio-discovery-meta > div { display: grid; gap: 8px; min-width: 0; }
 .portfolio-discovery-status { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
 #portfolio-result-summary { text-align: left; color: var(--muted); font-size: 14px; }

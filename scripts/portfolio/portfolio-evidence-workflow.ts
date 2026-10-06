@@ -1,4 +1,5 @@
 import { Window } from 'happy-dom';
+import { createPortfolioItemDiscoveryFacts, portfolioDiscoveryFilters } from '../../src/portfolio-discovery.ts';
 import { createArtifactPreviewContract } from '../../src/site/artifact-preview-policy.ts';
 import {
   PORTFOLIO_ITEM_SCHEMA_VERSION,
@@ -41,21 +42,6 @@ export type PortfolioEvidenceWorkflowInput = {
   generatedAt?: string;
 };
 
-const portfolioAreaFilters = new Set([
-  'training-workshop',
-  'instructional-design',
-  'learning-materials',
-  'assessment',
-  'learning-analytics',
-  'training-needs-analysis',
-  'curriculum-development',
-  'training-proposal',
-  'worksheet',
-  'learning-strategy',
-  'presentation-design',
-  'mentoring'
-]);
-
 const jsonOutput = (data: unknown) => `${JSON.stringify(data, null, 2)}\n`;
 
 const createPortfolioDocument = (html: string) => {
@@ -66,8 +52,30 @@ const createPortfolioDocument = (html: string) => {
   return window.document;
 };
 
-const getPracticeAreaFilter = (item: PortfolioItem) =>
-  item.tags.find((tag) => portfolioAreaFilters.has(tag)) || '';
+const renderPortfolioDiscoveryControls = (document: ReturnType<typeof createPortfolioDocument>) => {
+  const buttons = document.querySelector('#portfolio-item-filters');
+  if (buttons) {
+    buttons.replaceChildren(...portfolioDiscoveryFilters.primaryAreas.map(({ value, label }) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = value === 'all' ? 'filter-button active' : 'filter-button';
+      button.dataset.filter = value;
+      button.textContent = label;
+      return button;
+    }));
+  }
+  for (const [selector, options] of [
+    ['#portfolio-area-filter', portfolioDiscoveryFilters.areas],
+    ['#portfolio-more-filter', [{ value: '', label: 'All topics' }, ...portfolioDiscoveryFilters.topics]]
+  ] as const) {
+    document.querySelector(selector)?.replaceChildren(...options.map(({ value, label }) => {
+      const option = document.createElement('option');
+      option.value = value;
+      option.textContent = label;
+      return option;
+    }));
+  }
+};
 
 const renderPortfolioItemCard = (
   document: ReturnType<typeof createPortfolioDocument>,
@@ -75,10 +83,11 @@ const renderPortfolioItemCard = (
   index = 0
 ) => {
   const item = portfolioItem;
+  const discovery = createPortfolioItemDiscoveryFacts(item);
   const card = document.createElement('div');
   card.className = 'card portfolio-item';
   card.id = item.id;
-  card.dataset.category = item.tags.join(' ');
+  card.dataset.category = discovery.categories;
   card.dataset.format = item.sourceType;
 
   const imageWrapper = document.createElement('div');
@@ -111,11 +120,8 @@ const renderPortfolioItemCard = (
   const practiceLabel = document.createElement('span');
   practiceLabel.className = 'portfolio-item-practice-label';
   const practiceLink = document.createElement('a');
-  const practiceAreaFilter = getPracticeAreaFilter(item);
-  practiceLink.href = practiceAreaFilter
-    ? `portfolio.html?area=${practiceAreaFilter}`
-    : 'portfolio.html';
-  practiceLink.textContent = item.practiceArea;
+  practiceLink.href = discovery.practiceAreaHref;
+  practiceLink.textContent = discovery.practiceAreaLabel;
   practiceLabel.append(practiceLink);
 
   const description = document.createElement('p');
@@ -244,6 +250,7 @@ export const createPortfolioEvidenceWorkflow = ({
   });
   const portfolioItems = validatedSource.portfolioItems;
   const document = createPortfolioDocument(portfolioHtml);
+  renderPortfolioDiscoveryControls(document);
   const renderedPortfolioItemCount = renderPortfolioItemCards(document, portfolioItems);
   const catalogData = createPortfolioCatalogData({
     generatedFrom,

@@ -8,7 +8,7 @@ import {
   normalizePortfolioItemProof,
   normalizeText
 } from './portfolio-item-catalog.ts';
-import { practiceAreaProfiles } from './portfolio-context-inference.ts';
+import { portfolioDiscoveryFilters } from '../../src/portfolio-discovery.ts';
 import type { PortfolioItem } from './portfolio-item-catalog.ts';
 
 export type PortfolioItemSourceInput = {
@@ -205,7 +205,9 @@ export const validatePortfolioItemSource = ({
   const source = asRecord(portfolioSource) as PortfolioItemSourceInput;
   const proof = asRecord(proofSource) as ProofPointSourceInput;
   const failures: string[] = [];
-  const knownPracticeAreas = new Set(Object.keys(practiceAreaProfiles));
+  const knownPracticeAreas = new Set(
+    portfolioDiscoveryFilters.areas.filter(({ value }) => value !== 'all').map(({ label }) => label)
+  );
   const portfolioItems = Array.isArray(source.portfolioItems)
     ? source.portfolioItems.map(asRecord)
     : [];

@@ -1,6 +1,8 @@
 import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
-import { validatePortfolioItemSource } from '../portfolio/portfolio-item-source-validator.ts';
+import { isDeepStrictEqual } from 'node:util';
+import { validatePortfolioItemSource, type ValidatedPortfolioItemSource } from '../portfolio/portfolio-item-source-validator.ts';
+import type { PortfolioItem } from '../portfolio/portfolio-item-catalog.ts';
 import { createShippedArtifactPolicy } from '../site/shipped-artifact-policy.ts';
 
 type PortfolioEvidenceRecord = Record<string, unknown>;
@@ -13,7 +15,7 @@ export type PortfolioEvidenceValidationResult = {
 
 type ValidatePortfolioEvidenceDataOptions = {
   portfolioSourceData: unknown;
-  portfolioSourceItems: unknown;
+  validatedSource: ValidatedPortfolioItemSource;
   portfolioCatalog: unknown;
   portfolioAiContext: unknown;
   root: string;
@@ -45,9 +47,57 @@ const createRootGuard = (root: string) => (targetPath: string) => {
   return relativePath === '' || (!relativePath.startsWith('..') && !path.isAbsolute(relativePath));
 };
 
+// Compare parsed facts without normalizing away drift or depending on JSON key order.
+const validateSourceCorrespondence = (
+  source: ValidatedPortfolioItemSource,
+  catalogItems: PortfolioEvidenceRecord[],
+  aiContextItems: PortfolioEvidenceRecord[]
+): string[] => {
+  if (source.failures.length) return [];
+
+  const failures: string[] = [];
+  const itemsById = new Map(source.portfolioItems.map((item) => [item.id, item]));
+  const compare = (label: string, field: string, actual: unknown, expected: unknown) => {
+    if (!isDeepStrictEqual(actual, expected)) {
+      failures.push(`${label} ${field} does not match Validated Portfolio Item Source`);
+    }
+  };
+
+  catalogItems.forEach((item, index) => {
+    const expected = typeof item.id === 'string' ? itemsById.get(item.id) : undefined;
+    if (!expected) return; // The identity/order check reports unmatched records.
+    const label = `assets/data/portfolio-items.json: portfolio item ${index + 1}`;
+    const fields: (keyof PortfolioItem)[] = [
+      'title', 'practiceArea', 'tags', 'description', 'audience', 'image',
+      'sourceArtifact', 'sourceType', 'portfolioItemUrl', 'discussUrl', 'proof'
+    ];
+    for (const field of fields) compare(label, field, item[field], expected[field]);
+  });
+
+  if (!isDeepStrictEqual(source.portfolioItems.map((item) => item.id), aiContextItems.map((item) => item.id))) {
+    failures.push('Portfolio Item source/AI context id order mismatch; regenerate AI context from assets/data/portfolio-source.json');
+  }
+  aiContextItems.forEach((item, index) => {
+    const expected = typeof item.id === 'string' ? itemsById.get(item.id) : undefined;
+    if (!expected) return;
+    const label = `assets/data/portfolio-ai-context.json: portfolio item ${index + 1}`;
+    for (const field of ['title', 'practiceArea', 'tags', 'sourceArtifact'] as const) {
+      compare(label, field, item[field], expected[field]);
+    }
+    compare(label, 'publicDescription', item.publicDescription, expected.description);
+    const aiContext = asRecord(item.aiContext);
+    compare(label, 'aiContext.proof', aiContext.proof, expected.proof);
+    compare(label, 'aiContext.outcomeEvidence', aiContext.outcomeEvidence,
+      expected.proof.impact.filter((entry) => entry.claim && entry.confidence === 'direct'));
+    const artifacts = source.caseStudyPublication.artifactMetadataByCaseStudyId.get(expected.id);
+    compare(label, 'caseStudyArtifacts', item.caseStudyArtifacts, artifacts?.length ? artifacts : undefined);
+  });
+  return failures;
+};
+
 const validatePortfolioEvidenceData = async ({
   portfolioSourceData,
-  portfolioSourceItems,
+  validatedSource,
   portfolioCatalog,
   portfolioAiContext,
   root
@@ -67,9 +117,7 @@ const validatePortfolioEvidenceData = async ({
     }
   };
 
-  const sourceItems = Array.isArray(portfolioSourceItems)
-    ? portfolioSourceItems.map(asRecord)
-    : getPortfolioEvidenceItems(portfolioSourceData);
+  const sourceItems = validatedSource.portfolioItems;
   if (sourceItems.length === 0) {
     failures.push('assets/data/portfolio-source.json: expected at least one Portfolio Item source record');
   }
@@ -82,9 +130,9 @@ const validatePortfolioEvidenceData = async ({
     failures.push(`Portfolio Item source/catalog count mismatch: source=${sourceItems.length}, catalog=${portfolioItems.length}`);
   }
 
-  const portfolioSourceIds = sourceItems.map((item) => item.id).join('|');
-  const portfolioCatalogIds = portfolioItems.map((item) => item.id).join('|');
-  if (portfolioSourceIds !== portfolioCatalogIds) {
+  const portfolioSourceIds = sourceItems.map((item) => item.id);
+  const portfolioCatalogIds = portfolioItems.map((item) => item.id);
+  if (!isDeepStrictEqual(portfolioSourceIds, portfolioCatalogIds)) {
     failures.push('Portfolio Item source/catalog id order mismatch; regenerate catalog and rendered cards from assets/data/portfolio-source.json');
   }
 
@@ -160,6 +208,8 @@ const validatePortfolioEvidenceData = async ({
     }
   });
 
+  failures.push(...validateSourceCorrespondence(validatedSource, portfolioItems, aiContextItems));
+
   return {
     failures,
     portfolioItemCount: portfolioItems.length,
@@ -181,7 +231,7 @@ export const validatePortfolioEvidence = async ({
   });
   const evidenceValidation = await validatePortfolioEvidenceData({
     portfolioSourceData,
-    portfolioSourceItems: sourceValidation.portfolioItems,
+    validatedSource: sourceValidation,
     portfolioCatalog,
     portfolioAiContext,
     root
