@@ -1,6 +1,24 @@
 {
   "posts": [
     {
+      "title": "AI Pricing War Is Getting Intenser",
+      "url": "https://medium.com/@daffaghiffarykusuma/ai-pricing-war-is-getting-intenser-4f6c4f771138",
+      "image": "https://miro.medium.com/v2/resize:fit:1200/1*SjTh6mWSyUQI5_LwE3qiYw.png",
+      "description": "A look at GPT-5.6 Luna and Terra price cuts, DeepSeek's latest release, and the competition over AI pricing."
+    },
+    {
+      "title": "What GPT-5.6 Variant Should You Use? GPT-5.6 Sol High",
+      "url": "https://medium.com/@daffaghiffarykusuma/what-gpt-5-6-variant-should-you-use-gpt-5-6-sol-high-b02e66fd9123",
+      "image": "https://miro.medium.com/v2/resize:fit:1200/1*XpQH9i3_bs_QxxOnITYGPw.png",
+      "description": "Comparing GPT-5.6 model variants and reasoning settings, with a case for using Sol High for everyday work."
+    },
+    {
+      "title": "Harper: Free Grammarly Alternative",
+      "url": "https://medium.com/@daffaghiffarykusuma/harper-free-grammarly-alternative-353a662896ab",
+      "image": "https://miro.medium.com/v2/resize:fit:1200/1*hpaym_gh29KBhmgqyZsIPQ.png",
+      "description": "An introduction to Harper, a free, open-source English grammar checker, and how it compares with Grammarly."
+    },
+    {
       "title": "Cemas Berlebihan di Indonesia: 19 Juta Orang Terdampak, Rugi Rp464 Triliun per Tahun. Ini Datanya",
       "url": "https://medium.com/@daffaghiffarykusuma/cemas-berlebihan-di-indonesia-19-juta-orang-terdampak-rugi-rp464-triliun-per-tahun-ini-datanya-794ecf36ab86",
       "image": "https://cdn-images-1.medium.com/max/933/1*ep4o14IdBpy-rINbCdLQoA.png",
@@ -77,6 +95,24 @@
       "url": "https://medium.com/@daffaghiffarykusuma/kesepian-di-indonesia-2025-data-dampak-solusi-analisis-lengkap-5c1a0aded8ad",
       "image": "https://cdn-images-1.medium.com/max/799/1*lhYOU-lYZPPnmXyXz-uVMQ.png",
       "description": "TL;DR: Kesepian di Indonesia telah menjadi epidemi tersembunyi dengan prevalensi nasional 19,97% (hampir 1 dari 5 orang) merasa kesepian minimal seminggu sekali, naik dari 8,7%..."
+    },
+    {
+      "title": "Zhipu AI Resmi IPO: Raksasa AI China Ini Bikin Sejarah Baru — Ini yang Perlu Kamu Tahu!",
+      "url": "https://medium.com/@daffaghiffarykusuma/zhipu-ai-resmi-ipo-raksasa-ai-china-ini-bikin-sejarah-baru-ini-yang-perlu-kamu-tahu-df311c644068",
+      "image": "https://miro.medium.com/v2/resize:fit:1200/1*x79wliV3AIz0-EtJJ05LCQ.png",
+      "description": "Mengenal IPO Zhipu AI, teknologi GLM, dan langkah perusahaan AI China ini memasuki pasar publik."
+    },
+    {
+      "title": "Pergeseran Pangsa Pasar AI Generatif: Dominasi ChatGPT Mulai Terkikis",
+      "url": "https://medium.com/@daffaghiffarykusuma/pergeseran-pangsa-pasar-ai-generatif-dominasi-chatgpt-mulai-terkikis-34095a1c9927",
+      "image": "https://miro.medium.com/v2/resize:fit:1200/1*mKtUCp7mtuCCftYDppGTjA.jpeg",
+      "description": "Analisis pergeseran pangsa pasar AI generatif, pertumbuhan Gemini, dan persaingannya dengan ChatGPT."
+    },
+    {
+      "title": "Penetrasi Internet Indonesia 2025: 229 Juta Pengguna, Tapi 76% Belum Produktif Digital",
+      "url": "https://medium.com/@daffaghiffarykusuma/penetrasi-internet-indonesia-2025-229-juta-pengguna-tapi-76-belum-produktif-digital-74907b1fd2ea",
+      "image": "https://miro.medium.com/v2/resize:fit:708/1*ODTHClxWL3_GsUJj63x4Ng.png",
+      "description": "Data penetrasi internet Indonesia 2025, perkembangan e-commerce, dan kesenjangan literasi serta produktivitas digital."
     },
     {
       "title": "Top Employability Skills for New Graduates in 2025",
