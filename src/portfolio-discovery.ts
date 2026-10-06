@@ -66,24 +66,19 @@ const serializePortfolioDiscoveryState = (state: PortfolioDiscoveryState) => {
     return queryString ? `?${queryString}` : '';
 };
 
-const matchesPortfolioItem = (item: HTMLElement | null, state: PortfolioDiscoveryState) => {
-    if (!item || item.classList.contains('portfolio-item-placeholder')) return false;
-    const categories = new Set(
+// Cards are static after generation; index their text once instead of reading the DOM on every input.
+const indexPortfolioItem = (item: HTMLElement) => ({
+    element: item,
+    placeholder: item.classList.contains('portfolio-item-placeholder'),
+    categories: new Set(
         String(item.dataset.category || '')
             .split(/\s+/)
             .map(normalizeToken)
             .filter(Boolean)
-    );
-    const searchText = String(item.dataset.searchText || item.textContent).replace(/\s+/g, ' ').trim().toLowerCase();
-    const query = normalizeText(state.query).toLowerCase();
-    const area = normalizeToken(state.area);
-    const tag = normalizeToken(state.tag);
-
-    return (!query || searchText.includes(query))
-        && (!area || area === 'all' || categories.has(area))
-        && (!tag || categories.has(tag))
-        && (!state.format || item.dataset.format === state.format);
-};
+    ),
+    searchText: String(item.dataset.searchText || item.textContent).replace(/\s+/g, ' ').trim().toLowerCase(),
+    format: item.dataset.format
+});
 
 export const initPortfolioDiscovery = () => {
     const container = document.querySelector<HTMLElement>('#portfolio-discovery');
@@ -103,6 +98,7 @@ export const initPortfolioDiscovery = () => {
     }
     if (container.dataset.discoveryInitialized === 'true') return;
     container.dataset.discoveryInitialized = 'true';
+    const indexedItems = items.map(indexPortfolioItem);
 
     let state = parsePortfolioDiscoveryState();
     if (filterDetails) {
@@ -134,11 +130,19 @@ export const initPortfolioDiscovery = () => {
             ].filter(Boolean).join(' · ');
         }
 
-        const matchingItems = items.filter((item) => matchesPortfolioItem(item, state));
+        const query = state.query.toLowerCase();
+        const matchingItems = indexedItems.filter((item) =>
+            !item.placeholder
+            && (!query || item.searchText.includes(query))
+            && (state.area === 'all' || item.categories.has(state.area))
+            && (!state.tag || item.categories.has(state.tag))
+            && (!state.format || item.format === state.format)
+        );
         const visibleLimit = Math.min(state.visibleCount, matchingItems.length);
-        const matchingSet = new Set(matchingItems.slice(0, visibleLimit));
+        const matchingSet = new Set(matchingItems.slice(0, visibleLimit).map((item) => item.element));
         items.forEach((item) => {
-            item.hidden = !matchingSet.has(item);
+            const hidden = !matchingSet.has(item);
+            if (item.hidden !== hidden) item.hidden = hidden;
         });
 
         const allVisible = matchingItems.length <= visibleLimit;
