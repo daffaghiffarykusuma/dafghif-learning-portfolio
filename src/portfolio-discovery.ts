@@ -182,10 +182,10 @@ export const initPortfolioDiscovery = () => {
             ].filter(Boolean).join(' · ');
         }
 
-        const query = state.query.toLowerCase();
+        const queryTokens = state.query.toLowerCase().split(/\s+/).filter(Boolean);
         const matchingItems = indexedItems.filter((item) =>
             !item.placeholder
-            && (!query || item.searchText.includes(query))
+            && queryTokens.every((token) => item.searchText.includes(token))
             && (state.area === 'all' || item.categories.has(state.area))
             && (!state.tag || item.categories.has(state.tag))
             && (!state.format || item.format === state.format)
