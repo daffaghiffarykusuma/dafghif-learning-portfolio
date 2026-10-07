@@ -80,6 +80,10 @@ _Avoid_: Dist walker, build file list, budget file helper
 A recruiter, hiring manager, potential client, collaborator, or evaluator who visits the **Learning Portfolio Site** to judge credibility, capability, and fit from visible evidence.
 _Avoid_: Visitor, user, audience, customer
 
+**Hiring Reviewer**:
+A **Reviewer**, such as a recruiter or hiring manager, who assesses the **Portfolio Owner** for an employment opportunity using relevant **Portfolio Items** and **Proof Points**.
+_Avoid_: Client, buyer, generic visitor
+
 **Practice Area**:
 A recurring capability domain represented by the **Learning Portfolio Site**, such as learning design, training facilitation, coaching, PowerPoint/deck production, evaluation, or learning analytics. In public copy, a **Practice Area** may be described as expertise, but the glossary uses **Practice Area** for categorization.
 _Avoid_: Service, category, skill, offering
