@@ -1,4 +1,5 @@
 import { applyArtifactPreviewFramePolicy, createArtifactPreviewContract } from './artifact-preview-policy.ts';
+import { createPdfPagePreview } from './pdf-page-preview.ts';
 
 type PreviewOptions = { trigger?: HTMLElement; updateHash?: boolean };
 type PreviewExperienceOptions = {
@@ -44,10 +45,16 @@ export function createArtifactPreviewExperience({
     const hasPreviewTriggers = Boolean(root.querySelector('.view-details-button'));
     const hasPreviewMarkup = pdfModal || pdfModalTitle || pdfIframe || hasPreviewTriggers;
     let lastPreviewTrigger: HTMLElement | null = null;
+    let disposePdfPreview: (() => void) | undefined;
 
     const clearPreview = () => {
+        disposePdfPreview?.();
+        disposePdfPreview = undefined;
         pdfIframe?.removeAttribute('sandbox');
-        if (pdfIframe) pdfIframe.src = '';
+        if (pdfIframe) {
+            pdfIframe.src = '';
+            pdfIframe.hidden = false;
+        }
     };
 
     const restorePreviewFocus = () => {
@@ -58,6 +65,8 @@ export function createArtifactPreviewExperience({
     const closePdfModal = () => {
         if (pdfModal?.open) {
             pdfModal.close();
+            clearPreview();
+            restorePreviewFocus();
         } else if (lastPreviewTrigger) {
             clearPreview();
             restorePreviewFocus();
@@ -102,7 +111,18 @@ export function createArtifactPreviewExperience({
         }
 
         applyArtifactPreviewFramePolicy(pdfIframe, preview);
-        pdfIframe.src = preview.src;
+        const renderPdfPages = preview.type === 'pdf' && (
+            window.matchMedia('(max-width: 767px)').matches
+            || window.matchMedia('(pointer: coarse)').matches
+            || window.navigator.pdfViewerEnabled === false
+        );
+        pdfIframe.hidden = renderPdfPages;
+        if (renderPdfPages) {
+            pdfIframe.removeAttribute('src');
+            disposePdfPreview = createPdfPagePreview(pdfIframe.parentElement!, preview.url);
+        } else {
+            pdfIframe.src = preview.src;
+        }
         const artifactType = preview.type === 'pdf' ? 'PDF Artifact' : 'Interactive Artifact Preview';
         if (pdfModalMeta) {
             pdfModalMeta.textContent = `${artifactType}. Outcomes require explicit evidence.`;
@@ -165,6 +185,8 @@ export function createArtifactPreviewExperience({
         if (event.target === pdfModal) closePdfModal();
     };
     const handleModalClose = () => {
+        // A queued close event from the previous preview must not clear a reopened one.
+        if (pdfModal.open) return;
         clearPreview();
         restorePreviewFocus();
     };

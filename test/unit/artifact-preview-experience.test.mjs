@@ -29,6 +29,21 @@ afterEach(() => {
 });
 
 describe('Artifact Preview Experience', () => {
+  test('provides readable PDF content when mobile browsers cannot embed PDFs', async () => {
+    previewFixture();
+    Object.defineProperty(window.navigator, 'pdfViewerEnabled', { value: false });
+    const { createPortfolioItemPreviewExperience } = await importFresh('../../src/site/artifact-preview-experience.ts');
+    const experience = createPortfolioItemPreviewExperience();
+    document.querySelector('.view-details-button').click();
+
+    expect(document.getElementById('pdf-modal').open).toBe(true);
+    expect(document.querySelector('#pdf-iframe').hidden).toBe(true);
+    expect(document.querySelector('.pdf-page-preview canvas')).not.toBeNull();
+    expect(document.querySelector('.pdf-page-preview [role="status"]').textContent).toBe('Loading PDF…');
+    experience.destroy();
+    expect(document.querySelector('.pdf-page-preview')).toBeNull();
+  });
+
   test('opens Portfolio Item previews with hash updates', async () => {
     previewFixture();
     const { createPortfolioItemPreviewExperience } = await importFresh('../../src/site/artifact-preview-experience.ts');
@@ -46,6 +61,21 @@ describe('Artifact Preview Experience', () => {
     expect(document.getElementById('pdf-discuss').href)
       .toContain('contact.html?portfolioItem=Sample+Artifact');
     expect(document.getElementById('pdf-iframe').src).toContain('/assets/pdf/portfolio/sample.pdf#toolbar=0');
+  });
+
+  test('uses PDF pages on mobile even when native PDF support is reported', async () => {
+    previewFixture();
+    window.innerWidth = 390;
+    Object.defineProperty(window.navigator, 'pdfViewerEnabled', { value: true });
+    const { createPortfolioItemPreviewExperience } = await importFresh('../../src/site/artifact-preview-experience.ts');
+    const experience = createPortfolioItemPreviewExperience();
+    document.querySelector('.view-details-button').click();
+    expect(document.querySelector('.pdf-page-preview canvas')).not.toBeNull();
+    document.querySelector('.close-modal').click();
+    document.querySelector('.view-details-button').click();
+    document.getElementById('pdf-modal').dispatchEvent(new window.Event('close'));
+    expect(document.querySelectorAll('.pdf-page-preview').length).toBe(1);
+    experience.destroy();
   });
 
   test('opens Case Study Artifact previews without hash updates', async () => {

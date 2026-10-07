@@ -30,6 +30,7 @@ describe('Site Inventory', () => {
     await writeFile(path.join(tempRoot, 'node_modules', 'ignored.html'), '<p id="ignored"></p>', 'utf8');
     await writeFile(path.join(tempRoot, 'dist', 'index.html'), '<!doctype html><h1>Built</h1>', 'utf8');
     await writeFile(path.join(tempRoot, 'dist', 'assets', 'app.js'), 'console.log("ok")', 'utf8');
+    await writeFile(path.join(tempRoot, 'dist', 'assets', 'worker.mjs'), 'self.onmessage = () => postMessage("ready")', 'utf8');
 
     const sourceInventory = await createSourceSiteInventory({ rootDir: tempRoot });
     const distInventory = await createDistSiteInventory({ rootDir: tempRoot, distDir: path.join(tempRoot, 'dist') });
@@ -44,12 +45,15 @@ describe('Site Inventory', () => {
       ]
     });
     expect(sourceInventory.cssFiles[0].urls).toEqual(['../assets/example.webp']);
-    expect(distInventory.records.map((record) => record.rel)).toEqual(['assets/app.js', 'index.html']);
+    expect(distInventory.records.map((record) => record.rel)).toEqual(['assets/app.js', 'assets/worker.mjs', 'index.html']);
     expect(distInventory.records.find((record) => record.rel === 'assets/app.js')).toMatchObject({
       ext: '.js',
       size: 17
     });
     expect(distInventory.gzipBytesForExtensions(['.js'])).toBeGreaterThan(0);
+    expect(distInventory.gzipBytesForPath('assets/worker.mjs')).toBeGreaterThan(0);
+    expect(distInventory.gzipBytesForExtensions(['.js', '.mjs'], new Set(['assets/worker.mjs'])))
+      .toBe(distInventory.gzipBytesForExtensions(['.js']));
     expect(distInventory.gzipBytesForPath('index.html')).toBeGreaterThan(0);
     expect(distInventory.previewIframeSources).toEqual([]);
   });

@@ -7,8 +7,9 @@ const dist = path.join(root, 'dist');
 const failures: string[] = [];
 
 const limits = {
-  totalDistBytes: 116 * 1024 * 1024,
+  totalDistBytes: 118 * 1024 * 1024,
   jsGzipBytes: 24 * 1024,
+  pdfRendererGzipBytes: 550 * 1024,
   cssGzipBytes: 28 * 1024,
   largestImageBytes: 1024 * 1024,
   portfolioHtmlGzipBaselineBytes: 16.5 * 1024,
@@ -30,7 +31,12 @@ const sum = (items: readonly { size: number }[]) =>
 const toKB = (bytes: number) => Number((bytes / 1024).toFixed(2));
 
 const totalDistBytes = sum(records);
-const jsGzipBytes = gzipBytesForExtensions(['.js']);
+// The PDF renderer and worker load only after opening a mobile PDF preview.
+// Keep the site's ordinary JavaScript budget separate from that optional download.
+const pdfRendererRecords = records.filter((item) => /^assets\/(?:pdf-renderer-|pdf\.worker\.min-)/.test(item.rel));
+const pdfRendererPaths = new Set(pdfRendererRecords.map((item) => item.rel));
+const jsGzipBytes = gzipBytesForExtensions(['.js', '.mjs'], pdfRendererPaths);
+const pdfRendererGzipBytes = sum(pdfRendererRecords.map((item) => ({ size: gzipBytesForPath(item.rel) })));
 const cssGzipBytes = gzipBytesForExtensions(['.css']);
 const imageRecords = records.filter((item) => ['.png', '.jpg', '.jpeg', '.webp', '.svg'].includes(item.ext));
 const largestImage = imageRecords.sort((a, b) => b.size - a.size)[0];
@@ -75,6 +81,9 @@ for (const pdf of largePreviewPdfs) {
     failures.push(`${pdf.rel} needs a linearized first-page section under ${toKB(limits.pdfFirstPageBytes)} KB`);
   }
 }
+if (pdfRendererGzipBytes > limits.pdfRendererGzipBytes) {
+  failures.push(`On-demand PDF renderer gzip ${toKB(pdfRendererGzipBytes)} KB exceeds ${toKB(limits.pdfRendererGzipBytes)} KB`);
+}
 for (const probe of shippedArtifactPolicy.productionProbeFacts()) {
   if (!shippedProbeRecords.has(probe.path)) {
     failures.push(`Shipped Artifact Policy probe missing from dist: ${probe.path}`);
@@ -91,6 +100,7 @@ for (const page of previewIframeSources) {
 const metrics = {
   totalDistMB: Number((totalDistBytes / 1024 / 1024).toFixed(2)),
   jsGzipKB: toKB(jsGzipBytes),
+  pdfRendererGzipKB: toKB(pdfRendererGzipBytes),
   cssGzipKB: toKB(cssGzipBytes),
   largePreviewPdfs: {
     count: largePreviewPdfs.length,

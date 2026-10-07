@@ -38,7 +38,7 @@ export type ProductionSiteInventoryFacts = {
   rootDir: string;
   distDir: string;
   records: DistSiteRecord[];
-  gzipBytesForExtensions: (extensions: readonly string[]) => number;
+  gzipBytesForExtensions: (extensions: readonly string[], excludedPaths?: ReadonlySet<string>) => number;
   gzipBytesForPath: (rel: string) => number;
   previewIframeSources: PreviewIframeSources[];
 };
@@ -108,7 +108,7 @@ export const createDistSiteInventory = async ({
     const size = (await stat(file)).size;
     const ext = path.extname(file).toLowerCase();
     const rel = toPosixPath(path.relative(distDir, file));
-    if (['.html', '.js', '.css'].includes(ext)) {
+    if (['.html', '.js', '.mjs', '.css'].includes(ext)) {
       contents.set(rel, await readFile(file));
     }
     // Inspect the header without loading large documents into memory.
@@ -127,9 +127,9 @@ export const createDistSiteInventory = async ({
     };
   }));
 
-  const gzipBytesForExtensions = (extensions: readonly string[]) => gzipSync(Buffer.concat(
+  const gzipBytesForExtensions = (extensions: readonly string[], excludedPaths: ReadonlySet<string> = new Set()) => gzipSync(Buffer.concat(
     records
-      .filter((record) => extensions.includes(record.ext))
+      .filter((record) => extensions.includes(record.ext) && !excludedPaths.has(record.rel))
       .flatMap((record) => {
         const content = contents.get(record.rel);
         return content ? [content] : [];
