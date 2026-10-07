@@ -199,10 +199,36 @@ describe('site browser behavior', () => {
     expect(modal.open).toBe(true);
   });
 
-  test('homepage connects core practices to filtered evidence and explains the working method', async () => {
+  test('homepage starts with selected cases and preserves CV, catalogue, and practice routes', async () => {
     createDom(await readPage('index.html'), 'http://127.0.0.1/index.html');
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
 
-    expect(document.querySelector('.hero-actions a[href="portfolio.html?area=all"]')).not.toBeNull();
+    const primaryAction = document.querySelector('.hero-actions a');
+    expect(primaryAction.getAttribute('href')).toBe('#selected-work');
+    primaryAction.click();
+    expect(window.location.hash).toBe('#selected-work');
+
+    const selectedWork = document.getElementById('selected-work');
+    const caseLinks = Array.from(selectedWork.querySelectorAll('h3 a'));
+    expect(caseLinks.map((link) => link.getAttribute('href'))).toEqual([
+      'case-administrative-communication.html',
+      'case-learning-organization-strategy.html',
+      'case-entrepreneurship.html'
+    ]);
+    const cvLink = document.querySelector('.hero-actions a[download]');
+    expect(cvLink.getAttribute('href')).toBe('cv/Profile.pdf');
+    expect(cvLink.getAttribute('download')).toBe('Daffa_Ghiffary_Kusuma_CV_2026.pdf');
+    const catalogueLink = selectedWork.querySelector('a[href="portfolio.html?area=all"]');
+    expect(catalogueLink).not.toBeNull();
+    expect(document.querySelector('header nav a[href="portfolio.html"]')).not.toBeNull();
+
+    for (const link of [...caseLinks, cvLink, catalogueLink]) {
+      const click = new window.MouseEvent('click', { bubbles: true, cancelable: true });
+      link.dispatchEvent(click);
+      expect(click.defaultPrevented).toBe(false);
+    }
+
     expect(document.querySelector('[data-practice-area="training"] a[href="portfolio.html?area=training-workshop"]')).not.toBeNull();
     expect(document.querySelector('[data-practice-area="learning-materials"] a[href="portfolio.html?area=learning-materials"]')).not.toBeNull();
     expect(document.querySelector('[data-practice-area="analytics"] a[href="portfolio.html?area=learning-analytics"]')).not.toBeNull();
