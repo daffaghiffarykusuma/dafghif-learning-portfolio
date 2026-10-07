@@ -14,7 +14,8 @@ const isElement = (value: EventTarget | null): value is Element =>
 const previewItemFromHash = (hash: string, root: Document = document) => {
     if (!hash || hash === '#') return null;
     try {
-        return root.getElementById(decodeURIComponent(hash.slice(1)));
+        const item = root.getElementById(decodeURIComponent(hash.slice(1)));
+        return item?.matches('.portfolio-item') ? item : null;
     } catch {
         return null;
     }
@@ -40,25 +41,48 @@ export function createArtifactPreviewExperience({
     const pdfModalMeta = root.querySelector<HTMLElement>('#pdf-modal-meta');
     const pdfOpenFull = root.querySelector<HTMLAnchorElement>('#pdf-open-full');
     const pdfDiscuss = root.querySelector<HTMLAnchorElement>('#pdf-discuss');
-    const pdfIframe = root.querySelector<HTMLIFrameElement>('#pdf-iframe');
+    let pdfIframe = root.querySelector<HTMLIFrameElement>('#pdf-iframe');
     const hasPreviewTriggers = Boolean(root.querySelector('.view-details-button'));
     const hasPreviewMarkup = pdfModal || pdfModalTitle || pdfIframe || hasPreviewTriggers;
     let lastPreviewTrigger: HTMLElement | null = null;
+    let activePreviewButton: HTMLElement | null = null;
 
     const clearPreview = () => {
-        pdfIframe?.removeAttribute('sandbox');
-        if (pdfIframe) pdfIframe.src = '';
+        if (!pdfIframe) return;
+        // Discard the old child browsing context instead of navigating it after
+        // browser Back, which would erase the parent's Forward history.
+        const emptyFrame = pdfIframe.cloneNode(false) as HTMLIFrameElement;
+        emptyFrame.removeAttribute('sandbox');
+        emptyFrame.src = '';
+        pdfIframe.replaceWith(emptyFrame);
+        pdfIframe = emptyFrame;
     };
 
     const restorePreviewFocus = () => {
-        lastPreviewTrigger?.focus();
+        const canRestoreFocus = (element: HTMLElement | null): element is HTMLElement => Boolean(
+            element?.isConnected
+            && !element.closest('[hidden], [inert]')
+            && !element.matches(':disabled')
+            && element.checkVisibility({ checkOpacity: true, checkVisibilityCSS: true })
+        );
+        const target = canRestoreFocus(lastPreviewTrigger)
+            ? lastPreviewTrigger
+            : [root.querySelector<HTMLElement>('#portfolio-search'), ...root.querySelectorAll<HTMLElement>('.view-details-button')]
+                .find(canRestoreFocus);
+        target?.focus();
         lastPreviewTrigger = null;
     };
 
-    const closePdfModal = () => {
+    const closePdfModal = (updateHash = true) => {
+        const activeItem = activePreviewButton?.closest('.portfolio-item');
+        if (updateHash && activeItem && previewItemFromHash(window.location.hash, root) === activeItem) {
+            history.replaceState(history.state, '', `${window.location.pathname}${window.location.search}`);
+        }
+        activePreviewButton = null;
         if (pdfModal?.open) {
             pdfModal.close();
-        } else if (lastPreviewTrigger) {
+        }
+        if (lastPreviewTrigger) {
             clearPreview();
             restorePreviewFocus();
         }
@@ -79,6 +103,7 @@ export function createArtifactPreviewExperience({
     }
 
     const openPreview = (button: HTMLElement, options: PreviewOptions = {}) => {
+        if (!pdfIframe) return false;
         const pdfPath = button.dataset.pdf;
         const viewerPath = button.dataset.viewer;
         if (!pdfPath && !viewerPath) {
@@ -86,8 +111,6 @@ export function createArtifactPreviewExperience({
             return false;
         }
 
-        closePdfModal();
-        lastPreviewTrigger = options.trigger || button;
         const previewTitle = titleForPreviewTrigger(button);
         pdfModalTitle.textContent = previewTitle;
         pdfIframe.title = `${previewTitle} preview`;
@@ -101,6 +124,8 @@ export function createArtifactPreviewExperience({
             return false;
         }
 
+        lastPreviewTrigger = options.trigger || button;
+        activePreviewButton = button;
         applyArtifactPreviewFramePolicy(pdfIframe, preview);
         pdfIframe.src = preview.src;
         const artifactType = preview.type === 'pdf' ? 'PDF Artifact' : 'Interactive Artifact Preview';
@@ -123,14 +148,18 @@ export function createArtifactPreviewExperience({
             history.pushState(null, '', `#${portfolioItemCard.id}`);
         }
 
-        pdfModal.showModal();
+        if (!pdfModal.open) pdfModal.showModal();
         pdfModal.querySelector<HTMLElement>('.close-modal')?.focus();
         return true;
     };
 
     const openPreviewFromHash = () => {
         const previewButton = previewItemFromHash(window.location.hash, root)?.querySelector<HTMLElement>('.view-details-button') || null;
-        if (!isPreviewTrigger(previewButton)) return false;
+        if (!isPreviewTrigger(previewButton)) {
+            if (updateHashOnOpen) closePdfModal(false);
+            return false;
+        }
+        if (pdfModal.open && activePreviewButton === previewButton) return true;
         return openPreview(previewButton, { trigger: previewButton, updateHash: false });
     };
 
@@ -165,12 +194,14 @@ export function createArtifactPreviewExperience({
         if (event.target === pdfModal) closePdfModal();
     };
     const handleModalClose = () => {
-        clearPreview();
-        restorePreviewFocus();
+        // Native Escape closes before dispatching this event. Ignore an older
+        // queued close event if a new preview has already opened.
+        if (!pdfModal.open) closePdfModal();
     };
 
     root.addEventListener('click', handlePreviewClick, true);
     window.addEventListener('hashchange', openPreviewFromHash);
+    window.addEventListener('popstate', openPreviewFromHash);
     pdfModal.querySelector<HTMLElement>('.close-modal')?.addEventListener('click', handleModalCloseClick);
     pdfModal.addEventListener('click', handleModalBackdropClick);
     pdfModal.addEventListener('close', handleModalClose);
@@ -180,6 +211,7 @@ export function createArtifactPreviewExperience({
         closePdfModal();
         root.removeEventListener('click', handlePreviewClick, true);
         window.removeEventListener('hashchange', openPreviewFromHash);
+        window.removeEventListener('popstate', openPreviewFromHash);
         pdfModal.querySelector<HTMLElement>('.close-modal')?.removeEventListener('click', handleModalCloseClick);
         pdfModal.removeEventListener('click', handleModalBackdropClick);
         pdfModal.removeEventListener('close', handleModalClose);
