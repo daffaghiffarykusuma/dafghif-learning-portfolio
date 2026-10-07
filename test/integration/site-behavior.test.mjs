@@ -10,6 +10,86 @@ afterEach(() => {
 });
 
 describe('site browser behavior', () => {
+  test('catalogue preview follows Back and Forward without resetting discovery', async () => {
+    const window = createDom(await readPage('portfolio.html'), 'http://127.0.0.1/portfolio.html?q=communication&area=assessment&format=pdf&show=18');
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
+    const modal = document.getElementById('pdf-modal');
+    const button = document.querySelector('.portfolio-item:not([hidden]) button.view-details-button');
+    expect(button).toBeTruthy();
+    const visibleIds = () => Array.from(document.querySelectorAll('.portfolio-item:not([hidden])'), (item) => item.id);
+    const initialIds = visibleIds();
+    const query = window.location.search;
+    button.click();
+    const previewHash = window.location.hash;
+    const historyLength = window.history.length;
+    expect(modal.open).toBe(true);
+    expect(window.location.search).toBe(query);
+    expect(document.activeElement).toBe(modal.querySelector('.close-modal'));
+
+    window.history.back();
+    await window.happyDOM.waitUntilComplete();
+    expect(window.location.hash).toBe('');
+    expect(modal.open).toBe(false);
+    expect(document.activeElement).toBe(button);
+    expect(visibleIds()).toEqual(initialIds);
+    expect(window.location.search).toBe(query);
+
+    window.history.forward();
+    await window.happyDOM.waitUntilComplete();
+    expect(window.location.hash).toBe(previewHash);
+    expect(modal.open).toBe(true);
+    expect(window.history.length).toBe(historyLength);
+    expect(window.location.search).toBe(query);
+    expect(visibleIds()).toEqual(initialIds);
+  });
+
+  test.each(['close button', 'Escape', 'backdrop'])('catalogue %s dismissal stays closed on reload and preserves discovery', async (dismissal) => {
+    const html = await readPage('portfolio.html');
+    const window = createDom(html, 'http://127.0.0.1/portfolio.html?q=communication&area=assessment&format=pdf&show=18');
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
+    const modal = document.getElementById('pdf-modal');
+    const button = document.querySelector('.portfolio-item:not([hidden]) button.view-details-button');
+    const query = window.location.search;
+    const visibleIds = () => Array.from(document.querySelectorAll('.portfolio-item:not([hidden])'), (item) => item.id);
+    const initialIds = visibleIds();
+    button.click();
+    if (dismissal === 'close button') modal.querySelector('.close-modal').click();
+    if (dismissal === 'backdrop') modal.dispatchEvent(new window.MouseEvent('click', { bubbles: true }));
+    if (dismissal === 'Escape') {
+      // The DOM helper cannot press native Escape. Follow the dialog cancel/close contract.
+      if (modal.dispatchEvent(new window.Event('cancel', { cancelable: true }))) modal.close();
+    }
+    expect(modal.open).toBe(false);
+    expect(window.location.hash).toBe('');
+    expect(window.location.search).toBe(query);
+    expect(document.activeElement).toBe(button);
+    expect(visibleIds()).toEqual(initialIds);
+
+    createDom(html, window.location.href);
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
+    expect(document.getElementById('pdf-modal').open).toBe(false);
+    expect(visibleIds()).toEqual(initialIds);
+  });
+
+  test('a direct preview closes locally and returns to search when its Artifact is filtered out', async () => {
+    const window = createDom(await readPage('portfolio.html'), 'http://127.0.0.1/portfolio.html?q=unmatched-query#project-manager-coaching-report');
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
+    const modal = document.getElementById('pdf-modal');
+    const historyLength = window.history.length;
+    expect(document.getElementById('project-manager-coaching-report').hidden).toBe(true);
+    expect(modal.open).toBe(true);
+    expect(document.getElementById('pdf-modal-title').textContent).toBe('Manager Coaching Report');
+    modal.querySelector('.close-modal').click();
+    expect(window.location.href).toBe('http://127.0.0.1/portfolio.html?q=unmatched-query');
+    expect(window.history.length).toBe(historyLength);
+    expect(modal.open).toBe(false);
+    expect(document.activeElement?.id).toBe('portfolio-search');
+  });
+
   test('top-level pages expose one page heading and keep site identity out of h1', async () => {
     for (const page of ['index.html', 'portfolio.html', 'case-studies.html', 'contact.html', 'blog.html']) {
       createDom(await readPage(page), `http://127.0.0.1/${page}`);
@@ -50,6 +130,7 @@ describe('site browser behavior', () => {
     modal.querySelector('.close-modal').click();
     expect(modal.open).toBe(false);
     expect(iframe.getAttribute('src')).toBe('');
+    expect(document.activeElement === safeCard.querySelector('.portfolio-item-thumbnail-link')).toBe(true);
 
     const safeViewerButton = Array.from(document.querySelectorAll('.view-details-button'))
       .find((button) => button.dataset.viewer);
@@ -182,9 +263,26 @@ describe('site browser behavior', () => {
     expect(window.location.hash).toBe('');
   });
 
-  test('portfolio page ignores malformed hash selectors without aborting initialization', async () => {
+  test('Case Study direct Artifact links open and dismiss locally without changing ordinary opening', async () => {
+    const window = createDom(await readPage('case-administrative-communication.html'), 'http://127.0.0.1/case-administrative-communication.html');
+    const button = document.querySelector('.case-artifact-card .view-details-button');
+    window.history.replaceState(null, '', `#${button.closest('.portfolio-item').id}`);
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
+    const modal = document.getElementById('pdf-modal');
+    expect(modal.open).toBe(true);
+    expect(document.getElementById('pdf-modal-title').textContent).toBe('Administrative Communication Training Needs Analysis');
+    modal.querySelector('.close-modal').click();
+    expect(window.location.href).toBe('http://127.0.0.1/case-administrative-communication.html');
+    expect(document.activeElement === button).toBe(true);
+    button.click();
+    expect(modal.open).toBe(true);
+    expect(window.location.hash).toBe('');
+  });
+
+  test.each(['#project-%5Bbroken', '#%E0%A4%A', '#unknown-artifact'])('portfolio page ignores invalid Artifact hash %s without aborting initialization', async (hash) => {
     const html = await readPage('portfolio.html');
-    createDom(html, 'http://127.0.0.1/portfolio.html#project-%5Bbroken');
+    createDom(html, `http://127.0.0.1/portfolio.html${hash}`);
     globalThis.console = window.console;
 
     await importFresh('../../src/script.ts');
