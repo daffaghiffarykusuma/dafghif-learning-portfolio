@@ -101,6 +101,59 @@ const jsonOutputFor = (workflow, type) =>
   JSON.parse(outputFor(workflow, type).contents);
 
 describe('Portfolio Evidence Workflow', () => {
+  test('publishes source-owned review guidance and a working starting Artifact for both lead design cases', async () => {
+    const source = await Bun.file(new URL('../../assets/data/portfolio-source.json', import.meta.url)).json();
+    const actualProofSource = await Bun.file(new URL('../../assets/data/portfolio-proof-points.json', import.meta.url)).json();
+    const input = {
+      portfolioHtml,
+      portfolioSource: source,
+      proofSource: actualProofSource,
+      generatedFrom: 'assets/data/portfolio-source.json',
+      generatedAt: '2026-10-07T00:00:00.000Z'
+    };
+    const workflow = createPortfolioEvidenceWorkflow(input);
+    const starts = [
+      ['case-administrative-communication.html', 'artifact-bnsp4-program-proposal'],
+      ['case-learning-organization-strategy.html', 'artifact-bnsp6-silabus-pelatihan']
+    ];
+    for (const [pagePath, artifactId] of starts) {
+      const caseStudy = source.caseStudies.find((item) => item.pagePath === pagePath);
+      const html = workflow.outputs.find((output) => output.outputPath === pagePath).contents;
+      const document = new Window().document;
+      document.write(html);
+      const heading = [...document.querySelectorAll('h2')].find((node) => node.textContent === 'What this demonstrates');
+      expect(heading).toBeTruthy();
+      const guide = heading.parentElement;
+      expect(guide.textContent).toContain(caseStudy.reviewerContext.find((item) => item.label === 'Use case').value);
+      expect(guide.textContent).toContain('Start here');
+      const start = guide.querySelector('a');
+      expect(start.getAttribute('href')).toBe(`#${artifactId}`);
+      expect(caseStudy.suggestedArtifactId).toBe(artifactId);
+      const artifact = caseStudy.artifacts.find((item) => item.id === artifactId);
+      expect(start.textContent).toBe(`Preview ${artifact.title}`);
+      const card = document.getElementById(artifactId);
+      expect(card.querySelector('[data-pdf]').dataset.pdf).toBe(artifact.href);
+      expect(html.indexOf('What this demonstrates')).toBeLessThan(html.indexOf('class="resource-grid artifact-list"'));
+      expect([...document.querySelectorAll('.case-artifact-card')].map((node) => node.id))
+        .toEqual(caseStudy.artifacts.map((item) => item.id));
+      expect(document.querySelector('.case-evidence-note').textContent)
+        .toContain(caseStudy.reviewerContext.find((item) => item.label === 'Evidence limit').value);
+      expect(document.querySelector('.case-approach-details')).toBeTruthy();
+    }
+    const regenerated = createPortfolioEvidenceWorkflow({
+      ...input,
+      portfolioHtml: outputFor(workflow, 'portfolio-html').contents
+    });
+    expect(regenerated.outputs.filter((output) => output.type === 'case-study-html'))
+      .toEqual(workflow.outputs.filter((output) => output.type === 'case-study-html'));
+    const withoutSelections = structuredClone(source);
+    withoutSelections.caseStudies.forEach((item) => { delete item.suggestedArtifactId; });
+    const baseline = createPortfolioEvidenceWorkflow({ ...input, portfolioSource: withoutSelections });
+    for (const output of workflow.outputs.filter((item) => !starts.some(([path]) => path === item.outputPath))) {
+      expect(output).toEqual(baseline.outputs.find((item) => item.type === output.type && item.outputPath === output.outputPath));
+    }
+  });
+
   test('returns one complete featured-order output set through one interface', () => {
     const workflow = createPortfolioEvidenceWorkflow({
       portfolioHtml,
