@@ -14,7 +14,8 @@ const isElement = (value: EventTarget | null): value is Element =>
 const previewItemFromHash = (hash: string, root: Document = document) => {
     if (!hash || hash === '#') return null;
     try {
-        return root.getElementById(decodeURIComponent(hash.slice(1)));
+        const item = root.getElementById(decodeURIComponent(hash.slice(1)));
+        return item?.matches('.portfolio-item') ? item : null;
     } catch {
         return null;
     }
@@ -40,15 +41,21 @@ export function createArtifactPreviewExperience({
     const pdfModalMeta = root.querySelector<HTMLElement>('#pdf-modal-meta');
     const pdfOpenFull = root.querySelector<HTMLAnchorElement>('#pdf-open-full');
     const pdfDiscuss = root.querySelector<HTMLAnchorElement>('#pdf-discuss');
-    const pdfIframe = root.querySelector<HTMLIFrameElement>('#pdf-iframe');
+    let pdfIframe = root.querySelector<HTMLIFrameElement>('#pdf-iframe');
     const hasPreviewTriggers = Boolean(root.querySelector('.view-details-button'));
     const hasPreviewMarkup = pdfModal || pdfModalTitle || pdfIframe || hasPreviewTriggers;
     let lastPreviewTrigger: HTMLElement | null = null;
     let activePreviewButton: HTMLElement | null = null;
 
     const clearPreview = () => {
-        pdfIframe?.removeAttribute('sandbox');
-        if (pdfIframe) pdfIframe.src = '';
+        if (!pdfIframe) return;
+        // Discard the old child browsing context instead of navigating it after
+        // browser Back, which would erase the parent's Forward history.
+        const emptyFrame = pdfIframe.cloneNode(false) as HTMLIFrameElement;
+        emptyFrame.removeAttribute('sandbox');
+        emptyFrame.src = '';
+        pdfIframe.replaceWith(emptyFrame);
+        pdfIframe = emptyFrame;
     };
 
     const restorePreviewFocus = () => {
@@ -96,6 +103,7 @@ export function createArtifactPreviewExperience({
     }
 
     const openPreview = (button: HTMLElement, options: PreviewOptions = {}) => {
+        if (!pdfIframe) return false;
         const pdfPath = button.dataset.pdf;
         const viewerPath = button.dataset.viewer;
         if (!pdfPath && !viewerPath) {

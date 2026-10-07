@@ -160,7 +160,7 @@ describe('site browser behavior', () => {
     fireDOMContentLoaded();
 
     const modal = document.getElementById('pdf-modal');
-    const iframe = document.getElementById('pdf-iframe');
+    let iframe = document.getElementById('pdf-iframe');
     const safeButton = Array.from(document.querySelectorAll('.view-details-button'))
       .find((button) => button.dataset.pdf);
     expect(safeButton).toBeTruthy();
@@ -179,6 +179,7 @@ describe('site browser behavior', () => {
 
     modal.querySelector('.close-modal').click();
     expect(modal.open).toBe(false);
+    iframe = document.getElementById('pdf-iframe');
     expect(iframe.getAttribute('src')).toBe('');
     expect(document.activeElement === safeCard.querySelector('.portfolio-item-thumbnail-link')).toBe(true);
 
@@ -311,6 +312,24 @@ describe('site browser behavior', () => {
     expect(document.getElementById('pdf-modal').open).toBe(true);
     expect(document.getElementById('pdf-modal-title').textContent).toBe('Competency-Based Communication Training Proposal');
     expect(window.location.hash).toBe('');
+  });
+
+  test.each(['case-administrative-communication.html', 'case-learning-organization-strategy.html'])('Case Study section navigation stays native on %s', async (page) => {
+    const html = await readPage(page);
+    const window = createDom(html, `http://127.0.0.1/${page}`);
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
+
+    document.querySelector('a[href="#work-samples"]').click();
+    await window.happyDOM.waitUntilComplete();
+    expect(window.location.hash).toBe('#work-samples');
+    expect(document.getElementById('pdf-modal').open).toBe(false);
+
+    createDom(html, window.location.href);
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
+    expect(document.getElementById('pdf-modal').open).toBe(false);
+    expect(globalThis.window.location.hash).toBe('#work-samples');
   });
 
   test('Case Study direct Artifact links open and dismiss locally without changing ordinary opening', async () => {
