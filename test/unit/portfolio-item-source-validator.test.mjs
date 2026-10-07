@@ -69,6 +69,25 @@ const createValidSource = () => ({
 });
 
 describe('Portfolio Item Source validation', () => {
+  test('requires a suggested starting Artifact to belong to its own Case Study', () => {
+    const source = createValidSource();
+    source.caseStudies[0].suggestedArtifactId = 'artifact-other-case';
+    source.caseStudies.push({
+      ...validCaseStudy,
+      id: 'case-other-program',
+      pagePath: 'case-other-program.html',
+      outputPath: 'assets/portfolio-viewers/case-other-program.html',
+      artifacts: [{ ...validCaseStudy.artifacts[0], id: 'artifact-other-case' }]
+    });
+
+    expect(validatePortfolioItemSource({ portfolioSource: source, proofSource: validProofSource }).failures)
+      .toContain('assets/data/portfolio-source.json: Case Study "case-sample-program" suggestedArtifactId must reference an Artifact in the same Case Study');
+
+    source.caseStudies[0].suggestedArtifactId = 'artifact-sample-plan';
+    expect(validatePortfolioItemSource({ portfolioSource: source, proofSource: validProofSource }).failures)
+      .toEqual([]);
+  });
+
   test('returns one normalized, expanded, featured-order Portfolio Item representation', () => {
     const result = validatePortfolioItemSource({
       portfolioSource: createValidSource(),

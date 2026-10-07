@@ -175,6 +175,7 @@ export type CaseStudy = {
   tags: string[];
   description: string;
   summary: string;
+  suggestedArtifactId?: string;
   image: Image;
   pagePath: string;
   outputPath: string;
@@ -278,6 +279,7 @@ const normalizeCaseStudy = (value: unknown): CaseStudy => {
     tags: normalizeStringArray(caseStudy.tags),
     description: normalizeText(caseStudy.description),
     summary: normalizeText(caseStudy.summary),
+    suggestedArtifactId: normalizeText(caseStudy.suggestedArtifactId),
     image: { src: normalizeText(image.src), alt: normalizeText(image.alt) },
     pagePath: normalizeText(caseStudy.pagePath),
     outputPath: normalizeText(caseStudy.outputPath),
@@ -431,6 +433,8 @@ const renderCaseStudyHtml = (caseStudy: CaseStudy) => {
   const reviewerContext = Array.isArray(caseStudy.reviewerContext) ? caseStudy.reviewerContext : [];
   const caseFlow = Array.isArray(caseStudy.caseFlow) ? caseStudy.caseFlow : [];
   const artifacts = Array.isArray(caseStudy.artifacts) ? caseStudy.artifacts : [];
+  const suggestedArtifact = artifacts.find((item) => item.id === caseStudy.suggestedArtifactId);
+  const useCase = reviewerContext.find((item) => /^use case$/i.test(item.label));
   const evidenceNotes = reviewerContext.filter((item) => /limit/i.test(item.label));
   const scope = reviewerContext.filter((item) => !/limit|use case/i.test(item.label));
   const ctaHref = normalizeText(caseStudy.discussUrl) || `contact.html?portfolioItem=${encodeURIComponent(caseStudy.portfolioItemTitle || title)}`;
@@ -450,7 +454,12 @@ const renderCaseStudyHtml = (caseStudy: CaseStudy) => {
 
     <section class="generated-case-artifacts" id="work-samples">
       <div class="container">
-        <div class="case-section-heading">
+        ${suggestedArtifact ? `<div class="case-section-heading">
+          <h2>What this demonstrates</h2>
+          ${useCase ? `<p>${escapeHtml(useCase.value)}</p>` : ''}
+          <p><strong>Start here:</strong> <a class="portfolio-item-title-link" href="#${escapeHtml(suggestedArtifact.id)}">Preview ${escapeHtml(suggestedArtifact.title)}</a></p>
+        </div>
+        ` : ''}<div class="case-section-heading">
           <h2>Explore the work</h2>
           <p>Open any sample to inspect it without leaving this page.</p>
         </div>
