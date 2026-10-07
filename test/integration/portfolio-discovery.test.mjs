@@ -18,7 +18,137 @@ const initialize = (html, query = '') => {
   initPortfolioDiscovery();
 };
 
+const visibleItemIds = () => Array.from(document.querySelectorAll('#portfolio-items .portfolio-item'))
+  .filter((item) => !item.hidden).map((item) => item.id);
+
+const searchFor = (query) => {
+  const search = document.getElementById('portfolio-search');
+  search.value = query;
+  search.dispatchEvent(new window.Event('input'));
+};
+
 describe('Generated Portfolio Item Discovery', () => {
+  test('finds communication assessments with all query words in any order', () => {
+    initialize(generate());
+    const search = document.getElementById('portfolio-search');
+
+    for (const query of ['communication assessment', 'assessment communication', '  CoMMuniCATion   ASSESSMENT  ']) {
+      search.value = query;
+      search.dispatchEvent(new window.Event('input'));
+
+      expect(document.getElementById('project-need-assessment-cross-department-communication').hidden).toBe(false);
+      expect(document.getElementById('project-need-assessment-manager-communication-to-staff').hidden).toBe(false);
+      expect(document.getElementById('project-recruitment-assessment-blueprint').hidden).toBe(true);
+    }
+    expect(search.value).toBe('CoMMuniCATion ASSESSMENT');
+    expect(new URLSearchParams(window.location.search).get('q')).toBe('CoMMuniCATion ASSESSMENT');
+  });
+
+  test('matches title and description words together while preserving single-word substrings', () => {
+    initialize(generate());
+    searchFor('friction commun');
+    expect(visibleItemIds()).toEqual(['project-need-assessment-cross-department-communication']);
+    expect(document.getElementById('portfolio-result-summary').textContent).toBe('Showing all 1 matching Portfolio Items');
+
+    searchFor('friction');
+    expect(visibleItemIds()).toEqual(['project-need-assessment-cross-department-communication']);
+    searchFor('communication friction unavailable');
+    expect(visibleItemIds()).toEqual([]);
+    expect(document.getElementById('portfolio-result-summary').textContent)
+      .toBe('No matching Portfolio Items. Try another search or clear the filters.');
+  });
+
+  test('combines all search words with area, topic, and format, restores the URL, and resets zero results', () => {
+    const html = generate();
+    const hash = '#project-need-assessment-cross-department-communication';
+    initialize(html, hash);
+    const initialItems = visibleItemIds();
+    const initialSummary = document.getElementById('portfolio-result-summary').textContent;
+    searchFor('communication assessment');
+    expect(document.getElementById('project-manager-coaching-report').hidden).toBe(false);
+
+    for (const [id, value] of [
+      ['portfolio-area-filter', 'training-needs-analysis'],
+      ['portfolio-more-filter', 'curriculum-development'],
+      ['portfolio-format-filter', 'pdf']
+    ]) {
+      const select = document.getElementById(id);
+      select.value = value;
+      select.dispatchEvent(new window.Event('change'));
+    }
+    const matchingItems = [
+      'project-need-assessment-cross-department-communication',
+      'project-need-assessment-manager-communication-to-staff'
+    ];
+    expect(visibleItemIds()).toEqual(matchingItems);
+    expect(document.getElementById('portfolio-result-summary').textContent).toBe('Showing all 2 matching Portfolio Items');
+    expect(window.location.search).toBe('?q=communication+assessment&area=training-needs-analysis&tag=curriculum-development&format=pdf');
+    expect(window.location.hash).toBe(hash);
+
+    const savedUrl = window.location.search + window.location.hash;
+    resetDom();
+    initialize(html, savedUrl);
+    expect(document.getElementById('portfolio-search').value).toBe('communication assessment');
+    expect(document.getElementById('portfolio-area-filter').value).toBe('training-needs-analysis');
+    expect(document.getElementById('portfolio-more-filter').value).toBe('curriculum-development');
+    expect(document.getElementById('portfolio-format-filter').value).toBe('pdf');
+    expect(visibleItemIds()).toEqual(matchingItems);
+
+    const format = document.getElementById('portfolio-format-filter');
+    format.value = 'html-viewer';
+    format.dispatchEvent(new window.Event('change'));
+    expect(visibleItemIds()).toEqual([]);
+    expect(document.getElementById('portfolio-result-summary').textContent)
+      .toBe('No matching Portfolio Items. Try another search or clear the filters.');
+    expect(document.getElementById('portfolio-show-more').hidden).toBe(true);
+    expect(document.getElementById('portfolio-clear-filters').hidden).toBe(false);
+    document.getElementById('portfolio-clear-filters').click();
+    expect(visibleItemIds()).toEqual(initialItems);
+    expect(document.getElementById('portfolio-result-summary').textContent).toBe(initialSummary);
+    expect(document.getElementById('portfolio-search').value).toBe('');
+    expect(document.getElementById('portfolio-area-filter').value).toBe('all');
+    expect(document.getElementById('portfolio-more-filter').value).toBe('');
+    expect(format.value).toBe('');
+    expect(document.activeElement).toBe(document.getElementById('portfolio-search'));
+    expect(window.location.search).toBe('');
+    expect(window.location.hash).toBe(hash);
+  });
+
+  test('reveals multiword matches in catalogue order and restores the revealed batch', () => {
+    const html = generate();
+    initialize(html);
+    const initialItems = visibleItemIds();
+    searchFor('material learning');
+    expect(visibleItemIds()).toHaveLength(9);
+    expect(visibleItemIds().slice(0, 3)).toEqual([
+      'case-administrative-communication-learning-program',
+      'project-self-leadership-career-transition',
+      'project-learning-from-abroad-education-and-career-pathways'
+    ]);
+    expect(document.getElementById('portfolio-result-summary').textContent).toBe('Showing 9 of 48 matching Portfolio Items');
+    const firstBatch = visibleItemIds();
+    document.getElementById('portfolio-show-more').click();
+    expect(visibleItemIds()).toHaveLength(18);
+    expect(visibleItemIds().slice(0, 9)).toEqual(firstBatch);
+    expect(document.getElementById('portfolio-result-summary').textContent).toBe('Showing 18 of 48 matching Portfolio Items');
+    expect(window.location.search).toBe('?q=material+learning&show=18');
+
+    const revealedItems = visibleItemIds();
+    const savedQuery = window.location.search;
+    resetDom();
+    initialize(html, savedQuery);
+    expect(document.getElementById('portfolio-search').value).toBe('material learning');
+    expect(visibleItemIds()).toEqual(revealedItems);
+    expect(document.getElementById('portfolio-result-summary').textContent).toBe('Showing 18 of 48 matching Portfolio Items');
+    searchFor('learning material');
+    expect(visibleItemIds()).toEqual(firstBatch);
+    expect(window.location.search).toBe('?q=learning+material');
+    searchFor('   ');
+    expect(visibleItemIds()).toEqual(initialItems);
+    expect(document.getElementById('portfolio-search').value).toBe('');
+    expect(window.location.search).toBe('');
+  });
+
   test.each([
     ['case-administrative-communication-learning-program', 'Instructional Design', 'instructional-design'],
     ['case-ybb-mentoring-workbook', 'Mentoring & Coaching', 'mentoring'],
