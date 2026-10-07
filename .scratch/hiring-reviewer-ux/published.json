@@ -1,0 +1,32 @@
+﻿[
+    {
+        "file":  "01-preview-history.md",
+        "title":  "Keep Artifact Preview state consistent with browser history",
+        "url":  "https://github.com/daffaghiffarykusuma/dafghif-learning-portfolio/issues/24",
+        "number":  24
+    },
+    {
+        "file":  "02-multiword-discovery.md",
+        "title":  "Find Portfolio Items using all search words in any order",
+        "url":  "https://github.com/daffaghiffarykusuma/dafghif-learning-portfolio/issues/25",
+        "number":  25
+    },
+    {
+        "file":  "03-selected-work-entry.md",
+        "title":  "Lead Hiring Reviewers from the homepage to selected work",
+        "url":  "https://github.com/daffaghiffarykusuma/dafghif-learning-portfolio/issues/26",
+        "number":  26
+    },
+    {
+        "file":  "04-case-study-guidance.md",
+        "title":  "Explain the evidence and starting Artifact in lead design Case Studies",
+        "url":  "https://github.com/daffaghiffarykusuma/dafghif-learning-portfolio/issues/27",
+        "number":  27
+    },
+    {
+        "file":  "05-hiring-contact.md",
+        "title":  "Welcome hiring conversations in the existing contact journey",
+        "url":  "https://github.com/daffaghiffarykusuma/dafghif-learning-portfolio/issues/28",
+        "number":  28
+    }
+]

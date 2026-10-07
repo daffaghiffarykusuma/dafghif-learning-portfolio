@@ -95,6 +95,36 @@ describe('Artifact Preview Experience', () => {
     expect(document.getElementById('pdf-iframe').getAttribute('sandbox')).toBe('allow-same-origin allow-popups allow-popups-to-escape-sandbox');
   });
 
+  test('mobile history navigation replaces the reader and restores HTML previews', async () => {
+    previewFixture();
+    window.innerWidth = 390;
+    const secondItem = document.querySelector('article').cloneNode(true);
+    secondItem.id = 'second-item';
+    const secondButton = secondItem.querySelector('button');
+    secondButton.dataset.viewer = 'assets/portfolio-viewers/sample.html';
+    secondButton.removeAttribute('data-pdf');
+    document.body.prepend(secondItem);
+    const { createPortfolioItemPreviewExperience } = await importFresh('../../src/site/artifact-preview-experience.ts');
+    const experience = createPortfolioItemPreviewExperience();
+    document.querySelector('#sample-item button').click();
+    const firstReader = document.querySelector('.pdf-page-preview');
+    expect(firstReader).not.toBeNull();
+
+    history.replaceState(null, '', '#second-item');
+    window.dispatchEvent(new window.PopStateEvent('popstate'));
+    expect(firstReader.isConnected).toBe(false);
+    expect(document.querySelectorAll('.pdf-page-preview').length).toBe(0);
+    expect(document.querySelector('#pdf-iframe').hidden).toBe(false);
+    expect(document.querySelector('#pdf-iframe').src).toContain('/assets/portfolio-viewers/sample.html');
+
+    history.replaceState(null, '', '#sample-item');
+    window.dispatchEvent(new window.PopStateEvent('popstate'));
+    window.dispatchEvent(new window.HashChangeEvent('hashchange'));
+    expect(document.querySelectorAll('.pdf-page-preview').length).toBe(1);
+    expect(document.querySelector('#pdf-modal').open).toBe(true);
+    experience.destroy();
+  });
+
   test('destroy removes preview click, hash, close, and backdrop listeners', async () => {
     previewFixture();
     const { createArtifactPreviewExperience } = await importFresh('../../src/site/artifact-preview-experience.ts');

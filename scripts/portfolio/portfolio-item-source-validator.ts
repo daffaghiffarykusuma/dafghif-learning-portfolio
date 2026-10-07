@@ -315,6 +315,12 @@ export const validatePortfolioItemSource = ({
     const artifacts = Array.isArray(caseStudy.artifacts)
       ? caseStudy.artifacts.map(asRecord)
       : [];
+    if (caseStudy.suggestedArtifactId !== undefined && (
+      typeof caseStudy.suggestedArtifactId !== 'string'
+      || !artifacts.some((artifact) => normalizeText(artifact.id) === normalizeText(caseStudy.suggestedArtifactId))
+    )) {
+      failures.push(`${sourceFile}: ${label} suggestedArtifactId must reference an Artifact in the same Case Study`);
+    }
     addDuplicateFailures({
       values: artifacts.map((artifact) => artifact?.id),
       label: `${label} Artifact id`,

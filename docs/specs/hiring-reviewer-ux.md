@@ -1,0 +1,117 @@
+# Hiring-first evidence review: reliable previews, useful search, and a shorter shortlist journey
+
+## Problem Statement
+
+A Hiring Reviewer assessing Daffa for a learning design or instructional design role needs to establish relevance, inspect credible work, and decide whether to start a conversation. The Learning Portfolio Site already provides selected Case Studies, a CV, Portfolio Item Discovery, Artifact Previews, and direct contact channels. The remaining friction is in how those capabilities work together.
+
+The current homepage sends its primary action to the complete catalogue while the selected-work route is a smaller link. Lead Case Studies present multiple Artifacts without a concise explanation of what the collection demonstrates or where to begin. Contact language assumes a consulting engagement and custom proposal, requiring a Hiring Reviewer to reinterpret the invitation.
+
+Two failures were reproduced in the current browser review. Searching for `communication assessment` returns no matches even though relevant Portfolio Items contain both words. Opening a catalogue Artifact Preview and using browser Back removes the Artifact hash but leaves the dialog open.
+
+The agreed audience is Hiring Reviewers making an initial shortlist decision. Learning design leads; program management provides supporting breadth. Deeper evidence must remain available without requiring every Reviewer to inspect every Artifact. Claims about personal contribution, actual delivery, or measured impact must not exceed available evidence.
+
+## Solution
+
+Deliver five changes in this order:
+
+1. Make catalogue Artifact Preview state consistent with browser history, explicit close, reload, and direct links.
+2. Make multiword discovery match all entered words across existing searchable content, independent of their order.
+3. Make Explore selected work the primary homepage action, retain Download CV beside it, and preserve access to the full catalogue.
+4. Add a concise What this demonstrates summary and a suggested starting Artifact to the Administrative Communication and Learning Organization Strategy Case Studies, using supported source content only.
+5. Make the existing contact page explicitly welcome role conversations and project inquiries while preserving direct channels and contextual handoff.
+
+Retain the current dark editorial visual language. Improve confidence and convenience through predictable behavior and a clearer reading path. Do not introduce a visual rebrand or new unsupported claims.
+
+## User Stories
+
+1. As a Hiring Reviewer, I want the homepage to emphasize learning design, so that I can quickly judge its relevance to a learning design vacancy.
+2. As a Hiring Reviewer, I want program management presented as supporting capability, so that I can understand the Portfolio Owner's breadth without losing the primary focus.
+3. As a Hiring Reviewer, I want Explore selected work to be the primary homepage action, so that I can begin with a manageable set of relevant evidence.
+4. As a Hiring Reviewer, I want Download CV beside that action, so that I can move directly to conventional application information when needed.
+5. As a Hiring Reviewer, I want access to the complete catalogue through navigation and after selected work, so that curation does not hide other relevant Portfolio Items.
+6. As a mobile Hiring Reviewer, I want the same action hierarchy and usable controls as on desktop, so that I can start reviewing from my phone.
+7. As a Hiring Reviewer, I want the existing selected Case Studies retained, so that I can compare design, strategy, and program analysis evidence without encountering a competing new list.
+8. As a Hiring Reviewer, I want a short What this demonstrates summary before a lead Case Study's Artifacts, so that I can connect the work to the capability I am evaluating.
+9. As a Hiring Reviewer, I want one suggested starting Artifact in each lead design Case Study, so that I can begin inspection without guessing among several documents.
+10. As a Hiring Reviewer, I want every other Artifact and the deeper design explanation to remain accessible, so that I can investigate the work beyond its initial summary.
+11. As a Hiring Reviewer, I want contribution and use descriptions only where evidence supports them, so that I do not mistake an assumption for a fact about the Portfolio Owner.
+12. As a Hiring Reviewer, I want certification-assessment purpose distinguished from confirmed delivery, so that I can assess the work in its actual context.
+13. As a Hiring Reviewer, I want the existing evidence limits preserved, so that I can distinguish Artifact design quality from demonstrated learner or business impact.
+14. As a Hiring Reviewer, I want multiword search to find items containing all my words even in a different order, so that natural queries reveal relevant work.
+15. As a Hiring Reviewer, I want query words to match across the existing searchable content of the same Portfolio Item, so that a title word and a description word can identify one relevant result.
+16. As a Hiring Reviewer, I want case differences and extra spaces ignored in my query, so that minor typing differences do not hide relevant work.
+17. As a Hiring Reviewer, I want items missing one of my query words excluded, so that broader matching does not become unrelated results.
+18. As a Hiring Reviewer, I want single-word search and empty-query browsing preserved, so that the improved search remains predictable for simple tasks.
+19. As a Hiring Reviewer, I want search to combine with Practice Area, topic, and Artifact format filters, so that I can narrow evidence without losing earlier choices.
+20. As a Hiring Reviewer, I want counts, progressive results, and the URL to reflect my current discovery state, so that I can understand and revisit the evidence view.
+21. As a Hiring Reviewer with no matching results, I want clear feedback and a working reset action, so that I can recover without leaving the page.
+22. As a Hiring Reviewer, I want an Artifact Preview opened from the catalogue to have a shareable Artifact URL, so that I can return to or share that evidence.
+23. As a Hiring Reviewer, I want browser Back to close a catalogue preview opened during my visit, so that the visible page agrees with the history position.
+24. As a Hiring Reviewer, I want browser Forward to restore that preview after Back, so that normal browser navigation remains useful.
+25. As a Hiring Reviewer, I want explicit preview close to leave a URL that does not reopen the preview on reload, so that a closed document stays closed.
+26. As a Hiring Reviewer arriving through a direct Artifact link, I want the correct preview to open, so that shared evidence links retain their meaning.
+27. As a Hiring Reviewer arriving directly at a preview, I want closing it to reveal the current catalogue rather than navigate me to an unrelated prior site, so that close remains a local action.
+28. As a Hiring Reviewer, I want search, filters, and the revealed result batch preserved through preview navigation, so that inspecting an Artifact does not reset my review.
+29. As a keyboard Hiring Reviewer, I want focus to move into an opened preview and return to a valid initiating control on close, so that I can continue reviewing without losing my place.
+30. As a Hiring Reviewer, I want close-button, Escape, and backdrop dismissal to produce consistent closed state, so that closing the preview does not depend on how I interact.
+31. As a Hiring Reviewer, I want malformed or unknown Artifact links handled safely, so that a broken link does not prevent further browsing.
+32. As a Hiring Reviewer reading a Case Study, I want its Artifact Previews and native Case Study navigation preserved, so that catalogue history fixes do not disrupt deeper evidence review.
+33. As a Hiring Reviewer, I want full-screen Artifact access and contextual discussion actions to remain available, so that I can inspect detailed evidence and refer to it in a conversation.
+34. As a Hiring Reviewer, I want the contact page to explicitly welcome role conversations, so that I do not have to frame a vacancy as a consulting engagement.
+35. As a potential client, I want the same contact page to continue welcoming project inquiries, so that the hiring emphasis does not remove my existing route.
+36. As a Reviewer, I want direct contact channels ahead of optional message guidance, so that I can act without completing an extra step.
+37. As a Reviewer arriving from an Artifact or Portfolio Item, I want its public title preserved in the visible contact context and prepared message, so that I do not need to reconstruct what I was reviewing.
+38. As a Reviewer arriving at contact directly, I want neutral contact wording without invented role or Artifact context, so that the page accurately reflects my visit.
+39. As the Portfolio Owner, I want generated Case Study summaries to survive regeneration, so that routine content updates do not erase the improvement.
+40. As the Portfolio Owner, I want the existing Artifact Preview policy, Shipped Artifact Policy, and performance guards preserved, so that a clearer hiring journey does not compromise publication integrity.
+
+## Implementation Decisions
+
+- Keep the existing static site architecture, Bun workflow, authored homepage and contact page, and source-managed Portfolio Item and Case Study publication. No framework migration, new backend, or new production testing interface is needed.
+- Artifact Preview Experience remains the sole owner of preview lifecycle, catalogue history synchronization, opening and closing, and focus restoration. Extend that existing owner rather than introducing a second modal controller or page-specific history listeners.
+- Catalogue opening must preserve discovery query parameters and expose the existing Artifact identity in the URL. Browser Back and Forward must reconcile the visible preview with that identity without adding history entries in response to history traversal.
+- All explicit dismissal paths must remove the preview identity while preserving catalogue discovery state. Closing a directly linked preview must not depend on navigating to an unknown prior history entry. Keep valid direct links working and handle malformed or unknown identities without breaking initialization.
+- Preserve the distinction between catalogue and Case Study preview adapters. Case Study opening currently does not add an Artifact hash; retain its navigation contract while keeping existing direct-link support. Preserve native Case Study links and the shared Artifact Preview safety policy.
+- Return focus to the initiating control when it remains present and visible. When no valid initiator exists, use an appropriate visible catalogue control. Preserve native dialog keyboard behavior, accessible titles, full-screen opening, and contextual discussion links.
+- Portfolio Item Discovery remains the owner of query normalization, matching, filters, counts, progressive results, and URL state. Normalize case and surrounding/repeated whitespace, split on whitespace, and require every nonempty query token to occur in the same item's existing searchable text. Token order does not matter. Preserve existing single-token substring behavior; do not add fuzzy matching, synonyms, ranking, remote search, or a second content index.
+- Change the homepage's primary action to Explore selected work and link it to the existing selected-work section. Retain Download CV alongside it, the three selected Case Studies, the complete catalogue in navigation, and a clear full-catalogue route after selected work. Retain the existing visual system and mobile image-loading policy.
+- Case Study Publication owns the new summaries and recommended starting links for Administrative Communication and Learning Organization Strategy. Reuse explicit Use case and other supported Case Study source content where suitable. Keep any new editorial selection in Portfolio Item Source, referencing an existing Artifact identity. If a source field is required, make it optional for unrelated cases and validate its reference through Portfolio Item Source Validation. Do not hand-edit generated output or introduce a separate summary store.
+- The summary must connect supported Artifact content to a learning-design capability without implying individual ownership, delivery, adoption, or measured impact. Preserve the full Artifact collection, stable identities, existing preview triggers, evidence-limit note, and optional deeper design explanation. No new contribution field is required for this pass while contribution remains unconfirmed.
+- The Administrative Communication proposal establishes certification-assessment purpose. It does not establish that certification was its only use, that the 36-hour design was delivered, or which parts the Portfolio Owner personally created. Describe only what available evidence supports. The same evidence rule applies to Learning Organization Strategy; do not infer certification purpose from filenames.
+- Keep one inclusive contact page. Its introduction and next-step guidance must accommodate a hiring conversation without promising a consulting proposal to every visitor. Keep current direct channels ahead of optional message prompts and preserve the Engagement Inquiry Journey's safe use of public Portfolio Item context. Do not require visitors to select a persona or create separate hiring and client pages.
+- Preserve Portfolio Evidence Workflow, Proof Point attribution, generated metadata consistency, Shipped Artifact Policy, strict preview path rules, and existing performance guards. Keep unrelated Case Studies and content outside the editorial scope.
+
+## Testing Decisions
+
+- A good test exercises an observable behavior or a public workflow contract and would fail for a meaningful Reviewer-facing regression. Assert visible results, URLs, links, dialog state, focus, and generated evidence content. Avoid assertions about private helpers, listener counts, exact incidental markup, or copied implementation logic.
+- Use the existing initialized-page integration boundary as the primary behavioral seam. Load representative authored or generated pages and initialize the real page behavior, then interact through controls. This exercises Portfolio Item Discovery, Artifact Preview Experience, page routing, and the Engagement Inquiry Journey together where their behavior meets.
+- Use Portfolio Evidence Workflow as the separate source-to-publication seam for the lead Case Study summaries and starting links. Verify the complete generated outputs and their source agreement rather than testing template fragments in isolation. No new production seam is proposed.
+- Prior art includes the site's initialized-page browser-behavior integration suite, generated Portfolio Item Discovery integration suite, Portfolio Evidence Workflow output tests, Artifact Preview Experience adapter tests, Engagement Context tests, and built-site system checks. Extend the relevant existing cases instead of duplicating coverage across every layer.
+- Verify the reproduced search failure with communication assessment and its reversed order. The relevant Cross-Department Communication and Manager Communication to Staff assessment items must be included, while items lacking either token remain excluded. Cover case/whitespace normalization, single-token queries, empty queries, combined filters, counts, progressive results, reset, and restored URL state at the observable discovery boundary.
+- Verify catalogue preview open, Back, Forward, every explicit close path, reload after close, and direct-link arrival. Preserve active search, filters, and revealed-batch state. Include a direct-link visit with no known same-site predecessor, malformed and unknown hashes, and Case Study preview regression coverage. Assert focus return and safe preview destinations.
+- Native browser history, focus, dialog behavior, PDF rendering, and responsive layout require a real browser against the production preview. The current DOM test helper stubs timers and does not load styles or scripts as a browser would; passing those integration tests alone is insufficient evidence for the history fix or visual behavior. Existing production system checks serve and inspect built output, but do not substitute for interaction checks.
+- Inspect the primary home action, CV route, selected-work entry, lead case summaries and starting links, and inclusive contact copy at 1280 by 800 and 390 by 844 CSS pixels. Verify keyboard reachability, visible focus, Escape behavior, and reduced-motion preservation for affected interactions. Keep full accessibility conformance outside this task.
+- At the publication boundary, verify that both lead cases retain their Artifact identities and evidence limits, the recommended starting link resolves to an existing Artifact, unrelated cases remain valid, summaries survive regeneration, and no unsupported contribution or Outcome Evidence is introduced. Review the prose against its source; do not rely on automated string matching to establish truth.
+- Verify contact with and without public Portfolio Item context. Confirm that direct methods remain available, prepared email and WhatsApp links retain the correct public title, and generic visits do not invent context. Inspect destinations without sending real messages.
+- Run the existing type checks, automated suite with sufficient time for its production-build setup, site validation, production build, and performance budget checks. Keep automated results, browser observations, and any incomplete checks distinct in the implementation report. Do not weaken guards to accommodate the changes.
+
+## Out of Scope
+
+- New claims about personal authorship, client commissioning, actual delivery, adoption, learner impact, or commercial outcomes without supporting evidence.
+- Resolving all historical metrics or rewriting the broader Portfolio Item catalogue and unrelated Case Studies.
+- A visual rebrand, new color or typography system, decorative animation project, or wholesale page redesign.
+- A second modal implementation, new routing framework, backend search service, fuzzy search, recommendation engine, or personalization.
+- Separate hiring and client sites, mandatory persona selection, authentication, CRM integration, or a backend contact form.
+- Sending real inquiries or changing existing contact addresses, response commitments, budgets, or availability claims.
+- Changing source Artifact contents, publishing editable Office sources, or weakening Artifact Preview or shipping policy.
+- Analytics instrumentation, A/B testing, conversion-uplift claims, formal user research, or WCAG certification.
+- Implementing unrelated open planning-map work, automatically closing existing issues, deploying the site, or treating spec publication as implementation completion.
+
+## Further Notes
+
+- The user confirmed the audience, role emphasis, shortlist-first journey, five-change plan, and evidence boundary. Remaining provenance questions are explicitly deferred and do not block source-supported summaries.
+- This specification follows Stephen P. Anderson's functional, reliable, usable, convenient, pleasurable, and meaningful levels. The model is not a mandatory waterfall. The delivery order above follows this review's concrete failures and agreed audience needs. References: [original diagram](https://poetpainter.com/thoughts/files/UX-Hierarchy-Model-StephenPAnderson.pdf) and [author's explanation](https://starzer.net/is1/docs/seductive-ixd-chapter-1.pdf).
+- The 2026-10-07 review inspected the homepage at desktop and phone sizes, the lead Case Study introduction, catalogue search, a loaded PDF preview and Back behavior, and contact. The browser initially failed to capture screenshots, then recovered. Close restored focus during the sampled catalogue check. Forward, reload after close, and Case Study history behavior remain implementation acceptance checks, not already verified outcomes.
+- No automated test suite, production build, formal screen-reader assessment, or external contact delivery test was performed for the UX review or this specification. Do not reuse old test counts as current validation.
+- This is a focused follow-up to [completed UX specification #15](https://github.com/daffaghiffarykusuma/dafghif-learning-portfolio/issues/15) and relates to [planning map #16](https://github.com/daffaghiffarykusuma/dafghif-learning-portfolio/issues/16) and [reviewer-decision question #19](https://github.com/daffaghiffarykusuma/dafghif-learning-portfolio/issues/19). Those records provide context; their older counts, observations, and unfinished broader branches are not added to this scope.
+- The user confirmed the existing page-level behavior and Portfolio Evidence Workflow test boundaries, supplemented by real-browser history, focus, and responsive checks. No new production testing interface is needed.

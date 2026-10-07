@@ -10,6 +10,136 @@ afterEach(() => {
 });
 
 describe('site browser behavior', () => {
+  test('contact welcomes role and project inquiries with direct channels before optional guidance', async () => {
+    const window = createDom(await readPage('contact.html'), 'http://127.0.0.1/contact.html');
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
+
+    // These are audience contracts, not a snapshot of the editorial wording.
+    const invitation = document.querySelector('.contact-hero-content').textContent;
+    expect(invitation).toMatch(/\b(role|hiring|employment)\b/i);
+    expect(invitation).toMatch(/\bprojects?\b/i);
+    const guidance = document.querySelector('.contact-message-outline');
+    expect(guidance.open).toBe(false);
+    const channels = Array.from(document.querySelectorAll('.contact-method-card'));
+    expect(channels.map((link) => link.href)).toEqual([
+      'https://wa.link/rn7fa4',
+      'mailto:daffaghifarykusuma@gmail.com',
+      'https://www.linkedin.com/in/daffa-ghiffary-kusuma'
+    ]);
+    for (const channel of channels) {
+      expect(channel.closest('details, [hidden]')).toBeNull();
+      expect(channel.compareDocumentPosition(guidance) & window.Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    }
+    expect(document.getElementById('contact-context').hidden).toBe(true);
+  });
+
+  test('an Artifact inquiry carries its public title from preview into both contact channels', async () => {
+    createDom(await readPage('case-administrative-communication.html'), 'http://127.0.0.1/case-administrative-communication.html');
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
+    document.querySelector('.case-artifact-card .view-details-button').click();
+    const title = 'Administrative Communication Training Needs Analysis';
+    expect(document.getElementById('pdf-modal-title').textContent).toBe(title);
+    const inquiryUrl = document.getElementById('pdf-discuss').href;
+
+    createDom(await readPage('contact.html'), inquiryUrl);
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
+    const context = document.getElementById('contact-context');
+    expect(context.hidden).toBe(false);
+    expect(context.textContent).toContain(title);
+    const email = new URL(document.querySelector('.contact-method-card.email').href);
+    const whatsapp = new URL(document.querySelector('.contact-method-card.whatsapp').href);
+    expect(email.protocol).toBe('mailto:');
+    expect(email.pathname).toBe('daffaghifarykusuma@gmail.com');
+    expect(email.searchParams.get('subject')).toContain(title);
+    expect(email.searchParams.get('body')).toContain(title);
+    expect(whatsapp.origin + whatsapp.pathname).toBe('https://wa.me/62895329473179');
+    expect(whatsapp.searchParams.get('text')).toBe(email.searchParams.get('body'));
+    expect(document.querySelector('.contact-method-card.linkedin').href).toBe('https://www.linkedin.com/in/daffa-ghiffary-kusuma');
+  });
+
+  test('catalogue preview follows Back and Forward without resetting discovery', async () => {
+    const window = createDom(await readPage('portfolio.html'), 'http://127.0.0.1/portfolio.html?q=communication&area=assessment&format=pdf&show=18');
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
+    const modal = document.getElementById('pdf-modal');
+    const button = document.querySelector('.portfolio-item:not([hidden]) button.view-details-button');
+    expect(button).toBeTruthy();
+    const visibleIds = () => Array.from(document.querySelectorAll('.portfolio-item:not([hidden])'), (item) => item.id);
+    const initialIds = visibleIds();
+    const query = window.location.search;
+    button.click();
+    const previewHash = window.location.hash;
+    const historyLength = window.history.length;
+    expect(modal.open).toBe(true);
+    expect(window.location.search).toBe(query);
+    expect(document.activeElement).toBe(modal.querySelector('.close-modal'));
+
+    window.history.back();
+    await window.happyDOM.waitUntilComplete();
+    expect(window.location.hash).toBe('');
+    expect(modal.open).toBe(false);
+    expect(document.activeElement).toBe(button);
+    expect(visibleIds()).toEqual(initialIds);
+    expect(window.location.search).toBe(query);
+
+    window.history.forward();
+    await window.happyDOM.waitUntilComplete();
+    expect(window.location.hash).toBe(previewHash);
+    expect(modal.open).toBe(true);
+    expect(window.history.length).toBe(historyLength);
+    expect(window.location.search).toBe(query);
+    expect(visibleIds()).toEqual(initialIds);
+  });
+
+  test.each(['close button', 'Escape', 'backdrop'])('catalogue %s dismissal stays closed on reload and preserves discovery', async (dismissal) => {
+    const html = await readPage('portfolio.html');
+    const window = createDom(html, 'http://127.0.0.1/portfolio.html?q=communication&area=assessment&format=pdf&show=18');
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
+    const modal = document.getElementById('pdf-modal');
+    const button = document.querySelector('.portfolio-item:not([hidden]) button.view-details-button');
+    const query = window.location.search;
+    const visibleIds = () => Array.from(document.querySelectorAll('.portfolio-item:not([hidden])'), (item) => item.id);
+    const initialIds = visibleIds();
+    button.click();
+    if (dismissal === 'close button') modal.querySelector('.close-modal').click();
+    if (dismissal === 'backdrop') modal.dispatchEvent(new window.MouseEvent('click', { bubbles: true }));
+    if (dismissal === 'Escape') {
+      // The DOM helper cannot press native Escape. Follow the dialog cancel/close contract.
+      if (modal.dispatchEvent(new window.Event('cancel', { cancelable: true }))) modal.close();
+    }
+    expect(modal.open).toBe(false);
+    expect(window.location.hash).toBe('');
+    expect(window.location.search).toBe(query);
+    expect(document.activeElement).toBe(button);
+    expect(visibleIds()).toEqual(initialIds);
+
+    createDom(html, window.location.href);
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
+    expect(document.getElementById('pdf-modal').open).toBe(false);
+    expect(visibleIds()).toEqual(initialIds);
+  });
+
+  test('a direct preview closes locally and returns to search when its Artifact is filtered out', async () => {
+    const window = createDom(await readPage('portfolio.html'), 'http://127.0.0.1/portfolio.html?q=unmatched-query#project-manager-coaching-report');
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
+    const modal = document.getElementById('pdf-modal');
+    const historyLength = window.history.length;
+    expect(document.getElementById('project-manager-coaching-report').hidden).toBe(true);
+    expect(modal.open).toBe(true);
+    expect(document.getElementById('pdf-modal-title').textContent).toBe('Manager Coaching Report');
+    modal.querySelector('.close-modal').click();
+    expect(window.location.href).toBe('http://127.0.0.1/portfolio.html?q=unmatched-query');
+    expect(window.history.length).toBe(historyLength);
+    expect(modal.open).toBe(false);
+    expect(document.activeElement?.id).toBe('portfolio-search');
+  });
+
   test('top-level pages expose one page heading and keep site identity out of h1', async () => {
     for (const page of ['index.html', 'portfolio.html', 'case-studies.html', 'contact.html', 'blog.html']) {
       createDom(await readPage(page), `http://127.0.0.1/${page}`);
@@ -30,7 +160,7 @@ describe('site browser behavior', () => {
     fireDOMContentLoaded();
 
     const modal = document.getElementById('pdf-modal');
-    const iframe = document.getElementById('pdf-iframe');
+    let iframe = document.getElementById('pdf-iframe');
     const safeButton = Array.from(document.querySelectorAll('.view-details-button'))
       .find((button) => button.dataset.pdf);
     expect(safeButton).toBeTruthy();
@@ -49,7 +179,9 @@ describe('site browser behavior', () => {
 
     modal.querySelector('.close-modal').click();
     expect(modal.open).toBe(false);
+    iframe = document.getElementById('pdf-iframe');
     expect(iframe.getAttribute('src')).toBe('');
+    expect(document.activeElement === safeCard.querySelector('.portfolio-item-thumbnail-link')).toBe(true);
 
     const safeViewerButton = Array.from(document.querySelectorAll('.view-details-button'))
       .find((button) => button.dataset.viewer);
@@ -182,9 +314,44 @@ describe('site browser behavior', () => {
     expect(window.location.hash).toBe('');
   });
 
-  test('portfolio page ignores malformed hash selectors without aborting initialization', async () => {
+  test.each(['case-administrative-communication.html', 'case-learning-organization-strategy.html'])('Case Study section navigation stays native on %s', async (page) => {
+    const html = await readPage(page);
+    const window = createDom(html, `http://127.0.0.1/${page}`);
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
+
+    document.querySelector('a[href="#work-samples"]').click();
+    await window.happyDOM.waitUntilComplete();
+    expect(window.location.hash).toBe('#work-samples');
+    expect(document.getElementById('pdf-modal').open).toBe(false);
+
+    createDom(html, window.location.href);
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
+    expect(document.getElementById('pdf-modal').open).toBe(false);
+    expect(globalThis.window.location.hash).toBe('#work-samples');
+  });
+
+  test('Case Study direct Artifact links open and dismiss locally without changing ordinary opening', async () => {
+    const window = createDom(await readPage('case-administrative-communication.html'), 'http://127.0.0.1/case-administrative-communication.html');
+    const button = document.querySelector('.case-artifact-card .view-details-button');
+    window.history.replaceState(null, '', `#${button.closest('.portfolio-item').id}`);
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
+    const modal = document.getElementById('pdf-modal');
+    expect(modal.open).toBe(true);
+    expect(document.getElementById('pdf-modal-title').textContent).toBe('Administrative Communication Training Needs Analysis');
+    modal.querySelector('.close-modal').click();
+    expect(window.location.href).toBe('http://127.0.0.1/case-administrative-communication.html');
+    expect(document.activeElement === button).toBe(true);
+    button.click();
+    expect(modal.open).toBe(true);
+    expect(window.location.hash).toBe('');
+  });
+
+  test.each(['#project-%5Bbroken', '#%E0%A4%A', '#unknown-artifact'])('portfolio page ignores invalid Artifact hash %s without aborting initialization', async (hash) => {
     const html = await readPage('portfolio.html');
-    createDom(html, 'http://127.0.0.1/portfolio.html#project-%5Bbroken');
+    createDom(html, `http://127.0.0.1/portfolio.html${hash}`);
     globalThis.console = window.console;
 
     await importFresh('../../src/script.ts');
@@ -199,10 +366,36 @@ describe('site browser behavior', () => {
     expect(modal.open).toBe(true);
   });
 
-  test('homepage connects core practices to filtered evidence and explains the working method', async () => {
+  test('homepage starts with selected cases and preserves CV, catalogue, and practice routes', async () => {
     createDom(await readPage('index.html'), 'http://127.0.0.1/index.html');
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
 
-    expect(document.querySelector('.hero-actions a[href="portfolio.html?area=all"]')).not.toBeNull();
+    const primaryAction = document.querySelector('.hero-actions a');
+    expect(primaryAction.getAttribute('href')).toBe('#selected-work');
+    primaryAction.click();
+    expect(window.location.hash).toBe('#selected-work');
+
+    const selectedWork = document.getElementById('selected-work');
+    const caseLinks = Array.from(selectedWork.querySelectorAll('h3 a'));
+    expect(caseLinks.map((link) => link.getAttribute('href'))).toEqual([
+      'case-administrative-communication.html',
+      'case-learning-organization-strategy.html',
+      'case-entrepreneurship.html'
+    ]);
+    const cvLink = document.querySelector('.hero-actions a[download]');
+    expect(cvLink.getAttribute('href')).toBe('cv/Profile.pdf');
+    expect(cvLink.getAttribute('download')).toBe('Daffa_Ghiffary_Kusuma_CV_2026.pdf');
+    const catalogueLink = selectedWork.querySelector('a[href="portfolio.html?area=all"]');
+    expect(catalogueLink).not.toBeNull();
+    expect(document.querySelector('header nav a[href="portfolio.html"]')).not.toBeNull();
+
+    for (const link of [...caseLinks, cvLink, catalogueLink]) {
+      const click = new window.MouseEvent('click', { bubbles: true, cancelable: true });
+      link.dispatchEvent(click);
+      expect(click.defaultPrevented).toBe(false);
+    }
+
     expect(document.querySelector('[data-practice-area="training"] a[href="portfolio.html?area=training-workshop"]')).not.toBeNull();
     expect(document.querySelector('[data-practice-area="learning-materials"] a[href="portfolio.html?area=learning-materials"]')).not.toBeNull();
     expect(document.querySelector('[data-practice-area="analytics"] a[href="portfolio.html?area=learning-analytics"]')).not.toBeNull();
