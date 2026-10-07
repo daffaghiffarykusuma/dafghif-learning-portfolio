@@ -10,6 +10,56 @@ afterEach(() => {
 });
 
 describe('site browser behavior', () => {
+  test('contact welcomes role and project inquiries with direct channels before optional guidance', async () => {
+    const window = createDom(await readPage('contact.html'), 'http://127.0.0.1/contact.html');
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
+
+    // These are audience contracts, not a snapshot of the editorial wording.
+    const invitation = document.querySelector('.contact-hero-content').textContent;
+    expect(invitation).toMatch(/\b(role|hiring|employment)\b/i);
+    expect(invitation).toMatch(/\bprojects?\b/i);
+    const guidance = document.querySelector('.contact-message-outline');
+    expect(guidance.open).toBe(false);
+    const channels = Array.from(document.querySelectorAll('.contact-method-card'));
+    expect(channels.map((link) => link.href)).toEqual([
+      'https://wa.link/rn7fa4',
+      'mailto:daffaghifarykusuma@gmail.com',
+      'https://www.linkedin.com/in/daffa-ghiffary-kusuma'
+    ]);
+    for (const channel of channels) {
+      expect(channel.closest('details, [hidden]')).toBeNull();
+      expect(channel.compareDocumentPosition(guidance) & window.Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    }
+    expect(document.getElementById('contact-context').hidden).toBe(true);
+  });
+
+  test('an Artifact inquiry carries its public title from preview into both contact channels', async () => {
+    createDom(await readPage('case-administrative-communication.html'), 'http://127.0.0.1/case-administrative-communication.html');
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
+    document.querySelector('.case-artifact-card .view-details-button').click();
+    const title = 'Administrative Communication Training Needs Analysis';
+    expect(document.getElementById('pdf-modal-title').textContent).toBe(title);
+    const inquiryUrl = document.getElementById('pdf-discuss').href;
+
+    createDom(await readPage('contact.html'), inquiryUrl);
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
+    const context = document.getElementById('contact-context');
+    expect(context.hidden).toBe(false);
+    expect(context.textContent).toContain(title);
+    const email = new URL(document.querySelector('.contact-method-card.email').href);
+    const whatsapp = new URL(document.querySelector('.contact-method-card.whatsapp').href);
+    expect(email.protocol).toBe('mailto:');
+    expect(email.pathname).toBe('daffaghifarykusuma@gmail.com');
+    expect(email.searchParams.get('subject')).toContain(title);
+    expect(email.searchParams.get('body')).toContain(title);
+    expect(whatsapp.origin + whatsapp.pathname).toBe('https://wa.me/62895329473179');
+    expect(whatsapp.searchParams.get('text')).toBe(email.searchParams.get('body'));
+    expect(document.querySelector('.contact-method-card.linkedin').href).toBe('https://www.linkedin.com/in/daffa-ghiffary-kusuma');
+  });
+
   test('catalogue preview follows Back and Forward without resetting discovery', async () => {
     const window = createDom(await readPage('portfolio.html'), 'http://127.0.0.1/portfolio.html?q=communication&area=assessment&format=pdf&show=18');
     await importFresh('../../src/script.ts');
