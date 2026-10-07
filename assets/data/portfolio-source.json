@@ -110,6 +110,7 @@
     },
     {
       "id": "case-administrative-communication-learning-program",
+      "suggestedArtifactId": "artifact-bnsp4-program-proposal",
       "documentTitle": "Administrative Communication Case Study",
       "title": "Competency-Based Administrative Communication Learning Program",
       "portfolioItemTitle": "Administrative Communication Learning Program Case Study",
@@ -282,6 +283,7 @@
     },
     {
       "id": "case-learning-organization-strategy-evaluation-system",
+      "suggestedArtifactId": "artifact-bnsp6-silabus-pelatihan",
       "documentTitle": "Learning Organization Strategy Case Study",
       "title": "Learning Organization Strategy and Evaluation System",
       "portfolioItemTitle": "Learning Organization Strategy and Evaluation System Case Study",
