@@ -21,9 +21,9 @@
   },
   "devDependencies": {
     "@types/bun": "1.4.3",
-    "happy-dom": "^21.0.1",
+    "happy-dom": "^21.0.4",
     "typescript": "^7.0.2",
-    "vite": "^8.3.4"
+    "vite": "^8.3.5"
   },
   "overrides": {
     "nanoid": "3.3.18",
