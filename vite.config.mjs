@@ -25,7 +25,11 @@ function copyStaticFiles() {
           cpSync(source, resolve(outDir, directory), {
             recursive: true,
             force: true,
-            filter: (sourcePath) => !shippedArtifacts.isExcludedPath(relative(root, sourcePath)),
+            filter: (sourcePath) => {
+              const relativePath = relative(root, sourcePath);
+              return !shippedArtifacts.isDeniedPath(relativePath)
+                && !shippedArtifacts.isExcludedPath(relativePath);
+            },
           });
         }
       }

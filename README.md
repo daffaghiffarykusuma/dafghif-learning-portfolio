@@ -88,6 +88,6 @@ bun run budget
 
 ## Security Notes
 
-Deployment headers live in `_headers`. Top-level pages use external JavaScript so the site can run with `script-src 'self'`. Generated portfolio viewers have a narrower no-script CSP in `_headers` because they are generated static previews from document/spreadsheet content.
+Deployment headers live in `_headers` and `vercel.json`. `bun run validate` checks every CSP against the top-level, HTML-preview, and PDF publication contracts in both files, including missing or duplicate policies and unreviewed overrides. Top-level pages use external JavaScript so the site can run with `script-src 'self'`. Generated portfolio viewers have a narrower no-script CSP because they are generated static previews from document/spreadsheet content. Configuration validation does not verify the live host's response headers.
 
-When adding public assets, prefer lowercase kebab-case filenames without spaces or brackets. Keep portfolio preview paths under `assets/pdf/portfolio/` or `assets/portfolio-viewers/` so the preview modal allowlist continues to block unexpected sources.
+When adding public assets, prefer lowercase kebab-case filenames without spaces or brackets. Keep portfolio preview paths under `assets/pdf/portfolio/` or `assets/portfolio-viewers/` so the preview modal allowlist continues to block unexpected sources. The build copy rejects editable Office files even when placed inside a public asset tree.

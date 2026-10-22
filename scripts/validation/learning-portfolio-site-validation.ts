@@ -55,6 +55,128 @@ const splitUrl = (value: string) => {
   return { pathname, fragment };
 };
 
+type CspDirectives = Record<string, readonly string[]>;
+type CspRule = { source: string; value: string };
+
+// Publication contracts apply independently to both hosting configurations.
+// Exact source lists also prevent a new directive from overriding a restriction.
+const cspContracts: Readonly<Record<string, CspDirectives>> = {
+  '/*': {
+    'default-src': ["'self'"],
+    'script-src': ["'self'"],
+    'connect-src': ["'self'"],
+    'style-src': ["'self'", 'https://fonts.googleapis.com'],
+    'font-src': ["'self'", 'https://fonts.gstatic.com'],
+    'img-src': ["'self'", 'data:', 'https://cdn-images-1.medium.com', 'https://miro.medium.com'],
+    'frame-src': ["'self'"],
+    'object-src': ["'none'"],
+    'base-uri': ["'self'"],
+    'form-action': ["'self'"],
+    'frame-ancestors': ["'self'"],
+    'upgrade-insecure-requests': []
+  },
+  '/assets/portfolio-viewers/*': {
+    'default-src': ["'self'"],
+    'script-src': ["'none'"],
+    'connect-src': ["'none'"],
+    'style-src': ["'self'", "'unsafe-inline'"],
+    'img-src': ["'self'", 'data:'],
+    'font-src': ["'none'"],
+    'frame-src': ["'none'"],
+    'object-src': ["'none'"],
+    'base-uri': ["'none'"],
+    'form-action': ["'none'"],
+    'frame-ancestors': ["'self'"],
+    'upgrade-insecure-requests': []
+  },
+  '/assets/pdf/portfolio/*': {
+    'default-src': ["'none'"],
+    'script-src': ["'none'"],
+    'object-src': ["'none'"],
+    'base-uri': ["'none'"],
+    'form-action': ["'none'"],
+    'frame-ancestors': ["'self'"]
+  }
+};
+
+const validateCspRules = (file: string, rules: CspRule[]): string[] => {
+  const failures: string[] = [];
+  for (const source of Object.keys(cspContracts)) {
+    const count = rules.filter((rule) => rule.source === source).length;
+    if (count !== 1) failures.push(`${file} ${source}: expected exactly one Content-Security-Policy; found ${count}`);
+  }
+  for (const { source, value } of rules) {
+    const label = `${file} ${source}`;
+    const contract = Object.hasOwn(cspContracts, source) ? cspContracts[source] : undefined;
+    if (!contract) {
+      failures.push(`${label}: CSP route has no reviewed publication contract`);
+      continue;
+    }
+    const directives = new Map<string, string[]>();
+    for (const segment of value.split(';').map((part) => part.trim()).filter(Boolean)) {
+      const [rawName, ...sources] = segment.split(/\s+/);
+      const name = rawName.toLowerCase();
+      if (directives.has(name)) failures.push(`${label}: duplicate CSP directive ${name}`);
+      directives.set(name, sources);
+      if (!Object.hasOwn(contract, name)) failures.push(`${label}: unreviewed CSP directive ${name}`);
+    }
+    for (const [name, expected] of Object.entries(contract)) {
+      const actual = directives.get(name);
+      if (!actual || [...new Set(actual)].sort().join(' ') !== [...expected].sort().join(' ')) {
+        failures.push(`${label}: ${name} must be ${expected.join(' ') || 'present without values'}`);
+      }
+    }
+  }
+  return failures;
+};
+
+const validateSecurityHeaders = async (rootDir: string): Promise<string[]> => {
+  const failures: string[] = [];
+  try {
+    const rules: CspRule[] = [];
+    let source = '';
+    for (const line of (await readFile(path.join(rootDir, '_headers'), 'utf8')).split(/\r?\n/)) {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('#')) continue;
+      if (!/^\s/.test(line)) {
+        source = trimmed;
+        continue;
+      }
+      const csp = trimmed.match(/^Content-Security-Policy\s*:\s*(.*)$/i);
+      if (csp) rules.push({ source, value: csp[1] });
+    }
+    failures.push(...validateCspRules('_headers', rules));
+  } catch {
+    failures.push('_headers: cannot read security header configuration');
+  }
+  try {
+    const config: unknown = JSON.parse(await readFile(path.join(rootDir, 'vercel.json'), 'utf8'));
+    if (!config || typeof config !== 'object' || !('headers' in config) || !Array.isArray(config.headers)) {
+      failures.push('vercel.json: headers must be an array');
+    } else {
+      const rules: CspRule[] = [];
+      for (const rule of config.headers) {
+        if (!rule || typeof rule.source !== 'string' || !Array.isArray(rule.headers)) {
+          failures.push('vercel.json: each header rule must have a source and headers array');
+          continue;
+        }
+        for (const header of rule.headers) {
+          if (typeof header?.key !== 'string' || typeof header.value !== 'string') {
+            failures.push(`vercel.json ${rule.source}: header key and value must be strings`);
+          } else if (header.key.toLowerCase() === 'content-security-policy') {
+            // These are the configured Vercel patterns, not a general route matcher.
+            rules.push({ source: rule.source.replace(/\(\.\*\)$/, '*'), value: header.value });
+          }
+        }
+      }
+      failures.push(...validateCspRules('vercel.json', rules));
+    }
+  } catch {
+    failures.push('vercel.json: cannot read or parse security header configuration');
+  }
+  return failures;
+};
+
 export const validateLearningPortfolioSite = async ({
   rootDir = process.cwd(),
   allowedExternalHosts = defaultAllowedExternalHosts
@@ -210,17 +332,7 @@ export const validateLearningPortfolioSite = async ({
     }
   }
 
-  const headers = await readFile(path.join(rootDir, '_headers'), 'utf8');
-  const csp = headers.match(/Content-Security-Policy:\s*(.+)/i)?.[1] || '';
-  if (/\bscript-src\b[^;\n]*'unsafe-inline'/.test(csp)) {
-    failures.push('_headers: script-src still allows unsafe-inline');
-  }
-  if (/\bstyle-src\b[^;\n]*'unsafe-inline'/.test(csp)) {
-    failures.push('_headers: top-level style-src still allows unsafe-inline');
-  }
-  if (!/\bconnect-src\b/.test(csp)) {
-    failures.push('_headers: CSP should declare connect-src for fetch destinations');
-  }
+  failures.push(...await validateSecurityHeaders(rootDir));
 
   const blogJson: unknown = JSON.parse(
     await readFile(path.join(rootDir, 'assets/blog.json'), 'utf8')
