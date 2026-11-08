@@ -55,3 +55,15 @@ On Home, Portfolio, and the index, a Case Study's title, complete thumbnail, and
 Use a capability label, title, and concise source-supported description consistently. Meaningful supporting labels on narrative cards use at least 14px text. Preserve authentic Evidence Photographs and contain Product Thumbnails without cropping their identifying text. Scope describes the designed work; assessment materials alone establish neither confirmed delivery nor measured impact. Keep source-owned evidence limits beside the narrative work samples and retain Artifact identities and preview routes during regeneration.
 
 Case studies lead with a short overview and a direct route to the work samples or reported outcomes. Generated pages show evidence limits once beside the samples; scope and method live in a native, keyboard-accessible disclosure. Keep one contextual contact section and a simple footer. Preserve every artifact ID, preview trigger, source link, and source-managed record when editing the layout. The entrepreneurship page is authored separately and follows the same reading pattern with outcomes and deliverables before optional methodology and participant feedback.
+
+## Compact homepage
+
+Home follows introduction, three selected cases, a brief About/capability summary, credentials, two attributed testimonials, and contact. Keep Explore selected work and Download CV together, retain the portrait and its mobile loading policy, and keep full-portfolio and relevant Practice Area routes visible. Program management supports the learning-design introduction.
+
+Avoid separate skills, process, outcome, and capability grids that repeat the introduction or selected work. Keep supported scope and outcomes beside the relevant work; detailed method and evidence limits belong in the Case Studies and their authoritative source. Retain selected-work destinations when changing the surrounding homepage layout.
+
+List the existing credential names and issuers in native details/summary disclosures, collapsed initially. Label each action View certificate and keep the existing image and descriptive alternative text inside. Use native keyboard behavior and the shared visible focus outline. Let certificate images expand at their natural aspect ratio rather than clipping them.
+
+Use two existing learning-design-relevant testimonials with their complete original wording and attribution. Use two columns on desktop and one on phones, with 24px phone card padding so quotes and attributions have room to wrap. Contact after this evidence welcomes role and project conversations.
+
+Scope these presentation rules under `.home-page`. Supporting labels, issuers, and attributions are at least 14px; Practice Area and selected-work links have at least 44px control height. Use complete 16:9 selected-work thumbnails, wrapping labels, and the shared reduced-motion policy. The About summary uses two columns on desktop and stacks below 768px; credential disclosures remain a single readable column.
