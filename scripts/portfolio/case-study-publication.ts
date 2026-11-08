@@ -346,6 +346,14 @@ const expandPortfolioItems = (
 
 const renderCaseStudyCards = (caseStudies: CaseStudy[]) =>
   [...featuredCaseStudies, ...caseStudies]
+    .sort((a, b) => {
+      const leadPaths = ['case-administrative-communication.html', 'case-learning-organization-strategy.html', 'case-entrepreneurship.html'];
+      const rank = (item: CaseStudyCard) => {
+        const index = leadPaths.indexOf(pagePathFor(item));
+        return index < 0 ? leadPaths.length : index;
+      };
+      return rank(a) - rank(b);
+    })
     .map((caseStudy) => {
       const pagePath = pagePathFor(caseStudy);
       const title = normalizeText(caseStudy.portfolioItemTitle || `${caseStudy.title} Case Study`);
@@ -357,7 +365,7 @@ const renderCaseStudyCards = (caseStudies: CaseStudy[]) =>
                         <p class="portfolio-item-practice-label">${escapeHtml(caseStudy.practiceArea)}</p>
                         <h2><a href="${escapeHtml(pagePath)}">${escapeHtml(title)}</a></h2>
                         <p>${escapeHtml(caseStudy.description || caseStudy.summary)}</p>
-                        <a class="cta-button" href="${escapeHtml(pagePath)}">Read Case Study</a>
+                        <a class="cta-button" href="${escapeHtml(pagePath)}">Read case study</a>
                     </div>
                 </article>`;
     })

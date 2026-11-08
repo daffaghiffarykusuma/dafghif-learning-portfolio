@@ -48,4 +48,10 @@ Artifact previews use the complete phone viewport, a compact title, a scrollable
 
 ## Case study reading flow
 
+Home and the Case Studies index lead with Administrative Communication, Learning Organization Strategy, then Entrepreneurship. Keep every other narrative accessible after these index entries. Case Study Publication owns the generated index order.
+
+On Home, Portfolio, and the index, a Case Study's title, complete thumbnail, and primary action are native links to the same narrative. Label the primary action "Read case study" and place it after the scope/evidence summary, aligned at the bottom of the card. Keep any "Discuss this work" action secondary and preserve its public-title context. Narrative links retain browser navigation and visible keyboard focus; they do not activate Artifact Previews.
+
+Use a capability label, title, and concise source-supported description consistently. Meaningful supporting labels on narrative cards use at least 14px text. Preserve authentic Evidence Photographs and contain Product Thumbnails without cropping their identifying text. Scope describes the designed work; assessment materials alone establish neither confirmed delivery nor measured impact. Keep source-owned evidence limits beside the narrative work samples and retain Artifact identities and preview routes during regeneration.
+
 Case studies lead with a short overview and a direct route to the work samples or reported outcomes. Generated pages show evidence limits once beside the samples; scope and method live in a native, keyboard-accessible disclosure. Keep one contextual contact section and a simple footer. Preserve every artifact ID, preview trigger, source link, and source-managed record when editing the layout. The entrepreneurship page is authored separately and follows the same reading pattern with outcomes and deliverables before optional methodology and participant feedback.

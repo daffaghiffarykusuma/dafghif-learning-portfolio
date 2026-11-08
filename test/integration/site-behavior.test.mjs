@@ -257,6 +257,36 @@ describe('site browser behavior', () => {
     expect(document.querySelector('header nav a[href="case-studies.html"]').parentElement.classList.contains('current')).toBe(true);
   });
 
+  test.each([
+    ['index.html', '.selected-work-card'],
+    ['portfolio.html', '[data-format="case-study-page"]'],
+    ['case-studies.html', '.case-study-card']
+  ])('Case Study titles, thumbnails and primary actions keep native narrative navigation on %s', async (page, selector) => {
+    createDom(await readPage(page), `http://127.0.0.1/${page}`);
+    globalThis.console = window.console;
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
+    const cards = [...document.querySelectorAll(selector)];
+    expect(cards.length).toBeGreaterThan(0);
+    for (const card of cards) {
+      const title = card.querySelector('h2 a, h3 a');
+      const thumbnail = card.querySelector('a:has(img)');
+      const action = [...card.querySelectorAll('a')].find((link) => link.textContent.trim() === 'Read case study');
+      expect(thumbnail).toBeTruthy();
+      expect(action).toBeTruthy();
+      for (const link of [title, thumbnail, action]) {
+        expect(link.getAttribute('href')).toBe(title.getAttribute('href'));
+        expect(link.getAttribute('href')).toMatch(/^case-.*\.html$/);
+        link.focus();
+        expect(document.activeElement).toBe(link);
+        const click = new window.MouseEvent('click', { bubbles: true, cancelable: true });
+        expect(link.dispatchEvent(click)).toBe(true);
+        expect(click.defaultPrevented).toBe(false);
+      }
+      expect(document.querySelector('#pdf-modal[open]')).toBeNull();
+    }
+  });
+
   test('case study card links keep native navigation instead of being intercepted as previews', async () => {
     const html = await readPage('portfolio.html');
     createDom(html, 'http://127.0.0.1/portfolio.html');
@@ -271,7 +301,7 @@ describe('site browser behavior', () => {
 
     expect(caseStudyButton.getAttribute('href')).toBe('case-learning-organization-strategy.html');
     expect(caseStudyTitle.getAttribute('href')).toBe('case-learning-organization-strategy.html');
-    expect(caseStudyButton.textContent).toBe('Read Case Study');
+    expect(caseStudyButton.textContent).toBe('Read case study');
     expect(caseCard.querySelector('button.view-details-button')).toBeNull();
 
     const buttonClick = new window.MouseEvent('click', { bubbles: true, cancelable: true });

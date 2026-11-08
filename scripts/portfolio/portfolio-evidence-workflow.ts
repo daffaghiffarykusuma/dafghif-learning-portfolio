@@ -145,7 +145,7 @@ const renderPortfolioItemCard = (
     const caseStudyLink = document.createElement('a');
     caseStudyLink.className = 'view-details-button portfolio-review-action';
     caseStudyLink.href = item.sourceArtifact;
-    caseStudyLink.textContent = 'Read Case Study';
+    caseStudyLink.textContent = 'Read case study';
     actions.append(caseStudyLink, discussLink);
   } else {
     const detailsButton = document.createElement('button');
@@ -164,7 +164,11 @@ const renderPortfolioItemCard = (
     actions.append(detailsButton, discussLink);
   }
 
-  content.append(title, practiceLabel, metadata, description);
+  if (item.sourceType === 'case-study-page') {
+    content.append(practiceLabel, title, metadata, description);
+  } else {
+    content.append(title, practiceLabel, metadata, description);
+  }
   if ([...item.proof.workQuality, ...item.proof.impact].some((entry) => entry.confidence === 'direct')) {
     content.append(proof);
   }
