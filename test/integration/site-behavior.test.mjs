@@ -396,13 +396,48 @@ describe('site browser behavior', () => {
       expect(click.defaultPrevented).toBe(false);
     }
 
-    expect(document.querySelector('[data-practice-area="training"] a[href="portfolio.html?area=training-workshop"]')).not.toBeNull();
-    expect(document.querySelector('[data-practice-area="learning-materials"] a[href="portfolio.html?area=learning-materials"]')).not.toBeNull();
-    expect(document.querySelector('[data-practice-area="analytics"] a[href="portfolio.html?area=learning-analytics"]')).not.toBeNull();
-    expect(document.querySelector('#how-i-work h2')?.textContent).toBe('How I Work');
-    expect(document.querySelectorAll('#how-i-work .approach-steps > li')).toHaveLength(5);
-    expect(document.querySelectorAll('#how-i-work .approach-steps a[href^="case-"]')).toHaveLength(5);
-    expect(document.querySelectorAll('#testimonials .testimonial-card')).toHaveLength(12);
+    for (const area of ['training-workshop', 'learning-materials', 'learning-analytics']) {
+      expect(document.querySelector(`main a[href="portfolio.html?area=${area}"]`)).not.toBeNull();
+    }
+    expect(Array.from(document.querySelectorAll('main h2'), (heading) => heading.textContent)).toEqual([
+      'Selected work for hiring teams', 'About Daffa', 'Credentials', 'What collaborators say'
+    ]);
+  });
+
+  test('homepage credentials keep names visible and certificate images in native disclosures', async () => {
+    createDom(await readPage('index.html'), 'http://127.0.0.1/index.html');
+    const credentials = [
+      ['Full Stack Data Analytics', 'REVOU', 'certificate_full_stack_data_analytics.webp'],
+      ['Critical Thinking: Analyze Problem and Make Decision', 'Dale Carnegie', 'certificate_critical_thinking_analyze_problem_and_make_decision.webp'],
+      ['Introduction to Prompt Engineering', 'IBM', 'certificate_introduction_to_prompt_engineering.webp']
+    ];
+    for (const [name, issuer, image] of credentials) {
+      const disclosure = [...document.querySelectorAll('details')].find((details) => details.querySelector('summary')?.textContent.includes(name));
+      expect(disclosure).toBeTruthy();
+      expect(disclosure.open).toBe(false);
+      const summary = disclosure.querySelector('summary');
+      expect(summary.textContent).toContain(issuer);
+      expect(summary.textContent).toContain('View certificate');
+      expect(disclosure.querySelector('img').getAttribute('src')).toBe(image);
+      expect(disclosure.querySelector('img').getAttribute('alt')).toBeTruthy();
+      expect(summary.hasAttribute('tabindex')).toBe(false);
+      expect(summary.hasAttribute('role')).toBe(false);
+    }
+  });
+
+  test('homepage offers two original attributed learning-design testimonials before contact', async () => {
+    const window = createDom(await readPage('index.html'), 'http://127.0.0.1/index.html');
+    const testimonials = [...document.querySelectorAll('#testimonials article')];
+    expect(testimonials.map((card) => [
+      card.querySelector('.testimonial-quote').textContent,
+      card.querySelector('.testimonial-name').textContent,
+      card.querySelector('.testimonial-role').textContent
+    ])).toEqual([
+      ['"Daffa is a strategic, data-driven expert who delivers exceptional results. His deep analysis ensures training programs are both impactful and tailored to our needs."', 'Nadyatiana Sagita', 'Human Resource Specialist, Rumah Siap Kerja'],
+      ['"Daffa merancang training kami dengan rapi, menyenangkan, dan tepat waktu. Materi yang dibawakan membuat tim langsung siap mengeksekusi."', 'Irvandias Sanjaya, S.Psi., CCP.', 'Founder, Kerja Cer-Dias']
+    ]);
+    const contact = document.querySelector('footer a[href="contact.html"]');
+    expect(testimonials[1].compareDocumentPosition(contact) & window.Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   });
 
   test('homepage keeps its below-fold mobile hero image out of the critical request path', async () => {
