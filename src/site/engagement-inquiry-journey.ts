@@ -14,8 +14,7 @@ const applyPublicContext = () => {
     const label = portfolioItem || engagement;
     if (!label) return;
 
-    const type = portfolioItem ? 'Portfolio Item' : 'engagement';
-    const message = `Hello Daffa, I am interested in discussing the ${type}: ${label}. Please share availability and next steps.`;
+    const message = `Hello Daffa, I would like to discuss ${label}. Please share availability and next steps.`;
     const summary = document.getElementById('contact-context');
     const whatsappLink = document.querySelector<HTMLAnchorElement>('.contact-method-card.whatsapp');
     const emailLink = document.querySelector<HTMLAnchorElement>('.contact-method-card.email');

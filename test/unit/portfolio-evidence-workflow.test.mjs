@@ -101,6 +101,23 @@ const jsonOutputFor = (workflow, type) =>
   JSON.parse(outputFor(workflow, type).contents);
 
 describe('Portfolio Evidence Workflow', () => {
+  test('publishes role and project invitations with contextual discussion after the work samples', async () => {
+    const source = await Bun.file(new URL('../../assets/data/portfolio-source.json', import.meta.url)).json();
+    const proof = await Bun.file(new URL('../../assets/data/portfolio-proof-points.json', import.meta.url)).json();
+    const workflow = createPortfolioEvidenceWorkflow({ portfolioHtml, portfolioSource: source, proofSource: proof, generatedFrom: 'assets/data/portfolio-source.json' });
+    for (const item of source.caseStudies) {
+      const document = new Window().document;
+      document.write(workflow.outputs.find((output) => output.outputPath === item.pagePath).contents);
+      const invitation = document.querySelector('.generated-case-cta');
+      expect(invitation.textContent).toMatch(/\broles?\b/i);
+      expect(invitation.textContent).toMatch(/\bprojects?\b/i);
+      const discussion = [...invitation.querySelectorAll('a')].find((link) => link.textContent === 'Discuss this work');
+      expect(discussion).toBeTruthy();
+      expect(new URL(discussion.href, 'https://portfolio.test').searchParams.get('portfolioItem')).toBe(item.portfolioItemTitle || item.title);
+      expect(document.querySelector('#work-samples').compareDocumentPosition(invitation) & 4).toBeTruthy();
+    }
+  });
+
   test('publishes narrative capability before the title while retaining source-supported scope and native destinations', async () => {
     const source = await Bun.file(new URL('../../assets/data/portfolio-source.json', import.meta.url)).json();
     const proof = await Bun.file(new URL('../../assets/data/portfolio-proof-points.json', import.meta.url)).json();
@@ -403,7 +420,6 @@ describe('Case Study Publication', () => {
     expect(detailPage.html).toContain('<link href="assets/data/portfolio-ai-context.json" rel="alternate" title="Portfolio AI Context" type="application/json">');
     expect(detailPage.html).toContain('<link rel="stylesheet" href="src/styles/style.css">');
     expect(detailPage.html).toContain('data-page-kind="case-study" data-page-path="case-sample-learning-program.html" data-navigation-page="case-studies.html"');
-    expect(detailPage.html).toContain('Have a similar challenge?');
     expect(detailPage.html).not.toContain('Reviewer Context');
     expect(detailPage.html.match(/Direct outcomes are not claimed\./g)).toHaveLength(1);
     expect(detailPage.html.indexOf('id="work-samples"')).toBeLessThan(detailPage.html.indexOf('id="approach"'));

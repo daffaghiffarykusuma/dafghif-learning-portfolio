@@ -42,6 +42,20 @@ describe('site browser behavior', () => {
       expect(new URL(card.querySelector('.portfolio-discuss-link').href).searchParams.get('portfolioItem')).toBe(title);
     }
   );
+  test.each(['index.html', 'portfolio.html', 'case-entrepreneurship.html'])('the closing invitation welcomes role and project conversations on %s', async (page) => {
+    createDom(await readPage(page), `http://127.0.0.1/${page}`);
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
+    const invitation = document.querySelector('.footer-cta, .generated-case-cta');
+    expect(invitation.textContent).toMatch(/\broles?\b/i);
+    expect(invitation.textContent).toMatch(/\bprojects?\b/i);
+    const action = invitation.querySelector('a');
+    expect(new URL(action.href).pathname).toBe('/contact.html');
+    action.focus();
+    expect(document.activeElement).toBe(action);
+    expect(action.dispatchEvent(new window.MouseEvent('click', { bubbles: true, cancelable: true }))).toBe(true);
+  });
+
   test('contact welcomes role and project inquiries with direct channels before optional guidance', async () => {
     const window = createDom(await readPage('contact.html'), 'http://127.0.0.1/contact.html');
     await importFresh('../../src/script.ts');
@@ -87,6 +101,7 @@ describe('site browser behavior', () => {
     expect(email.pathname).toBe('daffaghifarykusuma@gmail.com');
     expect(email.searchParams.get('subject')).toContain(title);
     expect(email.searchParams.get('body')).toContain(title);
+    expect(email.searchParams.get('body')).not.toContain('Portfolio Item:');
     expect(whatsapp.origin + whatsapp.pathname).toBe('https://wa.me/62895329473179');
     expect(whatsapp.searchParams.get('text')).toBe(email.searchParams.get('body'));
     expect(document.querySelector('.contact-method-card.linkedin').href).toBe('https://www.linkedin.com/in/daffa-ghiffary-kusuma');
