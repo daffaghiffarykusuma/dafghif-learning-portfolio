@@ -42,6 +42,10 @@ Generated Portfolio Items and Case Studies retain their source-managed markup. A
 
 Home provides the published CV and three selected case studies for an initial review. Portfolio cards lead with evidence review, then offer a contextual inquiry. Show artifact format and an audience label only when the source supports it. Keep inferred proof hints in the catalog; visible card proof requires direct evidence.
 
+Standalone Artifact cards place capability before the title, followed by the source description, directly supported proof when available, format/audience metadata, and actions. Preserve evidence limits in full without clipping or truncation. Capability, proof, and metadata use at least 14px text with comfortable line spacing. Align the action group at the bottom so cards remain easy to compare.
+
+Standalone titles, complete thumbnails, and primary actions are native buttons that announce a dialog and open the same Artifact Preview. Use "Preview PDF" for PDF Artifacts and "Open interactive preview" for interactive Artifacts. Titles and thumbnails keep their editorial appearance with visible keyboard focus; primary actions retain the sage pill and minimum 48px height. Keep "Discuss this work" secondary and carry the public title into contact context. Generate these controls through Portfolio Evidence Workflow and retain the existing preview/discovery owners for state, safety, dismissal, and focus return.
+
 Search remains visible on phones, with secondary filters in a native disclosure. Show selected filter labels when collapsed and offer reset for every active search or filter. Preserve format, practice area, search, and progressive results in the URL.
 
 Artifact previews use the complete phone viewport, a compact title, a scrollable reading area, and persistent full-screen and inquiry actions. Use the same artifact name in the heading, iframe title, and inquiry. Contact channels precede the optional message outline.

@@ -10,6 +10,38 @@ afterEach(() => {
 });
 
 describe('site browser behavior', () => {
+  test.each([['pdf', 'Preview PDF'], ['html-viewer', 'Open interactive preview']])(
+    'standalone %s title, thumbnail and action announce and open the same preview', async (format, label) => {
+      createDom(await readPage('portfolio.html'), `http://127.0.0.1/portfolio.html?format=${format}`);
+      await importFresh('../../src/script.ts');
+      fireDOMContentLoaded();
+      const card = document.querySelector(`.portfolio-item[data-format="${format}"]:not([hidden])`);
+      const title = card.querySelector('h2').textContent;
+      const controls = [card.querySelector('h2 button'), card.querySelector('.card-image button'),
+        [...card.querySelectorAll('button')].find((button) => button.textContent === label)];
+      const query = window.location.search;
+      const modal = document.getElementById('pdf-modal');
+      let destination;
+      for (const control of controls) {
+        expect(control).toBeTruthy();
+        expect(control.getAttribute('aria-haspopup')).toBe('dialog');
+        control.focus();
+        control.click(); // This DOM boundary exercises clicks, not native keyboard activation.
+        expect(modal.open).toBe(true);
+        expect(document.getElementById('pdf-modal-title').textContent).toBe(title);
+        const src = document.getElementById('pdf-iframe').src;
+        if (destination) expect(src).toBe(destination);
+        destination = src;
+        expect(window.location.hash).toBe(`#${card.id}`);
+        expect(window.location.search).toBe(query);
+        expect(new URL(document.getElementById('pdf-discuss').href).searchParams.get('portfolioItem')).toBe(title);
+        modal.querySelector('.close-modal').click();
+        expect(document.activeElement).toBe(control);
+        expect(window.location.search).toBe(query);
+      }
+      expect(new URL(card.querySelector('.portfolio-discuss-link').href).searchParams.get('portfolioItem')).toBe(title);
+    }
+  );
   test('contact welcomes role and project inquiries with direct channels before optional guidance', async () => {
     const window = createDom(await readPage('contact.html'), 'http://127.0.0.1/contact.html');
     await importFresh('../../src/script.ts');

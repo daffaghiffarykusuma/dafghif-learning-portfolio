@@ -101,6 +101,35 @@ const jsonOutputFor = (workflow, type) =>
   JSON.parse(outputFor(workflow, type).contents);
 
 describe('Portfolio Evidence Workflow', () => {
+  test('standalone discussion uses the displayed title even when its source has a legacy short inquiry title', () => {
+    const source = structuredClone(workflowSource);
+    source.portfolioItems[0].discussUrl = 'contact.html?portfolioItem=Short%20title';
+    const workflow = createPortfolioEvidenceWorkflow({ portfolioHtml, portfolioSource: source,
+      proofSource, generatedFrom: 'assets/data/portfolio-source.json' });
+    const document = new Window().document;
+    document.write(outputFor(workflow, 'portfolio-html').contents);
+    const href = document.querySelector('#default-deck .portfolio-discuss-link').getAttribute('href');
+    expect(new URL(href, 'https://example.test').searchParams.get('portfolioItem')).toBe('Default Deck');
+  });
+  test.each([
+    ['default-deck', 'Preview PDF', 'pdf', 'assets/pdf/portfolio/example.pdf', 'Default Deck'],
+    ['custom-deck', 'Open interactive preview', 'viewer', 'assets/portfolio-viewers/custom-deck.html', 'Custom Deck']
+  ])('publishes three semantic preview controls with one Artifact destination for %s', (id, label, attribute, destination, title) => {
+    const workflow = createPortfolioEvidenceWorkflow({ portfolioHtml, portfolioSource: workflowSource,
+      proofSource, generatedFrom: 'assets/data/portfolio-source.json' });
+    const document = new Window().document;
+    document.write(outputFor(workflow, 'portfolio-html').contents);
+    const card = document.getElementById(id);
+    const controls = [card.querySelector('h2 button'), card.querySelector('.card-image button'),
+      [...card.querySelectorAll('button')].find((button) => button.textContent === label)];
+    for (const control of controls) {
+      expect(control).toBeTruthy();
+      expect(control.type).toBe('button');
+    }
+    expect(controls[2].dataset[attribute]).toBe(destination);
+    expect(new URL(card.querySelector('.portfolio-discuss-link').getAttribute('href'), 'https://example.test')
+      .searchParams.get('portfolioItem')).toBe(title);
+  });
   test('publishes source-owned review guidance and a working starting Artifact for both lead design cases', async () => {
     const source = await Bun.file(new URL('../../assets/data/portfolio-source.json', import.meta.url)).json();
     const actualProofSource = await Bun.file(new URL('../../assets/data/portfolio-proof-points.json', import.meta.url)).json();
@@ -208,9 +237,9 @@ describe('Portfolio Evidence Workflow', () => {
       html.indexOf('id="default-deck"')
     );
     expect(html).toContain('data-viewer="assets/portfolio-viewers/custom-deck.html"');
-    expect(html).toContain('Open Interactive Preview');
+    expect(html).toContain('Open interactive preview');
     expect(html).toContain('data-pdf="assets/pdf/portfolio/example.pdf"');
-    expect(html).toContain('View PDF Artifact');
+    expect(html).toContain('Preview PDF');
     expect(catalog.portfolioItems.map((item) => item.id)).toEqual([
       'custom-deck',
       'default-deck'

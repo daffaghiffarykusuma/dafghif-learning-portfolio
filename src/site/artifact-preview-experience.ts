@@ -182,11 +182,14 @@ export function createArtifactPreviewExperience({
 
     const handlePreviewClick = (event: MouseEvent) => {
         const eventTarget = isElement(event.target) ? event.target : null;
-        const button = eventTarget?.closest<HTMLElement>('.view-details-button') || null;
+        const control = eventTarget?.closest<HTMLElement>('.view-details-button, .portfolio-preview-trigger') || null;
+        const button = control?.matches('.portfolio-preview-trigger')
+            ? control.closest('.portfolio-item')?.querySelector<HTMLElement>('.view-details-button') || null
+            : control;
         if (button && isPreviewTrigger(button)) {
             event.preventDefault();
             event.stopPropagation();
-            openPreview(button, { trigger: button });
+            openPreview(button, { trigger: control || button });
             return;
         }
 
