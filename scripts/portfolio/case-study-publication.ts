@@ -67,7 +67,7 @@ const renderSiteNavigation = (currentPage: string) => `<header>
                 <ul>
                     ${siteNavItems.map(({ href, label }) => `<li${href === currentPage ? ' class="current"' : ''}><a href="${href}">${label}</a></li>`).join('\n                    ')}
                 </ul>
-                <a href="contact.html" class="header-cta">Work With Me</a>
+                <a href="contact.html" class="header-cta">Get in touch</a>
             </nav>
         </div>
     </header>`;
