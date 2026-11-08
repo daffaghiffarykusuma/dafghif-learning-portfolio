@@ -50,6 +50,12 @@ Search remains visible on phones, with secondary filters in a native disclosure.
 
 Artifact previews use the complete phone viewport, a compact title, a scrollable reading area, and persistent full-screen and inquiry actions. Use the same artifact name in the heading, iframe title, and inquiry. Contact channels precede the optional message outline.
 
+## Contact invitations
+
+Invite role and project conversations in plain language across Home, Portfolio, Case Studies, and Contact. Use "Get in touch" for a general contact action. Keep "Discuss this work" contextual and secondary to reviewing evidence, with the public work title carried through the existing Engagement Inquiry Journey. Avoid consultation-only invitations, promises of similar results, and internal implementation terms in public invitations.
+
+Keep direct WhatsApp, email, and LinkedIn channels ahead of the optional message outline. Generic Contact visits remain neutral; contextual visits retain the public title in the summary and channel messages. Preserve contact addresses and response commitments. Use existing native links, readable wrapping labels, minimum control sizes, and visible keyboard focus within the dark editorial theme. Generated Case Study invitations belong to Case Study Publication and must survive Portfolio Evidence Workflow generation.
+
 ## Case study reading flow
 
 Home and the Case Studies index lead with Administrative Communication, Learning Organization Strategy, then Entrepreneurship. Keep every other narrative accessible after these index entries. Case Study Publication owns the generated index order.

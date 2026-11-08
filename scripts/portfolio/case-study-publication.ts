@@ -85,10 +85,10 @@ const renderGeneratedSiteFooter = () => `<footer>
     <div class="container">
       <div class="footer-cta">
         <div class="footer-cta-copy">
-          <h2>Ready to collaborate?</h2>
-          <p>Share your challenge and receive a tailored response within two business days.</p>
+          <h2>Let's talk about learning design</h2>
+          <p>Tell me about the role or project and receive a tailored response within two business days.</p>
         </div>
-        <a href="contact.html" class="cta-button">Book a consultation</a>
+        <a href="contact.html" class="cta-button">Get in touch</a>
       </div>
       <div class="footer-meta">
         <p>&copy; <span id="current-year"></span> Daffa Ghiffary Kusuma. All Rights Reserved.</p>
@@ -492,7 +492,7 @@ const renderCaseStudyHtml = (caseStudy: CaseStudy) => {
 
     <section class="generated-case-cta">
       <div class="container case-next-step">
-        <div><h2>Have a similar challenge?</h2><p>Tell me what your learners or team need.</p></div>
+        <div><h2>Let's talk about learning design</h2><p>Get in touch about a role or project, or discuss the work shown here.</p></div>
         <a href="${escapeHtml(ctaHref)}" class="cta-button">Discuss this work</a>
       </div>
     </section>
