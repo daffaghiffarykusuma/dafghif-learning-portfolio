@@ -42,10 +42,38 @@ Generated Portfolio Items and Case Studies retain their source-managed markup. A
 
 Home provides the published CV and three selected case studies for an initial review. Portfolio cards lead with evidence review, then offer a contextual inquiry. Show artifact format and an audience label only when the source supports it. Keep inferred proof hints in the catalog; visible card proof requires direct evidence.
 
+Standalone Artifact cards place capability before the title, followed by the source description, directly supported proof when available, format/audience metadata, and actions. Preserve evidence limits in full without clipping or truncation. Capability, proof, and metadata use at least 14px text with comfortable line spacing. Align the action group at the bottom so cards remain easy to compare.
+
+Standalone titles, complete thumbnails, and primary actions are native buttons that announce a dialog and open the same Artifact Preview. Use "Preview PDF" for PDF Artifacts and "Open interactive preview" for interactive Artifacts. Titles and thumbnails keep their editorial appearance with visible keyboard focus; primary actions retain the sage pill and minimum 48px height. Keep "Discuss this work" secondary and carry the public title into contact context. Generate these controls through Portfolio Evidence Workflow and retain the existing preview/discovery owners for state, safety, dismissal, and focus return.
+
 Search remains visible on phones, with secondary filters in a native disclosure. Show selected filter labels when collapsed and offer reset for every active search or filter. Preserve format, practice area, search, and progressive results in the URL.
 
 Artifact previews use the complete phone viewport, a compact title, a scrollable reading area, and persistent full-screen and inquiry actions. Use the same artifact name in the heading, iframe title, and inquiry. Contact channels precede the optional message outline.
 
+## Contact invitations
+
+Invite role and project conversations in plain language across Home, Portfolio, Case Studies, and Contact. Use "Get in touch" for a general contact action. Keep "Discuss this work" contextual and secondary to reviewing evidence, with the public work title carried through the existing Engagement Inquiry Journey. Avoid consultation-only invitations, promises of similar results, and internal implementation terms in public invitations.
+
+Keep direct WhatsApp, email, and LinkedIn channels ahead of the optional message outline. Generic Contact visits remain neutral; contextual visits retain the public title in the summary and channel messages. Preserve contact addresses and response commitments. Use existing native links, readable wrapping labels, minimum control sizes, and visible keyboard focus within the dark editorial theme. Generated Case Study invitations belong to Case Study Publication and must survive Portfolio Evidence Workflow generation.
+
 ## Case study reading flow
 
+Home and the Case Studies index lead with Administrative Communication, Learning Organization Strategy, then Entrepreneurship. Keep every other narrative accessible after these index entries. Case Study Publication owns the generated index order.
+
+On Home, Portfolio, and the index, a Case Study's title, complete thumbnail, and primary action are native links to the same narrative. Label the primary action "Read case study" and place it after the scope/evidence summary, aligned at the bottom of the card. Keep any "Discuss this work" action secondary and preserve its public-title context. Narrative links retain browser navigation and visible keyboard focus; they do not activate Artifact Previews.
+
+Use a capability label, title, and concise source-supported description consistently. Meaningful supporting labels on narrative cards use at least 14px text. Preserve authentic Evidence Photographs and contain Product Thumbnails without cropping their identifying text. Scope describes the designed work; assessment materials alone establish neither confirmed delivery nor measured impact. Keep source-owned evidence limits beside the narrative work samples and retain Artifact identities and preview routes during regeneration.
+
 Case studies lead with a short overview and a direct route to the work samples or reported outcomes. Generated pages show evidence limits once beside the samples; scope and method live in a native, keyboard-accessible disclosure. Keep one contextual contact section and a simple footer. Preserve every artifact ID, preview trigger, source link, and source-managed record when editing the layout. The entrepreneurship page is authored separately and follows the same reading pattern with outcomes and deliverables before optional methodology and participant feedback.
+
+## Compact homepage
+
+Home follows introduction, three selected cases, a brief About/capability summary, credentials, two attributed testimonials, and contact. Keep Explore selected work and Download CV together, retain the portrait and its mobile loading policy, and keep full-portfolio and relevant Practice Area routes visible. Program management supports the learning-design introduction.
+
+Avoid separate skills, process, outcome, and capability grids that repeat the introduction or selected work. Keep supported scope and outcomes beside the relevant work; detailed method and evidence limits belong in the Case Studies and their authoritative source. Retain selected-work destinations when changing the surrounding homepage layout.
+
+List the existing credential names and issuers in native details/summary disclosures, collapsed initially. Label each action View certificate and keep the existing image and descriptive alternative text inside. Use native keyboard behavior and the shared visible focus outline. Let certificate images expand at their natural aspect ratio rather than clipping them.
+
+Use two existing learning-design-relevant testimonials with their complete original wording and attribution. Use two columns on desktop and one on phones, with 24px phone card padding so quotes and attributions have room to wrap. Contact after this evidence welcomes role and project conversations.
+
+Scope these presentation rules under `.home-page`. Supporting labels, issuers, and attributions are at least 14px; Practice Area and selected-work links have at least 44px control height. Use complete 16:9 selected-work thumbnails, wrapping labels, and the shared reduced-motion policy. The About summary uses two columns on desktop and stacks below 768px; credential disclosures remain a single readable column.

@@ -67,7 +67,7 @@ const renderSiteNavigation = (currentPage: string) => `<header>
                 <ul>
                     ${siteNavItems.map(({ href, label }) => `<li${href === currentPage ? ' class="current"' : ''}><a href="${href}">${label}</a></li>`).join('\n                    ')}
                 </ul>
-                <a href="contact.html" class="header-cta">Work With Me</a>
+                <a href="contact.html" class="header-cta">Get in touch</a>
             </nav>
         </div>
     </header>`;
@@ -85,10 +85,10 @@ const renderGeneratedSiteFooter = () => `<footer>
     <div class="container">
       <div class="footer-cta">
         <div class="footer-cta-copy">
-          <h2>Ready to collaborate?</h2>
-          <p>Share your challenge and receive a tailored response within two business days.</p>
+          <h2>Let's talk about learning design</h2>
+          <p>Tell me about the role or project and receive a tailored response within two business days.</p>
         </div>
-        <a href="contact.html" class="cta-button">Book a consultation</a>
+        <a href="contact.html" class="cta-button">Get in touch</a>
       </div>
       <div class="footer-meta">
         <p>&copy; <span id="current-year"></span> Daffa Ghiffary Kusuma. All Rights Reserved.</p>
@@ -346,6 +346,14 @@ const expandPortfolioItems = (
 
 const renderCaseStudyCards = (caseStudies: CaseStudy[]) =>
   [...featuredCaseStudies, ...caseStudies]
+    .sort((a, b) => {
+      const leadPaths = ['case-administrative-communication.html', 'case-learning-organization-strategy.html', 'case-entrepreneurship.html'];
+      const rank = (item: CaseStudyCard) => {
+        const index = leadPaths.indexOf(pagePathFor(item));
+        return index < 0 ? leadPaths.length : index;
+      };
+      return rank(a) - rank(b);
+    })
     .map((caseStudy) => {
       const pagePath = pagePathFor(caseStudy);
       const title = normalizeText(caseStudy.portfolioItemTitle || `${caseStudy.title} Case Study`);
@@ -357,7 +365,7 @@ const renderCaseStudyCards = (caseStudies: CaseStudy[]) =>
                         <p class="portfolio-item-practice-label">${escapeHtml(caseStudy.practiceArea)}</p>
                         <h2><a href="${escapeHtml(pagePath)}">${escapeHtml(title)}</a></h2>
                         <p>${escapeHtml(caseStudy.description || caseStudy.summary)}</p>
-                        <a class="cta-button" href="${escapeHtml(pagePath)}">Read Case Study</a>
+                        <a class="cta-button" href="${escapeHtml(pagePath)}">Read case study</a>
                     </div>
                 </article>`;
     })
@@ -484,7 +492,7 @@ const renderCaseStudyHtml = (caseStudy: CaseStudy) => {
 
     <section class="generated-case-cta">
       <div class="container case-next-step">
-        <div><h2>Have a similar challenge?</h2><p>Tell me what your learners or team need.</p></div>
+        <div><h2>Let's talk about learning design</h2><p>Get in touch about a role or project, or discuss the work shown here.</p></div>
         <a href="${escapeHtml(ctaHref)}" class="cta-button">Discuss this work</a>
       </div>
     </section>

@@ -84,6 +84,23 @@ const renderPortfolioItemCard = (
 ) => {
   const item = portfolioItem;
   const discovery = createPortfolioItemDiscoveryFacts(item);
+  const previewContract = item.sourceType === 'case-study-page' ? null : createArtifactPreviewContract({
+    sourceArtifact: item.sourceArtifact,
+    sourceType: item.sourceType
+  });
+  const createReviewControl = (className: string) => {
+    if (!previewContract) {
+      const link = document.createElement('a');
+      link.className = className;
+      link.href = item.portfolioItemUrl;
+      return link;
+    }
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = `${className} portfolio-preview-trigger`;
+    button.setAttribute('aria-haspopup', 'dialog');
+    return button;
+  };
   const card = document.createElement('div');
   card.className = 'card portfolio-item';
   card.id = item.id;
@@ -92,9 +109,7 @@ const renderPortfolioItemCard = (
 
   const imageWrapper = document.createElement('div');
   imageWrapper.className = 'card-image';
-  const imageLink = document.createElement('a');
-  imageLink.className = 'portfolio-item-thumbnail-link';
-  imageLink.href = item.portfolioItemUrl;
+  const imageLink = createReviewControl('portfolio-item-thumbnail-link');
   const image = document.createElement('img');
   image.src = item.image.src;
   image.alt = item.image.alt || item.title;
@@ -111,9 +126,7 @@ const renderPortfolioItemCard = (
   const content = document.createElement('div');
   content.className = 'card-content';
   const title = document.createElement('h2');
-  const titleLink = document.createElement('a');
-  titleLink.className = 'portfolio-item-title-link';
-  titleLink.href = item.portfolioItemUrl;
+  const titleLink = createReviewControl('portfolio-item-title-link');
   titleLink.textContent = item.title;
   title.append(titleLink);
 
@@ -139,35 +152,36 @@ const renderPortfolioItemCard = (
   actions.className = 'card-actions';
   const discussLink = document.createElement('a');
   discussLink.className = 'portfolio-discuss-link';
-  discussLink.href = item.discussUrl;
+  discussLink.href = previewContract
+    ? `contact.html?${new URLSearchParams({ portfolioItem: item.title })}`
+    : item.discussUrl;
   discussLink.textContent = 'Discuss this work';
   if (item.sourceType === 'case-study-page') {
     const caseStudyLink = document.createElement('a');
     caseStudyLink.className = 'view-details-button portfolio-review-action';
     caseStudyLink.href = item.sourceArtifact;
-    caseStudyLink.textContent = 'Read Case Study';
+    caseStudyLink.textContent = 'Read case study';
     actions.append(caseStudyLink, discussLink);
   } else {
     const detailsButton = document.createElement('button');
     detailsButton.className = 'view-details-button portfolio-review-action';
     detailsButton.type = 'button';
+    detailsButton.setAttribute('aria-haspopup', 'dialog');
     detailsButton.textContent = item.sourceType === 'pdf'
-      ? 'View PDF Artifact'
-      : 'Open Interactive Preview';
-    const previewContract = createArtifactPreviewContract({
-      sourceArtifact: item.sourceArtifact,
-      sourceType: item.sourceType
-    });
+      ? 'Preview PDF'
+      : 'Open interactive preview';
     for (const [attribute, value] of Object.entries(previewContract?.triggerAttributes || {})) {
       detailsButton.setAttribute(attribute, value);
     }
     actions.append(detailsButton, discussLink);
   }
 
-  content.append(title, practiceLabel, metadata, description);
+  if (previewContract) content.append(practiceLabel, title, description);
+  else content.append(practiceLabel, title, metadata, description);
   if ([...item.proof.workQuality, ...item.proof.impact].some((entry) => entry.confidence === 'direct')) {
     content.append(proof);
   }
+  if (previewContract) content.append(metadata);
   content.append(actions);
   card.append(imageWrapper, content);
   return card;
@@ -179,6 +193,11 @@ const renderPortfolioItemCards = (
 ): number => {
   const grid = document.querySelector('.portfolio-items-grid');
   if (!grid) return 0;
+
+  // Old hand-authored card markers no longer describe the generated listing.
+  for (const node of Array.from(grid.childNodes)) {
+    if (node.nodeType === 8 || (node.nodeType === 3 && !node.textContent?.trim())) grid.removeChild(node);
+  }
 
   Array.from(
     grid.querySelectorAll(':scope > .card.portfolio-item:not(.portfolio-item-placeholder)')

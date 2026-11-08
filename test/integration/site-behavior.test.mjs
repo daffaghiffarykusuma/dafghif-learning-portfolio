@@ -10,6 +10,52 @@ afterEach(() => {
 });
 
 describe('site browser behavior', () => {
+  test.each([['pdf', 'Preview PDF'], ['html-viewer', 'Open interactive preview']])(
+    'standalone %s title, thumbnail and action announce and open the same preview', async (format, label) => {
+      createDom(await readPage('portfolio.html'), `http://127.0.0.1/portfolio.html?format=${format}`);
+      await importFresh('../../src/script.ts');
+      fireDOMContentLoaded();
+      const card = document.querySelector(`.portfolio-item[data-format="${format}"]:not([hidden])`);
+      const title = card.querySelector('h2').textContent;
+      const controls = [card.querySelector('h2 button'), card.querySelector('.card-image button'),
+        [...card.querySelectorAll('button')].find((button) => button.textContent === label)];
+      const query = window.location.search;
+      const modal = document.getElementById('pdf-modal');
+      let destination;
+      for (const control of controls) {
+        expect(control).toBeTruthy();
+        expect(control.getAttribute('aria-haspopup')).toBe('dialog');
+        control.focus();
+        control.click(); // This DOM boundary exercises clicks, not native keyboard activation.
+        expect(modal.open).toBe(true);
+        expect(document.getElementById('pdf-modal-title').textContent).toBe(title);
+        const src = document.getElementById('pdf-iframe').src;
+        if (destination) expect(src).toBe(destination);
+        destination = src;
+        expect(window.location.hash).toBe(`#${card.id}`);
+        expect(window.location.search).toBe(query);
+        expect(new URL(document.getElementById('pdf-discuss').href).searchParams.get('portfolioItem')).toBe(title);
+        modal.querySelector('.close-modal').click();
+        expect(document.activeElement).toBe(control);
+        expect(window.location.search).toBe(query);
+      }
+      expect(new URL(card.querySelector('.portfolio-discuss-link').href).searchParams.get('portfolioItem')).toBe(title);
+    }
+  );
+  test.each(['index.html', 'portfolio.html', 'case-entrepreneurship.html'])('the closing invitation welcomes role and project conversations on %s', async (page) => {
+    createDom(await readPage(page), `http://127.0.0.1/${page}`);
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
+    const invitation = document.querySelector('.footer-cta, .generated-case-cta');
+    expect(invitation.textContent).toMatch(/\broles?\b/i);
+    expect(invitation.textContent).toMatch(/\bprojects?\b/i);
+    const action = invitation.querySelector('a');
+    expect(new URL(action.href).pathname).toBe('/contact.html');
+    action.focus();
+    expect(document.activeElement).toBe(action);
+    expect(action.dispatchEvent(new window.MouseEvent('click', { bubbles: true, cancelable: true }))).toBe(true);
+  });
+
   test('contact welcomes role and project inquiries with direct channels before optional guidance', async () => {
     const window = createDom(await readPage('contact.html'), 'http://127.0.0.1/contact.html');
     await importFresh('../../src/script.ts');
@@ -55,6 +101,7 @@ describe('site browser behavior', () => {
     expect(email.pathname).toBe('daffaghifarykusuma@gmail.com');
     expect(email.searchParams.get('subject')).toContain(title);
     expect(email.searchParams.get('body')).toContain(title);
+    expect(email.searchParams.get('body')).not.toContain('Portfolio Item:');
     expect(whatsapp.origin + whatsapp.pathname).toBe('https://wa.me/62895329473179');
     expect(whatsapp.searchParams.get('text')).toBe(email.searchParams.get('body'));
     expect(document.querySelector('.contact-method-card.linkedin').href).toBe('https://www.linkedin.com/in/daffa-ghiffary-kusuma');
@@ -257,6 +304,36 @@ describe('site browser behavior', () => {
     expect(document.querySelector('header nav a[href="case-studies.html"]').parentElement.classList.contains('current')).toBe(true);
   });
 
+  test.each([
+    ['index.html', '.selected-work-card'],
+    ['portfolio.html', '[data-format="case-study-page"]'],
+    ['case-studies.html', '.case-study-card']
+  ])('Case Study titles, thumbnails and primary actions keep native narrative navigation on %s', async (page, selector) => {
+    createDom(await readPage(page), `http://127.0.0.1/${page}`);
+    globalThis.console = window.console;
+    await importFresh('../../src/script.ts');
+    fireDOMContentLoaded();
+    const cards = [...document.querySelectorAll(selector)];
+    expect(cards.length).toBeGreaterThan(0);
+    for (const card of cards) {
+      const title = card.querySelector('h2 a, h3 a');
+      const thumbnail = card.querySelector('a:has(img)');
+      const action = [...card.querySelectorAll('a')].find((link) => link.textContent.trim() === 'Read case study');
+      expect(thumbnail).toBeTruthy();
+      expect(action).toBeTruthy();
+      for (const link of [title, thumbnail, action]) {
+        expect(link.getAttribute('href')).toBe(title.getAttribute('href'));
+        expect(link.getAttribute('href')).toMatch(/^case-.*\.html$/);
+        link.focus();
+        expect(document.activeElement).toBe(link);
+        const click = new window.MouseEvent('click', { bubbles: true, cancelable: true });
+        expect(link.dispatchEvent(click)).toBe(true);
+        expect(click.defaultPrevented).toBe(false);
+      }
+      expect(document.querySelector('#pdf-modal[open]')).toBeNull();
+    }
+  });
+
   test('case study card links keep native navigation instead of being intercepted as previews', async () => {
     const html = await readPage('portfolio.html');
     createDom(html, 'http://127.0.0.1/portfolio.html');
@@ -271,7 +348,7 @@ describe('site browser behavior', () => {
 
     expect(caseStudyButton.getAttribute('href')).toBe('case-learning-organization-strategy.html');
     expect(caseStudyTitle.getAttribute('href')).toBe('case-learning-organization-strategy.html');
-    expect(caseStudyButton.textContent).toBe('Read Case Study');
+    expect(caseStudyButton.textContent).toBe('Read case study');
     expect(caseCard.querySelector('button.view-details-button')).toBeNull();
 
     const buttonClick = new window.MouseEvent('click', { bubbles: true, cancelable: true });
@@ -396,13 +473,48 @@ describe('site browser behavior', () => {
       expect(click.defaultPrevented).toBe(false);
     }
 
-    expect(document.querySelector('[data-practice-area="training"] a[href="portfolio.html?area=training-workshop"]')).not.toBeNull();
-    expect(document.querySelector('[data-practice-area="learning-materials"] a[href="portfolio.html?area=learning-materials"]')).not.toBeNull();
-    expect(document.querySelector('[data-practice-area="analytics"] a[href="portfolio.html?area=learning-analytics"]')).not.toBeNull();
-    expect(document.querySelector('#how-i-work h2')?.textContent).toBe('How I Work');
-    expect(document.querySelectorAll('#how-i-work .approach-steps > li')).toHaveLength(5);
-    expect(document.querySelectorAll('#how-i-work .approach-steps a[href^="case-"]')).toHaveLength(5);
-    expect(document.querySelectorAll('#testimonials .testimonial-card')).toHaveLength(12);
+    for (const area of ['training-workshop', 'learning-materials', 'learning-analytics']) {
+      expect(document.querySelector(`main a[href="portfolio.html?area=${area}"]`)).not.toBeNull();
+    }
+    expect(Array.from(document.querySelectorAll('main h2'), (heading) => heading.textContent)).toEqual([
+      'Selected work for hiring teams', 'About Daffa', 'Credentials', 'What collaborators say'
+    ]);
+  });
+
+  test('homepage credentials keep names visible and certificate images in native disclosures', async () => {
+    createDom(await readPage('index.html'), 'http://127.0.0.1/index.html');
+    const credentials = [
+      ['Full Stack Data Analytics', 'REVOU', 'certificate_full_stack_data_analytics.webp'],
+      ['Critical Thinking: Analyze Problem and Make Decision', 'Dale Carnegie', 'certificate_critical_thinking_analyze_problem_and_make_decision.webp'],
+      ['Introduction to Prompt Engineering', 'IBM', 'certificate_introduction_to_prompt_engineering.webp']
+    ];
+    for (const [name, issuer, image] of credentials) {
+      const disclosure = [...document.querySelectorAll('details')].find((details) => details.querySelector('summary')?.textContent.includes(name));
+      expect(disclosure).toBeTruthy();
+      expect(disclosure.open).toBe(false);
+      const summary = disclosure.querySelector('summary');
+      expect(summary.textContent).toContain(issuer);
+      expect(summary.textContent).toContain('View certificate');
+      expect(disclosure.querySelector('img').getAttribute('src')).toBe(image);
+      expect(disclosure.querySelector('img').getAttribute('alt')).toBeTruthy();
+      expect(summary.hasAttribute('tabindex')).toBe(false);
+      expect(summary.hasAttribute('role')).toBe(false);
+    }
+  });
+
+  test('homepage offers two original attributed learning-design testimonials before contact', async () => {
+    const window = createDom(await readPage('index.html'), 'http://127.0.0.1/index.html');
+    const testimonials = [...document.querySelectorAll('#testimonials article')];
+    expect(testimonials.map((card) => [
+      card.querySelector('.testimonial-quote').textContent,
+      card.querySelector('.testimonial-name').textContent,
+      card.querySelector('.testimonial-role').textContent
+    ])).toEqual([
+      ['"Daffa is a strategic, data-driven expert who delivers exceptional results. His deep analysis ensures training programs are both impactful and tailored to our needs."', 'Nadyatiana Sagita', 'Human Resource Specialist, Rumah Siap Kerja'],
+      ['"Daffa merancang training kami dengan rapi, menyenangkan, dan tepat waktu. Materi yang dibawakan membuat tim langsung siap mengeksekusi."', 'Irvandias Sanjaya, S.Psi., CCP.', 'Founder, Kerja Cer-Dias']
+    ]);
+    const contact = document.querySelector('footer a[href="contact.html"]');
+    expect(testimonials[1].compareDocumentPosition(contact) & window.Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   });
 
   test('homepage keeps its below-fold mobile hero image out of the critical request path', async () => {

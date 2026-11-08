@@ -101,6 +101,87 @@ const jsonOutputFor = (workflow, type) =>
   JSON.parse(outputFor(workflow, type).contents);
 
 describe('Portfolio Evidence Workflow', () => {
+  test('publishes role and project invitations with contextual discussion after the work samples', async () => {
+    const source = await Bun.file(new URL('../../assets/data/portfolio-source.json', import.meta.url)).json();
+    const proof = await Bun.file(new URL('../../assets/data/portfolio-proof-points.json', import.meta.url)).json();
+    const workflow = createPortfolioEvidenceWorkflow({ portfolioHtml, portfolioSource: source, proofSource: proof, generatedFrom: 'assets/data/portfolio-source.json' });
+    for (const item of source.caseStudies) {
+      const document = new Window().document;
+      document.write(workflow.outputs.find((output) => output.outputPath === item.pagePath).contents);
+      const invitation = document.querySelector('.generated-case-cta');
+      expect(invitation.textContent).toMatch(/\broles?\b/i);
+      expect(invitation.textContent).toMatch(/\bprojects?\b/i);
+      const discussion = [...invitation.querySelectorAll('a')].find((link) => link.textContent === 'Discuss this work');
+      expect(discussion).toBeTruthy();
+      expect(new URL(discussion.href, 'https://portfolio.test').searchParams.get('portfolioItem')).toBe(item.portfolioItemTitle || item.title);
+      expect(document.querySelector('#work-samples').compareDocumentPosition(invitation) & 4).toBeTruthy();
+    }
+  });
+
+  test('publishes narrative capability before the title while retaining source-supported scope and native destinations', async () => {
+    const source = await Bun.file(new URL('../../assets/data/portfolio-source.json', import.meta.url)).json();
+    const proof = await Bun.file(new URL('../../assets/data/portfolio-proof-points.json', import.meta.url)).json();
+    const workflow = createPortfolioEvidenceWorkflow({ portfolioHtml, portfolioSource: source, proofSource: proof, generatedFrom: 'assets/data/portfolio-source.json' });
+    const document = new Window().document;
+    document.write(outputFor(workflow, 'portfolio-html').contents);
+    for (const item of source.caseStudies) {
+      const card = document.getElementById(item.id);
+      const content = card.querySelector('.card-content');
+      expect(content.firstElementChild.textContent).toBe(item.practiceArea);
+      expect(content.textContent).toContain(item.description);
+      const links = [card.querySelector('h2 a'), card.querySelector('a:has(img)'), card.querySelector('.portfolio-review-action')];
+      expect(links.map((link) => link.getAttribute('href'))).toEqual([item.pagePath, item.pagePath, item.pagePath]);
+      expect(links[2].textContent).toBe('Read case study');
+      expect(card.querySelector('[data-pdf], [data-viewer]')).toBeNull();
+    }
+  });
+
+  test('publishes the Home lead cases first on the index and retains every remaining narrative after regeneration', async () => {
+    const source = await Bun.file(new URL('../../assets/data/portfolio-source.json', import.meta.url)).json();
+    const proof = await Bun.file(new URL('../../assets/data/portfolio-proof-points.json', import.meta.url)).json();
+    const input = { portfolioHtml, portfolioSource: source, proofSource: proof, generatedFrom: 'assets/data/portfolio-source.json', generatedAt: '2026-11-07T00:00:00.000Z' };
+    const workflow = createPortfolioEvidenceWorkflow(input);
+    const index = workflow.outputs.find((output) => output.outputPath === 'case-studies.html');
+    const document = new Window().document;
+    document.write(index.contents);
+    const destinations = [...document.querySelectorAll('.case-study-card h2 a')].map((link) => link.getAttribute('href'));
+    expect(destinations.slice(0, 3)).toEqual(['case-administrative-communication.html', 'case-learning-organization-strategy.html', 'case-entrepreneurship.html']);
+    expect(destinations).toHaveLength(source.caseStudies.length + 1);
+    expect(new Set(destinations).size).toBe(destinations.length);
+    expect(destinations).toEqual(expect.arrayContaining(source.caseStudies.map((item) => item.pagePath)));
+    const regenerated = createPortfolioEvidenceWorkflow({ ...input, portfolioHtml: outputFor(workflow, 'portfolio-html').contents });
+    expect(regenerated.outputs.find((output) => output.outputPath === 'case-studies.html')).toEqual(index);
+  });
+
+  test('standalone discussion uses the displayed title even when its source has a legacy short inquiry title', () => {
+    const source = structuredClone(workflowSource);
+    source.portfolioItems[0].discussUrl = 'contact.html?portfolioItem=Short%20title';
+    const workflow = createPortfolioEvidenceWorkflow({ portfolioHtml, portfolioSource: source,
+      proofSource, generatedFrom: 'assets/data/portfolio-source.json' });
+    const document = new Window().document;
+    document.write(outputFor(workflow, 'portfolio-html').contents);
+    const href = document.querySelector('#default-deck .portfolio-discuss-link').getAttribute('href');
+    expect(new URL(href, 'https://example.test').searchParams.get('portfolioItem')).toBe('Default Deck');
+  });
+  test.each([
+    ['default-deck', 'Preview PDF', 'pdf', 'assets/pdf/portfolio/example.pdf', 'Default Deck'],
+    ['custom-deck', 'Open interactive preview', 'viewer', 'assets/portfolio-viewers/custom-deck.html', 'Custom Deck']
+  ])('publishes three semantic preview controls with one Artifact destination for %s', (id, label, attribute, destination, title) => {
+    const workflow = createPortfolioEvidenceWorkflow({ portfolioHtml, portfolioSource: workflowSource,
+      proofSource, generatedFrom: 'assets/data/portfolio-source.json' });
+    const document = new Window().document;
+    document.write(outputFor(workflow, 'portfolio-html').contents);
+    const card = document.getElementById(id);
+    const controls = [card.querySelector('h2 button'), card.querySelector('.card-image button'),
+      [...card.querySelectorAll('button')].find((button) => button.textContent === label)];
+    for (const control of controls) {
+      expect(control).toBeTruthy();
+      expect(control.type).toBe('button');
+    }
+    expect(controls[2].dataset[attribute]).toBe(destination);
+    expect(new URL(card.querySelector('.portfolio-discuss-link').getAttribute('href'), 'https://example.test')
+      .searchParams.get('portfolioItem')).toBe(title);
+  });
   test('publishes source-owned review guidance and a working starting Artifact for both lead design cases', async () => {
     const source = await Bun.file(new URL('../../assets/data/portfolio-source.json', import.meta.url)).json();
     const actualProofSource = await Bun.file(new URL('../../assets/data/portfolio-proof-points.json', import.meta.url)).json();
@@ -208,9 +289,9 @@ describe('Portfolio Evidence Workflow', () => {
       html.indexOf('id="default-deck"')
     );
     expect(html).toContain('data-viewer="assets/portfolio-viewers/custom-deck.html"');
-    expect(html).toContain('Open Interactive Preview');
+    expect(html).toContain('Open interactive preview');
     expect(html).toContain('data-pdf="assets/pdf/portfolio/example.pdf"');
-    expect(html).toContain('View PDF Artifact');
+    expect(html).toContain('Preview PDF');
     expect(catalog.portfolioItems.map((item) => item.id)).toEqual([
       'custom-deck',
       'default-deck'
@@ -339,7 +420,6 @@ describe('Case Study Publication', () => {
     expect(detailPage.html).toContain('<link href="assets/data/portfolio-ai-context.json" rel="alternate" title="Portfolio AI Context" type="application/json">');
     expect(detailPage.html).toContain('<link rel="stylesheet" href="src/styles/style.css">');
     expect(detailPage.html).toContain('data-page-kind="case-study" data-page-path="case-sample-learning-program.html" data-navigation-page="case-studies.html"');
-    expect(detailPage.html).toContain('Have a similar challenge?');
     expect(detailPage.html).not.toContain('Reviewer Context');
     expect(detailPage.html.match(/Direct outcomes are not claimed\./g)).toHaveLength(1);
     expect(detailPage.html.indexOf('id="work-samples"')).toBeLessThan(detailPage.html.indexOf('id="approach"'));

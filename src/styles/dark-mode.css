@@ -240,7 +240,7 @@ body.contact-page { background: var(--paper); padding: var(--header-height) 0 0;
 .contact-page .contact-method-detail { font-size: 15px; }
 .contact-page .contact-method-desc { font-size: 14px; }
 .case-study-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.case-study-card-image img { aspect-ratio: 16 / 9; object-fit: cover; }
+.case-study-card-image img { aspect-ratio: 16 / 9; object-fit: contain; }
 @media (max-width: 767px) {
     body.contact-page { padding-top: var(--mobile-header-height); }
     .case-study-card-grid { grid-template-columns: 1fr; }
@@ -336,6 +336,14 @@ body.contact-page { background: var(--paper); padding: var(--header-height) 0 0;
 .selected-work-card h3 a { color: var(--ink); }
 .selected-work-card p { margin: 0; font-size: 14px; }
 .selected-work-link { margin-top: auto; display: inline-flex; align-items: center; min-height: 44px; text-underline-offset: 5px; }
+.selected-work-card .card-image > a { display: block; width: 100%; height: 100%; }
+.selected-work-card .card-content { flex: 1; }
+.case-study-card-body .portfolio-item-practice-label,
+#portfolio-items [data-format="case-study-page"] .portfolio-item-practice-label,
+#portfolio-items [data-format="case-study-page"] .portfolio-item-meta,
+#selected-work .selected-work-card .portfolio-item-meta { font-size: 14px; line-height: 1.5; }
+.case-study-card-body h2 a { color: var(--ink); }
+.case-study-card-body .cta-button { min-height: 48px; }
 .portfolio-filter-details summary { cursor: pointer; color: var(--ink); min-height: 44px; line-height: 1.5; padding: 10px 0; box-sizing: border-box; }
 #portfolio-active-filters { color: var(--muted); font-size: 13px; margin-left: 12px; }
 .portfolio-filter-details #portfolio-item-filters { margin: 12px 0 20px; gap: 8px; }
@@ -351,6 +359,20 @@ body.contact-page { background: var(--paper); padding: var(--header-height) 0 0;
 #portfolio-items .view-details-button.portfolio-review-action { background: var(--accent) !important; color: var(--paper) !important; border-color: var(--accent) !important; min-height: 48px; padding: 12px 20px; }
 #portfolio-items .portfolio-review-action:hover { background: var(--accent-hover) !important; }
 .portfolio-discuss-link { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; font-size: 14px; text-underline-offset: 5px; }
+/* Standalone Artifact controls share preview behavior without button chrome on titles and covers. */
+#portfolio-items button.portfolio-preview-trigger { appearance: none; border: 0; padding: 0; background: transparent; color: inherit; font: inherit; text-align: inherit; cursor: pointer; }
+#portfolio-items .portfolio-item-thumbnail-link { width: 100%; height: 100%; }
+#portfolio-items .portfolio-item-thumbnail-link img { display: block; width: 100%; height: 100%; object-fit: contain; }
+#portfolio-items .portfolio-item-title-link { min-height: 44px; }
+#portfolio-items .portfolio-preview-trigger:hover { color: var(--accent); }
+#portfolio-items .portfolio-preview-trigger:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+#portfolio-items .portfolio-item:not([data-format="case-study-page"]) .card-content { display: flex; flex-direction: column; gap: 12px; flex: 1; }
+#portfolio-items .portfolio-item:not([data-format="case-study-page"]) .card-content > :is(h2, p, .portfolio-item-practice-label) { margin: 0; flex-grow: 0; }
+#portfolio-items .portfolio-item:not([data-format="case-study-page"]) .portfolio-item-practice-label { align-self: flex-start; font-size: 14px; line-height: 1.5; }
+#portfolio-items .portfolio-item:not([data-format="case-study-page"]) :is(.portfolio-item-meta, .portfolio-item-proof) { font-size: 14px; line-height: 1.6; }
+#portfolio-items .portfolio-item:not([data-format="case-study-page"]) .card-content > p { overflow: visible; display: block; -webkit-line-clamp: unset; }
+#portfolio-items .portfolio-item:not([data-format="case-study-page"]) .card-actions { margin-top: auto; }
+#portfolio-items .portfolio-review-action { white-space: normal; line-height: 1.5; }
 .publications-grid { display: grid; max-width: 720px; }
 
 /* Channels should be visible before the contact process explanation. */
@@ -413,4 +435,36 @@ body.contact-page { background: var(--paper); padding: var(--header-height) 0 0;
     #pdf-modal-meta { font-size: 12px; }
     .pdf-modal-actions { padding: 10px 12px max(10px, env(safe-area-inset-bottom)); gap: 8px; }
     .pdf-modal-actions > a { flex: 1; padding: 8px; font-size: 13px; }
+}
+/* Compact Home: keep the reading path and supporting evidence easy to scan. */
+.home-page .home-about { display: grid; grid-template-columns: 1fr 2fr; gap: 32px; align-items: start; }
+.home-page .home-about p { color: var(--muted); max-width: 740px; margin: 0 0 20px; }
+.home-page .home-practice-links { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-bottom: 20px; }
+.home-page .home-practice-links a { display: inline-flex; align-items: center; min-height: 44px; text-underline-offset: 5px; font-size: 15px; }
+.home-page .hero-eyebrow, .home-page .portfolio-item-meta, .home-page .hero-metric .metric-label { font-size: 14px; }
+.home-page .selected-work-card .card-image { aspect-ratio: 16 / 9; height: auto; }
+.home-page .selected-work-card .card-image img { width: 100%; height: 100%; object-fit: contain; }
+.home-page .selected-work-link { display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; }
+.home-page .certifications-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 0; }
+.home-page .home-credential { border: 1px solid var(--line); border-radius: 10px; background: var(--color-surface); }
+.home-page .home-credential summary { cursor: pointer; padding: 20px 24px; min-height: 48px; color: var(--ink); font-size: 16px; line-height: 1.6; }
+.home-page .credential-name { font-weight: 600; }
+.home-page .credential-issuer { color: var(--muted); margin-left: 16px; font-size: 14px; }
+.home-page .credential-action { display: block; color: var(--accent); font-size: 14px; margin-left: 20px; }
+.home-page .credential-image { padding: 0 24px 24px; }
+.home-page .credential-image img { display: block; width: 100%; max-width: 760px; height: auto; margin: auto; }
+.home-page .testimonial-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.home-page .testimonial-card { min-width: 0; }
+.home-page .testimonial-name { font-size: 16px; }
+.home-page .testimonial-role { font-size: 14px; }
+.home-page .testimonial-footer > div { min-width: 0; }
+.home-page .testimonial-avatar { flex-shrink: 0; }
+@media (max-width: 767px) {
+    .home-page .home-about, .home-page .testimonial-grid { grid-template-columns: 1fr; }
+    .home-page .home-about { gap: 12px; }
+    .home-page .home-credential summary { padding: 18px; }
+    .home-page .credential-issuer { display: block; margin-left: 20px; }
+    .home-page .credential-image { padding: 0 16px 16px; }
+    .home-page .testimonial-card { padding: 24px; }
+    .home-page .testimonial-grid { width: 100%; }
 }
