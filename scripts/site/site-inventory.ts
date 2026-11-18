@@ -2,7 +2,8 @@ import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { gzipSync } from 'node:zlib';
 
-const DEFAULT_IGNORED_DIRS = new Set(['.git', '.vscode', 'dist', 'node_modules', 'output', 'tmp']);
+// page-sources/ holds Site Page Sources; their generated root pages are what ships and gets validated.
+const DEFAULT_IGNORED_DIRS = new Set(['.git', '.vscode', 'dist', 'node_modules', 'output', 'page-sources', 'tmp']);
 
 type SourceUrlAttribute = { attr: string; value: string };
 type SourceHtmlPage = {

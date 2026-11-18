@@ -13,8 +13,7 @@ const validPortfolioItem = {
   image: { src: 'assets/images/portfolio/sample.webp', alt: 'Sample deck thumbnail' },
   sourceArtifact: 'assets/pdf/portfolio/sample.pdf',
   sourceType: 'pdf',
-  portfolioItemUrl: 'portfolio.html#sample-deck',
-  discussUrl: 'contact.html?portfolioItem=Sample%20Deck'
+  portfolioItemUrl: 'portfolio.html#sample-deck'
 };
 
 const validCaseStudy = {
@@ -27,7 +26,6 @@ const validCaseStudy = {
   summary: 'Shows the program from diagnosis through evaluation.',
   image: { src: 'assets/images/portfolio/case-sample.webp', alt: 'Sample case thumbnail' },
   pagePath: 'case-sample-program.html',
-  outputPath: 'assets/portfolio-viewers/case-sample-program.html',
   reviewerContext: [],
   caseFlow: [],
   artifacts: [
@@ -76,7 +74,6 @@ describe('Portfolio Item Source validation', () => {
       ...validCaseStudy,
       id: 'case-other-program',
       pagePath: 'case-other-program.html',
-      outputPath: 'assets/portfolio-viewers/case-other-program.html',
       artifacts: [{ ...validCaseStudy.artifacts[0], id: 'artifact-other-case' }]
     });
 
@@ -133,6 +130,7 @@ describe('Portfolio Item Source validation', () => {
       id: 'case-second-program',
       pagePath: validCaseStudy.pagePath,
       outputPath: '../case-second-program.html',
+      discussUrl: 'contact.html?portfolioItem=Hand%20written',
       absorbedPortfolioItemIds: ['missing-item'],
       artifacts: [
         validCaseStudy.artifacts[0],
@@ -160,7 +158,8 @@ describe('Portfolio Item Source validation', () => {
     expect(result.failures).toContain('assets/data/portfolio-source.json: Portfolio Item "sample-deck" is missing title');
     expect(result.failures).toContain('assets/data/portfolio-source.json: Portfolio Item "sample-deck" uses unknown Practice Area "Unknown Practice"');
     expect(result.failures).toContain('assets/data/portfolio-source.json: duplicate Case Study pagePath "case-sample-program.html"');
-    expect(result.failures).toContain('assets/data/portfolio-source.json: Case Study "case-second-program" outputPath must be a project-relative .html path');
+    expect(result.failures).toContain('assets/data/portfolio-source.json: Case Study "case-second-program" outputPath is derived by Case Study Publication; remove it from the source');
+    expect(result.failures).toContain('assets/data/portfolio-source.json: Case Study "case-second-program" discussUrl is derived by Case Study Publication; remove it from the source');
     expect(result.failures).toContain('assets/data/portfolio-source.json: Case Study "case-second-program" absorbs missing Portfolio Item "missing-item"');
     expect(result.failures).toContain('assets/data/portfolio-source.json: duplicate Case Study "case-second-program" Artifact id "artifact-sample-plan"');
     expect(result.failures).toContain('assets/data/portfolio-source.json: Case Study "case-second-program" Artifact "artifact-sample-plan" is missing title');

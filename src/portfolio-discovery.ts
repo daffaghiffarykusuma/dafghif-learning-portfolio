@@ -5,30 +5,69 @@ const normalizeFormat = (value: unknown) => FORMATS.has(String(value)) ? String(
 
 // Generation and browser controls share these identities. Tags add related work;
 // they never choose the declared Practice Area's label or destination.
-const practiceAreas = [
-    ['training-workshop', 'Custom Training & Workshops'],
-    ['instructional-design', 'Instructional Design'],
-    ['learning-materials', 'Learning Materials'],
-    ['assessment', 'Assessment & Evaluation'],
-    ['learning-analytics', 'Learning Analytics'],
-    ['training-needs-analysis', 'Training Needs Analysis'],
-    ['curriculum-development', 'Curriculum Development'],
-    ['training-proposal', 'Training Proposal'],
-    ['learning-strategy', 'L&D Strategy'],
-    ['presentation-design', 'Presentation Design'],
-    ['mentoring', 'Mentoring & Coaching'],
-    ['mentoring-speaking', 'Mentoring & Speaking'],
-    ['legacy-project', 'Review: Legacy Project']
-].map(([value, label]) => ({ value, label }));
+// `filter` names where each Practice Area appears among the discovery controls:
+// a primary filter button, an additional topic, or only in the full area list.
+type DiscoveryFilter = { value: string; label: string };
+type PracticeAreaFilter = DiscoveryFilter & { filter: 'primary' | 'topic' | 'area-only' };
+
+const practiceAreas: readonly PracticeAreaFilter[] = [
+    { value: 'training-workshop', label: 'Custom Training & Workshops', filter: 'primary' },
+    { value: 'instructional-design', label: 'Instructional Design', filter: 'primary' },
+    { value: 'learning-materials', label: 'Learning Materials', filter: 'primary' },
+    { value: 'assessment', label: 'Assessment & Evaluation', filter: 'primary' },
+    { value: 'learning-analytics', label: 'Learning Analytics', filter: 'primary' },
+    { value: 'training-needs-analysis', label: 'Training Needs Analysis', filter: 'topic' },
+    { value: 'curriculum-development', label: 'Curriculum Development', filter: 'topic' },
+    { value: 'training-proposal', label: 'Training Proposal', filter: 'topic' },
+    { value: 'learning-strategy', label: 'L&D Strategy', filter: 'topic' },
+    { value: 'presentation-design', label: 'Presentation Design', filter: 'topic' },
+    { value: 'mentoring', label: 'Mentoring & Coaching', filter: 'topic' },
+    { value: 'mentoring-speaking', label: 'Mentoring & Speaking', filter: 'area-only' },
+    { value: 'legacy-project', label: 'Review: Legacy Project', filter: 'area-only' }
+];
+
+// Additional topics that are tags, not Practice Areas.
+const topicTags: readonly DiscoveryFilter[] = [
+    { value: 'worksheet', label: 'Worksheets' }
+];
+
+// Order of the additional-topic menu, by filter value.
+const topicOrder = [
+    'training-needs-analysis',
+    'curriculum-development',
+    'training-proposal',
+    'worksheet',
+    'learning-strategy',
+    'presentation-design',
+    'mentoring'
+];
+
+const toFilter = ({ value, label }: DiscoveryFilter): DiscoveryFilter => ({ value, label });
+const topicCandidates = [...practiceAreas.filter(({ filter }) => filter === 'topic'), ...topicTags];
 
 export const portfolioDiscoveryFilters = {
-    areas: [{ value: 'all', label: 'All practice areas' }, ...practiceAreas],
-    primaryAreas: [{ value: 'all', label: 'All' }, ...practiceAreas.slice(0, 5)],
-    topics: [
-        ...practiceAreas.slice(5, 8),
-        { value: 'worksheet', label: 'Worksheets' },
-        ...practiceAreas.slice(8, 11)
-    ]
+    areas: [{ value: 'all', label: 'All practice areas' }, ...practiceAreas.map(toFilter)],
+    primaryAreas: [
+        { value: 'all', label: 'All' },
+        ...practiceAreas.filter(({ filter }) => filter === 'primary').map(toFilter)
+    ],
+    topics: topicOrder.map((value) => {
+        const topic = topicCandidates.find((candidate) => candidate.value === value);
+        if (!topic) throw new Error(`Portfolio Item Discovery topic order names an unknown topic: ${value}`);
+        return toFilter(topic);
+    })
+};
+
+/**
+ * Checks a `portfolio.html` link's discovery parameters against the known filter
+ * identities. Returns the parameter names whose values no filter recognizes.
+ */
+export const unknownPortfolioDiscoveryParams = (search: string) => {
+    const params = new URLSearchParams(search);
+    // Discovery matches both parameters against item categories, which carry
+    // Practice Area values and topic tags alike.
+    const knownValues = new Set([...portfolioDiscoveryFilters.areas, ...portfolioDiscoveryFilters.topics].map(({ value }) => value));
+    return ['area', 'tag'].filter((name) => params.has(name) && !knownValues.has(params.get(name) || ''));
 };
 
 export const createPortfolioItemDiscoveryFacts = (item: { practiceArea: string; tags: string[] }) => {

@@ -13,6 +13,11 @@
     "project-rancangan-sistem-asesmen-kompetensi-project-management",
     "project-score-audit-corrections"
   ],
+  "featuredCaseStudyIds": [
+    "case-administrative-communication-learning-program",
+    "case-learning-organization-strategy-evaluation-system",
+    "case-entrepreneurship-program"
+  ],
   "caseStudies": [
     {
       "id": "case-employee-assessment-bootcamp",
@@ -35,9 +40,7 @@
         "alt": "Anonymized employee assessment bootcamp team photo"
       },
       "pagePath": "case-employee-assessment-bootcamp.html",
-      "outputPath": "assets/portfolio-viewers/employee-assessment-bootcamp-case-study.html",
       "portfolioItemUrl": "case-employee-assessment-bootcamp.html",
-      "discussUrl": "contact.html?portfolioItem=Employee Assessment Bootcamp Case Study",
       "reviewerContext": [
         {
           "label": "Use case",
@@ -131,9 +134,7 @@
         "alt": "Administrative Communication Learning Program Case Study thumbnail"
       },
       "pagePath": "case-administrative-communication.html",
-      "outputPath": "assets/portfolio-viewers/bnsp4-administrative-communication-case-study.html",
       "portfolioItemUrl": "case-administrative-communication.html",
-      "discussUrl": "contact.html?portfolioItem=Administrative Communication Learning Program Case Study",
       "reviewerContext": [
         {
           "label": "Use case",
@@ -306,9 +307,7 @@
         "alt": "Learning Organization Strategy and Evaluation System Case Study thumbnail"
       },
       "pagePath": "case-learning-organization-strategy.html",
-      "outputPath": "assets/portfolio-viewers/bnsp6-learning-organization-case-study.html",
       "portfolioItemUrl": "case-learning-organization-strategy.html",
-      "discussUrl": "contact.html?portfolioItem=Learning Organization Strategy and Evaluation System Case Study",
       "reviewerContext": [
         {
           "label": "Use case",
@@ -502,9 +501,7 @@
         "alt": "Youth mentoring workbook and pitch readiness case study thumbnail"
       },
       "pagePath": "case-ybb-mentoring-workbook.html",
-      "outputPath": "assets/portfolio-viewers/ybb-mentoring-workbook-case-study.html",
       "portfolioItemUrl": "case-ybb-mentoring-workbook.html",
-      "discussUrl": "contact.html?portfolioItem=Youth Mentoring Workbook and Pitch Readiness Case Study",
       "reviewerContext": [
         {
           "label": "Use case",
@@ -628,9 +625,7 @@
         "alt": "Applied leadership development program case study thumbnail"
       },
       "pagePath": "case-applied-leadership-development.html",
-      "outputPath": "assets/portfolio-viewers/applied-leadership-development-case-study.html",
       "portfolioItemUrl": "case-applied-leadership-development.html",
-      "discussUrl": "contact.html?portfolioItem=Applied Leadership Development Program Case Study",
       "reviewerContext": [
         {
           "label": "Use case",
@@ -721,9 +716,7 @@
         "alt": "Career Readiness Toolkit Case Study thumbnail"
       },
       "pagePath": "case-career-readiness-toolkit.html",
-      "outputPath": "assets/portfolio-viewers/career-readiness-toolkit-case-study.html",
       "portfolioItemUrl": "case-career-readiness-toolkit.html",
-      "discussUrl": "contact.html?portfolioItem=Career Readiness Toolkit Case Study",
       "reviewerContext": [
         {
           "label": "Use case",
@@ -828,6 +821,19 @@
       ]
     }
   ],
+  "authoredCaseStudies": [
+    {
+      "id": "case-entrepreneurship-program",
+      "portfolioItemTitle": "Entrepreneurship Program for 5,000+ SMK Students",
+      "practiceArea": "Custom Training & Workshops",
+      "description": "A multi-city entrepreneurship learning journey for vocational students, combining curriculum design, mentor enablement, facilitation, and measurement.",
+      "pagePath": "case-entrepreneurship.html",
+      "image": {
+        "src": "assets/images/portfolio/smk.webp",
+        "alt": "Entrepreneurship program case study thumbnail"
+      }
+    }
+  ],
   "portfolioItems": [
     {
       "id": "project-leading-with-clarity-proposal",
@@ -846,8 +852,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/proposal_leading_with_clarity.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-leading-with-clarity-proposal",
-      "discussUrl": "contact.html?portfolioItem=Leading with Clarity Workshop Proposal"
+      "portfolioItemUrl": "portfolio.html#project-leading-with-clarity-proposal"
     },
     {
       "id": "project-self-leadership-career-transition",
@@ -867,7 +872,6 @@
       "sourceArtifact": "assets/pdf/portfolio/self_leadership_career_transition.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-self-leadership-career-transition",
-      "discussUrl": "contact.html?portfolioItem=Self-Leadership for Career Transition",
       "audience": "Emerging professionals"
     },
     {
@@ -887,7 +891,6 @@
       "sourceArtifact": "assets/portfolio-viewers/need-analysis-framework-training-coaching.html",
       "sourceType": "html-viewer",
       "portfolioItemUrl": "portfolio.html#project-training-and-coaching-need-analysis-framework",
-      "discussUrl": "contact.html?portfolioItem=Training and Coaching Need Analysis Framework",
       "audience": "Consultants"
     },
     {
@@ -906,8 +909,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/need_assessment_communication_between_departments.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-need-assessment-cross-department-communication",
-      "discussUrl": "contact.html?portfolioItem=Need Assessment: Cross-Department Communication"
+      "portfolioItemUrl": "portfolio.html#project-need-assessment-cross-department-communication"
     },
     {
       "id": "project-need-assessment-manager-communication-to-staff",
@@ -925,8 +927,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/need_assessment_manager_communication_to_staff.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-need-assessment-manager-communication-to-staff",
-      "discussUrl": "contact.html?portfolioItem=Need Assessment: Manager Communication to Staff"
+      "portfolioItemUrl": "portfolio.html#project-need-assessment-manager-communication-to-staff"
     },
     {
       "id": "project-recruitment-assessment-blueprint",
@@ -943,8 +944,7 @@
       },
       "sourceArtifact": "assets/portfolio-viewers/recruitment-assessment-blueprint.html",
       "sourceType": "html-viewer",
-      "portfolioItemUrl": "portfolio.html#project-recruitment-assessment-blueprint",
-      "discussUrl": "contact.html?portfolioItem=Recruitment Assessment Blueprint"
+      "portfolioItemUrl": "portfolio.html#project-recruitment-assessment-blueprint"
     },
     {
       "id": "project-rancangan-sistem-asesmen-kompetensi-project-management",
@@ -963,8 +963,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/proposal_rancangan_sistem_asesmen_kompetensi_project_management.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-rancangan-sistem-asesmen-kompetensi-project-management",
-      "discussUrl": "contact.html?portfolioItem=Project Management Competency Assessment"
+      "portfolioItemUrl": "portfolio.html#project-rancangan-sistem-asesmen-kompetensi-project-management"
     },
     {
       "id": "project-miles-unfair-advantage-mentoring-workbook",
@@ -982,8 +981,7 @@
       },
       "sourceArtifact": "assets/portfolio-viewers/miles-unfair-advantage-mentoring-workbook.html",
       "sourceType": "html-viewer",
-      "portfolioItemUrl": "portfolio.html#project-miles-unfair-advantage-mentoring-workbook",
-      "discussUrl": "contact.html?portfolioItem=MILES Unfair Advantage Mentoring Workbook"
+      "portfolioItemUrl": "portfolio.html#project-miles-unfair-advantage-mentoring-workbook"
     },
     {
       "id": "project-mentoring-workbook-week-1-idea-exploration",
@@ -1000,8 +998,7 @@
       },
       "sourceArtifact": "assets/portfolio-viewers/ybb-mentoring-workbook-week-1.html",
       "sourceType": "html-viewer",
-      "portfolioItemUrl": "portfolio.html#project-mentoring-workbook-week-1-idea-exploration",
-      "discussUrl": "contact.html?portfolioItem=Mentoring Workbook: Week 1 Idea Exploration"
+      "portfolioItemUrl": "portfolio.html#project-mentoring-workbook-week-1-idea-exploration"
     },
     {
       "id": "project-mentoring-workbook-week-2-concept-development",
@@ -1018,8 +1015,7 @@
       },
       "sourceArtifact": "assets/portfolio-viewers/ybb-mentoring-workbook-week-2.html",
       "sourceType": "html-viewer",
-      "portfolioItemUrl": "portfolio.html#project-mentoring-workbook-week-2-concept-development",
-      "discussUrl": "contact.html?portfolioItem=Mentoring Workbook: Week 2 Concept Development"
+      "portfolioItemUrl": "portfolio.html#project-mentoring-workbook-week-2-concept-development"
     },
     {
       "id": "project-mentoring-workbook-week-3-presentation-readiness",
@@ -1037,8 +1033,7 @@
       },
       "sourceArtifact": "assets/portfolio-viewers/ybb-mentoring-workbook-week-3.html",
       "sourceType": "html-viewer",
-      "portfolioItemUrl": "portfolio.html#project-mentoring-workbook-week-3-presentation-readiness",
-      "discussUrl": "contact.html?portfolioItem=Mentoring Workbook: Week 3 Presentation Readiness"
+      "portfolioItemUrl": "portfolio.html#project-mentoring-workbook-week-3-presentation-readiness"
     },
     {
       "id": "project-pitch-deck-template-week-4",
@@ -1056,8 +1051,7 @@
       },
       "sourceArtifact": "assets/portfolio-viewers/ybb-pitch-deck-template-week-4.html",
       "sourceType": "html-viewer",
-      "portfolioItemUrl": "portfolio.html#project-pitch-deck-template-week-4",
-      "discussUrl": "contact.html?portfolioItem=Pitch Deck Template: Week 4"
+      "portfolioItemUrl": "portfolio.html#project-pitch-deck-template-week-4"
     },
     {
       "id": "project-learning-from-abroad-education-and-career-pathways",
@@ -1075,8 +1069,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/scholarship_powerpoint.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-learning-from-abroad-education-and-career-pathways",
-      "discussUrl": "contact.html?portfolioItem=Learning from Abroad: Education and Career Pathways"
+      "portfolioItemUrl": "portfolio.html#project-learning-from-abroad-education-and-career-pathways"
     },
     {
       "id": "project-digital-marketing-portfolio-workshop-deck",
@@ -1093,8 +1086,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/digital_marketing_portfolio_powerpoint.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-digital-marketing-portfolio-workshop-deck",
-      "discussUrl": "contact.html?portfolioItem=Digital Marketing Portfolio Workshop Deck"
+      "portfolioItemUrl": "portfolio.html#project-digital-marketing-portfolio-workshop-deck"
     },
     {
       "id": "project-theory-of-change-as-program-framework",
@@ -1110,8 +1102,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/toc.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-theory-of-change-as-program-framework",
-      "discussUrl": "contact.html?portfolioItem=Theory of Change as Program Framework"
+      "portfolioItemUrl": "portfolio.html#project-theory-of-change-as-program-framework"
     },
     {
       "id": "project-entrepreneurship-online-class",
@@ -1127,8 +1118,7 @@
       },
       "sourceArtifact": "assets/portfolio-viewers/entrepreneurship-online-class.html",
       "sourceType": "html-viewer",
-      "portfolioItemUrl": "portfolio.html#project-entrepreneurship-online-class",
-      "discussUrl": "contact.html?portfolioItem=Online Class"
+      "portfolioItemUrl": "portfolio.html#project-entrepreneurship-online-class"
     },
     {
       "id": "project-training-for-trainer-experiential-learning-and-coaching",
@@ -1144,8 +1134,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/training_for_trainer.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-training-for-trainer-experiential-learning-and-coaching",
-      "discussUrl": "contact.html?portfolioItem=Training for Trainer"
+      "portfolioItemUrl": "portfolio.html#project-training-for-trainer-experiential-learning-and-coaching"
     },
     {
       "id": "project-entrepreneurship-mentorship-for-sandination-community",
@@ -1161,8 +1150,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/sandination_mentorship.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-entrepreneurship-mentorship-for-sandination-community",
-      "discussUrl": "contact.html?portfolioItem=Sandination Mentorship"
+      "portfolioItemUrl": "portfolio.html#project-entrepreneurship-mentorship-for-sandination-community"
     },
     {
       "id": "project-3rd-winner-in-kumpul-jasa-jember-competition",
@@ -1178,8 +1166,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/kumpul_jasa.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-3rd-winner-in-kumpul-jasa-jember-competition",
-      "discussUrl": "contact.html?portfolioItem=KUMPUL JASA"
+      "portfolioItemUrl": "portfolio.html#project-3rd-winner-in-kumpul-jasa-jember-competition"
     },
     {
       "id": "project-nhi-bandung-business-acceleration-bootcamp",
@@ -1195,8 +1182,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/nhi_acceleration.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-nhi-bandung-business-acceleration-bootcamp",
-      "discussUrl": "contact.html?portfolioItem=NHI Acceleration Bootcamp"
+      "portfolioItemUrl": "portfolio.html#project-nhi-bandung-business-acceleration-bootcamp"
     },
     {
       "id": "project-entrepreneurship-program-for-5000-smk-students",
@@ -1213,8 +1199,7 @@
       },
       "sourceArtifact": "assets/portfolio-viewers/smk-entrepreneurship-program.html",
       "sourceType": "html-viewer",
-      "portfolioItemUrl": "portfolio.html#project-entrepreneurship-program-for-5000-smk-students",
-      "discussUrl": "contact.html?portfolioItem=SMK Program"
+      "portfolioItemUrl": "portfolio.html#project-entrepreneurship-program-for-5000-smk-students"
     },
     {
       "id": "project-budikdamber-program-for-7-rumah-yatim-asrama",
@@ -1231,8 +1216,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/budikdamber.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-budikdamber-program-for-7-rumah-yatim-asrama",
-      "discussUrl": "contact.html?portfolioItem=Budikdamber Program"
+      "portfolioItemUrl": "portfolio.html#project-budikdamber-program-for-7-rumah-yatim-asrama"
     },
     {
       "id": "project-the-millennium-challenge-corporation-mcc-grant",
@@ -1248,8 +1232,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/mcc_grant.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-the-millennium-challenge-corporation-mcc-grant",
-      "discussUrl": "contact.html?portfolioItem=MCC Grant"
+      "portfolioItemUrl": "portfolio.html#project-the-millennium-challenge-corporation-mcc-grant"
     },
     {
       "id": "project-performance-appraisal-system-development",
@@ -1265,8 +1248,7 @@
       },
       "sourceArtifact": "assets/portfolio-viewers/performance-appraisal-system.html",
       "sourceType": "html-viewer",
-      "portfolioItemUrl": "portfolio.html#project-performance-appraisal-system-development",
-      "discussUrl": "contact.html?portfolioItem=Performance Appraisal System"
+      "portfolioItemUrl": "portfolio.html#project-performance-appraisal-system-development"
     },
     {
       "id": "project-nhi-bandung-business-incubation-bootcamp",
@@ -1283,8 +1265,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/nhi_incubation.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-nhi-bandung-business-incubation-bootcamp",
-      "discussUrl": "contact.html?portfolioItem=NHI Incubation Bootcamp"
+      "portfolioItemUrl": "portfolio.html#project-nhi-bandung-business-incubation-bootcamp"
     },
     {
       "id": "project-entrepreneurial-mindset-seminar",
@@ -1301,8 +1282,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/growth_mindset.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-entrepreneurial-mindset-seminar",
-      "discussUrl": "contact.html?portfolioItem=Mindset Seminar"
+      "portfolioItemUrl": "portfolio.html#project-entrepreneurial-mindset-seminar"
     },
     {
       "id": "project-mastering-critical-thinking-for-future-proofing-your-career",
@@ -1318,8 +1298,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/critical_thinking.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-mastering-critical-thinking-for-future-proofing-your-career",
-      "discussUrl": "contact.html?portfolioItem=Critical Thinking"
+      "portfolioItemUrl": "portfolio.html#project-mastering-critical-thinking-for-future-proofing-your-career"
     },
     {
       "id": "project-menguasai-komunikasi-maritim-yang-efektif",
@@ -1335,8 +1314,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/komunikasi_maritim.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-menguasai-komunikasi-maritim-yang-efektif",
-      "discussUrl": "contact.html?portfolioItem=Komunikasi Maritim"
+      "portfolioItemUrl": "portfolio.html#project-menguasai-komunikasi-maritim-yang-efektif"
     },
     {
       "id": "project-mental-preparedness-preparation-for-emergencies",
@@ -1352,8 +1330,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/mental_preparedness_emergency.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-mental-preparedness-preparation-for-emergencies",
-      "discussUrl": "contact.html?portfolioItem=Mental Preparedness"
+      "portfolioItemUrl": "portfolio.html#project-mental-preparedness-preparation-for-emergencies"
     },
     {
       "id": "project-landing-your-dream-job-top-employability-skills-for-new-grads",
@@ -1369,8 +1346,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/top_employability_skills.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-landing-your-dream-job-top-employability-skills-for-new-grads",
-      "discussUrl": "contact.html?portfolioItem=Employability Skills"
+      "portfolioItemUrl": "portfolio.html#project-landing-your-dream-job-top-employability-skills-for-new-grads"
     },
     {
       "id": "project-gig-economy-and-resilience-the-future-is-beyond-milestones",
@@ -1386,8 +1362,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/gig_economy_resilience.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-gig-economy-and-resilience-the-future-is-beyond-milestones",
-      "discussUrl": "contact.html?portfolioItem=GIG-ECONOMY & RESILIENCE"
+      "portfolioItemUrl": "portfolio.html#project-gig-economy-and-resilience-the-future-is-beyond-milestones"
     },
     {
       "id": "project-gig-economy-the-rise-of-side-hustling",
@@ -1403,8 +1378,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/gig_economy_hustle.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-gig-economy-the-rise-of-side-hustling",
-      "discussUrl": "contact.html?portfolioItem=GIG-ECONOMY"
+      "portfolioItemUrl": "portfolio.html#project-gig-economy-the-rise-of-side-hustling"
     },
     {
       "id": "project-umkm-s-simple-financial-management",
@@ -1420,8 +1394,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/financial_management.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-umkm-s-simple-financial-management",
-      "discussUrl": "contact.html?portfolioItem=UMKM%27s%20Simple%20Financial%20Management"
+      "portfolioItemUrl": "portfolio.html#project-umkm-s-simple-financial-management"
     },
     {
       "id": "project-financial-modeling",
@@ -1437,8 +1410,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/financial_modeling.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-financial-modeling",
-      "discussUrl": "contact.html?portfolioItem=Financial Modeling"
+      "portfolioItemUrl": "portfolio.html#project-financial-modeling"
     },
     {
       "id": "project-growth-mindset",
@@ -1454,8 +1426,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/growth_mindset.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-growth-mindset",
-      "discussUrl": "contact.html?portfolioItem=Growth Mindset"
+      "portfolioItemUrl": "portfolio.html#project-growth-mindset"
     },
     {
       "id": "project-cultivating-growth-mindset-for-self-motivation",
@@ -1471,8 +1442,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/self-motivation.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-cultivating-growth-mindset-for-self-motivation",
-      "discussUrl": "contact.html?portfolioItem=Self-Motivation"
+      "portfolioItemUrl": "portfolio.html#project-cultivating-growth-mindset-for-self-motivation"
     },
     {
       "id": "project-make-your-product-fit-with-design-thinking",
@@ -1488,8 +1458,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/design_thinking.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-make-your-product-fit-with-design-thinking",
-      "discussUrl": "contact.html?portfolioItem=Design Thinking"
+      "portfolioItemUrl": "portfolio.html#project-make-your-product-fit-with-design-thinking"
     },
     {
       "id": "project-business-management-and-adaptability-for-msmes",
@@ -1505,8 +1474,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/business_management.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-business-management-and-adaptability-for-msmes",
-      "discussUrl": "contact.html?portfolioItem=Business Management"
+      "portfolioItemUrl": "portfolio.html#project-business-management-and-adaptability-for-msmes"
     },
     {
       "id": "project-how-to-face-layoff-storm",
@@ -1522,8 +1490,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/layoff_storm.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-how-to-face-layoff-storm",
-      "discussUrl": "contact.html?portfolioItem=Layoff Storm"
+      "portfolioItemUrl": "portfolio.html#project-how-to-face-layoff-storm"
     },
     {
       "id": "project-brand-yourself-stand-out-with-personal-branding-and-linkedin-optimization",
@@ -1539,8 +1506,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/personal_branding.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-brand-yourself-stand-out-with-personal-branding-and-linkedin-optimization",
-      "discussUrl": "contact.html?portfolioItem=Personal Branding"
+      "portfolioItemUrl": "portfolio.html#project-brand-yourself-stand-out-with-personal-branding-and-linkedin-optimization"
     },
     {
       "id": "project-ai-powered-personal-branding-for-linkedin",
@@ -1556,8 +1522,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/20260520_ai_powered_personal_branding_linkedIn_module.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-ai-powered-personal-branding-for-linkedin",
-      "discussUrl": "contact.html?portfolioItem=AI-Powered Personal Branding for LinkedIn"
+      "portfolioItemUrl": "portfolio.html#project-ai-powered-personal-branding-for-linkedin"
     },
     {
       "id": "project-public-speaking-and-confidence-boost",
@@ -1573,8 +1538,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/public_speaking_confidence_boost.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-public-speaking-and-confidence-boost",
-      "discussUrl": "contact.html?portfolioItem=Public Speaking Confidence Boost"
+      "portfolioItemUrl": "portfolio.html#project-public-speaking-and-confidence-boost"
     },
     {
       "id": "project-color-personality",
@@ -1590,8 +1554,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/color_personality.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-color-personality",
-      "discussUrl": "contact.html?portfolioItem=Color Personality"
+      "portfolioItemUrl": "portfolio.html#project-color-personality"
     },
     {
       "id": "project-managing-crew-fatigue-onboard",
@@ -1607,8 +1570,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/crew_fatigue_onboard.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-managing-crew-fatigue-onboard",
-      "discussUrl": "contact.html?portfolioItem=Crew Fatigue"
+      "portfolioItemUrl": "portfolio.html#project-managing-crew-fatigue-onboard"
     },
     {
       "id": "project-komunikasi-sehat-antar-crew-di-tengah-tekanan-kerja",
@@ -1626,8 +1588,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/20260522_komunikasi_sehat_antar_crew.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-komunikasi-sehat-antar-crew-di-tengah-tekanan-kerja",
-      "discussUrl": "contact.html?portfolioItem=Komunikasi Sehat Antar Crew"
+      "portfolioItemUrl": "portfolio.html#project-komunikasi-sehat-antar-crew-di-tengah-tekanan-kerja"
     },
     {
       "id": "project-speak-up-stand-out-public-speaking-in-the-hybrid-era",
@@ -1643,8 +1604,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/public_speaking.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-speak-up-stand-out-public-speaking-in-the-hybrid-era",
-      "discussUrl": "contact.html?portfolioItem=Public Speaking"
+      "portfolioItemUrl": "portfolio.html#project-speak-up-stand-out-public-speaking-in-the-hybrid-era"
     },
     {
       "id": "project-startup-development-class",
@@ -1660,8 +1620,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/startup_development_class.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-startup-development-class",
-      "discussUrl": "contact.html?portfolioItem=Startup Development Class"
+      "portfolioItemUrl": "portfolio.html#project-startup-development-class"
     },
     {
       "id": "project-how-to-leverage-social-media-instagram-for-msmes",
@@ -1677,8 +1636,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/instagram_umkm.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-how-to-leverage-social-media-instagram-for-msmes",
-      "discussUrl": "contact.html?portfolioItem=Instagram for MSMEs"
+      "portfolioItemUrl": "portfolio.html#project-how-to-leverage-social-media-instagram-for-msmes"
     },
     {
       "id": "project-managing-crew-onboard-stress",
@@ -1694,8 +1652,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/stress_management.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-managing-crew-onboard-stress",
-      "discussUrl": "contact.html?portfolioItem=Managing Crew Onboard Stress"
+      "portfolioItemUrl": "portfolio.html#project-managing-crew-onboard-stress"
     },
     {
       "id": "project-smart-steps-to-start-an-employee-side-hustle",
@@ -1711,8 +1668,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/side_hustle.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-smart-steps-to-start-an-employee-side-hustle",
-      "discussUrl": "contact.html?portfolioItem=Smart Steps to Start an Employee Side Hustle"
+      "portfolioItemUrl": "portfolio.html#project-smart-steps-to-start-an-employee-side-hustle"
     },
     {
       "id": "project-anyone-can-get-a-job",
@@ -1728,8 +1684,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/triangle.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-anyone-can-get-a-job",
-      "discussUrl": "contact.html?portfolioItem=Anyone Can Get a Job"
+      "portfolioItemUrl": "portfolio.html#project-anyone-can-get-a-job"
     },
     {
       "id": "project-crafting-deck-and-impactful-presentation",
@@ -1745,8 +1700,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/crafting_deck.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-crafting-deck-and-impactful-presentation",
-      "discussUrl": "contact.html?portfolioItem=Crafting Deck and Impactful Presentation"
+      "portfolioItemUrl": "portfolio.html#project-crafting-deck-and-impactful-presentation"
     },
     {
       "id": "project-stress-and-time-management",
@@ -1762,8 +1716,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/time_management.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-stress-and-time-management",
-      "discussUrl": "contact.html?portfolioItem=Stress & Time Management"
+      "portfolioItemUrl": "portfolio.html#project-stress-and-time-management"
     },
     {
       "id": "project-adaptive-communication-decode-and-connect",
@@ -1779,8 +1732,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_1.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-adaptive-communication-decode-and-connect",
-      "discussUrl": "contact.html?portfolioItem=Adaptive Communication"
+      "portfolioItemUrl": "portfolio.html#project-adaptive-communication-decode-and-connect"
     },
     {
       "id": "project-strengthen-teamwork-with-empathy-and-communication",
@@ -1796,8 +1748,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/teamwork.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-strengthen-teamwork-with-empathy-and-communication",
-      "discussUrl": "contact.html?portfolioItem=Strengthen Teamwork"
+      "portfolioItemUrl": "portfolio.html#project-strengthen-teamwork-with-empathy-and-communication"
     },
     {
       "id": "project-building-a-culture-of-service-excellence-in-the-digital-era",
@@ -1813,8 +1764,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/service_excellence.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-building-a-culture-of-service-excellence-in-the-digital-era",
-      "discussUrl": "contact.html?portfolioItem=Service Excellence"
+      "portfolioItemUrl": "portfolio.html#project-building-a-culture-of-service-excellence-in-the-digital-era"
     },
     {
       "id": "project-unlock-flows-adaptive-decode-for-corporate-connections",
@@ -1830,8 +1780,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_2.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-unlock-flows-adaptive-decode-for-corporate-connections",
-      "discussUrl": "contact.html?portfolioItem=Unlock Flows"
+      "portfolioItemUrl": "portfolio.html#project-unlock-flows-adaptive-decode-for-corporate-connections"
     },
     {
       "id": "project-calibrate-links-decode-insights-connect-precisely",
@@ -1847,8 +1796,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_3.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-calibrate-links-decode-insights-connect-precisely",
-      "discussUrl": "contact.html?portfolioItem=Calibrate Links"
+      "portfolioItemUrl": "portfolio.html#project-calibrate-links-decode-insights-connect-precisely"
     },
     {
       "id": "project-sync-up-decode-signals-connect-teams-mcdonald-s-edition",
@@ -1864,8 +1812,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_4.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-sync-up-decode-signals-connect-teams-mcdonald-s-edition",
-      "discussUrl": "contact.html?portfolioItem=Sync Up"
+      "portfolioItemUrl": "portfolio.html#project-sync-up-decode-signals-connect-teams-mcdonald-s-edition"
     },
     {
       "id": "project-adaptive-communication-solution-for-home-credit-indonesia",
@@ -1881,8 +1828,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/adaptive_communication_5.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-adaptive-communication-solution-for-home-credit-indonesia",
-      "discussUrl": "contact.html?portfolioItem=Adaptive Communication HCI"
+      "portfolioItemUrl": "portfolio.html#project-adaptive-communication-solution-for-home-credit-indonesia"
     },
     {
       "id": "project-how-to-win-friends-and-influence-people",
@@ -1898,8 +1844,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/win_friends.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-how-to-win-friends-and-influence-people",
-      "discussUrl": "contact.html?portfolioItem=Win Friends"
+      "portfolioItemUrl": "portfolio.html#project-how-to-win-friends-and-influence-people"
     },
     {
       "id": "project-managing-pressure-without-losing-yourself",
@@ -1915,8 +1860,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/managing_pressure.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-managing-pressure-without-losing-yourself",
-      "discussUrl": "contact.html?portfolioItem=Managing Pressure Without Losing Yourself"
+      "portfolioItemUrl": "portfolio.html#project-managing-pressure-without-losing-yourself"
     },
     {
       "id": "project-mental-health-in-the-workplace-for-being-supervisor",
@@ -1932,8 +1876,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/mental_health_supervisor.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-mental-health-in-the-workplace-for-being-supervisor",
-      "discussUrl": "contact.html?portfolioItem=Mental Health in the Workplace for being Supervisor"
+      "portfolioItemUrl": "portfolio.html#project-mental-health-in-the-workplace-for-being-supervisor"
     },
     {
       "id": "project-from-impostor-to-influencer",
@@ -1949,8 +1892,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/linkedIn_post.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-from-impostor-to-influencer",
-      "discussUrl": "contact.html?portfolioItem=From Impostor to Influencer"
+      "portfolioItemUrl": "portfolio.html#project-from-impostor-to-influencer"
     },
     {
       "id": "project-the-psychology-of-money-understanding-how-we-think-about-wealth",
@@ -1966,8 +1908,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/psychology_of_money.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-the-psychology-of-money-understanding-how-we-think-about-wealth",
-      "discussUrl": "contact.html?portfolioItem=The Psychology of Money"
+      "portfolioItemUrl": "portfolio.html#project-the-psychology-of-money-understanding-how-we-think-about-wealth"
     },
     {
       "id": "project-nhi-observation-report",
@@ -1985,8 +1926,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/nhi_laporan_observasi.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-nhi-observation-report",
-      "discussUrl": "contact.html?portfolioItem=NHI Observation Report"
+      "portfolioItemUrl": "portfolio.html#project-nhi-observation-report"
     },
     {
       "id": "project-eighteen-talent-hiring-desk-proposal",
@@ -2005,8 +1945,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/proposal_eighteen_talent_hiring_desk.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-eighteen-talent-hiring-desk-proposal",
-      "discussUrl": "contact.html?portfolioItem=Eighteen Talent Hiring Desk Proposal"
+      "portfolioItemUrl": "portfolio.html#project-eighteen-talent-hiring-desk-proposal"
     },
     {
       "id": "project-career-prep-class-cybersecurity",
@@ -2025,8 +1964,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/career_prep_cybersecurity.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-career-prep-class-cybersecurity",
-      "discussUrl": "contact.html?portfolioItem=Career Prep Class: Cybersecurity Careers"
+      "portfolioItemUrl": "portfolio.html#project-career-prep-class-cybersecurity"
     },
     {
       "id": "project-business-presentation-storytelling",
@@ -2046,7 +1984,6 @@
       "sourceArtifact": "assets/pdf/portfolio/business_presentation_storytelling.pdf",
       "sourceType": "pdf",
       "portfolioItemUrl": "portfolio.html#project-business-presentation-storytelling",
-      "discussUrl": "contact.html?portfolioItem=Business Presentation and Storytelling",
       "audience": "Professionals"
     },
     {
@@ -2066,8 +2003,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/deck_creative_thinking.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-creative-thinking-workshop",
-      "discussUrl": "contact.html?portfolioItem=Creative Thinking Workshop"
+      "portfolioItemUrl": "portfolio.html#project-creative-thinking-workshop"
     },
     {
       "id": "project-score-audit-corrections",
@@ -2086,8 +2022,7 @@
       },
       "sourceArtifact": "assets/portfolio-viewers/score-audit-corrections.html",
       "sourceType": "html-viewer",
-      "portfolioItemUrl": "portfolio.html#project-score-audit-corrections",
-      "discussUrl": "contact.html?portfolioItem=Score Audit Corrections"
+      "portfolioItemUrl": "portfolio.html#project-score-audit-corrections"
     },
     {
       "id": "project-resume-linkedin-portfolio-exploration",
@@ -2106,8 +2041,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/resume_linkedin_portfolio_exploration.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-resume-linkedin-portfolio-exploration",
-      "discussUrl": "contact.html?portfolioItem=Resume, LinkedIn and Portfolio Exploration"
+      "portfolioItemUrl": "portfolio.html#project-resume-linkedin-portfolio-exploration"
     },
     {
       "id": "project-theory-of-change-mentoring-tracker",
@@ -2127,8 +2061,7 @@
       },
       "sourceArtifact": "assets/portfolio-viewers/theory-of-change-mentoring-tracker.html",
       "sourceType": "html-viewer",
-      "portfolioItemUrl": "portfolio.html#project-theory-of-change-mentoring-tracker",
-      "discussUrl": "contact.html?portfolioItem=Theory of Change Mentoring Tracker"
+      "portfolioItemUrl": "portfolio.html#project-theory-of-change-mentoring-tracker"
     },
     {
       "id": "project-manager-coaching-report",
@@ -2149,8 +2082,7 @@
       },
       "sourceArtifact": "assets/pdf/portfolio/coaching-report.pdf",
       "sourceType": "pdf",
-      "portfolioItemUrl": "portfolio.html#project-manager-coaching-report",
-      "discussUrl": "contact.html?portfolioItem=Manager Coaching Report"
+      "portfolioItemUrl": "portfolio.html#project-manager-coaching-report"
     }
   ]
 }

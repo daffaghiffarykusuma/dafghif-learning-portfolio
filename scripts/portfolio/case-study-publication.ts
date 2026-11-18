@@ -1,154 +1,20 @@
+import { portfolioDiscoveryFilters } from '../../src/portfolio-discovery.ts';
 import { createArtifactPreviewContract } from '../../src/site/artifact-preview-policy.ts';
+import { ARTIFACT_PREVIEW_TRIGGER_CLASS } from '../../src/site/artifact-preview-markup.ts';
+import { createEngagementInquiryHref } from '../../src/site/engagement-inquiry-journey.ts';
 import {
   createCaseStudyIndexPageIdentity,
   createCaseStudyPageIdentity
-} from '../../src/site/case-study-page-identity.ts';
-import { normalizePortfolioItem, normalizeText, slugify } from './portfolio-item-catalog.ts';
+} from '../../src/site/site-page-identity.ts';
+import { PORTFOLIO_AI_CONTEXT_METADATA_LINK, escapeHtml, renderSitePage } from '../site/site-page-shell.ts';
+import { normalizePortfolioItem, normalizeText } from './portfolio-item-catalog.ts';
 import type { PortfolioItem } from './portfolio-item-catalog.ts';
-import type { CaseStudyPageIdentity, PageIdentity } from '../../src/site/case-study-page-identity.ts';
+import type { CaseStudyPageIdentity } from '../../src/site/site-page-identity.ts';
 
-type MetadataLink = {
-  href: string;
-  rel: string;
-  title: string;
-  type: string;
-};
-
-type GeneratedHtmlDocumentOptions = {
-  title: string;
-  description: string;
-  main: string;
-  pageIdentity: PageIdentity;
-  footer?: string;
-  metadataLinks?: readonly MetadataLink[];
-};
-
-const escapeHtml = (value: unknown = '') =>
-  String(value)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
-
-const siteNavItems = Object.freeze([
-  Object.freeze({ href: 'index.html', label: 'Home' }),
-  Object.freeze({ href: 'portfolio.html', label: 'Portfolio' }),
-  Object.freeze({ href: 'case-studies.html', label: 'Case Studies' }),
-  Object.freeze({ href: 'blog.html', label: 'Blog' }),
-  Object.freeze({ href: 'contact.html', label: 'Contact' })
-]);
-
-const portfolioAiContextMetadataLink = Object.freeze({
-  href: 'assets/data/portfolio-ai-context.json',
-  rel: 'alternate',
-  title: 'Portfolio AI Context',
-  type: 'application/json'
-});
-
-const renderMetadataLink = ({ href, rel, title, type }: MetadataLink) =>
-  `<link href="${escapeHtml(href)}" rel="${escapeHtml(rel)}" title="${escapeHtml(title)}" type="${escapeHtml(type)}">`;
-
-const renderStylesheetLinks = (metadataLinks: readonly MetadataLink[]) => `${metadataLinks.map(renderMetadataLink).join('\n  ')}${metadataLinks.length ? '\n  ' : ''}  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@400..700&amp;family=Lexend:wght@300..700&amp;display=swap">
-  <link rel="stylesheet" href="src/styles/site.css">`;
-
-const renderSiteNavigation = (currentPage: string) => `<header>
-        <div class="container">
-            <div class="header-main">
-                <div class="logo">
-                    <a href="index.html"><span class="site-title">Daffa Ghiffary Kusuma</span></a>
-                </div>
-                <button type="button" class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-                    <span class="menu-icon"></span>
-                </button>
-            </div>
-            <nav>
-                <ul>
-                    ${siteNavItems.map(({ href, label }) => `<li${href === currentPage ? ' class="current"' : ''}><a href="${href}">${label}</a></li>`).join('\n                    ')}
-                </ul>
-                <a href="contact.html" class="header-cta">Get in touch</a>
-            </nav>
-        </div>
-    </header>`;
-
-const renderPageIdentityAttributes = (pageIdentity: PageIdentity) => [
-  ['data-page-kind', pageIdentity.kind],
-  ['data-page-path', pageIdentity.pagePath],
-  ['data-navigation-page', pageIdentity.navigationPage]
-]
-  .filter(([, value]) => value)
-  .map(([attribute, value]) => `${attribute}="${escapeHtml(value)}"`)
-  .join(' ');
-
-const renderGeneratedSiteFooter = () => `<footer>
-    <div class="container">
-      <div class="footer-cta">
-        <div class="footer-cta-copy">
-          <h2>Let's talk about learning design</h2>
-          <p>Tell me about the role or project and receive a tailored response within two business days.</p>
-        </div>
-        <a href="contact.html" class="cta-button">Get in touch</a>
-      </div>
-      <div class="footer-meta">
-        <p>&copy; <span id="current-year"></span> Daffa Ghiffary Kusuma. All Rights Reserved.</p>
-      </div>
-    </div>
-  </footer>`;
-
-const renderSimpleGeneratedSiteFooter = () => `<footer>
-        <div class="container">
-            <p>&copy; <span id="current-year"></span> Daffa Ghiffary Kusuma. All rights reserved.</p>
-        </div>
-    </footer>`;
-
-const renderArtifactPreviewModal = () => `<dialog aria-labelledby="pdf-modal-title" class="pdf-modal" id="pdf-modal">
-    <div class="pdf-modal-content" role="document">
-      <div class="pdf-modal-header">
-        <button type="button" class="close-modal js-close-modal" aria-label="Close artifact preview"></button>
-        <div>
-          <h2 id="pdf-modal-title">Portfolio Item Details</h2>
-          <p id="pdf-modal-meta">Artifact preview</p>
-        </div>
-      </div>
-      <div class="pdf-modal-body">
-        <iframe frameborder="0" height="500px" id="pdf-iframe" referrerpolicy="same-origin" src="" title="Artifact preview" width="100%"></iframe>
-      </div>
-      <div class="pdf-modal-actions">
-        <a class="secondary-cta" href="#" id="pdf-open-full">Open full screen</a>
-        <a class="cta-button" href="contact.html" id="pdf-discuss">Discuss this Artifact</a>
-      </div>
-    </div>
-  </dialog>`;
-
-const renderGeneratedHtmlDocument = ({
-  title,
-  description,
-  pageIdentity,
-  main,
-  footer = renderGeneratedSiteFooter(),
-  metadataLinks = []
-}: GeneratedHtmlDocumentOptions) => `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${escapeHtml(title)}</title>
-  <meta name="description" content="${escapeHtml(description)}">
-  <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  ${renderStylesheetLinks(metadataLinks)}
-</head>
-<body ${renderPageIdentityAttributes(pageIdentity)}>
-  <a href="#main-content" class="skip-nav">Skip to main content</a>
-  ${renderSiteNavigation(pageIdentity.navigationPage)}
-  ${main}
-  ${footer}
-  <script type="module" src="src/script.ts"></script>
-</body>
-</html>
-`;
+// Case Study Publication: turns Case Study source data into expanded Portfolio
+// Items, Case Study Page Identities, generated pages, and nested Artifact
+// metadata. It also owns the Case Study part of the Portfolio Item Source schema
+// and reports its failures, so no other module restates Case Study rules.
 
 type Image = { src: string; alt: string };
 type LabeledValue = { label: string; value: string };
@@ -178,14 +44,15 @@ export type CaseStudy = {
   suggestedArtifactId?: string;
   image: Image;
   pagePath: string;
-  outputPath: string;
   portfolioItemUrl: string;
-  discussUrl: string;
   reviewerContext: LabeledValue[];
   caseFlow: LabeledValue[];
   artifacts: CaseStudyArtifact[];
   absorbedPortfolioItemIds: string[];
 };
+
+/** A hand-written Case Study page that Publication lists but does not generate. */
+export type AuthoredCaseStudy = Pick<CaseStudy, 'id' | 'portfolioItemTitle' | 'practiceArea' | 'description' | 'pagePath' | 'image'>;
 
 export type CaseStudyArtifactMetadata = {
   id: string;
@@ -202,73 +69,70 @@ export type CaseStudyArtifactMetadata = {
 export type GeneratedCaseStudyPage = { outputPath: string; html: string };
 
 export type CaseStudyPublication = {
+  /** Case Study schema failures, prefixed with the Portfolio Item Source path. */
+  failures: string[];
   portfolioItems: PortfolioItem[];
+  /** Identities for every Case Study page, generated and authored. */
   pageIdentities: Readonly<CaseStudyPageIdentity>[];
+  /** Case Study page paths in listing order: featured leads first. */
+  featuredPagePaths: string[];
   pages: GeneratedCaseStudyPage[];
   artifactMetadataByCaseStudyId: Map<string, CaseStudyArtifactMetadata[]>;
 };
 
-type CaseStudyCard = Pick<CaseStudy,
-  'id' | 'portfolioItemTitle' | 'practiceArea' | 'description' | 'pagePath' | 'image'
-> & Partial<Pick<CaseStudy, 'title' | 'summary'>>;
+const sourceFile = 'assets/data/portfolio-source.json';
+const requiredCaseStudyFields = ['id', 'title', 'portfolioItemTitle', 'practiceArea', 'description', 'summary', 'pagePath'];
+const requiredAuthoredCaseStudyFields = ['id', 'portfolioItemTitle', 'practiceArea', 'description', 'pagePath'];
+const requiredArtifactFields = ['id', 'title', 'description', 'href', 'sourceType', 'practiceArea'];
+// Fields Publication now derives. Leaving them in source would suggest they still steer output.
+const derivedCaseStudyFields = ['outputPath', 'discussUrl'];
+const rootHtmlPathPattern = /^[^/\\]+\.html$/i;
 
 const asRecord = (value: unknown): Record<string, unknown> =>
   value !== null && typeof value === 'object' && !Array.isArray(value)
     ? value as Record<string, unknown>
     : {};
 
+const asRecords = (value: unknown) => Array.isArray(value) ? value.map(asRecord) : [];
+
 const normalizeStringArray = (value: unknown): string[] =>
   Array.isArray(value) ? value.map(normalizeText).filter(Boolean) : [];
 
 const normalizeLabeledValues = (value: unknown): LabeledValue[] =>
-  Array.isArray(value)
-    ? value.map(asRecord).map((item) => ({
-      label: normalizeText(item.label),
-      value: normalizeText(item.value)
-    }))
-    : [];
+  asRecords(value).map((item) => ({
+    label: normalizeText(item.label),
+    value: normalizeText(item.value)
+  }));
 
-const featuredCaseStudies: readonly CaseStudyCard[] = Object.freeze([
-  Object.freeze({
-    id: 'case-entrepreneurship-program',
-    portfolioItemTitle: 'Entrepreneurship Program for 5,000+ SMK Students',
-    practiceArea: 'Custom Training & Workshops',
-    description: 'A multi-city entrepreneurship learning journey for vocational students, combining curriculum design, mentor enablement, facilitation, and measurement.',
-    pagePath: 'case-entrepreneurship.html',
-    image: Object.freeze({
-      src: 'assets/images/portfolio/smk.webp',
-      alt: 'Entrepreneurship program case study thumbnail'
-    })
-  })
-]);
+const normalizeImage = (value: unknown, fallbackAlt = ''): Image => {
+  const image = asRecord(value);
+  return { src: normalizeText(image.src), alt: normalizeText(image.alt) || fallbackAlt };
+};
 
 const pagePathFor = (caseStudy: Pick<CaseStudy, 'pagePath' | 'id'>) =>
   normalizeText(caseStudy.pagePath) || `${normalizeText(caseStudy.id)}.html`;
 
+const inquiryHrefFor = (caseStudy: Pick<CaseStudy, 'portfolioItemTitle' | 'title'>) =>
+  createEngagementInquiryHref({ portfolioItem: caseStudy.portfolioItemTitle || caseStudy.title });
+
 const normalizeArtifact = (value: unknown): CaseStudyArtifact => {
   const artifact = asRecord(value);
-  const image = asRecord(artifact.image);
   const title = normalizeText(artifact.title);
-  const href = normalizeText(artifact.href);
   return {
-    id: normalizeText(artifact.id) || `artifact-${slugify(title)}`,
+    id: normalizeText(artifact.id),
     title,
     description: normalizeText(artifact.description),
-    href,
-    sourceType: normalizeText(artifact.sourceType) || (href.endsWith('.pdf') ? 'pdf' : 'html-viewer'),
+    href: normalizeText(artifact.href),
+    sourceType: normalizeText(artifact.sourceType),
     practiceArea: normalizeText(artifact.practiceArea),
     tags: normalizeStringArray(artifact.tags),
-    image: {
-      src: normalizeText(image.src),
-      alt: normalizeText(image.alt) || title
-    },
+    image: normalizeImage(artifact.image, title),
     linkLabel: normalizeText(artifact.linkLabel) || 'Open Artifact'
   };
 };
 
 const normalizeCaseStudy = (value: unknown): CaseStudy => {
   const caseStudy = asRecord(value);
-  const image = asRecord(caseStudy.image);
   return {
     id: normalizeText(caseStudy.id),
     documentTitle: normalizeText(caseStudy.documentTitle),
@@ -280,17 +144,138 @@ const normalizeCaseStudy = (value: unknown): CaseStudy => {
     description: normalizeText(caseStudy.description),
     summary: normalizeText(caseStudy.summary),
     suggestedArtifactId: normalizeText(caseStudy.suggestedArtifactId),
-    image: { src: normalizeText(image.src), alt: normalizeText(image.alt) },
+    image: normalizeImage(caseStudy.image),
     pagePath: normalizeText(caseStudy.pagePath),
-    outputPath: normalizeText(caseStudy.outputPath),
     portfolioItemUrl: normalizeText(caseStudy.portfolioItemUrl),
-    discussUrl: normalizeText(caseStudy.discussUrl),
     reviewerContext: normalizeLabeledValues(caseStudy.reviewerContext),
     caseFlow: normalizeLabeledValues(caseStudy.caseFlow),
-    artifacts: Array.isArray(caseStudy.artifacts) ? caseStudy.artifacts.map(normalizeArtifact) : [],
+    artifacts: asRecords(caseStudy.artifacts).map(normalizeArtifact),
     absorbedPortfolioItemIds: normalizeStringArray(caseStudy.absorbedPortfolioItemIds)
   };
 };
+
+const normalizeAuthoredCaseStudy = (value: unknown): AuthoredCaseStudy => {
+  const caseStudy = asRecord(value);
+  const portfolioItemTitle = normalizeText(caseStudy.portfolioItemTitle);
+  return {
+    id: normalizeText(caseStudy.id),
+    portfolioItemTitle,
+    practiceArea: normalizeText(caseStudy.practiceArea),
+    description: normalizeText(caseStudy.description),
+    pagePath: normalizeText(caseStudy.pagePath),
+    image: normalizeImage(caseStudy.image)
+  };
+};
+
+// ---------------------------------------------------------------------------
+// Schema
+
+const validateCaseStudySource = (source: Record<string, unknown>): string[] => {
+  const failures: string[] = [];
+  const knownPracticeAreas = new Set(
+    portfolioDiscoveryFilters.areas.filter(({ value }) => value !== 'all').map(({ label }) => label)
+  );
+  const caseStudies = asRecords(source.caseStudies);
+  const authoredCaseStudies = asRecords(source.authoredCaseStudies);
+  const rawPortfolioItemIds = new Set(asRecords(source.portfolioItems).map((item) => normalizeText(item.id)).filter(Boolean));
+
+  const fail = (message: string) => failures.push(`${sourceFile}: ${message}`);
+  const requireFields = (record: Record<string, unknown>, fields: readonly string[], label: string) => {
+    for (const field of fields) if (!normalizeText(record[field])) fail(`${label} is missing ${field}`);
+  };
+  const requireImage = (record: Record<string, unknown>, label: string) => {
+    const image = asRecord(record.image);
+    if (!normalizeText(image.src)) fail(`${label} is missing image.src`);
+    if (!normalizeText(image.alt)) fail(`${label} is missing image.alt`);
+  };
+  const requirePracticeArea = (value: unknown, label: string) => {
+    const practiceArea = normalizeText(value);
+    if (practiceArea && !knownPracticeAreas.has(practiceArea)) fail(`${label} uses unknown Practice Area "${practiceArea}"`);
+  };
+  const requireRootHtmlPath = (value: unknown, label: string) => {
+    if (normalizeText(value) && !rootHtmlPathPattern.test(normalizeText(value))) fail(`${label} pagePath must be a root-level .html path`);
+  };
+  const rejectDuplicates = (values: unknown[], label: string) => {
+    const seen = new Set<string>();
+    for (const value of values.map(normalizeText).filter(Boolean)) {
+      if (seen.has(value)) fail(`duplicate ${label} "${value}"`);
+      seen.add(value);
+    }
+  };
+
+  if (!Array.isArray(source.caseStudies)) fail('caseStudies must be an array');
+  if (source.authoredCaseStudies !== undefined && !Array.isArray(source.authoredCaseStudies)) fail('authoredCaseStudies must be an array');
+
+  const allCaseStudies = [...caseStudies, ...authoredCaseStudies];
+  rejectDuplicates(allCaseStudies.map((caseStudy) => caseStudy.id), 'Case Study id');
+  rejectDuplicates(allCaseStudies.map((caseStudy) => caseStudy.pagePath), 'Case Study pagePath');
+
+  const absorbedOwners = new Map<string, string>();
+  caseStudies.forEach((caseStudy, index) => {
+    const id = normalizeText(caseStudy.id) || `record ${index + 1}`;
+    const label = `Case Study "${id}"`;
+    requireFields(caseStudy, requiredCaseStudyFields, label);
+    requireImage(caseStudy, label);
+    requirePracticeArea(caseStudy.practiceArea, label);
+    requireRootHtmlPath(caseStudy.pagePath, label);
+    for (const field of derivedCaseStudyFields) {
+      if (field in caseStudy) fail(`${label} ${field} is derived by Case Study Publication; remove it from the source`);
+    }
+    for (const field of ['reviewerContext', 'caseFlow', 'artifacts']) {
+      if (!Array.isArray(caseStudy[field])) fail(`${label} ${field} must be an array`);
+    }
+
+    for (const absorbedId of normalizeStringArray(caseStudy.absorbedPortfolioItemIds)) {
+      if (!rawPortfolioItemIds.has(absorbedId)) fail(`${label} absorbs missing Portfolio Item "${absorbedId}"`);
+      const existingOwner = absorbedOwners.get(absorbedId);
+      if (existingOwner) {
+        fail(`Portfolio Item "${absorbedId}" is absorbed by both Case Study "${existingOwner}" and "${id}"`);
+      } else {
+        absorbedOwners.set(absorbedId, id);
+      }
+    }
+
+    const artifacts = asRecords(caseStudy.artifacts);
+    if (caseStudy.suggestedArtifactId !== undefined && (
+      typeof caseStudy.suggestedArtifactId !== 'string'
+      || !artifacts.some((artifact) => normalizeText(artifact.id) === normalizeText(caseStudy.suggestedArtifactId))
+    )) {
+      fail(`${label} suggestedArtifactId must reference an Artifact in the same Case Study`);
+    }
+    rejectDuplicates(artifacts.map((artifact) => artifact.id), `${label} Artifact id`);
+    artifacts.forEach((artifact, artifactIndex) => {
+      const artifactLabel = `${label} Artifact "${normalizeText(artifact.id) || `record ${artifactIndex + 1}`}"`;
+      requireFields(artifact, requiredArtifactFields, artifactLabel);
+      requireImage(artifact, artifactLabel);
+      requirePracticeArea(artifact.practiceArea, artifactLabel);
+      if (!Array.isArray(artifact.tags) || artifact.tags.length === 0) fail(`${artifactLabel} must declare at least one tag`);
+    });
+  });
+
+  authoredCaseStudies.forEach((caseStudy, index) => {
+    const label = `authored Case Study "${normalizeText(caseStudy.id) || `record ${index + 1}`}"`;
+    requireFields(caseStudy, requiredAuthoredCaseStudyFields, label);
+    requireImage(caseStudy, label);
+    requirePracticeArea(caseStudy.practiceArea, label);
+    requireRootHtmlPath(caseStudy.pagePath, label);
+  });
+
+  if (source.featuredCaseStudyIds !== undefined) {
+    if (!Array.isArray(source.featuredCaseStudyIds)) {
+      fail('featuredCaseStudyIds must be an array');
+    } else {
+      const knownIds = new Set(allCaseStudies.map((caseStudy) => normalizeText(caseStudy.id)).filter(Boolean));
+      rejectDuplicates(source.featuredCaseStudyIds, 'featured Case Study id');
+      for (const featuredId of source.featuredCaseStudyIds.map(normalizeText)) {
+        if (!knownIds.has(featuredId)) fail(`featured Case Study "${featuredId}" does not reference a Case Study`);
+      }
+    }
+  }
+  return failures;
+};
+
+// ---------------------------------------------------------------------------
+// Portfolio Items and metadata
 
 const artifactMetadataFor = (caseStudy: CaseStudy): CaseStudyArtifactMetadata[] =>
   caseStudy.artifacts
@@ -303,7 +288,7 @@ const artifactMetadataFor = (caseStudy: CaseStudy): CaseStudyArtifactMetadata[] 
       publicDescription: artifact.description,
       sourceArtifact: artifact.href,
       sourceType: artifact.sourceType,
-      parentCaseStudy: normalizeText(caseStudy.id),
+      parentCaseStudy: caseStudy.id,
       image: artifact.image
     }));
 
@@ -312,95 +297,86 @@ const portfolioItemFor = (caseStudy: CaseStudy): PortfolioItem =>
     id: caseStudy.id,
     title: caseStudy.portfolioItemTitle || `${caseStudy.title} Case Study`,
     practiceArea: caseStudy.practiceArea,
-    tags: ['case-study', ...(Array.isArray(caseStudy.tags) ? caseStudy.tags : [])],
+    tags: ['case-study', ...caseStudy.tags],
     description: caseStudy.description,
     image: caseStudy.image,
     sourceArtifact: pagePathFor(caseStudy),
     sourceType: 'case-study-page',
-    portfolioItemUrl: caseStudy.portfolioItemUrl || pagePathFor(caseStudy),
-    discussUrl: caseStudy.discussUrl || `contact.html?portfolioItem=${encodeURIComponent(caseStudy.portfolioItemTitle || caseStudy.title)}`
+    portfolioItemUrl: caseStudy.portfolioItemUrl || pagePathFor(caseStudy)
   });
 
-const expandPortfolioItems = (
-  portfolioSource: Record<string, unknown>,
-  caseStudies: CaseStudy[]
-): PortfolioItem[] => {
+const expandPortfolioItems = (source: Record<string, unknown>, caseStudies: CaseStudy[]): PortfolioItem[] => {
   const caseStudyItems = caseStudies.map(portfolioItemFor);
   const caseStudyIds = new Set(caseStudyItems.map((item) => item.id));
-  const absorbedItemIds = new Set(
-    caseStudies
-      .flatMap((caseStudy) => caseStudy.absorbedPortfolioItemIds)
-      .map(normalizeText)
-  );
-  const sourceItems = Array.isArray(portfolioSource.portfolioItems)
-    ? portfolioSource.portfolioItems.map(normalizePortfolioItem)
-    : [];
+  const absorbedItemIds = new Set(caseStudies.flatMap((caseStudy) => caseStudy.absorbedPortfolioItemIds));
+  const sourceItems = asRecords(source.portfolioItems).map(normalizePortfolioItem);
   return [
     ...caseStudyItems,
-    ...sourceItems.filter((item) => {
-      const id = normalizeText(item.id);
-      return !caseStudyIds.has(id) && !absorbedItemIds.has(id);
-    })
+    ...sourceItems.filter((item) => !caseStudyIds.has(item.id) && !absorbedItemIds.has(item.id))
   ];
 };
 
-const renderCaseStudyCards = (caseStudies: CaseStudy[]) =>
-  [...featuredCaseStudies, ...caseStudies]
-    .sort((a, b) => {
-      const leadPaths = ['case-administrative-communication.html', 'case-learning-organization-strategy.html', 'case-entrepreneurship.html'];
-      const rank = (item: CaseStudyCard) => {
-        const index = leadPaths.indexOf(pagePathFor(item));
-        return index < 0 ? leadPaths.length : index;
-      };
-      return rank(a) - rank(b);
-    })
+// ---------------------------------------------------------------------------
+// Pages
+
+type CaseStudyListing = AuthoredCaseStudy & Partial<Pick<CaseStudy, 'title' | 'summary'>>;
+
+const orderListings = (listings: CaseStudyListing[], featuredIds: string[]) => {
+  const rank = (listing: CaseStudyListing) => {
+    const index = featuredIds.indexOf(listing.id);
+    return index < 0 ? featuredIds.length : index;
+  };
+  return [...listings].sort((a, b) => rank(a) - rank(b));
+};
+
+const renderCaseStudyCards = (listings: CaseStudyListing[]) =>
+  listings
     .map((caseStudy) => {
       const pagePath = pagePathFor(caseStudy);
       const title = normalizeText(caseStudy.portfolioItemTitle || `${caseStudy.title} Case Study`);
       return `<article class="case-study-card">
-                    <a href="${escapeHtml(pagePath)}" class="case-study-card-image">
-                        <img src="${escapeHtml(caseStudy.image?.src)}" alt="${escapeHtml(caseStudy.image?.alt || title)}" loading="lazy" decoding="async">
-                    </a>
-                    <div class="case-study-card-body">
-                        <p class="portfolio-item-practice-label">${escapeHtml(caseStudy.practiceArea)}</p>
-                        <h2><a href="${escapeHtml(pagePath)}">${escapeHtml(title)}</a></h2>
-                        <p>${escapeHtml(caseStudy.description || caseStudy.summary)}</p>
-                        <a class="cta-button" href="${escapeHtml(pagePath)}">Read case study</a>
-                    </div>
-                </article>`;
+          <a href="${escapeHtml(pagePath)}" class="case-study-card-image">
+            <img src="${escapeHtml(caseStudy.image.src)}" alt="${escapeHtml(caseStudy.image.alt || title)}" loading="lazy" decoding="async">
+          </a>
+          <div class="case-study-card-body">
+            <p class="portfolio-item-practice-label">${escapeHtml(caseStudy.practiceArea)}</p>
+            <h2><a href="${escapeHtml(pagePath)}">${escapeHtml(title)}</a></h2>
+            <p>${escapeHtml(caseStudy.description || caseStudy.summary)}</p>
+            <a class="cta-button" href="${escapeHtml(pagePath)}">Read case study</a>
+          </div>
+        </article>`;
     })
-    .join('\n                ');
+    .join('\n        ');
 
-const renderIndexHtml = (caseStudies: CaseStudy[]) => renderGeneratedHtmlDocument({
+const renderIndexHtml = (listings: CaseStudyListing[]) => renderSitePage({
+  identity: createCaseStudyIndexPageIdentity(),
   title: 'Case Studies | Daffa Ghiffary Kusuma',
   description: 'Selected learning design case studies by Daffa Ghiffary Kusuma, grouped into decision-ready narratives with artifacts, assumptions, and evidence limits.',
-  pageIdentity: createCaseStudyIndexPageIdentity(),
-  footer: renderSimpleGeneratedSiteFooter(),
-  main: `<main id="main-content" role="main" aria-label="Main content">
-        <section class="service-hero service-hero-compact">
-            <div class="container">
-                <p class="service-eyebrow">Case Studies</p>
-                <h1>Selected Learning Design Cases</h1>
-                <p class="lead">Explore learning programs, assessment tools, and practical materials. Open a case to see the work and how it was designed.</p>
-            </div>
-        </section>
-        <section class="case-study-index">
-            <div class="container">
-                <div class="case-study-card-grid">
-                ${renderCaseStudyCards(caseStudies)}
-                </div>
-            </div>
-        </section>
-    </main>`
+  content: `<main id="main-content" role="main" aria-label="Main content">
+    <section class="service-hero service-hero-compact">
+      <div class="container">
+        <p class="service-eyebrow">Case Studies</p>
+        <h1>Selected Learning Design Cases</h1>
+        <p class="lead">Explore learning programs, assessment tools, and practical materials. Open a case to see the work and how it was designed.</p>
+      </div>
+    </section>
+    <section class="case-study-index">
+      <div class="container">
+        <div class="case-study-card-grid">
+        ${renderCaseStudyCards(listings)}
+        </div>
+      </div>
+    </section>
+  </main>`
 });
 
-const renderApproachSteps = (items: LabeledValue[] = []) =>
+const renderApproachSteps = (items: LabeledValue[]) =>
   items
     .map((item) => `<li>
-                            <h3>${escapeHtml(item.label)}</h3>
-                            <p>${escapeHtml(item.value)}</p>
-                        </li>`)
-    .join('\n                        ');
+              <h3>${escapeHtml(item.label)}</h3>
+              <p>${escapeHtml(item.value)}</p>
+            </li>`)
+    .join('\n            ');
 
 const renderPreviewAttributes = (artifact: CaseStudyArtifact) => {
   const previewContract = createArtifactPreviewContract({
@@ -412,10 +388,9 @@ const renderPreviewAttributes = (artifact: CaseStudyArtifact) => {
     .join(' ');
 };
 
-const renderArtifactItems = (artifacts: CaseStudyArtifact[] = []) =>
+const renderArtifactItems = (artifacts: CaseStudyArtifact[]) =>
   artifacts
     .map((item, index) => {
-      const previewData = renderPreviewAttributes(item);
       const imageLoading = index === 0
         ? 'loading="eager" fetchpriority="high" width="660" height="400"'
         : 'loading="lazy"';
@@ -429,24 +404,20 @@ const renderArtifactItems = (artifacts: CaseStudyArtifact[] = []) =>
               <h3><a class="portfolio-item-title-link" href="#${escapeHtml(item.id)}">${escapeHtml(item.title)}</a></h3>
               <p>${escapeHtml(item.description)}</p>
               <div class="card-actions">
-                <button class="view-details-button" type="button" data-artifact-title="${escapeHtml(item.title)}" ${previewData}>Preview work sample</button>
+                <button class="${ARTIFACT_PREVIEW_TRIGGER_CLASS}" type="button" data-artifact-title="${escapeHtml(item.title)}" ${renderPreviewAttributes(item)}>Preview work sample</button>
               </div>
             </div>
           </article>`;
     })
-    .join('\n        ');
+    .join('\n          ');
 
 const renderCaseStudyHtml = (caseStudy: CaseStudy) => {
-  const title = normalizeText(caseStudy.title);
-  const reviewerContext = Array.isArray(caseStudy.reviewerContext) ? caseStudy.reviewerContext : [];
-  const caseFlow = Array.isArray(caseStudy.caseFlow) ? caseStudy.caseFlow : [];
-  const artifacts = Array.isArray(caseStudy.artifacts) ? caseStudy.artifacts : [];
+  const { title, reviewerContext, caseFlow, artifacts } = caseStudy;
   const suggestedArtifact = artifacts.find((item) => item.id === caseStudy.suggestedArtifactId);
   const useCase = reviewerContext.find((item) => /^use case$/i.test(item.label));
   const evidenceNotes = reviewerContext.filter((item) => /limit/i.test(item.label));
   const scope = reviewerContext.filter((item) => !/limit|use case/i.test(item.label));
-  const ctaHref = normalizeText(caseStudy.discussUrl) || `contact.html?portfolioItem=${encodeURIComponent(caseStudy.portfolioItemTitle || title)}`;
-  const main = `<main id="main-content" class="case-reading-page" role="main" aria-label="Main content">
+  const content = `<main id="main-content" class="case-reading-page" role="main" aria-label="Main content">
     <section class="service-hero generated-case-hero" id="overview">
       <div class="container">
         <a class="case-back" href="case-studies.html">&larr; All case studies</a>
@@ -488,46 +459,44 @@ const renderCaseStudyHtml = (caseStudy: CaseStudy) => {
       </div>
     </section>` : ''}
 
-    ${renderArtifactPreviewModal()}
-
     <section class="generated-case-cta">
       <div class="container case-next-step">
         <div><h2>Let's talk about learning design</h2><p>Get in touch about a role or project, or discuss the work shown here.</p></div>
-        <a href="${escapeHtml(ctaHref)}" class="cta-button">Discuss this work</a>
+        <a href="${escapeHtml(inquiryHrefFor(caseStudy))}" class="cta-button">Discuss this work</a>
       </div>
     </section>
   </main>`;
 
-  return renderGeneratedHtmlDocument({
+  return renderSitePage({
+    identity: createCaseStudyPageIdentity(pagePathFor(caseStudy)),
     title: caseStudy.documentTitle || title,
     description: caseStudy.description || caseStudy.summary,
-    pageIdentity: createCaseStudyPageIdentity(pagePathFor(caseStudy)),
-    main,
-    metadataLinks: [portfolioAiContextMetadataLink],
-    footer: renderSimpleGeneratedSiteFooter()
+    metadataLinks: [PORTFOLIO_AI_CONTEXT_METADATA_LINK],
+    content,
+    artifactPreview: true
   });
 };
 
 export const createCaseStudyPublication = (value: unknown = {}): CaseStudyPublication => {
-  const portfolioSource = asRecord(value);
-  const caseStudies = Array.isArray(portfolioSource.caseStudies)
-    ? portfolioSource.caseStudies.map(normalizeCaseStudy)
-    : [];
+  const source = asRecord(value);
+  const caseStudies = asRecords(source.caseStudies).map(normalizeCaseStudy);
+  const authoredCaseStudies = asRecords(source.authoredCaseStudies).map(normalizeAuthoredCaseStudy);
+  const featuredIds = normalizeStringArray(source.featuredCaseStudyIds);
+  const listings = orderListings([...authoredCaseStudies, ...caseStudies], featuredIds);
   return {
-    portfolioItems: expandPortfolioItems(portfolioSource, caseStudies),
-    pageIdentities: caseStudies.map((caseStudy) => createCaseStudyPageIdentity(pagePathFor(caseStudy))),
+    failures: validateCaseStudySource(source),
+    portfolioItems: expandPortfolioItems(source, caseStudies),
+    pageIdentities: [...caseStudies, ...authoredCaseStudies].map((caseStudy) => createCaseStudyPageIdentity(pagePathFor(caseStudy))),
+    featuredPagePaths: listings.filter((listing) => featuredIds.includes(listing.id)).map(pagePathFor),
     pages: [
-      { outputPath: 'case-studies.html', html: renderIndexHtml(caseStudies) },
+      { outputPath: 'case-studies.html', html: renderIndexHtml(listings) },
       ...caseStudies.map((caseStudy) => ({
         outputPath: pagePathFor(caseStudy),
         html: renderCaseStudyHtml(caseStudy)
       }))
     ],
     artifactMetadataByCaseStudyId: new Map(
-      caseStudies.map((caseStudy) => [
-        normalizeText(caseStudy.id),
-        artifactMetadataFor(caseStudy)
-      ])
+      caseStudies.map((caseStudy) => [caseStudy.id, artifactMetadataFor(caseStudy)])
     )
   };
 };

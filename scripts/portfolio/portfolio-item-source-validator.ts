@@ -15,8 +15,10 @@ export type PortfolioItemSourceInput = {
   schemaVersion?: unknown;
   portfolioItemCount?: unknown;
   featuredPortfolioItemIds?: unknown;
+  featuredCaseStudyIds?: unknown;
   portfolioItems?: unknown;
   caseStudies?: unknown;
+  authoredCaseStudies?: unknown;
   [key: string]: unknown;
 };
 
@@ -39,7 +41,7 @@ export type ValidatedPortfolioItemSource = {
   portfolioItems: PortfolioItem[];
   caseStudyPublication: Pick<
     CaseStudyPublication,
-    'pages' | 'artifactMetadataByCaseStudyId'
+    'pages' | 'artifactMetadataByCaseStudyId' | 'featuredPagePaths'
   >;
 };
 
@@ -59,29 +61,10 @@ const requiredPortfolioItemFields = [
   'description',
   'sourceArtifact',
   'sourceType',
-  'portfolioItemUrl',
-  'discussUrl'
+  'portfolioItemUrl'
 ];
-const requiredCaseStudyFields = [
-  'id',
-  'title',
-  'portfolioItemTitle',
-  'practiceArea',
-  'description',
-  'summary',
-  'pagePath',
-  'outputPath'
-];
-const requiredArtifactFields = [
-  'id',
-  'title',
-  'description',
-  'href',
-  'sourceType',
-  'practiceArea'
-];
-const rootHtmlPathPattern = /^[^/\\]+\.html$/i;
-const projectHtmlPathPattern = /^(?![A-Za-z]:)(?![/\\])(?!.*(?:^|[/\\])\.\.(?:[/\\]|$)).+\.html$/i;
+// Derived through the Engagement Inquiry Journey; a source value would be ignored.
+const derivedPortfolioItemFields = ['discussUrl'];
 
 const addDuplicateFailures = ({
   values,
@@ -142,28 +125,6 @@ const validatePracticeArea = ({
   }
 };
 
-const validateRootHtmlPath = ({
-  value,
-  field,
-  label,
-  failures
-}: ValidationFailures & { value: unknown; field: string; label: string }) => {
-  if (normalizeText(value) && !rootHtmlPathPattern.test(normalizeText(value))) {
-    failures.push(`${sourceFile}: ${label} ${field} must be a root-level .html path`);
-  }
-};
-
-const validateProjectHtmlPath = ({
-  value,
-  field,
-  label,
-  failures
-}: ValidationFailures & { value: unknown; field: string; label: string }) => {
-  if (normalizeText(value) && !projectHtmlPathPattern.test(normalizeText(value))) {
-    failures.push(`${sourceFile}: ${label} ${field} must be a project-relative .html path`);
-  }
-};
-
 const prioritizeFeaturedPortfolioItems = (
   portfolioItems: PortfolioItem[],
   featuredIds: unknown[] = []
@@ -211,14 +172,8 @@ export const validatePortfolioItemSource = ({
   const portfolioItems = Array.isArray(source.portfolioItems)
     ? source.portfolioItems.map(asRecord)
     : [];
-  const caseStudies = Array.isArray(source.caseStudies)
-    ? source.caseStudies.map(asRecord)
-    : [];
-  const caseStudyPublication = createCaseStudyPublication({
-    ...source,
-    portfolioItems,
-    caseStudies
-  });
+  // Case Study Publication owns the Case Study part of the schema and reports it.
+  const caseStudyPublication = createCaseStudyPublication(source);
 
   if (source.schemaVersion !== PORTFOLIO_ITEM_SCHEMA_VERSION) {
     failures.push(
@@ -227,9 +182,6 @@ export const validatePortfolioItemSource = ({
   }
   if (!Array.isArray(source.portfolioItems)) {
     failures.push(`${sourceFile}: portfolioItems must be an array`);
-  }
-  if (!Array.isArray(source.caseStudies)) {
-    failures.push(`${sourceFile}: caseStudies must be an array`);
   }
   if (source.portfolioItemCount !== portfolioItems.length) {
     failures.push(
@@ -253,100 +205,15 @@ export const validatePortfolioItemSource = ({
       knownPracticeAreas,
       failures
     });
+    for (const field of derivedPortfolioItemFields) {
+      if (field in item) failures.push(`${sourceFile}: ${label} ${field} is derived from the title; remove it from the source`);
+    }
     if (!Array.isArray(item?.tags) || item.tags.length === 0) {
       failures.push(`${sourceFile}: ${label} must declare at least one tag`);
     }
   });
 
-  addDuplicateFailures({
-    values: caseStudies.map((caseStudy) => caseStudy?.id),
-    label: 'Case Study id',
-    failures
-  });
-  addDuplicateFailures({
-    values: caseStudyPublication.pageIdentities.map((identity) => identity.pagePath),
-    label: 'Case Study pagePath',
-    failures
-  });
-  addDuplicateFailures({
-    values: caseStudies.map((caseStudy) => caseStudy?.outputPath),
-    label: 'Case Study outputPath',
-    failures
-  });
-
-  const rawPortfolioItemIds = new Set(portfolioItems.map((item) => normalizeText(item?.id)).filter(Boolean));
-  const absorbedOwners = new Map<string, string>();
-  caseStudies.forEach((caseStudy, index) => {
-    const id = normalizeText(caseStudy?.id) || `record ${index + 1}`;
-    const label = `Case Study "${id}"`;
-    validateRequiredFields({ record: caseStudy, fields: requiredCaseStudyFields, label, failures });
-    validateImage({ record: caseStudy, label, failures });
-    validatePracticeArea({
-      practiceArea: caseStudy?.practiceArea,
-      label,
-      knownPracticeAreas,
-      failures
-    });
-    validateRootHtmlPath({ value: caseStudy?.pagePath, field: 'pagePath', label, failures });
-    validateProjectHtmlPath({ value: caseStudy?.outputPath, field: 'outputPath', label, failures });
-    for (const field of ['reviewerContext', 'caseFlow', 'artifacts']) {
-      if (!Array.isArray(caseStudy?.[field])) {
-        failures.push(`${sourceFile}: ${label} ${field} must be an array`);
-      }
-    }
-
-    const absorbedIds = Array.isArray(caseStudy?.absorbedPortfolioItemIds)
-      ? caseStudy.absorbedPortfolioItemIds.map(normalizeText).filter(Boolean)
-      : [];
-    for (const absorbedId of absorbedIds) {
-      if (!rawPortfolioItemIds.has(absorbedId)) {
-        failures.push(`${sourceFile}: ${label} absorbs missing Portfolio Item "${absorbedId}"`);
-      }
-      const existingOwner = absorbedOwners.get(absorbedId);
-      if (existingOwner) {
-        failures.push(
-          `${sourceFile}: Portfolio Item "${absorbedId}" is absorbed by both Case Study "${existingOwner}" and "${id}"`
-        );
-      } else {
-        absorbedOwners.set(absorbedId, id);
-      }
-    }
-
-    const artifacts = Array.isArray(caseStudy.artifacts)
-      ? caseStudy.artifacts.map(asRecord)
-      : [];
-    if (caseStudy.suggestedArtifactId !== undefined && (
-      typeof caseStudy.suggestedArtifactId !== 'string'
-      || !artifacts.some((artifact) => normalizeText(artifact.id) === normalizeText(caseStudy.suggestedArtifactId))
-    )) {
-      failures.push(`${sourceFile}: ${label} suggestedArtifactId must reference an Artifact in the same Case Study`);
-    }
-    addDuplicateFailures({
-      values: artifacts.map((artifact) => artifact?.id),
-      label: `${label} Artifact id`,
-      failures
-    });
-    artifacts.forEach((artifact, artifactIndex) => {
-      const artifactId = normalizeText(artifact?.id) || `record ${artifactIndex + 1}`;
-      const artifactLabel = `${label} Artifact "${artifactId}"`;
-      validateRequiredFields({
-        record: artifact,
-        fields: requiredArtifactFields,
-        label: artifactLabel,
-        failures
-      });
-      validateImage({ record: artifact, label: artifactLabel, failures });
-      validatePracticeArea({
-        practiceArea: artifact?.practiceArea,
-        label: artifactLabel,
-        knownPracticeAreas,
-        failures
-      });
-      if (!Array.isArray(artifact?.tags) || artifact.tags.length === 0) {
-        failures.push(`${sourceFile}: ${artifactLabel} must declare at least one tag`);
-      }
-    });
-  });
+  failures.push(...caseStudyPublication.failures);
 
   const generatedItems = caseStudyPublication.portfolioItems;
   const validatedPortfolioItems = prioritizeFeaturedPortfolioItems(
@@ -404,12 +271,13 @@ export const validatePortfolioItemSource = ({
   return {
     failures,
     rawPortfolioItemCount: portfolioItems.length,
-    caseStudyCount: caseStudies.length,
+    caseStudyCount: Array.isArray(source.caseStudies) ? source.caseStudies.length : 0,
     generatedPortfolioItemCount: generatedItems.length,
     portfolioItems: applyProofPoints(validatedPortfolioItems, proof),
     caseStudyPublication: {
       pages: caseStudyPublication.pages,
-      artifactMetadataByCaseStudyId: caseStudyPublication.artifactMetadataByCaseStudyId
+      artifactMetadataByCaseStudyId: caseStudyPublication.artifactMetadataByCaseStudyId,
+      featuredPagePaths: caseStudyPublication.featuredPagePaths
     }
   };
 };

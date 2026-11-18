@@ -1,8 +1,7 @@
 import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
-import { isDeepStrictEqual } from 'node:util';
+import { findStalePortfolioEvidenceOutputs } from '../portfolio-generation-command.ts';
 import { validatePortfolioItemSource, type ValidatedPortfolioItemSource } from '../portfolio/portfolio-item-source-validator.ts';
-import type { PortfolioItem } from '../portfolio/portfolio-item-catalog.ts';
 import { createShippedArtifactPolicy } from '../site/shipped-artifact-policy.ts';
 
 type PortfolioEvidenceRecord = Record<string, unknown>;
@@ -47,54 +46,6 @@ const createRootGuard = (root: string) => (targetPath: string) => {
   return relativePath === '' || (!relativePath.startsWith('..') && !path.isAbsolute(relativePath));
 };
 
-// Compare parsed facts without normalizing away drift or depending on JSON key order.
-const validateSourceCorrespondence = (
-  source: ValidatedPortfolioItemSource,
-  catalogItems: PortfolioEvidenceRecord[],
-  aiContextItems: PortfolioEvidenceRecord[]
-): string[] => {
-  if (source.failures.length) return [];
-
-  const failures: string[] = [];
-  const itemsById = new Map(source.portfolioItems.map((item) => [item.id, item]));
-  const compare = (label: string, field: string, actual: unknown, expected: unknown) => {
-    if (!isDeepStrictEqual(actual, expected)) {
-      failures.push(`${label} ${field} does not match Validated Portfolio Item Source`);
-    }
-  };
-
-  catalogItems.forEach((item, index) => {
-    const expected = typeof item.id === 'string' ? itemsById.get(item.id) : undefined;
-    if (!expected) return; // The identity/order check reports unmatched records.
-    const label = `assets/data/portfolio-items.json: portfolio item ${index + 1}`;
-    const fields: (keyof PortfolioItem)[] = [
-      'title', 'practiceArea', 'tags', 'description', 'audience', 'image',
-      'sourceArtifact', 'sourceType', 'portfolioItemUrl', 'discussUrl', 'proof'
-    ];
-    for (const field of fields) compare(label, field, item[field], expected[field]);
-  });
-
-  if (!isDeepStrictEqual(source.portfolioItems.map((item) => item.id), aiContextItems.map((item) => item.id))) {
-    failures.push('Portfolio Item source/AI context id order mismatch; regenerate AI context from assets/data/portfolio-source.json');
-  }
-  aiContextItems.forEach((item, index) => {
-    const expected = typeof item.id === 'string' ? itemsById.get(item.id) : undefined;
-    if (!expected) return;
-    const label = `assets/data/portfolio-ai-context.json: portfolio item ${index + 1}`;
-    for (const field of ['title', 'practiceArea', 'tags', 'sourceArtifact'] as const) {
-      compare(label, field, item[field], expected[field]);
-    }
-    compare(label, 'publicDescription', item.publicDescription, expected.description);
-    const aiContext = asRecord(item.aiContext);
-    compare(label, 'aiContext.proof', aiContext.proof, expected.proof);
-    compare(label, 'aiContext.outcomeEvidence', aiContext.outcomeEvidence,
-      expected.proof.impact.filter((entry) => entry.claim && entry.confidence === 'direct'));
-    const artifacts = source.caseStudyPublication.artifactMetadataByCaseStudyId.get(expected.id);
-    compare(label, 'caseStudyArtifacts', item.caseStudyArtifacts, artifacts?.length ? artifacts : undefined);
-  });
-  return failures;
-};
-
 const validatePortfolioEvidenceData = async ({
   portfolioSourceData,
   validatedSource,
@@ -125,15 +76,6 @@ const validatePortfolioEvidenceData = async ({
   const portfolioItems = getPortfolioEvidenceItems(portfolioCatalog);
   if (portfolioItems.length === 0) {
     failures.push('assets/data/portfolio-items.json: expected at least one portfolio item');
-  }
-  if (sourceItems.length !== portfolioItems.length) {
-    failures.push(`Portfolio Item source/catalog count mismatch: source=${sourceItems.length}, catalog=${portfolioItems.length}`);
-  }
-
-  const portfolioSourceIds = sourceItems.map((item) => item.id);
-  const portfolioCatalogIds = portfolioItems.map((item) => item.id);
-  if (!isDeepStrictEqual(portfolioSourceIds, portfolioCatalogIds)) {
-    failures.push('Portfolio Item source/catalog id order mismatch; regenerate catalog and rendered cards from assets/data/portfolio-source.json');
   }
 
   for (const [index, portfolioItem] of portfolioItems.entries()) {
@@ -186,9 +128,6 @@ const validatePortfolioEvidenceData = async ({
   }
 
   const aiContextItems = portfolioAiContext ? getPortfolioEvidenceItems(portfolioAiContext) : [];
-  if (portfolioAiContext && aiContextItems.length !== portfolioItems.length) {
-    failures.push(`Portfolio Item catalog/AI context count mismatch: catalog=${portfolioItems.length}, aiContext=${aiContextItems.length}`);
-  }
   aiContextItems.forEach((portfolioItem, index) => {
     const label = `assets/data/portfolio-ai-context.json: portfolio item ${index + 1}`;
     const aiContext = asRecord(portfolioItem.aiContext);
@@ -207,8 +146,6 @@ const validatePortfolioEvidenceData = async ({
       failures.push(`${label} aiHint must be labeled as an inferred non-proof drafting hint`);
     }
   });
-
-  failures.push(...validateSourceCorrespondence(validatedSource, portfolioItems, aiContextItems));
 
   return {
     failures,
@@ -236,8 +173,15 @@ export const validatePortfolioEvidence = async ({
     portfolioAiContext,
     root
   });
+  // Generated outputs correspond to the source exactly when they match a fresh
+  // generation, so one freshness check replaces field-by-field comparison.
+  const freshnessFailures = sourceValidation.failures.length
+    ? []
+    : await findStalePortfolioEvidenceOutputs({ rootDir: root })
+      .then((stale) => stale.map((file) => `${file} is stale; run bun run generate:portfolio`))
+      .catch((error: Error) => [`Portfolio Evidence Workflow could not regenerate outputs: ${error.message}`]);
   return {
     ...evidenceValidation,
-    failures: [...sourceValidation.failures, ...evidenceValidation.failures]
+    failures: [...sourceValidation.failures, ...evidenceValidation.failures, ...freshnessFailures]
   };
 };

@@ -27,7 +27,7 @@ describe('Portfolio Item catalog', () => {
       sourceArtifact: 'assets/spreadsheets/portfolio/recruitment_assessment_blueprint.xlsx',
       sourceType: '',
       portfolioItemUrl: 'portfolio.html#assessment-blueprint',
-      discussUrl: '',
+      discussUrl: 'contact.html?portfolioItem=Recruitment+%26+Assessment+Blueprint',
       proof: {
         visibleProofLine: '',
         workQuality: [],

@@ -1,6 +1,14 @@
 import { Window } from 'happy-dom';
 import { createPortfolioItemDiscoveryFacts, portfolioDiscoveryFilters } from '../../src/portfolio-discovery.ts';
 import { createArtifactPreviewContract } from '../../src/site/artifact-preview-policy.ts';
+import { ARTIFACT_PREVIEW_TRIGGER_CLASS } from '../../src/site/artifact-preview-markup.ts';
+import { SITE_PAGE_KINDS } from '../../src/site/site-page-identity.ts';
+import {
+  parseSitePageSource,
+  renderSitePage,
+  renderSitePageSource,
+  type SitePageSource
+} from '../site/site-page-shell.ts';
 import {
   PORTFOLIO_ITEM_SCHEMA_VERSION,
   createPortfolioCatalogData
@@ -15,7 +23,8 @@ type PortfolioEvidenceOutputType =
   | 'portfolio-html'
   | 'catalog-json'
   | 'case-study-html'
-  | 'ai-context-json';
+  | 'ai-context-json'
+  | 'site-page-html';
 
 export type PortfolioEvidenceOutput =
   | { type: PortfolioEvidenceOutputType; pathKey: WorkflowPathKey; contents: string }
@@ -26,6 +35,8 @@ export type PortfolioEvidenceWorkflowSummary = {
   catalogPortfolioItemCount: number;
   aiContextPortfolioItemCount: number;
   caseStudyPageCount: number;
+  /** Authored pages rendered through the Site Page Shell, including the portfolio page. */
+  sitePageCount: number;
 };
 
 export type PortfolioEvidenceWorkflowResult = {
@@ -34,7 +45,10 @@ export type PortfolioEvidenceWorkflowResult = {
 };
 
 export type PortfolioEvidenceWorkflowInput = {
-  portfolioHtml: string;
+  /** The portfolio Site Page Source: front matter plus a listing template with an empty card grid. */
+  portfolioPageSource: string;
+  /** Every other authored Site Page Source; each becomes a root page through the Site Page Shell. */
+  sitePageSources?: readonly SitePageSource[];
   portfolioSource: unknown;
   proofSource: unknown;
   generatedFrom: string;
@@ -44,10 +58,14 @@ export type PortfolioEvidenceWorkflowInput = {
 
 const jsonOutput = (data: unknown) => `${JSON.stringify(data, null, 2)}\n`;
 
-const createPortfolioDocument = (html: string) => {
+const PORTFOLIO_PAGE_PATH = 'portfolio.html';
+
+// The template is parsed fresh on every run and output is never read back,
+// so regenerating is idempotent.
+const createPortfolioDocument = (content: string) => {
   const window = new Window();
   window.SyntaxError = window.SyntaxError || SyntaxError;
-  window.document.write(html);
+  window.document.write(`<!DOCTYPE html><html><body>${content}</body></html>`);
   window.document.close();
   return window.document;
 };
@@ -152,9 +170,7 @@ const renderPortfolioItemCard = (
   actions.className = 'card-actions';
   const discussLink = document.createElement('a');
   discussLink.className = 'portfolio-discuss-link';
-  discussLink.href = previewContract
-    ? `contact.html?${new URLSearchParams({ portfolioItem: item.title })}`
-    : item.discussUrl;
+  discussLink.href = item.discussUrl;
   discussLink.textContent = 'Discuss this work';
   if (item.sourceType === 'case-study-page') {
     const caseStudyLink = document.createElement('a');
@@ -164,7 +180,7 @@ const renderPortfolioItemCard = (
     actions.append(caseStudyLink, discussLink);
   } else {
     const detailsButton = document.createElement('button');
-    detailsButton.className = 'view-details-button portfolio-review-action';
+    detailsButton.className = `${ARTIFACT_PREVIEW_TRIGGER_CLASS} portfolio-review-action`;
     detailsButton.type = 'button';
     detailsButton.setAttribute('aria-haspopup', 'dialog');
     detailsButton.textContent = item.sourceType === 'pdf'
@@ -192,29 +208,11 @@ const renderPortfolioItemCards = (
   portfolioItems: PortfolioItem[]
 ): number => {
   const grid = document.querySelector('.portfolio-items-grid');
-  if (!grid) return 0;
-
-  // Old hand-authored card markers no longer describe the generated listing.
-  for (const node of Array.from(grid.childNodes)) {
-    if (node.nodeType === 8 || (node.nodeType === 3 && !node.textContent?.trim())) grid.removeChild(node);
+  if (!grid) throw new Error(`${PORTFOLIO_PAGE_PATH}: Site Page Source has no .portfolio-items-grid for Portfolio Item cards`);
+  if (grid.children.length) {
+    throw new Error(`${PORTFOLIO_PAGE_PATH}: the .portfolio-items-grid template must be empty; cards are generated`);
   }
-
-  Array.from(
-    grid.querySelectorAll(':scope > .card.portfolio-item:not(.portfolio-item-placeholder)')
-  ).forEach((card) => {
-    card.remove();
-  });
-
-  const placeholder = grid.querySelector(':scope > .portfolio-item-placeholder');
-  portfolioItems.forEach((item, index) => {
-    const card = renderPortfolioItemCard(document, item, index);
-    if (placeholder) {
-      grid.insertBefore(card, placeholder);
-    } else {
-      grid.append(card);
-    }
-  });
-
+  grid.replaceChildren(...portfolioItems.map((item, index) => renderPortfolioItemCard(document, item, index)));
   return portfolioItems.length;
 };
 
@@ -256,7 +254,8 @@ const createPortfolioAiContextData = ({
 };
 
 export const createPortfolioEvidenceWorkflow = ({
-  portfolioHtml,
+  portfolioPageSource,
+  sitePageSources = [],
   portfolioSource,
   proofSource,
   generatedFrom,
@@ -268,7 +267,11 @@ export const createPortfolioEvidenceWorkflow = ({
     proofSource
   });
   const portfolioItems = validatedSource.portfolioItems;
-  const document = createPortfolioDocument(portfolioHtml);
+  const portfolioPage = parseSitePageSource({ pagePath: PORTFOLIO_PAGE_PATH, source: portfolioPageSource });
+  if (portfolioPage.identity.kind !== SITE_PAGE_KINDS.portfolio) {
+    throw new Error(`${PORTFOLIO_PAGE_PATH}: Site Page Source kind must be "${SITE_PAGE_KINDS.portfolio}"`);
+  }
+  const document = createPortfolioDocument(portfolioPage.content);
   renderPortfolioDiscoveryControls(document);
   const renderedPortfolioItemCount = renderPortfolioItemCards(document, portfolioItems);
   const catalogData = createPortfolioCatalogData({
@@ -289,7 +292,7 @@ export const createPortfolioEvidenceWorkflow = ({
     {
       type: 'portfolio-html',
       pathKey: 'portfolioHtml',
-      contents: `<!DOCTYPE html>\n${document.documentElement.outerHTML}\n`
+      contents: renderSitePage({ ...portfolioPage, content: document.body.innerHTML })
     },
     {
       type: 'catalog-json',
@@ -305,8 +308,22 @@ export const createPortfolioEvidenceWorkflow = ({
       type: 'ai-context-json',
       pathKey: 'aiContextOutput',
       contents: jsonOutput(aiContextData)
-    }
+    },
+    ...sitePageSources.map((pageSource): PortfolioEvidenceOutput => ({
+      type: 'site-page-html',
+      outputPath: pageSource.pagePath,
+      contents: renderSitePageSource(pageSource)
+    }))
   ];
+
+  const claimedPaths = new Set<string>([PORTFOLIO_PAGE_PATH]);
+  for (const output of outputs) {
+    if (!('outputPath' in output)) continue;
+    if (claimedPaths.has(output.outputPath)) {
+      throw new Error(`${output.outputPath}: generated by more than one source; a Site Page Source cannot replace a generated page`);
+    }
+    claimedPaths.add(output.outputPath);
+  }
 
   return {
     outputs,
@@ -314,7 +331,8 @@ export const createPortfolioEvidenceWorkflow = ({
       renderedPortfolioItemCount,
       catalogPortfolioItemCount: portfolioItems.length,
       aiContextPortfolioItemCount: portfolioItems.length,
-      caseStudyPageCount: caseStudyPages.length
+      caseStudyPageCount: caseStudyPages.length,
+      sitePageCount: sitePageSources.length + 1
     }
   };
 };
