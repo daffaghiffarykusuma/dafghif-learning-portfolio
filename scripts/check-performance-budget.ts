@@ -25,6 +25,7 @@ const {
   previewIframeSources
 } = await createDistSiteInventory({ rootDir: root, distDir: dist });
 const shippedArtifactPolicy = createShippedArtifactPolicy({ rootDir: root });
+const caseStudyPagePaths = new Set(shippedArtifactPolicy.shippingManifest.routablePages);
 
 const sum = (items: readonly { size: number }[]) =>
   items.reduce((total, item) => total + item.size, 0);
@@ -48,7 +49,8 @@ const portfolioHtmlGzipBytes = shippedProbeRecords.has('portfolio.html')
   ? gzipBytesForPath('portfolio.html')
   : 0;
 const caseStudyHtmlGzip = htmlRecords
-  .filter((item) => item.rel.startsWith('case-') && item.rel !== 'case-studies.html')
+  // Case Study Page Identities, not filenames, decide which pages get the Case Study budget.
+  .filter((item) => caseStudyPagePaths.has(item.rel))
   .map((item) => ({
     path: item.rel,
     gzipBytes: gzipBytesForPath(item.rel),

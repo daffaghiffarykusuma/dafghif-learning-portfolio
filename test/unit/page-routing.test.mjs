@@ -1,8 +1,12 @@
 import { afterEach, describe, expect, test } from 'bun:test';
+import { renderArtifactPreviewModal } from '../../src/site/artifact-preview-markup.ts';
 import { createDom, importFresh, resetDom } from '../helpers/dom.mjs';
 
+const page = (kind, content) =>
+  `<body data-page-kind="${kind}" data-page-path="${kind}.html">${content}${renderArtifactPreviewModal()}</body>`;
+
 const portfolioFixture = ({ hash = '' } = {}) => {
-  createDom(`
+  createDom(page('portfolio', `
     <div id="portfolio-discovery">
       <input id="portfolio-search" type="search">
       <div id="portfolio-item-filters">
@@ -22,12 +26,7 @@ const portfolioFixture = ({ hash = '' } = {}) => {
         </div>
       </article>
     </section>
-    <dialog id="pdf-modal">
-      <button class="close-modal">Close</button>
-      <h2 id="pdf-modal-title"></h2>
-      <iframe id="pdf-iframe"></iframe>
-    </dialog>
-  `, `http://127.0.0.1/portfolio.html${hash}`);
+  `), `http://127.0.0.1/portfolio.html${hash}`);
   globalThis.console = window.console;
 };
 
@@ -40,7 +39,7 @@ describe('portfolio page', () => {
     portfolioFixture({ hash: '#sample-item' });
     const { initCurrentPage } = await importFresh('../../src/site/pages/page-router.ts');
 
-    expect(document.getElementById('pdf-iframe').getAttribute('src')).toBeNull();
+    expect(document.getElementById('pdf-iframe').getAttribute('src')).toBe('');
     const preview = initCurrentPage();
 
     expect(document.querySelector('#portfolio-discovery').dataset.discoveryInitialized).toBe('true');
@@ -52,38 +51,28 @@ describe('portfolio page', () => {
 });
 
 describe('case study page routing', () => {
-  test('detects case study preview capability from markup instead of route name', async () => {
-    createDom(`
-      <article class="case-artifact-card"><button class="view-details-button">View Details</button></article>
-      <dialog id="pdf-modal">
-        <button class="close-modal">Close</button>
-        <h2 id="pdf-modal-title"></h2>
-        <iframe id="pdf-iframe"></iframe>
-      </dialog>
-    `, 'http://127.0.0.1/case-studies.html');
+  test('routes by Site Page Identity, not by route name or markup', async () => {
+    const artifact = '<article class="case-artifact-card"><button class="view-details-button" data-pdf="assets/pdf/portfolio/sample.pdf">View Details</button></article>';
+    createDom(page('case-study', artifact), 'http://127.0.0.1/portfolio.html');
+    globalThis.console = window.console;
     const { initCurrentPage } = await importFresh('../../src/site/pages/page-router.ts');
 
     expect(initCurrentPage()).toBeTruthy();
 
     resetDom();
-    createDom('<main><h1>Case Studies</h1></main>', 'http://127.0.0.1/case-studies.html');
+    createDom(page('case-study-index', artifact), 'http://127.0.0.1/case-sample.html');
     expect(initCurrentPage()).toBeNull();
   });
 
   test('opens direct hash artifact previews on case study pages', async () => {
-    createDom(`
+    createDom(page('case-study', `
       <article id="artifact-sample" class="card portfolio-item case-artifact-card">
         <div class="card-content">
           <h3>Sample Case Artifact</h3>
           <button class="view-details-button" data-pdf="assets/pdf/portfolio/sample.pdf">View Details</button>
         </div>
       </article>
-      <dialog id="pdf-modal">
-        <button class="close-modal">Close</button>
-        <h2 id="pdf-modal-title"></h2>
-        <iframe id="pdf-iframe"></iframe>
-      </dialog>
-    `, 'http://127.0.0.1/case-sample.html#artifact-sample');
+    `), 'http://127.0.0.1/case-sample.html#artifact-sample');
     globalThis.console = window.console;
     const { initCurrentPage } = await importFresh('../../src/site/pages/page-router.ts');
 

@@ -1,5 +1,3 @@
-import { readPageIdentity } from './case-study-page-identity.ts';
-
 export function initNavigation() {
     const currentYear = document.getElementById('current-year');
     const menuToggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
@@ -28,14 +26,8 @@ export function initNavigation() {
             }
         });
 
-        const pageIdentity = readPageIdentity();
+        // The Site Page Shell marks the current page; this only closes the menu.
         navLinks.forEach((link) => {
-            const linkPage = (link.getAttribute('href') || '').split('/').pop() || 'index.html';
-            const parentItem = link.parentElement;
-            const shouldHighlight = linkPage === pageIdentity.navigationPage;
-
-            parentItem?.classList.toggle('current', shouldHighlight);
-
             link.addEventListener('click', () => {
                 if (nav.classList.contains('active')) {
                     setNavigationOpen(false);

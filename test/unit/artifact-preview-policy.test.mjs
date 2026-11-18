@@ -21,13 +21,6 @@ describe('artifact preview policy', () => {
       type: 'pdf',
       url: 'http://127.0.0.1/assets/pdf/portfolio/sample.pdf',
       linkPolicy: outsidePreviewLinkPolicy,
-      navigationPolicy: {
-        allowedOrigin: 'http://127.0.0.1',
-        allowedPathPrefix: 'assets/pdf/portfolio/',
-        allowedExtension: '.pdf',
-        previewFrameNavigation: 'validated-artifact-src-only',
-        artifactLinks: 'open-outside-preview-frame'
-      },
       triggerAttributes: {
         'data-pdf': 'assets/pdf/portfolio/sample.pdf'
       },
@@ -42,13 +35,6 @@ describe('artifact preview policy', () => {
       type: 'viewer',
       url: 'http://127.0.0.1/assets/portfolio-viewers/sample.html',
       linkPolicy: outsidePreviewLinkPolicy,
-      navigationPolicy: {
-        allowedOrigin: 'http://127.0.0.1',
-        allowedPathPrefix: 'assets/portfolio-viewers/',
-        allowedExtension: '.html',
-        previewFrameNavigation: 'validated-artifact-src-only',
-        artifactLinks: 'open-outside-preview-frame'
-      },
       triggerAttributes: {
         'data-viewer': 'assets/portfolio-viewers/sample.html'
       },

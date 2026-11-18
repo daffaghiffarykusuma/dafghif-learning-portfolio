@@ -1,5 +1,7 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test';
+import { readFileSync } from 'node:fs';
 import path from 'node:path';
+import { createCaseStudyPublication } from '../../scripts/portfolio/case-study-publication.ts';
 import { createShippedArtifactPolicy } from '../../scripts/site/shipped-artifact-policy.ts';
 import { projectRoot } from '../helpers/dom.mjs';
 
@@ -7,8 +9,13 @@ const host = '127.0.0.1';
 const port = 4178;
 const baseUrl = `http://${host}:${port}`;
 const shippedArtifacts = createShippedArtifactPolicy({ rootDir: projectRoot });
-const generatedCaseStudyPages = shippedArtifacts.shippingManifest.routablePages
-  .map((pagePath) => `/${pagePath}`);
+// Routable Case Study pages include hand-written ones; these checks cover the generated ones.
+const generatedCaseStudyPages = createCaseStudyPublication(
+  JSON.parse(readFileSync(path.join(projectRoot, 'assets/data/portfolio-source.json'), 'utf8'))
+).pages
+  .map((page) => `/${page.outputPath}`)
+  .filter((pagePath) => pagePath !== '/case-studies.html');
+const routableCaseStudyPages = shippedArtifacts.shippingManifest.routablePages.map((pagePath) => `/${pagePath}`);
 let server;
 
 const run = async (command, args) => {
@@ -84,10 +91,9 @@ describe('production site system checks', () => {
       '/index.html',
       '/portfolio.html',
       '/case-studies.html',
-      ...generatedCaseStudyPages,
+      ...routableCaseStudyPages,
       '/blog.html',
-      '/contact.html',
-      '/case-entrepreneurship.html'
+      '/contact.html'
     ];
 
     for (const page of pages) {

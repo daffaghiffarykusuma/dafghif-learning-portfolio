@@ -34,3 +34,17 @@ describe('Engagement Context', () => {
     expect(decodeURIComponent(document.querySelector('.email').href)).toContain('Score Audit Corrections');
   });
 });
+
+describe('Engagement Inquiry links', () => {
+  test('builds the links its contact page reads back', async () => {
+    const { createEngagementInquiryHref, readEngagementInquiryLabel } = await import('../../src/site/engagement-inquiry-journey.ts');
+    for (const label of ["UMKM's Simple Financial Management", 'Recruitment & Assessment Blueprint', 'SMK Program']) {
+      const href = createEngagementInquiryHref({ portfolioItem: label });
+      expect(href.startsWith('contact.html?portfolioItem=')).toBe(true);
+      expect(readEngagementInquiryLabel(new URL(href, 'https://portfolio.test').search)).toBe(label);
+    }
+    expect(createEngagementInquiryHref({ engagement: 'Coaching engagement' })).toBe('contact.html?engagement=Coaching+engagement');
+    expect(createEngagementInquiryHref({ portfolioItem: '   ' })).toBe('contact.html');
+    expect(readEngagementInquiryLabel('?service=Legacy%20link')).toBe('Legacy link');
+  });
+});

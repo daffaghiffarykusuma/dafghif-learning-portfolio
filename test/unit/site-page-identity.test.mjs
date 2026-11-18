@@ -4,15 +4,26 @@ import {
   createCaseStudyIndexPageIdentity,
   createCaseStudyPageIdentity,
   isCaseStudyPageIdentity,
+  createSitePageIdentity,
+  pageNameFromPath,
   readPageIdentity
-} from '../../src/site/case-study-page-identity.ts';
+} from '../../src/site/site-page-identity.ts';
 import { createDom, resetDom } from '../helpers/dom.mjs';
 
 afterEach(() => {
   resetDom();
 });
 
-describe('Case Study Page Identity', () => {
+describe('Site Page Identity', () => {
+  test('names every root page and derives its navigation page', () => {
+    expect(createSitePageIdentity({ kind: 'portfolio', pagePath: 'portfolio.html' })).toEqual({
+      kind: 'portfolio', pagePath: 'portfolio.html', navigationPage: 'portfolio.html'
+    });
+    expect(createSitePageIdentity({ kind: 'case-study', pagePath: 'case-new.html' }).navigationPage).toBe(CASE_STUDY_NAVIGATION_PAGE);
+    expect(pageNameFromPath('/nested/contact.html?portfolioItem=A#top')).toBe('contact.html');
+    expect(pageNameFromPath('/')).toBe('index.html');
+  });
+
   test('provides one identity interface for generation and browser adapters', () => {
     const identity = createCaseStudyPageIdentity('nested/case-sample.html');
 

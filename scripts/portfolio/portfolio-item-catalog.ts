@@ -1,3 +1,5 @@
+import { createEngagementInquiryHref } from '../../src/site/engagement-inquiry-journey.ts';
+
 export const PORTFOLIO_ITEM_SCHEMA_VERSION = 1;
 
 export type ProofPoint = {
@@ -23,6 +25,7 @@ export type PortfolioItem = {
   sourceArtifact: string;
   sourceType: string;
   portfolioItemUrl: string;
+  /** Derived from the title through the Engagement Inquiry Journey. */
   discussUrl: string;
   proof: PortfolioItemProof;
 };
@@ -91,7 +94,7 @@ export const normalizePortfolioItem = (sourceItem: unknown): PortfolioItem => {
     sourceArtifact: normalizeText(source.sourceArtifact),
     sourceType: normalizeText(source.sourceType),
     portfolioItemUrl: normalizeText(source.portfolioItemUrl),
-    discussUrl: normalizeText(source.discussUrl),
+    discussUrl: createEngagementInquiryHref({ portfolioItem: title }),
     proof: normalizePortfolioItemProof(source.proof)
   };
 };

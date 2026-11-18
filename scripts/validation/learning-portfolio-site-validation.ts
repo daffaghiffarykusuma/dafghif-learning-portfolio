@@ -2,6 +2,12 @@ import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { createPublicationSourceFacts } from '../../src/site/publication-source-facts.ts';
 import { validatePortfolioEvidence } from './portfolio-evidence-validator.ts';
+import {
+  validateContactChannels,
+  validateHomeSelectedWork,
+  validateOwnedLinks
+} from './authored-page-contracts.ts';
+import { createCaseStudyPublication } from '../portfolio/case-study-publication.ts';
 import { createShippedArtifactPolicy } from '../site/shipped-artifact-policy.ts';
 import {
   createSourceSiteInventory,
@@ -296,6 +302,7 @@ export const validateLearningPortfolioSite = async ({
         pageIds
       });
     }
+    failures.push(...validateOwnedLinks(page));
     for (const tag of page.blankTargetTags) {
       if (!/\brel=["'][^"']*\bnoopener\b[^"']*\bnoreferrer\b[^"']*["']/i.test(tag)) {
         failures.push(
@@ -330,6 +337,20 @@ export const validateLearningPortfolioSite = async ({
         failures.push(`${cssFile.relPath}: missing CSS asset target: ${value}`);
       }
     }
+  }
+
+  const rootPage = (relPath: string) => sourceInventory.htmlPages.find((page) => page.relPath === relPath);
+  const contactPage = rootPage('contact.html');
+  if (contactPage) failures.push(...validateContactChannels(contactPage.source));
+  const homePage = rootPage('index.html');
+  if (homePage) {
+    const portfolioSource: unknown = JSON.parse(
+      await readFile(path.join(rootDir, 'assets/data/portfolio-source.json'), 'utf8')
+    );
+    failures.push(...validateHomeSelectedWork(
+      homePage.source,
+      createCaseStudyPublication(portfolioSource).featuredPagePaths
+    ));
   }
 
   failures.push(...await validateSecurityHeaders(rootDir));

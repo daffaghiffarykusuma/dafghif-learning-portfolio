@@ -21,13 +21,6 @@ export type ArtifactPreview = {
         rel: string;
         opensOutsidePreviewFrame: boolean;
     };
-    navigationPolicy: {
-        allowedOrigin: string;
-        allowedPathPrefix: string;
-        allowedExtension: string;
-        previewFrameNavigation: string;
-        artifactLinks: string;
-    };
 };
 
 export type ArtifactPreviewContract = ArtifactPreview & {
@@ -123,7 +116,6 @@ export const safeArtifactPreviewPath = (candidatePath: string | null | undefined
 export const resolveArtifactPreview = (candidatePaths: Partial<Record<ArtifactPreviewDatasetKey, string>> = {}, baseLocation: ArtifactPreviewBaseLocation = defaultBaseLocation()): ArtifactPreview | null => {
     for (const previewType of ARTIFACT_PREVIEW_ORDER) {
         const policy = ARTIFACT_PREVIEW_TYPES[previewType];
-        const baseUrl = toBaseUrl(baseLocation);
         const url = safeArtifactPreviewPath(candidatePaths?.[policy.datasetKey], previewType, baseLocation);
         if (!url) continue;
 
@@ -132,14 +124,7 @@ export const resolveArtifactPreview = (candidatePaths: Partial<Record<ArtifactPr
             url,
             src: policy.urlFragment ? `${url}#${policy.urlFragment}` : url,
             frameAttributes: { ...policy.frameAttributes },
-            linkPolicy: { ...OUTSIDE_PREVIEW_LINK_POLICY },
-            navigationPolicy: {
-                allowedOrigin: baseUrl.origin,
-                allowedPathPrefix: policy.prefix,
-                allowedExtension: policy.extension,
-                previewFrameNavigation: 'validated-artifact-src-only',
-                artifactLinks: 'open-outside-preview-frame'
-            }
+            linkPolicy: { ...OUTSIDE_PREVIEW_LINK_POLICY }
         };
     }
 

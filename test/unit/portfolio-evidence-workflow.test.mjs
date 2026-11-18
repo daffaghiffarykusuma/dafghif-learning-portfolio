@@ -51,14 +51,12 @@ const proofSource = {
   }
 };
 
-const portfolioHtml = `<!DOCTYPE html>
-<html>
-  <body>
-    <div class="portfolio-items-grid">
-      <div class="portfolio-item-placeholder">Placeholder</div>
-    </div>
-  </body>
-</html>`;
+const portfolioPageSource = `<!--site-page
+{ "kind": "portfolio", "title": "Portfolio", "description": "Portfolio Items.", "artifactPreview": true }
+-->
+<main id="main-content">
+  <div class="portfolio-items-grid"></div>
+</main>`;
 
 const workflowSource = {
   schemaVersion: 1,
@@ -74,8 +72,7 @@ const workflowSource = {
       image: { src: 'assets/images/portfolio/example.webp', alt: 'Example' },
       sourceArtifact: 'assets/pdf/portfolio/example.pdf',
       sourceType: 'pdf',
-      portfolioItemUrl: 'portfolio.html#default-deck',
-      discussUrl: 'contact.html?portfolioItem=Default%20Deck'
+      portfolioItemUrl: 'portfolio.html#default-deck'
     },
     {
       id: 'custom-deck',
@@ -87,8 +84,7 @@ const workflowSource = {
       image: { src: 'assets/images/portfolio/custom.webp', alt: 'Custom' },
       sourceArtifact: 'assets/portfolio-viewers/custom-deck.html',
       sourceType: 'html-viewer',
-      portfolioItemUrl: 'portfolio.html#custom-deck',
-      discussUrl: 'contact.html?portfolioItem=Custom%20Deck'
+      portfolioItemUrl: 'portfolio.html#custom-deck'
     }
   ],
   caseStudies: []
@@ -104,7 +100,7 @@ describe('Portfolio Evidence Workflow', () => {
   test('publishes role and project invitations with contextual discussion after the work samples', async () => {
     const source = await Bun.file(new URL('../../assets/data/portfolio-source.json', import.meta.url)).json();
     const proof = await Bun.file(new URL('../../assets/data/portfolio-proof-points.json', import.meta.url)).json();
-    const workflow = createPortfolioEvidenceWorkflow({ portfolioHtml, portfolioSource: source, proofSource: proof, generatedFrom: 'assets/data/portfolio-source.json' });
+    const workflow = createPortfolioEvidenceWorkflow({ portfolioPageSource, portfolioSource: source, proofSource: proof, generatedFrom: 'assets/data/portfolio-source.json' });
     for (const item of source.caseStudies) {
       const document = new Window().document;
       document.write(workflow.outputs.find((output) => output.outputPath === item.pagePath).contents);
@@ -121,7 +117,7 @@ describe('Portfolio Evidence Workflow', () => {
   test('publishes narrative capability before the title while retaining source-supported scope and native destinations', async () => {
     const source = await Bun.file(new URL('../../assets/data/portfolio-source.json', import.meta.url)).json();
     const proof = await Bun.file(new URL('../../assets/data/portfolio-proof-points.json', import.meta.url)).json();
-    const workflow = createPortfolioEvidenceWorkflow({ portfolioHtml, portfolioSource: source, proofSource: proof, generatedFrom: 'assets/data/portfolio-source.json' });
+    const workflow = createPortfolioEvidenceWorkflow({ portfolioPageSource, portfolioSource: source, proofSource: proof, generatedFrom: 'assets/data/portfolio-source.json' });
     const document = new Window().document;
     document.write(outputFor(workflow, 'portfolio-html').contents);
     for (const item of source.caseStudies) {
@@ -139,7 +135,7 @@ describe('Portfolio Evidence Workflow', () => {
   test('publishes the Home lead cases first on the index and retains every remaining narrative after regeneration', async () => {
     const source = await Bun.file(new URL('../../assets/data/portfolio-source.json', import.meta.url)).json();
     const proof = await Bun.file(new URL('../../assets/data/portfolio-proof-points.json', import.meta.url)).json();
-    const input = { portfolioHtml, portfolioSource: source, proofSource: proof, generatedFrom: 'assets/data/portfolio-source.json', generatedAt: '2026-11-07T00:00:00.000Z' };
+    const input = { portfolioPageSource, portfolioSource: source, proofSource: proof, generatedFrom: 'assets/data/portfolio-source.json', generatedAt: '2026-11-07T00:00:00.000Z' };
     const workflow = createPortfolioEvidenceWorkflow(input);
     const index = workflow.outputs.find((output) => output.outputPath === 'case-studies.html');
     const document = new Window().document;
@@ -149,25 +145,60 @@ describe('Portfolio Evidence Workflow', () => {
     expect(destinations).toHaveLength(source.caseStudies.length + 1);
     expect(new Set(destinations).size).toBe(destinations.length);
     expect(destinations).toEqual(expect.arrayContaining(source.caseStudies.map((item) => item.pagePath)));
-    const regenerated = createPortfolioEvidenceWorkflow({ ...input, portfolioHtml: outputFor(workflow, 'portfolio-html').contents });
+    const regenerated = createPortfolioEvidenceWorkflow(input);
     expect(regenerated.outputs.find((output) => output.outputPath === 'case-studies.html')).toEqual(index);
   });
 
-  test('standalone discussion uses the displayed title even when its source has a legacy short inquiry title', () => {
-    const source = structuredClone(workflowSource);
-    source.portfolioItems[0].discussUrl = 'contact.html?portfolioItem=Short%20title';
-    const workflow = createPortfolioEvidenceWorkflow({ portfolioHtml, portfolioSource: source,
+  test('derives every discussion link from the displayed title and rejects a source inquiry link', () => {
+    const workflow = createPortfolioEvidenceWorkflow({ portfolioPageSource, portfolioSource: workflowSource,
       proofSource, generatedFrom: 'assets/data/portfolio-source.json' });
     const document = new Window().document;
     document.write(outputFor(workflow, 'portfolio-html').contents);
     const href = document.querySelector('#default-deck .portfolio-discuss-link').getAttribute('href');
-    expect(new URL(href, 'https://example.test').searchParams.get('portfolioItem')).toBe('Default Deck');
+    expect(href).toBe('contact.html?portfolioItem=Default+Deck');
+    expect(jsonOutputFor(workflow, 'catalog-json').portfolioItems.find((item) => item.id === 'default-deck').discussUrl).toBe(href);
+
+    const source = structuredClone(workflowSource);
+    source.portfolioItems[0].discussUrl = 'contact.html?portfolioItem=Short%20title';
+    expect(() => createPortfolioEvidenceWorkflow({ portfolioPageSource, portfolioSource: source,
+      proofSource, generatedFrom: 'assets/data/portfolio-source.json' })).toThrow('discussUrl is derived from the title');
+  });
+
+  test('renders the portfolio page through the Site Page Shell from a template it never reads back', () => {
+    const input = { portfolioPageSource, portfolioSource: workflowSource, proofSource,
+      generatedFrom: 'assets/data/portfolio-source.json', generatedAt: '2026-05-26T00:00:00.000Z' };
+    const html = outputFor(createPortfolioEvidenceWorkflow(input), 'portfolio-html').contents;
+    expect(outputFor(createPortfolioEvidenceWorkflow(input), 'portfolio-html').contents).toBe(html);
+    const document = new Window().document;
+    document.write(html);
+    expect(document.body.dataset.pageKind).toBe('portfolio');
+    expect(document.querySelector('header nav li.current a').getAttribute('href')).toBe('portfolio.html');
+    expect(document.getElementById('pdf-modal')).toBeTruthy();
+    expect(() => createPortfolioEvidenceWorkflow({ ...input, portfolioPageSource: html }))
+      .toThrow('must start with a <!--site-page');
+    expect(() => createPortfolioEvidenceWorkflow({
+      ...input,
+      portfolioPageSource: portfolioPageSource.replace('<div class="portfolio-items-grid"></div>', '<div class="portfolio-items-grid"><div class="card"></div></div>')
+    })).toThrow('template must be empty');
+  });
+
+  test('renders every authored Site Page Source and refuses one that replaces a generated page', () => {
+    const input = { portfolioPageSource, portfolioSource: workflowSource, proofSource,
+      generatedFrom: 'assets/data/portfolio-source.json' };
+    const about = { pagePath: 'about.html', source: '<!--site-page\n{ "kind": "home", "title": "About", "description": "About page." }\n-->\n<main id="main-content"><h1>About</h1></main>' };
+    const workflow = createPortfolioEvidenceWorkflow({ ...input, sitePageSources: [about] });
+    const page = workflow.outputs.find((output) => output.outputPath === 'about.html');
+    expect(page.type).toBe('site-page-html');
+    expect(page.contents).toContain('<h1>About</h1>');
+    expect(workflow.summary.sitePageCount).toBe(2);
+    expect(() => createPortfolioEvidenceWorkflow({ ...input, sitePageSources: [{ ...about, pagePath: 'case-studies.html' }] }))
+      .toThrow('generated by more than one source');
   });
   test.each([
     ['default-deck', 'Preview PDF', 'pdf', 'assets/pdf/portfolio/example.pdf', 'Default Deck'],
     ['custom-deck', 'Open interactive preview', 'viewer', 'assets/portfolio-viewers/custom-deck.html', 'Custom Deck']
   ])('publishes three semantic preview controls with one Artifact destination for %s', (id, label, attribute, destination, title) => {
-    const workflow = createPortfolioEvidenceWorkflow({ portfolioHtml, portfolioSource: workflowSource,
+    const workflow = createPortfolioEvidenceWorkflow({ portfolioPageSource, portfolioSource: workflowSource,
       proofSource, generatedFrom: 'assets/data/portfolio-source.json' });
     const document = new Window().document;
     document.write(outputFor(workflow, 'portfolio-html').contents);
@@ -186,7 +217,7 @@ describe('Portfolio Evidence Workflow', () => {
     const source = await Bun.file(new URL('../../assets/data/portfolio-source.json', import.meta.url)).json();
     const actualProofSource = await Bun.file(new URL('../../assets/data/portfolio-proof-points.json', import.meta.url)).json();
     const input = {
-      portfolioHtml,
+      portfolioPageSource,
       portfolioSource: source,
       proofSource: actualProofSource,
       generatedFrom: 'assets/data/portfolio-source.json',
@@ -221,10 +252,7 @@ describe('Portfolio Evidence Workflow', () => {
         .toContain(caseStudy.reviewerContext.find((item) => item.label === 'Evidence limit').value);
       expect(document.querySelector('.case-approach-details')).toBeTruthy();
     }
-    const regenerated = createPortfolioEvidenceWorkflow({
-      ...input,
-      portfolioHtml: outputFor(workflow, 'portfolio-html').contents
-    });
+    const regenerated = createPortfolioEvidenceWorkflow(input);
     expect(regenerated.outputs.filter((output) => output.type === 'case-study-html'))
       .toEqual(workflow.outputs.filter((output) => output.type === 'case-study-html'));
     const withoutSelections = structuredClone(source);
@@ -237,7 +265,7 @@ describe('Portfolio Evidence Workflow', () => {
 
   test('returns one complete featured-order output set through one interface', () => {
     const workflow = createPortfolioEvidenceWorkflow({
-      portfolioHtml,
+      portfolioPageSource,
       portfolioSource: workflowSource,
       proofSource,
       generatedFrom: 'assets/data/portfolio-source.json',
@@ -261,7 +289,8 @@ describe('Portfolio Evidence Workflow', () => {
       renderedPortfolioItemCount: 2,
       catalogPortfolioItemCount: 2,
       aiContextPortfolioItemCount: 2,
-      caseStudyPageCount: 1
+      caseStudyPageCount: 1,
+      sitePageCount: 1
     });
     expect(catalog).toMatchObject({
       schemaVersion: 1,
@@ -318,7 +347,6 @@ describe('Portfolio Evidence Workflow', () => {
       summary: 'Shows a grouped learning program case.',
       image: { src: 'assets/images/portfolio/sample.webp', alt: 'Sample thumbnail' },
       pagePath: 'case-sample-learning-program.html',
-      outputPath: 'assets/portfolio-viewers/case-sample-learning-program.html',
       reviewerContext: [],
       caseFlow: [],
       artifacts: [
@@ -335,7 +363,7 @@ describe('Portfolio Evidence Workflow', () => {
       ]
     };
     const workflow = createPortfolioEvidenceWorkflow({
-      portfolioHtml,
+      portfolioPageSource,
       portfolioSource: {
         schemaVersion: 1,
         portfolioItemCount: 0,
@@ -385,6 +413,8 @@ describe('Case Study Publication', () => {
       ],
       caseFlow: [{ label: 'Diagnose', value: 'Review the learning gap.' }],
       artifacts: [{
+        id: 'artifact-needs-analysis',
+        sourceType: 'pdf',
         title: 'Needs Analysis',
         description: 'Defines the learning gap.',
         href: 'assets/pdf/portfolio/needs.pdf',
@@ -410,7 +440,7 @@ describe('Case Study Publication', () => {
       });
     expect(indexPage.html).toContain('case-sample-learning-program.html');
     expect(indexPage.html).toContain('<li class="current"><a href="case-studies.html">Case Studies</a></li>');
-    expect(indexPage.html).toContain('All rights reserved.');
+    expect(indexPage.html).toContain('All Rights Reserved.');
     expect(detailPage.html).toContain(
       '<strong>Evidence limit:</strong> Direct outcomes are not claimed.'
     );

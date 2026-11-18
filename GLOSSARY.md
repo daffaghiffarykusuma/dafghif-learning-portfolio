@@ -21,7 +21,7 @@ The pre-generation module that verifies the **Portfolio Item Source** schema and
 _Avoid_: JSON check, source lint, generator guard
 
 **Portfolio Item Discovery**:
-The Reviewer-facing capability for searching and filtering Portfolio Items by query, Practice Area, and additional topic, revealing results in batches, and preserving discovery state in the page URL. It owns Practice Area identities, labels, links, and filter choices across generation and browser behavior. A Portfolio Item's declared Practice Area determines its label and link; an area includes both items declared in that area and items carrying its related tag. Additional topics narrow those results independently.
+The Reviewer-facing capability for searching and filtering Portfolio Items by query, Practice Area, and additional topic, revealing results in batches, and preserving discovery state in the page URL. It owns Practice Area identities, labels, links, and filter choices across generation and browser behavior, declares each Practice Area's filter role (primary, topic, or area-only) by name, and defines which `area`/`tag` link values Learning Portfolio Site Validation accepts. A Portfolio Item's declared Practice Area determines its label and link; an area includes both items declared in that area and items carrying its related tag. Additional topics narrow those results independently.
 _Avoid_: Portfolio filters, card search, project finder
 
 **Validated Portfolio Item Source**:
@@ -57,19 +57,31 @@ A narrative page or section that explains a selected **Portfolio Item** in conte
 _Avoid_: Project page, story, article, detailed card
 
 **Case Study Publication**:
-The generation module that turns **Case Study** source data into expanded **Portfolio Items**, routed page identities, generated index and detail pages, and nested **Artifact** metadata through one interface. **Portfolio Item Source Validation**, the **Portfolio Evidence Workflow**, and the **Shipped Artifact Policy** consume these publication facts instead of rebuilding Case Study rules.
+The generation module that turns **Case Study** source data into expanded **Portfolio Items**, **Case Study Page Identities**, the featured lead order, generated index and detail pages, and nested **Artifact** metadata through one interface. It owns and reports the Case Study part of the **Portfolio Item Source** schema, including hand-written Case Study listings (`authoredCaseStudies`) and lead order (`featuredCaseStudyIds`). **Portfolio Item Source Validation**, the **Portfolio Evidence Workflow**, and the **Shipped Artifact Policy** consume these publication facts instead of rebuilding Case Study rules.
 _Avoid_: Case Study Model, Case Study renderer, case helper, grouped project logic
 
+**Site Page Identity**:
+The shared module interface that names a **Learning Portfolio Site** page by kind (home, portfolio, case-study-index, case-study, blog, contact), routed page path, and the navigation page it belongs to. The **Site Page Shell** serializes it onto every page, and it is the only routing input for browser behavior. A **Case Study Page Identity** is the Site Page Identity of a **Case Study** page.
+_Avoid_: Filename list, route flag, page-type helper, pathname check
+
 **Case Study Page Identity**:
-The shared module interface that identifies a generated **Case Study** page, its routed page path, and the navigation page it belongs to. **Case Study Publication** produces and serializes it, and browser and shipping adapters consume it.
+The **Site Page Identity** of a generated or authored **Case Study** page. **Case Study Publication** produces these identities, and browser, shipping, and budget adapters consume them instead of matching `case-` filenames.
 _Avoid_: Filename list, route flag, page-type helper
+
+**Site Page Shell**:
+The generation module that renders every **Learning Portfolio Site** page from a **Site Page Identity** and page content: head links, header navigation with the current page marked, skip links, closing invitation, footer, **Artifact Preview** modal, and browser entry scripts. A shell change is made once and reaches every page on regeneration.
+_Avoid_: Layout, template, header/footer partial
+
+**Site Page Source**:
+An authored page in `page-sources/`: a JSON front matter comment declaring the page's **Site Page Identity** kind and shell options, followed by its content. The **Site Page Shell** turns each one into a root page; the portfolio Site Page Source is the listing template the **Portfolio Evidence Workflow** fills with cards.
+_Avoid_: Partial, fragment, hand-edited page
 
 **Learning Portfolio Site Validation**:
 The pre-publication module that verifies source pages, styles, links, fragments, external hosts, browser security policy, Publication data, Portfolio Evidence, and Shipped Artifact probes, then returns structured failures and validation counts. Command-line execution is an adapter to this module.
 _Avoid_: Validation script, lint command, static checks
 
 **Portfolio Evidence Validation**:
-The pre-publication module that verifies generated Portfolio Item identities, ordering, factual descriptions, Proof Points, and nested Case Study Artifact facts match the Validated Portfolio Item Source. Outcome Evidence must preserve the corresponding Portfolio Item's direct impact Proof Points, including their source attribution. Referenced Artifacts must exist and follow the Shipped Artifact Policy. Inferred drafting fields are not treated as source facts. It returns structured failures and counts through one Learning Portfolio Site interface.
+The pre-publication module that verifies every committed output of the **Portfolio Evidence Workflow** is fresh: identical to an in-memory regeneration from the Validated Portfolio Item Source and Site Page Sources, ignoring only the generation timestamp and line endings. Freshness replaces field-by-field correspondence checks. Outcome Evidence must preserve the corresponding Portfolio Item's direct impact Proof Points, including their source attribution. Referenced Artifacts must exist and follow the Shipped Artifact Policy. Inferred drafting fields are not treated as source facts. It returns structured failures and counts through one Learning Portfolio Site interface.
 _Avoid_: Catalog comparison, evidence lint, data consistency helper
 
 **Production Site Inventory Facts**:
@@ -93,7 +105,7 @@ A way a **Reviewer** may ask Daffa to apply a **Practice Area**, such as a train
 _Avoid_: Product, package, service card, offer
 
 **Engagement Inquiry Journey**:
-The browser module that carries a **Reviewer** from an **Engagement Type** or **Portfolio Item** inquiry into contact context, including query interpretation, contact-context presentation, and safe channel-link updates through one interface.
+The module that carries a **Reviewer** from an **Engagement Type** or **Portfolio Item** inquiry into contact context. It owns both halves of the inquiry link: generation and browser code build contact links through it, and the contact page reads them back through it. It also owns the default contact channels, including query interpretation, contact-context presentation, and safe channel-link updates.
 _Avoid_: Contact prefill helper, form redirect script, inquiry utility
 
 **Proof Point**:
@@ -129,7 +141,7 @@ A **Proof Point** that describes what changed, what was produced, or what was ac
 _Avoid_: Impact, result, metric, achievement
 
 **Portfolio Evidence Workflow**:
-The generation module that consumes the **Validated Portfolio Item Source**, renders visible **Portfolio Item** listings, builds structured portfolio metadata and AI-readable context, includes generated **Case Study** pages, and returns one complete output set for a command adapter to write together. Partial generation is not a supported workflow.
+The generation module that consumes the **Validated Portfolio Item Source** and every **Site Page Source**, renders visible **Portfolio Item** listings into the portfolio template, builds structured portfolio metadata and AI-readable context, includes generated **Case Study** pages and authored pages through the **Site Page Shell**, and returns one complete output set for a command adapter to write together. It never reads its own output, so regeneration is idempotent. Partial generation is not a supported workflow.
 _Avoid_: Portfolio Evidence Pipeline, generation command, build script, output helper, partial generator
 
 **Portfolio Context Inference**:

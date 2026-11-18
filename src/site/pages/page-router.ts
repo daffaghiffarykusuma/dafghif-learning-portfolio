@@ -6,11 +6,11 @@ import {
     createCaseStudyArtifactPreviewExperience,
     createPortfolioItemPreviewExperience
 } from '../artifact-preview-experience.ts';
-import { isCaseStudyPageIdentity, readPageIdentity } from '../case-study-page-identity.ts';
+import { SITE_PAGE_KINDS, isCaseStudyPageIdentity, readPageIdentity } from '../site-page-identity.ts';
 
-const pageNameFromPath = (pathname: string) => pathname.split('/').pop() || 'index.html';
-
-export function initCurrentPage({ pathname = window.location.pathname }: { pathname?: string } = {}) {
+// Site Page Identity, serialized onto <body> by the Site Page Shell, is the only
+// routing input: no pathname or markup sniffing.
+export function initCurrentPage() {
     [
         { name: 'navigation', init: initNavigation },
         { name: 'engagement inquiry journey', init: initEngagementInquiryJourney },
@@ -23,19 +23,16 @@ export function initCurrentPage({ pathname = window.location.pathname }: { pathn
         }
     });
 
-    const pageName = pageNameFromPath(pathname);
-    const pageIdentity = readPageIdentity({ pathname });
-    if (pageName === 'portfolio.html') {
+    const pageIdentity = readPageIdentity();
+    if (pageIdentity.kind === SITE_PAGE_KINDS.portfolio) {
         const preview = createPortfolioItemPreviewExperience();
+        // Discovery reveals the requested batch first, so a hash can target any card.
         initPortfolioDiscovery();
         preview.openPreviewFromHash();
         return preview;
     }
 
-    if (
-        isCaseStudyPageIdentity(pageIdentity)
-        || document.querySelector('.case-artifact-card .view-details-button')
-    ) {
+    if (isCaseStudyPageIdentity(pageIdentity)) {
         return createCaseStudyArtifactPreviewExperience();
     }
 

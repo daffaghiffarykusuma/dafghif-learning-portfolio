@@ -1,4 +1,4 @@
-﻿# dafghif-learning-portfolio
+# dafghif-learning-portfolio
 
 Static portfolio site for Daffa Ghiffary Kusuma.
 
@@ -18,12 +18,13 @@ Browser TypeScript and styles live in `src/`. Repository automation lives in `sc
 | `scripts/validation/` | Site and generated evidence checks |
 | `scripts/site/` | Source/build inventory and shipped artifact policy |
 | `assets/` | Public data, images, PDFs, and artifact previews |
+| `page-sources/` | Authored page content (Site Page Sources) that generation wraps in the shared page shell |
 | `test/` | Unit, integration, and production system checks |
 | `docs/` | [Portfolio style guide](docs/portfolio-style-guide.md) |
 | `output/`, `tmp/` | Review artifacts and local working files |
 | `dist/` | Generated production build, ignored by Git |
 
-HTML entry pages stay at the repository root so their public URLs remain stable. Edit `index.html`, `blog.html`, and `contact.html` directly. Portfolio listings and Case Study pages come from `assets/data/portfolio-source.json` and `assets/data/portfolio-proof-points.json`; use `bun run generate:portfolio` after changing them. `cv/Profile.pdf` is the published CV, while editable documents and `unpublished portfolio/` are working material.
+HTML entry pages stay at the repository root so their public URLs remain stable, but every root page is generated: do not edit them directly. Each page shares one shell (head links, navigation, footer, Artifact Preview modal) from `scripts/site/site-page-shell.ts`. Authored copy for Home, Contact, Blog, the hand-written Entrepreneurship Case Study, and the portfolio listing template lives in `page-sources/`, each file starting with a `<!--site-page {…} -->` JSON front matter comment (kind, title, description, closing invitation, and so on). Portfolio listings and generated Case Study pages come from `assets/data/portfolio-source.json` and `assets/data/portfolio-proof-points.json`. Run `bun run generate:portfolio` after changing any of these; validation and `bun test` fail while a committed page is stale. `cv/Profile.pdf` is the published CV, while editable documents and `unpublished portfolio/` are working material.
 
 For site terminology, see [GLOSSARY.md](GLOSSARY.md). Run the commands below from the repository root.
 
@@ -76,7 +77,7 @@ Generate the complete portfolio output set from `assets/data/portfolio-source.js
 bun run generate:portfolio
 ```
 
-This command validates the source first, then updates `portfolio.html`, generated Case Study pages, `assets/data/portfolio-items.json`, and `assets/data/portfolio-ai-context.json` together.
+This command validates the source first, then rewrites every root HTML page, `assets/data/portfolio-items.json`, and `assets/data/portfolio-ai-context.json` together. Regenerating is idempotent: `page-sources/portfolio.html` is a template with an empty card grid, and output is never read back. Discussion links (`discussUrl`) and Case Study page paths are derived, so the source must not declare `discussUrl` or `outputPath`. `featuredCaseStudyIds` sets the Case Study lead order, which Home's selected work must follow; `authoredCaseStudies` lists hand-written Case Study pages.
 
 Portfolio source records may include an optional `audience` label when supported by the artifact. Artifact format is derived from `sourceType`; both appear in generated cards. Portfolio discovery combines search, practice area, and format filters. Validation rejects unfinished publication placeholders and excludes local review files in `output/` and `tmp/`.
 

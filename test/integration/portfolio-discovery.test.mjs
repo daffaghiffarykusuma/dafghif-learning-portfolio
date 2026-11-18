@@ -6,11 +6,11 @@ import { initPortfolioDiscovery } from '../../src/portfolio-discovery.ts';
 
 afterEach(resetDom);
 
-const portfolioHtml = await readFile(new URL('../../portfolio.html', import.meta.url), 'utf8');
+const portfolioPageSource = await readFile(new URL('../../page-sources/portfolio.html', import.meta.url), 'utf8');
 const source = JSON.parse(await readFile(new URL('../../assets/data/portfolio-source.json', import.meta.url), 'utf8'));
 const proofSource = JSON.parse(await readFile(new URL('../../assets/data/portfolio-proof-points.json', import.meta.url), 'utf8'));
 const generate = (portfolioSource = source) => createPortfolioEvidenceWorkflow({
-  portfolioHtml, portfolioSource, proofSource, generatedFrom: 'assets/data/portfolio-source.json'
+  portfolioPageSource, portfolioSource, proofSource, generatedFrom: 'assets/data/portfolio-source.json'
 }).outputs.find((output) => output.type === 'portfolio-html').contents;
 
 const initialize = (html, query = '') => {

@@ -169,3 +169,20 @@ describe('Portfolio Item Discovery', () => {
     expect(document.querySelector('.portfolio-item').hidden).toBe(false);
   });
 });
+
+describe('Portfolio Item Discovery filter identities', () => {
+  test('groups Practice Areas by declared role, not by list position', async () => {
+    const { portfolioDiscoveryFilters, unknownPortfolioDiscoveryParams } = await import('../../src/portfolio-discovery.ts');
+    expect(portfolioDiscoveryFilters.primaryAreas.map(({ value }) => value)).toEqual([
+      'all', 'training-workshop', 'instructional-design', 'learning-materials', 'assessment', 'learning-analytics'
+    ]);
+    expect(portfolioDiscoveryFilters.topics.map(({ value }) => value)).toEqual([
+      'training-needs-analysis', 'curriculum-development', 'training-proposal', 'worksheet',
+      'learning-strategy', 'presentation-design', 'mentoring'
+    ]);
+    // Worksheets is a topic tag, never a declared Practice Area.
+    expect(portfolioDiscoveryFilters.areas.some(({ value }) => value === 'worksheet')).toBe(false);
+    expect(unknownPortfolioDiscoveryParams('?area=worksheet&tag=mentoring-speaking')).toEqual([]);
+    expect(unknownPortfolioDiscoveryParams('?area=analytics&tag=')).toEqual(['area', 'tag']);
+  });
+});

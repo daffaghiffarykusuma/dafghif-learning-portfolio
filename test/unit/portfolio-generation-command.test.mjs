@@ -2,7 +2,7 @@ import { afterEach, describe, expect, test } from 'bun:test';
 import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
-import { runPortfolioEvidenceWorkflow } from '../../scripts/portfolio-generation-command.ts';
+import { findStalePortfolioEvidenceOutputs, runPortfolioEvidenceWorkflow } from '../../scripts/portfolio-generation-command.ts';
 
 let tempRoot = null;
 
@@ -17,9 +17,15 @@ describe('Portfolio generation command', () => {
   test('writes all Portfolio Evidence Workflow outputs from one interface', async () => {
     tempRoot = await mkdtemp(path.join(os.tmpdir(), 'portfolio-generation-'));
     await mkdir(path.join(tempRoot, 'assets', 'data'), { recursive: true });
-    await writeFile(path.join(tempRoot, 'portfolio.html'), `<!doctype html><html><body>
-      <div class="portfolio-items-grid"></div>
-    </body></html>`, 'utf8');
+    await mkdir(path.join(tempRoot, 'page-sources'), { recursive: true });
+    await writeFile(path.join(tempRoot, 'page-sources', 'portfolio.html'), `<!--site-page
+{ "kind": "portfolio", "title": "Portfolio", "description": "Portfolio Items." }
+-->
+<main id="main-content"><div class="portfolio-items-grid"></div></main>`, 'utf8');
+    await writeFile(path.join(tempRoot, 'page-sources', 'contact.html'), `<!--site-page
+{ "kind": "contact", "title": "Contact", "description": "Contact page." }
+-->
+<main id="main-content"><h1>Get in touch</h1></main>`, 'utf8');
     await writeFile(path.join(tempRoot, 'assets', 'data', 'portfolio-proof-points.json'), JSON.stringify({
       practiceAreaDefaults: {
         'Learning Materials': {
@@ -41,8 +47,7 @@ describe('Portfolio generation command', () => {
           image: { src: 'assets/images/portfolio/sample.webp', alt: 'Sample thumbnail' },
           sourceArtifact: 'assets/pdf/portfolio/sample.pdf',
           sourceType: 'pdf',
-          portfolioItemUrl: 'portfolio.html#sample-deck',
-          discussUrl: 'contact.html?portfolioItem=Sample%20Deck'
+          portfolioItemUrl: 'portfolio.html#sample-deck'
         }
       ],
       caseStudies: [
@@ -55,7 +60,6 @@ describe('Portfolio generation command', () => {
           image: { src: 'assets/images/portfolio/case-sample.webp', alt: 'Case sample thumbnail' },
           summary: 'Shows the deck as a case.',
           pagePath: 'case-sample-deck.html',
-          outputPath: 'assets/portfolio-viewers/case-sample-deck.html',
           reviewerContext: [],
           caseFlow: [],
           artifacts: []
@@ -77,8 +81,15 @@ describe('Portfolio generation command', () => {
       renderedPortfolioItemCount: 2,
       catalogPortfolioItemCount: 2,
       aiContextPortfolioItemCount: 2,
-      caseStudyPageCount: 2
+      caseStudyPageCount: 2,
+      sitePageCount: 2
     });
+    expect(await readFile(path.join(tempRoot, 'contact.html'), 'utf8')).toContain('<li class="current"><a href="contact.html">Contact</a></li>');
+    expect(await findStalePortfolioEvidenceOutputs({ rootDir: tempRoot })).toEqual([]);
+    await writeFile(path.join(tempRoot, 'portfolio.html'), portfolioHtml.replace('Sample Deck', 'Edited Deck'), 'utf8');
+    expect(await findStalePortfolioEvidenceOutputs({ rootDir: tempRoot })).toEqual(['portfolio.html']);
+    await runPortfolioEvidenceWorkflow({ rootDir: tempRoot, generatedAt: '2026-05-27T00:00:00.000Z' });
+    expect(await readFile(path.join(tempRoot, 'portfolio.html'), 'utf8')).toBe(portfolioHtml);
     expect(portfolioHtml).toContain('Sample Deck');
     expect(portfolioHtml).toContain('Sample Deck Case Study');
     expect(catalog.generatedAt).toBe('2026-05-27T00:00:00.000Z');
@@ -89,6 +100,8 @@ describe('Portfolio generation command', () => {
   test('validates Portfolio Item Source inputs before writing any outputs', async () => {
     tempRoot = await mkdtemp(path.join(os.tmpdir(), 'portfolio-generation-invalid-'));
     await mkdir(path.join(tempRoot, 'assets', 'data'), { recursive: true });
+    await mkdir(path.join(tempRoot, 'page-sources'), { recursive: true });
+    await writeFile(path.join(tempRoot, 'page-sources', 'portfolio.html'), '<!--site-page\n{ "kind": "portfolio", "title": "Portfolio", "description": "Portfolio Items." }\n-->\n<main><div class="portfolio-items-grid"></div></main>', 'utf8');
     await writeFile(path.join(tempRoot, 'portfolio.html'), 'unchanged portfolio', 'utf8');
     await writeFile(path.join(tempRoot, 'assets', 'data', 'portfolio-items.json'), 'unchanged catalog', 'utf8');
     await writeFile(path.join(tempRoot, 'assets', 'data', 'portfolio-proof-points.json'), JSON.stringify({
@@ -111,8 +124,7 @@ describe('Portfolio generation command', () => {
           image: { src: 'assets/images/portfolio/sample.webp', alt: 'Sample thumbnail' },
           sourceArtifact: 'assets/pdf/portfolio/sample.pdf',
           sourceType: 'pdf',
-          portfolioItemUrl: 'portfolio.html#sample-deck',
-          discussUrl: 'contact.html?portfolioItem=Sample%20Deck'
+          portfolioItemUrl: 'portfolio.html#sample-deck'
         }
       ],
       caseStudies: []
