@@ -418,7 +418,7 @@ describe('Case Study Publication', () => {
     expect(detailPage.html).toContain('<title>Sample &lt;Learning&gt; &amp; Program</title>');
     expect(detailPage.html).toContain('<meta name="description" content="Combines diagnosis &amp; design artifacts into one case.">');
     expect(detailPage.html).toContain('<link href="assets/data/portfolio-ai-context.json" rel="alternate" title="Portfolio AI Context" type="application/json">');
-    expect(detailPage.html).toContain('<link rel="stylesheet" href="src/styles/style.css">');
+    expect(detailPage.html).toContain('<link rel="stylesheet" href="src/styles/site.css">');
     expect(detailPage.html).toContain('data-page-kind="case-study" data-page-path="case-sample-learning-program.html" data-navigation-page="case-studies.html"');
     expect(detailPage.html).not.toContain('Reviewer Context');
     expect(detailPage.html.match(/Direct outcomes are not claimed\./g)).toHaveLength(1);

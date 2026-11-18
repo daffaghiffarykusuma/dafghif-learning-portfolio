@@ -49,9 +49,9 @@ const portfolioAiContextMetadataLink = Object.freeze({
 const renderMetadataLink = ({ href, rel, title, type }: MetadataLink) =>
   `<link href="${escapeHtml(href)}" rel="${escapeHtml(rel)}" title="${escapeHtml(title)}" type="${escapeHtml(type)}">`;
 
-const renderStylesheetLinks = (metadataLinks: readonly MetadataLink[]) => `${metadataLinks.map(renderMetadataLink).join('\n  ')}${metadataLinks.length ? '\n  ' : ''}<link rel="stylesheet" href="src/styles/style.css">
-  <link rel="stylesheet" href="src/styles/improvements.css">
-  <link rel="stylesheet" href="src/styles/dark-mode.css">`;
+const renderStylesheetLinks = (metadataLinks: readonly MetadataLink[]) => `${metadataLinks.map(renderMetadataLink).join('\n  ')}${metadataLinks.length ? '\n  ' : ''}  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@400..700&amp;family=Lexend:wght@300..700&amp;display=swap">
+  <link rel="stylesheet" href="src/styles/site.css">`;
 
 const renderSiteNavigation = (currentPage: string) => `<header>
         <div class="container">

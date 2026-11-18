@@ -1,30 +1,33 @@
 # Portfolio style guide
 
-The Learning Portfolio Site uses a dark editorial theme. Shared presentation lives in `src/styles/dark-mode.css`; the existing filename is retained because both authored and generated pages already load it last.
+The Learning Portfolio Site uses a "night study" theme: deep ink-blue pages, paper-white type, and one highlighter accent. All shared presentation lives in `src/styles/site.css`, which authored and generated pages load after the Lexend font stylesheet from Google Fonts. Case Study Publication writes the same head links, so regeneration keeps the theme.
 
 ## Typography
 
-Use Georgia for large editorial headings, with italic emphasis used sparingly. Body copy and controls use Inter with Segoe UI and sans-serif fallbacks. Keep card headings compact and readable. Hero headings scale from 42px on phones to 76px on wide screens; section headings scale from 34px to 50px.
+Use Lexend Exa for display headings (h1, h2, section titles) and Lexend for body copy, card titles, and controls. Lexend was designed for reading fluency, which suits a learning portfolio. Display headings use tight negative tracking; body text uses weight 350 with 1.65 line height. Use sentence case for headings and labels, and do not accent single words in headlines. Sizes come from the `--step-*` scale in `site.css`.
 
 ## Color
 
-| Role | Color |
-| --- | --- |
-| Page background | `#111a19` |
-| Card background | `#1b2825` |
-| Main text | `#edf2e8` |
-| Supporting text | `#b2bfb4` |
-| Section and control background | `#263631` |
-| Borders | `#35483e` |
-| Highlight | `#b9cf9a` |
+| Token | Role | Color |
+| --- | --- | --- |
+| `--ink` | Page background | `#141c30` |
+| `--ink-deep` | Footer background | `#0f1626` |
+| `--desk` | Cards and surfaces | `#1b2540` |
+| `--desk-raised` | Hover and raised surfaces | `#232f4e` |
+| `--rule` / `--rule-strong` | Dividers and control borders | `#2e3a5a` / `#46547a` |
+| `--paper` | Main text | `#eeeae0` |
+| `--pencil` | Supporting text | `#a9b2c7` |
+| `--marker` | Highlighter accent | `#f4d547` |
 
-Use off-white text on dark surfaces and dark text on sage primary buttons. Category links use pale sage text on dark green badges. Keep visible keyboard focus outlines. Preview actions use centered flex alignment, 12px vertical and 24px horizontal padding, and a minimum 48px height so rounded borders never crowd the label.
+The highlighter has fixed meanings. A solid marker fill is a primary action: header contact, hero action, footer and case contact, and the first case jump link. A translucent marker stroke marks evidence: portfolio proof lines and contextual contact titles. It also marks the current nav item and draws the focus ring. Don't use yellow decoratively. Secondary actions are outlined in `--rule-strong`. Evidence limits use a neutral left rule so they are never mistaken for highlighted proof.
 
 ## Layout
 
-Use a 1280px maximum container with 5% side gutters. The home hero pairs editorial text with an arched portrait and an offset outcome note. Keep its existing below-fold mobile image loading policy. Sections use thin dividers and 52px to 80px vertical spacing. Cards use restrained 10px corners; primary actions and filters use pill shapes.
+Use a 1240px content width with `clamp(16px, 5vw, 64px)` gutters. The home hero pairs a large Lexend Exa headline with a tilted 4:5 portrait card on a fading workbook dot grid. The outcome note sits beneath the portrait as a caption. Keep the existing below-fold mobile image loading policy. Selected work is a stack of rows: a 16:9 thumbnail beside the capability, title, summary, and link. About, Credentials, and testimonials use textbook-style margin headings in a left column. Sections are separated by single rules and roomy `--section-space` padding.
 
-The hero stacks below 768px. Preserve the navigation's existing 1024px mobile breakpoint, expanded state, focus behavior, and mobile contact action. Search fields and mobile filters should remain at least 44px tall.
+Cards use 14px corners, buttons use 8px corners, and filters, practice links, and jump links use pills. Only real sequences carry numbers: case design steps and the contact process.
+
+The hero stacks below 768px, and the portrait becomes a small card beside the outcome note. Preserve the navigation's 1024px mobile breakpoint, expanded state, focus behavior, and mobile contact action. Search fields and mobile filters should remain at least 44px tall.
 
 ## Images and evidence
 
@@ -44,7 +47,7 @@ Home provides the published CV and three selected case studies for an initial re
 
 Standalone Artifact cards place capability before the title, followed by the source description, directly supported proof when available, format/audience metadata, and actions. Preserve evidence limits in full without clipping or truncation. Capability, proof, and metadata use at least 14px text with comfortable line spacing. Align the action group at the bottom so cards remain easy to compare.
 
-Standalone titles, complete thumbnails, and primary actions are native buttons that announce a dialog and open the same Artifact Preview. Use "Preview PDF" for PDF Artifacts and "Open interactive preview" for interactive Artifacts. Titles and thumbnails keep their editorial appearance with visible keyboard focus; primary actions retain the sage pill and minimum 48px height. Keep "Discuss this work" secondary and carry the public title into contact context. Generate these controls through Portfolio Evidence Workflow and retain the existing preview/discovery owners for state, safety, dismissal, and focus return.
+Standalone titles, complete thumbnails, and primary actions are native buttons that announce a dialog and open the same Artifact Preview. Use "Preview PDF" for PDF Artifacts and "Open interactive preview" for interactive Artifacts. Titles and thumbnails keep their editorial appearance with visible keyboard focus; card actions use the outlined button with at least a 44px height, so 76 cards do not form a wall of yellow. Keep "Discuss this work" secondary and carry the public title into contact context. Generate these controls through Portfolio Evidence Workflow and retain the existing preview/discovery owners for state, safety, dismissal, and focus return.
 
 Search remains visible on phones, with secondary filters in a native disclosure. Show selected filter labels when collapsed and offer reset for every active search or filter. Preserve format, practice area, search, and progressive results in the URL.
 
@@ -54,7 +57,7 @@ Artifact previews use the complete phone viewport, a compact title, a scrollable
 
 Invite role and project conversations in plain language across Home, Portfolio, Case Studies, and Contact. Use "Get in touch" for a general contact action. Keep "Discuss this work" contextual and secondary to reviewing evidence, with the public work title carried through the existing Engagement Inquiry Journey. Avoid consultation-only invitations, promises of similar results, and internal implementation terms in public invitations.
 
-Keep direct WhatsApp, email, and LinkedIn channels ahead of the optional message outline. Generic Contact visits remain neutral; contextual visits retain the public title in the summary and channel messages. Preserve contact addresses and response commitments. Use existing native links, readable wrapping labels, minimum control sizes, and visible keyboard focus within the dark editorial theme. Generated Case Study invitations belong to Case Study Publication and must survive Portfolio Evidence Workflow generation.
+Keep direct WhatsApp, email, and LinkedIn channels ahead of the optional message outline. Generic Contact visits remain neutral; contextual visits retain the public title in the summary and channel messages. Preserve contact addresses and response commitments. Use existing native links, readable wrapping labels, minimum control sizes, and visible keyboard focus within the night-study theme. Generated Case Study invitations belong to Case Study Publication and must survive Portfolio Evidence Workflow generation.
 
 ## Case study reading flow
 
