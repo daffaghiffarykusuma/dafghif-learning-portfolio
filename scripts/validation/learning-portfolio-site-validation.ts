@@ -33,8 +33,6 @@ type ValidateLearningPortfolioSiteOptions = {
 };
 
 const defaultAllowedExternalHosts = new Set([
-  'fonts.googleapis.com',
-  'fonts.gstatic.com',
   'cdn-images-1.medium.com',
   'miro.medium.com',
   'medium.com',
@@ -71,8 +69,8 @@ const cspContracts: Readonly<Record<string, CspDirectives>> = {
     'default-src': ["'self'"],
     'script-src': ["'self'"],
     'connect-src': ["'self'"],
-    'style-src': ["'self'", 'https://fonts.googleapis.com'],
-    'font-src': ["'self'", 'https://fonts.gstatic.com'],
+    'style-src': ["'self'"],
+    'font-src': ["'self'"],
     'img-src': ["'self'", 'data:', 'https://cdn-images-1.medium.com', 'https://miro.medium.com'],
     'frame-src': ["'self'"],
     'object-src': ["'none'"],

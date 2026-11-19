@@ -1,5 +1,6 @@
 import { copyFileSync, cpSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
 import { basename, extname, relative, resolve } from 'node:path';
+import { responsiveImages } from './scripts/site/responsive-images.ts';
 import { createShippedArtifactPolicy } from './scripts/site/shipped-artifact-policy.ts';
 
 const root = process.cwd();
@@ -62,9 +63,16 @@ export default {
   build: {
     outDir: 'dist',
     emptyOutDir: true,
+    // Every content-hashed build file lives here, so hosting can cache this one
+    // folder as immutable (see _headers and vercel.json). Copied public assets
+    // keep their stable URLs elsewhere under assets/.
+    assetsDir: 'assets/immutable',
+    // Keep images as cacheable files: base64 inlining would put lazy, below-the-fold
+    // avatars into every page's HTML and skip the responsive-images step.
+    assetsInlineLimit: (filePath) => (/\.(?:webp|png|jpe?g|gif|avif|svg)$/i.test(filePath) ? false : undefined),
     rollupOptions: {
       input: htmlInputs,
     },
   },
-  plugins: [copyStaticFiles()],
+  plugins: [responsiveImages({ rootDir: root }), copyStaticFiles()],
 };

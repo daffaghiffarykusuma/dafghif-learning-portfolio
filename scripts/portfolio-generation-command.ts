@@ -11,6 +11,8 @@ type PortfolioEvidencePaths = {
   sitePageSources: string;
   portfolioSource: string;
   proofPoints: string;
+  /** Blog publications rendered into the blog page. */
+  publicationSource: string;
   catalogOutput: string;
   aiContextOutput: string;
 };
@@ -34,6 +36,7 @@ const defaultPaths: Readonly<PortfolioEvidencePaths> = Object.freeze({
   sitePageSources: 'page-sources',
   portfolioSource: 'assets/data/portfolio-source.json',
   proofPoints: 'assets/data/portfolio-proof-points.json',
+  publicationSource: 'assets/blog.json',
   catalogOutput: 'assets/data/portfolio-items.json',
   aiContextOutput: 'assets/data/portfolio-ai-context.json'
 });
@@ -90,6 +93,11 @@ export const createPortfolioEvidenceOutputSet = async (
     sitePageSources: pageSources.filter((page) => page !== portfolioPage),
     portfolioSource: await readJson(rootDir, paths.portfolioSource),
     proofSource: await readJson(rootDir, paths.proofPoints),
+    // A root without blog data renders an empty blog; site validation requires the file separately.
+    publicationSource: await readJson(rootDir, paths.publicationSource).catch((error: NodeJS.ErrnoException) => {
+      if (error?.code === 'ENOENT') return { posts: [] };
+      throw error;
+    }),
     generatedFrom: paths.portfolioSource,
     catalogGeneratedFrom: paths.catalogOutput,
     generatedAt

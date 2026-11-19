@@ -1,4 +1,6 @@
-const DEFAULT_VISIBLE_COUNT = 9;
+// Cards shown before "Show more". Generation hides the rest in the static markup
+// so the default view needs no layout change once this script runs.
+export const DEFAULT_VISIBLE_COUNT = 9;
 const MAX_TEXT_LENGTH = 120;
 const FORMATS = new Set(['pdf', 'html-viewer', 'case-study-page']);
 const normalizeFormat = (value: unknown) => FORMATS.has(String(value)) ? String(value) : '';

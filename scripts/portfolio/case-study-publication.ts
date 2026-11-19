@@ -7,6 +7,7 @@ import {
   createCaseStudyPageIdentity
 } from '../../src/site/site-page-identity.ts';
 import { PORTFOLIO_AI_CONTEXT_METADATA_LINK, escapeHtml, renderSitePage } from '../site/site-page-shell.ts';
+import { IMAGE_SLOT_SIZES } from '../site/image-slots.ts';
 import { imageKindFailure, normalizePortfolioImage, normalizePortfolioItem, normalizeText } from './portfolio-item-catalog.ts';
 import type { PortfolioImage, PortfolioItem } from './portfolio-item-catalog.ts';
 import type { CaseStudyPageIdentity } from '../../src/site/site-page-identity.ts';
@@ -330,12 +331,14 @@ const orderListings = (listings: CaseStudyListing[], featuredIds: string[]) => {
 
 const renderCaseStudyCards = (listings: CaseStudyListing[]) =>
   listings
-    .map((caseStudy) => {
+    .map((caseStudy, index) => {
       const pagePath = pagePathFor(caseStudy);
+      // The first card is the index page's largest first-viewport element.
+      const imageLoading = index === 0 ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"';
       const title = normalizeText(caseStudy.portfolioItemTitle || `${caseStudy.title} Case Study`);
       return `<article class="case-study-card">
           <a href="${escapeHtml(pagePath)}" class="case-study-card-image${caseStudy.image.kind ? ' card-image-photo' : ''}">
-            <img src="${escapeHtml(caseStudy.image.src)}" alt="${escapeHtml(caseStudy.image.alt || title)}" loading="lazy" decoding="async">
+            <img src="${escapeHtml(caseStudy.image.src)}" alt="${escapeHtml(caseStudy.image.alt || title)}" ${imageLoading} decoding="async" sizes="${IMAGE_SLOT_SIZES.twoColumnCard}">
           </a>
           <div class="case-study-card-body">
             <p class="portfolio-item-practice-label">${escapeHtml(caseStudy.practiceArea)}</p>
@@ -396,7 +399,7 @@ const renderArtifactItems = (artifacts: CaseStudyArtifact[]) =>
       return `<article id="${escapeHtml(item.id)}" class="card portfolio-item case-artifact-card" data-category="${escapeHtml(item.tags.join(' '))}">
             <div class="card-image">
               <a class="portfolio-item-thumbnail-link" href="#${escapeHtml(item.id)}">
-                <img src="${escapeHtml(item.image.src)}" alt="${escapeHtml(item.image.alt)}" ${imageLoading} decoding="async">
+                <img src="${escapeHtml(item.image.src)}" alt="${escapeHtml(item.image.alt)}" ${imageLoading} decoding="async" sizes="${IMAGE_SLOT_SIZES.threeColumnCard}">
               </a>
             </div>
             <div class="card-content">

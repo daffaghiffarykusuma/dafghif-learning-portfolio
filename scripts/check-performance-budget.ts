@@ -7,13 +7,16 @@ const dist = path.join(root, 'dist');
 const failures: string[] = [];
 
 const limits = {
-  totalDistBytes: 118 * 1024 * 1024,
+  // Includes ~5 MB of responsive image renditions; each visitor downloads only one size per image.
+  totalDistBytes: 125 * 1024 * 1024,
   jsGzipBytes: 24 * 1024,
   pdfRendererGzipBytes: 550 * 1024,
   cssGzipBytes: 28 * 1024,
   largestImageBytes: 1024 * 1024,
-  portfolioHtmlGzipBaselineBytes: 16.5 * 1024,
-  portfolioHtmlGzipStretchBytes: 14.22 * 1024,
+  // 16.5 KB before responsive images. srcset for 76 thumbnails adds ~1.7 KB gzip and
+  // saves far more in image bytes, so the guard allows that and little else.
+  portfolioHtmlGzipBaselineBytes: 19 * 1024,
+  portfolioHtmlGzipStretchBytes: 16.5 * 1024,
   caseStudyHtmlGzipBytes: 5 * 1024,
   pdfFirstPageBytes: 256 * 1024,
 };
@@ -34,7 +37,7 @@ const toKB = (bytes: number) => Number((bytes / 1024).toFixed(2));
 const totalDistBytes = sum(records);
 // The PDF renderer and worker load only after opening a mobile PDF preview.
 // Keep the site's ordinary JavaScript budget separate from that optional download.
-const pdfRendererRecords = records.filter((item) => /^assets\/(?:pdf-renderer-|pdf\.worker\.min-)/.test(item.rel));
+const pdfRendererRecords = records.filter((item) => /^assets\/immutable\/(?:pdf-renderer-|pdf\.worker\.min-)/.test(item.rel));
 const pdfRendererPaths = new Set(pdfRendererRecords.map((item) => item.rel));
 const jsGzipBytes = gzipBytesForExtensions(['.js', '.mjs'], pdfRendererPaths);
 const pdfRendererGzipBytes = sum(pdfRendererRecords.map((item) => ({ size: gzipBytesForPath(item.rel) })));

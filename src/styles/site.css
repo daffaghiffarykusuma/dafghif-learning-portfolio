@@ -5,6 +5,64 @@
    Type: Lexend Exa for display, Lexend for reading and controls.
    ===================================================================== */
 
+/* Self-hosted variable fonts (SIL OFL 1.1; see src/fonts/README.md for how the
+   files were cut). Same-origin files avoid a render-blocking third-party
+   stylesheet and two extra connections. Each family is split by unicode-range:
+   "core" holds ASCII plus the punctuation the copy uses and is preloaded by the
+   Site Page Shell; "latin-rest" and "latin-ext" download only on a page that
+   uses those characters.
+   font-display: swap keeps the brand faces on every first visit. (optional was
+   tried: it skips one relayout but left first visits in the system font even
+   locally.) Preloading the small core files keeps the swap window short. */
+@font-face {
+    font-family: 'Lexend';
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url('../fonts/lexend-core.woff2') format('woff2');
+    unicode-range: U+0020-007E, U+00A0, U+00A9, U+00B7, U+200A, U+2013-2014, U+2018-2019, U+201C-201D, U+2022, U+2026, U+2190, U+2192-2193, U+2197, U+2212;
+}
+@font-face {
+    font-family: 'Lexend';
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url('../fonts/lexend-latin-rest.woff2') format('woff2');
+    unicode-range: U+00A1-00A8, U+00AA-00B6, U+00B8-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-2009, U+200B-2012, U+2015-2017, U+201A-201B, U+201E-2021, U+2023-2025, U+2027-206F, U+20AC, U+2122, U+2191, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: 'Lexend';
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url('../fonts/lexend-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+    font-family: 'Lexend Exa';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('../fonts/lexend-exa-core.woff2') format('woff2');
+    unicode-range: U+0020-007E, U+00A0, U+00A9, U+00B7, U+200A, U+2013-2014, U+2018-2019, U+201C-201D, U+2022, U+2026, U+2190, U+2192-2193, U+2197, U+2212;
+}
+@font-face {
+    font-family: 'Lexend Exa';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('../fonts/lexend-exa-latin-rest.woff2') format('woff2');
+    unicode-range: U+00A1-00A8, U+00AA-00B6, U+00B8-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-2009, U+200B-2012, U+2015-2017, U+201A-201B, U+201E-2021, U+2023-2025, U+2027-206F, U+20AC, U+2122, U+2191, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: 'Lexend Exa';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('../fonts/lexend-exa-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 :root {
     color-scheme: dark;
 
@@ -139,9 +197,6 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .skip-nav:focus { transform: none; }
 
 .text-center { text-align: center; }
-
-/* Older reveal hooks stay inert so content is never hidden waiting for script. */
-.reveal-on-scroll, .reveal-on-scroll.revealed { opacity: 1; transform: none; }
 
 /* ---------- Buttons and actions ---------- */
 .cta-button,

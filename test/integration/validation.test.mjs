@@ -79,7 +79,7 @@ describe('Learning Portfolio Site Validation', () => {
         'index.html: broken fragment in href: #missing-fragment',
         'css/style.css: missing CSS asset target: ../assets/missing.webp',
         "_headers /*: script-src must be 'self'",
-        "_headers /*: style-src must be 'self' https://fonts.googleapis.com",
+        "_headers /*: style-src must be 'self'",
         "_headers /*: connect-src must be 'self'",
         'assets/blog.json: post 1 url is not HTTPS',
         'assets/blog.json: post 1 URL is not a Medium host',
@@ -138,7 +138,9 @@ describe('Learning Portfolio Site Validation', () => {
           vercel,
           expected: ['_headers /assets/portfolio-viewers/unsafe.html: CSP route has no reviewed publication contract']
         },
-        ...vercel.headers.map((rule, index) => {
+        ...vercel.headers.flatMap((rule, index) => {
+          // Rules without a CSP (such as the immutable-asset cache rule) have nothing to weaken.
+          if (!rule.headers.some((header) => header.key === 'Content-Security-Policy')) return [];
           const modified = structuredClone(vercel);
           const csp = modified.headers[index].headers.find((header) => header.key === 'Content-Security-Policy');
           csp.value += "; script-src-elem 'unsafe-inline'";
@@ -158,7 +160,7 @@ describe('Learning Portfolio Site Validation', () => {
         {
           name: 'duplicate Vercel policy',
           headers,
-          vercel: { headers: [...vercel.headers, vercel.headers[0]] },
+          vercel: { headers: [...vercel.headers, vercel.headers.find((rule) => rule.source.startsWith('/assets/portfolio-viewers/'))] },
           expected: ['vercel.json /assets/portfolio-viewers/*: expected exactly one Content-Security-Policy; found 2']
         }
       ];

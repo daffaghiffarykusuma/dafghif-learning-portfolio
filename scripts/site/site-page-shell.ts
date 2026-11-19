@@ -24,6 +24,8 @@ export type SitePage = {
   keywords?: string;
   bodyClass?: string;
   preloadImages?: readonly PreloadImage[];
+  /** HTTPS origins the page fetches early from, such as an image CDN for its first-viewport image. */
+  preconnectOrigins?: readonly string[];
   metadataLinks?: readonly MetadataLink[];
   skipLinks?: readonly SkipLink[];
   /** Renders the Artifact Preview modal after the content. */
@@ -57,6 +59,12 @@ const FOOTER_LINKS = Object.freeze([
   { href: 'https://www.linkedin.com/in/daffa-ghiffary-kusuma', label: 'LinkedIn', external: true }
 ]);
 
+// Self-hosted "core" font files declared in src/styles/site.css (ASCII plus the punctuation the copy uses).
+export const SITE_FONT_PRELOADS = Object.freeze([
+  'src/fonts/lexend-core.woff2',
+  'src/fonts/lexend-exa-core.woff2'
+]);
+
 export const PORTFOLIO_AI_CONTEXT_METADATA_LINK: Readonly<MetadataLink> = Object.freeze({
   href: 'assets/data/portfolio-ai-context.json',
   rel: 'alternate',
@@ -88,9 +96,11 @@ const renderHead = (page: SitePage) => [
   '<link rel="icon" href="favicon.ico" sizes="any">',
   '<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">',
   '<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">',
-  '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
-  '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@400..700&amp;family=Lexend:wght@300..700&amp;display=swap">',
+  // Both faces render first-viewport text (Lexend Exa: headings, Lexend: body),
+  // so they load alongside the stylesheet instead of after it is parsed.
+  ...SITE_FONT_PRELOADS.map((href) => `<link rel="preload" href="${href}" as="font" type="font/woff2" crossorigin>`),
   '<link rel="stylesheet" href="src/styles/site.css">',
+  ...(page.preconnectOrigins || []).map((origin) => `<link rel="preconnect" href="${escapeHtml(origin)}">`),
   ...(page.preloadImages || []).map(({ href, media }) =>
     `<link ${attributes([['rel', 'preload'], ['as', 'image'], ['href', href], ['fetchpriority', 'high'], ['media', media]])}>`),
   ...(page.metadataLinks || []).map(({ href, rel, title, type }) =>
@@ -168,7 +178,7 @@ export type SitePageSource = { pagePath: string; source: string };
 const FRONT_MATTER = /^\s*<!--site-page\s*([\s\S]*?)-->\s*/;
 const allowedFrontMatterKeys = new Set([
   'kind', 'navigationPage', 'title', 'description', 'keywords', 'bodyClass',
-  'preloadImages', 'metadataLinks', 'skipLinks', 'artifactPreview', 'closingInvitation', 'scripts',
+  'preloadImages', 'preconnectOrigins', 'metadataLinks', 'skipLinks', 'artifactPreview', 'closingInvitation', 'scripts',
   'rootRelative', 'noindex'
 ]);
 

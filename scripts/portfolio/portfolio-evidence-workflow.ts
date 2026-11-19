@@ -1,14 +1,17 @@
 import { Window } from 'happy-dom';
-import { createPortfolioItemDiscoveryFacts, portfolioDiscoveryFilters } from '../../src/portfolio-discovery.ts';
+import { DEFAULT_VISIBLE_COUNT, createPortfolioItemDiscoveryFacts, portfolioDiscoveryFilters } from '../../src/portfolio-discovery.ts';
 import { createArtifactPreviewContract } from '../../src/site/artifact-preview-policy.ts';
 import { ARTIFACT_PREVIEW_TRIGGER_CLASS } from '../../src/site/artifact-preview-markup.ts';
 import { SITE_PAGE_KINDS } from '../../src/site/site-page-identity.ts';
+import { renderBlogCards } from '../../src/site/blog-cards.ts';
+import { createPublicationSourceFacts } from '../../src/site/publication-source-facts.ts';
 import {
   parseSitePageSource,
   renderSitePage,
   renderSitePageSource,
   type SitePageSource
 } from '../site/site-page-shell.ts';
+import { IMAGE_SLOT_SIZES } from '../site/image-slots.ts';
 import {
   PORTFOLIO_ITEM_SCHEMA_VERSION,
   createPortfolioCatalogData
@@ -51,6 +54,8 @@ export type PortfolioEvidenceWorkflowInput = {
   sitePageSources?: readonly SitePageSource[];
   portfolioSource: unknown;
   proofSource: unknown;
+  /** Blog publications (`assets/blog.json`), rendered into the blog page's `#blog-cards`. */
+  publicationSource?: unknown;
   generatedFrom: string;
   catalogGeneratedFrom?: string;
   generatedAt?: string;
@@ -68,6 +73,21 @@ const createPortfolioDocument = (content: string) => {
   window.document.write(`<!DOCTYPE html><html><body>${content}</body></html>`);
   window.document.close();
   return window.document;
+};
+
+// The blog page ships its cards in the HTML so the first cover image is found by
+// the browser's preload scanner instead of after a script runs.
+const renderBlogPage = (pageSource: SitePageSource, publicationSource: unknown) => {
+  const page = parseSitePageSource(pageSource);
+  const { publications, failures } = createPublicationSourceFacts(publicationSource, { sourceName: 'assets/blog.json' });
+  if (failures.length) throw new Error(failures.join('\n'));
+  const document = createPortfolioDocument(page.content);
+  const container = document.querySelector('#blog-cards');
+  if (!container) throw new Error(`${pageSource.pagePath}: blog Site Page Source has no #blog-cards container`);
+  if (container.children.length) throw new Error(`${pageSource.pagePath}: the #blog-cards template must be empty; cards are generated`);
+  // happy-dom implements the DOM the builder targets; only the type packages differ.
+  container.append(renderBlogCards(document as unknown as Document, publications) as unknown as Parameters<typeof container.append>[0]);
+  return renderSitePage({ ...page, content: document.body.innerHTML });
 };
 
 const renderPortfolioDiscoveryControls = (document: ReturnType<typeof createPortfolioDocument>) => {
@@ -124,6 +144,10 @@ const renderPortfolioItemCard = (
   card.id = item.id;
   card.dataset.category = discovery.categories;
   card.dataset.format = item.sourceType;
+  // Match Portfolio Discovery's default view: cards past the first batch start
+  // hidden, so the browser never lays out or lazy-loads thumbnails for cards the
+  // script would hide on load. Discovery reveals them for filters and "Show more".
+  if (index >= DEFAULT_VISIBLE_COUNT) card.hidden = true;
 
   const imageWrapper = document.createElement('div');
   imageWrapper.className = item.image.kind ? 'card-image card-image-photo' : 'card-image';
@@ -132,6 +156,7 @@ const renderPortfolioItemCard = (
   image.src = item.image.src;
   image.alt = item.image.alt || item.title;
   image.decoding = 'async';
+  image.sizes = IMAGE_SLOT_SIZES.threeColumnCard;
   image.loading = index === 0 ? 'eager' : 'lazy';
   if (index === 0) {
     image.setAttribute('fetchpriority', 'high');
@@ -257,6 +282,7 @@ export const createPortfolioEvidenceWorkflow = ({
   sitePageSources = [],
   portfolioSource,
   proofSource,
+  publicationSource = { posts: [] },
   generatedFrom,
   catalogGeneratedFrom = 'assets/data/portfolio-items.json',
   generatedAt = new Date().toISOString()
@@ -311,7 +337,9 @@ export const createPortfolioEvidenceWorkflow = ({
     ...sitePageSources.map((pageSource): PortfolioEvidenceOutput => ({
       type: 'site-page-html',
       outputPath: pageSource.pagePath,
-      contents: renderSitePageSource(pageSource)
+      contents: parseSitePageSource(pageSource).identity.kind === SITE_PAGE_KINDS.blog
+        ? renderBlogPage(pageSource, publicationSource)
+        : renderSitePageSource(pageSource)
     }))
   ];
 
