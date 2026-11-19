@@ -32,6 +32,17 @@ describe('Publication Source Facts', () => {
     ]);
   });
 
+  test('keeps known blog topics, defaults missing ones, and reports unknown ones', () => {
+    const facts = createPublicationSourceFacts([
+      { title: 'Learning', topic: 'learning-work' },
+      { title: 'No topic' },
+      { title: 'Unknown', topic: 'gossip' }
+    ], { sourceName: 'source.json' });
+
+    expect(facts.publications.map(({ topic }) => topic)).toEqual(['learning-work', 'ai-industry', 'ai-industry']);
+    expect(facts.failures).toEqual(['source.json: post 3 topic is not a known publication topic']);
+  });
+
   test('reports truthy non-string URL fields as invalid source facts', () => {
     const facts = createPublicationSourceFacts([
       { url: 42, image: { href: 'https://miro.medium.com/example.webp' } }

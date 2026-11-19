@@ -1,10 +1,22 @@
 const allowedImageHosts = new Set(['cdn-images-1.medium.com', 'miro.medium.com']);
 
+// Blog topics in page order. Learning and workplace writing leads because it
+// supports the portfolio; posts without a topic join the last group.
+export const PUBLICATION_TOPICS = Object.freeze([
+    Object.freeze({ value: 'learning-work', label: 'Learning, work, and wellbeing' }),
+    Object.freeze({ value: 'ai-industry', label: 'AI and industry notes' })
+]);
+export type PublicationTopic = (typeof PUBLICATION_TOPICS)[number]['value'];
+const DEFAULT_TOPIC: PublicationTopic = 'ai-industry';
+const isPublicationTopic = (value: unknown): value is PublicationTopic =>
+    PUBLICATION_TOPICS.some((topic) => topic.value === value);
+
 export type Publication = {
     title: string;
     description: string;
     url: string;
     image: string;
+    topic: PublicationTopic;
 };
 
 export type PublicationSourceFacts = {
@@ -12,7 +24,7 @@ export type PublicationSourceFacts = {
     failures: string[];
 };
 
-type PublicationInput = Partial<Record<'title' | 'description' | 'url' | 'image', unknown>>;
+type PublicationInput = Partial<Record<'title' | 'description' | 'url' | 'image' | 'topic', unknown>>;
 
 const asPublicationInput = (value: unknown): PublicationInput =>
     value !== null && typeof value === 'object' && !Array.isArray(value)
@@ -65,11 +77,18 @@ export function createPublicationSourceFacts(source: unknown, { sourceName = 'Pu
             }
         }
 
+        let topic = DEFAULT_TOPIC;
+        if (post.topic !== undefined) {
+            if (isPublicationTopic(post.topic)) topic = post.topic;
+            else failures.push(`${label} topic is not a known publication topic`);
+        }
+
         return {
             title: textValue(post.title) || 'Untitled Post',
             description: textValue(post.description),
             url,
-            image
+            image,
+            topic
         };
     });
 

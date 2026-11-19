@@ -115,7 +115,7 @@ describe('Portfolio Item Discovery', () => {
 
     expect(document.getElementById('score-audit').hidden).toBe(false);
     expect(document.getElementById('assessment-dashboard').hidden).toBe(true);
-    expect(document.getElementById('portfolio-result-summary').textContent).toBe('Showing all 1 matching Portfolio Items');
+    expect(document.getElementById('portfolio-result-summary').textContent).toBe('Showing all 1 matching work samples');
   });
 
   test('reports results and reveals matching Portfolio Items in batches', async () => {
@@ -136,12 +136,12 @@ describe('Portfolio Item Discovery', () => {
       'http://127.0.0.1/portfolio.html?q=assessment&area=learning-analytics&tag=assessment'
     );
 
-    expect(document.getElementById('portfolio-result-summary').textContent).toBe('Showing 9 of 12 matching Portfolio Items');
+    expect(document.getElementById('portfolio-result-summary').textContent).toBe('Showing 9 of 12 matching work samples');
     expect(Array.from(document.querySelectorAll('.portfolio-item')).filter((item) => !item.hidden).length).toBe(9);
 
     document.getElementById('portfolio-show-more').click();
 
-    expect(document.getElementById('portfolio-result-summary').textContent).toBe('Showing all 12 matching Portfolio Items');
+    expect(document.getElementById('portfolio-result-summary').textContent).toBe('Showing all 12 matching work samples');
     expect(Array.from(document.querySelectorAll('.portfolio-item')).filter((item) => !item.hidden).length).toBe(12);
   });
 
@@ -157,7 +157,7 @@ describe('Portfolio Item Discovery', () => {
     const searchInput = document.getElementById('portfolio-search');
     const clearButton = document.getElementById('portfolio-clear-filters');
     expect(document.getElementById('portfolio-result-summary').textContent).toBe(
-      'No matching Portfolio Items. Try another search or clear the filters.'
+      'No matching work samples. Try another search or clear the filters.'
     );
     expect(clearButton.hidden).toBe(false);
 

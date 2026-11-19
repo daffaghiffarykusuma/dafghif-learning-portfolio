@@ -83,7 +83,7 @@ const renderPortfolioDiscoveryControls = (document: ReturnType<typeof createPort
     }));
   }
   for (const [selector, options] of [
-    ['#portfolio-area-filter', portfolioDiscoveryFilters.areas],
+    ['#portfolio-area-filter', portfolioDiscoveryFilters.secondaryAreas],
     ['#portfolio-more-filter', [{ value: '', label: 'All topics' }, ...portfolioDiscoveryFilters.topics]]
   ] as const) {
     document.querySelector(selector)?.replaceChildren(...options.map(({ value, label }) => {
@@ -126,7 +126,7 @@ const renderPortfolioItemCard = (
   card.dataset.format = item.sourceType;
 
   const imageWrapper = document.createElement('div');
-  imageWrapper.className = 'card-image';
+  imageWrapper.className = item.image.kind ? 'card-image card-image-photo' : 'card-image';
   const imageLink = createReviewControl('portfolio-item-thumbnail-link');
   const image = document.createElement('img');
   image.src = item.image.src;
@@ -192,13 +192,12 @@ const renderPortfolioItemCard = (
     actions.append(detailsButton, discussLink);
   }
 
-  if (previewContract) content.append(practiceLabel, title, description);
-  else content.append(practiceLabel, title, metadata, description);
+  // Every card reads in the same order so reviewers can compare them at a glance.
+  content.append(practiceLabel, title, description);
   if ([...item.proof.workQuality, ...item.proof.impact].some((entry) => entry.confidence === 'direct')) {
     content.append(proof);
   }
-  if (previewContract) content.append(metadata);
-  content.append(actions);
+  content.append(metadata, actions);
   card.append(imageWrapper, content);
   return card;
 };

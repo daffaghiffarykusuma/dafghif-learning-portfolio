@@ -42,6 +42,14 @@ export const SITE_NAVIGATION = Object.freeze([
   Object.freeze({ href: ENGAGEMENT_INQUIRY_PAGE, label: 'Contact' })
 ]);
 
+// Quiet secondary routes repeated in every footer.
+const FOOTER_LINKS = Object.freeze([
+  { href: 'portfolio.html', label: 'Portfolio', external: false },
+  { href: 'case-studies.html', label: 'Case studies', external: false },
+  { href: 'cv/Profile.pdf', label: 'CV (PDF)', external: false },
+  { href: 'https://www.linkedin.com/in/daffa-ghiffary-kusuma', label: 'LinkedIn', external: true }
+]);
+
 export const PORTFOLIO_AI_CONTEXT_METADATA_LINK: Readonly<MetadataLink> = Object.freeze({
   href: 'assets/data/portfolio-ai-context.json',
   rel: 'alternate',
@@ -110,6 +118,9 @@ const renderFooter = (invitation: ClosingInvitation | undefined) => `<footer>
       </div>` : ''}
       <div class="footer-meta">
         <p>&copy; <span id="current-year"></span> Daffa Ghiffary Kusuma. All Rights Reserved.</p>
+        <ul class="footer-links" aria-label="More from Daffa">
+          ${FOOTER_LINKS.map(({ href, label, external }) => `<li><a href="${href}"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>${label}</a></li>`).join('\n          ')}
+        </ul>
       </div>
     </div>
   </footer>`;

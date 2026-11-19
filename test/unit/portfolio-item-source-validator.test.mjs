@@ -85,6 +85,23 @@ describe('Portfolio Item Source validation', () => {
       .toEqual([]);
   });
 
+  test('accepts only Evidence Photograph as an image kind and keeps it through normalization', () => {
+    const source = createValidSource();
+    source.portfolioItems[0].image = { ...validPortfolioItem.image, kind: 'evidence-photograph' };
+    source.caseStudies[0].image = { ...validCaseStudy.image, kind: 'stock' };
+
+    const result = validatePortfolioItemSource({ portfolioSource: source, proofSource: validProofSource });
+    expect(result.failures).toEqual([
+      'assets/data/portfolio-source.json: Case Study "case-sample-program" image.kind must be "evidence-photograph" when present'
+    ]);
+
+    source.caseStudies[0].image = { ...validCaseStudy.image };
+    const valid = validatePortfolioItemSource({ portfolioSource: source, proofSource: validProofSource });
+    expect(valid.failures).toEqual([]);
+    expect(valid.portfolioItems.find((item) => item.id === 'sample-deck').image.kind).toBe('evidence-photograph');
+    expect('kind' in valid.portfolioItems.find((item) => item.id === 'case-sample-program').image).toBe(false);
+  });
+
   test('returns one normalized, expanded, featured-order Portfolio Item representation', () => {
     const result = validatePortfolioItemSource({
       portfolioSource: createValidSource(),

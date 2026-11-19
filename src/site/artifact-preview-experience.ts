@@ -151,9 +151,9 @@ export function createArtifactPreviewExperience({
         } else {
             pdfIframe.src = preview.src;
         }
-        const artifactType = preview.type === 'pdf' ? 'PDF Artifact' : 'Interactive Artifact Preview';
+        const artifactType = preview.type === 'pdf' ? 'PDF work sample' : 'Interactive work sample';
         if (pdfModalMeta) {
-            pdfModalMeta.textContent = `${artifactType}. Outcomes require explicit evidence.`;
+            pdfModalMeta.textContent = `${artifactType}. It shows the design, not measured results.`;
         }
         if (pdfOpenFull) {
             pdfOpenFull.href = preview.url;

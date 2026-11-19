@@ -48,14 +48,14 @@ describe('Generated Portfolio Item Discovery', () => {
     initialize(generate());
     searchFor('friction commun');
     expect(visibleItemIds()).toEqual(['project-need-assessment-cross-department-communication']);
-    expect(document.getElementById('portfolio-result-summary').textContent).toBe('Showing all 1 matching Portfolio Items');
+    expect(document.getElementById('portfolio-result-summary').textContent).toBe('Showing all 1 matching work samples');
 
     searchFor('friction');
     expect(visibleItemIds()).toEqual(['project-need-assessment-cross-department-communication']);
     searchFor('communication friction unavailable');
     expect(visibleItemIds()).toEqual([]);
     expect(document.getElementById('portfolio-result-summary').textContent)
-      .toBe('No matching Portfolio Items. Try another search or clear the filters.');
+      .toBe('No matching work samples. Try another search or clear the filters.');
   });
 
   test('combines all search words with area, topic, and format, restores the URL, and resets zero results', () => {
@@ -81,7 +81,7 @@ describe('Generated Portfolio Item Discovery', () => {
       'project-need-assessment-manager-communication-to-staff'
     ];
     expect(visibleItemIds()).toEqual(matchingItems);
-    expect(document.getElementById('portfolio-result-summary').textContent).toBe('Showing all 2 matching Portfolio Items');
+    expect(document.getElementById('portfolio-result-summary').textContent).toBe('Showing all 2 matching work samples');
     expect(window.location.search).toBe('?q=communication+assessment&area=training-needs-analysis&tag=curriculum-development&format=pdf');
     expect(window.location.hash).toBe(hash);
 
@@ -99,14 +99,14 @@ describe('Generated Portfolio Item Discovery', () => {
     format.dispatchEvent(new window.Event('change'));
     expect(visibleItemIds()).toEqual([]);
     expect(document.getElementById('portfolio-result-summary').textContent)
-      .toBe('No matching Portfolio Items. Try another search or clear the filters.');
+      .toBe('No matching work samples. Try another search or clear the filters.');
     expect(document.getElementById('portfolio-show-more').hidden).toBe(true);
     expect(document.getElementById('portfolio-clear-filters').hidden).toBe(false);
     document.getElementById('portfolio-clear-filters').click();
     expect(visibleItemIds()).toEqual(initialItems);
     expect(document.getElementById('portfolio-result-summary').textContent).toBe(initialSummary);
     expect(document.getElementById('portfolio-search').value).toBe('');
-    expect(document.getElementById('portfolio-area-filter').value).toBe('all');
+    expect(document.getElementById('portfolio-area-filter').value).toBe('');
     expect(document.getElementById('portfolio-more-filter').value).toBe('');
     expect(format.value).toBe('');
     expect(document.activeElement).toBe(document.getElementById('portfolio-search'));
@@ -125,12 +125,12 @@ describe('Generated Portfolio Item Discovery', () => {
       'project-self-leadership-career-transition',
       'project-learning-from-abroad-education-and-career-pathways'
     ]);
-    expect(document.getElementById('portfolio-result-summary').textContent).toBe('Showing 9 of 48 matching Portfolio Items');
+    expect(document.getElementById('portfolio-result-summary').textContent).toBe('Showing 9 of 48 matching work samples');
     const firstBatch = visibleItemIds();
     document.getElementById('portfolio-show-more').click();
     expect(visibleItemIds()).toHaveLength(18);
     expect(visibleItemIds().slice(0, 9)).toEqual(firstBatch);
-    expect(document.getElementById('portfolio-result-summary').textContent).toBe('Showing 18 of 48 matching Portfolio Items');
+    expect(document.getElementById('portfolio-result-summary').textContent).toBe('Showing 18 of 48 matching work samples');
     expect(window.location.search).toBe('?q=material+learning&show=18');
 
     const revealedItems = visibleItemIds();
@@ -139,7 +139,7 @@ describe('Generated Portfolio Item Discovery', () => {
     initialize(html, savedQuery);
     expect(document.getElementById('portfolio-search').value).toBe('material learning');
     expect(visibleItemIds()).toEqual(revealedItems);
-    expect(document.getElementById('portfolio-result-summary').textContent).toBe('Showing 18 of 48 matching Portfolio Items');
+    expect(document.getElementById('portfolio-result-summary').textContent).toBe('Showing 18 of 48 matching work samples');
     searchFor('learning material');
     expect(visibleItemIds()).toEqual(firstBatch);
     expect(window.location.search).toBe('?q=learning+material');
@@ -162,7 +162,14 @@ describe('Generated Portfolio Item Discovery', () => {
     resetDom();
     initialize(html, `?area=${token}`);
 
-    expect(document.getElementById('portfolio-area-filter').value).toBe(token);
+    // Main areas show as a pressed button; other areas show in the "More practice areas" menu.
+    const button = document.querySelector(`[data-filter="${token}"]`);
+    if (button) {
+      expect(button.getAttribute('aria-pressed')).toBe('true');
+      expect(document.getElementById('portfolio-area-filter').value).toBe('');
+    } else {
+      expect(document.getElementById('portfolio-area-filter').value).toBe(token);
+    }
     expect(document.getElementById('portfolio-active-filters').textContent).toBe(label);
     expect(document.getElementById(id).hidden).toBe(false);
   });
@@ -196,16 +203,24 @@ describe('Generated Portfolio Item Discovery', () => {
     expect(window.location.hash).toBe('#work');
     expect(topic.value).toBe('worksheet');
     document.querySelector('[data-filter="learning-analytics"]').click();
-    expect(area.value).toBe('learning-analytics');
+    expect(area.value).toBe('');
     expect(document.querySelector('[data-filter="learning-analytics"]').getAttribute('aria-pressed')).toBe('true');
     topic.value = '';
     topic.dispatchEvent(new window.Event('change'));
     expect(window.location.search).toBe('?area=learning-analytics&format=html-viewer');
     document.getElementById('portfolio-clear-filters').click();
-    expect(area.value).toBe('all');
+    expect(area.value).toBe('');
     expect(topic.value).toBe('');
     expect(window.location.search).toBe('');
     expect(document.getElementById('portfolio-active-filters').textContent).toBe('');
+  });
+
+  test('never offers a main practice area in both the buttons and the menu', () => {
+    initialize(generate());
+    const buttonAreas = Array.from(document.querySelectorAll('#portfolio-item-filters [data-filter]'), (button) => button.dataset.filter);
+    const menuAreas = Array.from(document.getElementById('portfolio-area-filter').options, (option) => option.value).filter(Boolean);
+    expect(menuAreas.length).toBeGreaterThan(0);
+    expect(menuAreas.filter((value) => buttonAreas.includes(value))).toEqual([]);
   });
 
   test('keeps legacy topic URLs visible without treating the topic as a declared Practice Area', () => {

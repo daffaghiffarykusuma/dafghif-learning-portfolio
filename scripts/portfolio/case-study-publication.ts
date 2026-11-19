@@ -7,8 +7,8 @@ import {
   createCaseStudyPageIdentity
 } from '../../src/site/site-page-identity.ts';
 import { PORTFOLIO_AI_CONTEXT_METADATA_LINK, escapeHtml, renderSitePage } from '../site/site-page-shell.ts';
-import { normalizePortfolioItem, normalizeText } from './portfolio-item-catalog.ts';
-import type { PortfolioItem } from './portfolio-item-catalog.ts';
+import { imageKindFailure, normalizePortfolioImage, normalizePortfolioItem, normalizeText } from './portfolio-item-catalog.ts';
+import type { PortfolioImage, PortfolioItem } from './portfolio-item-catalog.ts';
 import type { CaseStudyPageIdentity } from '../../src/site/site-page-identity.ts';
 
 // Case Study Publication: turns Case Study source data into expanded Portfolio
@@ -16,7 +16,7 @@ import type { CaseStudyPageIdentity } from '../../src/site/site-page-identity.ts
 // metadata. It also owns the Case Study part of the Portfolio Item Source schema
 // and reports its failures, so no other module restates Case Study rules.
 
-type Image = { src: string; alt: string };
+type Image = PortfolioImage;
 type LabeledValue = { label: string; value: string };
 
 export type CaseStudyArtifact = {
@@ -104,10 +104,7 @@ const normalizeLabeledValues = (value: unknown): LabeledValue[] =>
     value: normalizeText(item.value)
   }));
 
-const normalizeImage = (value: unknown, fallbackAlt = ''): Image => {
-  const image = asRecord(value);
-  return { src: normalizeText(image.src), alt: normalizeText(image.alt) || fallbackAlt };
-};
+const normalizeImage = (value: unknown, fallbackAlt = ''): Image => normalizePortfolioImage(value, fallbackAlt);
 
 const pagePathFor = (caseStudy: Pick<CaseStudy, 'pagePath' | 'id'>) =>
   normalizeText(caseStudy.pagePath) || `${normalizeText(caseStudy.id)}.html`;
@@ -187,6 +184,8 @@ const validateCaseStudySource = (source: Record<string, unknown>): string[] => {
     const image = asRecord(record.image);
     if (!normalizeText(image.src)) fail(`${label} is missing image.src`);
     if (!normalizeText(image.alt)) fail(`${label} is missing image.alt`);
+    const kindFailure = imageKindFailure(image, label);
+    if (kindFailure) fail(kindFailure);
   };
   const requirePracticeArea = (value: unknown, label: string) => {
     const practiceArea = normalizeText(value);
@@ -335,7 +334,7 @@ const renderCaseStudyCards = (listings: CaseStudyListing[]) =>
       const pagePath = pagePathFor(caseStudy);
       const title = normalizeText(caseStudy.portfolioItemTitle || `${caseStudy.title} Case Study`);
       return `<article class="case-study-card">
-          <a href="${escapeHtml(pagePath)}" class="case-study-card-image">
+          <a href="${escapeHtml(pagePath)}" class="case-study-card-image${caseStudy.image.kind ? ' card-image-photo' : ''}">
             <img src="${escapeHtml(caseStudy.image.src)}" alt="${escapeHtml(caseStudy.image.alt || title)}" loading="lazy" decoding="async">
           </a>
           <div class="case-study-card-body">
@@ -355,8 +354,8 @@ const renderIndexHtml = (listings: CaseStudyListing[]) => renderSitePage({
   content: `<main id="main-content" role="main" aria-label="Main content">
     <section class="service-hero service-hero-compact">
       <div class="container">
-        <p class="service-eyebrow">Case Studies</p>
-        <h1>Selected Learning Design Cases</h1>
+        <p class="service-eyebrow">Case studies</p>
+        <h1>Selected learning design cases</h1>
         <p class="lead">Explore learning programs, assessment tools, and practical materials. Open a case to see the work and how it was designed.</p>
       </div>
     </section>
@@ -411,6 +410,32 @@ const renderArtifactItems = (artifacts: CaseStudyArtifact[]) =>
     })
     .join('\n          ');
 
+const plural = (count: number, word: string) => `${count} ${word}${count === 1 ? '' : 's'}`;
+
+// Summarizes sample formats for the hero, for example "5 PDFs · 3 interactive".
+const describeArtifactFormats = (artifacts: CaseStudyArtifact[]) => {
+  const pdfCount = artifacts.filter((item) => item.sourceType === 'pdf').length;
+  const interactiveCount = artifacts.length - pdfCount;
+  return [
+    pdfCount ? plural(pdfCount, 'PDF') : '',
+    interactiveCount ? `${interactiveCount} interactive` : ''
+  ].filter(Boolean).join(' · ');
+};
+
+const renderCaseGlance = (caseStudy: CaseStudy) => {
+  const { artifacts, caseFlow } = caseStudy;
+  return `<aside class="case-glance" aria-label="Case at a glance">
+          <dl class="case-glance-facts">
+            <div><dt>Practice area</dt><dd>${escapeHtml(caseStudy.practiceArea || 'Case study')}</dd></div>
+            <div><dt>Work samples</dt><dd>${escapeHtml(describeArtifactFormats(artifacts))}</dd></div>
+          </dl>${caseFlow.length ? `
+          <p class="case-glance-label">Design path</p>
+          <ol class="case-glance-steps">
+            ${caseFlow.map((step) => `<li>${escapeHtml(step.label)}</li>`).join('\n            ')}
+          </ol>` : ''}
+        </aside>`;
+};
+
 const renderCaseStudyHtml = (caseStudy: CaseStudy) => {
   const { title, reviewerContext, caseFlow, artifacts } = caseStudy;
   const suggestedArtifact = artifacts.find((item) => item.id === caseStudy.suggestedArtifactId);
@@ -419,27 +444,30 @@ const renderCaseStudyHtml = (caseStudy: CaseStudy) => {
   const scope = reviewerContext.filter((item) => !/limit|use case/i.test(item.label));
   const content = `<main id="main-content" class="case-reading-page" role="main" aria-label="Main content">
     <section class="service-hero generated-case-hero" id="overview">
-      <div class="container">
-        <a class="case-back" href="case-studies.html">&larr; All case studies</a>
-        <p class="service-eyebrow">${escapeHtml(caseStudy.practiceArea || 'Case Study')}</p>
-        <h1>${escapeHtml(title)}</h1>
-        <p class="lead">${escapeHtml(caseStudy.summary)}</p>
-        <nav class="case-jump-links" aria-label="On this page">
-          <a href="#work-samples">View ${artifacts.length} work samples &darr;</a>
-          ${caseFlow.length ? '<a href="#approach">How it was designed</a>' : ''}
-        </nav>
+      <div class="container case-hero-grid">
+        <div class="case-hero-copy">
+          <a class="case-back" href="case-studies.html">&larr; All case studies</a>
+          <p class="service-eyebrow">Case study</p>
+          <h1>${escapeHtml(title)}</h1>
+          <p class="lead">${escapeHtml(caseStudy.summary)}</p>
+          <nav class="case-jump-links" aria-label="On this page">
+            <a href="#work-samples">View ${artifacts.length} work samples &darr;</a>
+            ${caseFlow.length ? '<a href="#approach">How it was designed</a>' : ''}
+          </nav>
+        </div>
+        ${renderCaseGlance(caseStudy)}
       </div>
     </section>
 
     <section class="generated-case-artifacts" id="work-samples">
       <div class="container">
-        ${suggestedArtifact ? `<div class="case-section-heading">
+        ${suggestedArtifact ? `<div class="case-section-heading case-work-intro">
           <h2>What this demonstrates</h2>
           ${useCase ? `<p>${escapeHtml(useCase.value)}</p>` : ''}
-          <p><strong>Start here:</strong> <a class="portfolio-item-title-link" href="#${escapeHtml(suggestedArtifact.id)}">Preview ${escapeHtml(suggestedArtifact.title)}</a></p>
+          <p class="case-start-here"><strong>Start here:</strong> <a class="portfolio-item-title-link" href="#${escapeHtml(suggestedArtifact.id)}">Preview ${escapeHtml(suggestedArtifact.title)}</a></p>
         </div>
-        ` : ''}<div class="case-section-heading">
-          <h2>Explore the work</h2>
+        ` : ''}<div class="case-section-heading case-work-heading">
+          <h2>All work samples</h2>
           <p>Open any sample to inspect it without leaving this page.</p>
         </div>
         ${evidenceNotes.map((item) => `<p class="case-evidence-note"><strong>${escapeHtml(item.label)}:</strong> ${escapeHtml(item.value)}</p>`).join('')}

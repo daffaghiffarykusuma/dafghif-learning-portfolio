@@ -29,7 +29,7 @@ export const renderArtifactPreviewModal = () => `<dialog aria-labelledby="${ids.
       </div>
       <div class="pdf-modal-actions">
         <a class="secondary-cta" href="#" id="${ids.openFull}">Open full screen</a>
-        <a class="cta-button" href="contact.html" id="${ids.discuss}">Discuss this Artifact</a>
+        <a class="cta-button" href="contact.html" id="${ids.discuss}">Discuss this work</a>
       </div>
     </div>
   </dialog>`;

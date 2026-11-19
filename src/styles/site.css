@@ -390,6 +390,23 @@ main > section + section { border-top: 1px solid var(--rule); }
     align-items: end;
 }
 
+.hero-copy .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: clamp(20px, 2.5vw, 32px);
+    color: var(--paper);
+    font-size: var(--step-0);
+    font-weight: 400;
+}
+/* A short ruled lead-in, like a workbook section label. */
+.hero-copy .hero-eyebrow::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--rule-strong);
+}
+
 .hero-copy h1 {
     font-size: var(--step-6);
     font-weight: 500;
@@ -632,6 +649,30 @@ footer {
     font-size: var(--step--1);
 }
 footer > .container > p { margin: 0; }
+.footer-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 32px;
+}
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 4px;
+    margin: 0 -10px;
+    padding: 0;
+    list-style: none;
+}
+.footer-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 10px;
+    color: var(--pencil);
+    text-decoration: none;
+}
+.footer-links a:hover { color: var(--paper); text-decoration: underline; text-decoration-color: var(--marker); }
 footer:not(:has(.footer-cta)) { padding-block: 32px; }
 
 .footer-cta {
@@ -725,6 +766,11 @@ footer:not(:has(.footer-cta)) { padding-block: 32px; }
 .card-image > button { display: block; width: 100%; height: 100%; }
 .card-image img { width: 100%; height: 100%; object-fit: contain; }
 
+/* Evidence Photographs carry no title text, so they may fill the frame.
+   Product Thumbnails stay contained so their titles are never cropped. */
+.card-image-photo img,
+.case-study-card-image.card-image-photo img { object-fit: cover; object-position: 50% 35%; }
+
 .card-content {
     display: flex;
     flex: 1;
@@ -771,6 +817,16 @@ footer:not(:has(.footer-cta)) { padding-block: 32px; }
 
 .portfolio-item-meta { color: var(--pencil); font-size: var(--step--1); }
 
+/* On generated cards, format and audience read as a quiet tag above the actions. */
+.portfolio-item .card-content .portfolio-item-meta {
+    align-self: flex-start;
+    padding: 2px 12px;
+    border: 1px solid var(--rule-strong);
+    border-radius: 999px;
+    font-size: var(--step--1);
+    line-height: 1.6;
+}
+
 /* Proof points are highlighted the way a reader marks the key line. */
 .card-content .portfolio-item-proof {
     color: var(--paper);
@@ -805,7 +861,7 @@ footer:not(:has(.footer-cta)) { padding-block: 32px; }
 .portfolio-search-field input,
 .portfolio-discovery-meta select {
     width: 100%;
-    min-height: 52px;
+    min-height: 48px;
     padding: 12px 16px;
     border: 1px solid var(--rule-strong);
     border-radius: var(--radius-control);
@@ -813,7 +869,7 @@ footer:not(:has(.footer-cta)) { padding-block: 32px; }
     color: var(--paper);
     font-size: var(--step-0);
 }
-.portfolio-search-field input { font-size: var(--step-1); }
+.portfolio-search-field input { min-height: 56px; font-size: var(--step-1); }
 .portfolio-search-field input::placeholder { color: var(--pencil); opacity: 0.8; }
 .portfolio-search-field input:focus,
 .portfolio-discovery-meta select:focus { border-color: var(--marker); outline: none; box-shadow: 0 0 0 3px var(--marker-wash); }
@@ -830,12 +886,32 @@ footer:not(:has(.footer-cta)) { padding-block: 32px; }
 
 .portfolio-filter-details summary {
     display: inline-flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 12px;
+    gap: 4px 12px;
     min-height: 44px;
     cursor: pointer;
     font-weight: 500;
+    list-style: none;
 }
+.portfolio-filter-details summary::-webkit-details-marker { display: none; }
+/* A chevron makes the collapsed filter row read as something to open. */
+.portfolio-filter-summary-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+.portfolio-filter-summary-label::after {
+    content: '';
+    width: 7px;
+    height: 7px;
+    margin-top: -4px;
+    border-right: 2px solid var(--pencil);
+    border-bottom: 2px solid var(--pencil);
+    transform: rotate(45deg);
+    transition: transform 0.2s ease, margin 0.2s ease;
+}
+.portfolio-filter-details[open] .portfolio-filter-summary-label::after { margin-top: 4px; transform: rotate(-135deg); }
 #portfolio-active-filters { color: var(--pencil); font-size: var(--step--1); font-weight: 400; }
 
 .portfolio-item-filters {
@@ -861,6 +937,17 @@ footer:not(:has(.footer-cta)) { padding-block: 32px; }
 .filter-button:hover { border-color: var(--paper); }
 .filter-button.active,
 .filter-button[aria-pressed='true'] { background: var(--paper); border-color: var(--paper); color: var(--ink); font-weight: 500; }
+
+/* Secondary refinements sit under a quiet ruled label, visibly below the quick filters. */
+.portfolio-refine-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 4px 0 12px;
+    color: var(--pencil);
+    font-size: var(--step--1);
+}
+.portfolio-refine-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
 
 .portfolio-discovery-meta {
     display: grid;
@@ -968,11 +1055,89 @@ footer:not(:has(.footer-cta)) { padding-block: 32px; }
 /* ---------- Case study reading pages ---------- */
 .case-reading-page > section { padding-block: clamp(48px, 6vw, 80px); }
 .case-reading-page > .generated-case-hero { padding-block: clamp(32px, 5vw, 64px) clamp(40px, 5vw, 64px); }
-.case-reading-page > .generated-case-hero h1 { max-width: 24ch; }
+/* Case titles run long, so they sit a step below page-level display headings. */
+.case-reading-page > .generated-case-hero h1 {
+    max-width: 22ch;
+    font-size: clamp(1.875rem, 1.2rem + 2.2vw, 3rem);
+    line-height: 1.1;
+}
+
+/* Case hero: narrative on the left, a compact fact sheet on the right. */
+.case-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    gap: clamp(32px, 5vw, 80px);
+    align-items: end;
+}
+.case-hero-copy { min-width: 0; }
+
+.case-glance {
+    min-width: 0;
+    padding: 24px 28px 28px;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-card);
+    background: var(--desk);
+}
+.case-glance-facts { display: grid; gap: 0; margin: 0; }
+.case-glance-facts > div {
+    display: grid;
+    gap: 2px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rule);
+}
+.case-glance-facts > div:first-child { padding-top: 0; }
+.case-glance-facts > div:last-child { border-bottom: 0; padding-bottom: 0; }
+.case-glance-facts dt { color: var(--pencil); font-size: var(--step--1); }
+.case-glance-facts dd { margin: 0; font-weight: 500; line-height: 1.45; }
+.case-glance-label { margin: 20px 0 10px; padding-top: 16px; border-top: 1px solid var(--rule); color: var(--pencil); font-size: var(--step--1); }
+
+/* The design path is a real sequence, so it carries numbers. */
+.case-glance-steps {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: glance;
+}
+.case-glance-steps li {
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr);
+    align-items: baseline;
+    font-size: 15px;
+    line-height: 1.45;
+    counter-increment: glance;
+}
+.case-glance-steps li::before {
+    content: counter(glance);
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--marker);
+}
 
 .case-section-heading { margin-bottom: 24px; }
 .case-section-heading h2 { font-size: var(--step-4); line-height: 1.15; }
-.case-section-heading p { margin-top: 10px; color: var(--pencil); }
+.case-section-heading p { max-width: var(--measure); margin-top: 10px; color: var(--pencil); }
+
+.case-work-intro { margin-bottom: clamp(48px, 6vw, 72px); }
+.case-work-intro > p:not(.case-start-here) { font-size: var(--step-1); }
+.case-section-heading .case-start-here {
+    display: grid;
+    gap: 2px;
+    width: fit-content;
+    max-width: 100%;
+    margin-top: 24px;
+    padding: 14px 20px;
+    border: 1px solid var(--rule-strong);
+    border-radius: var(--radius-control);
+    background: var(--desk);
+}
+.case-start-here strong { color: var(--pencil); font-size: var(--step--1); font-weight: 400; }
+.case-start-here a { color: var(--paper); font-weight: 500; text-decoration: underline; text-decoration-color: var(--marker); }
+.case-start-here a::after { content: ' \2192'; }
+
+.case-work-heading { padding-top: clamp(32px, 4vw, 48px); border-top: 1px solid var(--rule); }
+.case-work-heading h2 { font-size: var(--step-3); }
 
 .case-evidence-note {
     max-width: var(--measure);
@@ -988,7 +1153,7 @@ footer:not(:has(.footer-cta)) { padding-block: 32px; }
 
 .resource-grid.artifact-list {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
 }
 .case-artifact-card .card-content h3 { font-size: var(--step-1); }
@@ -1111,9 +1276,32 @@ footer:not(:has(.footer-cta)) { padding-block: 32px; }
 
 /* ---------- Blog ---------- */
 #blog-list { padding-block: clamp(40px, 6vw, 80px) var(--section-space); }
-#blog-list > .container > .section-title { font-size: var(--step-6); letter-spacing: -0.055em; line-height: 1.02; margin-bottom: clamp(32px, 4vw, 56px); }
+.blog-heading { margin-bottom: clamp(32px, 4vw, 56px); }
+.blog-heading .section-title { font-size: var(--step-6); letter-spacing: -0.055em; line-height: 1.02; }
+.blog-heading p { margin-top: 16px; color: var(--pencil); font-size: var(--step-1); }
 
-.blog-card-grid { gap: clamp(24px, 3vw, 40px); }
+.blog-topic-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: clamp(40px, 5vw, 64px);
+}
+.blog-topic-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 8px 18px;
+    border: 1px solid var(--rule-strong);
+    border-radius: 999px;
+    font-size: 15px;
+    text-decoration: none;
+}
+.blog-topic-links a:hover { border-color: var(--paper); background: var(--desk); }
+
+.blog-group + .blog-group { margin-top: clamp(64px, 8vw, 104px); }
+.blog-group-title { margin-bottom: 24px; font-size: var(--step-4); line-height: 1.15; }
+
+.blog-card-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(32px, 3vw, 40px) clamp(24px, 3vw, 32px); }
 .blog-card {
     display: flex;
     flex-direction: column;
@@ -1128,12 +1316,23 @@ footer:not(:has(.footer-cta)) { padding-block: 32px; }
     background: var(--desk);
 }
 .blog-card-media img { width: 100%; height: 100%; object-fit: cover; }
-.blog-card-body { padding-top: 20px; }
-.blog-card-title { font-family: var(--font-display); font-size: var(--step-3); line-height: 1.2; letter-spacing: -0.045em; }
+.blog-card-media img { transition: transform 0.4s ease; }
+.blog-card:hover .blog-card-media img { transform: scale(1.02); }
+.blog-card-body { padding-top: 18px; }
+.blog-card-title { font-family: var(--font-text); font-size: var(--step-1); font-weight: 500; line-height: 1.35; letter-spacing: -0.01em; }
 .blog-card-title a { text-decoration: none; }
 .blog-card-title a:hover { text-decoration: underline; text-decoration-color: var(--marker); }
-.blog-card-desc { margin-top: 12px; color: var(--pencil); }
-.blog-card-footer { margin-top: auto; padding-top: 20px; }
+.blog-card-desc {
+    display: -webkit-box;
+    margin-top: 8px;
+    overflow: hidden;
+    color: var(--pencil);
+    font-size: 15px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+}
+.blog-card-footer { margin-top: auto; padding-top: 8px; }
 .blog-card-footer .blog-card-cta {
     min-height: 44px;
     padding: 0;
@@ -1347,6 +1546,11 @@ main > .contact-message-section { border-top: 0; }
 .pdf-modal-actions > a { min-height: 44px; padding: 10px 20px; font-size: 15px; white-space: normal; }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+    .resource-grid.artifact-list,
+    .blog-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 @media (max-width: 1024px) {
     .grid-cols-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .impact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1371,6 +1575,8 @@ main > .contact-message-section { border-top: 0; }
 
 @media (max-width: 860px) {
     .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 220px); align-items: start; }
+    .case-hero-grid { grid-template-columns: 1fr; gap: 32px; }
+    .case-glance { max-width: 560px; }
     .selected-work-grid > .selected-work-card { grid-template-columns: 1fr; gap: 20px; }
     .home-page .home-about,
     .home-page #skills > .container,
@@ -1394,7 +1600,10 @@ main > .contact-message-section { border-top: 0; }
     .grid-cols-3,
     .testimonial-grid,
     .case-study-card-grid,
+    .blog-card-grid,
     .resource-grid.artifact-list { grid-template-columns: 1fr; }
+    .case-glance { padding: 20px; }
+    .footer-meta { flex-direction: column; align-items: flex-start; }
     .testimonial-card { padding: 24px; }
 
     .home-credential summary { grid-template-columns: 1fr; gap: 2px; }

@@ -51,6 +51,12 @@ export const portfolioDiscoveryFilters = {
         { value: 'all', label: 'All' },
         ...practiceAreas.filter(({ filter }) => filter === 'primary').map(toFilter)
     ],
+    // The "More practice areas" menu lists only areas without a filter button,
+    // so the buttons and the menu never offer the same choice twice.
+    secondaryAreas: [
+        { value: '', label: 'Choose another area' },
+        ...practiceAreas.filter(({ filter }) => filter !== 'primary').map(toFilter)
+    ],
     topics: topicOrder.map((value) => {
         const topic = topicCandidates.find((candidate) => candidate.value === value);
         if (!topic) throw new Error(`Portfolio Item Discovery topic order names an unknown topic: ${value}`);
@@ -196,8 +202,11 @@ export const initPortfolioDiscovery = () => {
 
     const render = ({ updateUrl = false }: { updateUrl?: boolean } = {}) => {
         searchInput.value = state.query;
+        // A primary area shows as a pressed button; any other area shows in the menu.
+        const areaHasButton = filterButtons.some((button) => button.dataset.filter === state.area);
+        const areaMenuValue = areaHasButton ? '' : state.area;
         // Keep older or externally linked topic values visible, including area=worksheet.
-        for (const [select, value] of [[areaFilter, state.area], [moreFilter, state.tag]] as const) {
+        for (const [select, value] of [[areaFilter, areaMenuValue], [moreFilter, state.tag]] as const) {
             if (!select) continue;
             if (value && !Array.from(select.options).some((option) => option.value === value)) {
                 const option = document.createElement('option');
@@ -238,10 +247,10 @@ export const initPortfolioDiscovery = () => {
 
         const allVisible = matchingItems.length <= visibleLimit;
         resultSummary.textContent = matchingItems.length === 0
-            ? 'No matching Portfolio Items. Try another search or clear the filters.'
+            ? 'No matching work samples. Try another search or clear the filters.'
             : allVisible
-                ? `Showing all ${matchingItems.length} matching Portfolio Items`
-                : `Showing ${visibleLimit} of ${matchingItems.length} matching Portfolio Items`;
+                ? `Showing all ${matchingItems.length} matching work samples`
+                : `Showing ${visibleLimit} of ${matchingItems.length} matching work samples`;
         clearFiltersButton.hidden = !state.query && state.area === 'all' && !state.tag && !state.format;
         showMoreButton.hidden = allVisible;
         if (!allVisible) {

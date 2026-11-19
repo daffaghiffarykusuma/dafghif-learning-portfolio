@@ -4,6 +4,7 @@ import {
 } from './case-study-publication.ts';
 import {
   PORTFOLIO_ITEM_SCHEMA_VERSION,
+  imageKindFailure,
   normalizePortfolioItem,
   normalizePortfolioItemProof,
   normalizeText
@@ -107,6 +108,8 @@ const validateImage = ({
   if (!normalizeText(image.alt)) {
     failures.push(`${sourceFile}: ${label} is missing image.alt`);
   }
+  const kindFailure = imageKindFailure(image, label);
+  if (kindFailure) failures.push(`${sourceFile}: ${kindFailure}`);
 };
 
 const validatePracticeArea = ({

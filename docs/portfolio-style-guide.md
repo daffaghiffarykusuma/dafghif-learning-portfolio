@@ -25,13 +25,15 @@ The highlighter has fixed meanings. A solid marker fill is a primary action: hea
 
 Use a 1240px content width with `clamp(16px, 5vw, 64px)` gutters. The home hero pairs a large Lexend Exa headline with a tilted 4:5 portrait card on a fading workbook dot grid. The outcome note sits beneath the portrait as a caption. Keep the existing below-fold mobile image loading policy. Selected work is a stack of rows: a 16:9 thumbnail beside the capability, title, summary, and link. About, Credentials, and testimonials use textbook-style margin headings in a left column. Sections are separated by single rules and roomy `--section-space` padding.
 
-Cards use 14px corners, buttons use 8px corners, and filters, practice links, and jump links use pills. Only real sequences carry numbers: case design steps and the contact process.
+Every footer repeats quiet routes to Portfolio, Case studies, the CV, and LinkedIn beside the copyright line. The Blog is titled "Writing". Each post in `assets/blog.json` carries a `topic`; learning, work, and wellbeing writing is grouped first and AI and industry notes second, each in a three-column card grid with clamped descriptions.
+
+Cards use 14px corners, buttons use 8px corners, and filters, practice links, jump links, and the card format/audience tag use pills. Only real sequences carry numbers: case design steps and the contact process.
 
 The hero stacks below 768px, and the portrait becomes a small card beside the outcome note. Preserve the navigation's 1024px mobile breakpoint, expanded state, focus behavior, and mobile contact action. Search fields and mobile filters should remain at least 44px tall.
 
 ## Images and evidence
 
-Product Thumbnails remain 16:9 WebP covers with readable titles. Preserve the established navy or deep-teal backgrounds, dotted grid, white title text, and mint, coral, or yellow accents. These covers can contrast with the dark page design. Show the complete thumbnail without cropping away its title.
+Product Thumbnails remain 16:9 WebP covers with readable titles. Preserve the established navy or deep-teal backgrounds, dotted grid, white title text, and mint, coral, or yellow accents. These covers can contrast with the dark page design. Show the complete thumbnail without cropping away its title. An authentic Evidence Photograph is marked `"kind": "evidence-photograph"` on its source image and may fill its card frame, because it has no title text to lose. Never mark screenshots, stock, or generated imagery this way.
 
 Use only work-relevant motifs. Never invent scores, findings, names, or outcomes inside illustrative interfaces. Keep safe margins around identifying text.
 
@@ -49,7 +51,7 @@ Standalone Artifact cards place capability before the title, followed by the sou
 
 Standalone titles, complete thumbnails, and primary actions are native buttons that announce a dialog and open the same Artifact Preview. Use "Preview PDF" for PDF Artifacts and "Open interactive preview" for interactive Artifacts. Titles and thumbnails keep their editorial appearance with visible keyboard focus; card actions use the outlined button with at least a 44px height, so 76 cards do not form a wall of yellow. Keep "Discuss this work" secondary and carry the public title into contact context. Generate these controls through Portfolio Evidence Workflow and retain the existing preview/discovery owners for state, safety, dismissal, and focus return.
 
-Search remains visible on phones, with secondary filters in a native disclosure. Show selected filter labels when collapsed and offer reset for every active search or filter. Preserve format, practice area, search, and progressive results in the URL.
+Search remains visible on phones, with secondary filters in a native disclosure. Filter buttons cover the main Practice Areas, and the "More practice areas" menu lists only the rest, so no area is offered twice. Show selected filter labels when collapsed and offer reset for every active search or filter. Preserve format, practice area, search, and progressive results in the URL.
 
 Artifact previews use the complete phone viewport, a compact title, a scrollable reading area, and persistent full-screen and inquiry actions. Use the same artifact name in the heading, iframe title, and inquiry. Contact channels precede the optional message outline.
 
@@ -66,6 +68,8 @@ Home and the Case Studies index lead with Administrative Communication, Learning
 On Home, Portfolio, and the index, a Case Study's title, complete thumbnail, and primary action are native links to the same narrative. Label the primary action "Read case study" and place it after the scope/evidence summary, aligned at the bottom of the card. Keep any "Discuss this work" action secondary and preserve its public-title context. Narrative links retain browser navigation and visible keyboard focus; they do not activate Artifact Previews.
 
 Use a capability label, title, and concise source-supported description consistently. Meaningful supporting labels on narrative cards use at least 14px text. Preserve authentic Evidence Photographs and contain Product Thumbnails without cropping their identifying text. Scope describes the designed work; assessment materials alone establish neither confirmed delivery nor measured impact. Keep source-owned evidence limits beside the narrative work samples and retain Artifact identities and preview routes during regeneration.
+
+Case study heroes pair the narrative with a compact "at a glance" panel: practice area, work-sample formats, and, for generated pages, the numbered design path from the source `caseFlow`. The authored entrepreneurship panel lists only facts already stated in its lead. Case titles use a smaller display size than page-level headings because they run long. Within the work section, "What this demonstrates" ends in a single "Start here" callout, and the full sample grid follows under its own ruled heading in three columns on wide screens.
 
 Case studies lead with a short overview and a direct route to the work samples or reported outcomes. Generated pages show evidence limits once beside the samples; scope and method live in a native, keyboard-accessible disclosure. Keep one contextual contact section and a simple footer. Preserve every artifact ID, preview trigger, source link, and source-managed record when editing the layout. The entrepreneurship page is authored separately and follows the same reading pattern with outcomes and deliverables before optional methodology and participant feedback.
 

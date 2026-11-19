@@ -14,6 +14,29 @@ export type PortfolioItemProof = {
   impact: ProofPoint[];
 };
 
+// An authentic photograph from the work may fill its card frame; Product Thumbnails
+// are always shown whole so their title text is never cropped.
+export const EVIDENCE_PHOTOGRAPH = 'evidence-photograph';
+export type PortfolioImage = { src: string; alt: string; kind?: typeof EVIDENCE_PHOTOGRAPH };
+
+/** Normalizes an image record, keeping `kind` only when it marks an Evidence Photograph. */
+export const normalizePortfolioImage = (value: unknown, fallbackAlt = ''): PortfolioImage => {
+  const image = asRecord(value);
+  return {
+    src: normalizeText(image.src),
+    alt: normalizeText(image.alt) || fallbackAlt,
+    ...(image.kind === EVIDENCE_PHOTOGRAPH ? { kind: EVIDENCE_PHOTOGRAPH } : {})
+  };
+};
+
+/** Returns a failure message when an image declares an unknown kind. */
+export const imageKindFailure = (value: unknown, label: string) => {
+  const kind = asRecord(value).kind;
+  return kind === undefined || kind === EVIDENCE_PHOTOGRAPH
+    ? ''
+    : `${label} image.kind must be "${EVIDENCE_PHOTOGRAPH}" when present`;
+};
+
 export type PortfolioItem = {
   id: string;
   title: string;
@@ -21,7 +44,7 @@ export type PortfolioItem = {
   tags: string[];
   description: string;
   audience?: string;
-  image: { src: string; alt: string };
+  image: PortfolioImage;
   sourceArtifact: string;
   sourceType: string;
   portfolioItemUrl: string;
@@ -76,7 +99,6 @@ export const slugify = (value: unknown) =>
 
 export const normalizePortfolioItem = (sourceItem: unknown): PortfolioItem => {
   const source = asRecord(sourceItem);
-  const image = asRecord(source.image);
   const title = normalizeText(source.title);
   const practiceArea = normalizeText(source.practiceArea);
 
@@ -87,10 +109,7 @@ export const normalizePortfolioItem = (sourceItem: unknown): PortfolioItem => {
     tags: Array.isArray(source.tags) ? source.tags.map(normalizeText).filter(Boolean) : [],
     description: normalizeText(source.description),
     ...(normalizeText(source.audience) ? { audience: normalizeText(source.audience) } : {}),
-    image: {
-      src: normalizeText(image.src),
-      alt: normalizeText(image.alt) || title
-    },
+    image: normalizePortfolioImage(source.image, title),
     sourceArtifact: normalizeText(source.sourceArtifact),
     sourceType: normalizeText(source.sourceType),
     portfolioItemUrl: normalizeText(source.portfolioItemUrl),

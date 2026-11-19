@@ -16,7 +16,8 @@ describe('blog card rendering', () => {
     expect(cards.length).toBeGreaterThan(0);
 
     const firstCard = cards[0];
-    expect(firstCard.querySelector('.blog-card-body > h2.blog-card-title')).toBeTruthy();
+    expect(firstCard.querySelector('.blog-card-body > h3.blog-card-title')).toBeTruthy();
+    expect(firstCard.closest('.blog-group').querySelector('h2').textContent).toBe('Learning, work, and wellbeing');
     const links = firstCard.querySelectorAll('a');
     expect(links.length).toBe(2);
     for (const link of links) {

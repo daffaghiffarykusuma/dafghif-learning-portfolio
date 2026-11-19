@@ -149,6 +149,22 @@ describe('Portfolio Evidence Workflow', () => {
     expect(regenerated.outputs.find((output) => output.outputPath === 'case-studies.html')).toEqual(index);
   });
 
+  test('lets only Evidence Photographs fill their card frame', () => {
+    const source = structuredClone(workflowSource);
+    source.portfolioItems[0].image.kind = 'evidence-photograph';
+    const html = outputFor(createPortfolioEvidenceWorkflow({
+      portfolioPageSource,
+      portfolioSource: source,
+      proofSource,
+      generatedFrom: 'assets/data/portfolio-source.json'
+    }), 'portfolio-html').contents;
+    const document = new Window().document;
+    document.write(html);
+
+    expect(document.querySelector('#default-deck .card-image').classList.contains('card-image-photo')).toBe(true);
+    expect(document.querySelector('#custom-deck .card-image').classList.contains('card-image-photo')).toBe(false);
+  });
+
   test('derives every discussion link from the displayed title and rejects a source inquiry link', () => {
     const workflow = createPortfolioEvidenceWorkflow({ portfolioPageSource, portfolioSource: workflowSource,
       proofSource, generatedFrom: 'assets/data/portfolio-source.json' });

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatedFrom": "assets/data/portfolio-source.json",
-  "generatedAt": "2026-11-18T19:09:30.478Z",
+  "generatedAt": "2026-11-19T08:06:00.736Z",
   "portfolioItemCount": 76,
   "portfolioItems": [
     {
@@ -19,7 +19,8 @@
       "description": "Connects a multi-day behavioral observation workbook with a redacted individual report to show the assessment flow from evidence capture and scoring to participant-facing synthesis.",
       "image": {
         "src": "assets/images/portfolio/employee-assessment-bootcamp-case-study.webp",
-        "alt": "Anonymized employee assessment bootcamp team photo"
+        "alt": "Anonymized employee assessment bootcamp team photo",
+        "kind": "evidence-photograph"
       },
       "sourceArtifact": "case-employee-assessment-bootcamp.html",
       "sourceType": "case-study-page",
@@ -621,7 +622,8 @@
       "description": "Equipping sales teams with teaching and coaching skills for effective on-site community engagement through training and role-play.",
       "image": {
         "src": "assets/images/portfolio/training_for_trainer.webp",
-        "alt": "Training for Trainer"
+        "alt": "Training for Trainer",
+        "kind": "evidence-photograph"
       },
       "sourceArtifact": "assets/pdf/portfolio/training_for_trainer.pdf",
       "sourceType": "pdf",
@@ -677,7 +679,8 @@
       "description": "Mentoring Prakerja alumni to train Jember's MSMEs in digitalization as part of an entrepreneurship competition.",
       "image": {
         "src": "assets/images/portfolio/kumpul_jasa.webp",
-        "alt": "KUMPUL JASA Competition"
+        "alt": "KUMPUL JASA Competition",
+        "kind": "evidence-photograph"
       },
       "sourceArtifact": "assets/pdf/portfolio/kumpul_jasa.pdf",
       "sourceType": "pdf",
@@ -711,7 +714,8 @@
       "description": "An engaging 3-day offline bootcamp addressing finance, operations, and legal challenges for student entrepreneurs at NHI Bandung.",
       "image": {
         "src": "assets/images/portfolio/NHI_acceleration_bootcamp.webp",
-        "alt": "NHI Bandung Acceleration Bootcamp"
+        "alt": "NHI Bandung Acceleration Bootcamp",
+        "kind": "evidence-photograph"
       },
       "sourceArtifact": "assets/pdf/portfolio/nhi_acceleration.pdf",
       "sourceType": "pdf",
@@ -740,7 +744,8 @@
       "description": "Providing entrepreneurship as an alternative path for SMK students through a hands-on milk-based product creation and sales project.",
       "image": {
         "src": "assets/images/portfolio/smk.webp",
-        "alt": "SMK Entrepreneurship Program"
+        "alt": "SMK Entrepreneurship Program",
+        "kind": "evidence-photograph"
       },
       "sourceArtifact": "assets/portfolio-viewers/smk-entrepreneurship-program.html",
       "sourceType": "html-viewer",
@@ -775,7 +780,8 @@
       "description": "Fostering independence at Rumah Yatim through a program focused on cultivating and selling catfish and kale.",
       "image": {
         "src": "assets/images/portfolio/budikdamber.webp",
-        "alt": "Budikdamber Program"
+        "alt": "Budikdamber Program",
+        "kind": "evidence-photograph"
       },
       "sourceArtifact": "assets/pdf/portfolio/budikdamber.pdf",
       "sourceType": "pdf",
@@ -860,7 +866,8 @@
       "description": "Encouraging entrepreneurship among NHI Bandung alumni through a 3-day offline incubation bootcamp with engaging activities.",
       "image": {
         "src": "assets/images/portfolio/NHI_incubation_bootcamp.webp",
-        "alt": "NHI Bandung Incubation Bootcamp"
+        "alt": "NHI Bandung Incubation Bootcamp",
+        "kind": "evidence-photograph"
       },
       "sourceArtifact": "assets/pdf/portfolio/nhi_incubation.pdf",
       "sourceType": "pdf",
@@ -889,7 +896,8 @@
       "description": "An offline seminar with engaging activities designed to help Rumah Siap Kerja users cultivate resilience and grow their businesses.",
       "image": {
         "src": "assets/images/portfolio/entrepreneurial_mindset.webp",
-        "alt": "Entrepreneurial Mindset Seminar"
+        "alt": "Entrepreneurial Mindset Seminar",
+        "kind": "evidence-photograph"
       },
       "sourceArtifact": "assets/pdf/portfolio/growth_mindset.pdf",
       "sourceType": "pdf",

@@ -55,7 +55,7 @@ describe('Artifact Preview Experience', () => {
     expect(document.getElementById('pdf-modal').open).toBe(true);
     expect(document.getElementById('pdf-modal-title').textContent).toBe('Sample Artifact');
     expect(document.getElementById('pdf-modal-meta').textContent)
-      .toBe('PDF Artifact. Outcomes require explicit evidence.');
+      .toBe('PDF work sample. It shows the design, not measured results.');
     expect(document.getElementById('pdf-open-full').href).toBe('http://127.0.0.1/assets/pdf/portfolio/sample.pdf');
     expect(document.getElementById('pdf-open-full').target).toBe('_blank');
     expect(document.getElementById('pdf-discuss').href)
@@ -90,7 +90,7 @@ describe('Artifact Preview Experience', () => {
     expect(window.location.hash).toBe('');
     expect(document.getElementById('pdf-modal').open).toBe(true);
     expect(document.getElementById('pdf-modal-meta').textContent)
-      .toStartWith('Interactive Artifact Preview.');
+      .toStartWith('Interactive work sample.');
     expect(document.getElementById('pdf-iframe').src).toBe('http://127.0.0.1/assets/portfolio-viewers/sample.html');
     expect(document.getElementById('pdf-iframe').getAttribute('sandbox')).toBe('allow-same-origin allow-popups allow-popups-to-escape-sandbox');
   });
