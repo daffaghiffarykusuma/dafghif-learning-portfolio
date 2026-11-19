@@ -11,12 +11,32 @@ const DEFAULT_TOPIC: PublicationTopic = 'ai-industry';
 const isPublicationTopic = (value: unknown): value is PublicationTopic =>
     PUBLICATION_TOPICS.some((topic) => topic.value === value);
 
+// Posts are written in English or Indonesian. The card names the language so
+// a reviewer knows before leaving the site, and sets lang for screen readers.
+export const PUBLICATION_LANGUAGES = Object.freeze({ en: 'English', id: 'Bahasa Indonesia' });
+export type PublicationLanguage = keyof typeof PUBLICATION_LANGUAGES;
+const isPublicationLanguage = (value: unknown): value is PublicationLanguage =>
+    typeof value === 'string' && Object.hasOwn(PUBLICATION_LANGUAGES, value);
+
+// Blog cards are at most ~420 CSS px wide, so an 800px WebP covers 2x screens.
+// Medium sources are often 2000-4800px PNGs (up to 2 MB), which left cards
+// blank while they downloaded. Both Medium image hosts serve the same image
+// ids, and miro resizes and converts any of them on request.
+const CARD_IMAGE_WIDTH = 800;
+export const sizeMediumImage = (href: string, width = CARD_IMAGE_WIDTH): string => {
+    const parsed = new URL(href);
+    const imageId = parsed.pathname.split('/').filter(Boolean).at(-1);
+    if (!imageId || !/^\d\*[\w.-]+$/.test(imageId)) return parsed.href;
+    return `https://miro.medium.com/v2/resize:fit:${width}/format:webp/${imageId}`;
+};
+
 export type Publication = {
     title: string;
     description: string;
     url: string;
     image: string;
     topic: PublicationTopic;
+    language?: PublicationLanguage;
 };
 
 export type PublicationSourceFacts = {
@@ -24,7 +44,7 @@ export type PublicationSourceFacts = {
     failures: string[];
 };
 
-type PublicationInput = Partial<Record<'title' | 'description' | 'url' | 'image' | 'topic', unknown>>;
+type PublicationInput = Partial<Record<'title' | 'description' | 'url' | 'image' | 'topic' | 'language', unknown>>;
 
 const asPublicationInput = (value: unknown): PublicationInput =>
     value !== null && typeof value === 'object' && !Array.isArray(value)
@@ -71,7 +91,7 @@ export function createPublicationSourceFacts(source: unknown, { sourceName = 'Pu
                 const hostAllowed = allowedImageHosts.has(parsed.hostname.toLowerCase());
                 if (parsed.protocol !== 'https:') failures.push(`${label} image is not HTTPS`);
                 if (!hostAllowed) failures.push(`${label} image host is not allowlisted`);
-                if (parsed.protocol === 'https:' && hostAllowed) image = parsed.href;
+                if (parsed.protocol === 'https:' && hostAllowed) image = sizeMediumImage(parsed.href);
             } catch {
                 failures.push(`${label} image is not a valid URL`);
             }
@@ -83,12 +103,19 @@ export function createPublicationSourceFacts(source: unknown, { sourceName = 'Pu
             else failures.push(`${label} topic is not a known publication topic`);
         }
 
+        let language: PublicationLanguage | undefined;
+        if (post.language !== undefined) {
+            if (isPublicationLanguage(post.language)) language = post.language;
+            else failures.push(`${label} language is not a known publication language`);
+        }
+
         return {
             title: textValue(post.title) || 'Untitled Post',
             description: textValue(post.description),
             url,
             image,
-            topic
+            topic,
+            ...(language ? { language } : {})
         };
     });
 

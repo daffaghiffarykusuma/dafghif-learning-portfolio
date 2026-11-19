@@ -25,7 +25,9 @@ The highlighter has fixed meanings. A solid marker fill is a primary action: hea
 
 Use a 1240px content width with `clamp(16px, 5vw, 64px)` gutters. The home hero pairs a large Lexend Exa headline with a tilted 4:5 portrait card on a fading workbook dot grid. The outcome note sits beneath the portrait as a caption. Keep the existing below-fold mobile image loading policy. Selected work is a stack of rows: a 16:9 thumbnail beside the capability, title, summary, and link. About, Credentials, and testimonials use textbook-style margin headings in a left column. Sections are separated by single rules and roomy `--section-space` padding.
 
-Every footer repeats quiet routes to Portfolio, Case studies, the CV, and LinkedIn beside the copyright line. The Blog is titled "Writing". Each post in `assets/blog.json` carries a `topic`; learning, work, and wellbeing writing is grouped first and AI and industry notes second, each in a three-column card grid with clamped descriptions.
+Every footer repeats quiet routes to Portfolio, Case studies, the CV, and LinkedIn beside the copyright line. The Blog is titled "Writing". Each post in `assets/blog.json` carries a `topic`; learning, work, and wellbeing writing is grouped first and AI and industry notes second, each in a three-column card grid with clamped descriptions. Each group shows its first six posts and offers "Show all N posts"; revealing them moves focus to the first new post.
+
+Each post also carries a `language` (`en` or `id`). Cards name it ("English" or "Bahasa Indonesia") above the title and set `lang` so screen readers pronounce Indonesian correctly. "Read on Medium" shows an outbound arrow and tells screen readers it opens a new tab. Cover images are requested from Medium at 800px WebP, whatever size the source URL names, and a cover that fails to load becomes a dotted placeholder instead of a broken image.
 
 Cards use 14px corners, buttons use 8px corners, and filters, practice links, jump links, and the card format/audience tag use pills. Only real sequences carry numbers: case design steps and the contact process.
 
@@ -53,13 +55,13 @@ Standalone titles, complete thumbnails, and primary actions are native buttons t
 
 Search remains visible on phones, with secondary filters in a native disclosure. Filter buttons cover the main Practice Areas, and the "More practice areas" menu lists only the rest, so no area is offered twice. Show selected filter labels when collapsed and offer reset for every active search or filter. Preserve format, practice area, search, and progressive results in the URL.
 
-Artifact previews use the complete phone viewport, a compact title, a scrollable reading area, and persistent full-screen and inquiry actions. Use the same artifact name in the heading, iframe title, and inquiry. Contact channels precede the optional message outline.
+Artifact previews use the complete phone viewport, a compact title, a scrollable reading area, and persistent full-screen and inquiry actions. The phone PDF pager uses the theme's outlined controls below the page, within thumb reach, centres short landscape pages, and pages with the arrow keys. Framed previews show "Loading preview…" until their document loads. Use the same artifact name in the heading, iframe title, and inquiry. Contact channels precede the optional message outline.
 
 ## Contact invitations
 
 Invite role and project conversations in plain language across Home, Portfolio, Case Studies, and Contact. Use "Get in touch" for a general contact action. Keep "Discuss this work" contextual and secondary to reviewing evidence, with the public work title carried through the existing Engagement Inquiry Journey. Avoid consultation-only invitations, promises of similar results, and internal implementation terms in public invitations.
 
-Keep direct WhatsApp, email, and LinkedIn channels ahead of the optional message outline. Generic Contact visits remain neutral; contextual visits retain the public title in the summary and channel messages. Preserve contact addresses and response commitments. Use existing native links, readable wrapping labels, minimum control sizes, and visible keyboard focus within the night-study theme. Generated Case Study invitations belong to Case Study Publication and must survive Portfolio Evidence Workflow generation.
+Keep direct WhatsApp, email, and LinkedIn channels ahead of the optional message outline. The email card offers "Copy address" for visitors without a mail app; it appears only where the Clipboard API exists and confirms with "Copied". Generic Contact visits remain neutral; contextual visits retain the public title in the summary and channel messages. Preserve contact addresses and response commitments. Use existing native links, readable wrapping labels, minimum control sizes, and visible keyboard focus within the night-study theme. Generated Case Study invitations belong to Case Study Publication and must survive Portfolio Evidence Workflow generation.
 
 ## Case study reading flow
 
@@ -81,6 +83,10 @@ Avoid separate skills, process, outcome, and capability grids that repeat the in
 
 List the existing credential names and issuers in native details/summary disclosures, collapsed initially. Label each action View certificate and keep the existing image and descriptive alternative text inside. Use native keyboard behavior and the shared visible focus outline. Let certificate images expand at their natural aspect ratio rather than clipping them.
 
-Use two existing learning-design-relevant testimonials with their complete original wording and attribution. Use two columns on desktop and one on phones, with 24px phone card padding so quotes and attributions have room to wrap. Contact after this evidence welcomes role and project conversations.
+Use two existing learning-design-relevant testimonials with their complete original wording and attribution. A quote in another language keeps its original text, marked with `lang`, followed by a labelled English translation in quieter type. Use two columns on desktop and one on phones, with 24px phone card padding so quotes and attributions have room to wrap. Contact after this evidence welcomes role and project conversations.
 
 Scope these presentation rules under `.home-page`. Supporting labels, issuers, and attributions are at least 14px; Practice Area and selected-work links have at least 44px control height. Use complete 16:9 selected-work thumbnails, wrapping labels, and the shared reduced-motion policy. The About summary uses two columns on desktop and stacks below 768px; credential disclosures remain a single readable column.
+
+## Missing pages
+
+`404.html` is generated from `page-sources/404.html` with the `not-found` kind. It declares a root `<base>` so it renders styled at any missing path, is excluded from search results, and offers portfolio search plus routes to selected cases, the full portfolio, the CV, and contact.

@@ -32,6 +32,13 @@ export type SitePage = {
   closingInvitation?: ClosingInvitation;
   /** Additional module scripts loaded after the shared site entry. */
   scripts?: readonly string[];
+  /**
+   * Resolves relative links from the site root. The not-found page needs it
+   * because hosts serve it at whatever missing path was requested.
+   */
+  rootRelative?: boolean;
+  /** Keeps the page out of search results. */
+  noindex?: boolean;
 };
 
 export const SITE_NAVIGATION = Object.freeze([
@@ -72,7 +79,9 @@ const attributes = (entries: readonly (readonly [string, string | undefined])[])
 
 const renderHead = (page: SitePage) => [
   '<meta charset="UTF-8">',
+  ...(page.rootRelative ? ['<base href="/">'] : []),
   '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+  ...(page.noindex ? ['<meta name="robots" content="noindex">'] : []),
   `<title>${escapeHtml(page.title)}</title>`,
   `<meta name="description" content="${escapeHtml(page.description)}">`,
   ...(page.keywords ? [`<meta name="keywords" content="${escapeHtml(page.keywords)}">`] : []),
@@ -159,7 +168,8 @@ export type SitePageSource = { pagePath: string; source: string };
 const FRONT_MATTER = /^\s*<!--site-page\s*([\s\S]*?)-->\s*/;
 const allowedFrontMatterKeys = new Set([
   'kind', 'navigationPage', 'title', 'description', 'keywords', 'bodyClass',
-  'preloadImages', 'metadataLinks', 'skipLinks', 'artifactPreview', 'closingInvitation', 'scripts'
+  'preloadImages', 'metadataLinks', 'skipLinks', 'artifactPreview', 'closingInvitation', 'scripts',
+  'rootRelative', 'noindex'
 ]);
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>

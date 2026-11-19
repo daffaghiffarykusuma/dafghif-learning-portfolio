@@ -69,4 +69,24 @@ describe('Site Page Shell', () => {
     }
     expect(await readFile(path.join(dir, 'portfolio.html'), 'utf8')).toContain('<div class="grid grid-cols-3 portfolio-items-grid"></div>');
   });
+
+  test('renders a root base and noindex only for pages that ask for them', () => {
+    const render = (extra) => parse(renderSitePage({
+      identity: createSitePageIdentity({ kind: 'not-found', pagePath: '404.html' }),
+      title: 'Not found',
+      description: 'Missing page.',
+      content: '<main id="main-content"><h1>Missing</h1></main>',
+      ...extra
+    }));
+
+    const notFound = render({ rootRelative: true, noindex: true });
+    expect(notFound.querySelector('base').getAttribute('href')).toBe('/');
+    // The base must precede every relative URL in the head.
+    expect(notFound.head.firstElementChild.nextElementSibling.tagName).toBe('BASE');
+    expect(notFound.querySelector('meta[name="robots"]').getAttribute('content')).toBe('noindex');
+
+    const ordinary = render({});
+    expect(ordinary.querySelector('base')).toBeNull();
+    expect(ordinary.querySelector('meta[name="robots"]')).toBeNull();
+  });
 });

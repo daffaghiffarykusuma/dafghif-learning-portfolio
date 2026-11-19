@@ -619,6 +619,16 @@ main > section + section { border-top: 1px solid var(--rule); }
     letter-spacing: -0.01em;
 }
 .testimonial-archive .testimonial-quote { font-size: var(--step-1); }
+/* An English rendering sits under a non-English quote; the original stays primary. */
+.testimonial-translation {
+    margin: -16px 0 auto;
+    padding-left: 14px;
+    border-left: 2px solid var(--rule-strong);
+    color: var(--pencil);
+    font-size: 15px;
+    line-height: 1.6;
+}
+.testimonial-translation span { display: block; font-size: var(--step--1); }
 
 .testimonial-footer { display: flex; align-items: center; gap: 14px; }
 .testimonial-footer > div { min-width: 0; }
@@ -812,7 +822,14 @@ footer:not(:has(.footer-cta)) { padding-block: 32px; }
     font-size: var(--step--1);
     line-height: 1.5;
 }
-.portfolio-item-practice-label a { color: var(--pencil); text-decoration-color: var(--rule-strong); }
+.portfolio-item-practice-label a {
+    /* Extend the tap target to ~44px without moving the surrounding text. */
+    display: inline-block;
+    padding-block: 13px;
+    margin-block: -13px;
+    color: var(--pencil);
+    text-decoration-color: var(--rule-strong);
+}
 .portfolio-item-practice-label a:hover { color: var(--paper); text-decoration-color: var(--marker); }
 
 .portfolio-item-meta { color: var(--pencil); font-size: var(--step--1); }
@@ -938,7 +955,8 @@ footer:not(:has(.footer-cta)) { padding-block: 32px; }
 .filter-button.active,
 .filter-button[aria-pressed='true'] { background: var(--paper); border-color: var(--paper); color: var(--ink); font-weight: 500; }
 
-/* Secondary refinements sit under a quiet ruled label, visibly below the quick filters. */
+/* Secondary refinements sit under a quiet ruled label, visibly below the quick filters.
+   On wide screens the selects' own labels suffice, which keeps the first results in view. */
 .portfolio-refine-label {
     display: flex;
     align-items: center;
@@ -948,6 +966,12 @@ footer:not(:has(.footer-cta)) { padding-block: 32px; }
     font-size: var(--step--1);
 }
 .portfolio-refine-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+@media (min-width: 1024px) {
+    #portfolio-items { padding-top: 48px; }
+    .portfolio-discovery { margin-top: 28px; gap: 12px; }
+    .portfolio-item-filters { margin-bottom: 12px; }
+    .portfolio-refine-label { display: none; }
+}
 
 .portfolio-discovery-meta {
     display: grid;
@@ -1343,6 +1367,53 @@ footer:not(:has(.footer-cta)) { padding-block: 32px; }
     text-decoration-color: var(--marker);
     text-underline-offset: 0.25em;
 }
+.blog-card-cta-icon { display: inline-block; margin-left: -4px; text-decoration: none; }
+
+/* Names the post language before the reader leaves for Medium. */
+.blog-card-language { margin: 0 0 6px; color: var(--pencil); font-size: var(--step--1); }
+
+/* A failed remote cover keeps the card rhythm instead of showing a broken image. */
+.blog-card-media-empty {
+    background-color: var(--desk);
+    background-image: radial-gradient(var(--rule-strong) 1px, transparent 1.5px);
+    background-size: 18px 18px;
+}
+
+.blog-show-more { display: flex; justify-content: center; margin-top: 40px; }
+.blog-show-more button { font-size: 15px; }
+
+/* ---------- Not found ---------- */
+.not-found { min-height: calc(100vh - var(--header-height) - 120px); }
+.not-found .section-title { margin-top: 16px; font-size: var(--step-6); letter-spacing: -0.055em; line-height: 1.02; }
+.not-found-lead { max-width: 52ch; margin-top: 20px; color: var(--pencil); font-size: var(--step-1); }
+.not-found-search { display: grid; gap: 8px; max-width: 640px; margin-top: 40px; }
+.not-found-search label { color: var(--pencil); font-size: var(--step--1); }
+.not-found-search-row { display: flex; gap: 12px; }
+.not-found-search input {
+    flex: 1;
+    min-width: 0;
+    min-height: 52px;
+    padding: 12px 16px;
+    border: 1px solid var(--rule-strong);
+    border-radius: var(--radius-control);
+    background: var(--desk);
+    color: var(--paper);
+    font: inherit;
+}
+.not-found-search input::placeholder { color: var(--pencil); opacity: 0.8; }
+.not-found-search input:focus { border-color: var(--marker); outline: none; box-shadow: 0 0 0 3px var(--marker-wash); }
+.not-found-routes { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+.not-found-routes a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 8px 18px;
+    border: 1px solid var(--rule-strong);
+    border-radius: 999px;
+    font-size: 15px;
+    text-decoration: none;
+}
+.not-found-routes a:hover { border-color: var(--paper); background: var(--desk); }
 
 /* ---------- Contact ---------- */
 .contact-page .contact-hero-new { padding-bottom: 40px; }
@@ -1401,6 +1472,27 @@ main > .contact-methods-section { border-top: 0; }
     text-underline-offset: 0.25em;
 }
 .contact-method-arrow { display: none; }
+
+/* The email card keeps its whole-card mailto link; copy is a sibling control on top. */
+.contact-method-slot { position: relative; display: grid; min-width: 0; }
+.contact-copy-button {
+    position: absolute;
+    top: 28px;
+    right: 28px;
+    min-height: 44px;
+    padding: 8px 14px;
+    border: 1px solid var(--rule-strong);
+    border-radius: var(--radius-control);
+    background: var(--desk);
+    color: var(--paper);
+    font: inherit;
+    font-size: var(--step--1);
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+.contact-copy-button:hover { border-color: var(--paper); background: var(--desk-raised); }
+.contact-copy-button[data-copy-state='copied'] { border-color: var(--marker); }
 
 .contact-message-section { padding-top: 0; }
 main > .contact-message-section { border-top: 0; }
@@ -1524,16 +1616,29 @@ main > .contact-message-section { border-top: 0; }
 .close-modal::after { transform: translate(-50%, -50%) rotate(-45deg); }
 .close-modal:hover { border-color: var(--paper); background: var(--desk-raised); }
 
-.pdf-modal-body { min-height: 0; height: 100%; background: #e9e7e2; }
+.pdf-modal-body { position: relative; min-height: 0; height: 100%; background: #e9e7e2; }
+.pdf-modal-body[data-loading]::before {
+    content: 'Loading preview…';
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: #4a4a4a;
+    font-size: 15px;
+    pointer-events: none;
+}
 #pdf-iframe { display: block; width: 100%; height: 100%; border: 0; }
 
-.pdf-page-preview { display: grid; grid-template-rows: auto minmax(0, 1fr); height: 100%; margin: 0; padding: 0; color: #202020; background: #e8e8e8; }
-.pdf-page-controls { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px; background: #fff; }
-.pdf-page-controls button { flex-shrink: 0; min-height: 44px; padding: 8px 12px; border: 1px solid #666; border-radius: 6px; color: #202020; background: #fff; font: inherit; cursor: pointer; }
-.pdf-page-controls button:disabled { opacity: 0.45; cursor: default; }
-.pdf-page-controls [role="status"] { font-size: 13px; text-align: center; }
-.pdf-page-scroll { min-height: 0; overflow: auto; padding: 12px; touch-action: pan-x pan-y pinch-zoom; }
-.pdf-page-scroll canvas { display: block; width: 100%; height: auto; background: #fff; }
+.pdf-page-preview { display: grid; grid-template-rows: minmax(0, 1fr) auto; height: 100%; margin: 0; padding: 0; color: var(--paper); background: var(--ink-deep); }
+/* Page controls sit at the bottom, within thumb reach, in the site's own controls. */
+.pdf-page-controls { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 12px; border-top: 1px solid var(--rule); background: var(--ink); }
+.pdf-page-controls button { flex-shrink: 0; min-width: 96px; min-height: 44px; padding: 8px 14px; border: 1px solid var(--rule-strong); border-radius: var(--radius-control); color: var(--paper); background: transparent; font: inherit; font-size: 15px; font-weight: 500; cursor: pointer; }
+.pdf-page-controls button:not(:disabled):hover { border-color: var(--paper); background: var(--desk-raised); }
+.pdf-page-controls button:disabled { opacity: 0.4; cursor: default; }
+.pdf-page-controls [role="status"] { color: var(--pencil); font-size: var(--step--1); text-align: center; }
+/* Auto margins centre a short (landscape) page without clipping a tall one. */
+.pdf-page-scroll { display: flex; flex-direction: column; min-height: 0; overflow: auto; padding: 12px; touch-action: pan-x pan-y pinch-zoom; }
+.pdf-page-scroll canvas { display: block; flex-shrink: 0; width: 100%; height: auto; margin-block: auto; background: #fff; border-radius: 4px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35); }
 
 .pdf-modal-actions {
     display: flex;

@@ -62,6 +62,7 @@ export function createArtifactPreviewExperience({
         disposePdfPreview?.();
         disposePdfPreview = undefined;
         if (!pdfIframe) return;
+        pdfIframe.parentElement?.removeAttribute('data-loading');
         // Discard the old child browsing context instead of navigating it after
         // browser Back, which would erase the parent's Forward history.
         const emptyFrame = pdfIframe.cloneNode(false) as HTMLIFrameElement;
@@ -149,7 +150,15 @@ export function createArtifactPreviewExperience({
             pdfIframe.removeAttribute('src');
             disposePdfPreview = createPdfPagePreview(pdfIframe.parentElement!, preview.url);
         } else {
-            pdfIframe.src = preview.src;
+            // Show a loading note behind the frame until its document arrives,
+            // so a slow PDF never reads as an empty, broken preview.
+            const frame = pdfIframe;
+            const frameHost = frame.parentElement;
+            frameHost?.setAttribute('data-loading', '');
+            frame.addEventListener('load', () => {
+                if (frame === pdfIframe) frameHost?.removeAttribute('data-loading');
+            }, { once: true });
+            frame.src = preview.src;
         }
         const artifactType = preview.type === 'pdf' ? 'PDF work sample' : 'Interactive work sample';
         if (pdfModalMeta) {

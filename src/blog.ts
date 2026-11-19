@@ -1,5 +1,9 @@
 import blogData from '../assets/blog.json';
-import { createPublicationSourceFacts, PUBLICATION_TOPICS, type Publication } from './site/publication-source-facts.ts';
+import { createPublicationSourceFacts, PUBLICATION_LANGUAGES, PUBLICATION_TOPICS, type Publication } from './site/publication-source-facts.ts';
+
+// Each topic opens with two rows; the rest wait behind a "Show all" control so
+// the page stays scannable on phones.
+const INITIAL_POSTS_PER_GROUP = 6;
 
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('blog-cards');
@@ -12,7 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
         link.target = '_blank';
         link.rel = 'noopener noreferrer';
         if (className) link.className = className;
+        const newTab = document.createElement('span');
+        newTab.className = 'sr-only';
+        newTab.textContent = ' (opens Medium in a new tab)';
+        link.appendChild(newTab);
         parent.appendChild(link);
+        return link;
     };
 
     const { publications: posts } = createPublicationSourceFacts(blogData);
@@ -25,10 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const createCard = (post: Publication, eager: boolean) => {
-        const { title, url, image: img, description: desc } = post;
+        const { title, url, image: img, description: desc, language } = post;
 
         const article = document.createElement('article');
         article.className = 'blog-card';
+        if (language) article.lang = language;
 
         if (img) {
             const media = document.createElement('div');
@@ -40,12 +50,25 @@ document.addEventListener('DOMContentLoaded', () => {
             if (eager) image.fetchPriority = 'high';
             image.decoding = 'async';
             image.referrerPolicy = 'no-referrer';
+            image.width = 800;
+            image.height = 450;
+            image.addEventListener('error', () => {
+                media.classList.add('blog-card-media-empty');
+                image.remove();
+            }, { once: true });
             media.appendChild(image);
             article.appendChild(media);
         }
 
         const body = document.createElement('div');
         body.className = 'blog-card-body';
+        if (language) {
+            const languageLabel = document.createElement('p');
+            languageLabel.className = 'blog-card-language';
+            languageLabel.lang = 'en';
+            languageLabel.textContent = PUBLICATION_LANGUAGES[language];
+            body.appendChild(languageLabel);
+        }
         const heading = document.createElement('h3');
         heading.className = 'blog-card-title';
         appendMediumLink(heading, url, title);
@@ -61,7 +84,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const footer = document.createElement('div');
         footer.className = 'blog-card-footer';
-        appendMediumLink(footer, url, 'Read on Medium', 'blog-card-cta');
+        const cta = appendMediumLink(footer, url, 'Read on Medium', 'blog-card-cta');
+        cta.lang = 'en';
+        const arrow = document.createElement('span');
+        arrow.className = 'blog-card-cta-icon';
+        arrow.setAttribute('aria-hidden', 'true');
+        arrow.textContent = '↗';
+        cta.insertBefore(arrow, cta.lastChild);
         article.appendChild(footer);
         return article;
     };
@@ -97,12 +126,35 @@ document.addEventListener('DOMContentLoaded', () => {
         section.setAttribute('aria-labelledby', heading.id);
         const grid = document.createElement('div');
         grid.className = 'grid blog-card-grid';
-        groupPosts.forEach((post) => {
+        const hiddenCards: HTMLElement[] = [];
+        groupPosts.forEach((post, index) => {
             const eager = !eagerImageUsed && Boolean(post.image);
             if (eager) eagerImageUsed = true;
-            grid.appendChild(createCard(post, eager));
+            const card = createCard(post, eager);
+            if (index >= INITIAL_POSTS_PER_GROUP) {
+                card.hidden = true;
+                hiddenCards.push(card);
+            }
+            grid.appendChild(card);
         });
         section.append(heading, grid);
+        if (hiddenCards.length) {
+            const more = document.createElement('div');
+            more.className = 'blog-show-more';
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'secondary-cta';
+            button.textContent = `Show all ${groupPosts.length} posts`;
+            button.setAttribute('aria-controls', grid.id = `blog-topic-${value}-posts`);
+            button.addEventListener('click', () => {
+                hiddenCards.forEach((card) => { card.hidden = false; });
+                // Move focus to the first newly shown post so keyboard users continue in place.
+                hiddenCards[0]?.querySelector<HTMLAnchorElement>('.blog-card-title a')?.focus();
+                more.remove();
+            });
+            more.appendChild(button);
+            section.appendChild(more);
+        }
         fragment.appendChild(section);
     });
     container.appendChild(fragment);

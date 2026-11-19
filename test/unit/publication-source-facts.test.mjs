@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test';
-import { createPublicationSourceFacts } from '../../src/site/publication-source-facts.ts';
+import { createPublicationSourceFacts, sizeMediumImage } from '../../src/site/publication-source-facts.ts';
 
 describe('Publication Source Facts', () => {
   test('returns sanitized Publications and shared trust failures through one interface', () => {
@@ -52,5 +52,30 @@ describe('Publication Source Facts', () => {
       'source.json: post 1 url is not a valid URL',
       'source.json: post 1 image is not a valid URL'
     ]);
+  });
+
+  test('keeps known post languages, omits missing ones, and reports unknown ones', () => {
+    const facts = createPublicationSourceFacts([
+      { title: 'English', language: 'en' },
+      { title: 'Indonesian', language: 'id' },
+      { title: 'Unset' },
+      { title: 'Unknown', language: 'fr' }
+    ], { sourceName: 'source.json' });
+
+    expect(facts.publications.map((post) => post.language)).toEqual(['en', 'id', undefined, undefined]);
+    expect(facts.failures).toEqual(['source.json: post 4 language is not a known publication language']);
+  });
+
+  test('requests Medium covers at card size as WebP from either Medium image host', () => {
+    expect(sizeMediumImage('https://miro.medium.com/v2/resize:fit:4800/format:webp/1*HW5u5.png'))
+      .toBe('https://miro.medium.com/v2/resize:fit:800/format:webp/1*HW5u5.png');
+    expect(sizeMediumImage('https://miro.medium.com/v2/resize:fill:160:106/1*thumb.png'))
+      .toBe('https://miro.medium.com/v2/resize:fit:800/format:webp/1*thumb.png');
+    expect(sizeMediumImage('https://cdn-images-1.medium.com/max/1800/0*DgAQQEz8hNPPmwLD'))
+      .toBe('https://miro.medium.com/v2/resize:fit:800/format:webp/0*DgAQQEz8hNPPmwLD');
+    // Unrecognized paths are left alone rather than guessed at.
+    expect(sizeMediumImage('https://miro.medium.com/example.webp')).toBe('https://miro.medium.com/example.webp');
+    expect(createPublicationSourceFacts([{ image: 'https://cdn-images-1.medium.com/max/1024/1*abc.png' }])
+      .publications[0].image).toBe('https://miro.medium.com/v2/resize:fit:800/format:webp/1*abc.png');
   });
 });

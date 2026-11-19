@@ -7,7 +7,8 @@ export const SITE_PAGE_KINDS = Object.freeze({
     caseStudyIndex: 'case-study-index',
     caseStudy: 'case-study',
     blog: 'blog',
-    contact: 'contact'
+    contact: 'contact',
+    notFound: 'not-found'
 } as const);
 
 export type SitePageKind = typeof SITE_PAGE_KINDS[keyof typeof SITE_PAGE_KINDS];

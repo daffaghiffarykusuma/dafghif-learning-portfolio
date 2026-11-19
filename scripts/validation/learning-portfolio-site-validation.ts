@@ -292,7 +292,11 @@ export const validateLearningPortfolioSite = async ({
         `${page.relPath}: contains inline event handler; use external JavaScript instead`
       );
     }
+    // The not-found page declares <base href="/"> so it renders at any missing path.
+    // That base is the site root itself, not a link to validate.
+    const hasRootBase = /<base\s+href=["']\/["']\s*\/?>/i.test(page.source);
     for (const attribute of page.urlAttributes) {
+      if (hasRootBase && attribute.attr.toLowerCase() === 'href' && attribute.value.trim() === '/') continue;
       await validateUrl({
         file: page.relPath,
         filePath: page.filePath,

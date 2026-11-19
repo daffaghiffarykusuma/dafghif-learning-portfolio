@@ -62,3 +62,33 @@ test('closing during loading destroys the late document without rendering it', a
   expect(destroyed).toBe(true);
   expect(document.querySelector('.pdf-page-preview')).toBeNull();
 });
+
+test('pages with the arrow keys and keeps controls after the page in reading order', async () => {
+  createDom('<div id="host"></div>');
+  const rendered = [];
+  createPdfPagePreview(document.querySelector('#host'), '/sample.pdf', async () => ({
+    promise: Promise.resolve({
+      numPages: 2,
+      getPage: async (number) => ({
+        getViewport: ({ scale }) => ({ width: 600 * scale, height: 800 * scale }),
+        render: () => { rendered.push(number); return { promise: Promise.resolve(), cancel() {} }; },
+        cleanup() {}
+      })
+    }),
+    destroy: async () => {}
+  }));
+  await settle();
+  const reader = document.querySelector('.pdf-page-preview');
+  expect([...reader.children].map((child) => child.className)).toEqual(['pdf-page-scroll', 'pdf-page-controls']);
+  const press = (key) => {
+    const event = new window.KeyboardEvent('keydown', { key, bubbles: true, cancelable: true });
+    reader.querySelector('button').dispatchEvent(event);
+    return event.defaultPrevented;
+  };
+  expect(press('ArrowRight')).toBe(true);
+  await settle();
+  expect(press('ArrowLeft')).toBe(true);
+  await settle();
+  expect(press('Enter')).toBe(false);
+  expect(rendered).toEqual([1, 2, 1]);
+});

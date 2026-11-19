@@ -29,7 +29,8 @@ export function createPdfPagePreview(host: HTMLElement, url: string, load: LoadD
     canvas.hidden = true;
     scroll.append(canvas);
     controls.append(previous, status, next);
-    reader.append(controls, scroll);
+    // Controls follow the page, within thumb reach, so focus order matches the layout.
+    reader.append(scroll, controls);
     host.append(reader);
 
     let disposed = false;
@@ -87,6 +88,12 @@ export function createPdfPagePreview(host: HTMLElement, url: string, load: LoadD
         if (busy || !pdf || pageNumber >= pdf.numPages) return;
         pageNumber += 1;
         void renderPage();
+    });
+    reader.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowRight') next.click();
+        else if (event.key === 'ArrowLeft') previous.click();
+        else return;
+        event.preventDefault();
     });
     updateControls();
     void (async () => {
