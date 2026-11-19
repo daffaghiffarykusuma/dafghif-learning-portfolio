@@ -484,9 +484,9 @@ describe('site browser behavior', () => {
   test('homepage credentials keep names visible and certificate images in native disclosures', async () => {
     createDom(await readPage('index.html'), 'http://127.0.0.1/index.html');
     const credentials = [
-      ['Full Stack Data Analytics', 'REVOU', 'certificate_full_stack_data_analytics.webp'],
-      ['Critical Thinking: Analyze Problem and Make Decision', 'Dale Carnegie', 'certificate_critical_thinking_analyze_problem_and_make_decision.webp'],
-      ['Introduction to Prompt Engineering', 'IBM', 'certificate_introduction_to_prompt_engineering.webp']
+      ['Full Stack Data Analytics', 'REVOU', 'assets/images/certificates/certificate_full_stack_data_analytics.webp'],
+      ['Critical Thinking: Analyze Problem and Make Decision', 'Dale Carnegie', 'assets/images/certificates/certificate_critical_thinking_analyze_problem_and_make_decision.webp'],
+      ['Introduction to Prompt Engineering', 'IBM', 'assets/images/certificates/certificate_introduction_to_prompt_engineering.webp']
     ];
     for (const [name, issuer, image] of credentials) {
       const disclosure = [...document.querySelectorAll('details')].find((details) => details.querySelector('summary')?.textContent.includes(name));
@@ -520,7 +520,7 @@ describe('site browser behavior', () => {
   test('homepage keeps its below-fold mobile hero image out of the critical request path', async () => {
     createDom(await readPage('index.html'), 'http://127.0.0.1/index.html');
     const heroImage = document.querySelector('#showcase .hero-visual img');
-    const heroPreload = document.querySelector('link[rel="preload"][as="image"][href="dafghif_cover.webp"]');
+    const heroPreload = document.querySelector('link[rel="preload"][as="image"][href="assets/images/profile/dafghif_cover.webp"]');
 
     expect(heroImage?.getAttribute('loading')).toBe('lazy');
     expect(heroImage?.getAttribute('fetchpriority')).toBe('low');

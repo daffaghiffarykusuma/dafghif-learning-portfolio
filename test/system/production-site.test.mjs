@@ -66,7 +66,7 @@ beforeAll(async () => {
   });
 
   await waitForServer();
-});
+}, 180_000);
 
 afterAll(() => {
   server?.kill();

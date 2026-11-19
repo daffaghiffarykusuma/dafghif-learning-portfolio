@@ -21,10 +21,10 @@ Browser TypeScript and styles live in `src/`. Repository automation lives in `sc
 | `page-sources/` | Authored page content (Site Page Sources) that generation wraps in the shared page shell |
 | `test/` | Unit, integration, and production system checks |
 | `docs/` | [Portfolio style guide](docs/portfolio-style-guide.md) |
-| `output/`, `tmp/` | Review artifacts and local working files |
+| `output/`, `tmp/`, `.scratch/`, `.playwright-cli/` | Local review artifacts and working files, ignored by Git |
 | `dist/` | Generated production build, ignored by Git |
 
-HTML entry pages stay at the repository root so their public URLs remain stable, but every root page is generated: do not edit them directly. Each page shares one shell (head links, navigation, footer, Artifact Preview modal) from `scripts/site/site-page-shell.ts`. Authored copy for Home, Contact, Blog, the hand-written Entrepreneurship Case Study, and the portfolio listing template lives in `page-sources/`, each file starting with a `<!--site-page {…} -->` JSON front matter comment (kind, title, description, closing invitation, and so on). Portfolio listings and generated Case Study pages come from `assets/data/portfolio-source.json` and `assets/data/portfolio-proof-points.json`. Run `bun run generate:portfolio` after changing any of these; validation and `bun test` fail while a committed page is stale. `cv/Profile.pdf` is the published CV, while editable documents and `unpublished portfolio/` are working material.
+HTML entry pages stay at the repository root so their public URLs remain stable, but every root page is generated: do not edit them directly. Each page shares one shell (head links, navigation, footer, Artifact Preview modal) from `scripts/site/site-page-shell.ts`. Authored copy for Home, Contact, Blog, the hand-written Entrepreneurship Case Study, and the portfolio listing template lives in `page-sources/`, each file starting with a `<!--site-page {…} -->` JSON front matter comment (kind, title, description, closing invitation, and so on). Portfolio listings and generated Case Study pages come from `assets/data/portfolio-source.json` and `assets/data/portfolio-proof-points.json`. Run `bun run generate:portfolio` after changing any of these; validation and `bun test` fail while a committed page is stale. `cv/Profile.pdf` is the published CV, while editable documents and `unpublished portfolio/` are working material. Root-level images are limited to favicons and touch icons; other images go under `assets/images/`.
 
 For site terminology, see [GLOSSARY.md](GLOSSARY.md). Run the commands below from the repository root.
 
@@ -37,7 +37,7 @@ bun install
 bun run dev
 ```
 
-The default local URL is `http://127.0.0.1:5173/`. Directly opening source HTML files is unsupported. Use Bun `1.3.14` or newer.
+The default local URL is `http://127.0.0.1:5173/`. Directly opening source HTML files is unsupported. Use Bun `1.4.4` (pinned in `package.json` `packageManager`). The `engines.node` field pins Node.js 24 for the Vercel build runtime; local development only needs Bun.
 
 Type-check both TypeScript programs without emitting files:
 
@@ -85,6 +85,12 @@ Check production performance budgets after a build:
 
 ```bash
 bun run budget
+```
+
+Run every check in one go (validation, all tests, and budgets). `test:system` builds `dist/`, so `budget` measures a fresh build. CI runs this same command on pushes and pull requests to `main`:
+
+```bash
+bun run check
 ```
 
 ## Security Notes

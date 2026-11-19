@@ -1,4 +1,9 @@
 node_modules/
 dist/
 .vite/
-output/playwright/*.log
+
+# Local working material (kept on disk, not tracked)
+.playwright-cli/
+.scratch/
+tmp/
+output/
